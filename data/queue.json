@@ -573,7 +573,302 @@
    "added": "2026-10-02T07:22:54+00:00",
    "priority": 5.74,
    "cat": "💼 Freelancing platforms"
+  },
+  "nekohealth.com": {
+   "name": "Neko Health",
+   "url": "https://nekohealth.com",
+   "category": "insurance",
+   "hotness": 9.0,
+   "evergreen": false,
+   "why": "Spotify founder's body-scanning health startup expands to America.",
+   "sources": [
+    "TechCrunch"
+   ],
+   "added": "2026-10-02T19:25:59+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-02T19:25:59+00:00",
+   "priority": 16.21,
+   "cat": "🛡️ Insurance"
+  },
+  "armadin.com": {
+   "name": "Armadin",
+   "url": "https://armadin.com",
+   "category": "vpn-security",
+   "hotness": 10.0,
+   "evergreen": false,
+   "why": "Mandiant founder Kevin Mandia launches agent-swarm enterprise security.",
+   "sources": [
+    "Google News",
+    "TechCrunch"
+   ],
+   "added": "2026-10-02T19:25:59+00:00",
+   "launch": "today",
+   "launch_seen": "2026-10-02T19:25:59+00:00",
+   "priority": 19.51,
+   "cat": "🔐 Cybersecurity / VPNs"
+  },
+  "flowengineering.ai": {
+   "name": "Flow Engineering",
+   "url": "https://flowengineering.ai",
+   "category": "ai-tools",
+   "hotness": 9.0,
+   "evergreen": false,
+   "why": "AI agents for hardware design backed at a $750M valuation.",
+   "sources": [
+    "TechCrunch"
+   ],
+   "added": "2026-10-02T19:25:59+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-02T19:25:59+00:00",
+   "priority": 16.08,
+   "cat": "🤖 AI tools"
+  },
+  "magnitude.dev": {
+   "name": "Magnitude",
+   "url": "https://magnitude.dev",
+   "category": "saas",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "Self-optimizing inference engine for AI agents.",
+   "sources": [
+    "Launch HN"
+   ],
+   "added": "2026-10-02T19:25:59+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-02T19:25:59+00:00",
+   "priority": 15.35,
+   "cat": "💻 SaaS / business software"
+  },
+  "vespper.com": {
+   "name": "Vespper",
+   "url": "https://vespper.com",
+   "category": "ai-tools",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "MCP letting AI agents efficiently edit Word documents.",
+   "sources": [
+    "Launch HN"
+   ],
+   "added": "2026-10-02T19:25:59+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-02T19:25:59+00:00",
+   "priority": 15.43,
+   "cat": "🤖 AI tools"
+  },
+  "earlyn.com": {
+   "name": "Earlyn",
+   "url": "https://earlyn.com",
+   "category": "ai-tools",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Searchable memory of your screen and meetings on Mac.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T19:26:00+00:00",
+   "launch": "today",
+   "launch_seen": "2026-10-02T19:26:00+00:00",
+   "priority": 17.78,
+   "cat": "🤖 AI tools"
+  },
+  "codync.com": {
+   "name": "Codync",
+   "url": "https://codync.com",
+   "category": "ai-tools",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Open-source alternative to Grok Bot, Muse, and Dots.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T19:26:00+00:00",
+   "launch": "today",
+   "launch_seen": "2026-10-02T19:26:00+00:00",
+   "priority": 17.78,
+   "cat": "🤖 AI tools"
+  },
+  "gitsync.app": {
+   "name": "GitSync",
+   "url": "https://gitsync.app",
+   "category": "business-tools",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Sync branches between GitHub repos right from Chrome.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T19:26:01+00:00",
+   "launch": "today",
+   "launch_seen": "2026-10-02T19:26:01+00:00",
+   "priority": 17.7,
+   "cat": "📊 Business tools"
+  },
+  "cloudflare.com": {
+   "name": "Clef",
+   "url": "https://cloudflare.com",
+   "category": "saas",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Open-source decision models from Cloudflare.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T19:26:01+00:00",
+   "launch": "today",
+   "launch_seen": "2026-10-02T19:26:01+00:00",
+   "priority": 17.7,
+   "cat": "💻 SaaS / business software"
+  },
+  "rate.fm": {
+   "name": "Rate.fm",
+   "url": "https://rate.fm",
+   "category": "saas",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Letterboxd for music, built for iPhone.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T19:26:01+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-02T19:26:01+00:00",
+   "priority": 14.7,
+   "cat": "💻 SaaS / business software"
+  },
+  "chat.sh": {
+   "name": "Chat.sh",
+   "url": "https://chat.sh",
+   "category": "saas",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Help center built as an alternative to Intercom search.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T19:26:02+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-02T19:26:02+00:00",
+   "priority": 14.7,
+   "cat": "💻 SaaS / business software"
+  },
+  "wealthai.com": {
+   "name": "WealthAi",
+   "url": "https://wealthai.com",
+   "category": "investing",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "AI agents to automate wealth management onboarding and KYC.",
+   "sources": [
+    "Launch news"
+   ],
+   "added": "2026-10-02T19:26:02+00:00",
+   "launch": "today",
+   "launch_seen": "2026-10-02T19:26:02+00:00",
+   "priority": 18.56,
+   "cat": "📈 Investing platforms"
+  },
+  "dayforward.com": {
+   "name": "Dayforward",
+   "url": "https://dayforward.com",
+   "category": "insurance",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Insurtech platform expanding capabilities following Fortitude Re acquisition.",
+   "sources": [
+    "Google News"
+   ],
+   "added": "2026-10-02T19:26:03+00:00",
+   "launch": "today",
+   "launch_seen": "2026-10-02T19:26:03+00:00",
+   "priority": 17.91,
+   "cat": "🛡️ Insurance"
+  },
+  "sosovalue.com": {
+   "name": "SoSoValue",
+   "url": "https://sosovalue.com",
+   "category": "investing",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Advanced AI-powered crypto investment research platform.",
+   "sources": [
+    "Launch news"
+   ],
+   "added": "2026-10-02T19:26:03+00:00",
+   "launch": "today",
+   "launch_seen": "2026-10-02T19:26:03+00:00",
+   "priority": 17.91,
+   "cat": "📈 Investing platforms"
+  },
+  "fidelity.com": {
+   "name": "Fidelity",
+   "url": "https://www.fidelity.com",
+   "category": "investing",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Massive broker searched constantly for retirement and trading reviews.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T19:26:04+00:00",
+   "priority": 7.26,
+   "cat": "📈 Investing platforms"
+  },
+  "investor.vanguard.com": {
+   "name": "Vanguard",
+   "url": "https://investor.vanguard.com",
+   "category": "investing",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Top choice for long-term index fund and mutual fund investing.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T19:26:05+00:00",
+   "priority": 7.26,
+   "cat": "📈 Investing platforms"
+  },
+  "schwab.com": {
+   "name": "Charles Schwab",
+   "url": "https://www.schwab.com",
+   "category": "investing",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Leading full-service brokerage heavily researched for fees and tools.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T19:26:05+00:00",
+   "priority": 6.87,
+   "cat": "📈 Investing platforms"
+  },
+  "webull.com": {
+   "name": "Webull",
+   "url": "https://www.webull.com",
+   "category": "investing",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "Popular advanced trading app frequently compared to older brokerages.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T19:26:05+00:00",
+   "priority": 6.48,
+   "cat": "📈 Investing platforms"
+  },
+  "us.etrade.com": {
+   "name": "E*TRADE",
+   "url": "https://us.etrade.com",
+   "category": "investing",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "Well-known pioneer platform reviewed for options and online trading.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T19:26:06+00:00",
+   "priority": 6.48,
+   "cat": "📈 Investing platforms"
   }
  },
- "updated": "2026-10-02T19:16:52+00:00"
+ "updated": "2026-10-02T19:26:06+00:00"
 }
