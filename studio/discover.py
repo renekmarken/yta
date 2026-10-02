@@ -280,6 +280,10 @@ def load_queue():
 def save_queue(q):
     config.DATA_DIR.mkdir(exist_ok=True)
     q["updated"] = NOW().isoformat(timespec="seconds")
+    for it in q["items"].values():                  # ready-made for the queue view in the video library
+        it["priority"] = priority(it)
+        cat = BY_ID.get(it.get("category"), {})
+        it["cat"] = f"{cat.get('emoji', '')} {cat.get('name', it.get('category') or '')}".strip()
     config.QUEUE_FILE.write_text(json.dumps(q, indent=1, ensure_ascii=False))
     write_queue_md(q)
 

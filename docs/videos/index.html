@@ -102,6 +102,24 @@ dialog h2{margin:0 0 4px;font-size:21px}
 .num input{flex:1;min-width:0;text-align:center;font:inherit;font-size:30px;font-weight:800;padding:6px;border-radius:12px;border:1px solid var(--line);background:var(--surface-2);color:var(--fg)}
 .row{display:flex;gap:10px;margin-top:18px}
 .row > *{flex:1}
+.qhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin:4px 0 14px}
+.qhead h2{margin:0;font-size:22px}
+.qlist{display:flex;flex-direction:column;gap:10px}
+.qitem{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 16px;
+  border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.qrank{font-size:20px;font-weight:800;color:var(--muted);text-align:center;font-variant-numeric:tabular-nums}
+.qname{font-weight:750;font-size:16.5px;color:var(--fg);text-decoration:none;overflow-wrap:anywhere}
+.qname:hover{text-decoration:underline}
+.qwhy{margin:4px 0 6px;color:var(--fg);opacity:.85;font-size:14px}
+.qmeta{display:flex;flex-wrap:wrap;gap:6px 12px;color:var(--muted);font-size:12.5px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:700;
+  background:var(--surface-2);border:1px solid var(--line);color:var(--fg)}
+.badge.launch{background:#ff5a1f;border-color:#ff5a1f;color:#fff}
+.qmake{padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface-2);color:var(--fg);
+  font:inherit;font-weight:700;cursor:pointer;white-space:nowrap}
+.qmake:hover{border-color:var(--accent)}
+.qmake[disabled]{opacity:.5;cursor:default}
+@media (max-width:600px){.qitem{grid-template-columns:30px minmax(0,1fr)}.qmake{grid-column:2;justify-self:start}}
 select{width:100%;padding:11px;border-radius:12px;border:1px solid var(--line);background:var(--surface-2);color:var(--fg);font:inherit}
 </style>
 </head>
@@ -114,6 +132,7 @@ select{width:100%;padding:11px;border-radius:12px;border:1px solid var(--line);b
     </div>
     <div class="top-actions" id="actions" hidden>
       <input class="search" id="search" type="search" placeholder="Search videos…" aria-label="Search videos">
+      <button class="ghost" id="queuebtn" title="Products waiting to be reviewed">Queue</button>
       <button class="gen" id="gen">＋ Generate new videos</button>
       <button class="ghost" id="lockbtn" title="Lock this page on this device">Lock</button>
     </div>
@@ -324,8 +343,77 @@ function detail(v){
     </div>`;
 }
 
+/* ---------- product queue (data/queue.json in the repository, refreshed by every discovery run) */
+let queueData = null, queueErr = "";
+function queueURL(){
+  const ref = encodeURIComponent((dispatch && dispatch.ref) || "HEAD");
+  const base = /\/vault\/$/.test(vaultBase) ? vaultBase.replace(/\/vault\/$/, "/")
+             : "https://raw.githubusercontent.com/renekmarken/yta/";
+  return base + ref + "/data/queue.json?t=" + Math.floor(Date.now() / 60000);
+}
+const ago = iso => {
+  const h = (Date.now() - new Date(iso).getTime()) / 3600000;
+  if (!isFinite(h)) return "";
+  return h < 1 ? "just now" : h < 24 ? `${Math.floor(h)} h ago` : `${Math.floor(h / 24)} d ago`;
+};
+function queueBadge(it){
+  const fresh = it.launch_seen && (Date.now() - new Date(it.launch_seen).getTime()) < 7 * 864e5;
+  if (it.pinned) return `<span class="badge">📌 Added by you</span>`;
+  if (fresh && it.launch === "today") return `<span class="badge launch">🚀 Launched today</span>`;
+  if (fresh && it.launch === "this_week") return `<span class="badge launch">🚀 Launched this week</span>`;
+  return it.evergreen ? `<span class="badge">🌲 Evergreen</span>` : `<span class="badge">🔥 Trending</span>`;
+}
+async function loadQueue(force){
+  if (queueData && !force) return;
+  try {
+    const r = await fetch(queueURL(), {cache: "no-store"});
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    queueData = await r.json(); queueErr = "";
+  } catch (e) { queueErr = "The queue could not be loaded (" + e.message + "). Try again in a minute."; }
+}
+function queueView(){
+  if (!queueData) return queueErr ? `<div class="empty">${esc(queueErr)}</div>` : `<div class="empty"><span class="spinner"></span> Loading the queue…</div>`;
+  const q = document.getElementById("search").value.trim().toLowerCase();
+  const all = Object.values(queueData.items || {})
+    .sort((a, b) => (b.priority ?? b.hotness ?? 0) - (a.priority ?? a.hotness ?? 0));
+  const list = all.map((it, i) => [i + 1, it])
+    .filter(([, it]) => !q || `${it.name} ${it.url} ${it.cat || it.category} ${it.why}`.toLowerCase().includes(q));
+  const launches = all.filter(it => it.launch && it.launch_seen && (Date.now() - new Date(it.launch_seen).getTime()) < 7 * 864e5).length;
+  return `
+    <button class="back" id="back">${ICON.back} All videos</button>
+    <div class="qhead">
+      <h2>Product queue</h2>
+      <span class="sub">${all.length} waiting${launches ? ` · ${launches} new launch${launches === 1 ? "" : "es"}` : ""} ·
+        updated ${esc(ago(queueData.updated))} · new launches go first, the top ones are made next</span>
+    </div>
+    ${list.length ? `<div class="qlist">${list.map(([n, it]) => `
+      <div class="qitem">
+        <div class="qrank">${n}</div>
+        <div>
+          <a class="qname" href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.name)}</a>
+          ${it.why ? `<p class="qwhy">${esc(it.why)}</p>` : ""}
+          <div class="qmeta">
+            ${queueBadge(it)}
+            <span>${esc(it.cat || it.category || "")}</span>
+            ${it.hotness != null ? `<span>hotness ${esc(Math.round(it.hotness * 10) / 10)}</span>` : ""}
+            ${(it.sources || []).length ? `<span>via ${esc(it.sources.join(", "))}</span>` : ""}
+            ${it.added ? `<span>found ${esc(ago(it.added))}</span>` : ""}
+          </div>
+        </div>
+        <button class="qmake" data-make="${esc(it.url)}" data-name="${esc(it.name)}">▶ Make now</button>
+      </div>`).join("")}</div>` : `<div class="empty">${q ? `Nothing in the queue matches “${esc(q)}”.` : "The queue is empty. Discovery refills it every hour."}</div>`}`;
+}
+
 function route(){
   if (!unlocked) return;
+  if (location.hash === "#queue") {
+    document.getElementById("search").style.display = "";
+    document.getElementById("search").placeholder = "Search the queue…";
+    document.getElementById("app").innerHTML = queueView();
+    if (!queueData && !queueErr) loadQueue().then(() => location.hash === "#queue" && route());
+    return;
+  }
+  document.getElementById("search").placeholder = "Search videos…";
   const id = decodeURIComponent(location.hash.slice(1));
   const v = videos.find(x => x.id === id);
   const app = document.getElementById("app");
@@ -348,6 +436,25 @@ document.addEventListener("click", async e => {
   const card = e.target.closest(".card");
   if (card) { location.hash = encodeURIComponent(card.dataset.id); return; }
   if (e.target.closest("#back")) { location.hash = ""; return; }
+  if (e.target.closest("#queuebtn")) {
+    queueErr = ""; queueData = null;
+    if (location.hash === "#queue") route(); else location.hash = "queue";
+    return;
+  }
+  const make = e.target.closest("[data-make]");
+  if (make) {
+    if (!dispatch || !dispatch.token) { alert("The button isn't connected yet (no GitHub token)."); return; }
+    if (!confirm(`Make a video about ${make.dataset.name} now?`)) return;
+    make.disabled = true; make.textContent = "Starting…";
+    try {
+      await runWorkflow("batch.yml", {count: "0", url: make.dataset.make, parallel: "1"});
+      watching = "batch.yml";
+      make.textContent = "Started ✓";
+      showStatus(`<span class="spinner"></span> Starting a video about ${esc(make.dataset.name)}…`);
+      setTimeout(checkRuns, 6000);
+    } catch (err) { make.disabled = false; make.textContent = "▶ Make now"; alert("Couldn't start: " + err.message); }
+    return;
+  }
   const btn = e.target.closest(".copy");
   if (btn) {
     const el = document.getElementById(btn.dataset.copy);

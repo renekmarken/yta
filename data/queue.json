@@ -10,7 +10,9 @@
    "sources": [
     "Google News"
    ],
-   "added": "2026-10-02T07:22:10+00:00"
+   "added": "2026-10-02T07:22:10+00:00",
+   "priority": 9.68,
+   "cat": "📈 Investing platforms"
   },
   "chase.com": {
    "name": "Chase",
@@ -22,7 +24,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:21+00:00"
+   "added": "2026-10-02T07:22:21+00:00",
+   "priority": 7.26,
+   "cat": "💳 Credit cards / financial products"
   },
   "americanexpress.com": {
    "name": "American Express",
@@ -34,7 +38,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:21+00:00"
+   "added": "2026-10-02T07:22:21+00:00",
+   "priority": 7.26,
+   "cat": "💳 Credit cards / financial products"
   },
   "capitalone.com": {
    "name": "Capital One",
@@ -46,7 +52,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:21+00:00"
+   "added": "2026-10-02T07:22:21+00:00",
+   "priority": 6.87,
+   "cat": "💳 Credit cards / financial products"
   },
   "discover.com": {
    "name": "Discover",
@@ -58,7 +66,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:22+00:00"
+   "added": "2026-10-02T07:22:22+00:00",
+   "priority": 6.87,
+   "cat": "💳 Credit cards / financial products"
   },
   "creditkarma.com": {
    "name": "Credit Karma",
@@ -70,7 +80,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:22+00:00"
+   "added": "2026-10-02T07:22:22+00:00",
+   "priority": 6.87,
+   "cat": "💳 Credit cards / financial products"
   },
   "geico.com": {
    "name": "Geico",
@@ -82,7 +94,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:22+00:00"
+   "added": "2026-10-02T07:22:22+00:00",
+   "priority": 7.26,
+   "cat": "🛡️ Insurance"
   },
   "progressive.com": {
    "name": "Progressive",
@@ -94,7 +108,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:23+00:00"
+   "added": "2026-10-02T07:22:23+00:00",
+   "priority": 7.26,
+   "cat": "🛡️ Insurance"
   },
   "allstate.com": {
    "name": "Allstate",
@@ -106,7 +122,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:24+00:00"
+   "added": "2026-10-02T07:22:24+00:00",
+   "priority": 6.87,
+   "cat": "🛡️ Insurance"
   },
   "chime.com": {
    "name": "Chime",
@@ -118,7 +136,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:24+00:00"
+   "added": "2026-10-02T07:22:24+00:00",
+   "priority": 7.26,
+   "cat": "💰 Finance apps / banking"
   },
   "ally.com": {
    "name": "Ally Bank",
@@ -130,7 +150,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:24+00:00"
+   "added": "2026-10-02T07:22:24+00:00",
+   "priority": 6.87,
+   "cat": "💰 Finance apps / banking"
   },
   "sofi.com": {
    "name": "SoFi",
@@ -142,7 +164,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:24+00:00"
+   "added": "2026-10-02T07:22:24+00:00",
+   "priority": 6.87,
+   "cat": "💰 Finance apps / banking"
   },
   "acorns.com": {
    "name": "Acorns",
@@ -154,7 +178,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:25+00:00"
+   "added": "2026-10-02T07:22:25+00:00",
+   "priority": 6.48,
+   "cat": "💰 Finance apps / banking"
   },
   "cash.app": {
    "name": "Cash App",
@@ -166,7 +192,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:25+00:00"
+   "added": "2026-10-02T07:22:25+00:00",
+   "priority": 7.26,
+   "cat": "💰 Finance apps / banking"
   },
   "zillow.com": {
    "name": "Zillow",
@@ -178,7 +206,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:25+00:00"
+   "added": "2026-10-02T07:22:25+00:00",
+   "priority": 6.91,
+   "cat": "🏠 Real estate services"
   },
   "realtor.com": {
    "name": "Realtor.com",
@@ -190,7 +220,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:25+00:00"
+   "added": "2026-10-02T07:22:25+00:00",
+   "priority": 6.52,
+   "cat": "🏠 Real estate services"
   },
   "opendoor.com": {
    "name": "Opendoor",
@@ -202,7 +234,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:25+00:00"
+   "added": "2026-10-02T07:22:25+00:00",
+   "priority": 6.13,
+   "cat": "🏠 Real estate services"
   },
   "apartments.com": {
    "name": "Apartments.com",
@@ -214,7 +248,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:26+00:00"
+   "added": "2026-10-02T07:22:26+00:00",
+   "priority": 6.52,
+   "cat": "🏠 Real estate services"
   },
   "legalzoom.com": {
    "name": "LegalZoom",
@@ -226,7 +262,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:26+00:00"
+   "added": "2026-10-02T07:22:26+00:00",
+   "priority": 6.91,
+   "cat": "⚖️ Legal services / platforms"
   },
   "rocketlawyer.com": {
    "name": "Rocket Lawyer",
@@ -238,7 +276,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:26+00:00"
+   "added": "2026-10-02T07:22:26+00:00",
+   "priority": 6.52,
+   "cat": "⚖️ Legal services / platforms"
   },
   "avvo.com": {
    "name": "Avvo",
@@ -250,7 +290,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:26+00:00"
+   "added": "2026-10-02T07:22:26+00:00",
+   "priority": 6.13,
+   "cat": "⚖️ Legal services / platforms"
   },
   "bizee.com": {
    "name": "IncFile",
@@ -262,7 +304,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:26+00:00"
+   "added": "2026-10-02T07:22:26+00:00",
+   "priority": 5.74,
+   "cat": "⚖️ Legal services / platforms"
   },
   "salesforce.com": {
    "name": "Salesforce",
@@ -274,7 +318,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:27+00:00"
+   "added": "2026-10-02T07:22:27+00:00",
+   "priority": 7.05,
+   "cat": "💻 SaaS / business software"
   },
   "hubspot.com": {
    "name": "HubSpot",
@@ -286,7 +332,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:28+00:00"
+   "added": "2026-10-02T07:22:28+00:00",
+   "priority": 7.05,
+   "cat": "💻 SaaS / business software"
   },
   "notion.so": {
    "name": "Notion",
@@ -298,7 +346,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:28+00:00"
+   "added": "2026-10-02T07:22:28+00:00",
+   "priority": 6.66,
+   "cat": "💻 SaaS / business software"
   },
   "slack.com": {
    "name": "Slack",
@@ -310,7 +360,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:28+00:00"
+   "added": "2026-10-02T07:22:28+00:00",
+   "priority": 6.66,
+   "cat": "💻 SaaS / business software"
   },
   "zoom.us": {
    "name": "Zoom",
@@ -322,7 +374,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:29+00:00"
+   "added": "2026-10-02T07:22:29+00:00",
+   "priority": 7.05,
+   "cat": "💻 SaaS / business software"
   },
   "openai.com": {
    "name": "OpenAI",
@@ -334,7 +388,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:29+00:00"
+   "added": "2026-10-02T07:22:29+00:00",
+   "priority": 7.13,
+   "cat": "🤖 AI tools"
   },
   "anthropic.com": {
    "name": "Anthropic",
@@ -346,7 +402,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:29+00:00"
+   "added": "2026-10-02T07:22:29+00:00",
+   "priority": 6.74,
+   "cat": "🤖 AI tools"
   },
   "midjourney.com": {
    "name": "Midjourney",
@@ -358,7 +416,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:29+00:00"
+   "added": "2026-10-02T07:22:29+00:00",
+   "priority": 6.74,
+   "cat": "🤖 AI tools"
   },
   "jasper.ai": {
    "name": "Jasper",
@@ -370,7 +430,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:29+00:00"
+   "added": "2026-10-02T07:22:29+00:00",
+   "priority": 6.35,
+   "cat": "🤖 AI tools"
   },
   "perplexity.ai": {
    "name": "Perplexity",
@@ -382,7 +444,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:29+00:00"
+   "added": "2026-10-02T07:22:29+00:00",
+   "priority": 6.35,
+   "cat": "🤖 AI tools"
   },
   "gusto.com": {
    "name": "Gusto",
@@ -394,7 +458,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:29+00:00"
+   "added": "2026-10-02T07:22:29+00:00",
+   "priority": 6.66,
+   "cat": "📊 Business tools"
   },
   "stripe.com": {
    "name": "Stripe",
@@ -406,7 +472,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:50+00:00"
+   "added": "2026-10-02T07:22:50+00:00",
+   "priority": 7.05,
+   "cat": "📊 Business tools"
   },
   "shopify.com": {
    "name": "Shopify",
@@ -418,7 +486,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:50+00:00"
+   "added": "2026-10-02T07:22:50+00:00",
+   "priority": 7.05,
+   "cat": "📊 Business tools"
   },
   "monday.com": {
    "name": "Monday.com",
@@ -430,7 +500,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:50+00:00"
+   "added": "2026-10-02T07:22:50+00:00",
+   "priority": 6.66,
+   "cat": "📊 Business tools"
   },
   "mailchimp.com": {
    "name": "Mailchimp",
@@ -442,7 +514,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:50+00:00"
+   "added": "2026-10-02T07:22:50+00:00",
+   "priority": 6.66,
+   "cat": "📣 Marketing platforms"
   },
   "klaviyo.com": {
    "name": "Klaviyo",
@@ -454,7 +528,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:50+00:00"
+   "added": "2026-10-02T07:22:50+00:00",
+   "priority": 6.27,
+   "cat": "📣 Marketing platforms"
   },
   "semrush.com": {
    "name": "Semrush",
@@ -466,7 +542,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:51+00:00"
+   "added": "2026-10-02T07:22:51+00:00",
+   "priority": 6.66,
+   "cat": "📣 Marketing platforms"
   },
   "hootsuite.com": {
    "name": "Hootsuite",
@@ -478,7 +556,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:51+00:00"
+   "added": "2026-10-02T07:22:51+00:00",
+   "priority": 6.27,
+   "cat": "📣 Marketing platforms"
   },
   "constantcontact.com": {
    "name": "Constant Contact",
@@ -490,7 +570,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:51+00:00"
+   "added": "2026-10-02T07:22:51+00:00",
+   "priority": 6.27,
+   "cat": "📣 Marketing platforms"
   },
   "nordvpn.com": {
    "name": "NordVPN",
@@ -502,7 +584,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:51+00:00"
+   "added": "2026-10-02T07:22:51+00:00",
+   "priority": 6.91,
+   "cat": "🔐 Cybersecurity / VPNs"
   },
   "expressvpn.com": {
    "name": "ExpressVPN",
@@ -514,7 +598,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:51+00:00"
+   "added": "2026-10-02T07:22:51+00:00",
+   "priority": 6.91,
+   "cat": "🔐 Cybersecurity / VPNs"
   },
   "surfshark.com": {
    "name": "Surfshark",
@@ -526,7 +612,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:51+00:00"
+   "added": "2026-10-02T07:22:51+00:00",
+   "priority": 6.52,
+   "cat": "🔐 Cybersecurity / VPNs"
   },
   "1password.com": {
    "name": "1Password",
@@ -538,7 +626,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:51+00:00"
+   "added": "2026-10-02T07:22:51+00:00",
+   "priority": 6.52,
+   "cat": "🔐 Cybersecurity / VPNs"
   },
   "malwarebytes.com": {
    "name": "Malwarebytes",
@@ -550,7 +640,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:52+00:00"
+   "added": "2026-10-02T07:22:52+00:00",
+   "priority": 6.52,
+   "cat": "🔐 Cybersecurity / VPNs"
   },
   "aws.amazon.com": {
    "name": "AWS",
@@ -562,7 +654,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:52+00:00"
+   "added": "2026-10-02T07:22:52+00:00",
+   "priority": 6.91,
+   "cat": "☁️ Cloud / hosting"
   },
   "bluehost.com": {
    "name": "Bluehost",
@@ -574,7 +668,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:52+00:00"
+   "added": "2026-10-02T07:22:52+00:00",
+   "priority": 6.52,
+   "cat": "☁️ Cloud / hosting"
   },
   "digitalocean.com": {
    "name": "DigitalOcean",
@@ -586,7 +682,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:52+00:00"
+   "added": "2026-10-02T07:22:52+00:00",
+   "priority": 6.13,
+   "cat": "☁️ Cloud / hosting"
   },
   "siteground.com": {
    "name": "SiteGround",
@@ -598,7 +696,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:52+00:00"
+   "added": "2026-10-02T07:22:52+00:00",
+   "priority": 6.13,
+   "cat": "☁️ Cloud / hosting"
   },
   "hostinger.com": {
    "name": "Hostinger",
@@ -610,7 +710,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:53+00:00"
+   "added": "2026-10-02T07:22:53+00:00",
+   "priority": 6.52,
+   "cat": "☁️ Cloud / hosting"
   },
   "upwork.com": {
    "name": "Upwork",
@@ -622,7 +724,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:53+00:00"
+   "added": "2026-10-02T07:22:53+00:00",
+   "priority": 6.91,
+   "cat": "💼 Freelancing platforms"
   },
   "fiverr.com": {
    "name": "Fiverr",
@@ -634,7 +738,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:53+00:00"
+   "added": "2026-10-02T07:22:53+00:00",
+   "priority": 6.91,
+   "cat": "💼 Freelancing platforms"
   },
   "toptal.com": {
    "name": "Toptal",
@@ -646,7 +752,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:53+00:00"
+   "added": "2026-10-02T07:22:53+00:00",
+   "priority": 6.13,
+   "cat": "💼 Freelancing platforms"
   },
   "freelancer.com": {
    "name": "Freelancer",
@@ -658,7 +766,9 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:54+00:00"
+   "added": "2026-10-02T07:22:54+00:00",
+   "priority": 6.13,
+   "cat": "💼 Freelancing platforms"
   },
   "guru.com": {
    "name": "Guru",
@@ -670,8 +780,10 @@
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:54+00:00"
+   "added": "2026-10-02T07:22:54+00:00",
+   "priority": 5.74,
+   "cat": "💼 Freelancing platforms"
   }
  },
- "updated": "2026-10-02T12:58:52+00:00"
+ "updated": "2026-10-02T14:39:57+00:00"
 }
