@@ -499,7 +499,7 @@ def pick_palette(theme, recent=()):
 # a fact sticker, a score ring, the phone app or a magnifier), all on a blurred, colour-graded
 # screenshot of the product with soft lights. Nothing is left empty.
 HERO_X = 652                         # where the right-hand hero starts; the text column ends before it
-LOGO_BOX = (40, 30, 620, 190)        # x, y, max width, max height of the logo chip
+LOGO_BOX = (40, 30, 590, 190)        # x, y, max width, max height; ends before HERO_X
 CIRCLE_RED = (255, 38, 48)
 
 
@@ -564,13 +564,16 @@ def _hero_source(data, info, out_dir, aspect=0.9):
     for s in info["screenshots"]:
         if s["file"] != "mobile.png":
             cands.append((s["file"], None, None))
+    if (out_dir / "mobile.png").exists():
+        cands.append(("mobile.png", None, None))         # phone view: used when the desktop pages are blank
     best = None
     for name, focus, box in cands:
         try:
             src = Image.open(out_dir / name).convert("RGB")
         except OSError:
             continue
-        cw = int(src.width * 0.5)
+        portrait = src.height > src.width
+        cw = src.width if portrait else int(src.width * 0.5)
         ch = min(src.height, int(cw * aspect))
         fx, fy = focus or busiest_point(src, (cw, ch))
         x0 = int(max(0, min(src.width - cw, fx - cw / 2)))
@@ -586,8 +589,8 @@ def _hero_source(data, info, out_dir, aspect=0.9):
             best = (score, src, crop, target, tbox)
         if score > 0.06 and (box or best[0] == score):
             break
-    _, src, crop, target, tbox = best
-    return src, crop, target, tbox
+    score, src, crop, target, tbox = best
+    return src, crop, target, tbox, score
 
 
 def _rot_point(pt, size, angle, new_size):
@@ -684,7 +687,10 @@ def render(data, info, out_dir, theme, layout, pal_name, hk, pill_text, variant=
     glow_col = _vivid(b2) if not pal_light else mix(pacc, (255, 255, 255), 0.2)
     tilt = abs(theme.get("thumb_tilt", 5)) or 5
     tilt = -tilt if (variant % 2 == 0) else tilt * 0.6
-    src, crop, target, tbox = _hero_source(data, info, out_dir)
+    src, crop, target, tbox, detail = _hero_source(data, info, out_dir)
+    blank = detail < 0.015                       # nothing worth circling: show the page, no circle / lens
+    if blank and layout in ("circle", "lens"):
+        layout = "plain"
 
     bg = _pal_bg(src, pal_name, hero=(980, 360), ghost=0.42)
     if not pal_light:
@@ -696,8 +702,9 @@ def render(data, info, out_dir, theme, layout, pal_name, hk, pill_text, variant=
     col_w = HERO_X - 44 - 26
     arrow_to = None
 
-    if layout in ("circle", "fact", "lens"):
-        cx, cy, rx, ry = _hero_card(bg, B, crop, target, tbox, tilt, glow_col, circle=(layout != "lens"))
+    if layout in ("circle", "fact", "lens", "plain"):
+        cx, cy, rx, ry = _hero_card(bg, B, crop, target, tbox, tilt, glow_col,
+                                    circle=layout in ("circle", "fact") and not blank)
         if layout == "circle":
             arrow_to = (cx - rx - 12, cy)
         elif layout == "lens":
@@ -740,7 +747,7 @@ def render(data, info, out_dir, theme, layout, pal_name, hk, pill_text, variant=
             sx, sy = HERO_X - 6, 36
             paste_shadowed(bg, st, (sx, sy), 24, 22, 200, 14)
             B.add("fact sticker", (sx, sy, sx + st.width, sy + st.height), "badge")
-            if cy > sy + st.height + 60:
+            if cy > sy + st.height + 60 and not blank:
                 _arrow(bg, (sx + st.width * 0.55, sy + st.height + 4), (cx - rx * 0.4, cy - ry - 8),
                        CIRCLE_RED, width=18, head=48, outline=(255, 255, 255))
 
@@ -765,8 +772,9 @@ def render(data, info, out_dir, theme, layout, pal_name, hk, pill_text, variant=
         cy = max(90, min(TH - 90, cys + (target[1] - crop.height / 2) * sc))
         rx = max(90, (tbox[2] * sc / 2 + 34) if tbox else 130)
         ry = max(60, (tbox[3] * sc / 2 + 26) if tbox else 84)
-        _ring(bg, cx, cy, min(rx, 220), min(ry, 140))
-        arrow_to = (cx - min(rx, 220) - 12, cy)
+        if not blank:
+            _ring(bg, cx, cy, min(rx, 220), min(ry, 140))
+            arrow_to = (cx - min(rx, 220) - 12, cy)
 
     elif layout == "ring":
         vcol, vicon = _verdict_style(data)
