@@ -57,6 +57,18 @@ def check(path):
     return None
 
 
+def placeholder(im):
+    """Icon services answer unknown sites with a generated letter: a grey letter on a flat light-grey
+    square. That is not the brand's logo."""
+    rgb = im.convert("RGB")
+    small = rgb.resize((48, 48))
+    hsv = small.convert("HSV")
+    if ImageStat.Stat(hsv).mean[1] > 12:                 # has real colour: not the grey placeholder
+        return False
+    corner = small.getpixel((2, 2))
+    return 190 <= sum(corner) / 3 <= 245 and max(corner) - min(corner) < 8
+
+
 def has_name_shape(path):
     """Rough guess without AI: a wide image is a wordmark (has the name), a squarish one an icon."""
     im = Image.open(path)
@@ -122,7 +134,7 @@ def outside_candidates(brand, domain, out_dir: Path):
         if ext == ".img":
             try:
                 im = Image.open(io.BytesIO(r.content))
-                if max(im.size) < 64:                     # a blurry 16px favicon is no better than the name
+                if max(im.size) < 64 or placeholder(im):  # blurry 16px favicon / generated letter
                     continue
             except Exception:
                 continue
