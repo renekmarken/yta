@@ -98,20 +98,6 @@
    "priority": 6.48,
    "cat": "💰 Finance apps / banking"
   },
-  "zillow.com": {
-   "name": "Zillow",
-   "url": "https://www.zillow.com",
-   "category": "real-estate",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Dominant real estate marketplace and property search portal.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:25+00:00",
-   "priority": 6.91,
-   "cat": "🏠 Real estate services"
-  },
   "realtor.com": {
    "name": "Realtor.com",
    "url": "https://www.realtor.com",
@@ -196,17 +182,17 @@
    "priority": 6.13,
    "cat": "⚖️ Legal services / platforms"
   },
-  "hubspot.com": {
-   "name": "HubSpot",
-   "url": "https://www.hubspot.com",
+  "salesforce.com": {
+   "name": "Salesforce",
+   "url": "https://www.salesforce.com",
    "category": "saas",
    "hotness": 6.0,
    "evergreen": true,
-   "why": "Leading inbound marketing, sales, and CRM software platform.",
+   "why": "Global leader in customer relationship management SaaS solutions.",
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:28+00:00",
+   "added": "2026-10-02T07:22:27+00:00",
    "priority": 7.05,
    "cat": "💻 SaaS / business software"
   },
@@ -237,34 +223,6 @@
    "added": "2026-10-02T07:22:28+00:00",
    "priority": 6.66,
    "cat": "💻 SaaS / business software"
-  },
-  "zoom.us": {
-   "name": "Zoom",
-   "url": "https://zoom.us",
-   "category": "saas",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Industry standard video conferencing and virtual meeting platform.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:29+00:00",
-   "priority": 7.05,
-   "cat": "💻 SaaS / business software"
-  },
-  "openai.com": {
-   "name": "OpenAI",
-   "url": "https://openai.com",
-   "category": "ai-tools",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Creator of ChatGPT and industry pioneer in generative AI.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:29+00:00",
-   "priority": 7.13,
-   "cat": "🤖 AI tools"
   },
   "anthropic.com": {
    "name": "Anthropic",
@@ -334,34 +292,6 @@
    ],
    "added": "2026-10-02T07:22:29+00:00",
    "priority": 6.66,
-   "cat": "📊 Business tools"
-  },
-  "stripe.com": {
-   "name": "Stripe",
-   "url": "https://stripe.com",
-   "category": "business-tools",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Leading online payment processing platform for internet businesses.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:50+00:00",
-   "priority": 7.05,
-   "cat": "📊 Business tools"
-  },
-  "shopify.com": {
-   "name": "Shopify",
-   "url": "https://www.shopify.com",
-   "category": "business-tools",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Leading e-commerce platform powering millions of online stores.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:50+00:00",
-   "priority": 7.05,
    "cat": "📊 Business tools"
   },
   "monday.com": {
@@ -659,5 +589,5 @@
    "cat": "💼 Freelancing platforms"
   }
  },
- "updated": "2026-10-02T18:27:17+00:00"
+ "updated": "2026-10-02T18:52:42+00:00"
 }

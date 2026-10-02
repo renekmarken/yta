@@ -14,3 +14,8 @@ https://www.chime.com
 https://www.progressive.com
 https://cash.app
 https://www.bizee.com
+https://openai.com
+https://www.hubspot.com
+https://stripe.com
+https://zoom.us
+https://www.shopify.com

@@ -685,5 +685,234 @@
     "laptop/violet/truth"
    ]
   }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://openai.com",
+  "brand": "OpenAI",
+  "category": "ai-tools",
+  "title": "OpenAI: Is It Actually Good, Or Just Hype?",
+  "youtube": null,
+  "format": "fine_print",
+  "opener": "Here is the catch with OpenAI: while they promise artificial general intelligence to solve human level problems, you nee",
+  "title_style": "good",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "floating",
+   "caption": "tag",
+   "bg": "mesh",
+   "head_font": "inter",
+   "accent": [
+    255,
+    212,
+    0
+   ],
+   "transitions": [
+    "dissolve"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "split",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "fade_up",
+   "callout": "pill",
+   "music": "upbeat",
+   "sfx": "crisp",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "split/emerald/good",
+    "banner/magenta/worth",
+    "yes_no/royal/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.hubspot.com",
+  "brand": "HubSpot",
+  "category": "saas",
+  "title": "HubSpot: $7 Starter Plans, But What's the Catch?",
+  "youtube": null,
+  "format": "pros_cons",
+  "opener": "HubSpot claims it is trusted by over three hundred six thousand customers worldwide on its homepage",
+  "title_style": "expect",
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "tag",
+   "bg": "gradient",
+   "head_font": "inter",
+   "accent": [
+    17,
+    107,
+    241
+   ],
+   "transitions": [
+    "slideleft",
+    "slideright"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "pill",
+   "music": "tech",
+   "sfx": "warm",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "yes_no/royal/expect",
+    "laptop/magenta/worth",
+    "score/ocean/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://stripe.com",
+  "brand": "Stripe",
+  "category": "business-tools",
+  "title": "Stripe: What to Actually Expect (EXPLAINED)",
+  "youtube": null,
+  "format": "pros_cons",
+  "opener": "Here is the catch with Stripe: while standard online transactions feature transparent pricing starting at two point nine",
+  "title_style": "expect",
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "tag",
+   "bg": "gradient",
+   "head_font": "inter",
+   "accent": [
+    105,
+    105,
+    15
+   ],
+   "transitions": [
+    "hblur",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "pill",
+   "music": "tech",
+   "sfx": "crisp",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "split/royal/expect",
+    "yes_no/magenta/scam",
+    "left/violet/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://zoom.us",
+  "brand": "Zoom",
+  "category": "saas",
+  "title": "Zoom: Is It Actually Good?",
+  "youtube": null,
+  "format": "pros_cons",
+  "opener": "If you only need basic video calls and rarely collaborate outside of simple meetings, you should probably stop watching ",
+  "title_style": "good",
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "tag",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    212,
+    0
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "left",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "upbeat",
+   "sfx": "soft",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "left/charcoal/good",
+    "number/emerald/worth",
+    "yes_no/magenta/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.shopify.com",
+  "brand": "Shopify",
+  "category": "business-tools",
+  "title": "Shopify: $29 Plans, But What's the Catch?",
+  "youtube": null,
+  "format": "fine_print",
+  "opener": "If you are planning to launch an online store, build a direct-to-consumer brand, or scale an existing retail business, k",
+  "title_style": "good",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "floating",
+   "caption": "glass",
+   "bg": "mesh",
+   "head_font": "poppins",
+   "accent": [
+    144,
+    168,
+    48
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "number",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "fade_up",
+   "callout": "card",
+   "music": "upbeat",
+   "sfx": "playful",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "number/emerald/good",
+    "stack/royal/scam",
+    "yes_no/magenta/worth"
+   ]
+  }
  }
 ]

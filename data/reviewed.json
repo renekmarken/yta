@@ -123,10 +123,52 @@
   "alt": "IncFile"
  },
  {
+  "site": "openai.com",
+  "name": "OpenAI",
+  "url": "https://openai.com",
+  "status": "done",
+  "date": "2026-10-02"
+ },
+ {
   "site": "salesforce.com",
   "name": "",
   "url": "https://www.salesforce.com",
   "status": "failed",
   "date": ""
+ },
+ {
+  "site": "hubspot.com",
+  "name": "HubSpot",
+  "url": "https://www.hubspot.com",
+  "status": "done",
+  "date": "2026-10-02"
+ },
+ {
+  "site": "stripe.com",
+  "name": "Stripe",
+  "url": "https://stripe.com",
+  "status": "done",
+  "date": "2026-10-02"
+ },
+ {
+  "site": "zillow.com",
+  "name": "Zillow",
+  "url": "https://www.zillow.com",
+  "status": "failed",
+  "date": "2026-10-02"
+ },
+ {
+  "site": "zoom.us",
+  "name": "Zoom",
+  "url": "https://zoom.us",
+  "status": "done",
+  "date": "2026-10-02"
+ },
+ {
+  "site": "shopify.com",
+  "name": "Shopify",
+  "url": "https://www.shopify.com",
+  "status": "done",
+  "date": "2026-10-02"
  }
 ]
