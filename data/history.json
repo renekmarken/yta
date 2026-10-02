@@ -1425,5 +1425,196 @@
     "risk/evidence"
    ]
   }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://cash.app",
+  "brand": "Cash App",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/CashApp/comments/1ovkp2v/cash_app_has_suspended_my_account_for_suspicious/",
+  "category": "banking-apps",
+  "title": "Cash App FROZE funds for months — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "A Cash App user posted on Reddit that their account was suspended for suspicious activity, leaving their money held for ",
+  "title_style": null,
+  "theme": {
+   "mode": "light",
+   "layout": "spotlight",
+   "frame": "mac_light",
+   "caption": "pill",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    0,
+    192,
+    48
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "banner",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "upbeat",
+   "sfx": "crisp",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "risk/post",
+    "risk/blackout",
+    "risk/stack"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://stripe.com",
+  "brand": "Stripe",
+  "kind": "risk",
+  "story_url": "https://news.ycombinator.com/item?id=49042989",
+  "category": "business-tools",
+  "title": "Stripe CLOSED Account With 0.18% Dispute Rate — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "A Stripe user posted on Hacker News about an unexpected account closure",
+  "title_style": null,
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "pill",
+   "bg": "aurora",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    94,
+    58
+   ],
+   "transitions": [
+    "slideleft",
+    "slideright"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "upbeat",
+   "sfx": "playful",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "risk/post",
+    "risk/stamp",
+    "risk/headline"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.shopify.com",
+  "brand": "Shopify",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/shopify/comments/1pdu5qo/shopify_scammed_me_out_of_13k_rant/",
+  "category": "business-tools",
+  "title": "Shopify FROZE $13,000 for No Reason — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "A Shopify user posted on Reddit about a stressful financial ordeal just before the holidays",
+  "title_style": null,
+  "theme": {
+   "mode": "light",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "pill",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    144,
+    168,
+    48
+   ],
+   "transitions": [
+    "wipeleft",
+    "wiperight"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "fade_up",
+   "callout": "card",
+   "music": "upbeat",
+   "sfx": "minimal",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "risk/post",
+    "risk/stamp",
+    "risk/strip"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://aws.amazon.com",
+  "brand": "Amazon Web Services",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/mildlyinfuriating/comments/1vd490p/i_permanently_deleted_my_aws_account_6_years_ago/",
+  "category": "hosting",
+  "title": "Amazon Web Services CHARGING Deleted Account For Years — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "An Amazon Web Services user posted on a public forum that they permanently deleted their AWS account six years ago, but ",
+  "title_style": null,
+  "theme": {
+   "mode": "light",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "pill",
+   "bg": "aurora",
+   "head_font": "interdisplay",
+   "accent": [
+    240,
+    144,
+    0
+   ],
+   "transitions": [
+    "squeezeh",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "number",
+   "thumb_accent": [
+    240,
+    144,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "card",
+   "music": "tech",
+   "sfx": "digital",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "risk/post",
+    "risk/caution",
+    "risk/stamp"
+   ]
+  }
  }
 ]

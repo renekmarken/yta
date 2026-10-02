@@ -71,6 +71,70 @@
    "story_url": "",
    "title": "",
    "status": "nostory"
+  },
+  {
+   "date": "2026-10-02",
+   "site": "zoho.com",
+   "name": "zoho",
+   "story_url": "",
+   "title": "",
+   "status": "nostory"
+  },
+  {
+   "date": "2026-10-02",
+   "site": "bitwiseinvestments.com",
+   "name": "bitwise",
+   "story_url": "",
+   "title": "",
+   "status": "nostory"
+  },
+  {
+   "date": "2026-10-02",
+   "site": "progressive.com",
+   "name": "progressive",
+   "story_url": "",
+   "title": "",
+   "status": "nostory"
+  },
+  {
+   "date": "2026-10-02",
+   "site": "cash.app",
+   "name": "cash",
+   "story_url": "https://www.reddit.com/r/CashApp/comments/1ovkp2v/cash_app_has_suspended_my_account_for_suspicious/",
+   "title": "Cash App FROZE funds for months — What Now?",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-02",
+   "site": "openai.com",
+   "name": "openai",
+   "story_url": "",
+   "title": "",
+   "status": "nostory"
+  },
+  {
+   "date": "2026-10-02",
+   "site": "stripe.com",
+   "name": "stripe",
+   "story_url": "https://news.ycombinator.com/item?id=49042989",
+   "title": "Stripe CLOSED Account With 0.18% Dispute Rate — What Now?",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-02",
+   "site": "shopify.com",
+   "name": "shopify",
+   "story_url": "https://www.reddit.com/r/shopify/comments/1pdu5qo/shopify_scammed_me_out_of_13k_rant/",
+   "title": "Shopify FROZE $13,000 for No Reason — What Now?",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-02",
+   "site": "amazon.com",
+   "name": "amazonwebservices",
+   "story_url": "https://www.reddit.com/r/mildlyinfuriating/comments/1vd490p/i_permanently_deleted_my_aws_account_6_years_ago/",
+   "title": "Amazon Web Services CHARGING Deleted Account For Years — What Now?",
+   "status": "done"
   }
  ]
 }
