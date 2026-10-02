@@ -1807,5 +1807,196 @@
     "risk/highlight"
    ]
   }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://dayforward.com",
+  "brand": "Dayforward",
+  "kind": "review",
+  "story_url": null,
+  "category": "insurance",
+  "title": "Dayforward: $0 Fees, But What's the Catch?",
+  "youtube": null,
+  "format": "first_look",
+  "opener": "Welcome to our guided first look at Dayforward",
+  "title_style": "fees",
+  "theme": {
+   "mode": "brand",
+   "layout": "stage",
+   "frame": "mac_light",
+   "caption": "bar",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    122,
+    92,
+    255
+   ],
+   "transitions": [
+    "dissolve"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "acoustic",
+   "sfx": "soft",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "score/ocean/fees",
+    "yes_no/charcoal/scam",
+    "laptop/magenta/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://codync.com",
+  "brand": "Codync",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Codync: AI Tool Or Just A Domain For Sale?",
+  "youtube": null,
+  "format": "pros_cons",
+  "opener": "If you are looking for a brand-new artificial intelligence platform or software tool to build your code, you should stop",
+  "title_style": "actually",
+  "theme": {
+   "mode": "light",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "bar",
+   "bg": "gradient",
+   "head_font": "interdisplay",
+   "accent": [
+    114,
+    114,
+    158
+   ],
+   "transitions": [
+    "coverleft",
+    "revealright"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "split",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "fade_up",
+   "callout": "pill",
+   "music": "upbeat",
+   "sfx": "warm",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "split/ocean/worth",
+    "number/royal/scam",
+    "yes_no/midnight/legit"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://cloudflare.com",
+  "brand": "Cloudflare",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Cloudflare: $0 Plans, But What's the Catch?",
+  "youtube": null,
+  "format": "fine_print",
+  "opener": "Cloudflare claims to power twenty percent of the internet, offering one unified platform for your apps, agents, and work",
+  "title_style": "expect",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "underline",
+   "bg": "mesh",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    70,
+    140
+   ],
+   "transitions": [
+    "circleopen",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    70,
+    140
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "tech",
+   "sfx": "digital",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "yes_no/charcoal/expect",
+    "stack/magenta/worth",
+    "number/midnight/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://magnitude.dev",
+  "brand": "Magnitude",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Magnitude: Free AI Engine, But Is It Actually Worth It?",
+  "youtube": null,
+  "format": "five_questions",
+  "opener": "Magnitude promises to run open models as fast as your hardware allows",
+  "title_style": "dont",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "pill",
+   "bg": "mesh",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    94,
+    58
+   ],
+   "transitions": [
+    "coverleft",
+    "revealright"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "left",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "tech",
+   "sfx": "airy",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "left/midnight/dont",
+    "score/crimson/worth",
+    "number/charcoal/scam"
+   ]
+  }
  }
 ]

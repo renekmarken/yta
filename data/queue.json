@@ -462,54 +462,6 @@
    "priority": 5.74,
    "cat": "💼 Freelancing platforms"
   },
-  "nekohealth.com": {
-   "name": "Neko Health",
-   "url": "https://nekohealth.com",
-   "category": "insurance",
-   "hotness": 9.0,
-   "evergreen": false,
-   "why": "Spotify founder's body-scanning health startup expands to America.",
-   "sources": [
-    "TechCrunch"
-   ],
-   "added": "2026-10-02T19:25:59+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-02T19:25:59+00:00",
-   "priority": 16.16,
-   "cat": "🛡️ Insurance"
-  },
-  "flowengineering.ai": {
-   "name": "Flow Engineering",
-   "url": "https://flowengineering.ai",
-   "category": "ai-tools",
-   "hotness": 9.0,
-   "evergreen": false,
-   "why": "AI agents for hardware design backed at a $750M valuation.",
-   "sources": [
-    "TechCrunch"
-   ],
-   "added": "2026-10-02T19:25:59+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-02T19:25:59+00:00",
-   "priority": 16.03,
-   "cat": "🤖 AI tools"
-  },
-  "magnitude.dev": {
-   "name": "Magnitude",
-   "url": "https://magnitude.dev",
-   "category": "saas",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Self-optimizing inference engine for AI agents.",
-   "sources": [
-    "Launch HN"
-   ],
-   "added": "2026-10-02T19:25:59+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-02T19:25:59+00:00",
-   "priority": 15.3,
-   "cat": "💻 SaaS / business software"
-  },
   "vespper.com": {
    "name": "Vespper",
    "url": "https://vespper.com",
@@ -523,72 +475,8 @@
    "added": "2026-10-02T19:25:59+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:25:59+00:00",
-   "priority": 15.39,
+   "priority": 15.08,
    "cat": "🤖 AI tools"
-  },
-  "earlyn.com": {
-   "name": "Earlyn",
-   "url": "https://earlyn.com",
-   "category": "ai-tools",
-   "hotness": 7.0,
-   "evergreen": false,
-   "why": "Searchable memory of your screen and meetings on Mac.",
-   "sources": [
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-02T19:26:00+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-02T19:26:00+00:00",
-   "priority": 17.72,
-   "cat": "🤖 AI tools"
-  },
-  "codync.com": {
-   "name": "Codync",
-   "url": "https://codync.com",
-   "category": "ai-tools",
-   "hotness": 7.0,
-   "evergreen": false,
-   "why": "Open-source alternative to Grok Bot, Muse, and Dots.",
-   "sources": [
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-02T19:26:00+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-02T19:26:00+00:00",
-   "priority": 17.72,
-   "cat": "🤖 AI tools"
-  },
-  "gitsync.app": {
-   "name": "GitSync",
-   "url": "https://gitsync.app",
-   "category": "business-tools",
-   "hotness": 7.0,
-   "evergreen": false,
-   "why": "Sync branches between GitHub repos right from Chrome.",
-   "sources": [
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-02T19:26:01+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-02T19:26:01+00:00",
-   "priority": 17.64,
-   "cat": "📊 Business tools"
-  },
-  "cloudflare.com": {
-   "name": "Clef",
-   "url": "https://cloudflare.com",
-   "category": "saas",
-   "hotness": 7.0,
-   "evergreen": false,
-   "why": "Open-source decision models from Cloudflare.",
-   "sources": [
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-02T19:26:01+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-02T19:26:01+00:00",
-   "priority": 17.64,
-   "cat": "💻 SaaS / business software"
   },
   "rate.fm": {
    "name": "Rate.fm",
@@ -603,7 +491,7 @@
    "added": "2026-10-02T19:26:01+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:01+00:00",
-   "priority": 14.66,
+   "priority": 14.37,
    "cat": "💻 SaaS / business software"
   },
   "chat.sh": {
@@ -619,24 +507,8 @@
    "added": "2026-10-02T19:26:02+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:02+00:00",
-   "priority": 14.66,
+   "priority": 14.37,
    "cat": "💻 SaaS / business software"
-  },
-  "dayforward.com": {
-   "name": "Dayforward",
-   "url": "https://dayforward.com",
-   "category": "insurance",
-   "hotness": 7.0,
-   "evergreen": false,
-   "why": "Insurtech platform expanding capabilities following Fortitude Re acquisition.",
-   "sources": [
-    "Google News"
-   ],
-   "added": "2026-10-02T19:26:03+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-02T19:26:03+00:00",
-   "priority": 17.85,
-   "cat": "🛡️ Insurance"
   },
   "fidelity.com": {
    "name": "Fidelity",
@@ -709,5 +581,5 @@
    "cat": "📈 Investing platforms"
   }
  },
- "updated": "2026-10-02T19:58:49+00:00"
+ "updated": "2026-10-02T23:37:06+00:00"
 }
