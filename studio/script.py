@@ -57,7 +57,8 @@ no "in today's video", no "smash that like button", no "let's dive in", no "game
 Do not start with any of these openings used on recent videos: {recent_openers}
 End with the verdict and one specific question for the comments.
 
-VISUALS: split the narration into 7-10 segments. Each segment shows ONE screenshot from the list
+VISUALS: split the narration into 8-9 segments of 38-48 words EACH (2-4 full sentences per
+segment; short one-line segments make the video too short). Each segment shows ONE screenshot from the list
 (most relevant; may repeat but not back-to-back). Optionally pick a "focus" for the segment:
 an exact short text from that screenshot's ON-SCREEN TEXT list that the camera should zoom to and
 highlight (e.g. a price, rate, headline, button). Use focus on about half the segments, only when it
@@ -191,14 +192,28 @@ def write_script(info: dict, item: dict, history: list) -> dict:
         subpages="\n".join(f"Sub-page {p['url']}: {p['text'][:3500]}" for p in info.get("pages", [])))
 
     data, feedback = None, ""
-    for attempt in range(2):
+    best, best_gap = None, None
+    for attempt in range(4):
         text, _ = ai.ask(prompt + feedback, json_mode=True, temperature=0.8)
         data = ai.parse_json(text)
         problems = _validate(data, info)
+        words = sum(len(s.get("text", "").split()) for s in data.get("segments", []))
+        gap = abs(words - 355) + (1000 if any("missing" in p for p in problems) else 0)
+        if best is None or gap < best_gap:
+            best, best_gap = data, gap
         if not problems:
             break
         print(f"   script check: {'; '.join(problems)} — rewriting")
-        feedback = "\n\nYOUR PREVIOUS ANSWER HAD PROBLEMS, FIX THEM: " + "; ".join(problems)
+        hint = ""
+        if words < 320:
+            hint = (f" Your narration has {words} words; it needs {320 - words}-{390 - words} MORE. Keep the same "
+                    f"segments but add 1-2 specific sentences to each (what the page shows, a number, who it suits, "
+                    f"a caveat), so every segment has 38-48 words.")
+        elif words > 390:
+            hint = f" Your narration has {words} words; cut {words - 390}-{words - 320} words, keep every fact."
+        feedback = ("\n\nYOUR PREVIOUS ANSWER HAD PROBLEMS, FIX THEM: " + "; ".join(problems) + hint +
+                    "\nReturn the complete JSON again.")
+    data = best
 
     data = _fix_segments(data, info)
     if data.get("category") not in BY_ID:
