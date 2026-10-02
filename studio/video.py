@@ -12,7 +12,7 @@ import random
 import subprocess
 from pathlib import Path
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 
 from . import config, icons
 from .tts import duration
@@ -133,6 +133,8 @@ def _caption(fg, theme, x, y, max_w, text, size, idx, total, light_text=None, ma
     hf = lambda s: head_font(theme["head_font"], s)
     style = theme["caption"]
     badge = None
+    if style == "glass":
+        return _glass_caption(fg, theme, x, y, max_w, text, size, light_text, max_lines, icon)
     if icon and style != "pill":
         bs = int(size * 1.05)
         badge = icons.badge(icon, bs, acc, readable_on(acc), "circle" if theme["radius"] > 16 else "square")
@@ -179,6 +181,31 @@ def _caption(fg, theme, x, y, max_w, text, size, idx, total, light_text=None, ma
     return y + lh * len(lines)
 
 
+def _glass_caption(fg, theme, x, y, max_w, text, size, light_text, max_lines, icon):
+    """Frosted lower-third: translucent rounded panel, accent stripe, optional icon inside."""
+    d = ImageDraw.Draw(fg)
+    acc = theme["accent"]
+    hf = lambda s: head_font(theme["head_font"], s)
+    dark = lum(theme["bg1"]) < 140 or light_text is not None
+    g = icons.glyph(icon, int(size * 0.82), acc if lum(acc) > 80 or not dark else (255, 255, 255)) if icon else None
+    gw = g.width + 20 if g is not None else 0
+    f = fit(d, text, hf, max_w - 90 - gw, size) if max_lines == 1 else hf(size)
+    lines = [text] if max_lines == 1 else wrap(d, text, f, max_w - 90 - gw)[:max_lines]
+    lh = int(f.size * 1.12)
+    widest = max(d.textlength(l, font=f) for l in lines)
+    panel = rounded((widest + 70 + gw, lh * len(lines) + 34), 22, (12, 14, 20, 150) if dark else (255, 255, 255, 200))
+    pd = ImageDraw.Draw(panel)
+    pd.rounded_rectangle([0, 0, panel.width - 1, panel.height - 1], 22,
+                         outline=(255, 255, 255, 46) if dark else (0, 0, 0, 22), width=2)
+    pd.rounded_rectangle([18, 18, 24, panel.height - 18], 3, fill=(*acc, 255))
+    fg.alpha_composite(panel, (int(x), int(y)))
+    if g is not None:
+        fg.alpha_composite(g, (int(x + 40), int(y + 17 + (lh - g.height) // 2)))
+    for i, l in enumerate(lines):
+        d.text((x + 42 + gw, y + 17 + i * lh), l, font=f, fill=(255, 255, 255) if dark else (16, 18, 24))
+    return y + lh * len(lines) + 34
+
+
 def build_foreground(theme, info, logo, brand):
     """Static parts of every website segment: background, browser frame, logo. Built once."""
     base = background(theme, (W, H))
@@ -202,6 +229,10 @@ def build_foreground(theme, info, logo, brand):
         if logo is not None:
             chip = logo_chip(logo, 38)
             fg.alpha_composite(chip, (cx + cw - chip.width, 78))
+    elif lay == "spotlight":
+        if logo is not None:
+            chip = logo_chip(logo, 30)
+            fg.alpha_composite(chip, (cx + cw - chip.width, cy + ch + 40))
     else:  # cinema: dark gradient at the bottom so the caption stays readable
         grad = Image.new("L", (1, 256))
         grad.putdata([int(min(225, max(0, (i - 60) * 1.4))) for i in range(256)])
@@ -232,6 +263,8 @@ def caption_layer(theme, seg, idx, total, icon=None):
             _caption(layer, theme, 80, 360, 470, cap, 62, idx, total, max_lines=3, icon=icon)
     elif lay == "stage":
         _caption(layer, theme, cx, 70, 1080, cap, 66, idx, total, icon=icon)
+    elif lay == "spotlight":
+        _caption(layer, theme, cx, cy + ch + 26, 1150, cap, 46, idx, total, icon=icon)
     else:  # cinema: caption on a dark glass panel over the full-screen website
         glass = Image.new("RGBA", (W, H), (0, 0, 0, 0))
         _caption(glass, {**theme, "text": (255, 255, 255),
@@ -307,7 +340,8 @@ def callout_position(theme, card):
         return 60, 600
     if lay == "cinema":
         return W - card.width - 40, 40
-    return cx + cw - card.width - 10, cy + 14
+    bar = _frame_bar_height(theme)
+    return cx + cw - card.width + 24, cy - bar - card.height // 2 + 6     # sits on the top edge
 
 
 def callout_frames(card, start_frame, work, tag):
@@ -364,13 +398,16 @@ def highlight(shot_path, box, theme, out_path):
         p = 14
         rect = [x - p, y - p, x + w + p, y + h + p]
         acc = theme["accent"]
+        while lum(acc) > 150:                       # pages are mostly white: keep the marker visible
+            acc = mix(acc, (0, 0, 0), 0.15)
         style = theme["highlight"]
         layer = Image.new("RGBA", im.size, (0, 0, 0, 0))
         d = ImageDraw.Draw(layer)
-        if style == "spotlight":
-            dim = Image.new("RGBA", im.size, (0, 0, 0, 62))
-            ImageDraw.Draw(dim).rounded_rectangle(rect, 14, fill=(0, 0, 0, 0))
-            im.alpha_composite(dim)
+        if style == "spotlight":                    # soft accent glow around the key text (no dimming)
+            glow = Image.new("RGBA", im.size, (0, 0, 0, 0))
+            ImageDraw.Draw(glow).rounded_rectangle([rect[0] - 6, rect[1] - 6, rect[2] + 6, rect[3] + 6], 20,
+                                                   outline=(*acc, 150), width=14)
+            im.alpha_composite(glow.filter(ImageFilter.GaussianBlur(10)))
             d.rounded_rectangle(rect, 14, outline=(*acc, 255), width=4)
         elif style == "underline":
             d.rounded_rectangle([x - 6, y + h - 2, x + w + 6, y + h + 9], 5, fill=(*acc, 235))
@@ -618,6 +655,7 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
         theme["music"] = config.MUSIC if config.MUSIC in MOODS + ["off"] else random.Random(theme["seed"]).choice(MOODS)
     theme.setdefault("sfx", "soft" if config.SFX else "off")
 
+    theme.setdefault("bg_image", str(out_dir / info["screenshots"][0]["file"]))
     fg = work / "fg.png"
     build_foreground(theme, info, logo, brand).save(fg)
     events = [(0.0, "whoosh"), (0.45, "impact"), (0.8, "pop"), (INTRO - 0.5, "whoosh")]
@@ -728,9 +766,9 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
             prev = out
     vout = "vx"
     if theme.get("progress"):
-        args += ["-f", "lavfi", "-i", f"color=c={_hex(theme['accent'])}:s={W}x7:r={FPS}"]
+        args += ["-f", "lavfi", "-i", f"color=c={_hex(theme['accent'])}:s={W}x5:r={FPS}"]
         pb = len(clips)
-        fl.append(f"[{vout}][{pb}:v]overlay=x='-w+w*min(1,t/{content:.2f})':y={H - 7}:shortest=1[vp]")
+        fl.append(f"[{vout}][{pb}:v]overlay=x='-w+w*min(1,t/{content:.2f})':y={H - 5}:shortest=1[vp]")
         vout = "vp"
     a0 = len([a for a in args if a == "-i"])
     for s in segs:
@@ -754,7 +792,7 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
         nxt += 1
     if sfx is not None:
         args += ["-i", str(sfx)]
-        fl.append(f"[{nxt}:a]aresample=48000,aformat=channel_layouts=stereo,volume=0.55[fx]")
+        fl.append(f"[{nxt}:a]aresample=48000,aformat=channel_layouts=stereo,volume=0.32[fx]")
         mixes.append("fx")
         nxt += 1
     if len(mixes) > 1:

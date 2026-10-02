@@ -43,19 +43,19 @@ Each video gets its own random combination, chosen to differ from the last few v
 
 | Element | Options |
 |---|---|
-| Layout | full browser · side panel · stage · full-screen cinema |
+| Layout | full browser · side panel · stage · spotlight (floating card over a blurred copy of the site) |
 | Colour mode | dark · brand-coloured · light, accent from the site's own logo or an alternate |
-| Background | gradient · mesh · spotlight · grid · dots · aurora · diagonal |
+| Background | clean only: soft gradient · mesh · glow · aurora · blurred site, with fine film grain |
 | Browser frame | macOS dark/light · floating card · minimal |
-| Captions | accent bar · pill · numbered tag · underline, with a matching icon; animated in (slide up, drop, slide left/right, fade) |
-| Callout stickers | the key fact of a segment ("$0 monthly fee", "4.30% APY") pops in with an icon: card · pill · sticker · glass |
+| Captions | accent bar · pill · numbered tag · underline · frosted glass, with a matching icon; animated in (slide up, drop, slide left/right, fade) |
+| Callout stickers | the key fact of a segment ("$0 monthly fee", "4.30% APY") pops in with an icon on the top edge of the site, never over its text: card · pill · glass |
 | Headline font | Inter, Inter Display, Poppins, Archivo Black, Anton, Bebas Neue |
 | Transitions | fade, slide, smooth, wipe, circle, radial, cover/reveal, squeeze, zoom, blur, hard cut… |
 | Intro card | logo pop · headline · split, animated (cards slide in, logo pops, title lines rise) |
 | Smart camera | zooms onto the exact number/button being discussed and highlights it (box, underline or spotlight) |
 | Extras | progress bar; animated verdict end card (score counts up, ring or bar fills) |
 | Music | original track composed for each video: lofi · upbeat · ambient · tech · acoustic, new key/tempo/chords every time, ducked under the voice |
-| Sound effects | whooshes on transitions, pops for captions and stickers, riser + hit for the verdict: soft · crisp · punchy packs |
+| Sound effects | 24 synthesised effects in 8 packs (soft, crisp, punchy, airy, digital, warm, minimal, playful), each tuned differently per video, levelled to the same quiet volume under the voice |
 | Thumbnail | 10 formats: tilted card · diagonal split · centred stack · phone · sticker · giant key number with arrow · score badge · magnifying glass on the price · YES/NO split · bold brand poster — in 10 high-contrast colour schemes, never the same format or colours as the last few videos |
 
 Every thumbnail has the site's **logo**, its **name** and **"WORTH USING IT?"**.
@@ -93,6 +93,14 @@ YouTube permanently locks videos uploaded through an unverified API project as p
 4. After approval, set the variable `UPLOAD_MODE` = `api`. Videos then arrive on your channel as unlisted videos (change with the variable `YT_PRIVACY`), with their thumbnail and captions.
 
 ---
+
+### Make many videos at once
+
+**Actions → Make a batch of videos → Run workflow** asks *how many videos* (1–30) and *how many at the
+same time* (1–4). It picks that many products from the queue (never one already reviewed), makes them in
+parallel, then books them all and gives you **one download** (`all-videos-batch-N`) with every video.
+Example: 10 videos, 3 at a time ≈ 35–45 minutes. Remember YouTube's daily upload limits and that posting
+many AI-made videos a day can put monetisation at risk.
 
 ## Control it
 

@@ -157,7 +157,20 @@ def background(theme, size):
     g = g.resize(size, Image.BICUBIC)
     base = Image.composite(Image.new("RGB", size, c2), Image.new("RGB", size, c1), g).convert("RGBA")
 
-    if style == "mesh":
+    if style == "blurshot" and theme.get("bg_image") and Path(theme["bg_image"]).exists():
+        shot = Image.open(theme["bg_image"]).convert("RGB")
+        r = max(W / shot.width, H / shot.height) * 1.15
+        shot = shot.resize((int(shot.width * r) + 1, int(shot.height * r) + 1), Image.BILINEAR)
+        shot = shot.crop(((shot.width - W) // 2, (shot.height - H) // 2, (shot.width - W) // 2 + W,
+                          (shot.height - H) // 2 + H)).filter(ImageFilter.GaussianBlur(H // 22))
+        tint = Image.new("RGB", size, c1)
+        keep = 0.22 if not theme["light"] else 0.35       # mostly the theme colour, a hint of the site
+        base = Image.blend(tint, shot, keep).convert("RGBA")
+        glow = Image.radial_gradient("L").resize((int(W * 1.3), int(H * 1.3)), Image.BICUBIC)
+        light = Image.new("RGBA", glow.size, (*mix(c1, acc, 0.4), 0))
+        light.putalpha(glow.point(lambda v: int(max(0, 90 - v * 0.6))))
+        base.alpha_composite(light, (int(-W * 0.15), int(-H * 0.55)))
+    elif style == "mesh":
         small = Image.new("RGBA", (W // 4, H // 4), (0, 0, 0, 0))
         d = ImageDraw.Draw(small)
         blobs = [acc, theme.get("accent2", acc), mix(c1, acc, 0.5)]
@@ -210,7 +223,25 @@ def background(theme, size):
         fade = Image.radial_gradient("L").resize(size, Image.BICUBIC).point(lambda v: 255 - v)
         layer.putalpha(Image.composite(layer.getchannel("A"), Image.new("L", size, 0), fade))
         base.alpha_composite(layer)
+    if theme.get("grain", True):                     # fine film grain: modern feel, no colour banding
+        base.alpha_composite(_grain(size, 9 if not theme["light"] else 6))
     return base
+
+
+_grain_cache = {}
+
+
+def _grain(size, strength):
+    k = (size, strength)
+    if k not in _grain_cache:
+        noise = Image.effect_noise(size, 64).point(lambda v: 255 if v > 128 else 0)
+        layer = Image.new("RGBA", size, (255, 255, 255, 0))
+        layer.putalpha(noise.point(lambda v: strength if v else 0))
+        dark = Image.new("RGBA", size, (0, 0, 0, 0))
+        dark.putalpha(noise.point(lambda v: 0 if v else strength))
+        layer.alpha_composite(dark)
+        _grain_cache[k] = layer
+    return _grain_cache[k]
 
 
 # ------------------------------------------------------------------ logos & text

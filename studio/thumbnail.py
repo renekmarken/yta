@@ -252,6 +252,8 @@ def pick_palette(theme, recent=()):
 
 # ------------------------------------------------------------------ layouts
 def make_thumbnail(data, info, out_dir: Path, theme: dict) -> Path:
+    original = theme
+    theme = {**theme, "head_font": theme.get("thumb_font") or theme["head_font"]}   # bold display fonts here
     first = out_dir / info["screenshots"][0]["file"]
     shot = Image.open(first).convert("RGB")
     logo = load_logo(out_dir / info["logo"]) if info.get("logo") else None
@@ -485,8 +487,8 @@ def make_thumbnail(data, info, out_dir: Path, theme: dict) -> Path:
     overlay = config.ASSETS_DIR / "thumbnail_overlay.png"
     if overlay.exists():
         bg.alpha_composite(Image.open(overlay).convert("RGBA").resize((TW, TH)))
-    theme["thumb_palette"] = pal_name
-    theme["thumb"] = layout
+    original["thumb_palette"] = pal_name          # remembered so the next videos look different
+    original["thumb"] = layout
     out = out_dir / "thumbnail.jpg"
     bg.convert("RGB").save(out, quality=92)
     if out.stat().st_size > 2_000_000:

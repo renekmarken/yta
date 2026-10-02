@@ -10,10 +10,10 @@ from .sfx import PACKS
 from .thumbnail import LAYOUTS as THUMBS, PALETTES as THUMB_PALETTES
 from .visuals import available_head_fonts, lum, mix, shift_hue, text_safe
 
-LAYOUTS = ["full", "side", "stage", "cinema"]
+LAYOUTS = ["full", "side", "stage", "spotlight"]          # ("cinema" is kept only for old rerenders)
 FRAMES = ["mac_dark", "mac_light", "floating", "minimal"]
-CAPTIONS = ["bar", "pill", "tag", "underline"]
-BACKGROUNDS = ["gradient", "mesh", "spotlight", "grid", "dots", "aurora", "diagonal"]
+CAPTIONS = ["bar", "pill", "tag", "underline", "glass"]
+BACKGROUNDS = ["gradient", "mesh", "spotlight", "aurora", "blurshot", "blurshot"]   # clean, modern looks
 MODES = ["dark", "dark", "brand", "brand", "light"]
 TRANSITIONS = [["fade"], ["smoothleft", "smoothright"], ["fadeblack"], ["slideleft", "slideright"],
                ["circleopen", "fade"], ["wipeleft", "wiperight"], ["zoomin", "fade"], ["dissolve"],
@@ -21,7 +21,7 @@ TRANSITIONS = [["fade"], ["smoothleft", "smoothright"], ["fadeblack"], ["slidele
                ["slideup", "slidedown"], ["coverleft", "revealright"], ["vertopen", "horzopen"],
                ["squeezeh", "fade"], ["cut"]]
 CAPTION_ANIMS = ["slide_up", "slide_left", "drop", "fade_up", "slide_right"]
-CALLOUTS = ["card", "pill", "sticker", "glass"]
+CALLOUTS = ["card", "pill", "glass"]
 # music moods that suit each category best (any mood can still appear)
 MOOD_BIAS = {"credit-cards": ["lofi", "acoustic", "upbeat"], "insurance": ["acoustic", "ambient", "lofi"],
              "banking-apps": ["upbeat", "lofi", "acoustic"], "investing": ["ambient", "tech", "lofi"],
@@ -41,6 +41,7 @@ GEOMETRY = {   # where the website sits in the frame, per layout
     "side": {"cx": 600, "cy": 210, "cw": 1216, "ch": 684},
     "stage": {"cx": 240, "cy": 250, "cw": 1440, "ch": 810},
     "cinema": {"cx": 0, "cy": 0, "cw": 1920, "ch": 1080},
+    "spotlight": {"cx": 274, "cy": 118, "cw": 1372, "ch": 772},
 }
 
 
@@ -89,7 +90,8 @@ def pick_theme(seed, brand, history, has_mobile, category=None):
     layout = _avoid(rnd, LAYOUTS, rv("layout"))
     frames = ["mac_light", "floating", "minimal"] if light else FRAMES
     thumbs = THUMBS if has_mobile else [t for t in THUMBS if t != "phone"]
-    fonts = available_head_fonts()
+    all_fonts = available_head_fonts()
+    fonts = [f for f in all_fonts if f in ("inter", "interdisplay", "poppins")] or all_fonts  # clean in video
     theme = {
         "seed": seed, "mode": mode, "light": light, "layout": layout,
         "frame": _avoid(rnd, frames, rv("frame")),
@@ -113,7 +115,9 @@ def pick_theme(seed, brand, history, has_mobile, category=None):
                                      (0, 200, 255), accent if lum(accent) > 120 else (255, 212, 0)],
                                [tuple(a) for a in rv("thumb_accent") if a]),
         "thumb_tilt": rnd.choice([-6, -4, 4, 6]),
-        "radius": rnd.choice([14, 18, 24]),
+        "radius": rnd.choice([20, 24, 28]),
+        "thumb_font": _avoid(rnd, all_fonts, [h.get("theme", {}).get("thumb_font") for h in history[-2:]])
+                      if all_fonts else "inter",
         "cap_anim": _avoid(rnd, CAPTION_ANIMS, rv("cap_anim")[-1:]),
         "callout": _avoid(rnd, CALLOUTS, rv("callout")[-1:]),
         "music": _mood(rnd, category, rv("music")[-2:]),
