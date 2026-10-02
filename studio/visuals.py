@@ -172,6 +172,27 @@ def background(theme, size):
         glow = Image.new("RGBA", rg.size, (*mix(c1, acc, 0.35), 0))
         glow.putalpha(rg.point(lambda v: int(max(0, 150 - v * 0.75))))
         base.alpha_composite(glow, (int(-W * 0.2), int(-H * 0.9)))
+    elif style == "aurora":
+        small = Image.new("RGBA", (W // 4, H // 4), (0, 0, 0, 0))
+        d = ImageDraw.Draw(small)
+        cols = [acc, theme.get("accent2", acc), mix(acc, (255, 255, 255), 0.3)]
+        for k, col in enumerate(cols):
+            y = rnd.randint(-H // 40, H // 12) + k * H // 30
+            pts = [(x, y + int(math.sin(x / (W / 4) * math.pi * 2 + k) * H // 24))
+                   for x in range(-20, W // 4 + 40, 20)]
+            d.line(pts, fill=(*col, theme.get("blob_alpha", 70) + 30), width=H // 22)
+        small = small.filter(ImageFilter.GaussianBlur(H // 30))
+        base.alpha_composite(small.resize(size, Image.BICUBIC))
+    elif style == "diagonal":
+        layer = Image.new("RGBA", size, (0, 0, 0, 0))
+        d = ImageDraw.Draw(layer)
+        step = rnd.choice([90, 120, 160])
+        col = (*mix(c1, acc, 0.5), 22 if not theme["light"] else 18)
+        for x in range(-H, W + H, step):
+            d.polygon([(x, 0), (x + step // 2, 0), (x + step // 2 + H, H), (x + H, H)], fill=col)
+        fade = Image.linear_gradient("L").resize(size, Image.BICUBIC).point(lambda v: int(v * 0.9))
+        layer.putalpha(Image.composite(layer.getchannel("A"), Image.new("L", size, 0), fade))
+        base.alpha_composite(layer)
     elif style in ("grid", "dots"):
         layer = Image.new("RGBA", size, (0, 0, 0, 0))
         d = ImageDraw.Draw(layer)

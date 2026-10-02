@@ -65,6 +65,12 @@ def _tags(tags):
     return out
 
 
+def video_filename(title):
+    """Video file named after the YouTube title: Studio uses the file name as the starting title."""
+    name = re.sub(r'[\\/:*?"<>|\x00-\x1f]', "", title or "").strip().rstrip(".")
+    return (re.sub(r"\s+", " ", name)[:90].strip() or "video") + ".mp4"
+
+
 def full_description(data, info):
     brand_tag = re.sub(r"[^A-Za-z0-9]", "", data.get("brand", ""))
     cat_tag = {"credit-cards": "CreditCards", "insurance": "Insurance", "banking-apps": "Banking",
@@ -87,8 +93,9 @@ def full_description(data, info):
     return "\n\n".join(parts)[:4900]
 
 
-def write_kit(out, data, info, description, theme):
-    meta = {"title": data["youtube_title"], "description": description, "tags": _tags(data["tags"]),
+def write_kit(out, data, info, description, theme, video_file="video.mp4"):
+    meta = {"title": data["youtube_title"], "video_file": video_file, "description": description,
+            "tags": _tags(data["tags"]),
             "verdict": data.get("verdict"), "score": data.get("score"),
             "category": data.get("category"), "pinned_comment": data.get("pinned_comment", ""),
             "check_before_publishing": data.get("check_before_publishing", [])}
@@ -99,7 +106,7 @@ def write_kit(out, data, info, description, theme):
     (out / "UPLOAD_KIT.md").write_text(f"""# {data.get('brand')} — upload kit ({date.today()})
 
 Verdict: **{data.get('verdict')}** ({data.get('score')}/10) · {BY_ID.get(data.get('category'), {}).get('name', '')}
-Source: {info['url']} · Format: {data.get('format')} · Look: {theme['layout']}/{theme['mode']}/{theme['thumb']}
+Source: {info['url']} · Format: {data.get('format')} · Look: {theme['layout']}/{theme['mode']}/{theme['thumb']} · Music: {theme.get('music')}
 
 ## Before you publish (2 minutes)
 - [ ] Watch the video once
@@ -119,7 +126,7 @@ Source: {info['url']} · Format: {data.get('format')} · Look: {theme['layout']}
 {meta['pinned_comment']}
 
 ## Files
-- video.mp4 — upload this
+- {video_file} — upload this (named after the title, so Studio pre-fills it)
 - thumbnail.jpg — custom thumbnail
 - captions.srt — Subtitles → Upload file → With timing
 - "Altered or synthetic content" question: **No** (the narrator is an obvious AI voice, not a real person)
@@ -155,7 +162,7 @@ def produce(item, history, out=None, mode="new"):
         logo = load_logo(out / info["logo"]) if info.get("logo") else None
         bc = brand_color(logo, out / info["screenshots"][0]["file"])
         seed = f"{info['domain']}-{datetime.now(timezone.utc).isoformat()}"
-        theme = pick_theme(seed, bc, history, (out / "mobile.png").exists())
+        theme = pick_theme(seed, bc, history, (out / "mobile.png").exists(), data.get("category"))
     data["theme"] = theme
 
     print("3/6 voice-over")
@@ -169,7 +176,12 @@ def produce(item, history, out=None, mode="new"):
     print("6/6 metadata")
     (out / "script.json").write_text(json.dumps(data, indent=2, ensure_ascii=False))
     description = full_description(data, info)
-    write_kit(out, data, info, description, theme)
+    named = out / video_filename(data.get("youtube_title"))
+    for old in out.glob("*.mp4"):                      # earlier renders of this review
+        if old != video:
+            old.unlink()
+    video = video.rename(named)
+    write_kit(out, data, info, description, theme, named.name)
     shutil.rmtree(out / "render", ignore_errors=True)
 
     youtube_url = None
@@ -191,7 +203,9 @@ def produce(item, history, out=None, mode="new"):
                        "format": data.get("format"), "opener": opener,
                        "theme": {k: theme[k] for k in ("mode", "layout", "frame", "caption", "bg",
                                                        "head_font", "accent", "transitions", "intro",
-                                                       "highlight", "thumb", "thumb_accent")}}
+                                                       "highlight", "thumb", "thumb_accent",
+                                                       "cap_anim", "callout", "music", "sfx")
+                                 if k in theme}}
 
 
 def main():
@@ -207,7 +221,7 @@ def main():
     if a.upload:
         from studio.upload import upload
         meta = json.loads((a.upload / "metadata.json").read_text())
-        vid = upload(a.upload / "video.mp4", a.upload / "thumbnail.jpg", meta["title"],
+        vid = upload(a.upload / meta.get("video_file", "video.mp4"), a.upload / "thumbnail.jpg", meta["title"],
                      meta["description"], meta["tags"], a.upload / "captions.srt")
         print(f"https://youtu.be/{vid}")
         return

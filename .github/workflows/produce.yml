@@ -68,6 +68,8 @@ jobs:
           TTS_VOICE: ${{ vars.TTS_VOICE || 'en-US-AndrewMultilingualNeural' }}
           GEMINI_MODELS: ${{ vars.GEMINI_MODELS }}
           PIPER_VOICE: ${{ vars.PIPER_VOICE }}
+          MUSIC: ${{ vars.MUSIC }}
+          SFX: ${{ vars.SFX }}
         run: |
           if [ -n "${{ github.event.inputs.url }}" ]; then
             python run.py --url "${{ github.event.inputs.url }}"
@@ -91,7 +93,7 @@ jobs:
         with:
           name: videos-${{ github.run_number }}
           path: |
-            output/*/video.mp4
+            output/*/*.mp4
             output/*/thumbnail.jpg
             output/*/captions.srt
             output/*/UPLOAD_KIT.md

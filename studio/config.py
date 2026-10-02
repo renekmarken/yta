@@ -39,6 +39,8 @@ VIDEOS_PER_RUN = int(env("VIDEOS_PER_RUN", "1"))
 CHANNEL_NAME = env("CHANNEL_NAME", "Secret")
 VIDEO_W, VIDEO_H, FPS = 1920, 1080, 30
 FAST_RENDER = env("FAST_RENDER", "0") == "1"           # lower quality, for quick tests
+MUSIC = env("MUSIC", "auto")        # auto | off | lofi | upbeat | ambient | tech | acoustic
+SFX = env("SFX", "1") == "1"                          # sound effects on transitions/captions
 
 # --- Discovery ---
 DISCOVERY_MAX_NEW = int(env("DISCOVERY_MAX_NEW", "25"))  # new products added per discovery run

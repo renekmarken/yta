@@ -1,18 +1,34 @@
 """Per-video design system: every video gets its own combination of layout, colours, fonts,
-backgrounds, browser frame, caption style, transitions, intro, highlight and thumbnail layout,
-while staying recognisably the same channel. Choices avoid repeating the last videos' looks."""
+backgrounds, browser frame, caption style and animation, callout stickers, transitions, intro,
+highlight, music mood, sound-effect pack and thumbnail layout, while staying recognisably the same
+channel. Choices avoid repeating the last videos' looks."""
 import random
 
+from . import config
+from .music import MOODS
+from .sfx import PACKS
 from .visuals import available_head_fonts, lum, mix, shift_hue, text_safe
 
 LAYOUTS = ["full", "side", "stage", "cinema"]
 FRAMES = ["mac_dark", "mac_light", "floating", "minimal"]
 CAPTIONS = ["bar", "pill", "tag", "underline"]
-BACKGROUNDS = ["gradient", "mesh", "spotlight", "grid", "dots"]
+BACKGROUNDS = ["gradient", "mesh", "spotlight", "grid", "dots", "aurora", "diagonal"]
 MODES = ["dark", "dark", "brand", "brand", "light"]
 TRANSITIONS = [["fade"], ["smoothleft", "smoothright"], ["fadeblack"], ["slideleft", "slideright"],
                ["circleopen", "fade"], ["wipeleft", "wiperight"], ["zoomin", "fade"], ["dissolve"],
-               ["hblur", "fade"], ["smoothup", "smoothdown"], ["cut"]]
+               ["hblur", "fade"], ["smoothup", "smoothdown"], ["radial", "fade"],
+               ["slideup", "slidedown"], ["coverleft", "revealright"], ["vertopen", "horzopen"],
+               ["squeezeh", "fade"], ["cut"]]
+CAPTION_ANIMS = ["slide_up", "slide_left", "drop", "fade_up", "slide_right"]
+CALLOUTS = ["card", "pill", "sticker", "glass"]
+# music moods that suit each category best (any mood can still appear)
+MOOD_BIAS = {"credit-cards": ["lofi", "acoustic", "upbeat"], "insurance": ["acoustic", "ambient", "lofi"],
+             "banking-apps": ["upbeat", "lofi", "acoustic"], "investing": ["ambient", "tech", "lofi"],
+             "real-estate": ["acoustic", "lofi", "ambient"], "legal": ["ambient", "acoustic", "lofi"],
+             "saas": ["upbeat", "tech", "lofi"], "ai-tools": ["tech", "ambient", "upbeat"],
+             "business-tools": ["upbeat", "acoustic", "tech"], "marketing": ["upbeat", "tech", "lofi"],
+             "vpn-security": ["tech", "ambient", "lofi"], "hosting": ["tech", "upbeat", "lofi"],
+             "freelancing": ["lofi", "upbeat", "acoustic"]}
 INTROS = ["logo_pop", "headline", "split"]
 HIGHLIGHTS = ["box", "underline", "spotlight"]
 THUMBS = ["tilt_right", "split", "stack", "phone", "sticker"]
@@ -33,7 +49,16 @@ def _avoid(rnd, options, recent_values):
     return rnd.choice(fresh or options)
 
 
-def pick_theme(seed, brand, history, has_mobile):
+def _mood(rnd, category, recent):
+    forced = (config.MUSIC or "auto").lower()
+    if forced in MOODS or forced == "off":
+        return forced
+    pool = MOOD_BIAS.get(category, MOODS) * 2 + MOODS          # biased, but every mood possible
+    fresh = [m for m in pool if m not in recent]
+    return rnd.choice(fresh or pool)
+
+
+def pick_theme(seed, brand, history, has_mobile, category=None):
     rnd = random.Random(seed)
     recent = [h.get("theme", {}) for h in history[-3:]]
     rv = lambda k: [r.get(k) for r in recent]
@@ -87,6 +112,10 @@ def pick_theme(seed, brand, history, has_mobile):
                                [tuple(a) for a in rv("thumb_accent") if a]),
         "thumb_tilt": rnd.choice([-6, -4, 4, 6]),
         "radius": rnd.choice([14, 18, 24]),
+        "cap_anim": _avoid(rnd, CAPTION_ANIMS, rv("cap_anim")[-1:]),
+        "callout": _avoid(rnd, CALLOUTS, rv("callout")[-1:]),
+        "music": _mood(rnd, category, rv("music")[-2:]),
+        "sfx": _avoid(rnd, PACKS, rv("sfx")[-1:]) if config.SFX else "off",
     }
     theme.update(GEOMETRY[layout])
     return theme

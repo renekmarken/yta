@@ -45,14 +45,17 @@ Each video gets its own random combination, chosen to differ from the last few v
 |---|---|
 | Layout | full browser · side panel · stage · full-screen cinema |
 | Colour mode | dark · brand-coloured · light, accent from the site's own logo or an alternate |
-| Background | gradient · mesh · spotlight · grid · dots |
+| Background | gradient · mesh · spotlight · grid · dots · aurora · diagonal |
 | Browser frame | macOS dark/light · floating card · minimal |
-| Captions | accent bar · pill · numbered tag · underline |
+| Captions | accent bar · pill · numbered tag · underline, with a matching icon; animated in (slide up, drop, slide left/right, fade) |
+| Callout stickers | the key fact of a segment ("$0 monthly fee", "4.30% APY") pops in with an icon: card · pill · sticker · glass |
 | Headline font | Inter, Inter Display, Poppins, Archivo Black, Anton, Bebas Neue |
-| Transitions | fade, slide, smooth, wipe, circle, zoom, blur, hard cut… |
-| Intro card | logo pop · headline · split |
+| Transitions | fade, slide, smooth, wipe, circle, radial, cover/reveal, squeeze, zoom, blur, hard cut… |
+| Intro card | logo pop · headline · split, animated (cards slide in, logo pops, title lines rise) |
 | Smart camera | zooms onto the exact number/button being discussed and highlights it (box, underline or spotlight) |
-| Extras | progress bar, score ring or centred verdict end card |
+| Extras | progress bar; animated verdict end card (score counts up, ring or bar fills) |
+| Music | original track composed for each video: lofi · upbeat · ambient · tech · acoustic, new key/tempo/chords every time, ducked under the voice |
+| Sound effects | whooshes on transitions, pops for captions and stickers, riser + hit for the verdict: soft · crisp · punchy packs |
 | Thumbnail | tilted card · diagonal split · centred stack · phone · sticker |
 
 Every thumbnail has the site's **logo**, its **name** and **"WORTH USING IT?"**.
@@ -73,7 +76,7 @@ Every thumbnail has the site's **logo**, its **name** and **"WORTH USING IT?"**.
 
 Each video folder contains `UPLOAD_KIT.md`, which holds the title, description (with chapters and sources), tags, pinned comment and a short list of claims to double-check.
 
-1. In YouTube Studio, upload `video.mp4`.
+1. In YouTube Studio, upload the `.mp4`. It is named after the video's title, so Studio fills the title in for you.
 2. Paste the title, description and tags from the kit.
 3. Set `thumbnail.jpg` as the thumbnail and upload `captions.srt` under Subtitles.
 4. Add one line of your own take, then publish.
@@ -102,7 +105,8 @@ YouTube permanently locks videos uploaded through an unverified API project as p
 | See what was made | `data/history.json`, `data/done.txt`; blocked sites go to `data/failed.txt` |
 | Different voice | Variable `TTS_VOICE` (e.g. `en-US-AvaMultilingualNeural`, `en-US-BrianNeural`) |
 | Your channel badge on thumbnails | Add `assets/thumbnail_overlay.png` (1280×720, transparent) |
-| Background music | Add `assets/music.mp3` (royalty-free, e.g. YouTube Audio Library) |
+| Background music | Composed automatically. Variable `MUSIC` = `off`, or one mood (`lofi`, `upbeat`, `ambient`, `tech`, `acoustic`) for every video. Your own track: add `assets/music.mp3` |
+| Sound effects | On by default. Variable `SFX` = `0` turns them off |
 
 ## On your PC (optional)
 

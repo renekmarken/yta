@@ -5,6 +5,7 @@ import re
 
 from . import ai, config
 from .categories import BY_ID, describe_for_ai
+from .icons import ICONS
 
 # Different review formats so videos don't all sound the same.
 FORMATS = {
@@ -61,6 +62,10 @@ VISUALS: split the narration into 7-10 segments. Each segment shows ONE screensh
 an exact short text from that screenshot's ON-SCREEN TEXT list that the camera should zoom to and
 highlight (e.g. a price, rate, headline, button). Use focus on about half the segments, only when it
 matches what you are saying. Give each segment a punchy on-screen caption (max 6 words).
+On about half the segments add a "callout": the ONE key fact said in that segment as a tiny sticker,
+max 4 words, ideally with a number (e.g. "$0 monthly fee", "4.30% APY", "No phone support",
+"Free 30-day trial"). Only use facts from the sources below; leave it empty otherwise.
+Give every segment an "icon" that matches what it is about, chosen from: {icons}
 
 SCREENSHOTS:
 {shots}
@@ -71,7 +76,7 @@ Return ONLY JSON:
   "category": "one of: {cat_ids}",
   "verdict": "Worth it | Worth it for some | Not worth it",
   "score": 7.5,
-  "segments": [{{"screenshot": "home_0.png", "focus": "exact on-screen text or empty", "caption": "...", "text": "..."}}],
+  "segments": [{{"screenshot": "home_0.png", "focus": "exact on-screen text or empty", "caption": "...", "callout": "short fact or empty", "icon": "payments", "text": "..."}}],
   "youtube_title": "max 70 chars: brand + 'Review' or 'Worth It?' + 2026 + a curiosity hook; no ALL CAPS words except 1",
   "youtube_description": "150-250 words, natural keyword-rich summary of what the review covers; no timestamps, no hashtags",
   "tags": ["15-25 real search phrases, e.g. '<brand> review', 'is <brand> legit', '<brand> vs <competitor>', '<category> 2026'"],
@@ -156,6 +161,10 @@ def _fix_segments(data, info):
                     break
         seg["focus_box"] = match
         seg["caption"] = " ".join(seg.get("caption", "").split()[:7])
+        callout = " ".join(str(seg.get("callout") or "").split()[:5])
+        seg["callout"] = callout if 2 <= len(callout) <= 34 else ""
+        icon = str(seg.get("icon") or "").strip().lower().replace(" ", "_")
+        seg["icon"] = icon if icon in ICONS else ""
     return data
 
 
@@ -175,7 +184,7 @@ def write_script(info: dict, item: dict, history: list) -> dict:
         checklist="; ".join(cat["checklist"]) if cat else "pricing, trust signals, who it is for",
         min_words=340, max_words=440,
         recent_openers=json.dumps(recent_openers, ensure_ascii=False) if recent_openers else "none yet",
-        shots=_shots_for_prompt(info), cat_ids=", ".join(BY_ID),
+        shots=_shots_for_prompt(info), cat_ids=", ".join(BY_ID), icons=", ".join(ICONS),
         research=notes or "none available",
         title=info.get("title", ""), meta=info.get("meta_description", ""),
         home=info.get("home_text", "")[:9000],
