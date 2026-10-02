@@ -241,6 +241,23 @@ def cmd_mark_uploaded(names):
     lib.save()
 
 
+def cmd_remove_lost(names):
+    """Remove library entries whose files were lost (matched by brand, site or title)."""
+    import shutil
+    lib = Library()
+    wanted = [n.strip().lower() for n in names.split(",") if n.strip()]
+    keep = []
+    for e in lib.videos:
+        text = f"{e.get('brand', '')} {e.get('site', '')} {e.get('title', '')}".lower()
+        if e.get("missing") and any(w in text for w in wanted):
+            shutil.rmtree(VAULT / "v" / e["id"], ignore_errors=True)
+            print(f"  removed: {e.get('title')}")
+        else:
+            keep.append(e)
+    lib.videos[:] = keep
+    lib.save()
+
+
 def cmd_set_youtube(vid, url):
     lib = Library()
     for e in lib.videos:
@@ -252,4 +269,5 @@ def cmd_set_youtube(vid, url):
 if __name__ == "__main__":
     cmd, args = sys.argv[1], sys.argv[2:]
     {"add": cmd_add, "refresh": cmd_refresh, "migrate": cmd_migrate, "get": cmd_get,
-     "set-youtube": cmd_set_youtube, "mark-uploaded": cmd_mark_uploaded}[cmd](*args)
+     "set-youtube": cmd_set_youtube, "mark-uploaded": cmd_mark_uploaded,
+     "remove-lost": cmd_remove_lost}[cmd](*args)

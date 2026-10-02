@@ -21,6 +21,10 @@ on:
         description: "Optional: mark videos as uploaded (brand names, comma-separated)"
         required: false
         default: ""
+      remove_lost:
+        description: "Optional: remove videos whose files were lost (brand names, comma-separated)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -62,6 +66,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           IDS: ${{ steps.find.outputs.ids }}
           MARK: ${{ inputs.mark_uploaded }}
+          REMOVE: ${{ inputs.remove_lost }}
           LIBRARY_PASSWORD: ${{ secrets.LIBRARY_PASSWORD }}
           DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
           LIBRARY_REF: ${{ github.event.repository.default_branch }}
@@ -77,6 +82,7 @@ jobs:
           done
           python tools/library.py migrate
           if [ -n "$MARK" ]; then python tools/library.py mark-uploaded "$MARK"; fi
+          if [ -n "$REMOVE" ]; then python tools/library.py remove-lost "$REMOVE"; fi
           tools/vault.sh push                                # exits 1 unless GitHub really has the files
           git add -A docs/videos/
           git commit -qm "Video library: update" || exit 0
