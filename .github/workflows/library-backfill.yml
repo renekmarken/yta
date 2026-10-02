@@ -1,29 +1,33 @@
 name: Update the video library
 
-# Run this (leave the box empty) after adding or changing the LIBRARY_PASSWORD or DISPATCH_TOKEN
-# secrets. It also:
-#   * moves any older, unencrypted videos into the encrypted vault,
-#   * deletes the old public copies (GitHub Releases and Actions downloads) when "cleanup" is on,
-#   * optionally adds videos from earlier runs (give their run IDs, comma-separated).
+# The ONE place where finished videos go into the private, encrypted library (with their thumbnails,
+# captions and upload kit). Every video run keeps its files as temporary "911video-..." downloads and
+# then starts this workflow; it also runs every hour as a safety net, so anything a run left behind
+# (for example after a GitHub hiccup) is picked up automatically. The temporary downloads are deleted
+# only after the encrypted copies were saved AND verified on GitHub.
+#
+# Run it by hand after changing the LIBRARY_PASSWORD or DISPATCH_TOKEN secrets (leave the boxes empty).
 
 on:
+  schedule:
+    - cron: "47 * * * *"       # hourly safety net
   workflow_dispatch:
     inputs:
       run_ids:
-        description: "Optional: run IDs to add, comma-separated"
+        description: "Optional: video run IDs to add (comma-separated). Empty = everything waiting."
         required: false
         default: ""
-      cleanup:
-        description: "Delete old public copies (Releases, Actions downloads)"
-        type: boolean
-        default: true
+      mark_uploaded:
+        description: "Optional: mark videos as uploaded (brand names, comma-separated)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
   actions: write
 
 concurrency:
-  group: data-writer
+  group: library               # one library update at a time; never cancels a video run
   cancel-in-progress: false
 
 jobs:
@@ -32,41 +36,59 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+      - name: Find finished videos waiting for the library
+        id: find
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_IDS: ${{ inputs.run_ids }}
+          REPO: ${{ github.repository }}
+        run: |
+          ids=""
+          for id in $(echo "$RUN_IDS" | tr ',' ' '); do ids="$ids $(echo "$id" | tr -cd '0-9')"; done
+          # every finished run that still has videos waiting
+          for id in $(gh api "repos/$REPO/actions/artifacts?per_page=100" --paginate \
+                        --jq '.artifacts[] | select((.name | startswith("911video")) and (.expired | not)) | .workflow_run.id' | sort -u); do
+            [ "$(gh api "repos/$REPO/actions/runs/$id" --jq .status)" = completed ] && ids="$ids $id"
+          done
+          ids=$(echo $ids | tr ' ' '\n' | grep . | sort -u | tr '\n' ' ' || true)
+          echo "Runs with videos to add: ${ids:-none}"
+          echo "ids=$ids" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install cryptography
-      - name: Encrypt, add and refresh
+      - name: Add them to the library (encrypted)
         env:
           GH_TOKEN: ${{ github.token }}
-          RUN_IDS: ${{ inputs.run_ids }}
+          IDS: ${{ steps.find.outputs.ids }}
+          MARK: ${{ inputs.mark_uploaded }}
           LIBRARY_PASSWORD: ${{ secrets.LIBRARY_PASSWORD }}
           DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
           LIBRARY_REF: ${{ github.event.repository.default_branch }}
         run: |
-          tools/vault.sh pull
-          for id in $(echo "$RUN_IDS" | tr ',' ' '); do
-            id=$(echo "$id" | tr -cd '0-9')
-            [ -z "$id" ] && continue
-            rm -rf old
-            gh run download "$id" -D old || { echo "no downloads left for run $id"; continue; }
-            python tools/library.py add old "earlier-$id"
-          done
-          python tools/library.py migrate
-          tools/vault.sh push
           git config user.name "review-bot"
           git config user.email "review-bot@users.noreply.github.com"
+          git pull -q --ff-only || true                      # newest library list
+          tools/vault.sh pull
+          for id in $IDS; do
+            rm -rf incoming
+            gh run download "$id" -D incoming -p "911video*" || { echo "run $id: nothing to download"; continue; }
+            python tools/library.py add incoming "run-$id"
+          done
+          python tools/library.py migrate
+          if [ -n "$MARK" ]; then python tools/library.py mark-uploaded "$MARK"; fi
+          tools/vault.sh push                                # exits 1 unless GitHub really has the files
           git add -A docs/videos/
-          git commit -m "Video library: update" || true
+          git commit -qm "Video library: update" || exit 0
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
-      - name: Delete old public copies
-        if: success() && inputs.cleanup        # only after the vault save was verified
+      - name: Delete the temporary downloads (the library has verified copies now)
+        if: success() && steps.find.outputs.ids != ''
         env:
           GH_TOKEN: ${{ github.token }}
+          IDS: ${{ steps.find.outputs.ids }}
+          REPO: ${{ github.repository }}
         run: |
-          gh release list --limit 1000 --json tagName --jq '.[].tagName' | while read -r tag; do
-            echo "deleting release $tag"; gh release delete "$tag" --yes --cleanup-tag
+          for id in $IDS; do
+            gh api "repos/$REPO/actions/runs/$id/artifacts" --jq '.artifacts[] | select(.name | startswith("911video")) | .id' \
+              | while read -r a; do gh api -X DELETE "repos/$REPO/actions/artifacts/$a"; done
           done
-          gh api "repos/${{ github.repository }}/actions/artifacts" --paginate --jq '.artifacts[].id' \
-            | while read -r id; do gh api -X DELETE "repos/${{ github.repository }}/actions/artifacts/$id"; done
-          echo "Old public copies removed."

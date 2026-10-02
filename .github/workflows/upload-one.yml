@@ -60,6 +60,7 @@ jobs:
           VIDEO_ID: ${{ inputs.video_id }}
           URL: ${{ steps.yt.outputs.url }}
         run: |
+          git pull -q --ff-only || true
           python tools/library.py set-youtube "$VIDEO_ID" "$URL"
           git config user.name "review-bot"
           git config user.email "review-bot@users.noreply.github.com"

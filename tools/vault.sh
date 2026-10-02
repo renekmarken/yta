@@ -14,8 +14,10 @@ case "${1:-}" in
     rc=0; git ls-remote --exit-code --heads origin vault >/dev/null 2>&1 || rc=$?
     if [ "$rc" = 0 ]; then
       git fetch -q --depth=1 origin vault
+      git rev-parse FETCH_HEAD > "$(git rev-parse --git-common-dir)/vault-base"
       git worktree add -q --detach vault FETCH_HEAD
     elif [ "$rc" = 2 ]; then                                          # no vault branch yet
+      : > "$(git rev-parse --git-common-dir)/vault-base"            # must still not exist when we push
       git worktree add -q --orphan -b "vault-new-$(date +%s)" vault
     else                    # couldn't reach GitHub: stop, never start from an empty vault by mistake
       echo "::error::vault: could not read the vault branch from GitHub"; exit 1
@@ -27,7 +29,9 @@ case "${1:-}" in
     git add -A
     git -c user.name=review-bot -c user.email=review-bot@users.noreply.github.com \
         commit -qm "Encrypted video files" || { echo "vault: nothing to save"; exit 0; }
-    for i in 1 2 3; do git push -q -f origin HEAD:refs/heads/vault && break; sleep 5; done
+    base=$(cat "$(git rev-parse --git-common-dir)/vault-base" 2>/dev/null || echo "")
+    # only replace the vault if nobody else saved to it since our pull (their files would be lost)
+    for i in 1 2 3; do git push -q --force-with-lease="refs/heads/vault:$base" origin HEAD:refs/heads/vault && break; sleep 5; done
     remote=$(git ls-remote origin refs/heads/vault | cut -f1)
     if [ "$remote" != "$(git rev-parse HEAD)" ]; then
       echo "::error::vault: the encrypted files could NOT be saved to GitHub (nothing was deleted)"; exit 1

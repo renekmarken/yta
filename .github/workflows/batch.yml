@@ -4,7 +4,8 @@ name: Make a batch of videos
 # 1) picks that many products from the queue (never ones already reviewed), plus the optional
 #    website you type in (made even if it isn't in the queue),
 # 2) makes them in parallel, each in its own job,
-# 3) books everything at the end and gives you one download with all videos.
+# 3) books everything and hands the videos to "Update the video library", which adds them
+#    (with thumbnails) to your private library.
 
 on:
   workflow_dispatch:
@@ -133,7 +134,7 @@ jobs:
             output/*/metadata.json
             output/*/script.json
             output/*/result.json
-          retention-days: 3              # deleted as soon as the library has them
+          retention-days: 7              # deleted as soon as the library has verified copies
           if-no-files-found: ignore
 
   save:
@@ -166,26 +167,8 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Book batch of ${{ needs.plan.outputs.total }} videos"
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
-      - name: Add to the private video library (encrypted)
-        id: library
-        env:
-          LIBRARY_PASSWORD: ${{ secrets.LIBRARY_PASSWORD }}
-          DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
-          LIBRARY_REF: ${{ github.event.repository.default_branch }}
-        run: |
-          tools/vault.sh pull
-          python tools/library.py add results "batch-${{ github.run_number }}"
-          tools/vault.sh push
-          git config user.name "review-bot"
-          git config user.email "review-bot@users.noreply.github.com"
-          git add -A docs/videos/
-          git commit -m "Video library: add batch-${{ github.run_number }}" || exit 0
-          for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
-
-      - name: Delete the temporary per-video downloads (the library has the encrypted copies)
-        if: steps.library.outcome == 'success'
+      - name: Put them in the video library
+        if: always()                     # even if booking failed; the library step only needs the files
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" --paginate \
-            --jq '.artifacts[].id' | while read -r id; do gh api -X DELETE "repos/${{ github.repository }}/actions/artifacts/$id"; done
+        run: gh workflow run library-backfill.yml --ref "${{ github.ref_name }}" -f run_ids="${{ github.run_id }}"

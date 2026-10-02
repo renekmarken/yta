@@ -13,6 +13,7 @@ Without the password both are unreadable.
   python tools/library.py migrate                       # move older, unencrypted release files in
   python tools/library.py get <id> <out dir>            # decrypt one video (for the YouTube upload)
   python tools/library.py set-youtube <id> <url>
+  python tools/library.py mark-uploaded "Robinhood, Zoho"   # file them under "Already uploaded"
 """
 import base64
 import json
@@ -228,6 +229,18 @@ def cmd_get(vid, out):
     print(f"decrypted {e['title']}")
 
 
+def cmd_mark_uploaded(names):
+    """Mark videos as uploaded (matched by brand, site or title), so the page files them away."""
+    lib = Library()
+    wanted = [n.strip().lower() for n in names.split(",") if n.strip()]
+    for e in lib.videos:
+        text = f"{e.get('brand', '')} {e.get('site', '')} {e.get('title', '')}".lower()
+        if any(w in text for w in wanted):
+            e["uploaded"] = True
+            print(f"  marked uploaded: {e.get('title')}")
+    lib.save()
+
+
 def cmd_set_youtube(vid, url):
     lib = Library()
     for e in lib.videos:
@@ -239,4 +252,4 @@ def cmd_set_youtube(vid, url):
 if __name__ == "__main__":
     cmd, args = sys.argv[1], sys.argv[2:]
     {"add": cmd_add, "refresh": cmd_refresh, "migrate": cmd_migrate, "get": cmd_get,
-     "set-youtube": cmd_set_youtube}[cmd](*args)
+     "set-youtube": cmd_set_youtube, "mark-uploaded": cmd_mark_uploaded}[cmd](*args)

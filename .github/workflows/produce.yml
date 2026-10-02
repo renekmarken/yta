@@ -17,6 +17,7 @@ on:
 
 permissions:
   contents: write
+  actions: write               # to start "Update the video library"
 
 env:
   PYTHONUNBUFFERED: "1"         # show progress in the live log
@@ -88,24 +89,8 @@ jobs:
           git commit -m "Update processed sites"
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
 
-      - name: Add to the private video library (encrypted)
-        id: library
-        env:
-          LIBRARY_PASSWORD: ${{ secrets.LIBRARY_PASSWORD }}
-          DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
-          LIBRARY_REF: ${{ github.event.repository.default_branch }}
-        run: |
-          tools/vault.sh pull
-          python tools/library.py add output "videos-${{ github.run_number }}"
-          tools/vault.sh push
-          git config user.name "review-bot"
-          git config user.email "review-bot@users.noreply.github.com"
-          git add -A docs/videos/
-          git commit -m "Video library: add videos-${{ github.run_number }}" || exit 0
-          for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
-
-      - name: Keep the files if the library step failed (deleted after 3 days)
-        if: failure()
+      - name: Keep the finished videos for the library
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: 911video-videos-${{ github.run_number }}
@@ -115,5 +100,12 @@ jobs:
             output/*/captions.srt
             output/*/UPLOAD_KIT.md
             output/*/metadata.json
-          retention-days: 3
+            output/*/script.json
+          retention-days: 7
           if-no-files-found: ignore
+
+      - name: Put them in the video library
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run library-backfill.yml --ref "${{ github.ref_name }}" -f run_ids="${{ github.run_id }}"

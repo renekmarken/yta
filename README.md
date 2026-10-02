@@ -117,6 +117,13 @@ token with *Actions: read and write* on this repo only) that is stored inside th
 After changing either secret, run **Actions → Update the video library**. The newest 150 videos keep
 their files (`LIBRARY_KEEP` variable).
 
+How finished videos get in: every video run keeps its files as temporary `911video-…` downloads and
+then starts **Update the video library**, the only workflow that writes to the library. It adds each
+video with its 3 thumbnails, captions and upload kit, checks that GitHub really saved the encrypted
+files, and only then deletes the temporary downloads (kept 7 days otherwise). It also runs every hour
+as a safety net, so a video left behind by a failed step is picked up automatically. Two library
+updates can never overwrite each other's files: a save that would is refused and retried later.
+
 ### Make many videos at once
 
 **Actions → Make a batch of videos → Run workflow** (or **＋ Generate new videos** in the library) asks

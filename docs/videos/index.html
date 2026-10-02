@@ -85,6 +85,8 @@ textarea.box.desc{min-height:260px}
 .status{display:none;margin-bottom:18px;padding:12px 16px;border-radius:14px;background:var(--surface);border:1px solid var(--line);
   box-shadow:var(--shadow);align-items:center;gap:12px;font-size:15px}
 .status.on{display:flex}
+.xbtn{margin-left:auto;border:0;background:none;color:inherit;font-size:16px;cursor:pointer;padding:2px 6px;opacity:.7}
+.xbtn:hover{opacity:1}
 .done-list{margin-top:28px;border-top:1px solid var(--line);padding-top:18px}
 .done-list summary{cursor:pointer;font-weight:750;font-size:16px;list-style:none;display:flex;align-items:center;gap:10px;
   padding:12px 16px;border:1px solid var(--line);border-radius:14px;background:var(--surface);width:max-content;max-width:100%}
@@ -268,7 +270,7 @@ function ready(){
   checkRuns();
 }
 
-const isUploaded = v => uploaded(v.id) || !!v.youtube;
+const isUploaded = v => uploaded(v.id) || !!v.youtube || !!v.uploaded;
 const card = v => `
     <button class="card" data-id="${esc(v.id)}" aria-label="${esc(v.title)}">
       ${v.files?.thumbnail ? `<img class="thumb" data-enc="${esc(refPath(v.files.thumbnail))}" alt="">` : `<div class="thumb"></div>`}
@@ -451,6 +453,8 @@ function route(){
 }
 
 document.addEventListener("click", async e => {
+  const dis = e.target.closest("[data-dismiss]");
+  if (dis) { store.set("dismissed-run", dis.dataset.dismiss); showStatus(""); return; }
   const pick = e.target.closest("[data-pick]");
   if (pick) {
     document.querySelectorAll(".variant").forEach(el => el.classList.toggle("sel", el.contains(pick)));
@@ -639,20 +643,27 @@ async function checkRuns(){
         {headers: {"Authorization": "Bearer " + dispatch.token, "Accept": "application/vnd.github+json"}});
       return r.ok ? (await r.json()).workflow_runs?.[0] : null;
     };
-    const runs = (await Promise.all((watching ? [watching] : ["batch.yml", "upload-one.yml"]).map(latest))).filter(Boolean);
+    const files = watching ? [watching, "library-backfill.yml"] : ["batch.yml", "upload-one.yml", "library-backfill.yml"];
+    const runs = (await Promise.all(files.map(latest))).filter(Boolean)
+      .filter(r => !(r.event === "schedule" && r.status === "completed"));   // quiet hourly safety-net runs
     runs.sort((a, b) => (a.status === "completed") - (b.status === "completed") || new Date(b.updated_at) - new Date(a.updated_at));
     const run = runs[0];
-    const what = run && run.path && run.path.includes("upload-one") ? "Uploading to YouTube" : "Making videos";
+    const what = !run ? "" : run.path.includes("upload-one") ? "Uploading to YouTube"
+               : run.path.includes("library-backfill") ? "Adding the new videos to the library" : "Making videos";
     if (!run) return showStatus("");
     const age = (Date.now() - new Date(run.updated_at)) / 60000;
     if (run.status !== "completed") {
       const mins = Math.round((Date.now() - new Date(run.run_started_at || run.created_at)) / 60000);
       showStatus(`<span class="spinner"></span> ${what}… (${mins} min so far) · <a href="${esc(run.html_url)}" target="_blank" rel="noopener">details</a>`);
       pollTimer = setTimeout(checkRuns, 30000);
-    } else if (age < 30) {
+    } else if (age < 30 && store.get("dismissed-run") !== String(run.id)) {
       const ok = run.conclusion === "success";
-      showStatus(ok ? `✅ ${what === "Making videos" ? "New videos are ready" : "Uploaded to YouTube"} — <a href="#" onclick="location.reload();return false">refresh the page</a> to see it.`
-                    : `⚠️ The last run finished with problems · <a href="${esc(run.html_url)}" target="_blank" rel="noopener">details</a>`);
+      const close = `<button class="xbtn" data-dismiss="${run.id}" aria-label="Dismiss">✕</button>`;
+      if (ok && what === "Making videos") {           // the library update starts right after
+        showStatus(`<span class="spinner"></span> Adding the new videos to the library…`);
+        pollTimer = setTimeout(checkRuns, 20000);
+      } else showStatus((ok ? `✅ ${what === "Uploading to YouTube" ? "Uploaded to YouTube" : "New videos are in the library"} — <a href="#" onclick="location.reload();return false">refresh the page</a> to see them.`
+                    : `⚠️ The last run finished with problems · <a href="${esc(run.html_url)}" target="_blank" rel="noopener">details</a>`) + close);
     } else showStatus("");
   } catch { /* status is optional */ }
 }
