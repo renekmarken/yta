@@ -168,7 +168,9 @@ def cmd_add(src, tag):
             entry["youtube"] = f"https://youtu.be/{yt.read_text().strip()}"
         added.append(entry)
     ids = {e["id"] for e in added}
-    lib.videos[:] = added + [e for e in lib.videos if e["id"] not in ids]
+    sites = {e["site"] for e in added}                   # a remade video replaces one whose files were lost
+    lib.videos[:] = added + [e for e in lib.videos if e["id"] not in ids
+                             and not (e.get("missing") and e.get("site") in sites)]
     keep = int(os.environ.get("LIBRARY_KEEP", "150"))      # keep files of the newest N videos
     for e in lib.videos[keep:]:
         if e.get("files"):
