@@ -184,5 +184,54 @@
   "url": "https://wealthai.com",
   "status": "failed",
   "date": "2026-10-02"
+ },
+ {
+  "site": "legalzoom.com",
+  "name": "LegalZoom",
+  "url": "https://www.legalzoom.com",
+  "status": "done",
+  "date": ""
+ },
+ {
+  "site": "amazon.com",
+  "name": "Amazon Web Services",
+  "url": "https://aws.amazon.com",
+  "status": "done",
+  "date": ""
+ },
+ {
+  "site": "expressvpn.com",
+  "name": "ExpressVPN",
+  "url": "https://www.expressvpn.com",
+  "status": "done",
+  "date": ""
+ },
+ {
+  "site": "capitalone.com",
+  "name": "Capital One",
+  "url": "https://www.capitalone.com",
+  "status": "done",
+  "date": ""
+ },
+ {
+  "site": "fiverr.com",
+  "name": "Fiverr",
+  "url": "https://www.fiverr.com",
+  "status": "done",
+  "date": ""
+ },
+ {
+  "site": "allstate.com",
+  "name": "Allstate",
+  "url": "https://www.allstate.com",
+  "status": "done",
+  "date": ""
+ },
+ {
+  "site": "sosovalue.com",
+  "name": "SoSoValue",
+  "url": "https://sosovalue.com",
+  "status": "failed",
+  "date": "2026-10-02"
  }
 ]

@@ -475,7 +475,7 @@
    "added": "2026-10-02T19:25:59+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:25:59+00:00",
-   "priority": 16.2,
+   "priority": 16.16,
    "cat": "🛡️ Insurance"
   },
   "flowengineering.ai": {
@@ -491,7 +491,7 @@
    "added": "2026-10-02T19:25:59+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:25:59+00:00",
-   "priority": 16.07,
+   "priority": 16.03,
    "cat": "🤖 AI tools"
   },
   "magnitude.dev": {
@@ -507,7 +507,7 @@
    "added": "2026-10-02T19:25:59+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:25:59+00:00",
-   "priority": 15.34,
+   "priority": 15.3,
    "cat": "💻 SaaS / business software"
   },
   "vespper.com": {
@@ -523,7 +523,7 @@
    "added": "2026-10-02T19:25:59+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:25:59+00:00",
-   "priority": 15.42,
+   "priority": 15.39,
    "cat": "🤖 AI tools"
   },
   "earlyn.com": {
@@ -539,7 +539,7 @@
    "added": "2026-10-02T19:26:00+00:00",
    "launch": "today",
    "launch_seen": "2026-10-02T19:26:00+00:00",
-   "priority": 17.77,
+   "priority": 17.72,
    "cat": "🤖 AI tools"
   },
   "codync.com": {
@@ -555,7 +555,7 @@
    "added": "2026-10-02T19:26:00+00:00",
    "launch": "today",
    "launch_seen": "2026-10-02T19:26:00+00:00",
-   "priority": 17.77,
+   "priority": 17.72,
    "cat": "🤖 AI tools"
   },
   "gitsync.app": {
@@ -571,7 +571,7 @@
    "added": "2026-10-02T19:26:01+00:00",
    "launch": "today",
    "launch_seen": "2026-10-02T19:26:01+00:00",
-   "priority": 17.68,
+   "priority": 17.64,
    "cat": "📊 Business tools"
   },
   "cloudflare.com": {
@@ -587,7 +587,7 @@
    "added": "2026-10-02T19:26:01+00:00",
    "launch": "today",
    "launch_seen": "2026-10-02T19:26:01+00:00",
-   "priority": 17.68,
+   "priority": 17.64,
    "cat": "💻 SaaS / business software"
   },
   "rate.fm": {
@@ -603,7 +603,7 @@
    "added": "2026-10-02T19:26:01+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:01+00:00",
-   "priority": 14.69,
+   "priority": 14.66,
    "cat": "💻 SaaS / business software"
   },
   "chat.sh": {
@@ -619,7 +619,7 @@
    "added": "2026-10-02T19:26:02+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:02+00:00",
-   "priority": 14.69,
+   "priority": 14.66,
    "cat": "💻 SaaS / business software"
   },
   "dayforward.com": {
@@ -635,24 +635,8 @@
    "added": "2026-10-02T19:26:03+00:00",
    "launch": "today",
    "launch_seen": "2026-10-02T19:26:03+00:00",
-   "priority": 17.89,
+   "priority": 17.85,
    "cat": "🛡️ Insurance"
-  },
-  "sosovalue.com": {
-   "name": "SoSoValue",
-   "url": "https://sosovalue.com",
-   "category": "investing",
-   "hotness": 7.0,
-   "evergreen": false,
-   "why": "Advanced AI-powered crypto investment research platform.",
-   "sources": [
-    "Launch news"
-   ],
-   "added": "2026-10-02T19:26:03+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-02T19:26:03+00:00",
-   "priority": 17.89,
-   "cat": "📈 Investing platforms"
   },
   "fidelity.com": {
    "name": "Fidelity",
@@ -725,5 +709,5 @@
    "cat": "📈 Investing platforms"
   }
  },
- "updated": "2026-10-02T19:35:20+00:00"
+ "updated": "2026-10-02T19:58:49+00:00"
 }
