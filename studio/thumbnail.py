@@ -23,8 +23,7 @@ from .visuals import (fit, font, head_font, load_logo, logo_chip, lum, mix,
 
 TW, TH = 1280, 720
 
-LAYOUTS = ["tilt_right", "split", "stack", "phone", "sticker",
-           "big_fact", "verdict", "lens", "yes_no", "poster"]
+LAYOUTS = ["circle", "split", "fact", "ring", "lens", "phone"]
 
 # name: (background 1, background 2, text, accent, pop) — tested combinations with strong contrast
 PALETTES = {
@@ -223,7 +222,8 @@ class Boxes:
         out = []
         for i, (n1, k1, r1) in enumerate(self.items):
             for n2, k2, r2 in self.items[i + 1:]:
-                if "text" not in (k1, k2):
+                kinds = {k1, k2}
+                if "text" not in kinds and kinds != {"badge", "zone"}:    # badges may sit on heroes
                     continue
                 if min(r1[2], r2[2]) - max(r1[0], r2[0]) > tol and min(r1[3], r2[3]) - max(r1[1], r2[1]) > tol:
                     out.append(f"{n1} / {n2}")
@@ -235,6 +235,29 @@ class Boxes:
 
 
 def _head_metrics(theme, hk, max_w, max_h, size=230, sticker=False, stroke=8):
+    """Biggest hook that fits, trying the hook's own line breaks and, when there's height to spare,
+    one word per line for the big lines ("WORTH IT?" -> "WORTH" / "IT?"). Sets hk's lines to the winner."""
+    lines, big = hk["lines"], hk.get("big") or [True] * len(hk["lines"])
+    options = [(lines, big)]
+    split_l, split_b = [], []
+    for l, b in zip(lines, big):
+        parts = [[w] for w in l] if b and len(l) > 1 else [l]
+        split_l += parts
+        split_b += [b] * len(parts)
+    if len(split_l) != len(lines) and len(split_l) <= 4:
+        options.append((split_l, split_b))
+    best = None
+    for l, b in options:
+        m = _head_metrics_for(theme, {**hk, "lines": l, "big": b}, max_w, max_h, size, sticker, stroke)
+        if best is None or m["fonts"][max(range(len(b)), key=lambda i: b[i])].size > \
+                best[0]["fonts"][max(range(len(best[2])), key=lambda i: best[2][i])].size + 6:
+            best = (m, l, b)
+    m, l, b = best
+    hk["lines"], hk["big"] = l, b
+    return m
+
+
+def _head_metrics_for(theme, hk, max_w, max_h, size=230, sticker=False, stroke=8):
     """Biggest hook that fits max_w x max_h (the lead-in line smaller). Returns a dict of measurements."""
     d = ImageDraw.Draw(Image.new("L", (8, 8)))
     lines, big = hk["lines"], hk.get("big") or [True] * len(hk["lines"])
@@ -387,26 +410,38 @@ def _logo_tile(logo, brand, theme, size=260, tilt=0):
     return tile.rotate(tilt, Image.BICUBIC, expand=True) if tilt else tile
 
 
-def _arrow(canvas, start, end, color, width=22, head=56, outline=(14, 15, 18)):
-    """Thick curved-ish arrow (two segments) with an outlined head."""
+def _arrow(canvas, start, end, color, width=22, head=56, outline=(14, 15, 18), bend=0.28):
+    """Smooth, thick curved arrow (quadratic curve bowing upwards) with an outline and a clean head."""
     import math
     (x1, y1), (x2, y2) = start, end
-    mx, my = (x1 + x2) / 2, min(y1, y2) - 40
+    dist = math.hypot(x2 - x1, y2 - y1) or 1
+    nx, ny = -(y2 - y1) / dist, (x2 - x1) / dist          # normal; bow towards the top of the frame
+    if ny > 0:
+        nx, ny = -nx, -ny
+    mx, my = (x1 + x2) / 2 + nx * dist * bend, (y1 + y2) / 2 + ny * dist * bend
+    pts = [((1 - t) ** 2 * x1 + 2 * (1 - t) * t * mx + t * t * x2,
+            (1 - t) ** 2 * y1 + 2 * (1 - t) * t * my + t * t * y2) for t in [i / 40 for i in range(41)]]
+    ang = math.atan2(y2 - pts[-4][1], x2 - pts[-4][0])
+    back = (x2 - head * 0.8 * math.cos(ang), y2 - head * 0.8 * math.sin(ang))
+    shaft = [p for p in pts if math.hypot(p[0] - x2, p[1] - y2) > head * 0.7] + [back]
+    tri = lambda h: [(x2 + (h - head) * 0.0 * math.cos(ang), y2),
+                     (x2 - h * math.cos(ang - 0.5), y2 - h * math.sin(ang - 0.5)),
+                     (x2 - h * math.cos(ang + 0.5), y2 - h * math.sin(ang + 0.5))]
+    layer = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    d.line(shaft, fill=(0, 0, 0, 120), width=width + 14, joint="curve")
+    shadow = layer.filter(ImageFilter.GaussianBlur(8))
+    canvas.alpha_composite(shadow, (4, 7))
     d = ImageDraw.Draw(canvas)
-    pts = [(x1 + (mx - x1) * t * 2, y1 + (my - y1) * t * 2) if t < 0.5 else
-           (mx + (x2 - mx) * (t - 0.5) * 2, my + (y2 - my) * (t - 0.5) * 2) for t in [i / 20 for i in range(21)]]
-    ang = math.atan2(y2 - pts[-3][1], x2 - pts[-3][0])
-    tip = (x2, y2)
-    left = (x2 - head * math.cos(ang - 0.55), y2 - head * math.sin(ang - 0.55))
-    right = (x2 - head * math.cos(ang + 0.55), y2 - head * math.sin(ang + 0.55))
-    shaft = pts[:-2]
     d.line(shaft, fill=outline, width=width + 12, joint="curve")
-    d.polygon([tip, left, right], fill=outline)
+    for p in (shaft[0],):
+        d.ellipse([p[0] - (width + 12) / 2, p[1] - (width + 12) / 2, p[0] + (width + 12) / 2, p[1] + (width + 12) / 2],
+                  fill=outline)
+    d.polygon(tri(head + 12), fill=outline)
     d.line(shaft, fill=color, width=width, joint="curve")
-    inset = [(tip[0] - 7 * math.cos(ang), tip[1] - 7 * math.sin(ang)),
-             (left[0] + 5 * math.cos(ang - 1.2), left[1] + 5 * math.sin(ang - 1.2)),
-             (right[0] + 5 * math.cos(ang + 1.2), right[1] + 5 * math.sin(ang + 1.2))]
-    d.polygon(inset, fill=color)
+    d.ellipse([shaft[0][0] - width / 2, shaft[0][1] - width / 2, shaft[0][0] + width / 2, shaft[0][1] + width / 2],
+              fill=color)
+    d.polygon(tri(head), fill=color)
 
 
 def key_fact(data):
@@ -459,27 +494,28 @@ def pick_palette(theme, recent=()):
     return rnd.choice(fresh)
 
 # ------------------------------------------------------------------ layouts
-SCREEN_LAYOUTS = ["tilt_right", "split", "stack", "phone", "lens", "big_fact"]
-BRAND_LAYOUTS = ["verdict", "poster", "yes_no", "sticker"]
+# One grid for every thumbnail: the product's logo big in the top-left corner, the hook huge in the
+# left column, a "hero" filling the right side (zoomed-in screenshot with a red circle and an arrow,
+# a fact sticker, a score ring, the phone app or a magnifier), all on a blurred, colour-graded
+# screenshot of the product with soft lights. Nothing is left empty.
+HERO_X = 652                         # where the right-hand hero starts; the text column ends before it
+LOGO_BOX = (40, 30, 620, 190)        # x, y, max width, max height of the logo chip
+CIRCLE_RED = (255, 38, 48)
 
 
 def _fits(layout, hk, has_mobile, fact):
-    return not ((layout == "phone" and not has_mobile) or (layout == "big_fact" and not fact)
-                or (layout == "yes_no" and not hk["text"].endswith("?")))
+    return not ((layout == "phone" and not has_mobile) or (layout == "fact" and not fact))
 
 
 def pick_layouts(theme, hooks, has_mobile, fact):
-    """One layout per variation, all different; at least one shows the site, one puts the logo first."""
+    """One layout per variation, all different."""
     rnd = random.Random(theme["seed"] + "variants")
-    first = theme.get("thumb") or "tilt_right"
-    if not _fits(first, hooks[0], has_mobile, fact):
-        first = "tilt_right"
+    first = theme.get("thumb")
+    if first not in LAYOUTS or not _fits(first, hooks[0], has_mobile, fact):
+        first = rnd.choice([l for l in ("circle", "split", "fact") if _fits(l, hooks[0], has_mobile, fact)])
     out = [first]
-    for i, hk in enumerate(hooks[1:], 1):
-        fam = BRAND_LAYOUTS if out[0] in SCREEN_LAYOUTS and i == 1 else \
-            (SCREEN_LAYOUTS if i == 1 else SCREEN_LAYOUTS + BRAND_LAYOUTS)
-        cands = [l for l in fam if l not in out and _fits(l, hk, has_mobile, fact)] or \
-                [l for l in LAYOUTS if l not in out and _fits(l, hk, has_mobile, fact)]
+    for hk in hooks[1:]:
+        cands = [l for l in LAYOUTS if l not in out and _fits(l, hk, has_mobile, fact)]
         out.append(rnd.choice(cands))
     return out
 
@@ -490,7 +526,7 @@ def pick_palettes(theme, n=3):
     rest = [p for p in PALETTES if p != first]
     rnd.shuffle(rest)
     light = first in LIGHT_PALETTES
-    rest.sort(key=lambda p: (p in LIGHT_PALETTES) == light)    # mix light and dark looks
+    rest.sort(key=lambda p: (p in LIGHT_PALETTES) == light)
     out = [first]
     for p in rest:
         if len(out) >= n:
@@ -510,300 +546,284 @@ def _pill_text(data, hk, fact, i):
     return f"{data.get('verdict') or 'Honest review'}"
 
 
-def render(data, info, out_dir, theme, layout, pal_name, hk, pill_text):
+def _detail(im):
+    """How much readable detail (text, numbers, buttons) an image region has, 0..1."""
+    small = im.convert("L").resize((max(1, im.width // 6), max(1, im.height // 6)))
+    e = small.filter(ImageFilter.FIND_EDGES).point(lambda v: 255 if v > 40 else 0)
+    return sum(e.getdata()) / 255 / max(1, e.width * e.height)
+
+
+def _hero_source(data, info, out_dir, aspect=0.9):
+    """(screenshot, crop box, target point in the crop, target box or None) for the hero: the review's
+    highlighted fact when there is one, else the most detailed part of the most detailed screenshot.
+    Blank or near-empty crops (cookie walls, loading screens) are skipped."""
+    cands = []
+    name, focus, box = _best_focus(data, info)
+    if focus:
+        cands.append((name, focus, box))
+    for s in info["screenshots"]:
+        if s["file"] != "mobile.png":
+            cands.append((s["file"], None, None))
+    best = None
+    for name, focus, box in cands:
+        try:
+            src = Image.open(out_dir / name).convert("RGB")
+        except OSError:
+            continue
+        cw = int(src.width * 0.5)
+        ch = min(src.height, int(cw * aspect))
+        fx, fy = focus or busiest_point(src, (cw, ch))
+        x0 = int(max(0, min(src.width - cw, fx - cw / 2)))
+        y0 = int(max(0, min(src.height - ch, fy - ch / 2)))
+        crop = src.crop((x0, y0, x0 + cw, y0 + ch))
+        score = _detail(crop) + (0.05 if box else 0)
+        if box:
+            target, tbox = (fx - x0, fy - y0), (box["x"] - x0, box["y"] - y0, box["w"], box["h"])
+        else:
+            tx, ty = busiest_point(crop, (int(cw * 0.34), int(ch * 0.26)))
+            target, tbox = (tx, ty), None
+        if best is None or score > best[0]:
+            best = (score, src, crop, target, tbox)
+        if score > 0.06 and (box or best[0] == score):
+            break
+    _, src, crop, target, tbox = best
+    return src, crop, target, tbox
+
+
+def _rot_point(pt, size, angle, new_size):
+    """Where a point of an image lands after PIL's rotate(angle, expand=True)."""
+    import math
+    a = math.radians(angle)
+    cx, cy = size[0] / 2, size[1] / 2
+    dx, dy = pt[0] - cx, pt[1] - cy
+    return (new_size[0] / 2 + dx * math.cos(a) + dy * math.sin(a),
+            new_size[1] / 2 - dx * math.sin(a) + dy * math.cos(a))
+
+
+def _ring(draw_on, cx, cy, rx, ry, color=CIRCLE_RED, width=11):
+    """Hand-drawn style circle: two slightly offset strokes with a white edge and a red glow."""
+    glow = Image.new("RGBA", draw_on.size, (0, 0, 0, 0))
+    ImageDraw.Draw(glow).ellipse([cx - rx, cy - ry, cx + rx, cy + ry], outline=(*color, 200), width=width + 16)
+    draw_on.alpha_composite(glow.filter(ImageFilter.GaussianBlur(12)))
+    d = ImageDraw.Draw(draw_on)
+    d.ellipse([cx - rx - 3, cy - ry - 3, cx + rx + 3, cy + ry + 3], outline=(255, 255, 255), width=width + 6)
+    d.ellipse([cx - rx, cy - ry, cx + rx, cy + ry], outline=color, width=width)
+    d.arc([cx - rx - 10, cy - ry + 4, cx + rx + 6, cy + ry + 10], 200, 330, fill=color, width=width - 3)
+
+
+def _hero_card(bg, B, crop, target, tbox, tilt, glow_col, circle=True, width=700):
+    """Big zoomed-in screenshot card on the right (bleeding off the edge), optional red circle.
+    Returns the circle (cx, cy, rx, ry) in canvas coordinates, or the target point."""
+    s = width / crop.width
+    card = crop.resize((width, int(crop.height * s)), Image.LANCZOS)
+    border = 10
+    framed = rounded((card.width + border * 2, card.height + border * 2), 26, (255, 255, 255, 255))
+    framed.alpha_composite(round_corners(card.convert("RGBA"), 18), (border, border))
+    tx, ty = target[0] * s + border, target[1] * s + border
+    if tbox:
+        rx = max(70, tbox[2] * s / 2 + 34)
+        ry = max(46, tbox[3] * s / 2 + 26)
+    else:
+        rx, ry = 120, 78
+    rx, ry = min(rx, framed.width * 0.42), min(ry, framed.height * 0.3)
+    if circle:
+        _ring(framed, tx, ty, rx, ry)
+    rot = framed.rotate(tilt, Image.BICUBIC, expand=True)
+    x = HERO_X + 6
+    y = max(14, (TH - rot.height) // 2 + 8)
+    _halo(bg, (x + 40, y + 40, x + rot.width - 40, y + rot.height - 40), glow_col, 70, 210)
+    paste_shadowed(bg, rot, (x, y), 30, 30, 210, 22)
+    B.add("screenshot", (x, y, x + rot.width, y + rot.height), "hero")
+    px, py = _rot_point((tx, ty), framed.size, tilt, rot.size)
+    return x + px, y + py, rx, ry
+
+
+def _logo_big(canvas, B, logo, brand, theme):
+    """The product's logo, big, top-left, on a white chip with a soft glow. Returns its bottom y."""
+    x, y, max_w, max_h = LOGO_BOX
+    if logo is not None:
+        inner = int(max_h / 1.76)
+        chip = logo_chip(logo, inner, radius=30, light_bg=True)
+        while chip.width > max_w and inner > 30:
+            inner -= 4
+            chip = logo_chip(logo, inner, radius=30, light_bg=True)
+    else:
+        d = ImageDraw.Draw(Image.new("L", (8, 8)))
+        f = fit(d, brand.upper(), lambda s: head_font(theme["head_font"], s), max_w - 70, int(max_h * 0.55))
+        tw = int(d.textlength(brand.upper(), font=f))
+        chip = rounded((tw + 70, int(f.size * 1.5)), 28, (255, 255, 255, 255))
+        ImageDraw.Draw(chip).text((35, chip.height / 2), brand.upper(), font=f, fill=(14, 15, 18), anchor="lm")
+    _halo(canvas, (x, y, x + chip.width, y + chip.height), (255, 255, 255), 34, 70)
+    paste_shadowed(canvas, chip, (x, y), 30, 22, 190, 12)
+    B.add("logo", (x, y, x + chip.width, y + chip.height))
+    return y + chip.height
+
+
+def _text_style(theme, i, pal_light):
+    """plain glowing text, or labels (dark labels with white text / white labels with dark text)."""
+    style = ["plain", "labels", "plain"][(i + len(theme["seed"])) % 3]
+    if style == "labels":
+        return ((14, 15, 18), (255, 255, 255), 2.0) if not pal_light else ((255, 255, 255), (14, 15, 18), 2.0)
+    return None
+
+
+def render(data, info, out_dir, theme, layout, pal_name, hk, pill_text, variant=0):
     """Draw one thumbnail. Returns (image, Boxes)."""
     B = Boxes()
     theme = {**theme, "head_font": theme.get("thumb_font") or theme["head_font"]}   # bold display fonts here
-    shot = Image.open(out_dir / info["screenshots"][0]["file"]).convert("RGB")
     logo = load_logo(out_dir / info["logo"]) if info.get("logo") else None
     brand = data.get("brand") or info["domain"]
     b1, b2, ptxt, pacc, ppop = PALETTES[pal_name]
     pal_light = pal_name in LIGHT_PALETTES
-    acc = pacc if lum(pacc) >= 80 else (ppop if lum(ppop) > 120 else (255, 212, 0))   # accents must pop
-    brand_col = theme["accent"]
+    acc = pacc if lum(pacc) >= 80 else (ppop if lum(ppop) > 120 else (255, 212, 0))
+    if pal_light:
+        acc = pacc if lum(pacc) < 170 else (214, 24, 36)
     fact = key_fact(data)
     outline = (10, 10, 12) if lum(ptxt) > 128 else (255, 255, 255)
-    pop = ppop if ppop not in (ptxt,) else brand_col
-    glow_col = _vivid(b2) if not pal_light else mix(acc, (255, 255, 255), 0.2)
+    pop = ppop if ppop not in (ptxt,) else theme["accent"]
+    glow_col = _vivid(b2) if not pal_light else mix(pacc, (255, 255, 255), 0.2)
     tilt = abs(theme.get("thumb_tilt", 5)) or 5
-    shade = mix(b1, (0, 0, 0), 0.7) if not pal_light else (12, 12, 16)
+    tilt = -tilt if (variant % 2 == 0) else tilt * 0.6
+    src, crop, target, tbox = _hero_source(data, info, out_dir)
 
-    if layout == "tilt_right":
-        # Tilted screenshot on the right with a coloured glow; hook on the left.
-        bg = _pal_bg(shot, pal_name if not pal_light else "midnight_yellow", hero=(1000, 380))
-        _left_fade(bg, strength=170, reach=0.62, color=shade)
-        card = _card(shot, 660, -tilt)
-        cx, cy = TW - card.width + 170, max(70, (TH - card.height) // 2 + 30)
-        _halo(bg, (cx + 30, cy + 30, cx + card.width - 30, cy + card.height - 30), glow_col, 60, 200)
-        paste_shadowed(bg, card, (cx, cy), 30, 26, 200, 20)
-        B.add("screenshot", (cx, cy, cx + card.width, cy + card.height), "hero")
-        _column(bg, B, theme, 58, 44, TH - 44, cx - 58 - 26, hk, acc if not pal_light else (255, 212, 0),
-                logo=logo, brand=brand, pill=pill_text,
-                pill_col=ppop if lum(b1) < 90 and ppop != (255, 255, 255) else brand_col)
+    bg = _pal_bg(src, pal_name, hero=(980, 360), ghost=0.42)
+    if not pal_light:
+        _left_fade(bg, strength=150, reach=0.58, color=mix(b1, (0, 0, 0), 0.75))
+    sticker = _text_style(theme, variant, pal_light)
+    head = dict(text_col=ptxt, stroke=0 if pal_light else 8, outline=outline)
+    if sticker:
+        head = dict(sticker=sticker)
+    col_w = HERO_X - 44 - 26
+    arrow_to = None
+
+    if layout in ("circle", "fact", "lens"):
+        cx, cy, rx, ry = _hero_card(bg, B, crop, target, tbox, tilt, glow_col, circle=(layout != "lens"))
+        if layout == "circle":
+            arrow_to = (cx - rx - 12, cy)
+        elif layout == "lens":
+            lr = 150
+            zoom = _cover(crop, (lr * 2, lr * 2), focus=target, zoom=2.2)
+            mask = Image.new("L", (lr * 2, lr * 2), 0)
+            ImageDraw.Draw(mask).ellipse([0, 0, lr * 2 - 1, lr * 2 - 1], fill=255)
+            ring_col = acc if not pal_light else pop
+            lens = Image.new("RGBA", (lr * 2 + 36, lr * 2 + 36), (0, 0, 0, 0))
+            ImageDraw.Draw(lens).ellipse([0, 0, lr * 2 + 35, lr * 2 + 35], fill=(*ring_col, 255))
+            inner = zoom.convert("RGBA")
+            inner.putalpha(mask)
+            lens.alpha_composite(inner, (18, 18))
+            lx = int(max(HERO_X + 10, min(TW - lens.width - 30, cx - lens.width / 2)))
+            ly = int(max(30, min(TH - lens.height - 120, cy - lens.height / 2)))
+            _blob(bg, lx + lens.width / 2, ly + lens.height / 2, lr + 150, ring_col, 150)
+            handle = Image.new("RGBA", (TW, TH), (0, 0, 0, 0))
+            ImageDraw.Draw(handle).line([(lx + lens.width - 40, ly + lens.height - 40),
+                                         (lx + lens.width + 70, ly + lens.height + 70)], fill=(*ring_col, 255), width=40)
+            bg.alpha_composite(handle)
+            paste_shadowed(bg, lens, (lx, ly), lr + 18, 30, 210, 18)
+            B.add("lens", (lx, ly, lx + lens.width, ly + lens.height), "hero")
+            arrow_to = (lx - 8, ly + lens.height / 2)
+        else:  # fact: big number sticker on the card, arrow from it to the circled spot
+            big, small = fact
+            d = ImageDraw.Draw(bg)
+            hf = lambda s: head_font(theme["head_font"], s)
+            nf = fit(d, big, hf, 360, 150)
+            sf = fit(d, small or " ", lambda s: font("Black", s), 360, 34)
+            w = int(max(d.textlength(big, font=nf), d.textlength(small or "", font=sf))) + 64
+            h = int(nf.getbbox("$0")[3] - nf.getbbox("$0")[1]) + (int(sf.size * 1.3) if small else 0) + 56
+            col = pop if lum(pop) > 60 and pop != (255, 255, 255) else (255, 212, 0)
+            st = rounded((w, h), 24, (*col, 255))
+            sd = ImageDraw.Draw(st)
+            ty0 = 26 - nf.getbbox("$0")[1]
+            sd.text((32, ty0), big, font=nf, fill=readable_on(col))
+            if small:
+                sd.text((34, h - 26 - sf.size), small, font=sf, fill=readable_on(col))
+            st = st.rotate(4, Image.BICUBIC, expand=True)
+            sx, sy = HERO_X - 6, 36
+            paste_shadowed(bg, st, (sx, sy), 24, 22, 200, 14)
+            B.add("fact sticker", (sx, sy, sx + st.width, sy + st.height), "badge")
+            if cy > sy + st.height + 60:
+                _arrow(bg, (sx + st.width * 0.55, sy + st.height + 4), (cx - rx * 0.4, cy - ry - 8),
+                       CIRCLE_RED, width=18, head=48, outline=(255, 255, 255))
 
     elif layout == "split":
-        # Hook on a glowing colour panel, the live site on the right.
-        bg = _cover(shot, (TW, TH), focus=busiest_point(shot, (1000, 900)), zoom=1.2,
-                    anchor=(0.73, 0.5)).convert("RGBA")
+        # the live site, crisp and zoomed, filling the right side behind a glowing diagonal edge
+        x_top, x_bot = HERO_X + 70, HERO_X - 6
+        right = _cover(crop, (TW - x_bot, TH), focus=target, zoom=1.0).convert("RGBA")
+        sc = (TW - x_bot) / crop.width if crop.width / crop.height > (TW - x_bot) / TH else TH / crop.height
+        layer = Image.new("RGBA", (TW, TH), (0, 0, 0, 0))
+        layer.alpha_composite(right, (x_bot, 0))
         mask = Image.new("L", (TW, TH), 0)
-        ImageDraw.Draw(mask).polygon([(0, 0), (720, 0), (600, TH), (0, TH)], fill=255)
-        panel = _pal_bg(shot, pal_name, hero=(260, 300), ghost=0.3)
-        bg = Image.composite(panel, bg, mask)
+        ImageDraw.Draw(mask).polygon([(x_top, 0), (TW, 0), (TW, TH), (x_bot, TH)], fill=255)
+        bg = Image.composite(layer, bg, mask)
         edge = Image.new("RGBA", (TW, TH), (0, 0, 0, 0))
-        ImageDraw.Draw(edge).line([(720, 0), (600, TH)], fill=(*(acc if not pal_light else ppop), 255), width=34)
-        bg.alpha_composite(edge.filter(ImageFilter.GaussianBlur(22)))
-        ImageDraw.Draw(bg).line([(720, 0), (600, TH)], fill=acc if not pal_light else ppop, width=10)
-        B.add("screenshot", (612, 0, TW, TH), "hero")
-        _column(bg, B, theme, 54, 44, TH - 44, 540, hk, acc, logo=logo, brand=brand, dark=pal_light,
-                pill=pill_text, pill_col=ppop if ppop != ptxt else brand_col, pill_size=44, text_col=ptxt,
-                stroke=0 if pal_light else 7, outline=outline)
+        ImageDraw.Draw(edge).line([(x_top, 0), (x_bot, TH)], fill=(*acc, 255), width=34)
+        bg.alpha_composite(edge.filter(ImageFilter.GaussianBlur(20)))
+        ImageDraw.Draw(bg).line([(x_top, 0), (x_bot, TH)], fill=acc, width=9)
+        B.add("screenshot", (x_bot, 0, TW, TH), "hero")
+        # the target inside the shown part (approximate cover crop maths)
+        cxs, cys = right.width / 2, right.height / 2
+        cx = x_bot + max(90, min(right.width - 90, cxs + (target[0] - crop.width / 2) * sc))
+        cy = max(90, min(TH - 90, cys + (target[1] - crop.height / 2) * sc))
+        rx = max(90, (tbox[2] * sc / 2 + 34) if tbox else 130)
+        ry = max(60, (tbox[3] * sc / 2 + 26) if tbox else 84)
+        _ring(bg, cx, cy, min(rx, 220), min(ry, 140))
+        arrow_to = (cx - min(rx, 220) - 12, cy)
 
-    elif layout == "stack":
-        # Centred hook between two glowing screenshots that lean in from the sides.
-        bg = _pal_bg(shot, pal_name if not pal_light else "black_green", hero=(640, 330))
-        left, right = _card(shot, 470, 9), _card(shot, 470, -9)
-        ly_, ry_ = (TH - left.height) // 2 + 40, (TH - right.height) // 2 + 40
-        lpos, rpos = (-left.width + 300, ly_), (TW - 300, ry_)
-        for c, pos in ((left, lpos), (right, rpos)):
-            _halo(bg, (pos[0] + 20, pos[1] + 20, pos[0] + c.width - 20, pos[1] + c.height - 20), glow_col, 50, 170)
-            paste_shadowed(bg, c, pos, 30, 22, 190, 16)
-            B.add("screenshot", (pos[0], pos[1], pos[0] + c.width, pos[1] + c.height), "hero")
-        _column(bg, B, theme, TW // 2, 36, TH - 44, rpos[0] - (lpos[0] + left.width) - 50, hk,
-                acc if not pal_light else (255, 212, 0), logo=logo, brand=brand, align="center", gap=24,
-                pill=pill_text, pill_col=acc if not pal_light else ppop, pill_size=44)
-
-    elif layout == "phone":
-        bg = _pal_bg(shot, pal_name if not pal_light else "royal_yellow", hero=(1000, 360))
-        ph = Image.open(out_dir / "mobile.png").convert("RGB")
-        ph = ph.resize((int(ph.width * 620 / ph.height), 620), Image.LANCZOS)
-        body = rounded((ph.width + 24, ph.height + 24), 48, (8, 8, 10, 255))
-        body.alpha_composite(round_corners(ph.convert("RGBA"), 38), (12, 12))
-        body = body.rotate(theme.get("thumb_tilt", 5), Image.BICUBIC, expand=True)
-        px, py = TW - body.width - 80, (TH - body.height) // 2
-        _halo(bg, (px + 30, py + 30, px + body.width - 30, py + body.height - 30), glow_col, 64, 210)
-        paste_shadowed(bg, body, (px, py), 48, 30, 210, 22)
-        B.add("phone", (px, py, px + body.width, py + body.height), "hero")
-        _column(bg, B, theme, 58, 44, TH - 44, min(760, px - 58 - 40), hk,
-                acc if not pal_light else (255, 212, 0), logo=logo, brand=brand,
-                pill=pill_text, pill_col=ppop if not pal_light else brand_col)
-
-    elif layout == "sticker":
-        # Bright, playful: hook on tilted labels, screenshot card on the right, all on a glowing colour.
-        base_col = acc if lum(acc) > 60 and acc != (255, 255, 255) else b1
-        light_base = lum(base_col) > 150
-        bg = _glow_bg(shot, base_col, mix(base_col, (0, 0, 0), 0.3), mix(base_col, (255, 255, 255), 0.45),
-                      mix(base_col, ppop if ppop != base_col else (0, 0, 0), 0.4), light=True, hero=(980, 330),
-                      ghost=0.22)
-        card = _card(shot, 600, tilt)
-        cx, cy = TW - card.width + 70, (TH - card.height) // 2 + 20
-        _halo(bg, (cx + 30, cy + 30, cx + card.width - 30, cy + card.height - 30), (255, 255, 255), 56, 200)
-        paste_shadowed(bg, card, (cx, cy), 30, 24, 170, 18)
-        B.add("screenshot", (cx, cy, cx + card.width, cy + card.height), "hero")
-        dark_base = lum(base_col) > 110
-        sticker = ((14, 15, 18), (255, 255, 255), 2.5) if dark_base else ((255, 255, 255), (14, 15, 18), 2.5)
-        hl = ppop if ppop not in ((255, 255, 255), (14, 15, 18)) and abs(lum(ppop) - lum(base_col)) > 60 else \
-            (brand_col if lum(brand_col) > 60 else (255, 80, 60))
-        _column(bg, B, theme, 60, 44, TH - 44, cx - 60 - 30, hk, hl, logo=logo, brand=brand, dark=light_base,
-                pill=pill_text, pill_col=(14, 15, 18) if dark_base else (255, 255, 255), pill_size=44,
-                sticker=sticker)
-
-    elif layout == "big_fact":
-        # Giant real number (from the review) + arrow to where it appears on the site.
-        bg = _pal_bg(shot, pal_name, hero=(1000, 360))
-        name, focus, box = _best_focus(data, info)
-        src = Image.open(out_dir / name).convert("RGB")
-        crop = _cover(src, (700, 560), focus=focus or busiest_point(src, (900, 700)), zoom=1.15)
-        card = _card(crop, 540, -tilt * 0.7, border=10)
-        cx, cy = TW - card.width + 30, (TH - card.height) // 2 + 10
-        _halo(bg, (cx + 30, cy + 30, cx + card.width - 30, cy + card.height - 30), glow_col, 60, 200)
-        paste_shadowed(bg, card, (cx, cy), 30, 28, 200, 20)
-        B.add("screenshot", (cx, cy, cx + card.width, cy + card.height), "hero")
-        col_w = cx - 52 - 70
-        top = _brand(bg, B, 52, 40, logo, brand, theme, height=84, dark_text=pal_light, max_w=col_w, label=False) + 22
-        m = _head_metrics(theme, hk, col_w, 230, 170, stroke=0 if pal_light else 7)
-        hy = TH - 40 - m["h"]
-        _headline(bg, B, 52, hy, theme, hk, col_w, 230, acc if not pal_light else pacc, text_col=ptxt,
-                  stroke=0 if pal_light else 7, outline=outline, metrics=m)
-        big, small = fact
-        d = ImageDraw.Draw(bg)
-        avail = hy - 22 - top
-        sf = fit(d, small or "X", lambda s: font("Black", s), col_w, 46)
-        small_h = int(sf.size * 1.3) if small else 0
-        hf = lambda s: head_font(theme["head_font"], s)
-        size = 240
-        while size > 60:
-            f = hf(size)
-            bb = d.textbbox((0, 0), big, font=f, stroke_width=10)
-            if bb[2] - bb[0] <= col_w and (bb[3] - bb[1]) + small_h <= avail:
-                break
-            size -= 4
-        fcol = acc if abs(lum(acc) - lum(b1)) > 70 else ptxt
-        block = (bb[3] - bb[1]) + small_h
-        fy = top + (avail - block) * 0.45 - bb[1]
-        if not pal_light:
-            _blob(bg, 52 + (bb[2] - bb[0]) / 2, fy + bb[1] + (bb[3] - bb[1]) / 2, 260, fcol, 70)
-        shadow_text(bg, (52 - bb[0], fy), big, f, fcol, stroke=10,
-                    stroke_fill=(14, 15, 18) if lum(fcol) > 110 else (255, 255, 255), opacity=170)
-        nb = d.textbbox((52 - bb[0], fy), big, font=f, stroke_width=10)
-        B.add("big number", nb)
-        if small:
-            shadow_text(bg, (56, nb[3] + 6), small, sf, ptxt, stroke=0 if pal_light else 4, stroke_fill=outline,
-                        opacity=0 if pal_light else 140)
-            B.add("number label", d.textbbox((56, nb[3] + 6), small, font=sf, stroke_width=4))
-        _arrow(bg, (nb[2] + 18, (nb[1] + nb[3]) / 2), (cx + 110, cy + card.height * 0.32),
-               ppop if ppop != ptxt else (255, 72, 66), outline=(14, 15, 18) if lum(ppop) > 128 else (255, 255, 255))
-
-    elif layout == "verdict":
-        # Glowing score ring as the hook, the logo tile as the subject.
+    elif layout == "ring":
         vcol, vicon = _verdict_style(data)
-        bg = _pal_bg(shot, pal_name if not pal_light else "midnight_yellow", hero=(985, 350))
-        _blob(bg, 985, 350, 330, vcol, 120)
-        if pal_light:
-            pal_light, ptxt, outline = False, (255, 255, 255), (10, 10, 12)
-            acc = PALETTES["midnight_yellow"][3]
-        tile = _logo_tile(logo, brand, theme, 220, tilt=-4)
-        _halo(bg, (60, 44, 60 + tile.width, 44 + tile.height), (255, 255, 255), 40, 110)
-        paste_shadowed(bg, tile, (60, 44), 44, 26, 170, 18)
-        B.add("logo", (60, 44, 60 + tile.width, 44 + tile.height))
-        d = ImageDraw.Draw(bg)
-        label = f"{brand.upper()} REVIEW"
-        nf = fit(d, label, lambda s: font("Black", s), 420, 32)
-        d.text((64, 44 + tile.height + 16), label, font=nf, fill=ptxt)
-        nb = B.add("brand name", d.textbbox((64, 44 + tile.height + 16), label, font=nf))
-        cxr, cyr, r = 985, 350, 200
+        faded = crop.resize((620, int(620 * crop.height / crop.width)), Image.LANCZOS)
+        faded = ImageEnhance.Brightness(faded).enhance(0.55 if not pal_light else 0.9).convert("RGBA")
+        fcard = rounded((faded.width + 16, faded.height + 16), 24, (255, 255, 255, 120))
+        fcard.alpha_composite(round_corners(faded, 18), (8, 8))
+        fcard = fcard.rotate(-tilt, Image.BICUBIC, expand=True)
+        fcard.putalpha(fcard.getchannel("A").point(lambda a: int(a * 0.75)))
+        bg.alpha_composite(fcard, (TW - fcard.width + 60, (TH - fcard.height) // 2))
+        cxr, cyr, r = 975, 372, 212
+        _blob(bg, cxr, cyr, r + 170, vcol, 140)
         ring = Image.new("RGBA", (TW, TH), (0, 0, 0, 0))
         rd = ImageDraw.Draw(ring)
-        rd.ellipse([cxr - r - 18, cyr - r - 18, cxr + r + 18, cyr + r + 18], fill=(14, 15, 18, 235))
-        rd.ellipse([cxr - r, cyr - r, cxr + r, cyr + r], outline=(60, 62, 70, 255), width=30)
-        rd.arc([cxr - r, cyr - r, cxr + r, cyr + r], -90, -90 + 360 * _score(data) / 10, fill=(*vcol, 255), width=30)
+        rd.ellipse([cxr - r - 18, cyr - r - 18, cxr + r + 18, cyr + r + 18], fill=(14, 15, 18, 240))
+        rd.ellipse([cxr - r, cyr - r, cxr + r, cyr + r], outline=(60, 62, 70, 255), width=32)
+        rd.arc([cxr - r, cyr - r, cxr + r, cyr + r], -90, -90 + 360 * _score(data) / 10, fill=(*vcol, 255), width=32)
         paste_shadowed(bg, ring.crop((cxr - r - 18, cyr - r - 18, cxr + r + 19, cyr + r + 19)),
                        (cxr - r - 18, cyr - r - 18), r + 18, 30, 200, 18)
         B.add("score", (cxr - r - 18, cyr - r - 18, cxr + r + 18, cyr + r + 18), "hero")
+        d = ImageDraw.Draw(bg)
         hf = lambda s: head_font(theme["head_font"], s)
-        d.text((cxr, cyr - 18), f"{_score(data):.1f}", font=fit(d, "10.0", hf, r * 1.4, 160), fill=(255, 255, 255),
+        d.text((cxr, cyr - 22), f"{_score(data):.1f}", font=fit(d, "10.0", hf, r * 1.45, 180), fill=(255, 255, 255),
                anchor="mm")
-        d.text((cxr, cyr + 100), "/ 10", font=font("Black", 40), fill=(170, 174, 184), anchor="mm")
-        b = icons.badge(vicon, 116, vcol, (255, 255, 255))
+        d.text((cxr, cyr + 104), "/ 10", font=font("Black", 42), fill=(170, 174, 184), anchor="mm")
+        b = icons.badge(vicon, 124, vcol, (255, 255, 255))
         if b is not None:
-            paste_shadowed(bg, b, (cxr + r - 76, cyr - r - 16), 58, 16, 170, 8)
-        _column(bg, B, theme, 60, nb[3] + 24, TH - 44, cxr - r - 18 - 60 - 30, hk, acc,
-                pill=pill_text, pill_col=pop, pill_size=44, pill_tilt=-2, text_col=ptxt,
-                stroke=7, outline=outline, gap=22)
+            paste_shadowed(bg, b, (cxr + r - 80, cyr - r - 22), 62, 16, 170, 8)
 
-    elif layout == "lens":
-        # Real screenshot with a glowing magnifying glass on the key number.
-        name, focus, box = _best_focus(data, info)
-        src = Image.open(out_dir / name).convert("RGB")
-        fpt = focus or busiest_point(src, (500, 400))
-        bgimg = _cover(src, (TW, TH), focus=fpt, zoom=1.05, anchor=(0.62, 0.5))
-        bg = ImageEnhance.Brightness(bgimg.filter(ImageFilter.GaussianBlur(9))).enhance(0.45).convert("RGBA")
-        bg = Image.blend(bg, _pal_bg(shot, pal_name if not pal_light else "royal_yellow", hero=(980, 330)), 0.5)
-        _left_fade(bg, strength=255, reach=0.72, color=shade)
-        _left_fade(bg, strength=200, reach=0.5, color=shade)
-        lr = 200
-        zoom_w = (box["w"] + 90) if box else 300            # source pixels shown inside the lens
-        base = max(lr * 2 / src.width, lr * 2 / src.height)
-        zoom = _cover(src, (lr * 2, lr * 2), focus=fpt, zoom=max(1.0, (lr * 2 / max(zoom_w, 1)) / base))
-        mask = Image.new("L", (lr * 2, lr * 2), 0)
-        ImageDraw.Draw(mask).ellipse([0, 0, lr * 2 - 1, lr * 2 - 1], fill=255)
-        ring_col = acc if lum(acc) > 60 and acc != (255, 255, 255) and not pal_light else \
-            (ppop if pal_light and ppop not in ((255, 255, 255), (14, 15, 18)) else (255, 196, 0))
-        lens = Image.new("RGBA", (lr * 2 + 40, lr * 2 + 40), (0, 0, 0, 0))
-        ImageDraw.Draw(lens).ellipse([0, 0, lr * 2 + 39, lr * 2 + 39], fill=(*ring_col, 255))
-        inner = zoom.convert("RGBA")
-        inner.putalpha(mask)
-        lens.alpha_composite(inner, (20, 20))
-        lx, ly = 770, 96
-        _blob(bg, lx + lr + 20, ly + lr + 20, lr + 160, ring_col, 150)
-        handle = Image.new("RGBA", (TW, TH), (0, 0, 0, 0))
-        ImageDraw.Draw(handle).line([(lx + lr * 2 - 10, ly + lr * 2 - 10), (lx + lr * 2 + 110, ly + lr * 2 + 110)],
-                                    fill=(*ring_col, 255), width=46)
-        bg.alpha_composite(handle)
-        paste_shadowed(bg, lens, (lx, ly), lr + 20, 30, 210, 18)
-        B.add("lens", (lx, ly, lx + lens.width, ly + lens.height), "hero")
-        _column(bg, B, theme, 56, 44, TH - 44, lx - 56 - 36, hk, ring_col, logo=logo, brand=brand,
-                pill=pill_text, pill_col=pop, pill_size=46, pill_tilt=2)
+    else:  # phone
+        ph = Image.open(out_dir / "mobile.png").convert("RGB")
+        ph = ph.resize((int(ph.width * 640 / ph.height), 640), Image.LANCZOS)
+        body = rounded((ph.width + 26, ph.height + 26), 50, (8, 8, 10, 255))
+        body.alpha_composite(round_corners(ph.convert("RGBA"), 40), (13, 13))
+        body = body.rotate(tilt * 0.8, Image.BICUBIC, expand=True)
+        faded = crop.resize((560, int(560 * crop.height / crop.width)), Image.LANCZOS)
+        fcard = rounded((faded.width + 16, faded.height + 16), 24, (255, 255, 255, 255))
+        fcard.alpha_composite(round_corners(faded.convert("RGBA"), 18), (8, 8))
+        fcard = fcard.rotate(-tilt, Image.BICUBIC, expand=True)
+        fx, fy = TW - fcard.width + 90, (TH - fcard.height) // 2 + 40
+        _halo(bg, (fx + 40, fy + 40, fx + fcard.width, fy + fcard.height - 40), glow_col, 60, 170)
+        paste_shadowed(bg, fcard, (fx, fy), 24, 24, 170, 16)
+        B.add("screenshot", (fx, fy, fx + fcard.width, fy + fcard.height), "hero")
+        px, py = HERO_X + 40, (TH - body.height) // 2
+        _halo(bg, (px + 30, py + 30, px + body.width - 30, py + body.height - 30), glow_col, 64, 210)
+        paste_shadowed(bg, body, (px, py), 50, 30, 220, 22)
+        B.add("phone", (px, py, px + body.width, py + body.height), "hero")
 
-    elif layout == "yes_no":
-        # Curiosity split: YES or NO? with the logo glowing in the middle.
-        ghost = ImageEnhance.Brightness(_cover(shot, (TW, TH)).filter(ImageFilter.GaussianBlur(20))).enhance(0.5)
-        left = Image.blend(Image.new("RGB", (TW, TH), (18, 110, 56)), ghost, 0.3).convert("RGBA")
-        right = Image.blend(Image.new("RGB", (TW, TH), (140, 18, 28)), ghost, 0.3).convert("RGBA")
-        _blob(left, 250, 420, 420, (60, 230, 120), 150)
-        _blob(right, TW - 250, 420, 420, (255, 70, 70), 150)
-        mask = Image.new("L", (TW, TH), 0)
-        ImageDraw.Draw(mask).polygon([(0, 0), (TW // 2 + 70, 0), (TW // 2 - 70, TH), (0, TH)], fill=255)
-        bg = Image.composite(left, right, mask)
-        _vignette(bg, 120)
-        d = ImageDraw.Draw(bg)
-        d.line([(TW // 2 + 70, 0), (TW // 2 - 70, TH)], fill=(255, 255, 255), width=10)
-        one = {**hk, "lines": [[w for l in hk["lines"] for w in l]], "big": [True]}
-        m = _head_metrics(theme, one, 1180, 130, 150, stroke=6)
-        band_h = int(m["h"] + 40)
-        bg.alpha_composite(Image.new("RGBA", (TW, band_h), (10, 11, 14, 240)), (0, 0))
-        _headline(bg, B, TW // 2, 20, theme, one, 1180, 130, (255, 212, 0), align="center", stroke=6, metrics=m)
-        hf = lambda s: head_font(theme["head_font"], s)
-        mid = (band_h + TH) // 2 - 10
-        for txt, icon, x, col in (("YES", "check", 230, (60, 230, 120)), ("NO", "close", TW - 230, (255, 90, 90))):
-            b = icons.badge(icon, 140, (255, 255, 255), col)
-            if b is not None:
-                paste_shadowed(bg, b, (x - 70, mid - 150), 70, 20, 170, 10)
-            f = fit(d, "YES", hf, 320, 160)
-            shadow_text(bg, (x, mid + 10), txt, f, (255, 255, 255), stroke=8, anchor="ma", opacity=190)
-            B.add(txt, d.textbbox((x, mid + 10), txt, font=f, anchor="ma", stroke_width=8))
-        tile = _logo_tile(logo, brand, theme, 230, tilt=3)
-        tx, ty = TW // 2 - tile.width // 2, mid - tile.height // 2 - 40
-        _halo(bg, (tx, ty, tx + tile.width, ty + tile.height), (255, 255, 255), 50, 150)
-        paste_shadowed(bg, tile, (tx, ty), 46, 30, 210, 22)
-        B.add("logo", (tx, ty, tx + tile.width, ty + tile.height))
-        name = f"{brand.upper()} REVIEW"
-        nf = fit(d, name, lambda s: font("Black", s), 380, 34)
-        nw = d.textlength(name, font=nf)
-        ny = ty + tile.height + 22
-        d.rounded_rectangle([TW / 2 - nw / 2 - 22, ny, TW / 2 + nw / 2 + 22, ny + nf.size + 26], 14, fill=(14, 15, 18))
-        d.text((TW / 2, ny + 13), name, font=nf, fill=(255, 255, 255), anchor="ma")
-        B.add("brand name", (TW / 2 - nw / 2 - 22, ny, TW / 2 + nw / 2 + 22, ny + nf.size + 26))
-
-    else:  # poster: bold logo-first poster
-        bg = _pal_bg(shot, pal_name, hero=(260, 300), ghost=0.3)
-        wide = logo is not None and logo.width / max(1, logo.height) > 1.5
-        tile = _logo_tile(logo, brand, theme, 210 if wide else 290, tilt=-4 if wide else -5)
-        tx, ty = 60, 64 if wide else 76
-        _halo(bg, (tx, ty, tx + tile.width, ty + tile.height), glow_col if not pal_light else (255, 255, 255), 56, 200)
-        paste_shadowed(bg, tile, (tx, ty), 60, 34, 200, 24)
-        B.add("logo", (tx, ty, tx + tile.width, ty + tile.height))
-        d = ImageDraw.Draw(bg)
-        nf = fit(d, brand.upper(), lambda s: font("Black", s), max(tile.width, 300), 40)
-        if wide:                                       # name beside the wide logo, hook across the width below
-            nxy, nanchor = (tx + tile.width + 30, ty + tile.height / 2), "lm"
-        else:
-            nxy, nanchor = (tx + tile.width / 2, ty + tile.height + 18), "ma"
-        d.text(nxy, brand.upper(), font=nf, fill=ptxt, anchor=nanchor)
-        nb = B.add("brand name", d.textbbox(nxy, brand.upper(), font=nf, anchor=nanchor))
-        ic = icons.pick({"callout": (fact or ("", ""))[1], "caption": hk["text"], "text": hk["text"]}) or "help"
-        b = icons.badge(ic, 110 if wide else 120, pop, readable_on(pop))
-        if b is not None:
-            b = b.rotate(12, Image.BICUBIC, expand=True)
-            paste_shadowed(bg, b, (tx + tile.width - 70, ty - 48), 60, 18, 170, 10)
-        pill_col = (14, 15, 18) if not pal_light else (255, 255, 255)
-        if wide:
-            img = _pill_img(pill_text, pill_col, 40, 520, -2)
-            py = TH - 44 - img.height
-            top = max(nb[3], ty + tile.height) + 26
-            space = py - 22 - top
-            m = _head_metrics(theme, hk, TW - 110, space, 280, stroke=0 if pal_light else 8)
-            _headline(bg, B, TW - 50, top + (space - m["h"]) * 0.5, theme, hk, 0, 0,
-                      acc if not pal_light else pacc, text_col=ptxt, align="right", stroke=0 if pal_light else 8,
-                      outline=outline, metrics=m)
-            _pill(bg, B, tx, py, pill_text, None, img=img)
-        else:
-            col_l = tx + tile.width + 50
-            m = _head_metrics(theme, hk, TW - 50 - col_l, TH - 96 - 50, 260, stroke=0 if pal_light else 8)
-            _headline(bg, B, TW - 50, 50 + (TH - 96 - 50 - m["h"]) * 0.45, theme, hk, 0, 0,
-                      acc if not pal_light else pacc, text_col=ptxt, align="right", stroke=0 if pal_light else 8,
-                      outline=outline, metrics=m)
-            img = _pill_img(pill_text, pill_col, 40, TW - 50 - m["w"] - 30 - tx, -2)
-            _pill(bg, B, tx, max(nb[3] + 24, TH - 44 - img.height), pill_text, None, img=img)
+    top = _logo_big(bg, B, logo, brand, theme) + 22
+    pill_col = pop if lum(b1) < 90 and pop != (255, 255, 255) else (theme["accent"] if not pal_light else (14, 15, 18))
+    _column(bg, B, theme, 44, top, TH - 34, col_w, hk, acc, pill=pill_text, pill_col=pill_col, pill_size=40,
+            gap=22, size=250, **head)
+    if arrow_to:
+        hb = next(r for n, k, r in reversed(B.items) if n == "headline")
+        start = (min(hb[2] + 14, HERO_X - 20), hb[1] + (hb[3] - hb[1]) * 0.62)
+        if arrow_to[0] - start[0] > 70:
+            _arrow(bg, start, arrow_to, CIRCLE_RED, width=18, head=50, outline=(255, 255, 255))
 
     overlay = config.ASSETS_DIR / "thumbnail_overlay.png"
     if overlay.exists():
@@ -824,7 +844,7 @@ def make_thumbnails(data, info, out_dir: Path, theme: dict, count=3):
         old.unlink()
     paths = []
     for i, (lay, pal, hk) in enumerate(zip(layouts, palettes, hooks), 1):
-        im, B = render(data, info, out_dir, theme, lay, pal, hk, _pill_text(data, hk, fact, i - 1))
+        im, B = render(data, info, out_dir, theme, lay, pal, hk, _pill_text(data, hk, fact, i - 1), variant=i - 1)
         problems = B.clashes() + [f"{n} near the edge" for n in B.outside()]
         if problems:
             print(f"   ! thumbnail {i} ({lay}): {', '.join(problems)}")

@@ -1,5 +1,6 @@
 """Step 1: visit a website, collect text, screenshots (with on-screen text boxes) and the logo."""
 import base64
+import io
 import json
 import re
 from pathlib import Path
@@ -177,9 +178,10 @@ def _find_logo(page, base_url):
         }
       });
       document.querySelectorAll('link[rel*="apple-touch-icon"]').forEach(l => out.push(abs(l.href)));
-      const og = document.querySelector('meta[property="og:image"]');
-      if (og) out.push(abs(og.content));
       document.querySelectorAll('link[rel*="icon"]').forEach(l => out.push(abs(l.href)));
+      // the share image is usually a banner or photo, not the logo: last resort only
+      const og = document.querySelector('meta[property="og:image"]');
+      if (og) out.push('og:' + abs(og.content));
       return out.filter(Boolean);
     }"""
     try:
@@ -210,11 +212,20 @@ def _download_logo(cands, out_dir: Path, start=0):
                 return p, i + 1
             if c.startswith("data:"):
                 continue
+            share = c.startswith("og:")
+            c = c[3:] if share else c
             r = requests.get(c, headers={"User-Agent": UA}, timeout=15)
             if r.status_code != 200 or len(r.content) < 300:
                 continue
             ctype = r.headers.get("content-type", "")
             ext = ".svg" if "svg" in ctype or c.lower().endswith(".svg") else ".img"
+            if ext == ".img":
+                try:                       # tiny favicons look blurry when enlarged; photos aren't logos
+                    im = Image.open(io.BytesIO(r.content))
+                    if max(im.size) < 64 or (share and im.width / max(1, im.height) > 1.3):
+                        continue
+                except Exception:
+                    pass
             p = out_dir / f"logo{ext}"
             p.write_bytes(r.content)
             return p, i + 1
