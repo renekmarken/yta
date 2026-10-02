@@ -7,6 +7,14 @@
    "story_url": "",
    "title": "",
    "status": "nostory"
+  },
+  {
+   "date": "2026-10-02",
+   "site": "robinhood.com",
+   "name": "robinhood",
+   "story_url": "https://www.reddit.com/r/ClassActionRobinHood/comments/1mnsib1/robinhood_let_a_hacker_drain_my_account_now_they/",
+   "title": "Robinhood FROZE over six figures after a hack — What Now?",
+   "status": "done"
   }
  ]
 }

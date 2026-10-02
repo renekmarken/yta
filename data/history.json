@@ -1187,5 +1187,53 @@
     "split/emerald/truth"
    ]
   }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://robinhood.com",
+  "brand": "Robinhood",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/ClassActionRobinHood/comments/1mnsib1/robinhood_let_a_hacker_drain_my_account_now_they/",
+  "category": "investing",
+  "title": "Robinhood FROZE over six figures after a hack — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "One Robinhood user on r/ClassActionRobinHood says a targeted phishing attack let a hacker drain their savings account",
+  "title_style": null,
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "floating",
+   "caption": "pill",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    0,
+    214,
+    170
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "number",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "fade_up",
+   "callout": "pill",
+   "music": "tech",
+   "sfx": "digital",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "risk/evidence",
+    "risk/alarm",
+    "risk/post"
+   ]
+  }
  }
 ]
