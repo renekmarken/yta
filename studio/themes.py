@@ -126,6 +126,12 @@ def pick_theme(seed, brand, history, has_mobile, category=None):
         "sfx": _avoid(rnd, PACKS, rv("sfx")[-1:]) if config.SFX else "off",
     }
     theme.update(GEOMETRY[layout])
+    # Every video mixes the tilted 3D card with a browser window that shows the address bar and URL,
+    # clip by clip; "mix" is the second layout, "mix_frame" the browser frame used for it.
+    mix_rnd = random.Random(seed + "mix")
+    theme["mix"] = mix_rnd.choice(["full", "stage", "spotlight", "side"]) if layout == "tilt" else "tilt"
+    theme["mix_frame"] = theme["frame"] if theme["frame"] in ("mac_dark", "mac_light") else \
+        ("mac_light" if light else "mac_dark")
     return theme
 
 

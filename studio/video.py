@@ -286,7 +286,7 @@ def build_layers(theme, info, logo, brand):
     elif lay == "stage":
         if logo is not None:
             chip = logo_chip(logo, 38)
-            chrome.alpha_composite(chip, (cx + cw - chip.width, 78))
+            chrome.alpha_composite(chip, (cx + cw - chip.width, 36))      # above the fact sticker
     elif lay == "spotlight":
         if logo is not None:
             chip = logo_chip(logo, 30)
@@ -734,6 +734,32 @@ def _sfx_track(theme, events, seconds, work):
         return None
 
 
+def layout_variant(theme, lay):
+    """The theme as seen by a clip in layout `lay`. Browser layouts always get a frame with the URL bar."""
+    from .themes import GEOMETRY
+    v = theme if lay == theme["layout"] else {**theme, "layout": lay, **GEOMETRY[lay]}
+    if lay != "tilt" and v["frame"] == "floating":
+        v = {**v, "frame": theme.get("mix_frame", "mac_light" if theme["light"] else "mac_dark")}
+    return v
+
+
+def clip_layouts(theme, segs):
+    """Which layout each clip uses: alternates between the tilted card and the browser window, never
+    more than two in a row, the first clip (under the intro) in the video's main layout."""
+    main = theme["layout"]
+    other = theme.get("mix") or ("spotlight" if main == "tilt" else "tilt")
+    rnd = random.Random(theme["seed"] + "clips")
+    out = []
+    for i in range(len(segs)):
+        if i == 0:
+            out.append(main)
+        elif len(out) >= 2 and out[-1] == out[-2]:
+            out.append(other if out[-1] == main else main)
+        else:
+            out.append(out[-1] if rnd.random() < 0.3 else (other if out[-1] == main else main))
+    return out
+
+
 def render(data, info, out_dir: Path, theme: dict) -> Path:
     work = out_dir / "render"
     work.mkdir(exist_ok=True)
@@ -754,9 +780,11 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
     theme.setdefault("sfx", "soft" if config.SFX else "off")
 
     theme.setdefault("bg_image", str(out_dir / info["screenshots"][0]["file"]))
-    bg_l, chrome_l, mask_l, light_l = build_layers(theme, info, logo, brand)
-    for name, im in (("bg", bg_l), ("chrome", chrome_l), ("mask", mask_l), ("light", light_l)):
-        im.save(work / f"{name}.png")
+    lays = clip_layouts(theme, segs)
+    variants = {lay: layout_variant(theme, lay) for lay in set(lays)}
+    for lay, th in variants.items():                      # static layers once per layout
+        for name, im in zip(("bg", "chrome", "mask", "light"), build_layers(th, info, logo, brand)):
+            im.save(work / f"{name}_{lay}.png")
     events = [(0.0, "whoosh"), (0.45, "impact"), (0.8, "pop"), (INTRO - 0.5, "whoosh")]
 
     clips, lens, start = [], [], 0.0
@@ -779,37 +807,38 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
             fl.append(f"[0:v]scale={W * UP}:{H * UP},{_zoompan(f'1+0.05*on/{n}', 'iw/2-(iw/zoom/2)', 'ih/2-(ih/zoom/2)', n, W, H)}[v0]")
             last = "v0"
         else:
+            th = variants[lays[i]]
             hl = work / f"hl_{i:02d}.png"
             box = seg.get("focus_box")
             highlight(shot, box, theme, hl)
             kind = "focus_in" if box else plain_moves[i % len(plain_moves)]
             speed = rnd.uniform(0.3, 0.55)
-            z, x, y = camera(kind, n, theme, box, speed=speed)
+            z, x, y = camera(kind, n, th, box, speed=speed)
             if box:
                 events.append((start + max(1, int(n * speed)) / FPS, "tick"))
-            cw, ch = theme["cw"], theme["ch"]
+            cw, ch = th["cw"], th["ch"]
             dur = f"{(n + 2) / FPS:.3f}"
-            loop = lambda f: ["-loop", "1", "-framerate", str(FPS), "-t", dur, "-i", str(work / f)]
-            inputs = [*loop("bg.png"), "-i", str(hl), *loop("mask.png"), *loop("chrome.png"), *loop("light.png")]
+            loop = lambda f: ["-loop", "1", "-framerate", str(FPS), "-t", dur, "-i", str(work / f"{f}_{lays[i]}.png")]
+            inputs = [*loop("bg"), "-i", str(hl), *loop("mask"), *loop("chrome"), *loop("light")]
             ph = i * 2.3                                     # each clip's light drifts from a different spot
             fl.append(f"[4:v]format=rgba[lt];[0:v]format=rgba[bg0];"
                       f"[bg0][lt]overlay=x='{W // 2 - 500}+520*sin(2*PI*(t+{ph:.1f})/19)':"
                       f"y='{H // 2 - 500}+260*cos(2*PI*(t+{ph:.1f})/14)':shortest=1[bg]")
             fl.append(f"[1:v]scale={cw * UP}:{ch * UP},setsar=1,{_zoompan(z, x, y, n, cw, ch)},format=rgba[z];"
                       f"[2:v]format=gray[m];[z][m]alphamerge[zc]")
-            if theme["layout"] == "tilt":
+            if th["layout"] == "tilt":
                 import math
-                ow, oh = _tilt_size(theme)
-                a0 = math.radians(theme.get("tilt", 3.0))
+                ow, oh = _tilt_size(th)
+                a0 = math.radians(th.get("tilt", 3.0))
                 sway = math.radians(TILT_SWAY)
                 fl.append(f"[zc]rotate=a='{a0:.5f}+{sway:.5f}*sin(2*PI*(t+{ph:.1f})/9)':c=none:ow={ow}:oh={oh}[zr];"
-                          f"[bg][zr]overlay={theme['cx'] + cw // 2 - ow // 2}:{theme['cy'] + ch // 2 - oh // 2}:shortest=1[b]")
+                          f"[bg][zr]overlay={th['cx'] + cw // 2 - ow // 2}:{th['cy'] + ch // 2 - oh // 2}:shortest=1[b]")
             else:
-                fl.append(f"[bg][zc]overlay={theme['cx']}:{theme['cy']}:shortest=1[b]")
+                fl.append(f"[bg][zc]overlay={th['cx']}:{th['cy']}:shortest=1[b]")
             fl.append("[3:v]format=rgba[ch];[b][ch]overlay=0:0:shortest=1[v0]")
             last = "v0"
             # caption (animated entrance)
-            cap_im, (cx0, cy0) = caption_layer(theme, seg, i + 1, total, icon=None if callout else icon)
+            cap_im, (cx0, cy0) = caption_layer(th, seg, i + 1, total, icon=None if callout else icon)
             if cap_im is not None:
                 cp = work / f"cap_{i:02d}.png"
                 cap_im.save(cp)
@@ -824,7 +853,7 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
             co_at = (INTRO + 0.6) if i == 0 else T + CALLOUT_AT
             if callout and d_i + T - co_at > 1.5:
                 card = callout_card(theme, callout, icon)
-                px, py = keep_inside(card, *callout_position(theme, card), margin=44)
+                px, py = keep_inside(card, *callout_position(th, card), margin=44)
                 pattern, pad = callout_frames(card, int(co_at * FPS), work, f"{i:02d}")
                 k = len([a for a in inputs if a == "-i"])
                 inputs += ["-framerate", str(FPS), "-i", str(pattern)]
@@ -842,7 +871,7 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
         clips.append(clip)
         lens.append(n / FPS)
         start += n / FPS - T
-        print(f"   clip {i + 1}/{total} ({d_i:.1f}s, {seg['screenshot']}, "
+        print(f"   clip {i + 1}/{total} ({d_i:.1f}s, {lays[i] if seg['screenshot'] != 'mobile.png' else 'phone'}, "
               f"{'focus' if seg.get('focus_box') else 'move'}{', ' + icon if icon else ''}"
               f"{', callout' if callout else ''})")
 
