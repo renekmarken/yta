@@ -133,7 +133,7 @@ jobs:
             output/*/metadata.json
             output/*/script.json
             output/*/result.json
-          retention-days: 1
+          retention-days: 3              # deleted as soon as the library has them
           if-no-files-found: ignore
 
   save:
