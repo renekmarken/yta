@@ -2,7 +2,8 @@ name: Upload one video to YouTube
 
 # Started by the "Upload to YouTube" button in the (password-protected) video library.
 # Decrypts that video from the vault and uploads it with its title, description, tags,
-# thumbnail and captions (visibility from the YT_PRIVACY variable, default unlisted).
+# one of its 3 thumbnails (picked at random) and captions (visibility from the YT_PRIVACY variable,
+# default unlisted).
 
 on:
   workflow_dispatch:

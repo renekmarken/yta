@@ -46,6 +46,14 @@ h1{font-size:28px;line-height:1.15;margin:0}
 .panel .pad{padding:16px}
 .big-title{font-size:22px;line-height:1.25;margin:0 0 10px}
 .downloads{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.variants{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+.variant{margin:0;display:flex;flex-direction:column;gap:6px}
+.variant .thumb{border-radius:10px;cursor:pointer;outline:3px solid transparent;outline-offset:-3px;transition:outline-color .15s}
+.variant.sel .thumb{outline-color:var(--accent)}
+.variant .btn{padding:8px 6px;font-size:13px;border-radius:10px}
+.variant .btn svg{width:15px;height:15px}
+.vhead{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;font-size:14px}
+.vhead span{color:var(--muted);font-size:12.5px}
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 14px;border-radius:12px;font-weight:650;
   text-decoration:none;border:1px solid var(--line);background:var(--surface-2);color:var(--fg);font-size:15px;cursor:pointer}
 .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-fg);grid-column:1/-1;font-size:16px;padding:14px}
@@ -117,12 +125,17 @@ select{width:100%;padding:11px;border-radius:12px;border:1px solid var(--line);b
 <dialog id="dlg">
   <h2>Generate new videos</h2>
   <p class="sub" style="margin:0">Picks the next products from the queue (never one that was already reviewed).</p>
-  <label for="count" style="display:block;font-weight:700;margin-top:18px">How many videos?</label>
+  <label for="count" style="display:block;font-weight:700;margin-top:18px">How many videos from the queue?</label>
   <div class="num">
     <button type="button" data-step="-1" aria-label="Fewer">−</button>
-    <input id="count" type="number" min="1" max="30" value="3" inputmode="numeric">
+    <input id="count" type="number" min="0" max="30" value="3" inputmode="numeric">
     <button type="button" data-step="1" aria-label="More">+</button>
   </div>
+  <label for="custom" style="display:block;font-weight:700;margin-top:14px">Also review a specific website
+    <span style="font-weight:500;color:var(--muted)">(optional)</span></label>
+  <input id="custom" class="box" type="url" inputmode="url" autocomplete="off" spellcheck="false"
+         placeholder="e.g. https://www.example.com" style="width:100%;margin-top:6px">
+  <p class="hint" style="margin-top:6px">Made in addition to the queue videos (set the number above to 0 to make only this one).</p>
   <label for="parallel" style="display:block;font-weight:700;margin-top:14px">At the same time</label>
   <select id="parallel"><option>1</option><option selected>2</option><option>3</option><option>4</option></select>
   <p class="hint" id="eta"></p>
@@ -261,6 +274,7 @@ function field(key, label, value, kind){
 
 function detail(v){
   const f = v.files || {};
+  const thumbs = f.thumbnails || (f.thumbnail ? [f.thumbnail] : []);
   const dl = (kind, text, primary) => f[kind]
     ? `<button class="btn${primary ? " primary" : ""}" data-dl="${kind}">${ICON.down}<span>${text}</span></button>`
     : `<span class="btn${primary ? " primary" : ""}" aria-disabled="true">${ICON.down}${text}</span>`;
@@ -269,7 +283,7 @@ function detail(v){
     <div class="detail">
       <div>
         <div class="panel">
-          ${f.thumbnail ? `<img class="thumb" data-enc="${esc(refPath(f.thumbnail))}" alt="Thumbnail">` : ""}
+          ${thumbs.length ? `<img class="thumb" id="bigthumb" data-enc="${esc(refPath(thumbs[0]))}" alt="Thumbnail">` : ""}
           <div class="pad">
             <h2 class="big-title">${esc(v.title)}</h2>
             <div class="meta">
@@ -278,14 +292,20 @@ function detail(v){
             </div>
             <div class="downloads">
               ${dl("video", "Download video (MP4)" + (f.video && f.video.size ? ` · ${Math.round(f.video.size / 1048576)} MB` : ""), true)}
-              ${dl("thumbnail", "Thumbnail")}
+              ${thumbs.length > 1 ? "" : dl("thumbnail", "Thumbnail")}
               ${dl("captions", "Captions (SRT)")}
             </div>
+            ${thumbs.length > 1 ? `<div class="vhead"><strong>Thumbnail options</strong><span>Tap to preview · option 1 matches the title</span></div>
+            <div class="variants">${thumbs.map((t, i) => `
+              <figure class="variant${i ? "" : " sel"}">
+                <img class="thumb" data-enc="${esc(refPath(t))}" data-pick="${i}" alt="Thumbnail option ${i + 1}">
+                <button class="btn" data-dl="thumbnails" data-i="${i}">${ICON.down}<span>Option ${i + 1}</span></button>
+              </figure>`).join("")}</div>` : ""}
             <div class="downloads" style="margin-top:10px">
               ${v.youtube ? `<a class="btn yt" href="${esc(v.youtube)}" target="_blank" rel="noopener">▶ Open on YouTube</a>`
                           : `<button class="btn yt" id="ytup">▶ Upload to YouTube</button>`}
             </div>
-            <p class="hint">In YouTube Studio: upload the MP4, set the thumbnail, and add the captions under
+            <p class="hint">In YouTube Studio: upload the MP4, set the thumbnail you like best, and add the captions under
               Subtitles → Upload file → With timing.</p>
             ${(v.checks || []).length ? `<h3 style="font-size:15px;margin:18px 0 6px">Double-check before publishing</h3>
               <ul class="checks">${v.checks.map(c => `<li>${esc(c)}</li>`).join("")}</ul>` : ""}
@@ -318,6 +338,13 @@ function route(){
 }
 
 document.addEventListener("click", async e => {
+  const pick = e.target.closest("[data-pick]");
+  if (pick) {
+    document.querySelectorAll(".variant").forEach(el => el.classList.toggle("sel", el.contains(pick)));
+    const big = document.getElementById("bigthumb");
+    if (big && pick.src) big.src = pick.src;
+    return;
+  }
   const card = e.target.closest(".card");
   if (card) { location.hash = encodeURIComponent(card.dataset.id); return; }
   if (e.target.closest("#back")) { location.hash = ""; return; }
@@ -350,6 +377,7 @@ document.getElementById("lockbtn").addEventListener("click", () => {
 
 /* ---------- encrypted files (older videos may still be plain links until the library is updated) */
 const refPath = ref => typeof ref === "string" ? ref : ref.path;
+const with911 = name => /911video/i.test(name) ? name : "911video - " + name;   // every download says 911video
 async function fileURL(path, type){
   if (/^https?:/.test(path)) return path;                     // plain link: use as is
   if (blobCache[path]) return blobCache[path];
@@ -363,13 +391,15 @@ document.addEventListener("click", async e => {
   const b = e.target.closest("[data-dl]");
   if (!b) return;
   const v = videos.find(x => x.id === decodeURIComponent(location.hash.slice(1)));
-  const f = v && v.files[b.dataset.dl];
+  let f = v && v.files[b.dataset.dl];
+  if (Array.isArray(f)) f = f[Number(b.dataset.i) || 0];
   if (!f) return;
   const label = b.querySelector("span"), old = label.textContent;
   b.disabled = true; label.textContent = "Unlocking file…";
   try {
     const a = document.createElement("a");
-    a.href = await fileURL(refPath(f), f.type || ""); a.download = f.name || "";
+    a.href = await fileURL(refPath(f), f.type || ""); a.download = with911(f.name || `${v.site || "video"} - ${b.dataset.dl}` +
+      ({video: ".mp4", thumbnail: ".jpg", thumbnails: ".jpg", captions: ".srt", kit: ".md"}[b.dataset.dl] || ""));
     document.body.appendChild(a); a.click(); a.remove();
     label.textContent = "Downloaded ✓";
   } catch (err) { label.textContent = "Failed — try again"; console.error(err); }
@@ -408,9 +438,17 @@ document.addEventListener("click", async e => {
 
 /* ---------- generate new videos */
 const dlg = document.getElementById("dlg"), countEl = document.getElementById("count");
-const clamp = n => Math.max(1, Math.min(30, Math.round(Number(n) || 1)));
+const customEl = document.getElementById("custom");
+const clamp = n => Math.max(0, Math.min(30, Math.round(Number(n) || 0)));
+function customURL(){
+  const v = customEl.value.trim();
+  if (!v) return "";
+  try { const u = new URL(/^https?:\/\//i.test(v) ? v : "https://" + v); return u.hostname.includes(".") ? u.href : null; }
+  catch { return null; }
+}
 function updateEta(){
-  const n = clamp(countEl.value), par = Number(document.getElementById("parallel").value);
+  const n = clamp(countEl.value) + (customURL() ? 1 : 0), par = Number(document.getElementById("parallel").value);
+  if (!n) { document.getElementById("eta").textContent = "Choose at least 1 video or type a website."; return; }
   const mins = Math.round(Math.ceil(n / par) * 7 + 4);
   document.getElementById("eta").textContent = `About ${mins} minutes for ${n} video${n === 1 ? "" : "s"}. ` +
     "They appear on this page when they are done; sites that block visitors are skipped.";
@@ -424,11 +462,15 @@ dlg.addEventListener("click", e => {
   if (step) { countEl.value = clamp(Number(countEl.value) + Number(step.dataset.step)); updateEta(); }
 });
 countEl.addEventListener("input", updateEta);
+customEl.addEventListener("input", updateEta);
 document.getElementById("parallel").addEventListener("change", updateEta);
 document.getElementById("cancel").addEventListener("click", () => dlg.close());
 document.getElementById("start").addEventListener("click", async () => {
-  const n = clamp(countEl.value), par = document.getElementById("parallel").value;
+  const q = clamp(countEl.value), par = document.getElementById("parallel").value, url = customURL();
   const err = document.getElementById("dlgerr"), btn = document.getElementById("start");
+  if (url === null) { err.textContent = "That website address doesn't look right."; return; }
+  const n = q + (url ? 1 : 0);
+  if (!n) { err.textContent = "Choose at least 1 video or type a website."; return; }
   if (!dispatch || !dispatch.token) {
     err.innerHTML = 'The button isn\'t connected yet (no GitHub token). For now start it on GitHub: ' +
       '<a href="https://github.com/renekmarken/yta/actions/workflows/batch.yml" target="_blank" rel="noopener">Run workflow</a>.';
@@ -436,9 +478,10 @@ document.getElementById("start").addEventListener("click", async () => {
   }
   btn.disabled = true; btn.textContent = "Starting…"; err.textContent = "";
   try {
-    await runWorkflow("batch.yml", {count: String(n), parallel: String(par)});
+    await runWorkflow("batch.yml", {count: String(q), url: url || "", parallel: String(par)});
     watching = "batch.yml";
     dlg.close();
+    customEl.value = "";
     showStatus(`<span class="spinner"></span> Starting ${n} new video${n === 1 ? "" : "s"}…`);
     setTimeout(checkRuns, 6000);
   } catch (e) {

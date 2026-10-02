@@ -108,10 +108,10 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: videos-${{ github.run_number }}
+          name: 911video-videos-${{ github.run_number }}
           path: |
             output/*/*.mp4
-            output/*/thumbnail.jpg
+            output/*/*thumbnail*.jpg
             output/*/captions.srt
             output/*/UPLOAD_KIT.md
             output/*/metadata.json

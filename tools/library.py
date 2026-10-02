@@ -3,7 +3,7 @@
 Everything is encrypted with a key made from the library password (GitHub secret LIBRARY_PASSWORD,
 PBKDF2-SHA256, 600,000 rounds -> AES-256-GCM):
   * docs/videos/library.enc.json  - the list (titles, descriptions, tags, file references, ...)
-  * vault/v/<id>/<kind>.bin        - the files (video, thumbnail, captions, upload kit), kept on the
+  * vault/v/<id>/<kind>.bin        - the files (video, 3 thumbnails, captions, upload kit), kept on the
                                      repo's "vault" branch and read by the page through
                                      raw.githubusercontent.com, then decrypted in the browser.
 Without the password both are unreadable.
@@ -74,8 +74,8 @@ class Library:
     def unseal(self, blob: bytes) -> bytes:
         return AESGCM(self.key).decrypt(blob[:12], blob[12:], None)
 
-    def store(self, vid, kind, data, filename):
-        rel = f"v/{vid}/{kind}.bin"
+    def store(self, vid, kind, data, filename, part=""):
+        rel = f"v/{vid}/{kind}{part}.bin"
         dst = VAULT / rel
         dst.parent.mkdir(parents=True, exist_ok=True)
         dst.write_bytes(self.seal(data))
@@ -110,7 +110,7 @@ class Library:
 
 def _filename(title, ext):
     name = re.sub(r'[\\/:*?"<>|\x00-\x1f]', "", title or "").strip().rstrip(".")
-    return (re.sub(r"\s+", " ", name)[:90].strip() or "video") + ext
+    return "911video - " + (re.sub(r"\s+", " ", name)[:90].strip() or "video") + ext
 
 
 def cmd_add(src, tag):
@@ -132,11 +132,15 @@ def cmd_add(src, tag):
                 pass
         title = meta.get("title", "")
         files = {"video": lib.store(vid, "video", mp4s[0].read_bytes(), _filename(title, ".mp4"))}
-        for kind, fname, label in (("thumbnail", "thumbnail.jpg", "thumbnail"), ("captions", "captions.srt", "captions"),
-                                   ("kit", "UPLOAD_KIT.md", "upload kit")):
+        thumbs = sorted(folder.glob("*thumbnail*.jpg"))         # 3 variations (older videos: 1)
+        if thumbs:
+            files["thumbnails"] = [lib.store(vid, "thumbnail", t.read_bytes(), f"911video - {site} - thumbnail {i}.jpg",
+                                             f"-{i}") for i, t in enumerate(thumbs, 1)]
+            files["thumbnail"] = files["thumbnails"][0]
+        for kind, fname, label in (("captions", "captions.srt", "captions"), ("kit", "UPLOAD_KIT.md", "upload kit")):
             if (folder / fname).exists():
                 files[kind] = lib.store(vid, kind, (folder / fname).read_bytes(),
-                                        f"{site} - {label}{KINDS[kind][1]}")
+                                        f"911video - {site} - {label}{KINDS[kind][1]}")
         entry = {"id": vid, "date": date.today().isoformat(), "site": folder.name, "brand": script.get("brand", ""),
                  "title": title, "description": meta.get("description", ""), "tags": meta.get("tags", []),
                  "pinned_comment": meta.get("pinned_comment", ""), "verdict": meta.get("verdict", ""),
@@ -168,15 +172,16 @@ def cmd_migrate():
     moved = 0
     for e in lib.videos:
         files = e.get("files", {})
-        if not any(isinstance(v, str) for v in files.values()):
+        if not any(isinstance(v, str) for k, v in files.items() if k in KINDS):
             continue
         new = {}
         for kind, ref in files.items():
-            if kind not in KINDS:
+            if kind not in KINDS:                    # e.g. the list of thumbnail variations
+                new[kind] = ref
                 continue
             data = lib.fetch(ref)
             name = _filename(e.get("title"), ".mp4") if kind == "video" else \
-                f"{e.get('site', 'video')} - {kind}{KINDS[kind][1]}"
+                f"911video - {e.get('site', 'video')} - {kind}{KINDS[kind][1]}"
             new[kind] = lib.store(e["id"], kind, data, name) if isinstance(ref, str) else ref
         e["files"] = new
         moved += 1
@@ -192,12 +197,15 @@ def cmd_get(vid, out):
         sys.exit(f"no video with id {vid}")
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
-    names = {"video": "video.mp4", "thumbnail": "thumbnail.jpg", "captions": "captions.srt", "kit": "UPLOAD_KIT.md"}
-    for kind, ref in e.get("files", {}).items():
+    files = e.get("files", {})
+    names = {"video": "911video.mp4", "captions": "captions.srt", "kit": "UPLOAD_KIT.md"}
+    for kind, ref in files.items():
         if kind in names:
             (out / names[kind]).write_bytes(lib.fetch(ref))
+    for i, ref in enumerate(files.get("thumbnails") or ([files["thumbnail"]] if files.get("thumbnail") else []), 1):
+        (out / f"911video-thumbnail-{i}.jpg").write_bytes(lib.fetch(ref))
     (out / "metadata.json").write_text(json.dumps({"title": e["title"], "description": e["description"],
-                                                   "tags": e["tags"], "video_file": "video.mp4"}, ensure_ascii=False))
+                                                   "tags": e["tags"], "video_file": "911video.mp4"}, ensure_ascii=False))
     print(f"decrypted {e['title']}")
 
 

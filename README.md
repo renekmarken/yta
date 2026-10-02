@@ -57,9 +57,14 @@ Each video gets its own random combination, chosen to differ from the last few v
 | Extras | progress bar; animated verdict end card (score counts up, ring or bar fills) |
 | Music | original track composed for each video: lofi · upbeat · ambient · tech · acoustic, new key/tempo/chords every time, ducked under the voice |
 | Sound effects | 24 synthesised effects in 8 packs (soft, crisp, punchy, airy, digital, warm, minimal, playful), each tuned differently per video, levelled to the same quiet volume under the voice |
-| Thumbnail | 10 formats: tilted card · diagonal split · centred stack · phone · sticker · giant key number with arrow · score badge · magnifying glass on the price · YES/NO split · bold brand poster — in 10 high-contrast colour schemes, never the same format or colours as the last few videos |
+| Thumbnails | **3 options per video**, each a different format, colour scheme and hook. 10 formats: tilted card · diagonal split · centred stack · phone · sticker · giant key number with arrow · score badge · magnifying glass on the price · YES/NO split · bold brand poster — in 10 high-contrast colour schemes, never the same format or colours as the last few videos |
 
-Every thumbnail has the site's **logo**, its **name** and **"WORTH USING IT?"**.
+Every thumbnail shows the product's **logo** big and clear plus a huge hook: "IS IT WORTH IT?", "IS IT A SCAM?",
+"LEGIT OR HYPE?", "WHAT'S THE CATCH?"... Option 1 matches the video's title. Every item is measured and checked so
+nothing important overlaps anything else or sits under YouTube's duration badge. Pick your favourite in the library;
+automatic API uploads use a random one of the three.
+
+Every video, thumbnail and download (zip) has **911video** in its file name.
 
 ---
 
@@ -79,7 +84,7 @@ Each video folder contains `UPLOAD_KIT.md`, which holds the title, description (
 
 1. In YouTube Studio, upload the `.mp4`. It is named after the video's title, so Studio fills the title in for you.
 2. Paste the title, description and tags from the kit.
-3. Set `thumbnail.jpg` as the thumbnail and upload `captions.srt` under Subtitles.
+3. Set one of the three `911video-thumbnail-N.jpg` files as the thumbnail and upload `captions.srt` under Subtitles.
 4. Add one line of your own take, then publish.
 
 That quick human pass is what keeps the channel eligible for monetization. YouTube's "inauthentic content" policy demonetizes whole channels that mass-upload unreviewed AI videos.
@@ -106,9 +111,10 @@ their files (`LIBRARY_KEEP` variable).
 
 ### Make many videos at once
 
-**Actions → Make a batch of videos → Run workflow** asks *how many videos* (1–30) and *how many at the
-same time* (1–4). It picks that many products from the queue (never one already reviewed), makes them in
-parallel, then books them all and gives you **one download** (`all-videos-batch-N`) with every video.
+**Actions → Make a batch of videos → Run workflow** (or **＋ Generate new videos** in the library) asks
+*how many videos* (0–30), an optional *website to review* and *how many at the same time* (1–4). It picks
+that many products from the queue (never one already reviewed), adds the website you typed in (made even
+though it isn't in the queue), makes them in parallel and puts them all in the library.
 Example: 10 videos, 3 at a time ≈ 35–45 minutes. Remember YouTube's daily upload limits and that posting
 many AI-made videos a day can put monetisation at risk.
 

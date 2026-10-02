@@ -1,7 +1,8 @@
 name: Make a batch of videos
 
 # Actions tab → "Make a batch of videos" → Run workflow → choose how many.
-# 1) picks that many products from the queue (never ones already reviewed),
+# 1) picks that many products from the queue (never ones already reviewed), plus the optional
+#    website you type in (made even if it isn't in the queue),
 # 2) makes them in parallel, each in its own job,
 # 3) books everything at the end and gives you one download with all videos.
 
@@ -9,10 +10,14 @@ on:
   workflow_dispatch:
     inputs:
       count:
-        description: "How many videos should I make? (1-30)"
+        description: "How many videos from the queue? (0-30; 0 = only the website below)"
         type: number
         required: true
         default: 5
+      url:
+        description: "Optional: also review this website (outside the queue)"
+        required: false
+        default: ""
       parallel:
         description: "How many to make at the same time"
         type: choice
@@ -51,9 +56,11 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_MODELS: ${{ vars.GEMINI_MODELS }}
           COUNT: ${{ inputs.count }}
+          CUSTOM_URL: ${{ inputs.url }}
         run: |
-          n=$(( COUNT < 1 ? 1 : (COUNT > 30 ? 30 : COUNT) ))
-          python run.py --plan "$n" --plan-out plan.json
+          min=1; [ -n "$CUSTOM_URL" ] && min=0
+          n=$(( COUNT < min ? min : (COUNT > 30 ? 30 : COUNT) ))
+          python run.py --plan "$n" --plan-url "$CUSTOM_URL" --plan-out plan.json
           echo "items=$(python -c 'import json;print(json.dumps(json.load(open("plan.json"))))')" >> "$GITHUB_OUTPUT"
           echo "total=$(python -c 'import json;print(len(json.load(open("plan.json"))))')" >> "$GITHUB_OUTPUT"
       - name: Save queue changes
@@ -117,10 +124,10 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: video-${{ matrix.item.n }}
+          name: 911video-${{ matrix.item.n }}
           path: |
             output/*/*.mp4
-            output/*/thumbnail.jpg
+            output/*/*thumbnail*.jpg
             output/*/captions.srt
             output/*/UPLOAD_KIT.md
             output/*/metadata.json
@@ -143,7 +150,7 @@ jobs:
       - name: Collect the videos
         uses: actions/download-artifact@v4
         with:
-          pattern: video-*
+          pattern: 911video-*
           path: results
       - name: Book them (queue, history, never-review-again list) and notify
         env:

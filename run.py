@@ -62,9 +62,9 @@ def _tags(tags):
 
 
 def video_filename(title):
-    """Video file named after the YouTube title: Studio uses the file name as the starting title."""
+    """911video - <YouTube title>.mp4 (Studio uses the file name as the starting title)."""
     name = re.sub(r'[\\/:*?"<>|\x00-\x1f]', "", title or "").strip().rstrip(".")
-    return (re.sub(r"\s+", " ", name)[:90].strip() or "video") + ".mp4"
+    return "911video - " + (re.sub(r"\s+", " ", name)[:90].strip() or "video") + ".mp4"
 
 
 def full_description(data, info):
@@ -124,7 +124,7 @@ Source: {info['url']} · Format: {data.get('format')} · Look: {theme['layout']}
 
 ## Files
 - {video_file} — upload this (named after the title, so Studio pre-fills it)
-- thumbnail.jpg — custom thumbnail
+- 911video-thumbnail-1/2/3.jpg — three thumbnail options (pick one; 1 matches the title)
 - captions.srt — Subtitles → Upload file → With timing
 - "Altered or synthetic content" question: **No** (the narrator is an obvious AI voice, not a real person)
 
@@ -141,7 +141,7 @@ def produce(item, history, out=None, mode="new"):
     from studio.crawl import crawl
     from studio.script import write_script
     from studio.themes import normalize, pick_theme
-    from studio.thumbnail import make_thumbnail
+    from studio.thumbnail import make_thumbnails, choose_thumbnail
     from studio.tts import fit_length, narrate, write_srt
     from studio.video import render
     from studio.visuals import brand_color, load_logo
@@ -177,8 +177,8 @@ def produce(item, history, out=None, mode="new"):
     print(f"4/6 rendering video ({theme['layout']} layout, {theme['mode']} {theme['bg']}, {theme['head_font']})")
     shutil.rmtree(out / "render", ignore_errors=True)
     video = render(data, info, out, theme)
-    print(f"5/6 thumbnail ({theme['thumb']})")
-    thumb = make_thumbnail(data, info, out, theme)
+    make_thumbnails(data, info, out, theme)
+    print(f"5/6 thumbnails ({', '.join(theme['thumbs'])})")
     srt = write_srt(data["segments"], out / "captions.srt")
     print("6/6 metadata")
     (out / "script.json").write_text(json.dumps(data, indent=2, ensure_ascii=False))
@@ -196,6 +196,8 @@ def produce(item, history, out=None, mode="new"):
         from studio.upload import upload
         meta = json.loads((out / "metadata.json").read_text())
         try:                     # a failed upload must not throw away a finished video
+            thumb = choose_thumbnail(out)
+            print(f"   thumbnail: {thumb.name}")
             vid = upload(video, thumb, meta["title"], description, meta["tags"], srt)
             (out / "youtube_id.txt").write_text(vid)
             youtube_url = f"https://youtu.be/{vid}"
@@ -211,7 +213,7 @@ def produce(item, history, out=None, mode="new"):
                        "theme": {k: theme[k] for k in ("mode", "layout", "frame", "caption", "bg",
                                                        "head_font", "accent", "transitions", "intro",
                                                        "highlight", "thumb", "thumb_accent",
-                                                       "cap_anim", "callout", "music", "sfx", "thumb_palette")
+                                                       "cap_anim", "callout", "music", "sfx", "thumb_palette", "thumbs")
                                  if k in theme}}
 
 
@@ -270,6 +272,7 @@ def main():
     # batch mode (used by the "Make a batch of videos" workflow)
     ap.add_argument("--plan", type=int, help="pick this many products and write them to --plan-out")
     ap.add_argument("--plan-out", type=Path, default=Path("plan.json"))
+    ap.add_argument("--plan-url", default="", help="also review this website (outside the queue)")
     ap.add_argument("--item", help="make exactly this planned item (JSON) and write result.json, no bookkeeping")
     ap.add_argument("--apply-results", type=Path, help="book all result.json files found in this folder")
     a = ap.parse_args()
@@ -277,8 +280,11 @@ def main():
 
     if a.upload:
         from studio.upload import upload
+        from studio.thumbnail import choose_thumbnail
         meta = json.loads((a.upload / "metadata.json").read_text())
-        vid = upload(a.upload / meta.get("video_file", "video.mp4"), a.upload / "thumbnail.jpg", meta["title"],
+        thumb = choose_thumbnail(a.upload)
+        print(f"thumbnail: {thumb.name if thumb else 'none'}")
+        vid = upload(a.upload / meta.get("video_file", "video.mp4"), thumb, meta["title"],
                      meta["description"], meta["tags"], a.upload / "captions.srt")
         print(f"https://youtu.be/{vid}")
         return
@@ -286,8 +292,14 @@ def main():
         produce(None, history, out=a.rerender or a.restyle, mode="rerender" if a.rerender else "restyle")
         return
 
-    if a.plan:
-        picks = plan(a.plan, history)
+    if a.plan is not None:
+        picks = plan(a.plan, history) if a.plan > 0 else []
+        custom = a.plan_url.strip()
+        if custom:
+            custom = custom if "://" in custom else "https://" + custom
+            picks = [(key_for(custom), {"name": urlparse(custom).netloc.removeprefix("www."), "url": custom,
+                                        "category": None, "custom": True})] + \
+                [(k, it) for k, it in picks if k != key_for(custom)]
         a.plan_out.write_text(json.dumps([{"n": i + 1, "key": k, **it} for i, (k, it) in enumerate(picks)]))
         print(f"Planned {len(picks)} video(s):")
         for i, (k, it) in enumerate(picks, 1):
@@ -297,7 +309,7 @@ def main():
         it = json.loads(a.item)
         key = it.pop("key", None) or key_for(it["url"])
         it.pop("n", None)
-        if Ledger().has(it["url"], it.get("name")):
+        if not it.get("custom") and Ledger().has(it["url"], it.get("name")):   # a typed-in site is made anyway
             print(f"{it['name']} was already reviewed — skipping.")
             return
         res = make_one(key, it, history)
