@@ -61,6 +61,17 @@ def _tags(tags):
     return out
 
 
+def _site_name(url):
+    """Readable name for a typed-in link: app-store links -> the app's name, else the domain."""
+    u = urlparse(url)
+    m = re.search(r"/app/([^/]+)/id\d+", u.path) or re.search(r"[?&]id=([\w.]+)", "?" + u.query)
+    if m and ("apple.com" in u.netloc or "play.google" in u.netloc):
+        parts = [p for p in m.group(1).split(".") if p not in {"com", "app", "android", "io", "co", "net", "org"}]
+        slug = (parts or [u.netloc])[0] if "play.google" in u.netloc else m.group(1)
+        return slug.split("-")[0].capitalize() or u.netloc
+    return u.netloc.removeprefix("www.")
+
+
 def video_filename(title):
     """911video - <YouTube title>.mp4 (Studio uses the file name as the starting title)."""
     name = re.sub(r'[\\/:*?"<>|\x00-\x1f]', "", title or "").strip().rstrip(".")
@@ -301,7 +312,7 @@ def main():
             custom = custom if "://" in custom else "https://" + custom
             hit = next(((k, it) for k, it in q["items"].items() if site_id(it.get("url", "")) == site_id(custom)), None)
             item = (hit[0], {**hit[1]}) if hit else \
-                (key_for(custom), {"name": urlparse(custom).netloc.removeprefix("www."), "url": custom,
+                (key_for(custom), {"name": _site_name(custom), "url": custom,
                                    "category": None, "custom": True})       # typed in: made even if reviewed
             picks = [item] + [(k, it) for k, it in picks if k != item[0]]
         a.plan_out.write_text(json.dumps([{"n": i + 1, "key": k, **it} for i, (k, it) in enumerate(picks)]))
