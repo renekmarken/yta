@@ -1,0 +1,5 @@
+# Your own picks: one URL per line. These jump to the front of the queue.
+# Everything else is found automatically (see data/QUEUE.md).
+# Lines starting with # are ignored. Examples:
+# https://www.chime.com
+# https://www.lemonade.com

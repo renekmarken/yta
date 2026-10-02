@@ -1,0 +1,96 @@
+name: Produce review videos
+
+on:
+  schedule:
+    # Twice a day (UTC) = 09:17 and 18:17 in Tallinn. Add lines for more runs.
+    - cron: "17 6 * * *"
+    - cron: "17 15 * * *"
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Review one specific site now (optional)"
+        required: false
+      count:
+        description: "How many videos from the queue"
+        required: false
+        default: "1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-writer
+  cancel-in-progress: false
+
+jobs:
+  produce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install FFmpeg, Python packages and Chromium
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+          pip install "piper-tts>=1.2" || echo "Piper backup voice not available (Edge voice still works)"
+
+      - name: Cache backup voice model
+        uses: actions/cache@v4
+        with:
+          path: .cache/piper
+          key: piper-${{ vars.PIPER_VOICE || 'en_US-ryan-high' }}
+
+      - name: Get extra fonts
+        run: python tools/get_fonts.py
+
+      - name: Make videos
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          UPLOAD_MODE: ${{ vars.UPLOAD_MODE || 'manual' }}
+          CHANNEL_NAME: ${{ vars.CHANNEL_NAME || 'Worth Using It?' }}
+          TTS_VOICE: ${{ vars.TTS_VOICE || 'en-US-AndrewMultilingualNeural' }}
+          GEMINI_MODELS: ${{ vars.GEMINI_MODELS }}
+          PIPER_VOICE: ${{ vars.PIPER_VOICE }}
+        run: |
+          if [ -n "${{ github.event.inputs.url }}" ]; then
+            python run.py --url "${{ github.event.inputs.url }}"
+          else
+            python run.py -n "${{ github.event.inputs.count || vars.VIDEOS_PER_RUN || '1' }}"
+          fi
+
+      - name: Save progress (queue, done list, history)
+        if: always()
+        run: |
+          git config user.name "review-bot"
+          git config user.email "review-bot@users.noreply.github.com"
+          git add data/ || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Update processed sites"
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
+
+      - name: Upload finished videos (download from this run's page)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: videos-${{ github.run_number }}
+          path: |
+            output/*/video.mp4
+            output/*/thumbnail.jpg
+            output/*/captions.srt
+            output/*/UPLOAD_KIT.md
+            output/*/metadata.json
+            output/*/script.json
+          retention-days: 14
+          if-no-files-found: ignore
