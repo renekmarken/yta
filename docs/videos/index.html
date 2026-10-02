@@ -232,7 +232,7 @@ function grid(){
   if (!list.length) return `<div class="empty">No videos match “${esc(q)}”.</div>`;
   return `<div class="grid">${list.map(v => `
     <button class="card" data-id="${esc(v.id)}" aria-label="${esc(v.title)}">
-      ${v.files?.thumbnail ? `<img class="thumb" data-enc="${esc(v.files.thumbnail.path)}" alt="">` : `<div class="thumb"></div>`}
+      ${v.files?.thumbnail ? `<img class="thumb" data-enc="${esc(refPath(v.files.thumbnail))}" alt="">` : `<div class="thumb"></div>`}
       <div class="body">
         <h2>${esc(v.title)}</h2>
         <div class="meta">
@@ -269,7 +269,7 @@ function detail(v){
     <div class="detail">
       <div>
         <div class="panel">
-          ${f.thumbnail ? `<img class="thumb" data-enc="${esc(f.thumbnail.path)}" alt="Thumbnail">` : ""}
+          ${f.thumbnail ? `<img class="thumb" data-enc="${esc(refPath(f.thumbnail))}" alt="Thumbnail">` : ""}
           <div class="pad">
             <h2 class="big-title">${esc(v.title)}</h2>
             <div class="meta">
@@ -277,7 +277,7 @@ function detail(v){
               ${v.verdict ? `<span class="pill"><span class="dot" style="background:${verdictColor(v.verdict)}"></span>${esc(v.verdict)}${v.score !== "" ? " · " + esc(v.score) + "/10" : ""}</span>` : ""}
             </div>
             <div class="downloads">
-              ${dl("video", "Download video (MP4)" + (f.video ? ` · ${Math.round(f.video.size / 1048576)} MB` : ""), true)}
+              ${dl("video", "Download video (MP4)" + (f.video && f.video.size ? ` · ${Math.round(f.video.size / 1048576)} MB` : ""), true)}
               ${dl("thumbnail", "Thumbnail")}
               ${dl("captions", "Captions (SRT)")}
             </div>
@@ -348,8 +348,10 @@ document.getElementById("lockbtn").addEventListener("click", () => {
   store.set("lib-key", null); videos = []; dispatch = null; location.hash = ""; lockScreen();
 });
 
-/* ---------- encrypted files */
+/* ---------- encrypted files (older videos may still be plain links until the library is updated) */
+const refPath = ref => typeof ref === "string" ? ref : ref.path;
 async function fileURL(path, type){
+  if (/^https?:/.test(path)) return path;                     // plain link: use as is
   if (blobCache[path]) return blobCache[path];
   const r = await fetch(vaultBase + path + "?v=" + encodeURIComponent(box.iv), {cache: "force-cache"});
   if (!r.ok) throw new Error("file not found (" + r.status + ")");
@@ -367,7 +369,7 @@ document.addEventListener("click", async e => {
   b.disabled = true; label.textContent = "Unlocking file…";
   try {
     const a = document.createElement("a");
-    a.href = await fileURL(f.path, f.type); a.download = f.name;
+    a.href = await fileURL(refPath(f), f.type || ""); a.download = f.name || "";
     document.body.appendChild(a); a.click(); a.remove();
     label.textContent = "Downloaded ✓";
   } catch (err) { label.textContent = "Failed — try again"; console.error(err); }
