@@ -410,5 +410,234 @@
     "phone/sky_navy/scam"
    ]
   }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.chase.com",
+  "brand": "Chase",
+  "category": "credit-cards",
+  "title": "Chase Credit Cards: $0 Fees, But What's the Catch?",
+  "youtube": null,
+  "format": "five_questions",
+  "opener": "Are Chase credit cards actually worth adding to your wallet, or is the hype overblown? Before you apply for any financia",
+  "title_style": "before",
+  "theme": {
+   "mode": "light",
+   "layout": "spotlight",
+   "frame": "mac_light",
+   "caption": "tag",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    53,
+    110,
+    186
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "poster",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "pill",
+   "music": "lofi",
+   "sfx": "playful",
+   "thumb_palette": "royal_yellow",
+   "thumbs": [
+    "poster/royal_yellow/before",
+    "tilt_right/paper_red/worth",
+    "phone/sky_navy/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.geico.com",
+  "brand": "GEICO",
+  "category": "insurance",
+  "title": "Is GEICO Actually Worth It?",
+  "youtube": null,
+  "format": "who_for",
+  "opener": "If you want a single provider for non-auto policies underwritten directly by the main brand, you should skip GEICO",
+  "title_style": "actually",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "mac_light",
+   "caption": "glass",
+   "bg": "spotlight",
+   "head_font": "poppins",
+   "accent": [
+    57,
+    113,
+    169
+   ],
+   "transitions": [
+    "circleopen",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "lofi",
+   "sfx": "punchy",
+   "thumb_palette": "purple_lime",
+   "thumbs": [
+    "stack/purple_lime/worth",
+    "sticker/orange_ink/scam",
+    "yes_no/royal_yellow/expect"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.chime.com",
+  "brand": "Chime",
+  "category": "banking-apps",
+  "title": "Chime: $0 Fees, But What's the Catch?",
+  "youtube": null,
+  "format": "fine_print",
+  "opener": "Chime markets itself as America's number one choice for banking, promising fee-free accounts, early pay access, and up t",
+  "title_style": "scam",
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "mac_light",
+   "caption": "bar",
+   "bg": "aurora",
+   "head_font": "poppins",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "vertopen",
+    "horzopen"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "poster",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "glass",
+   "music": "acoustic",
+   "sfx": "playful",
+   "thumb_palette": "red_white",
+   "thumbs": [
+    "poster/red_white/scam",
+    "phone/orange_ink/worth",
+    "split/pink_yellow/expect"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.progressive.com",
+  "brand": "Progressive",
+  "category": "insurance",
+  "title": "Progressive: Worth Using It? Over $950 Savings Tested",
+  "youtube": null,
+  "format": "first_look",
+  "opener": "Here is the catch with Progressive: while they advertise average annual savings of over $950 for drivers who switch, you",
+  "title_style": "worth",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "tag",
+   "bg": "aurora",
+   "head_font": "inter",
+   "accent": [
+    8,
+    124,
+    170
+   ],
+   "transitions": [
+    "squeezeh",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "ambient",
+   "sfx": "digital",
+   "thumb_palette": "sky_navy",
+   "thumbs": [
+    "stack/sky_navy/worth_using",
+    "verdict/paper_red/scam",
+    "sticker/midnight_yellow/works"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://cash.app",
+  "brand": "Cash App",
+  "category": "banking-apps",
+  "title": "Cash App: $0 Fees, But What's the Catch?",
+  "youtube": null,
+  "format": "who_for",
+  "opener": "Are you tired of hidden bank fees and complicated apps? Cash App promises effortless money management, from peer-to-peer",
+  "title_style": "fees",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "glass",
+   "bg": "spotlight",
+   "head_font": "poppins",
+   "accent": [
+    0,
+    216,
+    0
+   ],
+   "transitions": [
+    "smoothup",
+    "smoothdown"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "poster",
+   "thumb_accent": [
+    0,
+    216,
+    0
+   ],
+   "cap_anim": "fade_up",
+   "callout": "pill",
+   "music": "acoustic",
+   "sfx": "punchy",
+   "thumb_palette": "pink_yellow",
+   "thumbs": [
+    "poster/pink_yellow/fees",
+    "big_fact/orange_ink/scam",
+    "yes_no/teal_orange/worth"
+   ]
+  }
  }
 ]

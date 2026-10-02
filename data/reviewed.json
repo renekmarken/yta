@@ -70,5 +70,48 @@
   "status": "done",
   "date": "2026-10-02",
   "alt": "betterment.com"
+ },
+ {
+  "site": "chase.com",
+  "name": "Chase",
+  "url": "https://www.chase.com",
+  "status": "done",
+  "date": "2026-10-02"
+ },
+ {
+  "site": "geico.com",
+  "name": "GEICO",
+  "url": "https://www.geico.com",
+  "status": "done",
+  "date": "2026-10-02",
+  "alt": "Geico"
+ },
+ {
+  "site": "chime.com",
+  "name": "Chime",
+  "url": "https://www.chime.com",
+  "status": "done",
+  "date": "2026-10-02"
+ },
+ {
+  "site": "americanexpress.com",
+  "name": "American Express",
+  "url": "https://www.americanexpress.com",
+  "status": "failed",
+  "date": "2026-10-02"
+ },
+ {
+  "site": "progressive.com",
+  "name": "Progressive",
+  "url": "https://www.progressive.com",
+  "status": "done",
+  "date": "2026-10-02"
+ },
+ {
+  "site": "cash.app",
+  "name": "Cash App",
+  "url": "https://cash.app",
+  "status": "done",
+  "date": "2026-10-02"
  }
 ]

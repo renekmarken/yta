@@ -1,33 +1,5 @@
 {
  "items": {
-  "chase.com": {
-   "name": "Chase",
-   "url": "https://www.chase.com",
-   "category": "credit-cards",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Massive rewards credit card issuer with frequent review searches.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:21+00:00",
-   "priority": 7.26,
-   "cat": "💳 Credit cards / financial products"
-  },
-  "americanexpress.com": {
-   "name": "American Express",
-   "url": "https://www.americanexpress.com",
-   "category": "credit-cards",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Premium travel and cash-back cards heavily researched online.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:21+00:00",
-   "priority": 7.26,
-   "cat": "💳 Credit cards / financial products"
-  },
   "capitalone.com": {
    "name": "Capital One",
    "url": "https://www.capitalone.com",
@@ -70,34 +42,6 @@
    "priority": 6.87,
    "cat": "💳 Credit cards / financial products"
   },
-  "geico.com": {
-   "name": "Geico",
-   "url": "https://www.geico.com",
-   "category": "insurance",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Leading auto insurance provider with high search volume.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:22+00:00",
-   "priority": 7.26,
-   "cat": "🛡️ Insurance"
-  },
-  "progressive.com": {
-   "name": "Progressive",
-   "url": "https://www.progressive.com",
-   "category": "insurance",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Major auto and home insurer compared frequently online.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:23+00:00",
-   "priority": 7.26,
-   "cat": "🛡️ Insurance"
-  },
   "allstate.com": {
    "name": "Allstate",
    "url": "https://www.allstate.com",
@@ -111,20 +55,6 @@
    "added": "2026-10-02T07:22:24+00:00",
    "priority": 6.87,
    "cat": "🛡️ Insurance"
-  },
-  "chime.com": {
-   "name": "Chime",
-   "url": "https://www.chime.com",
-   "category": "banking-apps",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Leading digital banking app with millions of active users.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:24+00:00",
-   "priority": 7.26,
-   "cat": "💰 Finance apps / banking"
   },
   "ally.com": {
    "name": "Ally Bank",
@@ -166,20 +96,6 @@
    ],
    "added": "2026-10-02T07:22:25+00:00",
    "priority": 6.48,
-   "cat": "💰 Finance apps / banking"
-  },
-  "cash.app": {
-   "name": "Cash App",
-   "url": "https://cash.app",
-   "category": "banking-apps",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Ubiquitous peer-to-peer payments and banking services app.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:25+00:00",
-   "priority": 7.26,
    "cat": "💰 Finance apps / banking"
   },
   "zillow.com": {
@@ -771,5 +687,5 @@
    "cat": "💼 Freelancing platforms"
   }
  },
- "updated": "2026-10-02T15:28:24+00:00"
+ "updated": "2026-10-02T16:27:57+00:00"
 }
