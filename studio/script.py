@@ -40,7 +40,7 @@ FORMAT FOR THIS VIDEO: {fmt}
 OPEN WITH: {hook}
 A GOOD REVIEW IN THIS CATEGORY CHECKS: {checklist}
 
-Write a 2-3 minute narration: {min_words}-{max_words} words in total.
+Write a 2-3 minute narration: {min_words}-{max_words} words in total (count them; this is a hard limit).
 
 Honesty rules (very important):
 - Facts must come from the WEBSITE TEXT or the RESEARCH NOTES below. Never invent numbers, ratings
@@ -126,8 +126,8 @@ def _shots_for_prompt(info):
 def _validate(data, info):
     problems = []
     words = sum(len(s.get("text", "").split()) for s in data.get("segments", []))
-    if not 300 <= words <= 520:
-        problems.append(f"narration is {words} words; it must be 330-450 words")
+    if not 290 <= words <= 410:       # ~2-3 minute video at the voice's speed
+        problems.append(f"narration is {words} words; it must be 320-390 words")
     if not 6 <= len(data.get("segments", [])) <= 12:
         problems.append("use 7-10 segments")
     for k in ("youtube_title", "youtube_description", "tags", "verdict"):
@@ -182,7 +182,7 @@ def write_script(info: dict, item: dict, history: list) -> dict:
         category=cat["name"] if cat else "decide from the site (pick the closest id)",
         fmt=FORMATS[fmt_key], hook=rnd.choice(HOOKS),
         checklist="; ".join(cat["checklist"]) if cat else "pricing, trust signals, who it is for",
-        min_words=340, max_words=440,
+        min_words=320, max_words=390,
         recent_openers=json.dumps(recent_openers, ensure_ascii=False) if recent_openers else "none yet",
         shots=_shots_for_prompt(info), cat_ids=", ".join(BY_ID), icons=", ".join(ICONS),
         research=notes or "none available",

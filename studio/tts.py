@@ -106,6 +106,29 @@ def narrate(segments: list, out_dir: Path) -> list:
     return segments
 
 
+def fit_length(segments: list, extra: float, min_s=125.0, max_s=175.0) -> float:
+    """Keep the finished video between 2 and 3 minutes: if the narration came out too long or
+    too short, gently speed it up or slow it down (atempo keeps the pitch). Returns total seconds."""
+    speech = sum(s["duration"] for s in segments)
+    total = speech + extra
+    if min_s <= total <= max_s:
+        return total
+    target = (max_s - 8 if total > max_s else min_s + 8) - extra
+    factor = max(0.9, min(1.25, speech / max(target, 1)))
+    print(f"   video would be {total:.0f}s; adjusting voice speed x{factor:.2f} to fit 2-3 minutes")
+    for seg in segments:
+        src = Path(seg["audio"])
+        tmp = src.with_name(src.stem + "_fit.mp3")
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(src), "-filter:a", f"atempo={factor:.4f}",
+                        "-b:a", "160k", str(tmp)], check=True)
+        tmp.replace(src)
+        seg["duration"] = duration(src)
+    total = sum(s["duration"] for s in segments) + extra
+    if not min_s - 5 <= total <= max_s + 5:
+        print(f"   ! video is {total:.0f}s, outside 2-3 minutes (script length was off)")
+    return total
+
+
 # ------------------------------------------------------------------ captions
 def _ts(s):
     h, rem = divmod(s, 3600)

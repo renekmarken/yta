@@ -25,7 +25,7 @@ from studio.notify import notify
 from studio.script import write_script
 from studio.themes import normalize, pick_theme
 from studio.thumbnail import make_thumbnail
-from studio.tts import narrate, write_srt
+from studio.tts import fit_length, narrate, write_srt
 from studio.video import chapters, render
 from studio.visuals import brand_color, load_logo
 
@@ -167,6 +167,9 @@ def produce(item, history, out=None, mode="new"):
 
     print("3/6 voice-over")
     narrate(data["segments"], out)
+    if mode == "new":            # keep your own recordings (rerender) untouched
+        from studio.video import OUTRO, PAD
+        fit_length(data["segments"], OUTRO + PAD * len(data["segments"]))
     print(f"4/6 rendering video ({theme['layout']} layout, {theme['mode']} {theme['bg']}, {theme['head_font']})")
     shutil.rmtree(out / "render", ignore_errors=True)
     video = render(data, info, out, theme)
