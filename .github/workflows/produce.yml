@@ -18,6 +18,9 @@ on:
 permissions:
   contents: write
 
+env:
+  PYTHONUNBUFFERED: "1"         # show progress in the live log
+
 concurrency:
   group: data-writer
   cancel-in-progress: false

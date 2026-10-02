@@ -12,7 +12,7 @@ import requests
 
 from . import config
 
-_state = {"endpoint": None, "model": None, "auto_models": None}
+_state = {"endpoint": None, "model": None, "auto_models": None, "no_search": False}
 
 AISTUDIO = "https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent"
 VERTEX = "https://aiplatform.googleapis.com/v1/publishers/google/models/{m}:generateContent"
@@ -97,6 +97,10 @@ def _try_model(endpoint, model, prompt, json_mode, grounded, temperature):
             except AIError as e:
                 return "next", str(e)
         err = f"{endpoint}/{model} HTTP {r.status_code}: {r.text[:300]}"
+        if r.status_code == 429 and grounded:
+            return "search_quota", err                  # web search is optional: don't wait on it
+        if r.status_code == 429 and ("PerDay" in r.text or "limit: 0" in r.text):
+            return "next", err                           # daily quota used up: waiting won't help
         if r.status_code in (429, 500, 503):            # rate limit / overloaded: wait, retry
             time.sleep(15 * (attempt + 1))
             continue
@@ -111,6 +115,8 @@ def _try_model(endpoint, model, prompt, json_mode, grounded, temperature):
 def gemini(prompt, json_mode=False, grounded=False, temperature=0.7):
     if not config.GEMINI_API_KEY:
         raise AIError("GEMINI_API_KEY is not set")
+    if grounded and _state["no_search"]:
+        raise AIError("Gemini web search quota used up earlier in this run")
     errors = []
     for endpoint in _endpoints():
         models = list(dict.fromkeys(([_state["model"]] if _state["model"] else []) + config.GEMINI_MODELS))
@@ -121,6 +127,9 @@ def gemini(prompt, json_mode=False, grounded=False, temperature=0.7):
                 _state["endpoint"], _state["model"] = endpoint, models[i]
                 return payload
             errors.append(payload)
+            if status == "search_quota":
+                _state["no_search"] = True
+                raise AIError("Gemini web search quota used up: " + payload)
             if status == "bad_key":
                 break                                    # this key belongs to the other endpoint
             if status == "no_tools":
