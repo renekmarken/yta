@@ -54,7 +54,8 @@ def _auto_models():
 
 
 def _call_gemini(endpoint, model, prompt, json_mode, grounded, temperature):
-    body = {"contents": [{"role": "user", "parts": [{"text": prompt}]}],
+    parts = prompt if isinstance(prompt, list) else [{"text": prompt}]      # a list: text + images
+    body = {"contents": [{"role": "user", "parts": parts}],
             "generationConfig": {"temperature": temperature}}
     if json_mode and not grounded:
         body["generationConfig"]["responseMimeType"] = "application/json"
@@ -140,6 +141,17 @@ def gemini(prompt, json_mode=False, grounded=False, temperature=0.7):
                 auto_added = True
                 models += [m for m in _auto_models() if m not in models]
     raise AIError("Gemini failed: " + " || ".join(errors[-3:]))
+
+
+def see(prompt, images, json_mode=True, temperature=0.2):
+    """Ask Gemini about pictures: `images` are PNG bytes, shown in order after the prompt.
+    Returns the text answer."""
+    import base64
+    parts = [{"text": prompt}]
+    for i, png in enumerate(images, 1):
+        parts += [{"text": f"Image {i}:"}, {"inline_data": {"mime_type": "image/png", "data": base64.b64encode(png).decode()}}]
+    text, _ = gemini(parts, json_mode=json_mode, temperature=temperature)
+    return text
 
 
 def openai_chat(prompt, json_mode=False, temperature=0.7):

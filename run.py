@@ -164,7 +164,7 @@ def produce(item, history, out=None, mode="new"):
             shutil.rmtree(out)
         cat = BY_ID.get(item.get("category"))
         print(f"1/6 crawling {url}")
-        info = crawl(url, out, cat["subpage_words"] if cat else None)
+        info = crawl(url, out, cat["subpage_words"] if cat else None, brand=item.get("name"))
         if item.get("kind") == "risk":                      # Risk Case: a real user's story, explained
             from studio import risk
             print(f"2/6 finding a real story + script ({len(info['screenshots'])} screenshots)")

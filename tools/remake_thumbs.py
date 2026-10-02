@@ -62,10 +62,12 @@ def main(names):
                 zipfile.ZipFile(io.BytesIO(lib.fetch(files["site"]))).extractall(out)
                 info = json.loads((out / "site.json").read_text())
                 print(f"  {e['title']}: using the saved screenshots")
+                from studio.logo import ensure                # re-check the saved logo, replace a bad one
+                ensure(info, out, data["brand"])
             else:
                 print(f"  {e['title']}: visiting {url}")
                 cat = BY_ID.get(e.get("category"))
-                info = crawl(url, out, cat["subpage_words"] if cat else None)
+                info = crawl(url, out, cat["subpage_words"] if cat else None, brand=data["brand"])
         except Exception as ex:                          # e.g. the site shows a bot check right now
             print(f"  ! {e['title']}: skipped ({type(ex).__name__}: {str(ex)[:120]})")
             continue

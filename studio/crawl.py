@@ -1,5 +1,4 @@
 """Step 1: visit a website, collect text, screenshots (with on-screen text boxes) and the logo."""
-import base64
 import io
 import json
 import re
@@ -10,6 +9,8 @@ import requests
 from bs4 import BeautifulSoup
 from PIL import Image, ImageChops, ImageStat
 from playwright.sync_api import sync_playwright
+
+from .logo import find as find_logo
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/128.0 Safari/537.36")
@@ -201,13 +202,13 @@ def _clean_svg(text):
     return re.sub(r"<(svg)\b([^>]*?)(/?)>", tag, text, count=1)
 
 
-def _download_logo(cands, out_dir: Path, start=0):
+def _download_logo(cands, out_dir: Path, start=0, stem="logo"):
     """Download the first usable candidate from position `start`. Returns (path, next position)."""
     for i in range(start, min(len(cands), 10)):
         c = cands[i]
         try:
             if c.startswith("inline-svg:"):
-                p = out_dir / "logo.svg"
+                p = out_dir / f"{stem}.svg"
                 p.write_text(_clean_svg(c[len("inline-svg:"):]))
                 return p, i + 1
             if c.startswith("data:"):
@@ -226,45 +227,12 @@ def _download_logo(cands, out_dir: Path, start=0):
                         continue
                 except Exception:
                     pass
-            p = out_dir / f"logo{ext}"
+            p = out_dir / f"{stem}{ext}"
             p.write_bytes(r.content)
             return p, i + 1
         except Exception:
             continue
     return None, len(cands)
-
-
-def _logo_to_png(src: Path, out_dir: Path):
-    """Render any logo format (svg/ico/webp/png) to a trimmed transparent PNG via Chromium."""
-    data = src.read_bytes()
-    head = data[:400].lower()
-    mime = ("image/svg+xml" if b"<svg" in head or src.suffix == ".svg" else
-            "image/x-icon" if data[:4] == b"\x00\x00\x01\x00" else "image/png")
-    uri = f"data:{mime};base64,{base64.b64encode(data).decode()}"
-    html = (f"<html><body style='margin:0;background:transparent'>"
-            f"<img id=l src='{uri}' style='max-width:1200px;max-height:500px;"
-            f"min-height:240px;object-fit:contain'></body></html>")
-    out = out_dir / "logo.png"
-    try:
-        with sync_playwright() as p:
-            b = p.chromium.launch()
-            pg = b.new_page(viewport={"width": 1400, "height": 700})
-            pg.set_content(html)
-            pg.wait_for_timeout(400)
-            pg.locator("#l").screenshot(path=str(out), omit_background=True)
-            b.close()
-        im = Image.open(out).convert("RGBA")
-        bbox = im.getchannel("A").point(lambda a: 255 if a > 8 else 0).getbbox()
-        if not bbox:
-            return None
-        im = im.crop(bbox)
-        if im.width < 24 or im.height < 12:
-            return None
-        im.save(out)
-        return out.name
-    except Exception as e:
-        print(f"   ! logo render failed: {e}")
-        return None
 
 
 def _subpage_links(page, base_url, words, max_links=3):
@@ -286,7 +254,7 @@ def _subpage_links(page, base_url, words, max_links=3):
     return picked
 
 
-def crawl(url: str, out_dir: Path, subpage_words=None) -> dict:
+def crawl(url: str, out_dir: Path, subpage_words=None, brand=None) -> dict:
     out_dir.mkdir(parents=True, exist_ok=True)
     words = list(dict.fromkeys((subpage_words or []) + DEFAULT_WORDS))
     shots = []
@@ -359,10 +327,19 @@ def crawl(url: str, out_dir: Path, subpage_words=None) -> dict:
 
     if not shots:
         raise BlockedSite("no usable screenshots")
-    info["logo"], pos = None, 0
-    while not info["logo"] and pos < min(len(logo_cands), 10):     # next candidate if one won't render
-        logo, pos = _download_logo(logo_cands, out_dir, pos)
-        info["logo"] = _logo_to_png(logo, out_dir) if logo else None
+    # the logo: several candidates from the site (best guess first) + public icon services,
+    # checked (no blank blocks, no random icons) and picked by Gemini looking at them
+    srcs, pos = [], 0
+    while len(srcs) < 6 and pos < min(len(logo_cands), 12):
+        src, pos = _download_logo(logo_cands, out_dir, pos, stem=f"logo_src_{len(srcs)}")
+        if src:
+            srcs.append(src)
+    brand = brand or info.get("site_name") or info["domain"].split(".")[0].capitalize()
+    try:
+        info["logo"], info["logo_has_name"] = find_logo(srcs, brand, info["domain"], out_dir)
+    except Exception as e:
+        print(f"   ! logo search failed: {str(e)[:120]}")
+        info["logo"], info["logo_has_name"] = None, False
     info["screenshots"] = shots
     (out_dir / "site.json").write_text(json.dumps(info, indent=2))
     return info

@@ -382,9 +382,42 @@ def _is_light_logo(lg):
     return stat.mean[0] > 205
 
 
+def _brand_logo(info, out_dir):
+    """The video's logo, only when it is a proper picture (never a blank block); remembers whether
+    it shows the brand's name (a bare icon gets the name written next to it)."""
+    from .logo import check, has_name_shape
+    p = out_dir / info["logo"] if info.get("logo") else None
+    if not p or not p.exists() or check(p):
+        return None
+    logo = load_logo(p)
+    named = info.get("logo_has_name")
+    logo.info["has_name"] = has_name_shape(p) if named is None else bool(named)
+    return logo
+
+
+def _lockup(logo, brand, max_w, max_h):
+    """A bare icon with the brand's name next to it, on one badge."""
+    pad = int(max_h * 0.18)
+    ih = max_h - pad * 2
+    icon = logo.copy()
+    icon.thumbnail((ih, ih), Image.LANCZOS)
+    dark = _is_light_logo(icon)
+    d = ImageDraw.Draw(Image.new("L", (8, 8)))
+    gap = int(ih * 0.22)
+    f = fit(d, brand, lambda sz: font("Black", sz), max(60, max_w - pad * 2 - icon.width - gap), int(ih * 0.62))
+    tw = int(d.textlength(brand, font=f))
+    badge = rounded((pad * 2 + icon.width + gap + tw, max_h), 26, (18, 18, 22, 255) if dark else (255, 255, 255, 255))
+    badge.alpha_composite(icon, (pad, (max_h - icon.height) // 2))
+    ImageDraw.Draw(badge).text((pad + icon.width + gap, max_h // 2), brand, font=f,
+                               fill=WHITE if dark else INK, anchor="lm")
+    return badge
+
+
 def _logo_badge(logo, brand, max_w, max_h):
     """White rounded badge with the logo as big as fits (or the name in big type)."""
     pad = int(max_h * 0.2)
+    if logo is not None and not logo.info.get("has_name", True):
+        return _lockup(logo, brand, max_w, max_h)
     if logo is not None:
         lg = logo.copy()
         lg.thumbnail((max_w - pad * 2, max_h - pad * 2), Image.LANCZOS)
@@ -486,7 +519,7 @@ def _label_text(data, hk, fact, i):
 def render(data, info, out_dir, theme, layout, pal, hk, label_text, variant=0):
     """Draw one thumbnail. Returns (image, Boxes)."""
     B = Boxes()
-    logo = load_logo(out_dir / info["logo"]) if info.get("logo") else None
+    logo = _brand_logo(info, out_dir)
     brand = data.get("brand") or info["domain"]
     pages = _pages(info, out_dir)
     phone = _phone_shot(out_dir)
@@ -844,7 +877,7 @@ def render_risk(data, info, out_dir, theme, layout, variant=0):
     """One Risk Case thumbnail; every layout shows the post. Returns (image, Boxes)."""
     B = Boxes()
     story = data.get("story") or {}
-    logo = load_logo(out_dir / info["logo"]) if info.get("logo") else None
+    logo = _brand_logo(info, out_dir)
     brand = data.get("brand") or info["domain"]
     big = (story.get("thumb_big") or f"{story.get('amount') or 'ACCOUNT'} GONE.").upper()
     small = (story.get("thumb_small") or "WHAT HAPPENED?").upper()
