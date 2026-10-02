@@ -18,7 +18,7 @@ import random
 import re
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter, ImageOps
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageOps
 
 from . import config, icons
 from .visuals import fit, font, head_font, load_logo, mix, paste_shadowed, rounded, round_corners
@@ -27,17 +27,18 @@ TW, TH = 1280, 720
 YELLOW, INK, WHITE = (255, 214, 0), (12, 12, 14), (255, 255, 255)
 HEAD = "anton"                                   # bundled in assets/fonts (falls back to Inter)
 
-LAYOUTS = ["stack", "left", "split", "score", "yes_no"]
+LAYOUTS = ["stack", "left", "split", "score", "yes_no", "laptop", "number", "banner"]
 
 # Calm single-hue backgrounds: (dark, mid). Text is always white/yellow, labels yellow/black.
 PALETTES = {
-    "royal": ((10, 34, 110), (36, 108, 220)),
-    "midnight": ((6, 10, 26), (28, 46, 100)),
-    "ocean": ((3, 36, 64), (12, 106, 164)),
-    "crimson": ((52, 4, 12), (156, 22, 36)),
-    "emerald": ((3, 34, 24), (14, 112, 74)),
-    "violet": ((22, 8, 54), (88, 42, 172)),
-    "charcoal": ((8, 8, 10), (50, 52, 60)),
+    "royal": ((6, 30, 130), (20, 110, 255)),
+    "midnight": ((6, 10, 48), (34, 58, 180)),
+    "ocean": ((0, 44, 92), (0, 140, 230)),
+    "crimson": ((80, 0, 10), (225, 16, 40)),
+    "emerald": ((0, 56, 30), (0, 170, 84)),
+    "violet": ((36, 4, 92), (128, 46, 255)),
+    "magenta": ((70, 0, 52), (220, 20, 140)),
+    "charcoal": ((8, 8, 12), (52, 56, 72)),
 }
 LIGHT_PALETTES = set()                           # every scheme is dark, so white text always reads
 
@@ -147,7 +148,7 @@ class Boxes:
         out = []
         for i, (n1, k1, r1) in enumerate(self.items):
             for n2, k2, r2 in self.items[i + 1:]:
-                if "text" not in (k1, k2):
+                if "text" not in (k1, k2) or "backdrop" in (k1, k2):      # badges may sit on a backdrop
                     continue
                 if min(r1[2], r2[2]) - max(r1[0], r2[0]) > tol and min(r1[3], r2[3]) - max(r1[1], r2[1]) > tol:
                     out.append(f"{n1} / {n2}")
@@ -226,6 +227,25 @@ def _card(shot, width, tilt):
     return framed.rotate(tilt, Image.BICUBIC, expand=True) if tilt else framed
 
 
+def _laptop(shot, screen_w):
+    """Laptop mockup: dark bezel around the site, aluminium base."""
+    sw, sh = screen_w, int(screen_w * 0.625)
+    scr = _cover(shot, (sw, sh), anchor=(0.5, 0.0))
+    bez = 16
+    lid = rounded((sw + bez * 2, sh + bez * 2 + 10), 22, (16, 16, 20, 255))
+    lid.paste(scr, (bez, bez))
+    base_w, base_h = int((sw + bez * 2) * 1.14), 26
+    im = Image.new("RGBA", (base_w, lid.height + base_h), (0, 0, 0, 0))
+    im.alpha_composite(lid, ((base_w - lid.width) // 2, 0))
+    base = Image.new("RGBA", (base_w, base_h), (0, 0, 0, 0))
+    bd = ImageDraw.Draw(base)
+    bd.rounded_rectangle([0, 0, base_w - 1, base_h - 1], 12, fill=(198, 202, 210, 255))
+    bd.rectangle([0, 0, base_w - 1, 6], fill=(226, 229, 235, 255))
+    bd.rounded_rectangle([base_w // 2 - 70, 0, base_w // 2 + 70, 9], 5, fill=(160, 164, 172, 255))
+    im.alpha_composite(base, (0, lid.height))
+    return im
+
+
 def _phone(shot, height, tilt):
     """Phone mockup: black bezel, rounded screen."""
     scr = shot.resize((int(shot.width * (height - 28) / shot.height), height - 28), Image.LANCZOS)
@@ -248,7 +268,8 @@ def _backdrop(shot, pal, light_at=(640, 330)):
     if shot is not None:
         ghost = _cover(shot, (TW, TH)).filter(ImageFilter.GaussianBlur(16)).convert("L")
         ghost = ImageOps.colorize(ImageOps.autocontrast(ghost), dark, mix(mid, (255, 255, 255), 0.25))
-        base = Image.blend(base, ghost, 0.22)
+        base = Image.blend(base, ghost, 0.18)
+    base = ImageEnhance.Color(base).enhance(1.45)                 # rich, saturated colour
     bg = base.convert("RGBA")
     bands = Image.new("RGBA", (TW, TH), (0, 0, 0, 0))
     d = ImageDraw.Draw(bands)
@@ -257,7 +278,7 @@ def _backdrop(shot, pal, light_at=(640, 330)):
     d.polygon([(TW * 0.62, TH), (TW * 0.9, 0), (TW * 0.97, 0), (TW * 0.69, TH)], fill=light)
     bg.alpha_composite(bands.filter(ImageFilter.GaussianBlur(3)))
     edge = Image.radial_gradient("L").resize((TW, TH)).point(lambda v: max(0, int((v - 110) * 0.9)))
-    shade = Image.new("RGBA", (TW, TH), (*mix(dark, (0, 0, 0), 0.5), 255))
+    shade = Image.new("RGBA", (TW, TH), (*mix(dark, (0, 0, 0), 0.25), 255))
     shade.putalpha(edge)
     bg.alpha_composite(shade)
     return bg
@@ -406,21 +427,24 @@ def _column(canvas, B, hk, x, top, bottom, max_w, label_text, align="left", labe
 
 
 # ------------------------------------------------------------------ layouts
-def _fits(layout, hk, has_phone, has_pages):
+def _fits(layout, hk, has_phone, has_pages, has_fact=True):
     if layout == "yes_no" and not hk["text"].endswith("?"):          # YES / NO needs a question
         return False
-    return not (layout == "split" and not has_pages)
+    if layout == "number" and not has_fact:
+        return False
+    return not (layout in ("split", "laptop", "banner") and not has_pages)
 
 
-def pick_layouts(theme, hooks, has_phone, has_pages):
+def pick_layouts(theme, hooks, has_phone, has_pages, has_fact=True):
     """One layout per variation, all different."""
     rnd = random.Random(theme["seed"] + "variants")
+    ok = lambda l, hk: _fits(l, hk, has_phone, has_pages, has_fact)
     first = theme.get("thumb")
-    if first not in LAYOUTS or not _fits(first, hooks[0], has_phone, has_pages):
-        first = rnd.choice([l for l in ("stack", "left", "split") if _fits(l, hooks[0], has_phone, has_pages)])
+    if first not in LAYOUTS or not ok(first, hooks[0]):
+        first = rnd.choice([l for l in ("stack", "left", "split", "laptop", "banner") if ok(l, hooks[0])])
     out = [first]
     for hk in hooks[1:]:
-        cands = [l for l in LAYOUTS if l not in out and _fits(l, hk, has_phone, has_pages)]
+        cands = [l for l in LAYOUTS if l not in out and ok(l, hk)]
         out.append(rnd.choice(cands))
     return out
 
@@ -456,7 +480,10 @@ def render(data, info, out_dir, theme, layout, pal, hk, label_text, variant=0):
     dark, mid = PALETTES[pal]
     flip = -1 if variant % 2 else 1
 
-    if layout == "stack":
+    if layout in ("laptop", "number", "banner"):
+        bg = _render_extra(layout, None, B, data, hk, label_text, logo, brand, pal, first, phone, pages, flip)
+
+    elif layout == "stack":
         # logo top-centre, hook in the middle, screenshots leaning in from both sides
         bg = _backdrop(first, pal)
         shots = (pages + pages)[:2] if pages else [phone, phone]
@@ -557,6 +584,72 @@ def render(data, info, out_dir, theme, layout, pal, hk, label_text, variant=0):
     return bg, B
 
 
+def _render_extra(layout, bg_args, B, data, hk, label_text, logo, brand, pal, first, phone, pages, flip):
+    """The newer layouts: laptop (+ phone), big real number, banner."""
+    dark, mid = PALETTES[pal]
+    if layout == "laptop":
+        bg = _backdrop(first, pal, (920, 360))
+        lap = _laptop(first, 560)
+        lx, ly = TW - lap.width - 34, (TH - lap.height) // 2 - (20 if phone is not None else 0)
+        _glow(bg, (lx, ly, lx + lap.width, ly + lap.height), mix(mid, WHITE, 0.3), 60, 140)
+        paste_shadowed(bg, lap, (lx, ly), 20, 30, 200, 18)
+        B.add("laptop", (lx, ly, lx + lap.width, ly + lap.height), "hero")
+        hero_x = lx
+        if phone is not None:
+            ph = _phone(phone, 400, 4 * flip)
+            px, py = lx + lap.width - ph.width + 20, TH - ph.height - 24
+            px = min(px, TW - ph.width - 12)
+            paste_shadowed(bg, ph, (px, py), 40, 26, 210, 16)
+            B.add("phone", (px, py, px + ph.width, py + ph.height), "hero")
+        col_w = min(620, hero_x - 50 - 30)
+        top = _brand_block(bg, B, logo, brand, 50, 40, min(560, col_w), 150, pal=pal) + 10
+        _column(bg, B, hk, 46, top, TH - 34, col_w, label_text)
+        return bg
+
+    if layout == "number":
+        big, small = key_fact(data)
+        bg = _backdrop(first, pal, (940, 330))
+        d = ImageDraw.Draw(bg)
+        nm = _fit_hook({"lines": [[big]], "big": [True], "accent": {big}}, 560, 330, 360)
+        nx, ny = 960, 130
+        _glow(bg, (nx - nm["w"] / 2, ny, nx + nm["w"] / 2, ny + nm["h"]), mix(mid, WHITE, 0.35), 70, 150)
+        _draw_hook(bg, B, nm, nx, ny, {big}, "center")
+        if small:
+            f = fit(d, small, lambda s: font("Black", s), 520, 54)
+            d.text((nx, ny + nm["h"] + 26), small, font=f, fill=WHITE, anchor="ma", stroke_width=3, stroke_fill=INK)
+            B.add("number label", d.textbbox((nx, ny + nm["h"] + 26), small, font=f, anchor="ma", stroke_width=3))
+        top = _brand_block(bg, B, logo, brand, 50, 40, 560, 150, pal=pal) + 10
+        _column(bg, B, hk, 46, top, TH - 34, 620, label_text)
+        return bg
+
+    # banner: the site as a wide window across the top, logo on its lower edge, hook in one huge line
+    bg = _backdrop(first, pal, (640, 560))
+    win_w, win_h = 1160, 380
+    shot = _cover(first, (win_w, win_h), focus=_busiest(first, (win_w, win_h)), anchor=(0.5, 0.4))
+    win = rounded((win_w, win_h + 40), 26, (255, 255, 255, 255))
+    win.alpha_composite(round_corners(shot.convert("RGBA"), 22), (0, 40))
+    wx, wy = (TW - win_w) // 2, -40
+    _glow(bg, (wx, 0, wx + win_w, wy + win.height), mix(mid, WHITE, 0.3), 60, 120)
+    paste_shadowed(bg, win, (wx, wy), 26, 30, 210, 20)
+    B.add("screenshot", (wx, 0, wx + win_w, wy + win.height), "backdrop")
+    badge = _logo_badge(logo, brand, 470, 124)
+    bx, by = wx + 28, wy + win.height - badge.height // 2
+    paste_shadowed(bg, badge, (bx, by), 26, 24, 190, 12)
+    B.add("logo", (bx, by, bx + badge.width, by + badge.height))
+    one = {**hk, "lines": [[w for l in hk["lines"] for w in l]], "big": [True]}
+    lab = _label(label_text, YELLOW, INK, 38, 560) if label_text else None
+    room_top = by + badge.height + 14
+    room = TH - 30 - room_top - ((lab.height + 16) if lab else 0)
+    m = _fit_hook(one, 1210, room, 240)
+    y = room_top + max(0, (room - m["h"]) // 2)
+    _draw_hook(bg, B, m, TW // 2, y, one["accent"], "center")
+    if lab:
+        lx, ly = TW // 2 - lab.width // 2, y + m["h"] + 16
+        paste_shadowed(bg, lab, (lx, ly), 18, 16, 140, 8)
+        B.add("label", (lx, ly, lx + lab.width, ly + lab.height))
+    return bg
+
+
 def make_thumbnails(data, info, out_dir: Path, theme: dict, count=3):
     """Three different thumbnails (layout, colours and hook text all differ). Files:
     911video-thumbnail-1.jpg ... -3.jpg (1 = matches the title). Returns their paths."""
@@ -565,7 +658,7 @@ def make_thumbnails(data, info, out_dir: Path, theme: dict, count=3):
     fact = key_fact(data)
     keys = pick_hooks(data, theme, count)
     hooks = [hook(k) for k in keys]
-    layouts = pick_layouts(theme, hooks, has_phone, has_pages)
+    layouts = pick_layouts(theme, hooks, has_phone, has_pages, fact is not None)
     palettes = pick_palettes(theme, count)
     for old in out_dir.glob("*thumbnail*.jpg"):
         old.unlink()

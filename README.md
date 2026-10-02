@@ -65,7 +65,7 @@ Each video gets its own random combination, chosen to differ from the last few v
 | Extras | progress bar; animated verdict end card (score counts up, ring or bar fills) |
 | Music | original track composed for each video: lofi · upbeat · ambient · tech · acoustic, new key/tempo/chords every time, ducked under the voice |
 | Sound effects | 24 synthesised effects in 8 packs (soft, crisp, punchy, airy, digital, warm, minimal, playful), each tuned differently per video, levelled to the same quiet volume under the voice |
-| Thumbnails | **3 options per video**, each a different format, colour scheme and hook. 10 formats: tilted card · diagonal split · centred stack · phone · sticker · giant key number with arrow · score badge · magnifying glass on the price · YES/NO split · bold brand poster — in 10 high-contrast colour schemes, never the same format or colours as the last few videos |
+| Thumbnails | **3 options per video**, each a different layout, colour and hook. 8 clean layouts: centre stack, YES/NO split, logo + phone, half-screen site, score ring, laptop + phone, big real number, website banner; 8 saturated single-colour backgrounds; big logo badge, huge Anton hook with one yellow word, yellow label |
 
 Every thumbnail sits on a glowing backdrop made from the site's own blurred screenshot, and shows the product's **logo** big and clear plus a huge hook (small lead-in, giant key word): "IS IT WORTH IT?", "IS IT A SCAM?",
 "LEGIT OR HYPE?", "WHAT'S THE CATCH?"... Option 1 matches the video's title. Every item is measured and checked so
