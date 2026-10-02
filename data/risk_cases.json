@@ -13,8 +13,64 @@
    "site": "robinhood.com",
    "name": "robinhood",
    "story_url": "https://www.reddit.com/r/ClassActionRobinHood/comments/1mnsib1/robinhood_let_a_hacker_drain_my_account_now_they/",
-   "title": "Robinhood FROZE over six figures after a hack — What Now?",
+   "title": "Robinhood FROZE my life savings after hack — What now?",
    "status": "done"
+  },
+  {
+   "date": "2026-10-02",
+   "site": "polymarket.com",
+   "name": "polymarket",
+   "story_url": "https://www.reddit.com/r/Polymarket_news/comments/1wj7vep/polymarket_froze_nearly_13000_after_canceling_my/",
+   "title": "Polymarket FROZE $13,000 After Withdrawal Cancellation — What Now?",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-02",
+   "site": "zoho.com",
+   "name": "zoho",
+   "story_url": "",
+   "title": "",
+   "status": "nostory"
+  },
+  {
+   "date": "2026-10-02",
+   "site": "bitwiseinvestments.com",
+   "name": "bitwise",
+   "story_url": "",
+   "title": "",
+   "status": "nostory"
+  },
+  {
+   "date": "2026-10-02",
+   "site": "chase.com",
+   "name": "chase",
+   "story_url": "https://www.reddit.com/r/Chase/comments/1mwb3qt/chase_froze_all_my_checking_accounts_and_credit/",
+   "title": "Chase FROZE accounts without notice? What now?",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-02",
+   "site": "geico.com",
+   "name": "geico",
+   "story_url": "https://www.reddit.com/r/personalfinance/comments/14pwks4/identity_theft_collections_and_huge_ding_to/",
+   "title": "GEICO Identity Theft Loan Claim — How Did This Happen?",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-02",
+   "site": "chime.com",
+   "name": "chime",
+   "story_url": "https://www.reddit.com/r/chimefinancial/comments/1wbt5vl/someone_opened_a_chime_account_with_my_info/",
+   "title": "Chime Account Opened With My Info Without Permission — What Now?",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-02",
+   "site": "progressive.com",
+   "name": "progressive",
+   "story_url": "",
+   "title": "",
+   "status": "nostory"
   }
  ]
 }

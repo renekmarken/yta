@@ -1195,44 +1195,234 @@
   "kind": "risk",
   "story_url": "https://www.reddit.com/r/ClassActionRobinHood/comments/1mnsib1/robinhood_let_a_hacker_drain_my_account_now_they/",
   "category": "investing",
-  "title": "Robinhood FROZE over six figures after a hack — What Now?",
+  "title": "Robinhood FROZE my life savings after hack — What now?",
   "youtube": null,
   "format": null,
-  "opener": "One Robinhood user on r/ClassActionRobinHood says a targeted phishing attack let a hacker drain their savings account",
+  "opener": "One Robinhood user on r/ClassActionRobinHood says a hacker targeted them in a sophisticated phishing attack, draining fu",
   "title_style": null,
   "theme": {
    "mode": "dark",
    "layout": "full",
-   "frame": "floating",
-   "caption": "pill",
-   "bg": "gradient",
+   "frame": "minimal",
+   "caption": "underline",
+   "bg": "spotlight",
    "head_font": "poppins",
    "accent": [
-    0,
-    214,
-    170
+    255,
+    212,
+    0
    ],
    "transitions": [
-    "slideup",
-    "slidedown"
+    "fadeblack"
    ],
    "intro": "headline",
    "highlight": "underline",
-   "thumb": "number",
+   "thumb": "laptop",
    "thumb_accent": [
     255,
     212,
     0
    ],
-   "cap_anim": "fade_up",
+   "cap_anim": "slide_up",
+   "callout": "pill",
+   "music": "ambient",
+   "sfx": "crisp",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "risk/alarm",
+    "risk/evidence",
+    "risk/post"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://polymarket.com",
+  "brand": "Polymarket",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/Polymarket_news/comments/1wj7vep/polymarket_froze_nearly_13000_after_canceling_my/",
+  "category": "investing",
+  "title": "Polymarket FROZE $13,000 After Withdrawal Cancellation — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "One Polymarket user on r/Polymarket_news says their account holding nearly thirteen thousand dollars was suddenly frozen",
+  "title_style": null,
+  "theme": {
+   "mode": "dark",
+   "layout": "side",
+   "frame": "floating",
+   "caption": "glass",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    223,
+    48,
+    48
+   ],
+   "transitions": [
+    "hblur",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "laptop",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "card",
+   "music": "tech",
+   "sfx": "digital",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "risk/evidence",
+    "risk/post",
+    "risk/alarm"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.chase.com",
+  "brand": "Chase",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/Chase/comments/1mwb3qt/chase_froze_all_my_checking_accounts_and_credit/",
+  "category": "banking-apps",
+  "title": "Chase FROZE accounts without notice? What now?",
+  "youtube": null,
+  "format": null,
+  "opener": "One Chase user on r/Chase says their accounts were suddenly frozen without any warning",
+  "title_style": null,
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "floating",
+   "caption": "glass",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    53,
+    110,
+    186
+   ],
+   "transitions": [
+    "dissolve"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_right",
    "callout": "pill",
    "music": "tech",
+   "sfx": "crisp",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "risk/alarm",
+    "risk/evidence",
+    "risk/post"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.geico.com",
+  "brand": "GEICO",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/personalfinance/comments/14pwks4/identity_theft_collections_and_huge_ding_to/",
+  "category": "insurance",
+  "title": "GEICO Identity Theft Loan Claim — How Did This Happen?",
+  "youtube": null,
+  "format": null,
+  "opener": "One GEICO user on r/personalfinance says they discovered a fraudulent auto loan opened in their name after receiving a s",
+  "title_style": null,
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "minimal",
+   "caption": "pill",
+   "bg": "mesh",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    70,
+    140
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "left",
+   "thumb_accent": [
+    255,
+    70,
+    140
+   ],
+   "cap_anim": "slide_up",
+   "callout": "pill",
+   "music": "acoustic",
    "sfx": "digital",
    "thumb_palette": "emerald",
    "thumbs": [
-    "risk/evidence",
+    "risk/post",
     "risk/alarm",
-    "risk/post"
+    "risk/evidence"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.chime.com",
+  "brand": "Chime",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/chimefinancial/comments/1wbt5vl/someone_opened_a_chime_account_with_my_info/",
+  "category": "banking-apps",
+  "title": "Chime Account Opened With My Info Without Permission — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "One Chime user on r/chimefinancial says they received unexpected emails stating their account was ready for a security d",
+  "title_style": null,
+  "theme": {
+   "mode": "brand",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "glass",
+   "bg": "mesh",
+   "head_font": "inter",
+   "accent": [
+    255,
+    212,
+    0
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "pill",
+   "music": "acoustic",
+   "sfx": "soft",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "risk/post",
+    "risk/alarm",
+    "risk/evidence"
    ]
   }
  }
