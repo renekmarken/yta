@@ -369,6 +369,18 @@ def _label(text, fill=YELLOW, fg=INK, size=40, max_w=560):
     return im
 
 
+def _is_light_logo(lg):
+    """True when the logo's visible pixels are mostly very light (it would vanish on white)."""
+    a = lg.getchannel("A").point(lambda v: 255 if v > 60 else 0)
+    if not a.getbbox():
+        return False
+    from PIL import ImageStat
+    rgb = lg.convert("RGB")
+    lum_im = rgb.convert("L")
+    stat = ImageStat.Stat(lum_im, mask=a)
+    return stat.mean[0] > 205
+
+
 def _logo_badge(logo, brand, max_w, max_h):
     """White rounded badge with the logo as big as fits (or the name in big type)."""
     pad = int(max_h * 0.2)
@@ -379,7 +391,8 @@ def _logo_badge(logo, brand, max_w, max_h):
             h = lg.height + pad * 2
         else:
             h = max_h
-        badge = rounded((lg.width + pad * 2, h), 26, (255, 255, 255, 255))
+        light_logo = _is_light_logo(lg)                 # a white logo needs a dark badge
+        badge = rounded((lg.width + pad * 2, h), 26, (18, 18, 22, 255) if light_logo else (255, 255, 255, 255))
         badge.alpha_composite(lg, (pad, (h - lg.height) // 2))
         return badge
     d = ImageDraw.Draw(Image.new("L", (8, 8)))

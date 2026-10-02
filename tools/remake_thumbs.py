@@ -73,7 +73,11 @@ def main(names):
         theme = normalize(pick_theme(f"{info['domain']}-{datetime.now(timezone.utc).isoformat()}",
                                      brand_color(logo, out / info["screenshots"][0]["file"]), [],
                                      (out / "mobile.png").exists(), e.get("category")))
-        paths = make_thumbnails(data, info, out, theme)
+        if e.get("kind") == "risk" and data.get("story"):
+            from studio.thumbnail import make_risk_thumbnails
+            paths = make_risk_thumbnails(data, info, out, theme)
+        else:
+            paths = make_thumbnails(data, info, out, theme)
         files["thumbnails"] = [lib.store(e["id"], "thumbnail", p.read_bytes(),
                                          f"911video - {e.get('site', 'video')} - thumbnail {i}.jpg", f"-{i}")
                                for i, p in enumerate(paths, 1)]
