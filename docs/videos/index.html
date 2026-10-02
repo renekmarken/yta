@@ -349,7 +349,7 @@ async function syncMarks(quiet){
   }
   try {
     // every save carries ALL of this device's unsaved changes, so a save that GitHub drops is covered by the next
-    await runWorkflow("library-backfill.yml", {set_uploaded: spec.join(",")});
+    await runWorkflow("save-marks.yml", {set_uploaded: spec.join(",")});
     store.set("marks-sent", String(Date.now()));
     if (!quiet) showStatus(`✓ Saved to the library: it shows on all your devices in about 2 minutes.
       <button class="xbtn" data-dismiss="marks">✕</button>`);

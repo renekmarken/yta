@@ -88,9 +88,13 @@ jobs:
           python tools/library.py migrate
           if [ -n "$MARK" ]; then python tools/library.py mark-uploaded "$MARK"; fi
           if [ -n "$SETUP" ]; then python tools/library.py set-uploaded "$SETUP"; fi
+          # marks saved by the page (save-marks.yml), oldest first; applied files are removed in this commit
+          for f in $(ls data/marks/*.txt 2>/dev/null | sort -V); do
+            python tools/library.py set-uploaded "$(cat "$f")" && git rm -q "$f"
+          done
           if [ -n "$REMOVE" ]; then python tools/library.py remove-lost "$REMOVE"; fi
           tools/vault.sh push                                # exits 1 unless GitHub really has the files
-          git add -A docs/videos/
+          git add -A docs/videos/ data/marks/ 2>/dev/null || git add -A docs/videos/
           git commit -qm "Video library: update" || exit 0
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
       - name: Tell your phone (ntfy)

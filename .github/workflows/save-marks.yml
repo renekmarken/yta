@@ -1,0 +1,38 @@
+name: Save uploaded marks
+
+# Started by the library page when you tick "uploaded" (or tap "Mark as uploaded"). It only writes the
+# change to data/marks/ (never waits in the library's queue, so nothing can cancel it) and then asks for a
+# library update, which applies every saved mark. The hourly library update applies them too.
+
+on:
+  workflow_dispatch:
+    inputs:
+      set_uploaded:
+        description: "Video ids, comma-separated; -id = not uploaded"
+        required: true
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  save:
+    runs-on: ubuntu-24.04            # pinned: ubuntu-latest moves to 26.04 on 2026-10-19
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - name: Write the marks
+        env:
+          SPEC: ${{ inputs.set_uploaded }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          clean=$(printf '%s' "$SPEC" | tr -cd 'A-Za-z0-9_.,-')       # ids only
+          [ -n "$clean" ] || { echo "nothing to save"; exit 0; }
+          mkdir -p data/marks
+          printf '%s\n' "$clean" > "data/marks/${{ github.run_id }}.txt"
+          git config user.name "review-bot"
+          git config user.email "review-bot@users.noreply.github.com"
+          git add data/marks
+          git commit -qm "Uploaded marks from the library page"
+          for i in 1 2 3 4 5; do git pull -q --rebase && git push -q && break; sleep $((i * 3)); done
+          gh workflow run library-backfill.yml --ref "${{ github.ref_name }}"
