@@ -1,0 +1,53 @@
+name: Add earlier videos to the library
+
+# For videos made before the video library existed (or if a library step failed):
+# give the run IDs (numbers at the end of the run's URL), comma-separated.
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_ids:
+        description: "Run IDs to add, comma-separated (from the run page URL)"
+        required: true
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: data-writer
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download, publish and index
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_IDS: ${{ inputs.run_ids }}
+        run: |
+          git config user.name "review-bot"
+          git config user.email "review-bot@users.noreply.github.com"
+          for id in $(echo "$RUN_IDS" | tr ',' ' '); do
+            id=$(echo "$id" | tr -cd '0-9')
+            [ -z "$id" ] && continue
+            echo "== run $id"
+            rm -rf old rel
+            gh run download "$id" -D old || { echo "no downloads left for run $id"; continue; }
+            tag="earlier-$id"
+            n=$(python tools/release.py old rel/files "${{ github.server_url }}/${{ github.repository }}/releases/download" "$tag")
+            if [ "$n" = "0" ]; then echo "no finished videos in run $id"; continue; fi
+            gh release create "$tag" rel/files/* --title "Videos from run $id" --notes-file rel/release_notes.md \
+              || gh release upload "$tag" rel/files/* --clobber
+            python tools/video_index.py rel/entries.json
+          done
+          git add docs/videos/videos.json
+          git commit -m "Video library: add earlier videos" || exit 0
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
+          echo "Video library: https://renekmarken.github.io/yta/videos/"
