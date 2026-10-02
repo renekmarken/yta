@@ -740,46 +740,99 @@ def choose_thumbnail(folder: Path):
 # A different look from the reviews: near-black with a red glow, the logo big, the story's damage in
 # huge glowing red letters ("$70,000 GONE."), "WHAT HAPPENED?" with warning signs, and the post itself.
 RED, DANGER = (255, 38, 44), ((16, 0, 4), (128, 6, 18))
+BLACK, STEEL = ((0, 0, 0), (17, 15, 16)), ((5, 7, 11), (34, 40, 54))      # the dark backgrounds
+MARKER = (255, 226, 40)                                                  # the yellow highlighter
 # Every option shows the post itself: "post" (the favourite: red words left, the post tilted right)
-# is always option 1; the other two are picked from the post-based styles below.
+# is always option 1; option 2 is one of the black/dark styles, option 3 any other style.
 RISK_FIRST = "post"
-RISK_LAYOUTS = ["headline", "phone", "highlight"]
+RISK_DARK = ["blackout", "stamp", "caution", "strip"]
+RISK_LAYOUTS = ["headline", "phone", "highlight", "stack"] + RISK_DARK
+RISK_SCHEME = {"blackout": BLACK, "caution": BLACK, "strip": BLACK, "stamp": STEEL}
 
 
-def _post_card(story, highlight=False, quote_only=False):
-    """The post as a clean white card, like a screenshot of it: platform badge, "Posted on Reddit",
-    the title and a quote. highlight: the quote marked in yellow. quote_only: the quote extra big."""
+def _symbol(story):
+    """The icon that fits the story: a lock for frozen money, a no-entry sign for a banned account..."""
+    t = " ".join(str(story.get(k) or "") for k in ("issue", "claim", "thumb_big", "title")).lower()
+    for pat, name in ((r"froze|frozen|freez|hold|held|locked|lock", "lock"),
+                      (r"ban|closed|clos|terminat|suspend|shut|deactivat", "block"),
+                      (r"hack|stole|phish|fraud|breach|identity", "security"),
+                      (r"fee|charg|bill|refund|subscription", "attach_money"),
+                      (r"lawsuit|court|legal|sued|class action", "gavel"),
+                      (r"data|privacy|leak", "privacy_tip")):
+        if re.search(pat, t):
+            return name
+    return "priority_high"
+
+
+def _stamp(text, size=86):
+    """A red rubber stamp ("FROZEN"): double border, condensed letters, slightly rotated."""
+    f = _hf(size)
+    d = ImageDraw.Draw(Image.new("L", (8, 8)))
+    bb = f.getbbox(text)
+    tw, th = int(d.textlength(text, font=f)), bb[3] - bb[1]
+    pad = int(size * 0.32)
+    im = Image.new("RGBA", (tw + pad * 2, th + pad * 2), (0, 0, 0, 0))
+    sd = ImageDraw.Draw(im)
+    sd.rounded_rectangle([3, 3, im.width - 4, im.height - 4], 14, outline=(*RED, 255), width=9)
+    sd.rounded_rectangle([17, 17, im.width - 18, im.height - 18], 8, outline=(*RED, 255), width=3)
+    sd.text((pad, pad - bb[1]), text, font=f, fill=(*RED, 255))
+    im.putalpha(im.getchannel("A").point(lambda a: int(a * 0.93)))
+    return im.rotate(-11, Image.BICUBIC, expand=True)
+
+
+def _hazard(canvas, y, h):
+    """A strip of yellow/black caution tape across the whole width."""
+    tape = Image.new("RGBA", (TW + 2 * h, h), (*YELLOW, 255))
+    td = ImageDraw.Draw(tape)
+    for x in range(-h, tape.width + h, h):
+        td.polygon([(x, h), (x + h // 2, h), (x + h, 0), (x + h // 2, 0)], fill=(*INK, 255))
+    canvas.alpha_composite(tape.crop((h, 0, h + TW, h)), (0, y))
+
+
+def _post_card(story, highlight=False, quote_only=False, dark=False, label=None, quote=None):
+    """The post as a clean card, like a screenshot of it: platform badge, "Posted on Reddit", the title
+    and a quote. highlight: the quote marked in yellow. quote_only: the quote extra big. dark: the
+    app's dark mode. label + quote: a reply/update card ("UPDATE FROM THE POSTER") instead of the post."""
     from .risk import ACCENT, _excerpt_of
     W, PAD = 1500, 60
     where = story.get("platform") or story.get("source") or "Reddit"
     accent = ACCENT.get(story.get("source"), (40, 90, 220))
-    im = Image.new("RGB", (W, 1600), WHITE)
+    paper, ink, grey, body = (((26, 26, 27), (240, 242, 245), (140, 146, 156), (215, 218, 224)) if dark else
+                              (WHITE, (18, 20, 24), (110, 116, 128), (52, 56, 66)))
+    im = Image.new("RGB", (W, 1600), paper)
     d = ImageDraw.Draw(im)
     d.ellipse([PAD, 56, PAD + 80, 136], fill=accent)
     d.text((PAD + 40, 96), where[0].upper(), font=font("Black", 46), fill=WHITE, anchor="mm")
-    d.text((PAD + 106, 62), f"Posted on {where}", font=font("Bold", 38), fill=(30, 32, 38))
-    d.text((PAD + 106, 110), f"by a user · {story.get('date') or 'public post'}", font=font("Medium", 28),
-           fill=(110, 116, 128))
+    d.text((PAD + 106, 62), f"Posted on {where}" if not label else f"In the same thread on {where}",
+           font=font("Bold", 38), fill=ink)
+    d.text((PAD + 106, 110), f"by a user · {story.get('date') or 'public post'}" if not label else "a later comment",
+           font=font("Medium", 28), fill=grey)
     y = 190
-    if True:
+    if label:                                          # red pill: "UPDATE FROM THE POSTER" / "TOP REPLY"
+        lf = font("Black", 40)
+        lw = d.textlength(label, font=lf)
+        d.rounded_rectangle([PAD, y, PAD + lw + 48, y + 66], 33, fill=RED)
+        d.text((PAD + 24, y + 33), label, font=lf, fill=WHITE, anchor="lm")
+        y += 96
+    else:
         tf = font("Black", 54 if quote_only else 62)
         for line in wrap_lines(d, story.get("title") or "", tf, W - PAD * 2)[:2 if quote_only else 3]:
-            d.text((PAD, y), line, font=tf, fill=(18, 20, 24))
+            d.text((PAD, y), line, font=tf, fill=ink)
             y += 68 if quote_only else 78
         y += 24
-    quote = _excerpt_of(story)
+    quote = quote or _excerpt_of(story)
     if quote:
-        qf = font("Bold" if quote_only else "Medium", 72 if quote_only else 40)
-        lh = 96 if quote_only else 56
+        qf = font("Bold" if quote_only or highlight else "Medium", 72 if quote_only else 54 if highlight else 40)
+        lh = 96 if quote_only else 74 if highlight else 56
         lines = wrap_lines(d, "“" + quote + "”", qf, W - PAD * 2 - 60)[:5 if quote_only else 4]
         if highlight:
             for i, line in enumerate(lines):
                 tw = d.textlength(line, font=qf)
-                d.rectangle([PAD + 30, y + i * lh - 4, PAD + 50 + tw, y + i * lh + lh - 14], fill=(255, 226, 40))
+                d.rectangle([PAD + 30, y + i * lh - 4, PAD + 50 + tw, y + i * lh + lh - 14], fill=MARKER)
         else:
             d.rounded_rectangle([PAD, y, PAD + 10, y + lh * len(lines) - 8], 5, fill=accent)
         for line in lines:
-            d.text((PAD + 40, y), line, font=qf, fill=INK if highlight else (52, 56, 66))
+            d.text((PAD + 40, y), line, font=qf, fill=INK if highlight else body)
             y += lh
     return im.crop((0, 0, W, y + 44))
 
@@ -828,8 +881,8 @@ def _post_image(data, out_dir, **kw):
     return Image.open(p).convert("RGB").crop((210, 130, 1710, 950)) if p.exists() else None
 
 
-def _red_text(canvas, B, m, x, y, align="center"):
-    """Huge red letters with a red glow and a black outline."""
+def _red_text(canvas, B, m, x, y, align="center", color=RED):
+    """Huge red (or `color`) letters with a glow of the same colour and a black outline."""
     glow = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
     gd = ImageDraw.Draw(glow)
     d = ImageDraw.Draw(canvas)
@@ -838,25 +891,25 @@ def _red_text(canvas, B, m, x, y, align="center"):
     for line, f, top, cap, tw in zip(m["lines"], m["fonts"], m["tops"], m["caps"], m["widths"]):
         lx = x - tw / 2 if align == "center" else x - tw - m["stroke"] if align == "right" else x + m["stroke"]
         txt = " ".join(line)
-        gd.text((lx, vy - top), txt, font=f, fill=(*RED, 230), stroke_width=m["stroke"] + 18, stroke_fill=(*RED, 230))
+        gd.text((lx, vy - top), txt, font=f, fill=(*color, 230), stroke_width=m["stroke"] + 18, stroke_fill=(*color, 230))
         words.append((lx, vy - top, txt, f))
         vy += cap + m["gap"]
     canvas.alpha_composite(glow.filter(ImageFilter.GaussianBlur(34)))
     for lx, ly, txt, f in words:
         d.text((lx, ly + 8), txt, font=f, fill=(0, 0, 0, 160), stroke_width=m["stroke"], stroke_fill=(0, 0, 0, 160))
     for lx, ly, txt, f in words:
-        d.text((lx, ly), txt, font=f, fill=RED, stroke_width=m["stroke"], stroke_fill=(20, 0, 2))
+        d.text((lx, ly), txt, font=f, fill=color, stroke_width=m["stroke"], stroke_fill=(20, 0, 2))
     x0 = x - m["w"] / 2 if align == "center" else x - m["w"] if align == "right" else x
     B.add("big text", (x0, y, x0 + m["w"], y + m["h"]))
     return y + m["h"]
 
 
-def _warn_line(canvas, B, text, x, y, size, align="center"):
-    """'WHAT HAPPENED?' in white with a yellow warning sign on each side. Returns bottom y."""
+def _warn_line(canvas, B, text, x, y, size, align="center", symbol="warning", color=(255, 200, 0)):
+    """'WHAT HAPPENED?' in white with a yellow warning sign (or another symbol) on each side."""
     d = ImageDraw.Draw(canvas)
     f = _hf(size)
     tw = d.textlength(text, font=f)
-    sign = icons.glyph("warning", int(size * 0.95), (255, 200, 0))
+    sign = icons.glyph(symbol, int(size * 0.95), color)
     gap = 18
     total = tw + ((sign.width + gap) * 2 if sign is not None else 0)
     x0 = x - total / 2 if align == "center" else x - total if align == "right" else x
@@ -881,23 +934,31 @@ def render_risk(data, info, out_dir, theme, layout, variant=0):
     brand = data.get("brand") or info["domain"]
     big = (story.get("thumb_big") or f"{story.get('amount') or 'ACCOUNT'} GONE.").upper()
     small = (story.get("thumb_small") or "WHAT HAPPENED?").upper()
+    sym = _symbol(story)
     pages = _pages(info, out_dir)
-    post = _post_image(data, out_dir, highlight=layout == "highlight", quote_only=layout == "highlight")
-    bg = _backdrop(pages[0] if pages else post, DANGER, (640, 140) if layout == "headline" else (380, 400))
+    drawn = bool(story.get("title") and (story.get("excerpt") or story.get("text")))
+    post = _post_image(data, out_dir, highlight=layout in ("highlight", "blackout", "stamp", "caution", "strip", "stack"),
+                       quote_only=layout in ("highlight", "strip"),
+                       dark=layout == "blackout" and drawn) if drawn else _post_image(data, out_dir)
+    scheme = RISK_SCHEME.get(layout, DANGER)
+    bg = _backdrop(pages[0] if pages else post, scheme, (640, 140) if layout in ("headline", "strip") else (380, 400))
     words = big.split()
     lines = [words] if len(words) <= 1 or len(big) <= 9 else [words[:-1], words[-1:]]
     hk = {"lines": lines, "big": [True] * len(lines), "accent": set()}
+    text_col = YELLOW if layout == "caution" else RED
 
-    def left_column(hero_x):
-        """Logo top-left, the damage in huge red, the warning line: the left side of most layouts."""
+    def left_column(hero_x, top_y=34, symbol="warning"):
+        """Logo top-left, the damage in huge letters, the warning line: the left side of most layouts."""
         col_w = min(660, hero_x - 46 - 30)
-        top = _brand_block(bg, B, logo, brand, 46, 34, min(540, col_w), 140, review=False) + 18
-        m = _fit_hook(hk, col_w, TH - top - 140, 240)
-        y = _red_text(bg, B, m, 46, top, "left")
-        _warn_line(bg, B, small, 46, min(y + 22, TH - 110), 64, "left")
+        top = _brand_block(bg, B, logo, brand, 46, top_y, min(540, col_w), 140, review=False) + 18
+        bottom_room = 140 if layout != "caution" else 180
+        m = _fit_hook(hk, col_w, TH - top - bottom_room, 240)
+        y = _red_text(bg, B, m, 46, top, "left", text_col)
+        sign_col = (255, 200, 0) if symbol == "warning" else RED if layout != "caution" else YELLOW
+        _warn_line(bg, B, small, 46, min(y + 22, TH - bottom_room + 30), 64, "left", symbol, sign_col)
 
-    def place(card, cx, cy, name="post"):
-        _glow(bg, (cx, cy, cx + card.width, cy + card.height), RED, 60, 150)
+    def place(card, cx, cy, name="post", glow=RED):
+        _glow(bg, (cx, cy, cx + card.width, cy + card.height), glow, 60, 150)
         paste_shadowed(bg, card, (cx, cy), 22, 30, 210, 18)
         B.add(name, (cx, cy, cx + card.width, cy + card.height), "hero")
 
@@ -921,6 +982,68 @@ def render_risk(data, info, out_dir, theme, layout, variant=0):
         place(ph, cx, cy, "phone")
         left_column(cx + 30)
 
+    elif layout == "blackout":       # pitch black, the post in dark mode with the quote highlighted
+        card = _card(post, 650, -4 if variant % 2 else 4)
+        cx, cy = TW - card.width - 18, (TH - card.height) // 2 + 30
+        place(card, cx, cy, glow=(150, 10, 16))
+        b = icons.badge(sym, 128, RED, WHITE)
+        if b is not None:                              # the story's symbol on the card's top corner
+            ring = Image.new("RGBA", (b.width + 16, b.height + 16), (0, 0, 0, 0))
+            ImageDraw.Draw(ring).ellipse([0, 0, ring.width - 1, ring.height - 1], fill=(*WHITE, 255))
+            ring.alpha_composite(b, (8, 8))
+            bx, by = cx + card.width - ring.width + 20, max(20, cy - ring.height // 2)
+            paste_shadowed(bg, ring, (bx, by), ring.width // 2, 20, 190, 8)
+            B.add("symbol", (bx, by, bx + ring.width, by + ring.height), "hero")
+        left_column(cx, symbol=sym)
+
+    elif layout == "stamp":          # steel-dark, the post highlighted, a red rubber stamp across its corner
+        card = _card(post, 660, 2 if variant % 2 else -2)
+        cx, cy = TW - card.width - 24, (TH - card.height) // 2 + 40
+        place(card, cx, cy, glow=(70, 90, 130))
+        word = re.sub(r"[^A-Z0-9$,]", "", words[-1]) or "WARNING"
+        st = _stamp(word, 92 if len(word) <= 7 else 70)
+        sx, sy = cx + card.width - st.width + 10, cy - st.height // 2 + 6
+        bg.alpha_composite(st, (sx, max(14, sy)))
+        B.add("stamp", (sx, max(14, sy), sx + st.width, max(14, sy) + st.height), "hero")
+        left_column(cx, symbol=sym)
+
+    elif layout == "caution":        # black with caution tape top and bottom, yellow words
+        _hazard(bg, 0, 34)
+        _hazard(bg, TH - 34, 34)
+        card = _card(post, 640, -3 if variant % 2 else 3)
+        cx, cy = TW - card.width - 22, (TH - card.height) // 2
+        place(card, cx, cy, glow=(150, 120, 0))
+        left_column(cx, top_y=62, symbol="warning")
+
+    elif layout == "strip":          # logo + words on top, the highlighted quote big on a paper strip below
+        badge_bottom = _brand_block(bg, B, logo, brand, 46, 30, 420, 130, review=False)
+        badge_right = max(r[2] for n, k, r in B.items if n == "logo")
+        tx = badge_right + 40
+        m = _fit_hook({"lines": [words], "big": [True], "accent": set()}, TW - tx - 46, 170, 210)
+        y = _red_text(bg, B, m, tx, 24, "left")
+        y = _warn_line(bg, B, small, tx, y + 12, 46, "left", sym, RED)
+        card = _card(post, 1180, -2 if variant % 2 else 2)
+        cy = max(badge_bottom, y) + 36
+        place(card, (TW - card.width) // 2, cy)
+
+    elif layout == "stack":          # the post, and in front of it the poster's update (or the top reply)
+        follow = story.get("update") or story.get("reply")
+        back = _card(post, 560, 7)
+        bx, by = TW - back.width - 10, 18
+        place(back, bx, by)
+        if follow and drawn:
+            label = "UPDATE FROM THE POSTER" if story.get("update") else "TOP REPLY"
+            words_f = follow.split()
+            q = " ".join(words_f[:24]) + ("…" if len(words_f) > 24 else "")
+            front = _card(_post_card(story, highlight=True, label=label, quote=q), 560, -4)
+            fx, fy = TW - front.width - 70, TH - front.height - 24
+            paste_shadowed(bg, front, (fx, fy), 22, 30, 220, 18)
+            B.add("follow-up", (fx, fy, fx + front.width, fy + front.height), "hero")
+            hero_x = min(bx, fx)
+        else:
+            hero_x = bx
+        left_column(hero_x + 20)
+
     else:                            # "post" (the favourite) and "highlight" (big quote marked in yellow)
         if layout == "post":
             card = _card(post, 620, -5 if variant % 2 == 0 else 5)
@@ -938,12 +1061,13 @@ def render_risk(data, info, out_dir, theme, layout, variant=0):
 
 
 def make_risk_thumbnails(data, info, out_dir: Path, theme: dict, count=3):
-    """Three Risk Case thumbnails, all showing the post: the favourite "post" style first, then two
-    other post-based styles. Same file names as the reviews."""
+    """Three Risk Case thumbnails, all showing the post: the favourite "post" style first, then one
+    of the black/dark styles, then any other style. Same file names as the reviews."""
     rnd = random.Random(theme["seed"] + "risk")
-    others = RISK_LAYOUTS[:]
-    rnd.shuffle(others)
-    layouts = [RISK_FIRST] + others
+    dark = rnd.choice(RISK_DARK)                       # one of the black/dark looks every time
+    rest = [l for l in RISK_LAYOUTS if l != dark]
+    rnd.shuffle(rest)
+    layouts = [RISK_FIRST, dark] + rest
     for old in out_dir.glob("*thumbnail*.jpg"):
         old.unlink()
     paths = []

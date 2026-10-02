@@ -141,10 +141,13 @@ the risk (not to attack the product).
    CFPB/BBB...), and a fair close.
 5. Title straight from the story, e.g. "Stripe FROZE $50,000 for Over a Year — What Now?". The description links
    the original post and says it is one person's account.
-6. Its own thumbnail style, every option showing the post: big logo, huge glowing red damage text
-   ("$50,000 GONE."), "WHAT HAPPENED?" with warning signs. Option 1 is always the post card tilted on the right;
-   the other two are picked from: headline (red words across the top, the post big below), phone (the post
-   in a phone app) and highlight (the post's key quote marked in yellow).
+6. Its own thumbnail styles, every option showing the post: big logo, huge glowing damage text
+   ("$50,000 GONE."), "WHAT HAPPENED?" with a symbol that fits the story (lock = frozen, no-entry = banned,
+   shield = hacked, $ = charges, gavel = legal). Option 1 is always the post card tilted on the right;
+   option 2 is one of the black/dark styles (blackout: the post in dark mode with a symbol badge; stamp: a red
+   "FROZEN" rubber stamp; caution: yellow words between caution tape; strip: the quote huge on a paper strip);
+   option 3 is any other style (headline, phone app view, highlighted quote, or the post with the poster's
+   update / top reply stacked in front). Most styles mark the post's key quote in yellow highlighter.
 
 Always read the original post before publishing (it's the first item in the video's checklist).
 

@@ -597,6 +597,7 @@ def write_script(info, item, story, history):
     data["story"]["platform"] = platform(story)
     data["story"]["text"] = (story.get("text") or "")[:1500]           # for the thumbnails' post card
     data["story"]["update"] = (story.get("updates") or [""])[0][:400]
+    data["story"]["reply"] = (story.get("replies") or [""])[0][:400]
     data["thumbnail_subtitle"] = story.get("thumb_small") or "WHAT HAPPENED?"
     data["check_before_publishing"] = [f"Read the original post and check the video tells it fairly: {story['url']}"] + \
         list(data.get("check_before_publishing") or [])
