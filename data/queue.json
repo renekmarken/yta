@@ -116,14 +116,14 @@
    "name": "Rocket Lawyer",
    "url": "https://www.rocketlawyer.com",
    "category": "legal",
-   "hotness": 5.3999999999999995,
+   "hotness": 8.0,
    "evergreen": true,
    "why": "Popular legal services platform offering documents and attorney advice.",
    "sources": [
     "evergreen"
    ],
    "added": "2026-10-02T07:22:26+00:00",
-   "priority": 6.52,
+   "priority": 8.21,
    "cat": "⚖️ Legal services / platforms"
   },
   "avvo.com": {
@@ -475,7 +475,7 @@
    "added": "2026-10-02T19:25:59+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:25:59+00:00",
-   "priority": 15.08,
+   "priority": 15.06,
    "cat": "🤖 AI tools"
   },
   "rate.fm": {
@@ -491,7 +491,7 @@
    "added": "2026-10-02T19:26:01+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:01+00:00",
-   "priority": 14.37,
+   "priority": 14.35,
    "cat": "💻 SaaS / business software"
   },
   "chat.sh": {
@@ -507,7 +507,7 @@
    "added": "2026-10-02T19:26:02+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:02+00:00",
-   "priority": 14.37,
+   "priority": 14.35,
    "cat": "💻 SaaS / business software"
   },
   "fidelity.com": {
@@ -579,7 +579,445 @@
    "added": "2026-10-02T19:26:06+00:00",
    "priority": 6.48,
    "cat": "📈 Investing platforms"
+  },
+  "finbar.ai": {
+   "name": "Finbar",
+   "url": "https://finbar.ai",
+   "category": "investing",
+   "hotness": 9.0,
+   "evergreen": false,
+   "why": "Agentic investment research platform launched recently on Product Hunt.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T23:52:21+00:00",
+   "launch": "today",
+   "launch_seen": "2026-10-02T23:52:21+00:00",
+   "priority": 19.21,
+   "cat": "📈 Investing platforms"
+  },
+  "shiphq.io": {
+   "name": "ShipHQ",
+   "url": "https://shiphq.io",
+   "category": "saas",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "Build your own app studio powered by your real apps.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T23:52:21+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-02T23:52:21+00:00",
+   "priority": 15.35,
+   "cat": "💻 SaaS / business software"
+  },
+  "mintlify.com": {
+   "name": "Mintlify Desktop",
+   "url": "https://mintlify.com",
+   "category": "saas",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "AI-native app for writing documentation and knowledge bases.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T23:52:22+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-02T23:52:22+00:00",
+   "priority": 15.35,
+   "cat": "💻 SaaS / business software"
+  },
+  "gauthmath.com": {
+   "name": "Gauth Unlimited Digital Canvas",
+   "url": "https://gauthmath.com",
+   "category": "ai-tools",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "An AI tutor on an infinite whiteboard instead of a chat.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T23:52:22+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-02T23:52:22+00:00",
+   "priority": 15.43,
+   "cat": "🤖 AI tools"
+  },
+  "neverboring.ai": {
+   "name": "Never Boring AI",
+   "url": "https://neverboring.ai",
+   "category": "marketing",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "AI agent that writes your LinkedIn posts in your voice.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T23:52:23+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-02T23:52:23+00:00",
+   "priority": 15.35,
+   "cat": "📣 Marketing platforms"
+  },
+  "manus.im": {
+   "name": "Cue by Manus",
+   "url": "https://manus.im",
+   "category": "ai-tools",
+   "hotness": 9.0,
+   "evergreen": false,
+   "why": "Personal AI agents with identity handling life end to end.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T23:52:24+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-02T23:52:24+00:00",
+   "priority": 16.08,
+   "cat": "🤖 AI tools"
+  },
+  "chainsnip.com": {
+   "name": "ChainSnip",
+   "url": "https://chainsnip.com",
+   "category": "investing",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Accountant's cryptographic proof of wallet balance.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T23:52:45+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-02T23:52:45+00:00",
+   "priority": 14.91,
+   "cat": "📈 Investing platforms"
+  },
+  "notchmind.com": {
+   "name": "NotchMind",
+   "url": "https://notchmind.com",
+   "category": "saas",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Put your MacBook notch to work for music, files, and timers.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T23:52:45+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-02T23:52:45+00:00",
+   "priority": 14.7,
+   "cat": "💻 SaaS / business software"
+  },
+  "typestream.io": {
+   "name": "Typestream",
+   "url": "https://typestream.io",
+   "category": "ai-tools",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "Type like a human without touching the keyboard.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T23:53:05+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-02T23:53:05+00:00",
+   "priority": 15.43,
+   "cat": "🤖 AI tools"
+  },
+  "staylokal.com": {
+   "name": "StayLokal",
+   "url": "https://staylokal.com",
+   "category": "vpn-security",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Private file tools that run locally on your device.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T23:53:06+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-02T23:53:06+00:00",
+   "priority": 14.56,
+   "cat": "🔐 Cybersecurity / VPNs"
+  },
+  "omniaagent.com": {
+   "name": "Omnia Agent",
+   "url": "https://omniaagent.com",
+   "category": "marketing",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "AI agent that handles 95% of your GEO optimization work.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T23:53:06+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-02T23:53:06+00:00",
+   "priority": 15.35,
+   "cat": "📣 Marketing platforms"
+  },
+  "vitra.ai": {
+   "name": "Vitra.ai",
+   "url": "https://vitra.ai",
+   "category": "ai-tools",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "Agentic content platform to create and localize content.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-02T23:53:06+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-02T23:53:06+00:00",
+   "priority": 15.43,
+   "cat": "🤖 AI tools"
+  },
+  "akasa.com": {
+   "name": "AKASA",
+   "url": "https://akasa.com",
+   "category": "business-tools",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "Autonomous AI platform for medical coding and documentation.",
+   "sources": [
+    "Launch news"
+   ],
+   "added": "2026-10-02T23:53:07+00:00",
+   "launch": "today",
+   "launch_seen": "2026-10-02T23:53:07+00:00",
+   "priority": 18.35,
+   "cat": "📊 Business tools"
+  },
+  "paynearme.com": {
+   "name": "PayNearMe",
+   "url": "https://paynearme.com",
+   "category": "banking-apps",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "New AI-powered servicing and collections agent launched.",
+   "sources": [
+    "Launch news"
+   ],
+   "added": "2026-10-02T23:53:07+00:00",
+   "launch": "today",
+   "launch_seen": "2026-10-02T23:53:07+00:00",
+   "priority": 18.56,
+   "cat": "💰 Finance apps / banking"
+  },
+  "tungstenautomation.com": {
+   "name": "Tungsten Automation",
+   "url": "https://tungstenautomation.com",
+   "category": "business-tools",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "New AI invoice processing tool for enterprise workflows.",
+   "sources": [
+    "Launch news"
+   ],
+   "added": "2026-10-02T23:53:08+00:00",
+   "launch": "today",
+   "launch_seen": "2026-10-02T23:53:08+00:00",
+   "priority": 17.7,
+   "cat": "📊 Business tools"
+  },
+  "mews.com": {
+   "name": "Mews",
+   "url": "https://mews.com",
+   "category": "saas",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "Launches AI-powered guest messaging and hotel automation tools.",
+   "sources": [
+    "Launch news"
+   ],
+   "added": "2026-10-02T23:53:09+00:00",
+   "launch": "today",
+   "launch_seen": "2026-10-02T23:53:09+00:00",
+   "priority": 18.35,
+   "cat": "💻 SaaS / business software"
+  },
+  "citi.com": {
+   "name": "Citi",
+   "url": "https://www.citi.com",
+   "category": "credit-cards",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Massive banking institution with heavily searched credit card rewards programs.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T23:53:12+00:00",
+   "priority": 6.87,
+   "cat": "💳 Credit cards / financial products"
+  },
+  "wellsfargo.com": {
+   "name": "Wells Fargo",
+   "url": "https://www.wellsfargo.com",
+   "category": "credit-cards",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "Major national bank offering widely reviewed consumer credit cards.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T23:53:13+00:00",
+   "priority": 6.48,
+   "cat": "💳 Credit cards / financial products"
+  },
+  "bankofamerica.com": {
+   "name": "Bank of America",
+   "url": "https://www.bankofamerica.com",
+   "category": "credit-cards",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Top financial giant with popular cash-back and travel cards.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T23:53:13+00:00",
+   "priority": 6.87,
+   "cat": "💳 Credit cards / financial products"
+  },
+  "marcus.com": {
+   "name": "Marcus by Goldman Sachs",
+   "url": "https://www.marcus.com",
+   "category": "credit-cards",
+   "hotness": 4.2,
+   "evergreen": true,
+   "why": "Online banking brand known for competitive savings and financial products.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T23:53:13+00:00",
+   "priority": 6.09,
+   "cat": "💳 Credit cards / financial products"
+  },
+  "breadfinancial.com": {
+   "name": "Bread Financial",
+   "url": "https://www.breadfinancial.com",
+   "category": "credit-cards",
+   "hotness": 3.5999999999999996,
+   "evergreen": true,
+   "why": "Emerging tech-driven financial services provider issuing private label credit cards.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T23:53:13+00:00",
+   "priority": 5.7,
+   "cat": "💳 Credit cards / financial products"
+  },
+  "libertymutual.com": {
+   "name": "Liberty Mutual",
+   "url": "https://www.libertymutual.com",
+   "category": "insurance",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "Prominent US insurer frequently reviewed for auto and home policies.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T23:53:14+00:00",
+   "priority": 6.48,
+   "cat": "🛡️ Insurance"
+  },
+  "usaa.com": {
+   "name": "USAA",
+   "url": "https://www.usaa.com",
+   "category": "insurance",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Highly rated financial services and insurance group serving military families.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T23:53:14+00:00",
+   "priority": 6.87,
+   "cat": "🛡️ Insurance"
+  },
+  "nationwide.com": {
+   "name": "Nationwide",
+   "url": "https://www.nationwide.com",
+   "category": "insurance",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "Major US insurance and financial services enterprise with diverse coverage options.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T23:53:14+00:00",
+   "priority": 6.48,
+   "cat": "🛡️ Insurance"
+  },
+  "joinroot.com": {
+   "name": "Root Insurance",
+   "url": "https://www.joinroot.com",
+   "category": "insurance",
+   "hotness": 4.2,
+   "evergreen": true,
+   "why": "App-based car insurance challenger leveraging telematics for driver scoring.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T23:53:15+00:00",
+   "priority": 6.09,
+   "cat": "🛡️ Insurance"
+  },
+  "legalmatch.com": {
+   "name": "LegalMatch",
+   "url": "https://www.legalmatch.com",
+   "category": "legal",
+   "hotness": 4.2,
+   "evergreen": true,
+   "why": "Longstanding online legal matching service connecting clients with local attorneys.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T23:53:15+00:00",
+   "priority": 5.74,
+   "cat": "⚖️ Legal services / platforms"
+  },
+  "findlaw.com": {
+   "name": "FindLaw",
+   "url": "https://www.findlaw.com",
+   "category": "legal",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "Leading online legal directory and consumer information resource platform.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T23:53:15+00:00",
+   "priority": 6.13,
+   "cat": "⚖️ Legal services / platforms"
+  },
+  "justia.com": {
+   "name": "Justia",
+   "url": "https://www.justia.com",
+   "category": "legal",
+   "hotness": 4.2,
+   "evergreen": true,
+   "why": "Widely used web portal for free case law, legal directories, and reviews.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T23:53:15+00:00",
+   "priority": 5.74,
+   "cat": "⚖️ Legal services / platforms"
+  },
+  "upcounsel.com": {
+   "name": "UpCounsel",
+   "url": "https://www.upcounsel.com",
+   "category": "legal",
+   "hotness": 3.5999999999999996,
+   "evergreen": true,
+   "why": "Marketplace connecting businesses with freelance lawyers for legal projects.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T23:53:15+00:00",
+   "priority": 5.35,
+   "cat": "⚖️ Legal services / platforms"
   }
  },
- "updated": "2026-10-02T23:37:06+00:00"
+ "updated": "2026-10-02T23:53:15+00:00"
 }
