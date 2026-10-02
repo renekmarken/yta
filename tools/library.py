@@ -14,6 +14,7 @@ Without the password both are unreadable.
   python tools/library.py get <id> <out dir>            # decrypt one video (for the YouTube upload)
   python tools/library.py set-youtube <id> <url>
   python tools/library.py mark-uploaded "Robinhood, Zoho"   # file them under "Already uploaded"
+  python tools/library.py set-uploaded "id1,-id2"             # the page's checkbox: mark id1, un-mark id2
 """
 import base64
 import json
@@ -283,6 +284,22 @@ def cmd_mark_uploaded(names):
     lib.save()
 
 
+def cmd_set_uploaded(spec):
+    """From the library page's "I've uploaded this one" box: exact video ids, comma-separated;
+    "id" marks it uploaded, "-id" un-marks it. Unknown ids are ignored."""
+    lib = Library()
+    want = {}
+    for part in spec.split(","):
+        part = part.strip()
+        if part:
+            want[part.lstrip("-")] = not part.startswith("-")
+    for e in lib.videos:
+        if e["id"] in want and bool(e.get("uploaded")) != want[e["id"]]:
+            e["uploaded"] = want[e["id"]]
+            print(f"  {'marked' if want[e['id']] else 'un-marked'} uploaded: {e.get('title')}")
+    lib.save()
+
+
 def cmd_remove_lost(names):
     """Remove library entries whose files were lost (matched by brand, site or title)."""
     import shutil
@@ -312,4 +329,5 @@ if __name__ == "__main__":
     cmd, args = sys.argv[1], sys.argv[2:]
     {"add": cmd_add, "refresh": cmd_refresh, "migrate": cmd_migrate, "get": cmd_get,
      "set-youtube": cmd_set_youtube, "mark-uploaded": cmd_mark_uploaded,
+     "set-uploaded": cmd_set_uploaded,
      "remove-lost": cmd_remove_lost}[cmd](*args)

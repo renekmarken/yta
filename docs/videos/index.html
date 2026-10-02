@@ -27,6 +27,10 @@ h1{font-size:28px;line-height:1.15;margin:0}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
   cursor:pointer;box-shadow:var(--shadow);transition:transform .15s ease;text-align:left;padding:0;color:inherit;font:inherit}
 .card:hover{transform:translateY(-2px)}
+.upmark{display:block;width:calc(100% - 28px);margin:0 14px 14px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);
+  background:var(--surface-2);color:var(--fg);font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.upmark:hover{border-color:var(--good);color:var(--good)}
+.upmark.on{background:none;color:var(--muted);font-weight:600}
 .card:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .thumb{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--surface-2)}
 .card .body{padding:12px 14px 14px}
@@ -227,7 +231,13 @@ const store = {
   get(k){ try { return localStorage.getItem(k); } catch { return null; } },
   set(k, v){ try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch {} }
 };
-const uploaded = id => store.get("uploaded:" + id) === "1";
+// "Uploaded" is saved in the shared library (by a short GitHub run), so every device sees it. Until that
+// run has saved it, this device remembers the change ("1" = uploaded, "0" = not) and keeps sending it.
+const localMark = id => store.get("uploaded:" + id);
+const uploaded = id => {
+  const m = localMark(id), v = videos.find(x => x.id === id);
+  return m === "1" ? true : m === "0" ? false : !!(v && v.uploaded);
+};
 const verdictColor = v => v === "Worth it" ? "var(--good)" : v === "Not worth it" ? "var(--bad)" : "var(--mid)";
 const fmtDate = d => { try { return new Date(d + "T12:00:00").toLocaleDateString(undefined, {day:"numeric", month:"short", year:"numeric"}); } catch { return d; } };
 const tagsText = v => (v.tags || []).join(", ");
@@ -299,11 +309,58 @@ function ready(){
   updateSub();
   route();
   checkRuns();
+  // changes this device made that the library doesn't show yet: send them again (at most every 5 minutes,
+  // the save takes a minute or two to come back)
+  if (pendingMarks().unsaved && Date.now() - Number(store.get("marks-sent") || 0) > 300000) syncMarks(true);
 }
 
-const isUploaded = v => uploaded(v.id) || !!v.youtube || !!v.uploaded;
+const isUploaded = v => uploaded(v.id) || !!v.youtube;
+
+// this device's recent changes, as "id" (uploaded) / "-id" (not). A change is forgotten only once the library
+// shows it AND the last save is over 10 minutes old (an earlier save still on its way can't undo it then).
+function pendingMarks(){
+  const out = [], settled = Date.now() - Number(store.get("marks-sent") || 0) > 600000;
+  let unsaved = false;
+  for (const v of videos) {
+    const m = localMark(v.id);
+    if (m === null) continue;
+    const agrees = (m === "1") === !!v.uploaded;
+    if (agrees && settled) { store.set("uploaded:" + v.id, null); continue; }   // the library has it
+    if (!agrees) unsaved = true;
+    out.push((m === "1" ? "" : "-") + v.id);
+  }
+  out.unsaved = unsaved;
+  return out;
+}
+let syncTimer = null;
+function setUploaded(id, on){
+  store.set("uploaded:" + id, on ? "1" : "0");
+  updateSub();
+  clearTimeout(syncTimer);
+  syncTimer = setTimeout(() => syncMarks(false), 1500);     // a few quick taps go out as one save
+}
+async function syncMarks(quiet){
+  const spec = pendingMarks();
+  if (!spec.length) return;
+  if (!dispatch || !dispatch.token) {
+    if (!quiet) showStatus(`Saved on this device only: the library isn't connected to GitHub (no DISPATCH_TOKEN).
+      <button class="xbtn" data-dismiss="marks">✕</button>`);
+    return;
+  }
+  try {
+    // every save carries ALL of this device's unsaved changes, so a save that GitHub drops is covered by the next
+    await runWorkflow("library-backfill.yml", {set_uploaded: spec.join(",")});
+    store.set("marks-sent", String(Date.now()));
+    if (!quiet) showStatus(`✓ Saved to the library: it shows on all your devices in about 2 minutes.
+      <button class="xbtn" data-dismiss="marks">✕</button>`);
+  } catch (err) {
+    if (!quiet) showStatus(`Couldn't save to the library right now (${esc(err.message)}). It is kept on this device and
+      sent again next time you open the page. <button class="xbtn" data-dismiss="marks">✕</button>`);
+  }
+}
+
 const card = v => `
-    <button class="card" data-id="${esc(v.id)}" aria-label="${esc(v.title)}">
+    <div class="card" role="link" tabindex="0" data-id="${esc(v.id)}" aria-label="${esc(v.title)}">
       ${v.files?.thumbnail ? `<img class="thumb" data-enc="${esc(refPath(v.files.thumbnail))}" alt="">` : `<div class="thumb"></div>`}
       <div class="body">
         <h2>${esc(v.title)}</h2>
@@ -314,7 +371,10 @@ const card = v => `
           ${isUploaded(v) ? `<span class="pill done-badge">Uploaded</span>` : ""}
         </div>
       </div>
-    </button>`;
+      ${v.youtube ? "" : isUploaded(v)
+        ? `<button class="upmark on" data-up="${esc(v.id)}" data-on="0">Uploaded ✓ · undo</button>`
+        : `<button class="upmark" data-up="${esc(v.id)}" data-on="1">✓ Mark as uploaded</button>`}
+    </div>`;
 
 function grid(){
   const q = document.getElementById("search").value.trim().toLowerCase();
@@ -497,7 +557,7 @@ function route(){
 
 document.addEventListener("click", async e => {
   const dis = e.target.closest("[data-dismiss]");
-  if (dis) { store.set("dismissed-run", dis.dataset.dismiss); showStatus(""); return; }
+  if (dis) { if (dis.dataset.dismiss !== "marks") store.set("dismissed-run", dis.dataset.dismiss); showStatus(""); return; }
   const pick = e.target.closest("[data-pick]");
   if (pick) {
     document.querySelectorAll(".variant").forEach(el => el.classList.toggle("sel", el.contains(pick)));
@@ -505,6 +565,8 @@ document.addEventListener("click", async e => {
     if (big && pick.src) big.src = pick.src;
     return;
   }
+  const up = e.target.closest("[data-up]");
+  if (up) { setUploaded(up.dataset.up, up.dataset.on === "1"); route(); return; }
   const card = e.target.closest(".card");
   if (card) { location.hash = encodeURIComponent(card.dataset.id); return; }
   if (e.target.closest("#back")) { location.hash = ""; return; }
@@ -536,14 +598,17 @@ document.addEventListener("click", async e => {
     setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("ok"); }, 1600);
   }
 });
+document.addEventListener("keydown", e => {
+  const c = e.target.classList && e.target.classList.contains("card") ? e.target : null;
+  if (c && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); location.hash = encodeURIComponent(c.dataset.id); }
+});
 document.addEventListener("toggle", e => {
   if (e.target.id === "donelist") store.set("show-uploaded", e.target.open ? "1" : null);
 }, true);
 document.addEventListener("change", e => {
   if (e.target.id === "mark") {
     const id = decodeURIComponent(location.hash.slice(1));
-    store.set("uploaded:" + id, e.target.checked ? "1" : null);
-    updateSub();
+    setUploaded(id, e.target.checked);
   }
 });
 document.addEventListener("submit", async e => {
