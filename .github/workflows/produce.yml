@@ -64,7 +64,7 @@ jobs:
           UPLOAD_MODE: ${{ vars.UPLOAD_MODE || 'manual' }}
           YT_PRIVACY: ${{ vars.YT_PRIVACY || 'unlisted' }}
           YT_PUBLISH_DELAY_HOURS: ${{ vars.YT_PUBLISH_DELAY_HOURS }}
-          CHANNEL_NAME: ${{ vars.CHANNEL_NAME || 'Worth Using It?' }}
+          CHANNEL_NAME: ${{ vars.CHANNEL_NAME || 'Secret' }}
           TTS_VOICE: ${{ vars.TTS_VOICE || 'en-US-AndrewMultilingualNeural' }}
           GEMINI_MODELS: ${{ vars.GEMINI_MODELS }}
           PIPER_VOICE: ${{ vars.PIPER_VOICE }}

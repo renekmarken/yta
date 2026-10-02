@@ -36,7 +36,7 @@ PIPER_VOICE = env("PIPER_VOICE", "en_US-ryan-high")   # offline backup voice
 
 # --- Production ---
 VIDEOS_PER_RUN = int(env("VIDEOS_PER_RUN", "1"))
-CHANNEL_NAME = env("CHANNEL_NAME", "Worth Using It?")
+CHANNEL_NAME = env("CHANNEL_NAME", "Secret")
 VIDEO_W, VIDEO_H, FPS = 1920, 1080, 30
 FAST_RENDER = env("FAST_RENDER", "0") == "1"           # lower quality, for quick tests
 
