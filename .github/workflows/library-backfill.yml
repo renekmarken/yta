@@ -60,7 +60,7 @@ jobs:
           git commit -m "Video library: update" || true
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
       - name: Delete old public copies
-        if: inputs.cleanup
+        if: success() && inputs.cleanup        # only after the vault save was verified
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

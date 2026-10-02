@@ -362,6 +362,8 @@ function detail(v){
         ${v.pinned_comment ? field("pin", "Pinned comment", v.pinned_comment, "pinned") : ""}
         ${f.kit ? `<button class="btn" data-dl="kit">${ICON.down}<span>Full upload kit (.md)</span></button>` : ""}
         ${v.expired ? `<p class="hint">The files of this older video were removed to save space.</p>` : ""}
+        ${v.missing ? `<p class="hint">This video's files were lost in a storage error. Make it again with
+          ＋ Generate new videos → “Also review a specific website”.</p>` : ""}
       </div></div>
     </div>`;
 }

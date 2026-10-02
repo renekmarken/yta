@@ -89,7 +89,24 @@ class Library:
         return self.unseal((VAULT / ref["path"]).read_bytes())
 
     # ---- list
+    def check_files(self):
+        """Entries whose encrypted files are not in the vault lose their file links (and say so), so
+        the page never offers downloads that don't exist. Only runs when the vault was pulled."""
+        if not (VAULT / ".git").exists():
+            return
+        for e in self.videos:
+            files, lost = e.get("files") or {}, False
+            for kind, ref in list(files.items()):
+                refs = ref if isinstance(ref, list) else [ref]
+                if any(isinstance(r, dict) and not (VAULT / r["path"]).exists() for r in refs):
+                    del files[kind]
+                    lost = True
+            if lost:
+                e["missing"] = True
+                print(f"  ! files missing for {e.get('title')}")
+
     def save(self):
+        self.check_files()
         token = os.environ.get("DISPATCH_TOKEN", "")
         self.payload["dispatch"] = {
             "repo": os.environ.get("GITHUB_REPOSITORY", "renekmarken/yta"),
