@@ -304,7 +304,8 @@ def main():
         folder = config.OUTPUT_DIR / res.get("folder", "failed-" + key.replace("/", "_"))
         folder.mkdir(parents=True, exist_ok=True)
         (folder / "result.json").write_text(json.dumps(res, ensure_ascii=False))
-        sys.exit(0 if res["status"] == "done" else 1)
+        # a blocked site is normal (it is recorded and skipped from now on) - don't turn the batch red
+        sys.exit(0 if res["status"] == "done" or res.get("reason") == "blocked/empty site" else 1)
     if a.apply_results:
         results = [json.loads(p.read_text()) for p in sorted(a.apply_results.rglob("result.json"))]
         for res in results:
