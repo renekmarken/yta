@@ -43,7 +43,8 @@ Each video gets its own random combination, chosen to differ from the last few v
 
 | Element | Options |
 |---|---|
-| Layout | full browser · side panel · stage · spotlight (floating card over a blurred copy of the site) |
+| Layout | **tilt** (signature: tilted website card that gently sways, with a two-colour glow halo) · full browser · side panel · stage · spotlight |
+| Light & glow | glow halo behind every website card and phone, soft light drifting across the background, glow behind the verdict |
 | Colour mode | dark · brand-coloured · light, accent from the site's own logo or an alternate |
 | Background | clean only: soft gradient · mesh · glow · aurora · blurred site, with fine film grain |
 | Browser frame | macOS dark/light · floating card · minimal |

@@ -10,7 +10,7 @@ from .sfx import PACKS
 from .thumbnail import LAYOUTS as THUMBS, PALETTES as THUMB_PALETTES
 from .visuals import available_head_fonts, lum, mix, shift_hue, text_safe
 
-LAYOUTS = ["full", "side", "stage", "spotlight"]          # ("cinema" is kept only for old rerenders)
+LAYOUTS = ["tilt", "tilt", "tilt", "full", "side", "stage", "spotlight"]   # tilt = the signature look
 FRAMES = ["mac_dark", "mac_light", "floating", "minimal"]
 CAPTIONS = ["bar", "pill", "tag", "underline", "glass"]
 BACKGROUNDS = ["gradient", "mesh", "spotlight", "aurora", "blurshot", "blurshot"]   # clean, modern looks
@@ -42,6 +42,7 @@ GEOMETRY = {   # where the website sits in the frame, per layout
     "stage": {"cx": 240, "cy": 250, "cw": 1440, "ch": 810},
     "cinema": {"cx": 0, "cy": 0, "cw": 1920, "ch": 1080},
     "spotlight": {"cx": 274, "cy": 118, "cw": 1372, "ch": 772},
+    "tilt": {"cx": 430, "cy": 236, "cw": 1260, "ch": 708},
 }
 
 
@@ -116,6 +117,7 @@ def pick_theme(seed, brand, history, has_mobile, category=None):
                                [tuple(a) for a in rv("thumb_accent") if a]),
         "thumb_tilt": rnd.choice([-6, -4, 4, 6]),
         "radius": rnd.choice([20, 24, 28]),
+        "tilt": rnd.choice([-3.4, -2.6, 2.6, 3.4]),
         "thumb_font": _avoid(rnd, all_fonts, [h.get("theme", {}).get("thumb_font") for h in history[-2:]])
                       if all_fonts else "inter",
         "cap_anim": _avoid(rnd, CAPTION_ANIMS, rv("cap_anim")[-1:]),

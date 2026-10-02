@@ -7,6 +7,7 @@ key fact. Segments are joined with themed transitions; an animated intro card, p
 animated verdict end card are added. Audio = narration + original background music (ducked under
 the voice) + sound effects timed to the animations.
 """
+import math
 import os
 import random
 import subprocess
@@ -25,6 +26,7 @@ OUTRO = 8.0           # end card (room for YouTube end-screen elements)
 INTRO = 2.6           # intro card overlaid on the first seconds
 CAP_D = 0.45          # caption entrance animation length
 CALLOUT_AT = 1.1      # seconds into a segment (after the transition) when the callout pops in
+TILT_SWAY = 0.45      # degrees the tilted website card gently sways
 UP = 1 if config.FAST_RENDER else 2   # zoompan supersampling (smoother motion)
 X264 = ["-c:v", "libx264", "-preset", "ultrafast" if config.FAST_RENDER else "veryfast",
         "-crf", "20", "-pix_fmt", "yuv420p", "-r", str(FPS)]
@@ -72,7 +74,7 @@ def _crop(layer):
 
 # ------------------------------------------------------------------ foreground layers
 def _frame_bar_height(theme):
-    if theme["layout"] == "cinema":
+    if theme["layout"] in ("cinema", "tilt"):
         return 0
     return {"mac_dark": 52, "mac_light": 52, "minimal": 36, "floating": 0}[theme["frame"]]
 
@@ -206,44 +208,118 @@ def _glass_caption(fg, theme, x, y, max_w, text, size, light_text, max_lines, ic
     return y + lh * len(lines) + 34
 
 
-def build_foreground(theme, info, logo, brand):
-    """Static parts of every website segment: background, browser frame, logo. Built once."""
-    base = background(theme, (W, H))
-    cx, cy, cw, ch = theme["cx"], theme["cy"], theme["cw"], theme["ch"]
+def keep_inside(img, x, y, margin=28):
+    """Shift an element so everything visible in it stays inside the video frame."""
+    box = img.getchannel("A").getbbox() or (0, 0, img.width, img.height)
+    x = min(max(x, margin - box[0]), W - margin - box[2])
+    y = min(max(y, margin - box[1]), H - margin - box[3])
+    return int(x), int(y)
+
+
+def _tilt_size(theme):
+    """Bounding box of the tilted card at its largest sway angle (even numbers for ffmpeg)."""
+    import math
+    a = math.radians(abs(theme.get("tilt", 3.0)) + TILT_SWAY)
+    cw, ch = theme["cw"], theme["ch"]
+    w = int(cw * math.cos(a) + ch * math.sin(a)) + 8
+    h = int(cw * math.sin(a) + ch * math.cos(a)) + 8
+    return w + w % 2, h + h % 2
+
+
+def _halo(theme, w, h, radius, angle=0.0):
+    """Bright two-colour blurred glow the size of the card (rotated with it)."""
+    from PIL import ImageFilter
+    pad = 240
+    acc, acc2 = theme["accent"], theme.get("accent2", theme["accent"])
+    strength = 130 if theme["light"] else 215
+    im = Image.new("RGBA", (w + pad * 2, h + pad * 2), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle([pad - 60, pad - 46, pad + w * 0.72, pad + h * 0.82], radius + 40, fill=(*acc, strength))
+    d.rounded_rectangle([pad + w * 0.32, pad + h * 0.22, pad + w + 60, pad + h + 50], radius + 40,
+                        fill=(*acc2, int(strength * 0.9)))
+    im = im.filter(ImageFilter.GaussianBlur(64))
+    core = Image.new("RGBA", im.size, (0, 0, 0, 0))            # brighter core right behind the card
+    ImageDraw.Draw(core).rounded_rectangle([pad + w * 0.12, pad + h * 0.12, pad + w * 0.88, pad + h * 0.95],
+                                           radius, fill=(*mix(acc, (255, 255, 255), 0.35), 110 if not theme["light"] else 60))
+    im.alpha_composite(core.filter(ImageFilter.GaussianBlur(46)))
+    return im.rotate(angle, Image.BICUBIC, expand=True) if angle else im
+
+
+def build_layers(theme, info, logo, brand):
+    """Static layers of every website segment, built once per video:
+    bg (background + glow halo + shadow, under the website), chrome (browser bar, logo, on top),
+    mask (rounded corners of the website), light (soft blob that drifts over the background)."""
+    from .visuals import shadow
+    from PIL import ImageFilter
+    bg = background(theme, (W, H))
+    chrome = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    cx, cy, cw, ch, r = theme["cx"], theme["cy"], theme["cw"], theme["ch"], theme["radius"]
     lay = theme["layout"]
-    if lay != "cinema":
-        _draw_frame(base, theme, info["domain"])
-    fg = _cut_hole(base, theme)
-    d = ImageDraw.Draw(fg)
+    bar = _frame_bar_height(theme)
+    if lay == "tilt":
+        ang = theme.get("tilt", 3.0)
+        halo = _halo(theme, cw, ch, r, ang)
+        bg.alpha_composite(halo, (cx + cw // 2 - halo.width // 2, cy + ch // 2 - halo.height // 2 + 10))
+        sh, pad = shadow((cw, ch), r, blur=34, opacity=90 if theme["light"] else 190)
+        sh = sh.rotate(ang, Image.BICUBIC, expand=True)
+        bg.alpha_composite(sh, (cx + cw // 2 - sh.width // 2, cy + ch // 2 - sh.height // 2 + 24))
+    elif lay != "cinema":
+        halo = _halo(theme, cw, ch + bar, r)
+        bg.alpha_composite(halo, (cx + cw // 2 - halo.width // 2, cy - bar + (ch + bar) // 2 - halo.height // 2 + 10))
+        sh, pad = shadow((cw, ch + bar), r, blur=30, opacity=70 if theme["light"] else 170)
+        bg.alpha_composite(sh, (cx - pad, cy - bar - pad + 16))
+        tmp = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        _draw_frame(tmp, theme, info["domain"])                 # draws shadow + bar; keep only the bar
+        if bar:
+            chrome.alpha_composite(tmp.crop((cx, cy - bar, cx + cw, cy)), (cx, cy - bar))
+    d = ImageDraw.Draw(chrome)
     if lay == "full":
         if logo is not None:
             chip = logo_chip(logo, 32)
-            fg.alpha_composite(chip, (cx + cw - chip.width, cy + ch + 34 + (12 if theme["caption"] == "tag" else 0)))
+            chrome.alpha_composite(chip, (cx + cw - chip.width, cy + ch + 34 + (12 if theme["caption"] == "tag" else 0)))
     elif lay == "side":
         if logo is not None:
             chip = logo_chip(logo, 40)
-            fg.alpha_composite(chip, (80, cy + ch - chip.height))
+            chrome.alpha_composite(chip, (80, cy + ch - chip.height))
         else:
             d.text((80, cy + ch), brand, font=font("Bold", 34), fill=theme["muted"], anchor="ls")
     elif lay == "stage":
         if logo is not None:
             chip = logo_chip(logo, 38)
-            fg.alpha_composite(chip, (cx + cw - chip.width, 78))
+            chrome.alpha_composite(chip, (cx + cw - chip.width, 78))
     elif lay == "spotlight":
         if logo is not None:
             chip = logo_chip(logo, 30)
-            fg.alpha_composite(chip, (cx + cw - chip.width, cy + ch + 40))
+            chrome.alpha_composite(chip, (cx + cw - chip.width, cy + ch + 40))
+    elif lay == "tilt":
+        if logo is not None:
+            chip = logo_chip(logo, 36)
+            paste_shadowed(chrome, chip, (W - chip.width - 72, 62), chip.height // 2, 16, 120, 6)
     else:  # cinema: dark gradient at the bottom so the caption stays readable
         grad = Image.new("L", (1, 256))
         grad.putdata([int(min(225, max(0, (i - 60) * 1.4))) for i in range(256)])
         shade = Image.new("RGBA", (W, 460), (6, 8, 12, 255))
         shade.putalpha(grad.resize((W, 460)))
-        fg.alpha_composite(shade, (0, H - 460))
+        chrome.alpha_composite(shade, (0, H - 460))
         if logo is not None:
             chip = logo_chip(logo, 28)
-            paste_shadowed(fg, chip, (W - chip.width - 56, H - 150 + (40 - chip.height) // 2),
+            paste_shadowed(chrome, chip, (W - chip.width - 56, H - 150 + (40 - chip.height) // 2),
                            chip.height // 2, 16, 140, 6)
-    return fg
+    mask = Image.new("L", (cw, ch), 0)
+    md = ImageDraw.Draw(mask)
+    if lay == "cinema":
+        md.rectangle([0, 0, cw, ch], fill=255)
+    else:
+        md.rounded_rectangle([0, 0, cw - 1, ch - 1], r, fill=255)
+        if bar:
+            md.rectangle([0, 0, cw - 1, r], fill=255)               # square top: the browser bar sits there
+    size = 1000
+    light = Image.radial_gradient("L").resize((size, size), Image.BICUBIC).point(
+        lambda v: int(max(0, 255 - v) * (0.28 if theme["light"] else 0.42)))
+    tint = mix(theme.get("accent2", theme["accent"]), (255, 255, 255), 0.35)
+    light_im = Image.new("RGBA", (size, size), (*tint, 0))
+    light_im.putalpha(light.filter(ImageFilter.GaussianBlur(40)))
+    return bg, chrome, mask, light_im
 
 
 def caption_layer(theme, seg, idx, total, icon=None):
@@ -265,6 +341,8 @@ def caption_layer(theme, seg, idx, total, icon=None):
         _caption(layer, theme, cx, 70, 1080, cap, 66, idx, total, icon=icon)
     elif lay == "spotlight":
         _caption(layer, theme, cx, cy + ch + 26, 1150, cap, 46, idx, total, icon=icon)
+    elif lay == "tilt":
+        _caption(layer, theme, 84, 56, 1250, cap, 60, idx, total, icon=icon)
     else:  # cinema: caption on a dark glass panel over the full-screen website
         glass = Image.new("RGBA", (W, H), (0, 0, 0, 0))
         _caption(glass, {**theme, "text": (255, 255, 255),
@@ -338,6 +416,8 @@ def callout_position(theme, card):
     lay = theme["layout"]
     if lay == "side":
         return 60, 600
+    if lay == "tilt":
+        return 30, cy + theme["ch"] // 3
     if lay == "cinema":
         return W - card.width - 40, 40
     bar = _frame_bar_height(theme)
@@ -378,8 +458,9 @@ def mobile_frame(theme, shot, seg, idx, total, logo):
     body = rounded((sc.width + bez * 2, phone_h + bez * 2), 64, (8, 8, 10, 255))
     body.alpha_composite(round_corners(sc, 50), (bez, bez))
     right = theme["layout"] != "side"
-    px = 1240 if right else 300
-    py = (H - body.height) // 2
+    px, py = keep_inside(body, 1240 if right else 300, (H - body.height) // 2, margin=40)
+    halo = _halo(theme, body.width, body.height, 64)
+    frame.alpha_composite(halo, (px + body.width // 2 - halo.width // 2, py + body.height // 2 - halo.height // 2 + 10))
     paste_shadowed(frame, body, (px, py), 64, 34, 70 if theme["light"] else 190, 18)
     tx = 180 if right else 900
     d = ImageDraw.Draw(frame)
@@ -461,21 +542,27 @@ def intro_frames(theme, info, data, logo, first_shot, work):
     q1, q2 = _cap(theme, f"Is {brand}"), _cap(theme, "worth using?")
     els = []      # (image, (x, y), start, dur, (dx, dy), kind)
     if style == "split":
-        sc = Image.open(first_shot).convert("RGB").resize((1100, 619), Image.LANCZOS)
-        card = round_corners(sc, 22).rotate(theme["thumb_tilt"] * 0.6, Image.BICUBIC, expand=True)
-        els.append((card, (860, 230), 0.0, 0.6, (420, 0), "slide"))
+        sc = Image.open(first_shot).convert("RGB").resize((900, 506), Image.LANCZOS)
+        ang = theme["thumb_tilt"] * 0.6
+        card = round_corners(sc, 22).rotate(ang, Image.BICUBIC, expand=True)
+        halo = _halo(theme, 900, 506, 22, ang)
+        cpos = keep_inside(card, 900, 260)
+        bg.alpha_composite(halo, (cpos[0] + card.width // 2 - halo.width // 2, cpos[1] + card.height // 2 - halo.height // 2 + 12))
+        els.append((card, cpos, 0.0, 0.7, (160, 0), "float"))
         x, y = 110, 330
     else:
         x, y = (W // 2, 560) if style == "logo_pop" else (150, 420)
     if style == "headline":
-        sc = Image.open(first_shot).convert("RGB").resize((900, 506), Image.LANCZOS)
-        for k, (tilt, pos) in enumerate(((-7, (1180, 120)), (5, (1080, 520)))):
-            card = rounded((908, 514), 20, (255, 255, 255, 255))
+        sc = Image.open(first_shot).convert("RGB").resize((700, 394), Image.LANCZOS)
+        halo = _halo(theme, 760, 640, 22, -3)
+        bg.alpha_composite(halo, (1340 - halo.width // 2, 520 - halo.height // 2))
+        for k, (tilt, pos) in enumerate(((-7, (1060, 150)), (5, (980, 500)))):
+            card = rounded((708, 402), 20, (255, 255, 255, 255))
             card.alpha_composite(round_corners(sc.convert("RGBA"), 16), (4, 4))
-            holder = Image.new("RGBA", (1100, 760), (0, 0, 0, 0))
+            holder = Image.new("RGBA", (880, 600), (0, 0, 0, 0))
             paste_shadowed(holder, card.rotate(tilt, Image.BICUBIC, expand=True), (60, 40), 20, 26,
                            60 if theme["light"] else 170, 16)
-            els.append((holder, (pos[0] - 60, pos[1] - 40), 0.05 + k * 0.12, 0.6, (500, 0), "slide"))
+            els.append((holder, keep_inside(holder, pos[0] - 60, pos[1] - 40), 0.05 + k * 0.12, 0.7, (180, 0), "float"))
     if logo is not None:
         chip = logo_chip(logo, 70 if style == "logo_pop" else 52)
         pos = ((W - chip.width) // 2, 300) if style == "logo_pop" else (x, y - chip.height - 50)
@@ -505,6 +592,11 @@ def intro_frames(theme, info, data, logo, first_shot, work):
         for im, (ex, ey), st, du, (dx, dy), kind in els:
             p = (t - st) / du
             if p <= 0:
+                continue
+            if kind == "float":
+                e = ease_out(p)
+                drift = 6 * math.sin(2 * math.pi * t / 2.6)
+                frame.alpha_composite(_fade(im, min(1, p * 1.4)), (int(ex + dx * (1 - e)), int(ey + drift)))
                 continue
             if kind == "pop":
                 s = 0.4 + 0.6 * ease_back(p)
@@ -536,6 +628,12 @@ def outro_frames(theme, data, logo, work, anim=2.4):
     bg = background(theme, (W, H))
     meas = ImageDraw.Draw(bg)
     ring = theme["outro"] == "ring"
+    from PIL import ImageFilter
+    glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))                # soft glow behind the score / verdict
+    gx, gy, gr = (1400, 520, 300) if ring else (W // 2, 560, 420)
+    ImageDraw.Draw(glow).ellipse([gx - gr, gy - gr * (1 if ring else 0.55), gx + gr, gy + gr * (1 if ring else 0.55)],
+                                 fill=(*vcol, 70 if theme["light"] else 120))
+    bg.alpha_composite(glow.filter(ImageFilter.GaussianBlur(90)))
 
     def layer(draw_fn):
         lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
@@ -656,8 +754,9 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
     theme.setdefault("sfx", "soft" if config.SFX else "off")
 
     theme.setdefault("bg_image", str(out_dir / info["screenshots"][0]["file"]))
-    fg = work / "fg.png"
-    build_foreground(theme, info, logo, brand).save(fg)
+    bg_l, chrome_l, mask_l, light_l = build_layers(theme, info, logo, brand)
+    for name, im in (("bg", bg_l), ("chrome", chrome_l), ("mask", mask_l), ("light", light_l)):
+        im.save(work / f"{name}.png")
     events = [(0.0, "whoosh"), (0.45, "impact"), (0.8, "pop"), (INTRO - 0.5, "whoosh")]
 
     clips, lens, start = [], [], 0.0
@@ -689,11 +788,25 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
             if box:
                 events.append((start + max(1, int(n * speed)) / FPS, "tick"))
             cw, ch = theme["cw"], theme["ch"]
-            inputs = ["-f", "lavfi", "-i", f"color=c=black:s={W}x{H}:r={FPS}:d={(n + 2) / FPS:.3f}",
-                      "-i", str(hl), "-loop", "1", "-framerate", str(FPS), "-i", str(fg)]
-            fl.append(f"[1:v]scale={cw * UP}:{ch * UP},setsar=1,{_zoompan(z, x, y, n, cw, ch)}[z]")
-            fl.append(f"[0:v][z]overlay={theme['cx']}:{theme['cy']}:shortest=1[b]")
-            fl.append("[2:v]format=rgba[f];[b][f]overlay=0:0:shortest=1[v0]")
+            dur = f"{(n + 2) / FPS:.3f}"
+            loop = lambda f: ["-loop", "1", "-framerate", str(FPS), "-t", dur, "-i", str(work / f)]
+            inputs = [*loop("bg.png"), "-i", str(hl), *loop("mask.png"), *loop("chrome.png"), *loop("light.png")]
+            ph = i * 2.3                                     # each clip's light drifts from a different spot
+            fl.append(f"[4:v]format=rgba[lt];[0:v]format=rgba[bg0];"
+                      f"[bg0][lt]overlay=x='{W // 2 - 500}+520*sin(2*PI*(t+{ph:.1f})/19)':"
+                      f"y='{H // 2 - 500}+260*cos(2*PI*(t+{ph:.1f})/14)':shortest=1[bg]")
+            fl.append(f"[1:v]scale={cw * UP}:{ch * UP},setsar=1,{_zoompan(z, x, y, n, cw, ch)},format=rgba[z];"
+                      f"[2:v]format=gray[m];[z][m]alphamerge[zc]")
+            if theme["layout"] == "tilt":
+                import math
+                ow, oh = _tilt_size(theme)
+                a0 = math.radians(theme.get("tilt", 3.0))
+                sway = math.radians(TILT_SWAY)
+                fl.append(f"[zc]rotate=a='{a0:.5f}+{sway:.5f}*sin(2*PI*(t+{ph:.1f})/9)':c=none:ow={ow}:oh={oh}[zr];"
+                          f"[bg][zr]overlay={theme['cx'] + cw // 2 - ow // 2}:{theme['cy'] + ch // 2 - oh // 2}:shortest=1[b]")
+            else:
+                fl.append(f"[bg][zc]overlay={theme['cx']}:{theme['cy']}:shortest=1[b]")
+            fl.append("[3:v]format=rgba[ch];[b][ch]overlay=0:0:shortest=1[v0]")
             last = "v0"
             # caption (animated entrance)
             cap_im, (cx0, cy0) = caption_layer(theme, seg, i + 1, total, icon=None if callout else icon)
@@ -711,7 +824,7 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
             co_at = (INTRO + 0.6) if i == 0 else T + CALLOUT_AT
             if callout and d_i + T - co_at > 1.5:
                 card = callout_card(theme, callout, icon)
-                px, py = callout_position(theme, card)
+                px, py = keep_inside(card, *callout_position(theme, card), margin=44)
                 pattern, pad = callout_frames(card, int(co_at * FPS), work, f"{i:02d}")
                 k = len([a for a in inputs if a == "-i"])
                 inputs += ["-framerate", str(FPS), "-i", str(pattern)]
