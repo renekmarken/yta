@@ -1,0 +1,35 @@
+[
+ {
+  "date": "2026-10-02",
+  "url": "https://robinhood.com",
+  "brand": "Robinhood",
+  "category": "investing",
+  "title": "Robinhood Review 2026: Is It Still Worth Using?",
+  "format": "pros_cons",
+  "opener": "Robinhood claims to offer twenty-four-five commission-free stock trading and investing, letting you build strategies and",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "mac_dark",
+   "caption": "underline",
+   "bg": "mesh",
+   "head_font": "archivo",
+   "accent": [
+    0,
+    170,
+    255
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "tilt_right",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ]
+  }
+ }
+]

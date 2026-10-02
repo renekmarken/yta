@@ -1,17 +1,5 @@
 {
  "items": {
-  "robinhood.com": {
-   "name": "Robinhood",
-   "url": "https://robinhood.com",
-   "category": "investing",
-   "hotness": 9.0,
-   "evergreen": false,
-   "why": "Unveiled 24-hour weekend trading, AI agents, and 10x leveraged crypto perps for everyday users.",
-   "sources": [
-    "Google News"
-   ],
-   "added": "2026-10-02T07:22:08+00:00"
-  },
   "lemonade.com": {
    "name": "Lemonade",
    "url": "https://www.lemonade.com",
@@ -772,5 +760,5 @@
    "added": "2026-10-02T07:22:54+00:00"
   }
  },
- "updated": "2026-10-02T07:22:54+00:00"
+ "updated": "2026-10-02T07:36:32+00:00"
 }
