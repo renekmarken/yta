@@ -180,7 +180,7 @@ def produce(item, history, out=None, mode="new"):
             vid = upload(video, thumb, meta["title"], description, meta["tags"], srt)
             (out / "youtube_id.txt").write_text(vid)
             youtube_url = f"https://youtu.be/{vid}"
-            print(f"   uploaded as {config.YT_PRIVACY}: {youtube_url}")
+            print(f"   uploaded: {youtube_url}")
         except Exception as e:
             print(f"   ! YouTube upload failed, upload this one by hand: {str(e)[:300]}")
 

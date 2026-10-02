@@ -46,7 +46,9 @@ QUEUE_MIN_EVERGREEN = int(env("QUEUE_MIN_EVERGREEN", "3"))  # evergreen picks ke
 
 # --- YouTube upload ---
 UPLOAD_MODE = env("UPLOAD_MODE", "manual")             # manual | api (api only after the API audit)
-YT_PRIVACY = env("YT_PRIVACY", "private")
+YT_PRIVACY = env("YT_PRIVACY", "private")                # private | unlisted | public
+# Upload as private and let YouTube publish it automatically this many hours later (a review window).
+YT_PUBLISH_DELAY_HOURS = float(env("YT_PUBLISH_DELAY_HOURS", "0"))
 YT_CLIENT_ID = env("YT_CLIENT_ID")
 YT_CLIENT_SECRET = env("YT_CLIENT_SECRET")
 YT_REFRESH_TOKEN = env("YT_REFRESH_TOKEN")
