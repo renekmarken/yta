@@ -67,11 +67,17 @@ def record(url, name, story_url, title, status):
 
 
 # ------------------------------------------------------------------ sources
+STATUS = {}                                          # last answer per source, for the log
+
+
 def _get(url, **kw):
+    host = url.split("/")[2]
     try:
         r = requests.get(url, headers=UA, timeout=25, **kw)
+        STATUS[host] = r.status_code
         return r if r.status_code == 200 else None
-    except requests.RequestException:
+    except requests.RequestException as e:
+        STATUS[host] = type(e).__name__
         return None
 
 
@@ -80,10 +86,32 @@ def _clean(text):
     return re.sub(r"\s+", " ", text).strip()
 
 
-def _reddit(query):
-    r = _get(f"https://www.reddit.com/search.rss?q={quote(query)}&sort=relevance&t=all&limit=15")
+def _reddit_json(query):
+    """Reddit's JSON search (old.reddit answers some servers that the feed refuses)."""
+    r = _get(f"https://old.reddit.com/search.json?q={quote(query)}&sort=relevance&t=all&limit=15")
     if not r:
         return []
+    try:
+        kids = r.json()["data"]["children"]
+    except (ValueError, KeyError, TypeError):
+        return []
+    out = []
+    for k in kids:
+        x = k.get("data", {})
+        if not x.get("permalink"):
+            continue
+        out.append({"source": "Reddit", "where": "r/" + x.get("subreddit", ""), "title": _clean(x.get("title")),
+                    "text": _clean(x.get("selftext")), "url": "https://www.reddit.com" + x["permalink"],
+                    "date": date.fromtimestamp(x.get("created_utc", 0)).isoformat() if x.get("created_utc") else "",
+                    "points": x.get("score") or 0})
+    return out
+
+
+def _reddit(query):
+    r = _get(f"https://www.reddit.com/search.rss?q={quote(query)}&sort=relevance&t=all&limit=15") or \
+        _get(f"https://old.reddit.com/search.rss?q={quote(query)}&sort=relevance&t=all&limit=15")
+    if not r:
+        return _reddit_json(query)
     out = []
     try:
         root = ET.fromstring(r.text)
@@ -140,11 +168,11 @@ def _news(query):
     return out
 
 
-def gather(brand):
+def gather(brand, queries=8):
     """Real public posts about bad experiences with `brand`, from several sources."""
     words = brand.lower().split()[0]
     cands, seen = [], set()
-    for i, p in enumerate(PROBLEMS[:8]):
+    for i, p in enumerate(PROBLEMS[:queries]):
         q = f'{brand} {p}'
         for c in _reddit(q) + (_hn(q) if i < 4 else []) + (_news(q) if i < 3 else []):
             hay = (c["title"] + " " + c["text"]).lower()
@@ -155,7 +183,11 @@ def gather(brand):
             seen.add(c["url"])
             cands.append(c)
         time.sleep(1.2)                                 # be polite to the free endpoints
-    print(f"   stories found: {len(cands)} ({', '.join(sorted({c['source'] for c in cands})) or 'none'})")
+    by = {}
+    for c in cands:
+        by[c["source"]] = by.get(c["source"], 0) + 1
+    print(f"   stories found: {len(cands)} ({', '.join(f'{k} {v}' for k, v in by.items()) or 'none'}) · "
+          f"answers: {', '.join(f'{h} {s}' for h, s in STATUS.items())}")
     return cands
 
 
@@ -360,26 +392,34 @@ def find_story(brand, url):
 
 
 def candidates(history, n):
-    """Products for Risk Cases: popular ones from the review queue and past reviews (big names have the
-    most public stories), never one that already had a Risk Case."""
-    from .discover import load_queue, priority
+    """Products for Risk Cases: well-known ones first (past reviews and the queue's evergreen names,
+    not brand-new launches: those rarely have public stories), never one that already had a Risk
+    Case, and only products where a quick search finds real stories."""
+    from .discover import load_queue
     _, done = used()
-    pool, seen = [], set()
-    q = load_queue()
-    for k, it in sorted(q["items"].items(), key=lambda kv: -priority(kv[1])):
-        pool.append((k, {"name": it["name"], "url": it["url"], "category": it.get("category"),
-                         "pop": float(it.get("hotness", 5)) + (3 if it.get("evergreen") else 0)}))
+    pool = []
     for h in history:
         if h.get("kind") != "risk" and h.get("url"):
             pool.append((site_id(h["url"]), {"name": h.get("brand") or h["url"], "url": h["url"],
-                                              "category": h.get("category"), "pop": 9}))
-    out = []
-    for k, it in sorted(pool, key=lambda kv: -kv[1]["pop"]):
+                                              "category": h.get("category")}, 2))
+    for k, it in load_queue()["items"].items():
+        if it.get("launch"):
+            continue
+        pool.append((k, {"name": it["name"], "url": it["url"], "category": it.get("category")},
+                     1 if it.get("evergreen") else 0))
+    pool.sort(key=lambda kv: -kv[2])
+    out, seen = [], set()
+    for k, it, _ in pool:
         sid = site_id(it["url"])
         if sid in seen or sid in done or name_id(it["name"]) in done:
             continue
         seen.add(sid)
-        out.append((k, {**{x: it[x] for x in ("name", "url", "category")}, "kind": "risk"}))
+        word = it["name"].lower().split()[0]
+        hits = [c for c in gather(it["name"], queries=3) if word in c["title"].lower()]
+        if len(hits) < 3:
+            print(f"   {it['name']}: too few public stories ({len(hits)}), skipped")
+            continue
+        out.append((k, {**it, "kind": "risk"}))
         if len(out) >= n:
             break
     return out
