@@ -571,6 +571,12 @@ document.addEventListener("click", async e => {
     ({video: ".mp4", thumbnail: ".jpg", thumbnails: ".jpg", captions: ".srt", kit: ".md"}[b.dataset.dl] || ""));
   b.disabled = true; label.textContent = "Starting…";
   try {
+    // Preferred: a normal browser download; the service worker decrypts it while it streams in.
+    if (await nativeDownload(refPath(f), name, f.type || "")) {
+      label.textContent = "Downloading — see your browser's downloads";
+      setTimeout(() => { label.textContent = old; b.disabled = false; }, 5000);
+      return;
+    }
     const url = await fileURL(refPath(f), f.type || "", t => { label.textContent = t; });
     const a = document.createElement("a");
     a.href = url; a.download = name;
@@ -586,6 +592,32 @@ document.addEventListener("click", async e => {
     setTimeout(() => { label.textContent = old; b.disabled = false; }, 4000);
   }
 });
+
+/* ---------- browser downloads through the service worker (sw.js) */
+const swReady = ("serviceWorker" in navigator && location.protocol !== "file:")
+  ? navigator.serviceWorker.register("sw.js").then(() => navigator.serviceWorker.ready).catch(() => null)
+  : Promise.resolve(null);
+async function nativeDownload(path, name, mime){
+  if (/^https?:/.test(path)) return false;
+  const reg = await swReady;
+  const sw = navigator.serviceWorker && navigator.serviceWorker.controller;
+  if (!reg || !sw) return false;                 // first visit before the helper is active: page download
+  const token = Array.from(crypto.getRandomValues(new Uint8Array(12)), x => x.toString(16).padStart(2, "0")).join("");
+  const ok = await new Promise(res => {
+    const ch = new MessageChannel();
+    const t = setTimeout(() => res(false), 2500);
+    ch.port1.onmessage = () => { clearTimeout(t); res(true); };
+    sw.postMessage({type: "download", token, key: libKey, name, mime,
+                    url: vaultBase + path + "?v=" + encodeURIComponent(box.iv)}, [ch.port2]);
+  });
+  if (!ok) return false;
+  const frame = document.createElement("iframe");
+  frame.style.display = "none";
+  frame.src = "dl/" + token + "/" + encodeURIComponent(name);
+  document.body.appendChild(frame);
+  setTimeout(() => frame.remove(), 120000);
+  return true;
+}
 
 /* ---------- upload to YouTube */
 async function runWorkflow(file, inputs){
