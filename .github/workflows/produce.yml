@@ -61,6 +61,7 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          RELEASE_URL: ${{ github.server_url }}/${{ github.repository }}/releases/tag/videos-${{ github.run_number }}
           UPLOAD_MODE: ${{ vars.UPLOAD_MODE || 'manual' }}
           YT_PRIVACY: ${{ vars.YT_PRIVACY || 'unlisted' }}
           YT_PUBLISH_DELAY_HOURS: ${{ vars.YT_PUBLISH_DELAY_HOURS }}
@@ -101,3 +102,13 @@ jobs:
             output/*/script.json
           retention-days: 14
           if-no-files-found: ignore
+
+      - name: Publish on the Releases page (easy download, also on a phone)
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(python tools/release.py output rel/files)
+          if [ "$n" = "0" ]; then echo "No finished videos to publish."; exit 0; fi
+          gh release create "videos-${{ github.run_number }}" rel/files/* --title "Videos #${{ github.run_number }} ($(date -u +%Y-%m-%d))" --notes-file rel/release_notes.md --latest
+          echo "Download page: ${{ github.server_url }}/${{ github.repository }}/releases/tag/videos-${{ github.run_number }}"

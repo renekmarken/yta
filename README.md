@@ -70,7 +70,7 @@ Every thumbnail has the site's **logo**, its **name** and **"WORTH USING IT?"**.
    - `NTFY_TOPIC` (optional): any hard-to-guess name. Install the free **ntfy** app and subscribe to that name to get a phone notification when videos are ready.
 3. Optional **Variables** (same page, *Variables* tab): `VIDEOS_PER_RUN` (default 1), `CHANNEL_NAME`, `TTS_VOICE`.
 4. Open the **Actions** tab and enable workflows. Run **Discover trending products** first, then **Produce review videos**.
-5. Open the finished run and download the `videos-N.zip` file under **Artifacts**.
+5. Get the videos from the **Releases** page: github.com/renekmarken/yta/releases (also linked on the repo's front page, right side). Each run adds an entry with a download button per file — works on a phone, no zip. The ntfy notification opens it directly.
 
 ### Publish (about 2 minutes per video)
 

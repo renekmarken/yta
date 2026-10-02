@@ -10,6 +10,8 @@ from . import config
 def notify(title, message, click=None):
     if not config.NTFY_TOPIC:
         return
+    if click is None and os.environ.get("RELEASE_URL"):        # the easy-download page for this run
+        click = os.environ["RELEASE_URL"]
     if click is None and os.environ.get("GITHUB_RUN_ID"):
         click = (f"{os.environ.get('GITHUB_SERVER_URL', 'https://github.com')}/"
                  f"{os.environ.get('GITHUB_REPOSITORY')}/actions/runs/{os.environ['GITHUB_RUN_ID']}")

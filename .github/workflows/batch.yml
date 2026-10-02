@@ -147,6 +147,7 @@ jobs:
       - name: Book them (queue, history, never-review-again list) and notify
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          RELEASE_URL: ${{ github.server_url }}/${{ github.repository }}/releases/tag/batch-${{ github.run_number }}
           UPLOAD_MODE: ${{ vars.UPLOAD_MODE || 'manual' }}
         run: python run.py --apply-results results
       - name: Save progress
@@ -157,6 +158,16 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Book batch of ${{ needs.plan.outputs.total }} videos"
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
+      - name: Publish on the Releases page (easy download, also on a phone)
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(python tools/release.py results rel/files)
+          if [ "$n" = "0" ]; then echo "No finished videos to publish."; exit 0; fi
+          gh release create "batch-${{ github.run_number }}" rel/files/* --title "Batch #${{ github.run_number }}: ${{ needs.plan.outputs.total }} videos ($(date -u +%Y-%m-%d))" --notes-file rel/release_notes.md --latest
+          echo "Download page: ${{ github.server_url }}/${{ github.repository }}/releases/tag/batch-${{ github.run_number }}"
+
       - name: One download with every video
         uses: actions/upload-artifact/merge@v4
         with:
