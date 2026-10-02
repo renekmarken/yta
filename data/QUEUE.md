@@ -1,5 +1,5 @@
 # Review queue
-Updated 2026-10-02T18:07:55+00:00 UTC · 48 products waiting
+Updated 2026-10-02T18:20:08+00:00 UTC · 48 products waiting
 
 | # | Priority | Category | Product | Why | Found via |
 |---|---|---|---|---|---|

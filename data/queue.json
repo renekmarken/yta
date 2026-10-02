@@ -196,19 +196,19 @@
    "priority": 6.13,
    "cat": "⚖️ Legal services / platforms"
   },
-  "bizee.com": {
-   "name": "IncFile",
-   "url": "https://www.bizee.com",
-   "category": "legal",
-   "hotness": 4.2,
+  "salesforce.com": {
+   "name": "Salesforce",
+   "url": "https://www.salesforce.com",
+   "category": "saas",
+   "hotness": 6.0,
    "evergreen": true,
-   "why": "Affordable LLC formation and business registration service.",
+   "why": "Global leader in customer relationship management SaaS solutions.",
    "sources": [
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:26+00:00",
-   "priority": 5.74,
-   "cat": "⚖️ Legal services / platforms"
+   "added": "2026-10-02T07:22:27+00:00",
+   "priority": 7.05,
+   "cat": "💻 SaaS / business software"
   },
   "hubspot.com": {
    "name": "HubSpot",
@@ -673,5 +673,5 @@
    "cat": "💼 Freelancing platforms"
   }
  },
- "updated": "2026-10-02T18:07:55+00:00"
+ "updated": "2026-10-02T18:20:08+00:00"
 }

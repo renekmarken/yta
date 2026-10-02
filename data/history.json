@@ -639,5 +639,51 @@
     "yes_no/teal_orange/worth"
    ]
   }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.bizee.com",
+  "brand": "Bizee",
+  "category": "legal",
+  "title": "Bizee Honest Review: $0 LLC Filing, Pros & Cons",
+  "youtube": null,
+  "format": "red_flags",
+  "opener": "Bizee, formerly known as Incfile, claims you can launch your LLC in minutes and start your business with confidence",
+  "title_style": "honest",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "bar",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    70,
+    140
+   ],
+   "transitions": [
+    "coverleft",
+    "revealright"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    70,
+    140
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "lofi",
+   "sfx": "airy",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "score/crimson/worth",
+    "stack/emerald/scam",
+    "laptop/violet/truth"
+   ]
+  }
  }
 ]
