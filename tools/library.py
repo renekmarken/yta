@@ -20,6 +20,7 @@ import base64
 import json
 import os
 import re
+import shutil
 import secrets
 import sys
 import urllib.request
@@ -127,6 +128,12 @@ class Library:
             if lost:
                 e["missing"] = True
                 print(f"  ! files missing for {e.get('title')}")
+        # a video whose files are gone can't be used for anything: take it off the list for good
+        gone = [e for e in self.videos if e.get("missing") and not (e.get("files") or {}).get("video")]
+        for e in gone:
+            shutil.rmtree(VAULT / "v" / e["id"], ignore_errors=True)
+            print(f"  removed from the list (files lost): {e.get('title')}")
+        self.videos[:] = [e for e in self.videos if e not in gone]
 
     def save(self):
         self.check_files()

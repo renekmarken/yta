@@ -54,11 +54,12 @@ def _load():
 
 
 def used():
-    """(story urls, product ids) already turned into a Risk Case."""
+    """(story urls, product ids) never to use again: products that already had a Risk Case, and ones
+    where no usable story was found (they can't make one, so they leave the Risk Case queue for good)."""
     d = _load()
+    over = [c for c in d["cases"] if c.get("status") in ("done", "nostory")]
     return ({c.get("story_url") for c in d["cases"]},
-            {c.get("site") for c in d["cases"] if c.get("status") == "done"} |
-            {c.get("name") for c in d["cases"] if c.get("status") == "done" and c.get("name")})
+            {c.get("site") for c in over} | {c.get("name") for c in over if c.get("name")})
 
 
 def record(url, name, story_url, title, status):
