@@ -87,7 +87,7 @@ YouTube permanently locks videos uploaded through an unverified API project as p
 1. Run `get_youtube_token.py` on your PC, following the steps inside it.
 2. Add the `YT_CLIENT_ID`, `YT_CLIENT_SECRET` and `YT_REFRESH_TOKEN` secrets.
 3. Apply for the free audit: <https://support.google.com/youtube/contact/yt_api_form>.
-4. After approval, set the variable `UPLOAD_MODE` = `api`. Videos then arrive in Studio as private drafts, with their thumbnail and captions.
+4. After approval, set the variable `UPLOAD_MODE` = `api`. Videos then arrive on your channel as unlisted videos (change with the variable `YT_PRIVACY`), with their thumbnail and captions.
 
 ---
 

@@ -62,7 +62,7 @@ jobs:
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           UPLOAD_MODE: ${{ vars.UPLOAD_MODE || 'manual' }}
-          YT_PRIVACY: ${{ vars.YT_PRIVACY || 'private' }}
+          YT_PRIVACY: ${{ vars.YT_PRIVACY || 'unlisted' }}
           YT_PUBLISH_DELAY_HOURS: ${{ vars.YT_PUBLISH_DELAY_HOURS }}
           CHANNEL_NAME: ${{ vars.CHANNEL_NAME || 'Worth Using It?' }}
           TTS_VOICE: ${{ vars.TTS_VOICE || 'en-US-AndrewMultilingualNeural' }}
