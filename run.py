@@ -172,16 +172,22 @@ def produce(item, history, out=None, mode="new"):
     write_kit(out, data, info, description, theme)
     shutil.rmtree(out / "render", ignore_errors=True)
 
+    youtube_url = None
     if config.UPLOAD_MODE == "api":
         from studio.upload import upload
         meta = json.loads((out / "metadata.json").read_text())
-        vid = upload(video, thumb, meta["title"], description, meta["tags"], srt)
-        (out / "youtube_id.txt").write_text(vid)
-        print(f"   uploaded as {config.YT_PRIVACY}: https://youtu.be/{vid}")
+        try:                     # a failed upload must not throw away a finished video
+            vid = upload(video, thumb, meta["title"], description, meta["tags"], srt)
+            (out / "youtube_id.txt").write_text(vid)
+            youtube_url = f"https://youtu.be/{vid}"
+            print(f"   uploaded as {config.YT_PRIVACY}: {youtube_url}")
+        except Exception as e:
+            print(f"   ! YouTube upload failed, upload this one by hand: {str(e)[:300]}")
 
     opener = data["segments"][0]["text"].split(".")[0][:120]
     return out, data, {"date": date.today().isoformat(), "url": info["url"], "brand": data.get("brand"),
                        "category": data.get("category"), "title": data.get("youtube_title"),
+                       "youtube": youtube_url,
                        "format": data.get("format"), "opener": opener,
                        "theme": {k: theme[k] for k in ("mode", "layout", "frame", "caption", "bg",
                                                        "head_font", "accent", "transitions", "intro",
@@ -230,7 +236,8 @@ def main():
             save_history(history)
             _append(config.DONE_FILE, item["url"])
             remove_from_queue(key)
-            made.append(data.get("youtube_title"))
+            made.append((data.get("youtube_title") or item["name"]) + (f" → {record['youtube']}" if record.get("youtube")
+                                                     else " (not uploaded)" if config.UPLOAD_MODE == "api" else ""))
             print(f"✓ done -> {out}")
         except Exception as e:
             failed += 1
