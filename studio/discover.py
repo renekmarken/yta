@@ -23,6 +23,7 @@ import requests
 
 from . import ai, config
 from .categories import BY_ID, CATEGORIES, describe_for_ai, weight
+from .reviewed import Ledger, site_id
 
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
                     "Chrome/128.0 Safari/537.36"}
@@ -219,12 +220,13 @@ def save_queue(q):
     write_queue_md(q)
 
 
-def seen_keys():
-    keys = set()
-    for f in (config.DONE_FILE, config.FAILED_FILE):
-        if f.exists():
-            keys |= {key_for(l) for l in f.read_text().split() if l.strip()}
-    return keys
+def _queued_site(q, url):
+    """Queue key of an item for the same website, if one is already waiting."""
+    sid = site_id(url)
+    for k, it in q["items"].items():
+        if site_id(it.get("url", "")) == sid:
+            return k
+    return None
 
 
 def priority(item):
@@ -259,7 +261,9 @@ Pick up to {max_new} distinct products/services that:
 - a US consumer or business can sign up for or buy on a public website
 - fit one of these categories:
 {cats}
-- are NOT already covered: {exclude}
+- have NEVER been reviewed on the channel. ALREADY REVIEWED (never suggest these again, under any
+  name, URL or sub-page): {reviewed}
+- are not already waiting in the queue: {queued}
 - are not news sites, review sites, government sites, gambling, adult, meme coins or obvious scams
 - would make people search "<name> review" or "is <name> worth it"
 
@@ -277,7 +281,8 @@ SIGNALS:
 EVERGREEN_PROMPT = """List well-known, frequently searched US websites/apps that people look up
 reviews for, in these categories: {cats}.
 {per_cat} per category. Choose ones with high "<brand> review" search interest, mix big names and
-popular challengers. Do NOT include: {exclude}.
+popular challengers. NEVER include anything already reviewed on the channel: {reviewed}.
+Also skip ones already waiting in the queue: {queued}.
 Return ONLY JSON: {{"items": [{{"name": "...", "url": "official https URL", "category": "category id",
 "search_interest": 0-10, "why": "max 12 words"}}]}}"""
 
@@ -298,9 +303,9 @@ def _add(q, raw, evergreen, sources, skip):
         url = "https://" + url.lstrip("/") if url else ""
     if not url or raw.get("category") not in BY_ID:
         return False
-    k = key_for(url)
-    if k in skip or _domain(url) in BLOCKED_DOMAINS:
-        return False
+    if skip.has(url, raw.get("name")) or _domain(url) in BLOCKED_DOMAINS:
+        return False                                           # reviewed before: never again
+    k = _queued_site(q, url) or key_for(url)
     if k in q["items"]:
         it = q["items"][k]                                     # seen again: refresh heat
         it["hotness"] = max(float(it.get("hotness", 0)), float(raw.get("hotness", 0)))
@@ -321,7 +326,7 @@ def _add(q, raw, evergreen, sources, skip):
 def discover():
     config.DATA_DIR.mkdir(exist_ok=True)
     q = load_queue()
-    skip = seen_keys()
+    skip = Ledger()
     print("Collecting trend signals...")
     signals = []
     for src in SOURCES:
@@ -343,12 +348,14 @@ def discover():
         compact.append(f"- ({s['source']}){hint} {t} | {s.get('detail', '')}".strip(" |"))
     compact = compact[:220]
 
-    exclude = ", ".join(sorted({k.split("/")[0] for k in skip} | {k.split("/")[0] for k in q["items"]}))[:3000] or "none"
+    reviewed = skip.for_prompt()
+    queued = ", ".join(sorted({it.get("name", k) for k, it in q["items"].items()}))[:4000] or "none"
     added = 0
     if compact:
         try:
             text, _ = ai.ask(EDITOR_PROMPT.format(max_new=config.DISCOVERY_MAX_NEW, cats=describe_for_ai(),
-                                                  exclude=exclude, signals="\n".join(compact)),
+                                                  reviewed=reviewed, queued=queued,
+                                                  signals="\n".join(compact)),
                              json_mode=True, temperature=0.3)
             picks = ai.parse_json(text)
             picks = picks.get("items", []) if isinstance(picks, dict) else picks
@@ -374,7 +381,8 @@ def discover():
         try:
             names = ", ".join(f"{c} ({BY_ID[c]['name']})" for c in low)
             text, _ = ai.ask(EVERGREEN_PROMPT.format(cats=names, per_cat=config.QUEUE_MIN_EVERGREEN + 2,
-                                                     exclude=exclude), json_mode=True, temperature=0.5)
+                                                     reviewed=reviewed, queued=queued),
+                             json_mode=True, temperature=0.5)
             items = ai.parse_json(text)
             items = items.get("items", []) if isinstance(items, dict) else items
             for p in items:
@@ -396,17 +404,18 @@ def discover():
 
 # ---------------------------------------------------------------- picking the next videos
 def sync_pinned(q):
-    """sites.txt entries jump the queue."""
-    skip = seen_keys()
+    """sites.txt entries jump the queue (unless that product was already reviewed)."""
+    skip = Ledger()
     if not config.SITES_FILE.exists():
         return
     for line in config.SITES_FILE.read_text().splitlines():
         url = line.strip()
         if not url or url.startswith("#"):
             continue
-        k = key_for(url)
-        if k in skip:
+        if skip.has(url):
+            print(f"   sites.txt: {url} was already reviewed — skipping")
             continue
+        k = _queued_site(q, url) or key_for(url)
         it = q["items"].setdefault(k, {"name": _domain(url), "url": url, "category": None,
                                        "hotness": 5, "evergreen": True, "why": "added by you",
                                        "sources": ["sites.txt"],
@@ -417,6 +426,13 @@ def sync_pinned(q):
 def pick_next(n, history):
     q = load_queue()
     sync_pinned(q)
+    done = Ledger()
+    stale = [k for k, it in q["items"].items() if done.has(it.get("url", ""), it.get("name", ""))]
+    for k in stale:                                   # reviewed since it was queued: drop it
+        print(f"   queue: dropping {q['items'][k].get('name', k)} (already reviewed)")
+        del q["items"][k]
+    if stale:
+        save_queue(q)
     recent = [h.get("category") for h in history[-2:]]
     ranked = sorted(q["items"].items(), key=lambda kv: priority(kv[1]), reverse=True)
     picked, cats = [], list(recent)

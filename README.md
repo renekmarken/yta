@@ -103,6 +103,7 @@ YouTube permanently locks videos uploaded through an unverified API project as p
 | More of one category | Raise its `weight_boost` in `studio/categories.py` |
 | See what's coming | `data/QUEUE.md` |
 | See what was made | `data/history.json`, `data/done.txt`; blocked sites go to `data/failed.txt` |
+| Never repeat a product | Automatic. Every reviewed (or blocked) product is kept forever in `data/reviewed.json`; Gemini is told never to suggest them, and the queue, `sites.txt` and manual URLs skip them (same website on any page/subdomain, or same name). To redo one on purpose, run locally with `python run.py --url ... --force` |
 | Different voice | Variable `TTS_VOICE` (e.g. `en-US-AvaMultilingualNeural`, `en-US-BrianNeural`) |
 | Your channel badge on thumbnails | Add `assets/thumbnail_overlay.png` (1280×720, transparent) |
 | Background music | Composed automatically. Variable `MUSIC` = `off`, or one mood (`lofi`, `upbeat`, `ambient`, `tech`, `acoustic`) for every video. Your own track: add `assets/music.mp3` |

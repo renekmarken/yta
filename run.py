@@ -22,6 +22,7 @@ from studio.categories import BY_ID
 from studio.crawl import BlockedSite, crawl
 from studio.discover import discover, key_for, load_queue, pick_next, remove_from_queue
 from studio.notify import notify
+from studio.reviewed import Ledger, record as record_review
 from studio.script import write_script
 from studio.themes import normalize, pick_theme
 from studio.thumbnail import make_thumbnail
@@ -218,6 +219,7 @@ def main():
     ap.add_argument("--restyle", type=Path)
     ap.add_argument("--upload", type=Path)
     ap.add_argument("-n", type=int, default=config.VIDEOS_PER_RUN)
+    ap.add_argument("--force", action="store_true", help="review --url even if it was reviewed before")
     a = ap.parse_args()
     history = load_history()
 
@@ -233,6 +235,9 @@ def main():
         return
 
     if a.url:
+        if Ledger().has(a.url) and not a.force:
+            print(f"{a.url} was already reviewed — not making it again. (Add --force to override.)")
+            return
         picks = [(key_for(a.url), {"name": urlparse(a.url).netloc, "url": a.url, "category": None})]
     else:
         q, picks = pick_next(a.n, history)
@@ -246,12 +251,17 @@ def main():
 
     made, failed = [], 0
     for key, item in picks:
+        if not a.url and Ledger().has(item["url"], item.get("name")):     # last safety check
+            print(f"   skipping {item['name']}: already reviewed")
+            remove_from_queue(key)
+            continue
         print(f"\n=== {item['name']} ({item.get('category') or 'auto'}) — {item['url']}")
         try:
             out, data, record = produce(item, history)
             history.append(record)
             save_history(history)
             _append(config.DONE_FILE, item["url"])
+            record_review(item["url"], item.get("name", ""), data.get("brand", ""), "done")
             remove_from_queue(key)
             made.append((data.get("youtube_title") or item["name"]) + (f" → {record['youtube']}" if record.get("youtube")
                                                      else " (not uploaded)" if config.UPLOAD_MODE == "api" else ""))
@@ -260,6 +270,7 @@ def main():
             failed += 1
             traceback.print_exc()
             _append(config.FAILED_FILE, item["url"])
+            record_review(item["url"], item.get("name", ""), "", "failed")
             remove_from_queue(key)
             reason = "blocked/empty site" if isinstance(e, BlockedSite) else type(e).__name__
             print(f"✗ {item['url']} skipped ({reason}); next time the queue moves on")
