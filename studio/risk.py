@@ -200,12 +200,35 @@ def _news(query):
     return out
 
 
-def gather(brand, queries=8):
-    """Real public posts about bad experiences with `brand`, from several sources."""
+ISSUE_QUERIES = """List 8 short web search queries (3-7 words each) that real people would type, or that would
+match the titles of first-hand Reddit / forum posts, about this problem with {brand}: "{issue}".
+Every query must contain "{brand}". Vary the wording (e.g. "banned for no reason", "account disabled",
+"suspended without warning"). Return ONLY a JSON list of strings."""
+
+
+def issue_queries(brand, issue):
+    """Search phrases for one specific issue the user asked for ("users getting banned for no reason")."""
+    qs = []
+    try:
+        text, _ = ai.ask(ISSUE_QUERIES.format(brand=brand, issue=issue), json_mode=True, temperature=0.4)
+        got = ai.parse_json(text)
+        qs = [re.sub(r"\s+", " ", str(q)).strip() for q in (got if isinstance(got, list) else []) if str(q).strip()]
+    except Exception as e:
+        print(f"   ! search phrases from AI failed ({type(e).__name__}), using the issue as typed")
+    word = brand.lower().split()[0]
+    qs = [q if word in q.lower() else f"{brand} {q}" for q in qs]
+    issue_words = re.sub(r"[^\w\s$]", " ", issue).split()
+    base = [f"{brand} {issue}", f"{brand} {' '.join(issue_words[:4])}"]
+    return list(dict.fromkeys(base + qs))[:9]
+
+
+def gather(brand, queries=8, issue=None):
+    """Real public posts about bad experiences with `brand`, from several sources. With `issue`, the
+    searches are about that one problem instead of the usual list."""
     words = brand.lower().split()[0]
     cands, seen = [], set()
-    for i, p in enumerate(PROBLEMS[:queries]):
-        q = f'{brand} {p}'
+    phrases = issue_queries(brand, issue) if issue else [f"{brand} {p}" for p in PROBLEMS[:queries]]
+    for i, q in enumerate(phrases):
         for c in _reddit(q) + (_hn(q) if i < 4 else []) + (_news(q) if i < 3 else []):
             hay = (c["title"] + " " + c["text"]).lower()
             if c["url"] in seen or words not in hay:
@@ -246,29 +269,34 @@ Return ONLY JSON:
  "excerpt": "one short sentence from the post (max 22 words), quoted exactly",
  "issue": "short label of the issue type, e.g. 'payout freeze / account review'"}}
 If none is usable, return {{"index": -1}}.
-
+{focus}
 POSTS:
 {posts}
 """
 
 
-def pick_story(brand, url, cands):
+def pick_story(brand, url, cands, issue=None):
     used_urls, _ = used()
     cands = [c for c in cands if c["url"] not in used_urls]
     if not cands:
         raise NoStory(f"no public stories found for {brand}")
     word = brand.lower().split()[0]
     hurt = re.compile(r"froze|frozen|freez|closed|banned|suspend|hold|held|lost|stole|scam|refund|locked|charged|terminated", re.I)
+    topic = {w for w in re.findall(r"[a-z]{4,}", (issue or "").lower())} - {"user", "users", "their", "with", "from", "about", "getting"}
     cands.sort(key=lambda c: -(3 * (word in c["title"].lower()) + 2 * bool(hurt.search(c["title"]))
+                               + 2 * sum(t in (c["title"] + " " + c["text"][:400]).lower() for t in topic)
                                + bool(re.search(r"\$\s?\d", c["title"] + c["text"][:600])) + (len(c["text"]) > 400)))
     cands = cands[:30]
     posts = "\n\n".join(f"[{i}] ({c['where']}, {c['date']}) {c['title']}\n{c['text'][:900]}" for i, c in enumerate(cands))
-    text, _ = ai.ask(PICK_PROMPT.format(brand=brand, url=url, posts=posts, used=", ".join(list(used_urls)[:20]) or "none"),
+    focus = (f"\nTHE VIEWER ASKED SPECIFICALLY FOR THIS ISSUE: \"{issue}\". Pick a post about this issue (or one very "
+             f"close to it); if none of the posts is about it, return {{\"index\": -1}}.\n") if issue else ""
+    text, _ = ai.ask(PICK_PROMPT.format(brand=brand, url=url, posts=posts, focus=focus,
+                                        used=", ".join(list(used_urls)[:20]) or "none"),
                      json_mode=True, temperature=0.3)
     pick = ai.parse_json(text)
     i = pick.get("index", -1) if isinstance(pick, dict) else -1
     if not isinstance(i, int) or not 0 <= i < len(cands):
-        raise NoStory(f"no usable story for {brand} among {len(cands)} posts")
+        raise NoStory(f"no usable story for {brand}" + (f" about '{issue}'" if issue else "") + f" among {len(cands)} posts")
     story = {**cands[i], **{k: str(pick.get(k, "")).strip() for k in
                             ("claim", "amount", "thumb_big", "thumb_small", "what_happened", "excerpt", "issue")}}
     if story["excerpt"] and story["excerpt"].lower()[:30] not in (story["title"] + " " + story["text"]).lower():
@@ -499,7 +527,7 @@ Replies from other people in the thread (others with the same problem, explanati
 Other public reports of similar problems with {brand} (titles only):
 {similar}
 
-Write a 2-3 minute narration: {min_words}-{max_words} words in total (count them).
+{focus}Write a 2-3 minute narration: {min_words}-{max_words} words in total (count them).
 Structure, in this order:
 1. Hook: the story in one or two gripping sentences, attributed simply to the platform: "A {brand}
    user posted on {where}..." Never name a subreddit, group, forum section or username.
@@ -563,7 +591,9 @@ def write_script(info, item, story, history):
         text=story["text"][:5000], updates="\n---\n".join(u[:1200] for u in story.get("updates", [])[:4]) or "(none)",
         replies="\n---\n".join(r[:600] for r in story.get("replies", [])[:8]) or "(none)",
         similar="\n".join("- " + x for x in story.get("similar", [])) or "(none found)",
-        story_files=", ".join(stories), n_story=max(2, len(stories)), min_words=320, max_words=390, icons=", ".join(ICONS), shots=_shots_for_prompt(info),
+        story_files=", ".join(stories), n_story=max(2, len(stories)),
+        focus=(f"FOCUS: the viewer asked for a video about this issue: \"{story['focus']}\". Keep the whole video on it:\n"
+               f"why it happens, how to avoid it and what to do are all about this issue.\n\n") if story.get("focus") else "", min_words=320, max_words=390, icons=", ".join(ICONS), shots=_shots_for_prompt(info),
         cat_ids=", ".join(BY_ID), home=info.get("home_text", "")[:6000],
         subpages="\n".join(f"Sub-page {p['url']}: {p['text'][:2500]}" for p in info.get("pages", [])))
     best, best_gap, feedback = None, None, ""
@@ -605,9 +635,46 @@ def write_script(info, item, story, history):
     return data
 
 
-def find_story(brand, url):
-    cands = gather(brand)
-    story = pick_story(brand, url, list(cands))
+RESOLVE_PROMPT = """What is the official website of this app / product / company: "{text}"?
+Return ONLY JSON: {{"name": "its proper name, as people write it (e.g. 'Instagram', 'Cash App')",
+ "url": "its official homepage, e.g. https://www.instagram.com"}}
+If you don't know it, return {{"name": "{text}", "url": ""}}."""
+
+
+def _reachable(url):
+    try:
+        r = requests.get(url, headers=UA, timeout=15, allow_redirects=True)
+        return r.status_code < 500
+    except requests.RequestException:
+        return False
+
+
+def resolve_product(text):
+    """A typed product ("instagram", "cash app", "robinhood.com") -> (proper name, homepage)."""
+    text = text.strip()
+    if re.match(r"^(https?://)?[\w-]+(\.[\w-]+)+(/\S*)?$", text):      # it already is a web address
+        url = text if "://" in text else "https://" + text
+        host = re.sub(r"^www\.", "", url.split("/")[2])
+        return host.split(".")[0].replace("-", " ").title(), url
+    name, url = text.title() if text.islower() else text, ""
+    try:
+        got = ai.parse_json(ai.ask(RESOLVE_PROMPT.format(text=text.replace('"', "'")), json_mode=True, temperature=0.1)[0])
+        name = str(got.get("name") or name).strip() or name
+        url = str(got.get("url") or "").strip()
+    except Exception as e:
+        print(f"   ! could not look up {text}'s website ({type(e).__name__})")
+    if url and "://" not in url:
+        url = "https://" + url
+    if not url or not _reachable(url):                    # a sensible guess: name.com
+        guess = "https://www." + re.sub(r"[^a-z0-9]", "", name.lower()) + ".com"
+        url = guess if _reachable(guess) or not url else url
+    return name, url
+
+
+def find_story(brand, url, issue=None):
+    cands = gather(brand, issue=issue)
+    story = pick_story(brand, url, list(cands), issue)
+    story["focus"] = issue or ""
     word = brand.lower().split()[0]
     return investigate(story, [c for c in cands if word in c["title"].lower()])
 

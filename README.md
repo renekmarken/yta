@@ -149,6 +149,11 @@ the risk (not to attack the product).
    option 3 is any other style (headline, phone app view, highlighted quote, or the post with the poster's
    update / top reply stacked in front). Most styles mark the post's key quote in yellow highlighter.
 
+**Your own Risk Cases:** in the ⚠ Generate Risk Case dialog, fill in any app, product or website and the
+issue to look for (e.g. "Instagram" + "users getting banned for no reason"; "＋ Add another" for more, up to
+10). It finds the product's website, searches real users' posts about exactly that issue, and makes the
+video the same way. These are made even for products that already had a Risk Case.
+
 Always read the original post before publishing (it's the first item in the video's checklist).
 
 ### Make many videos at once

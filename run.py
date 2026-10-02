@@ -160,6 +160,8 @@ def produce(item, history, out=None, mode="new"):
     if mode == "new":
         url = item["url"]
         out = config.OUTPUT_DIR / slug(url)
+        if item.get("issue"):                              # two Risk Cases about one product in one batch
+            out = out.with_name(out.name + "-" + re.sub(r"[^a-z0-9]+", "-", item["issue"].lower()).strip("-")[:40])
         if out.exists():
             shutil.rmtree(out)
         cat = BY_ID.get(item.get("category"))
@@ -168,7 +170,7 @@ def produce(item, history, out=None, mode="new"):
         if item.get("kind") == "risk":                      # Risk Case: a real user's story, explained
             from studio import risk
             print(f"2/6 finding a real story + script ({len(info['screenshots'])} screenshots)")
-            story = risk.find_story(item.get("name") or info["domain"], url)
+            story = risk.find_story(item.get("name") or info["domain"], url, item.get("issue"))
             info["screenshots"][0:0] = risk.story_cards(story, out, item.get("name") or info["domain"])
             (out / "site.json").write_text(json.dumps(info, indent=1, ensure_ascii=False))
             data = risk.write_script(info, item, story, history)
@@ -256,8 +258,8 @@ def apply_result(res, history):
             history.append(res["record"])
             save_history(history)
             risk.record(item["url"], item.get("name", ""), res["record"].get("story_url"), res["record"].get("title"), "done")
-        elif res.get("reason") == "no story found":
-            risk.record(item["url"], item.get("name", ""), "", "", "nostory")
+        elif res.get("reason") == "no story found" and not item.get("issue"):
+            risk.record(item["url"], item.get("name", ""), "", "", "nostory")   # a typed-in issue doesn't rule the product out
         return
     if res["status"] == "done":
         history.append(res["record"])
@@ -307,6 +309,7 @@ def main():
     ap.add_argument("--plan", type=int, help="pick this many products and write them to --plan-out")
     ap.add_argument("--plan-out", type=Path, default=Path("plan.json"))
     ap.add_argument("--plan-url", default="", help="also review this website (outside the queue)")
+    ap.add_argument("--plan-topics", default="", help='Risk Cases you asked for: JSON [{"product": "Instagram", "issue": "..."}]')
     ap.add_argument("--kind", default="review", choices=["review", "risk"], help="review or Risk Case (batch plan)")
     ap.add_argument("--item", help="make exactly this planned item (JSON) and write result.json, no bookkeeping")
     ap.add_argument("--apply-results", type=Path, help="book all result.json files found in this folder")
@@ -348,10 +351,29 @@ def main():
                     nm = nm.split(".")[0].replace("-", " ").title()
                 item = (item[0], {**item[1], "name": nm, "kind": "risk"})
             picks = [item] + [(k, it) for k, it in picks if k != item[0]]
+        if a.plan_topics.strip():                   # free-form Risk Cases: "Instagram" + "users banned for no reason"
+            from studio import risk
+            try:
+                topics = json.loads(a.plan_topics)
+            except json.JSONDecodeError:
+                topics = [{"product": line} for line in a.plan_topics.splitlines()]
+            mine = []
+            for t in topics if isinstance(topics, list) else []:
+                product, issue = str(t.get("product") or "").strip(), str(t.get("issue") or "").strip()
+                if not issue and "," in product:            # "instagram, users getting banned for no reason"
+                    product, issue = (x.strip() for x in product.split(",", 1))
+                if not product:
+                    continue
+                name, url = risk.resolve_product(product)
+                print(f"   your Risk Case: {name} ({url}) — {issue or 'any serious issue'}")
+                key = key_for(url) + ("-" + re.sub(r"[^a-z0-9]+", "-", issue.lower()).strip("-")[:30] if issue else "")
+                mine.append((key, {"name": name, "url": url, "category": None, "custom": True, "kind": "risk",
+                                   "issue": issue[:300]}))
+            picks = mine[:10] + picks
         a.plan_out.write_text(json.dumps([{"n": i + 1, "key": k, **it} for i, (k, it) in enumerate(picks)]))
         print(f"Planned {len(picks)} video(s):")
         for i, (k, it) in enumerate(picks, 1):
-            print(f"  {i}. {it['name']} ({it.get('category')}) — {it['url']}")
+            print(f"  {i}. {it['name']} ({it.get('category')}) — {it['url']}" + (f" — issue: {it['issue']}" if it.get("issue") else ""))
         return
     if a.item:
         it = json.loads(a.item)
