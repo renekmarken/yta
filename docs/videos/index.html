@@ -518,32 +518,73 @@ document.getElementById("lockbtn").addEventListener("click", () => {
 /* ---------- encrypted files (older videos may still be plain links until the library is updated) */
 const refPath = ref => typeof ref === "string" ? ref : ref.path;
 const with911 = name => /911video/i.test(name) ? name : "911video - " + name;   // every download says 911video
-async function fileURL(path, type){
+const MAGIC = [89, 84, 86, 67, 49];                          // "YTVC1": video encrypted in 4 MB pieces
+async function fileURL(path, type, progress){
   if (/^https?:/.test(path)) return path;                     // plain link: use as is
   if (blobCache[path]) return blobCache[path];
+  const tell = progress || (() => {});
   const r = await fetch(vaultBase + path + "?v=" + encodeURIComponent(box.iv), {cache: "force-cache"});
   if (!r.ok) throw new Error("file not found (" + r.status + ")");
-  const buf = new Uint8Array(await r.arrayBuffer());
-  const plain = await crypto.subtle.decrypt({name: "AES-GCM", iv: buf.slice(0, 12)}, libKey, buf.slice(12));
-  return (blobCache[path] = URL.createObjectURL(new Blob([plain], {type})));
+  // download in a stream so we can show progress
+  const total = Number(r.headers.get("content-length")) || 0;
+  let buf;
+  if (r.body && total) {
+    buf = new Uint8Array(total);
+    const reader = r.body.getReader();
+    let got = 0;
+    for (;;) {
+      const {done, value} = await reader.read();
+      if (done) break;
+      if (got + value.length > buf.length) { const bigger = new Uint8Array(got + value.length); bigger.set(buf); buf = bigger; }
+      buf.set(value, got); got += value.length;
+      tell(`Downloading ${Math.min(99, Math.round(got / total * 100))}%…`);
+    }
+    buf = buf.subarray(0, got);
+  } else buf = new Uint8Array(await r.arrayBuffer());
+  let parts;
+  if (MAGIC.every((c, i) => buf[i] === c)) {
+    const size = new DataView(buf.buffer, buf.byteOffset + 5, 4).getUint32(0), step = 12 + size + 16;
+    const body = buf.subarray(9), n = Math.max(1, Math.ceil(body.length / step));
+    parts = [];
+    for (let i = 0; i < n; i++) {
+      const piece = body.subarray(i * step, (i + 1) * step), aad = new Uint8Array(8);
+      new DataView(aad.buffer).setUint32(0, i); new DataView(aad.buffer).setUint32(4, n);
+      parts.push(await crypto.subtle.decrypt({name: "AES-GCM", iv: piece.slice(0, 12), additionalData: aad},
+                                             libKey, piece.subarray(12)));
+      tell(`Unlocking ${Math.round((i + 1) / n * 100)}%…`);
+    }
+  } else {
+    tell("Unlocking…");
+    parts = [await crypto.subtle.decrypt({name: "AES-GCM", iv: buf.slice(0, 12)}, libKey, buf.subarray(12))];
+  }
+  return (blobCache[path] = URL.createObjectURL(new Blob(parts, {type})));
 }
 document.addEventListener("click", async e => {
-  const b = e.target.closest("[data-dl]");
+  const b = e.target.closest("button[data-dl]");
   if (!b) return;
   const v = videos.find(x => x.id === decodeURIComponent(location.hash.slice(1)));
   let f = v && v.files[b.dataset.dl];
   if (Array.isArray(f)) f = f[Number(b.dataset.i) || 0];
   if (!f) return;
   const label = b.querySelector("span"), old = label.textContent;
-  b.disabled = true; label.textContent = "Unlocking file…";
+  const name = with911(f.name || `${v.site || "video"} - ${b.dataset.dl}` +
+    ({video: ".mp4", thumbnail: ".jpg", thumbnails: ".jpg", captions: ".srt", kit: ".md"}[b.dataset.dl] || ""));
+  b.disabled = true; label.textContent = "Starting…";
   try {
+    const url = await fileURL(refPath(f), f.type || "", t => { label.textContent = t; });
     const a = document.createElement("a");
-    a.href = await fileURL(refPath(f), f.type || ""); a.download = with911(f.name || `${v.site || "video"} - ${b.dataset.dl}` +
-      ({video: ".mp4", thumbnail: ".jpg", thumbnails: ".jpg", captions: ".srt", kit: ".md"}[b.dataset.dl] || ""));
+    a.href = url; a.download = name;
     document.body.appendChild(a); a.click(); a.remove();
-    label.textContent = "Downloaded ✓";
-  } catch (err) { label.textContent = "Failed — try again"; console.error(err); }
-  setTimeout(() => { label.textContent = old; b.disabled = false; }, 2500);
+    // Phones (iPhone Safari) often block a save that wasn't started by a tap: offer a real link too.
+    const link = document.createElement("a");
+    link.className = b.className; link.href = url; link.download = name; link.dataset.dl = b.dataset.dl;
+    link.innerHTML = `${ICON.down}<span>Ready — tap to save</span>`;
+    b.replaceWith(link);
+    setTimeout(() => { if (link.isConnected) link.replaceWith(Object.assign(b, {disabled: false})), label.textContent = old; }, 60000);
+  } catch (err) {
+    label.textContent = "Failed — try again"; console.error(err);
+    setTimeout(() => { label.textContent = old; b.disabled = false; }, 4000);
+  }
 });
 
 /* ---------- upload to YouTube */

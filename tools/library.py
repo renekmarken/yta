@@ -39,6 +39,8 @@ KINDS = {"video": ("video/mp4", ".mp4"), "thumbnail": ("image/jpeg", ".jpg"),
          "captions": ("text/plain", ".srt"), "kit": ("text/markdown", ".md"),
          "script": ("application/json", ".json")}             # kept so thumbnails can be remade later
 b64 = lambda b: base64.b64encode(b).decode()
+MAGIC, CHUNK = b"YTVC1", 4 * 1024 * 1024          # chunked encryption for videos (phones decrypt piece by piece)
+_aad = lambda i, n: i.to_bytes(4, "big") + n.to_bytes(4, "big")
 
 
 def _password():
@@ -69,18 +71,35 @@ class Library:
         self.videos = self.payload.setdefault("videos", [])
 
     # ---- files
-    def seal(self, data: bytes) -> bytes:
-        iv = secrets.token_bytes(12)
-        return iv + AESGCM(self.key).encrypt(iv, data, None)
+    def seal(self, data: bytes, chunked=False) -> bytes:
+        """iv||ciphertext, or for big files (videos) the chunked format the page can decrypt piece by
+        piece on a phone: MAGIC, chunk size, then iv||ciphertext per 4 MB chunk. Each chunk's
+        associated data is its index and the chunk count, so pieces can't be reordered or dropped."""
+        if not chunked:
+            iv = secrets.token_bytes(12)
+            return iv + AESGCM(self.key).encrypt(iv, data, None)
+        n = max(1, -(-len(data) // CHUNK))
+        out = [MAGIC, CHUNK.to_bytes(4, "big")]
+        for i in range(n):
+            iv = secrets.token_bytes(12)
+            out += [iv, AESGCM(self.key).encrypt(iv, data[i * CHUNK:(i + 1) * CHUNK], _aad(i, n))]
+        return b"".join(out)
 
     def unseal(self, blob: bytes) -> bytes:
-        return AESGCM(self.key).decrypt(blob[:12], blob[12:], None)
+        if not blob.startswith(MAGIC):
+            return AESGCM(self.key).decrypt(blob[:12], blob[12:], None)
+        size = int.from_bytes(blob[len(MAGIC):len(MAGIC) + 4], "big")
+        step = 12 + size + 16
+        body = blob[len(MAGIC) + 4:]
+        n = max(1, -(-len(body) // step))
+        return b"".join(AESGCM(self.key).decrypt(body[i * step:i * step + 12], body[i * step + 12:(i + 1) * step],
+                                                 _aad(i, n)) for i in range(n))
 
     def store(self, vid, kind, data, filename, part=""):
         rel = f"v/{vid}/{kind}{part}.bin"
         dst = VAULT / rel
         dst.parent.mkdir(parents=True, exist_ok=True)
-        dst.write_bytes(self.seal(data))
+        dst.write_bytes(self.seal(data, chunked=(kind == "video")))
         return {"path": rel, "name": filename, "type": KINDS[kind][0], "size": len(data)}
 
     def fetch(self, ref):
@@ -191,9 +210,16 @@ def cmd_refresh():
 
 
 def cmd_migrate():
-    """Re-home videos whose files are plain release URLs into the encrypted vault."""
+    """Re-home videos whose files are plain release URLs into the encrypted vault, and re-encrypt
+    single-piece video files in the chunked format phones can handle."""
     lib = Library()
     moved = 0
+    for e in lib.videos:
+        ref = (e.get("files") or {}).get("video")
+        p = VAULT / ref["path"] if isinstance(ref, dict) else None
+        if p and p.exists() and not p.read_bytes()[:len(MAGIC)] == MAGIC:
+            p.write_bytes(lib.seal(lib.unseal(p.read_bytes()), chunked=True))
+            print(f"  re-encrypted for phones: {e['title']}")
     for e in lib.videos:
         files = e.get("files", {})
         if not any(isinstance(v, str) for k, v in files.items() if k in KINDS):
