@@ -319,5 +319,96 @@
     "verdict/purple_lime/scam"
    ]
   }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://apps.apple.com/ee/app/moshly-create-unreal-videos/id6807285369",
+  "brand": "Moshly",
+  "category": "marketing",
+  "title": "Moshly: Viral Video Editor, But What's the Catch?",
+  "youtube": null,
+  "format": "red_flags",
+  "opener": "Moshly turns your phone camera into a live datamosh engine, letting you film clips where the last frame smears and melts",
+  "title_style": "legit",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "underline",
+   "bg": "aurora",
+   "head_font": "poppins",
+   "accent": [
+    29,
+    100,
+    240
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "split",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "fade_up",
+   "callout": "glass",
+   "music": "upbeat",
+   "sfx": "punchy",
+   "thumb_palette": "black_green",
+   "thumbs": [
+    "split/black_green/legit",
+    "verdict/orange_ink/worth",
+    "stack/midnight_yellow/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.betterment.com",
+  "brand": "Betterment",
+  "category": "investing",
+  "title": "Betterment: Flat Fees vs High Yields, What's the Catch?",
+  "youtube": null,
+  "format": "red_flags",
+  "opener": "Here is the catch with Betterment: while automated portfolios and high cash yields sound great, small balances get hit w",
+  "title_style": "catch",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    70,
+    140
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "big_fact",
+   "thumb_accent": [
+    255,
+    70,
+    140
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "tech",
+   "sfx": "crisp",
+   "thumb_palette": "black_green",
+   "thumbs": [
+    "big_fact/black_green/catch",
+    "yes_no/orange_ink/worth",
+    "phone/sky_navy/scam"
+   ]
+  }
  }
 ]
