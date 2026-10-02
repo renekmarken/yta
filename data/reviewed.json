@@ -12,5 +12,47 @@
   "url": "https://www.lemonade.com",
   "status": "done",
   "date": "2026-10-02"
+ },
+ {
+  "site": "greenlight.com",
+  "name": "Greenlight",
+  "url": "https://greenlight.com",
+  "status": "done",
+  "date": "2026-10-02"
+ },
+ {
+  "site": "polymarket.com",
+  "name": "Polymarket",
+  "url": "https://polymarket.com",
+  "status": "done",
+  "date": "2026-10-02"
+ },
+ {
+  "site": "clio.com",
+  "name": "Clio",
+  "url": "https://www.clio.com",
+  "status": "failed",
+  "date": "2026-10-02"
+ },
+ {
+  "site": "zoho.com",
+  "name": "Zoho",
+  "url": "https://www.zoho.com",
+  "status": "done",
+  "date": "2026-10-02"
+ },
+ {
+  "site": "bitwiseinvestments.com",
+  "name": "Bitwise",
+  "url": "https://bitwiseinvestments.com",
+  "status": "done",
+  "date": "2026-10-02"
+ },
+ {
+  "site": "nolo.com",
+  "name": "Nolo WillMaker",
+  "url": "https://www.nolo.com",
+  "status": "failed",
+  "date": "2026-10-02"
  }
 ]

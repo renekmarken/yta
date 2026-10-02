@@ -1,41 +1,5 @@
 {
  "items": {
-  "clio.com": {
-   "name": "Clio",
-   "url": "https://www.clio.com",
-   "category": "legal",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Acquired judge-focused startup Learned Hand to aggressively push into court tech.",
-   "sources": [
-    "Google News"
-   ],
-   "added": "2026-10-02T07:22:09+00:00"
-  },
-  "zoho.com": {
-   "name": "Zoho",
-   "url": "https://www.zoho.com",
-   "category": "saas",
-   "hotness": 7.0,
-   "evergreen": false,
-   "why": "Rolled out seven new vertical SaaS offerings targeting specialized enterprise workflows.",
-   "sources": [
-    "Google News"
-   ],
-   "added": "2026-10-02T07:22:09+00:00"
-  },
-  "greenlight.com": {
-   "name": "Greenlight",
-   "url": "https://greenlight.com",
-   "category": "banking-apps",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Continues to dominate family finance reviews with its comprehensive kids' debit card and parental controls.",
-   "sources": [
-    "Google News"
-   ],
-   "added": "2026-10-02T07:22:09+00:00"
-  },
   "betterment.com": {
    "name": "Betterment",
    "url": "https://www.betterment.com",
@@ -47,44 +11,6 @@
     "Google News"
    ],
    "added": "2026-10-02T07:22:10+00:00"
-  },
-  "nolo.com": {
-   "name": "Nolo WillMaker",
-   "url": "https://www.nolo.com",
-   "category": "legal",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Updated its popular online estate planning and will-making software suite for 2026.",
-   "sources": [
-    "evergreen",
-    "trend scan"
-   ],
-   "added": "2026-10-02T07:22:10+00:00"
-  },
-  "polymarket.com": {
-   "name": "Polymarket",
-   "url": "https://polymarket.com",
-   "category": "investing",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Launched high-frequency 15-minute Bitcoin price prediction markets on its app.",
-   "sources": [
-    "App Store",
-    "Google News"
-   ],
-   "added": "2026-10-02T07:22:10+00:00"
-  },
-  "bitwiseinvestments.com": {
-   "name": "Bitwise",
-   "url": "https://bitwiseinvestments.com",
-   "category": "investing",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Successfully launched the first US Spot Near ETF following major token surges.",
-   "sources": [
-    "Google News"
-   ],
-   "added": "2026-10-02T07:22:11+00:00"
   },
   "chase.com": {
    "name": "Chase",
@@ -747,5 +673,5 @@
    "added": "2026-10-02T07:22:54+00:00"
   }
  },
- "updated": "2026-10-02T11:55:46+00:00"
+ "updated": "2026-10-02T12:58:52+00:00"
 }

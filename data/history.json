@@ -71,5 +71,163 @@
    "sfx": "crisp",
    "thumb_palette": "teal_orange"
   }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://greenlight.com",
+  "brand": "Greenlight",
+  "category": "banking-apps",
+  "title": "Greenlight Review 2026: Is This Family Finance App Actually Worth It?",
+  "youtube": null,
+  "format": "first_look",
+  "opener": "Here is the catch with Greenlight: while it's rated 4",
+  "theme": {
+   "mode": "dark",
+   "layout": "side",
+   "frame": "floating",
+   "caption": "bar",
+   "bg": "gradient",
+   "head_font": "inter",
+   "accent": [
+    255,
+    212,
+    0
+   ],
+   "transitions": [
+    "cut"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "fade_up",
+   "callout": "card",
+   "music": "ambient",
+   "sfx": "digital",
+   "thumb_palette": "pink_yellow"
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://polymarket.com",
+  "brand": "Polymarket",
+  "category": "investing",
+  "title": "Polymarket Review 2026: Prediction Market or Hype?",
+  "youtube": null,
+  "format": "first_look",
+  "opener": "Polymarket calls itself the world's largest prediction market, promising profits from your knowledge on future events",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "bar",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    222,
+    44,
+    63
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "tech",
+   "sfx": "warm",
+   "thumb_palette": "black_green"
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.zoho.com",
+  "brand": "Zoho",
+  "category": "saas",
+  "title": "Zoho Review 2026: Is This Massive Business Suite Actually Worth It?",
+  "youtube": null,
+  "format": "red_flags",
+  "opener": "Zoho claims to power your entire business with a unique and powerful software suite",
+  "theme": {
+   "mode": "brand",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "bar",
+   "bg": "aurora",
+   "head_font": "inter",
+   "accent": [
+    122,
+    92,
+    255
+   ],
+   "transitions": [
+    "squeezeh",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "verdict",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "fade_up",
+   "callout": "glass",
+   "music": "upbeat",
+   "sfx": "playful",
+   "thumb_palette": "red_white"
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://bitwiseinvestments.com",
+  "brand": "Bitwise",
+  "category": "investing",
+  "title": "Bitwise Review 2026: Are Their Crypto ETFs Actually Worth Buying?",
+  "youtube": null,
+  "format": "who_for",
+  "opener": "Bitwise claims that everyone should have a simple and familiar way to access crypto assets through professionally manage",
+  "theme": {
+   "mode": "brand",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "underline",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    94,
+    58
+   ],
+   "transitions": [
+    "dissolve"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "sticker",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "ambient",
+   "sfx": "soft",
+   "thumb_palette": "royal_yellow"
+  }
  }
 ]
