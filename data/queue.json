@@ -1,0 +1,776 @@
+{
+ "items": {
+  "robinhood.com": {
+   "name": "Robinhood",
+   "url": "https://robinhood.com",
+   "category": "investing",
+   "hotness": 9.0,
+   "evergreen": false,
+   "why": "Unveiled 24-hour weekend trading, AI agents, and 10x leveraged crypto perps for everyday users.",
+   "sources": [
+    "Google News"
+   ],
+   "added": "2026-10-02T07:22:08+00:00"
+  },
+  "lemonade.com": {
+   "name": "Lemonade",
+   "url": "https://www.lemonade.com",
+   "category": "insurance",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "Expanded its tech-driven pet insurance lineup into Kentucky, drawing fresh investor attention.",
+   "sources": [
+    "Google News",
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:08+00:00"
+  },
+  "clio.com": {
+   "name": "Clio",
+   "url": "https://www.clio.com",
+   "category": "legal",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "Acquired judge-focused startup Learned Hand to aggressively push into court tech.",
+   "sources": [
+    "Google News"
+   ],
+   "added": "2026-10-02T07:22:09+00:00"
+  },
+  "zoho.com": {
+   "name": "Zoho",
+   "url": "https://www.zoho.com",
+   "category": "saas",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Rolled out seven new vertical SaaS offerings targeting specialized enterprise workflows.",
+   "sources": [
+    "Google News"
+   ],
+   "added": "2026-10-02T07:22:09+00:00"
+  },
+  "greenlight.com": {
+   "name": "Greenlight",
+   "url": "https://greenlight.com",
+   "category": "banking-apps",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "Continues to dominate family finance reviews with its comprehensive kids' debit card and parental controls.",
+   "sources": [
+    "Google News"
+   ],
+   "added": "2026-10-02T07:22:09+00:00"
+  },
+  "betterment.com": {
+   "name": "Betterment",
+   "url": "https://www.betterment.com",
+   "category": "investing",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Adjusted RIA custody and platform fees starting at 0.20%, drawing advisory market interest.",
+   "sources": [
+    "Google News"
+   ],
+   "added": "2026-10-02T07:22:10+00:00"
+  },
+  "nolo.com": {
+   "name": "Nolo WillMaker",
+   "url": "https://www.nolo.com",
+   "category": "legal",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "Updated its popular online estate planning and will-making software suite for 2026.",
+   "sources": [
+    "evergreen",
+    "trend scan"
+   ],
+   "added": "2026-10-02T07:22:10+00:00"
+  },
+  "polymarket.com": {
+   "name": "Polymarket",
+   "url": "https://polymarket.com",
+   "category": "investing",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "Launched high-frequency 15-minute Bitcoin price prediction markets on its app.",
+   "sources": [
+    "App Store",
+    "Google News"
+   ],
+   "added": "2026-10-02T07:22:10+00:00"
+  },
+  "bitwiseinvestments.com": {
+   "name": "Bitwise",
+   "url": "https://bitwiseinvestments.com",
+   "category": "investing",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "Successfully launched the first US Spot Near ETF following major token surges.",
+   "sources": [
+    "Google News"
+   ],
+   "added": "2026-10-02T07:22:11+00:00"
+  },
+  "chase.com": {
+   "name": "Chase",
+   "url": "https://www.chase.com",
+   "category": "credit-cards",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Massive rewards credit card issuer with frequent review searches.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:21+00:00"
+  },
+  "americanexpress.com": {
+   "name": "American Express",
+   "url": "https://www.americanexpress.com",
+   "category": "credit-cards",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Premium travel and cash-back cards heavily researched online.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:21+00:00"
+  },
+  "capitalone.com": {
+   "name": "Capital One",
+   "url": "https://www.capitalone.com",
+   "category": "credit-cards",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Popular no-foreign-fee cards and competitive travel rewards.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:21+00:00"
+  },
+  "discover.com": {
+   "name": "Discover",
+   "url": "https://www.discover.com",
+   "category": "credit-cards",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Known for cash back match and strong customer service.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:22+00:00"
+  },
+  "creditkarma.com": {
+   "name": "Credit Karma",
+   "url": "https://www.creditkarma.com",
+   "category": "credit-cards",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Free credit scores and financial product recommendation platform.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:22+00:00"
+  },
+  "geico.com": {
+   "name": "Geico",
+   "url": "https://www.geico.com",
+   "category": "insurance",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Leading auto insurance provider with high search volume.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:22+00:00"
+  },
+  "progressive.com": {
+   "name": "Progressive",
+   "url": "https://www.progressive.com",
+   "category": "insurance",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Major auto and home insurer compared frequently online.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:23+00:00"
+  },
+  "allstate.com": {
+   "name": "Allstate",
+   "url": "https://www.allstate.com",
+   "category": "insurance",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Established national insurer with widespread review interest.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:24+00:00"
+  },
+  "chime.com": {
+   "name": "Chime",
+   "url": "https://www.chime.com",
+   "category": "banking-apps",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Leading digital banking app with millions of active users.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:24+00:00"
+  },
+  "ally.com": {
+   "name": "Ally Bank",
+   "url": "https://www.ally.com",
+   "category": "banking-apps",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Popular online-only bank known for high yield savings.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:24+00:00"
+  },
+  "sofi.com": {
+   "name": "SoFi",
+   "url": "https://www.sofi.com",
+   "category": "banking-apps",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "All-in-one digital personal finance and banking platform.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:24+00:00"
+  },
+  "acorns.com": {
+   "name": "Acorns",
+   "url": "https://www.acorns.com",
+   "category": "banking-apps",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "Micro-investing and automated savings mobile app.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:25+00:00"
+  },
+  "cash.app": {
+   "name": "Cash App",
+   "url": "https://cash.app",
+   "category": "banking-apps",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Ubiquitous peer-to-peer payments and banking services app.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:25+00:00"
+  },
+  "zillow.com": {
+   "name": "Zillow",
+   "url": "https://www.zillow.com",
+   "category": "real-estate",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Dominant real estate marketplace and property search portal.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:25+00:00"
+  },
+  "realtor.com": {
+   "name": "Realtor.com",
+   "url": "https://www.realtor.com",
+   "category": "real-estate",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Official site of the National Association of Realtors.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:25+00:00"
+  },
+  "opendoor.com": {
+   "name": "Opendoor",
+   "url": "https://www.opendoor.com",
+   "category": "real-estate",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "Leading iBuyer platform for selling homes instantly online.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:25+00:00"
+  },
+  "apartments.com": {
+   "name": "Apartments.com",
+   "url": "https://www.apartments.com",
+   "category": "real-estate",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Top rental listing and apartment search platform.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:26+00:00"
+  },
+  "legalzoom.com": {
+   "name": "LegalZoom",
+   "url": "https://www.legalzoom.com",
+   "category": "legal",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Pioneering online legal document and business formation service.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:26+00:00"
+  },
+  "rocketlawyer.com": {
+   "name": "Rocket Lawyer",
+   "url": "https://www.rocketlawyer.com",
+   "category": "legal",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Popular legal services platform offering documents and attorney advice.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:26+00:00"
+  },
+  "avvo.com": {
+   "name": "Avvo",
+   "url": "https://www.avvo.com",
+   "category": "legal",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "Directory and review platform for finding local lawyers.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:26+00:00"
+  },
+  "bizee.com": {
+   "name": "IncFile",
+   "url": "https://www.bizee.com",
+   "category": "legal",
+   "hotness": 4.2,
+   "evergreen": true,
+   "why": "Affordable LLC formation and business registration service.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:26+00:00"
+  },
+  "salesforce.com": {
+   "name": "Salesforce",
+   "url": "https://www.salesforce.com",
+   "category": "saas",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Global leader in customer relationship management SaaS solutions.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:27+00:00"
+  },
+  "hubspot.com": {
+   "name": "HubSpot",
+   "url": "https://www.hubspot.com",
+   "category": "saas",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Leading inbound marketing, sales, and CRM software platform.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:28+00:00"
+  },
+  "notion.so": {
+   "name": "Notion",
+   "url": "https://www.notion.so",
+   "category": "saas",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "All-in-one workspace app for notes, tasks, and wikis.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:28+00:00"
+  },
+  "slack.com": {
+   "name": "Slack",
+   "url": "https://slack.com",
+   "category": "saas",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Ubiquitous business communication and team collaboration software.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:28+00:00"
+  },
+  "zoom.us": {
+   "name": "Zoom",
+   "url": "https://zoom.us",
+   "category": "saas",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Industry standard video conferencing and virtual meeting platform.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:29+00:00"
+  },
+  "openai.com": {
+   "name": "OpenAI",
+   "url": "https://openai.com",
+   "category": "ai-tools",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Creator of ChatGPT and industry pioneer in generative AI.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:29+00:00"
+  },
+  "anthropic.com": {
+   "name": "Anthropic",
+   "url": "https://www.anthropic.com",
+   "category": "ai-tools",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Developer of Claude, a major competitor in conversational AI.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:29+00:00"
+  },
+  "midjourney.com": {
+   "name": "Midjourney",
+   "url": "https://www.midjourney.com",
+   "category": "ai-tools",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Leading text-to-image generative AI creation platform.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:29+00:00"
+  },
+  "jasper.ai": {
+   "name": "Jasper",
+   "url": "https://www.jasper.ai",
+   "category": "ai-tools",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "Enterprise-focused AI content writing and marketing assistant.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:29+00:00"
+  },
+  "perplexity.ai": {
+   "name": "Perplexity",
+   "url": "https://www.perplexity.ai",
+   "category": "ai-tools",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "Popular conversational AI search engine and research assistant.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:29+00:00"
+  },
+  "gusto.com": {
+   "name": "Gusto",
+   "url": "https://gusto.com",
+   "category": "business-tools",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Popular online payroll, benefits, and HR tool for small business.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:29+00:00"
+  },
+  "stripe.com": {
+   "name": "Stripe",
+   "url": "https://stripe.com",
+   "category": "business-tools",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Leading online payment processing platform for internet businesses.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:50+00:00"
+  },
+  "shopify.com": {
+   "name": "Shopify",
+   "url": "https://www.shopify.com",
+   "category": "business-tools",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Leading e-commerce platform powering millions of online stores.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:50+00:00"
+  },
+  "monday.com": {
+   "name": "Monday.com",
+   "url": "https://monday.com",
+   "category": "business-tools",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Flexible work operating system and project management software.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:50+00:00"
+  },
+  "mailchimp.com": {
+   "name": "Mailchimp",
+   "url": "https://mailchimp.com",
+   "category": "marketing",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Pioneering email marketing and automation platform for businesses.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:50+00:00"
+  },
+  "klaviyo.com": {
+   "name": "Klaviyo",
+   "url": "https://www.klaviyo.com",
+   "category": "marketing",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "Top email and SMS marketing automation platform for e-commerce.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:50+00:00"
+  },
+  "semrush.com": {
+   "name": "Semrush",
+   "url": "https://www.semrush.com",
+   "category": "marketing",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Leading SEO, PPC, and digital marketing competitive research toolkit.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:51+00:00"
+  },
+  "hootsuite.com": {
+   "name": "Hootsuite",
+   "url": "https://www.hootsuite.com",
+   "category": "marketing",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "Established social media management and scheduling dashboard.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:51+00:00"
+  },
+  "constantcontact.com": {
+   "name": "Constant Contact",
+   "url": "https://www.constantcontact.com",
+   "category": "marketing",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "Longstanding email marketing and digital campaign tool.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:51+00:00"
+  },
+  "nordvpn.com": {
+   "name": "NordVPN",
+   "url": "https://nordvpn.com",
+   "category": "vpn-security",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Top-rated consumer virtual private network service for privacy.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:51+00:00"
+  },
+  "expressvpn.com": {
+   "name": "ExpressVPN",
+   "url": "https://www.expressvpn.com",
+   "category": "vpn-security",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Premium high-speed VPN provider frequently reviewed by experts.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:51+00:00"
+  },
+  "surfshark.com": {
+   "name": "Surfshark",
+   "url": "https://surfshark.com",
+   "category": "vpn-security",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Affordable, feature-rich VPN challenger with unlimited device connections.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:51+00:00"
+  },
+  "1password.com": {
+   "name": "1Password",
+   "url": "https://1password.com",
+   "category": "vpn-security",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Leading secure password manager for individuals and businesses.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:51+00:00"
+  },
+  "malwarebytes.com": {
+   "name": "Malwarebytes",
+   "url": "https://www.malwarebytes.com",
+   "category": "vpn-security",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Popular anti-malware and cybersecurity software for devices.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:52+00:00"
+  },
+  "aws.amazon.com": {
+   "name": "AWS",
+   "url": "https://aws.amazon.com",
+   "category": "hosting",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Amazon Web Services dominates global cloud computing and hosting.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:52+00:00"
+  },
+  "bluehost.com": {
+   "name": "Bluehost",
+   "url": "https://www.bluehost.com",
+   "category": "hosting",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Beginner-friendly web hosting provider recommended heavily by WordPress.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:52+00:00"
+  },
+  "digitalocean.com": {
+   "name": "DigitalOcean",
+   "url": "https://www.digitalocean.com",
+   "category": "hosting",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "Developer-friendly cloud infrastructure hosting provider.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:52+00:00"
+  },
+  "siteground.com": {
+   "name": "SiteGround",
+   "url": "https://www.siteground.com",
+   "category": "hosting",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "High-performance web hosting known for stellar customer support.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:52+00:00"
+  },
+  "hostinger.com": {
+   "name": "Hostinger",
+   "url": "https://www.hostinger.com",
+   "category": "hosting",
+   "hotness": 5.3999999999999995,
+   "evergreen": true,
+   "why": "Rapidly growing budget web hosting provider with high search interest.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:53+00:00"
+  },
+  "upwork.com": {
+   "name": "Upwork",
+   "url": "https://www.upwork.com",
+   "category": "freelancing",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Leading global freelance talent marketplace for remote professionals.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:53+00:00"
+  },
+  "fiverr.com": {
+   "name": "Fiverr",
+   "url": "https://www.fiverr.com",
+   "category": "freelancing",
+   "hotness": 6.0,
+   "evergreen": true,
+   "why": "Popular digital services marketplace for gig economy workers.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:53+00:00"
+  },
+  "toptal.com": {
+   "name": "Toptal",
+   "url": "https://www.toptal.com",
+   "category": "freelancing",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "Exclusive network of elite freelance software engineers and designers.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:53+00:00"
+  },
+  "freelancer.com": {
+   "name": "Freelancer",
+   "url": "https://www.freelancer.com",
+   "category": "freelancing",
+   "hotness": 4.8,
+   "evergreen": true,
+   "why": "Global crowdsourcing marketplace connecting employers with freelancers.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:54+00:00"
+  },
+  "guru.com": {
+   "name": "Guru",
+   "url": "https://www.guru.com",
+   "category": "freelancing",
+   "hotness": 4.2,
+   "evergreen": true,
+   "why": "Established online work platform for freelance contractors and agencies.",
+   "sources": [
+    "evergreen"
+   ],
+   "added": "2026-10-02T07:22:54+00:00"
+  }
+ },
+ "updated": "2026-10-02T07:22:54+00:00"
+}
