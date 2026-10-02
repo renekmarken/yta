@@ -6,7 +6,7 @@ const jobs = new Map();
 const MAGIC = [89, 84, 86, 67, 49];                       // "YTVC1"
 
 self.addEventListener("install", () => self.skipWaiting());
-self.addEventListener("activate", e => e.waitUntil(self.clients.claim()));
+self.addEventListener("activate", e => e.waitUntil(self.clients.claim()));   // take over open pages at once
 
 self.addEventListener("message", e => {
   const d = e.data || {};

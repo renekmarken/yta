@@ -600,8 +600,15 @@ const swReady = ("serviceWorker" in navigator && location.protocol !== "file:")
 async function nativeDownload(path, name, mime){
   if (/^https?:/.test(path)) return false;
   const reg = await swReady;
-  const sw = navigator.serviceWorker && navigator.serviceWorker.controller;
-  if (!reg || !sw) return false;                 // first visit before the helper is active: page download
+  if (!reg) return false;
+  if (!navigator.serviceWorker.controller) {     // just installed: wait (briefly) until it controls this page
+    await new Promise(res => {
+      const t = setTimeout(res, 3000);
+      navigator.serviceWorker.addEventListener("controllerchange", () => { clearTimeout(t); res(); }, {once: true});
+    });
+  }
+  const sw = navigator.serviceWorker.controller;
+  if (!sw) return false;                         // no helper (very old browser): page download
   const token = Array.from(crypto.getRandomValues(new Uint8Array(12)), x => x.toString(16).padStart(2, "0")).join("");
   const ok = await new Promise(res => {
     const ch = new MessageChannel();
@@ -611,11 +618,11 @@ async function nativeDownload(path, name, mime){
                     url: vaultBase + path + "?v=" + encodeURIComponent(box.iv)}, [ch.port2]);
   });
   if (!ok) return false;
-  const frame = document.createElement("iframe");
-  frame.style.display = "none";
-  frame.src = "dl/" + token + "/" + encodeURIComponent(name);
-  document.body.appendChild(frame);
-  setTimeout(() => frame.remove(), 120000);
+  // a plain same-tab link: the answer is a file ("attachment"), so the browser downloads it and
+  // the page stays where it is (hidden frames are ignored by iPhone Safari)
+  const a = document.createElement("a");
+  a.href = "dl/" + token + "/" + encodeURIComponent(name);
+  document.body.appendChild(a); a.click(); a.remove();
   return true;
 }
 
