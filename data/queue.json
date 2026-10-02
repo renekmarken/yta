@@ -182,20 +182,6 @@
    "priority": 6.13,
    "cat": "⚖️ Legal services / platforms"
   },
-  "salesforce.com": {
-   "name": "Salesforce",
-   "url": "https://www.salesforce.com",
-   "category": "saas",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Global leader in customer relationship management SaaS solutions.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:27+00:00",
-   "priority": 7.05,
-   "cat": "💻 SaaS / business software"
-  },
   "notion.so": {
    "name": "Notion",
    "url": "https://www.notion.so",
@@ -589,5 +575,5 @@
    "cat": "💼 Freelancing platforms"
   }
  },
- "updated": "2026-10-02T18:52:42+00:00"
+ "updated": "2026-10-02T19:16:52+00:00"
 }
