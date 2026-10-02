@@ -87,6 +87,18 @@ jobs:
           git add -A docs/videos/
           git commit -qm "Video library: update" || exit 0
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
+      - name: Tell your phone (ntfy)
+        if: success() && hashFiles('added.txt') != ''
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC || vars.NTFY_TOPIC }}
+        run: |
+          [ -s added.txt ] || exit 0
+          if [ -z "$NTFY_TOPIC" ]; then echo "::warning::No NTFY_TOPIC secret, so no phone notification"; exit 0; fi
+          n=$(wc -l < added.txt)
+          curl -sS -o /dev/null -w "ntfy: HTTP %{http_code}\n" \
+            -H "Title: $n new video(s) in your library" -H "Tags: movie_camera" \
+            -H "Click: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/videos/" \
+            --data-binary @added.txt "https://ntfy.sh/$NTFY_TOPIC"
       - name: Delete the temporary downloads (the library has verified copies now)
         if: success() && steps.find.outputs.ids != ''
         env:

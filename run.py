@@ -340,9 +340,8 @@ def main():
         made = [r["label"] for r in results if r["status"] == "done"]
         failed = [r["item"]["name"] for r in results if r["status"] != "done"]
         print(f"Booked {len(made)} video(s), {len(failed)} failed.")
-        if made:
-            notify(f"Batch ready: {len(made)} video(s)" + (f", {len(failed)} failed" if failed else ""),
-                   "\n".join(f"• {t}" for t in made))
+        if failed:              # finished videos are announced by the library update, once they're in
+            notify(f"{len(failed)} video(s) could not be made", "\n".join(f"• {n}" for n in failed))
         return
 
     if a.url:
@@ -364,8 +363,8 @@ def main():
             made.append(res["label"])
         else:
             failed += 1
-    if made:
-        notify(f"{len(made)} review video(s) ready", "\n".join(f"• {t}" for t in made))
+    if failed:                  # finished videos are announced by the library update, once they're in
+        notify(f"{failed} video(s) could not be made", "Sites that block visitors are skipped automatically.")
     sys.exit(1 if failed and not made else 0)
 
 

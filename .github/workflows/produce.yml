@@ -61,7 +61,7 @@ jobs:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
-          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC || vars.NTFY_TOPIC }}
           RELEASE_URL: https://renekmarken.github.io/yta/videos/
           UPLOAD_MODE: ${{ vars.UPLOAD_MODE || 'manual' }}
           YT_PRIVACY: ${{ vars.YT_PRIVACY || 'unlisted' }}

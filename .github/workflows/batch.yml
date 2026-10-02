@@ -155,7 +155,7 @@ jobs:
           path: results
       - name: Book them (queue, history, never-review-again list) and notify
         env:
-          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC || vars.NTFY_TOPIC }}
           RELEASE_URL: https://renekmarken.github.io/yta/videos/
           UPLOAD_MODE: ${{ vars.UPLOAD_MODE || 'manual' }}
         run: python run.py --apply-results results

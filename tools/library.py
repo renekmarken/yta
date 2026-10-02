@@ -179,6 +179,8 @@ def cmd_add(src, tag):
             shutil.rmtree(VAULT / "v" / e["id"], ignore_errors=True)
             e["files"], e["expired"] = {}, True
     lib.save()
+    with open(os.environ.get("LIBRARY_ADDED_FILE", "added.txt"), "a") as f:   # for the phone notification
+        f.writelines(f"• {e['title']}\n" for e in added)
     print(f"added {len(added)} video(s)")
 
 
