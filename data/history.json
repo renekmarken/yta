@@ -1616,5 +1616,196 @@
     "risk/stamp"
    ]
   }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.capitalone.com",
+  "brand": "Capital One",
+  "kind": "risk",
+  "story_url": "https://news.ycombinator.com/item?id=40707743",
+  "category": "banking-apps",
+  "title": "Capital One Closed Account Dropped My Score — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "A Capital One user posted on Hacker News about an unexpected credit score drop after supposedly closing their account",
+  "title_style": null,
+  "theme": {
+   "mode": "dark",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "bar",
+   "bg": "mesh",
+   "head_font": "inter",
+   "accent": [
+    122,
+    92,
+    255
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "laptop",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "pill",
+   "music": "acoustic",
+   "sfx": "playful",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "risk/post",
+    "risk/strip",
+    "risk/caution"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.fiverr.com",
+  "brand": "Fiverr",
+  "kind": "risk",
+  "story_url": "https://news.ycombinator.com/item?id=26860082",
+  "category": "freelancing",
+  "title": "Fiverr Account CLOSED After IP Theft — What You Need to Know?",
+  "youtube": null,
+  "format": null,
+  "opener": "A Fiverr user posted on Hacker News about a severe security and account access issue",
+  "title_style": null,
+  "theme": {
+   "mode": "brand",
+   "layout": "spotlight",
+   "frame": "floating",
+   "caption": "underline",
+   "bg": "spotlight",
+   "head_font": "poppins",
+   "accent": [
+    24,
+    168,
+    96
+   ],
+   "transitions": [
+    "cut"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "laptop",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "lofi",
+   "sfx": "crisp",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "risk/post",
+    "risk/strip",
+    "risk/stamp"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.allstate.com",
+  "brand": "Allstate",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/Banking/comments/1vhqtuh/help_with_false_check_fraud_allegation/",
+  "category": "insurance",
+  "title": "Allstate FROZE Funds Over a Check Claim — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "An Allstate user posted on Reddit that their bank accounts were frozen after a claim that they deposited a fraudulent, a",
+  "title_style": null,
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "minimal",
+   "caption": "tag",
+   "bg": "gradient",
+   "head_font": "inter",
+   "accent": [
+    0,
+    214,
+    170
+   ],
+   "transitions": [
+    "smoothup",
+    "smoothdown"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "laptop",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "lofi",
+   "sfx": "soft",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "risk/post",
+    "risk/stamp",
+    "risk/stack"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.discover.com",
+  "brand": "Discover",
+  "kind": "risk",
+  "story_url": "https://news.ycombinator.com/item?id=41269838",
+  "category": "credit-cards",
+  "title": "Discover REVERSED My Chargeback Without Notice — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "A Discover user posted on Hacker News about an unexpected charge reversal",
+  "title_style": null,
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "glass",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    255,
+    212,
+    0
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "laptop",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "lofi",
+   "sfx": "punchy",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "risk/post",
+    "risk/strip",
+    "risk/highlight"
+   ]
+  }
  }
 ]
