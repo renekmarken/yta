@@ -207,7 +207,7 @@ def produce(item, history, out=None, mode="new"):
     return out, data, {"date": date.today().isoformat(), "url": info["url"], "brand": data.get("brand"),
                        "category": data.get("category"), "title": data.get("youtube_title"),
                        "youtube": youtube_url,
-                       "format": data.get("format"), "opener": opener,
+                       "format": data.get("format"), "opener": opener, "title_style": data.get("title_style"),
                        "theme": {k: theme[k] for k in ("mode", "layout", "frame", "caption", "bg",
                                                        "head_font", "accent", "transitions", "intro",
                                                        "highlight", "thumb", "thumb_accent",

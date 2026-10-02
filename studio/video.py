@@ -489,7 +489,7 @@ def intro_frames(theme, info, data, logo, first_shot, work):
         if im is not None:
             els.append((im, at, 0.28 + k * 0.16, 0.5, (0, 70), "slide"))
     cat = data.get("category_name", "")
-    label = f"{cat.upper()}  ·  2026 REVIEW" if cat else "2026 REVIEW"
+    label = f"{cat.upper()}  ·  HONEST REVIEW" if cat else "HONEST REVIEW"
     lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     ImageDraw.Draw(lay).text((x, y + int(f.size * 2.4)), label, font=font("Bold", 30), fill=theme["muted"],
                              anchor=anchor)

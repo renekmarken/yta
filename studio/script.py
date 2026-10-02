@@ -20,6 +20,22 @@ FORMATS = {
                  "pricing clarity, support, reviews), then score it.",
 }
 
+# Title formats (rotated so the channel doesn't repeat itself). {b} = brand.
+TITLE_STYLES = {
+    "scam": "{b}: Is It a Scam?",
+    "expect": "{b}: What to Actually Expect (EXPLAINED)",
+    "worth": "{b}: Worth Using It?",
+    "legit": "{b}: Legit or Overhyped?",
+    "before": "{b}: Watch This Before You Sign Up",
+    "catch": "{b}: What's the Catch?",
+    "truth": "{b} Review: The Honest Truth",
+    "fees": "{b}: The Fees Nobody Mentions",
+    "dont": "Don't Use {b} Until You Watch This",
+    "actually": "Is {b} Actually Worth It?",
+    "good": "{b}: Is It Actually Good?",
+    "honest": "{b} Honest Review: Pros, Cons & Verdict",
+}
+
 HOOKS = ["a pointed question", "a surprising specific detail from the site",
          "a bold claim from the site that you then test", "a short 'here's the catch' teaser",
          "who should stop watching (and who should keep watching)"]
@@ -52,6 +68,8 @@ Honesty rules (very important):
 - Balanced: real strengths, real weaknesses or missing info, who it suits, who should look elsewhere.
 - Finance/insurance/legal/investing: one short "not financial/legal advice" line near the end.
 
+Evergreen: never mention the current year or any year, and avoid "right now"/"this year" phrasing,
+so the video stays useful for years. (Facts that change, like prices, are fine: say "at the time of recording".)
 Style: spoken, confident, specific, short sentences, natural contractions. No "welcome back",
 no "in today's video", no "smash that like button", no "let's dive in", no "game-changer".
 Do not start with any of these openings used on recent videos: {recent_openers}
@@ -78,9 +96,9 @@ Return ONLY JSON:
   "verdict": "Worth it | Worth it for some | Not worth it",
   "score": 7.5,
   "segments": [{{"screenshot": "home_0.png", "focus": "exact on-screen text or empty", "caption": "...", "callout": "short fact or empty", "icon": "payments", "text": "..."}}],
-  "youtube_title": "max 70 chars: brand + 'Review' or 'Worth It?' + 2026 + a curiosity hook; no ALL CAPS words except 1",
+  "youtube_title": "{title_rule}",
   "youtube_description": "150-250 words, natural keyword-rich summary of what the review covers; no timestamps, no hashtags",
-  "tags": ["15-25 real search phrases, e.g. '<brand> review', 'is <brand> legit', '<brand> vs <competitor>', '<category> 2026'"],
+  "tags": ["15-25 real search phrases, e.g. '<brand> review', 'is <brand> legit', 'is <brand> a scam', '<brand> vs <competitor>', 'best <category>' — never a year"],
   "thumbnail_subtitle": "2-4 word hook for the thumbnail, e.g. 'Hidden fees?', 'Legit or hype?'",
   "pinned_comment": "a short first comment that invites discussion",
   "check_before_publishing": ["specific claims or numbers the human reviewer should double-check"]
@@ -124,6 +142,21 @@ def _shots_for_prompt(info):
     return "\n".join(lines)
 
 
+YEAR = re.compile(r"\b(19|20)\d{2}\b")
+
+
+def clean_title(title, brand, style_key):
+    """Short, evergreen title: no years, tidy punctuation; falls back to the plain style."""
+    t = YEAR.sub("", title or "")
+    t = re.sub(r"\(\s*\)|\[\s*\]", "", t)
+    t = re.sub(r"\s+([:?!,.])", r"\1", re.sub(r"\s{2,}", " ", t))
+    t = re.sub(r"(^[\s:|–-]+|[\s:|–-]+$)", "", t).strip()
+    t = re.sub(r":\s*:", ":", t)
+    if not t or len(t) > 70 or (brand and brand.lower().split()[0] not in t.lower()):
+        t = TITLE_STYLES.get(style_key, "{b}: Worth Using It?").format(b=brand or "This App")
+    return t
+
+
 def _validate(data, info):
     problems = []
     words = sum(len(s.get("text", "").split()) for s in data.get("segments", []))
@@ -134,8 +167,9 @@ def _validate(data, info):
     for k in ("youtube_title", "youtube_description", "tags", "verdict"):
         if not data.get(k):
             problems.append(f"missing {k}")
-    if len(data.get("youtube_title", "")) > 100:
-        problems.append("title too long")
+    title = data.get("youtube_title", "")
+    if len(YEAR.sub("", title)) > 75:                 # years are removed afterwards anyway
+        problems.append(f"title is {len(title)} characters; keep it under 60")
     return problems
 
 
@@ -177,6 +211,12 @@ def write_script(info: dict, item: dict, history: list) -> dict:
     recent_formats = [h.get("format") for h in history[-3:]]
     fmt_key = rnd.choice([k for k in FORMATS if k not in recent_formats] or list(FORMATS))
     recent_openers = [h.get("opener", "") for h in history[-8:] if h.get("opener")]
+    recent_styles = [h.get("title_style") for h in history[-8:]]
+    style_key = rnd.choice([k for k in TITLE_STYLES if k not in recent_styles] or list(TITLE_STYLES))
+    style = TITLE_STYLES[style_key].format(b="<brand>")
+    title_rule = (f"SHORT, max 60 characters, no year. Use this format: '{style}'. You may swap the generic part "
+                  f"for ONE concrete detail from the facts if it makes it more specific and clickable (e.g. "
+                  f"'<brand>: $0 Fees, But What's the Catch?'). Title Case, at most one word in CAPS.")
 
     prompt = SCRIPT_PROMPT.format(
         channel=config.CHANNEL_NAME, name=name, url=info["url"],
@@ -186,6 +226,7 @@ def write_script(info: dict, item: dict, history: list) -> dict:
         min_words=320, max_words=390,
         recent_openers=json.dumps(recent_openers, ensure_ascii=False) if recent_openers else "none yet",
         shots=_shots_for_prompt(info), cat_ids=", ".join(BY_ID), icons=", ".join(ICONS),
+        title_rule=title_rule,
         research=notes or "none available",
         title=info.get("title", ""), meta=info.get("meta_description", ""),
         home=info.get("home_text", "")[:9000],
@@ -219,6 +260,11 @@ def write_script(info: dict, item: dict, history: list) -> dict:
     if data.get("category") not in BY_ID:
         data["category"] = item.get("category") or "saas"
     data["format"] = fmt_key
+    data["title_style"] = style_key
+    data["youtube_title"] = clean_title(data.get("youtube_title"), data.get("brand") or name, style_key)
+    data["tags"] = [t for t in (YEAR.sub("", x).strip() for x in data.get("tags", [])) if t]
+    desc = re.sub(r"\s*\b(in|for|of|as of|during)\s+(19|20)\d{2}\b", "", data.get("youtube_description", ""), flags=re.I)
+    data["youtube_description"] = re.sub(r"\s*\(?\b(19|20)\d{2}\b\)?", "", desc).replace("  ", " ").strip()
     data["research_notes"] = notes
     data["sources"] = sources
     return data
