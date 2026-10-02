@@ -1,18 +1,5 @@
 {
  "items": {
-  "lemonade.com": {
-   "name": "Lemonade",
-   "url": "https://www.lemonade.com",
-   "category": "insurance",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Expanded its tech-driven pet insurance lineup into Kentucky, drawing fresh investor attention.",
-   "sources": [
-    "Google News",
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:08+00:00"
-  },
   "clio.com": {
    "name": "Clio",
    "url": "https://www.clio.com",
@@ -760,5 +747,5 @@
    "added": "2026-10-02T07:22:54+00:00"
   }
  },
- "updated": "2026-10-02T07:36:32+00:00"
+ "updated": "2026-10-02T11:55:46+00:00"
 }

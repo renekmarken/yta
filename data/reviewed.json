@@ -5,5 +5,20 @@
   "url": "https://robinhood.com",
   "status": "done",
   "date": ""
+ },
+ {
+  "site": "lemonade.com",
+  "name": "Lemonade",
+  "url": "https://www.lemonade.com",
+  "status": "done",
+  "date": ""
+ },
+ {
+  "site": "lemonade.com",
+  "name": "Lemonade",
+  "alt": "",
+  "url": "https://www.lemonade.com",
+  "status": "done",
+  "date": "2026-10-02"
  }
 ]

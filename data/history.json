@@ -31,5 +31,45 @@
     255
    ]
   }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.lemonade.com",
+  "brand": "Lemonade",
+  "category": "insurance",
+  "title": "Lemonade Insurance Review 2026: Is This App Actually Worth It?",
+  "youtube": null,
+  "format": "fine_print",
+  "opener": "Here is the catch with Lemonade: those ultra-low starting prices look great, but the fine print reveals standard sub-lim",
+  "theme": {
+   "mode": "light",
+   "layout": "cinema",
+   "frame": "minimal",
+   "caption": "pill",
+   "bg": "dots",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    150,
+    30
+   ],
+   "transitions": [
+    "radial",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "phone",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_left",
+   "callout": "pill",
+   "music": "acoustic",
+   "sfx": "crisp",
+   "thumb_palette": "teal_orange"
+  }
  }
 ]
