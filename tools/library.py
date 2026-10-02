@@ -37,7 +37,8 @@ VAULT = Path(os.environ.get("VAULT_DIR", ROOT / "vault"))
 ITERATIONS = 600_000
 KINDS = {"video": ("video/mp4", ".mp4"), "thumbnail": ("image/jpeg", ".jpg"),
          "captions": ("text/plain", ".srt"), "kit": ("text/markdown", ".md"),
-         "script": ("application/json", ".json")}             # kept so thumbnails can be remade later
+         "script": ("application/json", ".json"),             # kept so thumbnails can be remade later
+         "site": ("application/zip", ".zip")}                 # screenshots + logo, same reason
 b64 = lambda b: base64.b64encode(b).decode()
 MAGIC, CHUNK = b"YTVC1", 4 * 1024 * 1024          # chunked encryption for videos (phones decrypt piece by piece)
 _aad = lambda i, n: i.to_bytes(4, "big") + n.to_bytes(4, "big")
@@ -170,6 +171,16 @@ def cmd_add(src, tag):
                 pass
         title = meta.get("title", "")
         files = {"video": lib.store(vid, "video", mp4s[0].read_bytes(), _filename(title, ".mp4"))}
+        site_files = [p for p in folder.iterdir() if p.suffix == ".png" and not p.name.startswith(("hl_", "cap_"))
+                      or p.name in ("site.json", "logo.svg")]
+        if (folder / "site.json").exists():
+            import io
+            import zipfile
+            buf = io.BytesIO()
+            with zipfile.ZipFile(buf, "w", zipfile.ZIP_STORED) as z:
+                for p in site_files:
+                    z.write(p, p.name)
+            files["site"] = lib.store(vid, "site", buf.getvalue(), f"{site} - screenshots.zip")
         thumbs = sorted(folder.glob("*thumbnail*.jpg"))         # 3 variations (older videos: 1)
         if thumbs:
             files["thumbnails"] = [lib.store(vid, "thumbnail", t.read_bytes(), f"911video - {site} - thumbnail {i}.jpg",

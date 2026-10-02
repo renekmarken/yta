@@ -133,6 +133,9 @@ jobs:
             output/*/UPLOAD_KIT.md
             output/*/metadata.json
             output/*/script.json
+            output/*/site.json
+            output/*/*.png
+            output/*/logo.svg
             output/*/result.json
           retention-days: 7              # deleted as soon as the library has verified copies
           if-no-files-found: ignore

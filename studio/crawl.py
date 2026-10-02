@@ -146,7 +146,7 @@ def _find_logo(page, base_url):
       const out = [];
       const abs = u => { try { return new URL(u, location.href).href } catch(e) { return null } };
       // App Store / Google Play: the app's own icon (square, near the top), not the store's logo
-      if (/(^|\.)apps\.apple\.com$|(^|\.)play\.google\.com$/.test(location.hostname)) {
+      if (/(^|[.])apps[.]apple[.]com$|(^|[.])play[.]google[.]com$/.test(location.hostname)) {
         [...document.images].forEach(img => {
           const r = img.getBoundingClientRect(), src = img.currentSrc || img.src;
           if (r.top < 900 && r.width >= 56 && Math.abs(r.width - r.height) < 8 && /mzstatic|googleusercontent/.test(src))
@@ -157,7 +157,7 @@ def _find_logo(page, base_url):
       const skipBox = '[id*="onetrust" i],[class*="onetrust" i],[id*="cookie" i],[class*="cookie" i],[id*="consent" i],' +
                       '[class*="consent" i],[class*="privacy" i],[id*="privacy" i],footer,[role="dialog"]';
       const skipHint = /privacy|ccpa|opt-?out|consent|cookie|choices|fdic|sipc|finra|bbb|badge|app-?store|google-?play|partner|press|award|trustpilot|as-seen|featured/;
-      const brandWord = location.hostname.replace(/^www\./, '').split('.')[0].toLowerCase();
+      const brandWord = location.hostname.replace(/^www[.]/, '').split('.')[0].toLowerCase();
       const imgs = [];
       document.querySelectorAll('img').forEach(img => {
         const hint = (img.alt + ' ' + img.className + ' ' + img.id + ' ' + img.src).toLowerCase();

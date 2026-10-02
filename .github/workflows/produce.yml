@@ -101,6 +101,9 @@ jobs:
             output/*/UPLOAD_KIT.md
             output/*/metadata.json
             output/*/script.json
+            output/*/site.json
+            output/*/*.png
+            output/*/logo.svg
           retention-days: 7
           if-no-files-found: ignore
 

@@ -54,9 +54,21 @@ def main(names):
                 "title_style": data.get("title_style") or title_style(e.get("title")),
                 "segments": data.get("segments") or []}
         out = Path(tempfile.mkdtemp()) / e["id"]
-        print(f"  {e['title']}: visiting {url}")
-        cat = BY_ID.get(e.get("category"))
-        info = crawl(url, out, cat["subpage_words"] if cat else None)
+        try:
+            if "site" in files:                          # screenshots saved with the video: no visit needed
+                import io
+                import zipfile
+                out.mkdir(parents=True)
+                zipfile.ZipFile(io.BytesIO(lib.fetch(files["site"]))).extractall(out)
+                info = json.loads((out / "site.json").read_text())
+                print(f"  {e['title']}: using the saved screenshots")
+            else:
+                print(f"  {e['title']}: visiting {url}")
+                cat = BY_ID.get(e.get("category"))
+                info = crawl(url, out, cat["subpage_words"] if cat else None)
+        except Exception as ex:                          # e.g. the site shows a bot check right now
+            print(f"  ! {e['title']}: skipped ({type(ex).__name__}: {str(ex)[:120]})")
+            continue
         logo = load_logo(out / info["logo"]) if info.get("logo") else None
         theme = normalize(pick_theme(f"{info['domain']}-{datetime.now(timezone.utc).isoformat()}",
                                      brand_color(logo, out / info["screenshots"][0]["file"]), [],
