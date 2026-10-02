@@ -15,7 +15,7 @@ on:
         required: true
         default: 5
       url:
-        description: "Optional: also review this website (outside the queue)"
+        description: "Optional: also review these websites (outside the queue, space-separated)"
         required: false
         default: ""
       parallel:

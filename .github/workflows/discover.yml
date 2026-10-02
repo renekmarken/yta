@@ -1,18 +1,23 @@
 name: Discover trending products
 
+# Every hour: scans launch sites and news for products launched today / this week (plus trends,
+# charts and an evergreen backlog), ranks the queue with new launches first, and immediately
+# starts a video for fresh launches (max AUTO_VIDEOS_PER_DAY a day, default 3; set it to 0 to stop).
+
 on:
   schedule:
-    - cron: "41 */3 * * *"     # every 3 hours
+    - cron: "23 * * * *"       # every hour
   workflow_dispatch:
 
 permissions:
   contents: write
+  actions: write               # to start "Make a batch of videos" for new launches
 
 env:
   PYTHONUNBUFFERED: "1"         # show progress in the live log
 
 concurrency:
-  group: data-writer
+  group: discover              # its own group, so it never cancels a waiting video run
   cancel-in-progress: false
 
 jobs:
@@ -26,12 +31,18 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install requests beautifulsoup4
-      - name: Find new / hot products and rank the queue
+      - name: Find new launches / hot products and rank the queue
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_MODELS: ${{ vars.GEMINI_MODELS }}
         run: python discover.py
+      - name: Pick fresh launches to make right now
+        id: auto
+        env:
+          AUTO_VIDEOS_PER_DAY: ${{ vars.AUTO_VIDEOS_PER_DAY }}
+          AUTO_MIN_HOTNESS: ${{ vars.AUTO_MIN_HOTNESS }}
+        run: python tools/auto_launch.py
       - name: Save queue
         run: |
           git config user.name "review-bot"
@@ -40,3 +51,9 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Update review queue"
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
+      - name: Start the videos
+        if: steps.auto.outputs.urls != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          URLS: ${{ steps.auto.outputs.urls }}
+        run: gh workflow run batch.yml --ref "${{ github.ref_name }}" -f count=0 -f url="$URLS" -f parallel=2

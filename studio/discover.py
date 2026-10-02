@@ -1,6 +1,8 @@
 """Trend discovery: find new / hot products in the money categories and keep a ranked queue.
 
 Free, keyless sources:
+  * Launch radar: Product Hunt, "Launch HN" (YC startups), TechCrunch startups and Google News
+    "launches/unveils" searches from the last 1-2 days - products launched today or this week
   * Google News RSS (per-category launch/funding/news searches, last 7 days)
   * Google Trends "trending now" RSS (US)
   * Product Hunt feed (new launches: AI tools, SaaS, marketing, business tools)
@@ -8,7 +10,9 @@ Free, keyless sources:
   * Apple App Store top-free charts (Finance, Business, Productivity) + who is climbing
   * Gemini with Google Search (what's launching / in the news right now)
 Then Gemini acts as editor: picks the reviewable products, finds the official website,
-assigns a category and a 0-10 hotness. Priority = hotness (decays with age) + category value.
+assigns a category, a 0-10 hotness and when it launched. Priority = hotness (decays with age) +
+category value + a big boost for products launched today / this week, so new launches go first
+(and discover runs can start a video for them right away, see tools/auto_launch.py).
 """
 import json
 import math
@@ -56,6 +60,28 @@ def _age_days(ts):
         return max(0.0, (NOW() - dt).total_seconds() / 86400)
     except Exception:
         return 0.0
+
+
+def _when(ts):
+    """Signal date -> datetime (RSS, Atom or ISO), or None."""
+    if not ts:
+        return None
+    try:
+        dt = parsedate_to_datetime(ts)
+    except (TypeError, ValueError, IndexError):
+        try:
+            dt = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+        except ValueError:
+            return None
+    return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+
+
+def _ago(ts):
+    dt = _when(ts)
+    if not dt:
+        return ""
+    h = (NOW() - dt).total_seconds() / 3600
+    return "today" if h < 24 else (f"{int(h // 24)}d ago")
 
 
 def key_for(url):
@@ -136,8 +162,8 @@ def src_product_hunt():
     r = _get("https://www.producthunt.com/feed")
     if not r:
         return []
-    return [{"source": "Product Hunt", "title": it["title"], "detail": it["detail"][:160],
-             "cat_hint": None, "date": it["date"]} for it in _rss_items(r.text)[:40]]
+    return [{"source": "Product Hunt (launch)", "title": it["title"], "detail": it["detail"][:160],
+             "cat_hint": None, "date": it["date"]} for it in _rss_items(r.text)[:50]]
 
 
 def src_hacker_news():
@@ -182,28 +208,66 @@ def src_app_store():
     return out
 
 
+LAUNCH_QUERIES = ["launches app", "officially launches platform", "unveils new app", "launches new service",
+                  "startup launches", "now available new app", "debuts new platform", "launches AI tool"]
+
+
+def src_launch_news():
+    """Google News: things that launched in the last ~day."""
+    out = []
+    for q in LAUNCH_QUERIES:
+        r = _get(f"https://news.google.com/rss/search?q={quote(q)}+when:1d&hl=en-US&gl=US&ceid=US:en")
+        if not r:
+            continue
+        for it in _rss_items(r.text)[:15]:
+            out.append({"source": "Launch news", "title": it["title"], "detail": "", "cat_hint": None,
+                        "date": it["date"]})
+        time.sleep(0.4)
+    return out
+
+
+def src_launch_hn():
+    """'Launch HN' posts: YC startups launching their product."""
+    r = _get("https://hnrss.org/launches?count=30")
+    if not r:
+        return []
+    return [{"source": "Launch HN", "title": it["title"], "detail": it["detail"][:160], "cat_hint": None,
+             "date": it["date"]} for it in _rss_items(r.text) if (_when(it["date"]) and
+                                                                  (NOW() - _when(it["date"])).days <= 7)]
+
+
+def src_techcrunch():
+    r = _get("https://techcrunch.com/category/startups/feed/")
+    if not r:
+        return []
+    return [{"source": "TechCrunch", "title": it["title"], "detail": it["detail"][:160], "cat_hint": None,
+             "date": it["date"]} for it in _rss_items(r.text)[:25]]
+
+
 def src_gemini_search():
     prompt = f"""Use Google Search. Today is {NOW():%B %d, %Y}.
 List up to 25 specific products, apps or online services that US consumers or businesses can sign
-up for on a website, and that are NEW, LAUNCHING, GROWING FAST or IN THE NEWS during the last 14
-days, in these categories:
+up for on a website, and that LAUNCHED TODAY or THIS WEEK (first priority), or are growing fast or
+in the news during the last 14 days, in these categories:
 {describe_for_ai()}
 Skip big generic platforms (Google, Amazon, Apple, Meta) unless it is a specific new product with
 its own website. Return ONLY a JSON array: [{{"name": "...", "url": "official website",
-"category": "category id", "why": "max 15 words, what happened"}}]"""
+"category": "category id", "launched": "today | this_week | older",
+"why": "max 15 words, what happened"}}]"""
     try:
         text, _ = ai.ask(prompt, grounded=True, temperature=0.4)
         items = ai.parse_json(text)
         return [{"source": "Gemini web search", "title": f"{i.get('name')} — {i.get('url', '')}",
-                 "detail": i.get("why", ""), "cat_hint": i.get("category"), "date": ""}
+                 "detail": f"launched {i.get('launched', '?')}; " + i.get("why", ""),
+                 "cat_hint": i.get("category"), "date": ""}
                 for i in items if isinstance(i, dict)]
     except Exception as e:
         print(f"   Gemini web search skipped: {str(e)[:200]}")
         return []
 
 
-SOURCES = [src_gemini_search, src_google_news, src_product_hunt, src_hacker_news,
-           src_app_store, src_google_trends]
+SOURCES = [src_gemini_search, src_product_hunt, src_launch_hn, src_launch_news, src_techcrunch,
+           src_google_news, src_hacker_news, src_app_store, src_google_trends]
 
 
 # ---------------------------------------------------------------- queue storage
@@ -238,7 +302,19 @@ def priority(item):
         age = _age_days(item.get("added", ""))
         h *= 0.5 ** (age / 4)                                  # hot news halves every 4 days
         fresh_bonus = 2.0 if age < 5 else 0.0                  # new/hot products go first
-    return round(0.65 * h + 0.35 * weight(item.get("category")) * 10 + fresh_bonus, 2)
+    return round(0.65 * h + 0.35 * weight(item.get("category")) * 10 + fresh_bonus + launch_boost(item), 2)
+
+
+def launch_boost(item):
+    """Launched today: +8, this week: +5 (fading over a few days) - new launches jump the queue."""
+    kind = item.get("launch")
+    if kind not in ("today", "this_week"):
+        return 0.0
+    return (8.0 if kind == "today" else 5.0) * 0.5 ** (_age_days(item.get("launch_seen", "")) / 3)
+
+
+def is_fresh_launch(item, days=7):
+    return item.get("launch") in ("today", "this_week") and _age_days(item.get("launch_seen", "")) <= days
 
 
 def write_queue_md(q):
@@ -247,7 +323,8 @@ def write_queue_md(q):
              "| # | Priority | Category | Product | Why | Found via |", "|---|---|---|---|---|---|"]
     for n, it in enumerate(rows, 1):
         cat = BY_ID.get(it.get("category"), {})
-        kind = "📌 pinned" if it.get("pinned") else ("🔥 " if not it.get("evergreen") else "🌲 ")
+        kind = "📌 pinned" if it.get("pinned") else ("🚀 new launch · " if is_fresh_launch(it) else
+                                                     ("🔥 " if not it.get("evergreen") else "🌲 "))
         lines.append(f"| {n} | {priority(it):.1f} | {cat.get('emoji', '')} {cat.get('name', it.get('category', '?'))} "
                      f"| [{it['name']}]({it['url']}) | {kind}{it.get('why', '')} | {', '.join(it.get('sources', []))} |")
     config.QUEUE_MD.write_text("\n".join(lines) + "\n")
@@ -267,12 +344,18 @@ Pick up to {max_new} distinct products/services that:
 - are not news sites, review sites, government sites, gambling, adult, meme coins or obvious scams
 - would make people search "<name> review" or "is <name> worth it"
 
+TOP PRIORITY: products that LAUNCHED TODAY or THIS WEEK (Product Hunt launches, "Launch HN", "X launches
+/ unveils / debuts ..." news). Today is {today}; each signal shows how long ago it appeared. List those
+first. Only call something a launch if the signal says it is new / launched / now available, not just
+news about an old product.
+
 For each give the official website URL (homepage or the product's own page), the category id,
 "hotness" 0-10 (how much fresh attention it has right now: launch, viral, big news, chart climb),
-and "why" (max 15 words). Prefer items with several signals.
+"launched": "today" (last ~24h), "this_week" (last 7 days) or "older", and "why" (max 15 words).
+Prefer items with several signals.
 
 Return ONLY JSON: {{"items": [{{"name": "...", "url": "https://...", "category": "...",
-"hotness": 7, "why": "..."}}]}}
+"hotness": 7, "launched": "today", "why": "..."}}]}}
 
 SIGNALS:
 {signals}
@@ -311,6 +394,7 @@ def _add(q, raw, evergreen, sources, skip):
         it["hotness"] = max(float(it.get("hotness", 0)), float(raw.get("hotness", 0)))
         it["added"] = NOW().isoformat(timespec="seconds") if not evergreen else it["added"]
         it["sources"] = sorted(set(it.get("sources", [])) | set(sources))[:4]
+        _mark_launch(it, raw)
         return False
     if not _verify(url):
         print(f"   ✗ unreachable: {url}")
@@ -320,7 +404,15 @@ def _add(q, raw, evergreen, sources, skip):
                                 * (0.6 if evergreen else 1.0),
                      "evergreen": evergreen, "why": (raw.get("why") or "")[:120],
                      "sources": sources[:4], "added": NOW().isoformat(timespec="seconds")}
+    _mark_launch(q["items"][k], raw)
     return True
+
+
+def _mark_launch(it, raw):
+    kind = raw.get("launched")
+    if kind in ("today", "this_week") and not (it.get("launch") == "today" and kind == "this_week"):
+        if it.get("launch") != kind:
+            it["launch"], it["launch_seen"] = kind, NOW().isoformat(timespec="seconds")
 
 
 def discover():
@@ -345,7 +437,8 @@ def discover():
             continue
         seen_t.add(t.lower())
         hint = f" [{s['cat_hint']}]" if s.get("cat_hint") else ""
-        compact.append(f"- ({s['source']}){hint} {t} | {s.get('detail', '')}".strip(" |"))
+        when = _ago(s.get("date", ""))
+        compact.append(f"- ({s['source']}{', ' + when if when else ''}){hint} {t} | {s.get('detail', '')}".strip(" |"))
     compact = compact[:220]
 
     reviewed = skip.for_prompt()
@@ -355,6 +448,7 @@ def discover():
         try:
             text, _ = ai.ask(EDITOR_PROMPT.format(max_new=config.DISCOVERY_MAX_NEW, cats=describe_for_ai(),
                                                   reviewed=reviewed, queued=queued,
+                                                  today=f"{NOW():%A %B %d, %Y}",
                                                   signals="\n".join(compact)),
                              json_mode=True, temperature=0.3)
             picks = ai.parse_json(text)
@@ -367,7 +461,8 @@ def discover():
             for p in picks:
                 if _add(q, p, False, sorted(src_by_name.get(p.get("name"), {"trend scan"})), skip):
                     added += 1
-                    print(f"   🔥 {p['name']} ({p['category']}, hot {p.get('hotness')})")
+                    tag = "🚀" if p.get("launched") in ("today", "this_week") else "🔥"
+                    print(f"   {tag} {p['name']} ({p['category']}, hot {p.get('hotness')}, launched {p.get('launched')})")
         except Exception as e:
             print(f"   editor step failed: {str(e)[:300]}")
 

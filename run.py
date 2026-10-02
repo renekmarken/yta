@@ -19,9 +19,9 @@ from urllib.parse import urlparse
 
 from studio import config
 from studio.categories import BY_ID
-from studio.discover import discover, key_for, pick_next, remove_from_queue
+from studio.discover import discover, key_for, load_queue, pick_next, remove_from_queue
 from studio.notify import notify
-from studio.reviewed import Ledger, record as record_review
+from studio.reviewed import Ledger, record as record_review, site_id
 # The video libraries (Pillow, numpy, Playwright, ...) are imported inside the functions that make
 # videos, so planning and booking batches only need requests + beautifulsoup4.
 
@@ -294,12 +294,16 @@ def main():
 
     if a.plan is not None:
         picks = plan(a.plan, history) if a.plan > 0 else []
-        custom = a.plan_url.strip()
-        if custom:
+        q = load_queue()
+        for custom in reversed(re.split(r"[\s,]+", a.plan_url.strip())):    # one or more websites
+            if not custom:
+                continue
             custom = custom if "://" in custom else "https://" + custom
-            picks = [(key_for(custom), {"name": urlparse(custom).netloc.removeprefix("www."), "url": custom,
-                                        "category": None, "custom": True})] + \
-                [(k, it) for k, it in picks if k != key_for(custom)]
+            hit = next(((k, it) for k, it in q["items"].items() if site_id(it.get("url", "")) == site_id(custom)), None)
+            item = (hit[0], {**hit[1]}) if hit else \
+                (key_for(custom), {"name": urlparse(custom).netloc.removeprefix("www."), "url": custom,
+                                   "category": None, "custom": True})       # typed in: made even if reviewed
+            picks = [item] + [(k, it) for k, it in picks if k != item[0]]
         a.plan_out.write_text(json.dumps([{"n": i + 1, "key": k, **it} for i, (k, it) in enumerate(picks)]))
         print(f"Planned {len(picks)} video(s):")
         for i, (k, it) in enumerate(picks, 1):
