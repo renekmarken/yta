@@ -85,6 +85,14 @@ textarea.box.desc{min-height:260px}
 .status{display:none;margin-bottom:18px;padding:12px 16px;border-radius:14px;background:var(--surface);border:1px solid var(--line);
   box-shadow:var(--shadow);align-items:center;gap:12px;font-size:15px}
 .status.on{display:flex}
+.done-list{margin-top:28px;border-top:1px solid var(--line);padding-top:18px}
+.done-list summary{cursor:pointer;font-weight:750;font-size:16px;list-style:none;display:flex;align-items:center;gap:10px;
+  padding:12px 16px;border:1px solid var(--line);border-radius:14px;background:var(--surface);width:max-content;max-width:100%}
+.done-list summary::-webkit-details-marker{display:none}
+.done-list summary::before{content:"▸";transition:transform .15s;display:inline-block}
+.done-list[open] summary::before{transform:rotate(90deg)}
+.done-list[open] summary{margin-bottom:18px}
+.done-list .count{color:var(--muted);font-weight:600}
 .spinner{width:18px;height:18px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--accent);animation:spin 1s linear infinite;flex:none}
 @keyframes spin{to{transform:rotate(360deg)}}
 .lock{min-height:70vh;display:grid;place-items:center}
@@ -245,15 +253,34 @@ async function load(){
   lockScreen();
 }
 
+function updateSub(){
+  const todo = videos.filter(v => !isUploaded(v)).length;
+  document.getElementById("sub").textContent = videos.length
+    ? `${todo} to upload · ${videos.length - todo} uploaded · newest first. Click one to download it and copy its text.`
+    : "Your finished review videos, ready to upload.";
+}
+
 function ready(){
   unlocked = true;
   document.getElementById("actions").hidden = false;
-  document.getElementById("sub").textContent =
-    videos.length ? `${videos.length} video${videos.length === 1 ? "" : "s"} · newest first. Click one to download it and copy its text.`
-                  : "Your finished review videos, ready to upload.";
+  updateSub();
   route();
   checkRuns();
 }
+
+const isUploaded = v => uploaded(v.id) || !!v.youtube;
+const card = v => `
+    <button class="card" data-id="${esc(v.id)}" aria-label="${esc(v.title)}">
+      ${v.files?.thumbnail ? `<img class="thumb" data-enc="${esc(refPath(v.files.thumbnail))}" alt="">` : `<div class="thumb"></div>`}
+      <div class="body">
+        <h2>${esc(v.title)}</h2>
+        <div class="meta">
+          <span>${esc(fmtDate(v.date))}</span>
+          ${v.verdict ? `<span class="pill"><span class="dot" style="background:${verdictColor(v.verdict)}"></span>${esc(v.verdict)}${v.score !== "" ? " · " + esc(v.score) : ""}</span>` : ""}
+          ${isUploaded(v) ? `<span class="pill done-badge">Uploaded</span>` : ""}
+        </div>
+      </div>
+    </button>`;
 
 function grid(){
   const q = document.getElementById("search").value.trim().toLowerCase();
@@ -262,18 +289,14 @@ function grid(){
       Run <em>Actions → Produce review videos</em> (or <em>Make a batch of videos</em>) on GitHub.
       New videos appear here a few minutes after the run finishes.</div>`;
   if (!list.length) return `<div class="empty">No videos match “${esc(q)}”.</div>`;
-  return `<div class="grid">${list.map(v => `
-    <button class="card" data-id="${esc(v.id)}" aria-label="${esc(v.title)}">
-      ${v.files?.thumbnail ? `<img class="thumb" data-enc="${esc(refPath(v.files.thumbnail))}" alt="">` : `<div class="thumb"></div>`}
-      <div class="body">
-        <h2>${esc(v.title)}</h2>
-        <div class="meta">
-          <span>${esc(fmtDate(v.date))}</span>
-          ${v.verdict ? `<span class="pill"><span class="dot" style="background:${verdictColor(v.verdict)}"></span>${esc(v.verdict)}${v.score !== "" ? " · " + esc(v.score) : ""}</span>` : ""}
-          ${uploaded(v.id) ? `<span class="pill done-badge">Uploaded</span>` : ""}
-        </div>
-      </div>
-    </button>`).join("")}</div>`;
+  const todo = list.filter(v => !isUploaded(v)), done = list.filter(isUploaded);
+  return (todo.length ? `<div class="grid">${todo.map(card).join("")}</div>`
+                      : `<div class="empty">${q ? "No new videos match." : "All caught up: every video is uploaded."}</div>`) +
+    (done.length ? `
+    <details class="done-list" id="donelist"${store.get("show-uploaded") === "1" ? " open" : ""}>
+      <summary>Already uploaded <span class="count">${done.length}</span></summary>
+      <div class="grid">${done.map(card).join("")}</div>
+    </details>` : "");
 }
 
 function field(key, label, value, kind){
@@ -464,10 +487,14 @@ document.addEventListener("click", async e => {
     setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("ok"); }, 1600);
   }
 });
+document.addEventListener("toggle", e => {
+  if (e.target.id === "donelist") store.set("show-uploaded", e.target.open ? "1" : null);
+}, true);
 document.addEventListener("change", e => {
   if (e.target.id === "mark") {
     const id = decodeURIComponent(location.hash.slice(1));
     store.set("uploaded:" + id, e.target.checked ? "1" : null);
+    updateSub();
   }
 });
 document.addEventListener("submit", async e => {
