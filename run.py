@@ -19,16 +19,11 @@ from urllib.parse import urlparse
 
 from studio import config
 from studio.categories import BY_ID
-from studio.crawl import BlockedSite, crawl
-from studio.discover import discover, key_for, load_queue, pick_next, remove_from_queue
+from studio.discover import discover, key_for, pick_next, remove_from_queue
 from studio.notify import notify
 from studio.reviewed import Ledger, record as record_review
-from studio.script import write_script
-from studio.themes import normalize, pick_theme
-from studio.thumbnail import make_thumbnail
-from studio.tts import fit_length, narrate, write_srt
-from studio.video import chapters, render
-from studio.visuals import brand_color, load_logo
+# The video libraries (Pillow, numpy, Playwright, ...) are imported inside the functions that make
+# videos, so planning and booking batches only need requests + beautifulsoup4.
 
 
 def slug(url):
@@ -73,6 +68,7 @@ def video_filename(title):
 
 
 def full_description(data, info):
+    from studio.video import chapters
     brand_tag = re.sub(r"[^A-Za-z0-9]", "", data.get("brand", ""))
     cat_tag = {"credit-cards": "CreditCards", "insurance": "Insurance", "banking-apps": "Banking",
                "investing": "Investing", "real-estate": "RealEstate", "legal": "LegalTech",
@@ -142,6 +138,13 @@ Source: {info['url']} · Format: {data.get('format')} · Look: {theme['layout']}
 
 def produce(item, history, out=None, mode="new"):
     """mode: new | rerender (same look) | restyle (new look)."""
+    from studio.crawl import crawl
+    from studio.script import write_script
+    from studio.themes import normalize, pick_theme
+    from studio.thumbnail import make_thumbnail
+    from studio.tts import fit_length, narrate, write_srt
+    from studio.video import render
+    from studio.visuals import brand_color, load_logo
     if mode == "new":
         url = item["url"]
         out = config.OUTPUT_DIR / slug(url)
@@ -212,6 +215,50 @@ def produce(item, history, out=None, mode="new"):
                                  if k in theme}}
 
 
+def _label(data, item, youtube):
+    return (data.get("youtube_title") or item["name"]) + (f" → {youtube}" if youtube
+                                                          else " (not uploaded)" if config.UPLOAD_MODE == "api" else "")
+
+
+def apply_result(res, history):
+    """Book one finished (or failed) video into the queue, history and the never-again record."""
+    item, key = res["item"], res["key"]
+    if res["status"] == "done":
+        history.append(res["record"])
+        save_history(history)
+        _append(config.DONE_FILE, item["url"])
+        record_review(item["url"], item.get("name", ""), res.get("brand", ""), "done")
+    else:
+        _append(config.FAILED_FILE, item["url"])
+        record_review(item["url"], item.get("name", ""), "", "failed")
+    remove_from_queue(key)
+
+
+def make_one(key, item, history):
+    """Produce one video. Returns a result dict (also used by batch runs)."""
+    print(f"\n=== {item['name']} ({item.get('category') or 'auto'}) — {item['url']}")
+    try:
+        out, data, record = produce(item, history)
+        print(f"✓ done -> {out}")
+        return {"status": "done", "key": key, "item": item, "record": record, "brand": data.get("brand", ""),
+                "label": _label(data, item, record.get("youtube")), "folder": out.name}
+    except Exception as e:
+        traceback.print_exc()
+        reason = "blocked/empty site" if type(e).__name__ == "BlockedSite" else type(e).__name__
+        print(f"✗ {item['url']} skipped ({reason}); next time the queue moves on")
+        return {"status": "failed", "key": key, "item": item, "reason": reason}
+
+
+def plan(n, history):
+    q, picks = pick_next(n, history)
+    if len(q["items"]) < n * 2:
+        print("Queue is running low — discovering new products first.")
+        discover()
+        q, picks = pick_next(n, history)
+    done = Ledger()
+    return [(k, it) for k, it in picks if not done.has(it["url"], it.get("name"))]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--url")
@@ -220,6 +267,11 @@ def main():
     ap.add_argument("--upload", type=Path)
     ap.add_argument("-n", type=int, default=config.VIDEOS_PER_RUN)
     ap.add_argument("--force", action="store_true", help="review --url even if it was reviewed before")
+    # batch mode (used by the "Make a batch of videos" workflow)
+    ap.add_argument("--plan", type=int, help="pick this many products and write them to --plan-out")
+    ap.add_argument("--plan-out", type=Path, default=Path("plan.json"))
+    ap.add_argument("--item", help="make exactly this planned item (JSON) and write result.json, no bookkeeping")
+    ap.add_argument("--apply-results", type=Path, help="book all result.json files found in this folder")
     a = ap.parse_args()
     history = load_history()
 
@@ -234,46 +286,56 @@ def main():
         produce(None, history, out=a.rerender or a.restyle, mode="rerender" if a.rerender else "restyle")
         return
 
+    if a.plan:
+        picks = plan(a.plan, history)
+        a.plan_out.write_text(json.dumps([{"n": i + 1, "key": k, **it} for i, (k, it) in enumerate(picks)]))
+        print(f"Planned {len(picks)} video(s):")
+        for i, (k, it) in enumerate(picks, 1):
+            print(f"  {i}. {it['name']} ({it.get('category')}) — {it['url']}")
+        return
+    if a.item:
+        it = json.loads(a.item)
+        key = it.pop("key", None) or key_for(it["url"])
+        it.pop("n", None)
+        if Ledger().has(it["url"], it.get("name")):
+            print(f"{it['name']} was already reviewed — skipping.")
+            return
+        res = make_one(key, it, history)
+        folder = config.OUTPUT_DIR / res.get("folder", "failed-" + key.replace("/", "_"))
+        folder.mkdir(parents=True, exist_ok=True)
+        (folder / "result.json").write_text(json.dumps(res, ensure_ascii=False))
+        sys.exit(0 if res["status"] == "done" else 1)
+    if a.apply_results:
+        results = [json.loads(p.read_text()) for p in sorted(a.apply_results.rglob("result.json"))]
+        for res in results:
+            apply_result(res, history)
+        made = [r["label"] for r in results if r["status"] == "done"]
+        failed = [r["item"]["name"] for r in results if r["status"] != "done"]
+        print(f"Booked {len(made)} video(s), {len(failed)} failed.")
+        if made:
+            notify(f"Batch ready: {len(made)} video(s)" + (f", {len(failed)} failed" if failed else ""),
+                   "\n".join(f"• {t}" for t in made))
+        return
+
     if a.url:
         if Ledger().has(a.url) and not a.force:
             print(f"{a.url} was already reviewed — not making it again. (Add --force to override.)")
             return
         picks = [(key_for(a.url), {"name": urlparse(a.url).netloc, "url": a.url, "category": None})]
     else:
-        q, picks = pick_next(a.n, history)
-        if len(q["items"]) < a.n * 3:
-            print("Queue is running low — discovering new products first.")
-            discover()
-            q, picks = pick_next(a.n, history)
+        picks = plan(a.n, history)
     if not picks:
         print("Nothing to review: queue is empty and discovery found nothing. Add URLs to sites.txt.")
         return
 
     made, failed = [], 0
     for key, item in picks:
-        if not a.url and Ledger().has(item["url"], item.get("name")):     # last safety check
-            print(f"   skipping {item['name']}: already reviewed")
-            remove_from_queue(key)
-            continue
-        print(f"\n=== {item['name']} ({item.get('category') or 'auto'}) — {item['url']}")
-        try:
-            out, data, record = produce(item, history)
-            history.append(record)
-            save_history(history)
-            _append(config.DONE_FILE, item["url"])
-            record_review(item["url"], item.get("name", ""), data.get("brand", ""), "done")
-            remove_from_queue(key)
-            made.append((data.get("youtube_title") or item["name"]) + (f" → {record['youtube']}" if record.get("youtube")
-                                                     else " (not uploaded)" if config.UPLOAD_MODE == "api" else ""))
-            print(f"✓ done -> {out}")
-        except Exception as e:
+        res = make_one(key, item, history)
+        apply_result(res, history)
+        if res["status"] == "done":
+            made.append(res["label"])
+        else:
             failed += 1
-            traceback.print_exc()
-            _append(config.FAILED_FILE, item["url"])
-            record_review(item["url"], item.get("name", ""), "", "failed")
-            remove_from_queue(key)
-            reason = "blocked/empty site" if isinstance(e, BlockedSite) else type(e).__name__
-            print(f"✗ {item['url']} skipped ({reason}); next time the queue moves on")
     if made:
         notify(f"{len(made)} review video(s) ready", "\n".join(f"• {t}" for t in made))
     sys.exit(1 if failed and not made else 0)

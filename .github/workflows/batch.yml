@@ -1,0 +1,166 @@
+name: Make a batch of videos
+
+# Actions tab → "Make a batch of videos" → Run workflow → choose how many.
+# 1) picks that many products from the queue (never ones already reviewed),
+# 2) makes them in parallel, each in its own job,
+# 3) books everything at the end and gives you one download with all videos.
+
+on:
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "How many videos should I make? (1-30)"
+        type: number
+        required: true
+        default: 5
+      parallel:
+        description: "How many to make at the same time"
+        type: choice
+        options: ["1", "2", "3", "4"]
+        default: "2"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-writer
+  cancel-in-progress: false
+
+env:
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    outputs:
+      items: ${{ steps.plan.outputs.items }}
+      total: ${{ steps.plan.outputs.total }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install requests beautifulsoup4
+      - name: Pick the products
+        id: plan
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_MODELS: ${{ vars.GEMINI_MODELS }}
+          COUNT: ${{ inputs.count }}
+        run: |
+          n=$(( COUNT < 1 ? 1 : (COUNT > 30 ? 30 : COUNT) ))
+          python run.py --plan "$n" --plan-out plan.json
+          echo "items=$(python -c 'import json;print(json.dumps(json.load(open("plan.json"))))')" >> "$GITHUB_OUTPUT"
+          echo "total=$(python -c 'import json;print(len(json.load(open("plan.json"))))')" >> "$GITHUB_OUTPUT"
+      - name: Save queue changes
+        run: |
+          git config user.name "review-bot"
+          git config user.email "review-bot@users.noreply.github.com"
+          git add data/ || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Update review queue (batch plan)"
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
+
+  make:
+    needs: plan
+    if: needs.plan.outputs.total != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ fromJSON(inputs.parallel) }}
+      matrix:
+        item: ${{ fromJSON(needs.plan.outputs.items) }}
+    name: "Video ${{ matrix.item.n }}: ${{ matrix.item.name }}"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install FFmpeg, Python packages and Chromium
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+          pip install "piper-tts>=1.2" || echo "Piper backup voice not available (Edge voice still works)"
+      - name: Cache backup voice model
+        uses: actions/cache@v4
+        with:
+          path: .cache/piper
+          key: piper-${{ vars.PIPER_VOICE || 'en_US-ryan-high' }}
+      - name: Get extra fonts
+        run: python tools/get_fonts.py
+      - name: Make the video
+        env:
+          ITEM: ${{ toJSON(matrix.item) }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          UPLOAD_MODE: ${{ vars.UPLOAD_MODE || 'manual' }}
+          YT_PRIVACY: ${{ vars.YT_PRIVACY || 'unlisted' }}
+          YT_PUBLISH_DELAY_HOURS: ${{ vars.YT_PUBLISH_DELAY_HOURS }}
+          CHANNEL_NAME: ${{ vars.CHANNEL_NAME || 'Secret' }}
+          TTS_VOICE: ${{ vars.TTS_VOICE || 'en-US-AndrewMultilingualNeural' }}
+          GEMINI_MODELS: ${{ vars.GEMINI_MODELS }}
+          PIPER_VOICE: ${{ vars.PIPER_VOICE }}
+          MUSIC: ${{ vars.MUSIC }}
+          SFX: ${{ vars.SFX }}
+        run: python run.py --item "$ITEM"
+      - name: Keep the result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-${{ matrix.item.n }}
+          path: |
+            output/*/*.mp4
+            output/*/thumbnail.jpg
+            output/*/captions.srt
+            output/*/UPLOAD_KIT.md
+            output/*/metadata.json
+            output/*/script.json
+            output/*/result.json
+          retention-days: 14
+          if-no-files-found: ignore
+
+  save:
+    needs: [plan, make]
+    if: always() && needs.plan.outputs.total != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4
+      - name: Collect the videos
+        uses: actions/download-artifact@v4
+        with:
+          pattern: video-*
+          path: results
+      - name: Book them (queue, history, never-review-again list) and notify
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          UPLOAD_MODE: ${{ vars.UPLOAD_MODE || 'manual' }}
+        run: python run.py --apply-results results
+      - name: Save progress
+        run: |
+          git config user.name "review-bot"
+          git config user.email "review-bot@users.noreply.github.com"
+          git add data/ || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Book batch of ${{ needs.plan.outputs.total }} videos"
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
+      - name: One download with every video
+        uses: actions/upload-artifact/merge@v4
+        with:
+          name: all-videos-batch-${{ github.run_number }}
+          pattern: video-*
+          delete-merged: true
+          retention-days: 14

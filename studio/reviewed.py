@@ -118,8 +118,24 @@ class Ledger:
 
 
 def record(url, name="", brand="", status="done"):
-    """Add a product to the permanent record (status: done | failed)."""
+    """Add a product to the permanent record (status: done | failed). One row per site and status."""
     rows = backfill()
-    rows.append({"site": site_id(url), "name": brand or name or "", "alt": name if brand and name != brand else "",
-                 "url": url, "status": status, "date": date.today().isoformat()})
-    _save(rows)
+    sid = site_id(url)
+    row = {"site": sid, "name": brand or name or "", "alt": name if brand and name != brand else "",
+           "url": url, "status": status, "date": date.today().isoformat()}
+    for r in rows:
+        if r.get("site") == sid and r.get("status") == status:
+            r.update({k: v for k, v in row.items() if v})          # fill in name/date on the backfilled row
+            break
+    else:
+        rows.append(row)
+    seen, clean = set(), []
+    for r in rows:                                              # tidy duplicates from older versions
+        k = (r.get("site"), r.get("status"))
+        if k in seen:
+            prev = next(c for c in clean if (c.get("site"), c.get("status")) == k)
+            prev.update({kk: vv for kk, vv in r.items() if vv and not prev.get(kk)})
+            continue
+        seen.add(k)
+        clean.append(r)
+    _save(clean)
