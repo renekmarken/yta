@@ -28,12 +28,12 @@ concurrency:
 
 jobs:
   produce:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04            # pinned: ubuntu-latest moves to 26.04 on 2026-10-19
     timeout-minutes: 120
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -46,7 +46,7 @@ jobs:
           pip install "piper-tts>=1.2" || echo "Piper backup voice not available (Edge voice still works)"
 
       - name: Cache backup voice model
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .cache/piper
           key: piper-${{ vars.PIPER_VOICE || 'en_US-ryan-high' }}
@@ -91,7 +91,7 @@ jobs:
 
       - name: Keep the finished videos for the library
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: 911video-videos-${{ github.run_number }}
           path: |
