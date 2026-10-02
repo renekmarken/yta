@@ -10,15 +10,23 @@ Runs on GitHub Actions (free). Your PC can be off.
 
 ## How it works
 
-**1. Discovery (every 3 hours).** Scans free trend sources for new and hot products in your 13 money categories:
+**1. Discovery (every hour), new launches first.** Scans free sources for products launched **today or this
+week**, plus hot products, in your 13 money categories:
 
+- Launch radar: Product Hunt launches, "Launch HN" (YC startups), TechCrunch startups, and Google News
+  "launches / unveils / debuts" searches from the last day
 - Gemini with Google Search, asked what launched or made news in the last 14 days
 - Google News launch and funding searches, run per category
 - Google Trends daily US searches
 - Product Hunt launches and Hacker News "Show HN" posts
 - Apple App Store top charts for Finance, Business and Productivity, including which apps are climbing
 
-Gemini acts as the editor: it picks the products worth reviewing, finds each official website, assigns a category and scores hotness from 0 to 10. Every website is checked to exist before it goes into the queue.
+Gemini acts as the editor: it picks the products worth reviewing, finds each official website, assigns a category, scores hotness from 0 to 10 and marks what launched today / this week. Every website is checked to exist before it goes into the queue.
+
+New launches jump to the top of the queue (launched today: +8 priority, this week: +5, fading over a few
+days). If a fresh launch is hot enough, the discovery run **starts its video immediately**; it lands in
+your library and you get a phone notification. Limits, as repository variables: `AUTO_VIDEOS_PER_DAY`
+(default 3, `0` turns this off) and `AUTO_MIN_HOTNESS` (default 6).
 
 **2. Priority.** `priority = 0.65 × hotness (halves every 4 days) + 0.35 × category value + 2 if fresh`.
 
@@ -59,7 +67,7 @@ Each video gets its own random combination, chosen to differ from the last few v
 | Sound effects | 24 synthesised effects in 8 packs (soft, crisp, punchy, airy, digital, warm, minimal, playful), each tuned differently per video, levelled to the same quiet volume under the voice |
 | Thumbnails | **3 options per video**, each a different format, colour scheme and hook. 10 formats: tilted card · diagonal split · centred stack · phone · sticker · giant key number with arrow · score badge · magnifying glass on the price · YES/NO split · bold brand poster — in 10 high-contrast colour schemes, never the same format or colours as the last few videos |
 
-Every thumbnail shows the product's **logo** big and clear plus a huge hook: "IS IT WORTH IT?", "IS IT A SCAM?",
+Every thumbnail sits on a glowing backdrop made from the site's own blurred screenshot, and shows the product's **logo** big and clear plus a huge hook (small lead-in, giant key word): "IS IT WORTH IT?", "IS IT A SCAM?",
 "LEGIT OR HYPE?", "WHAT'S THE CATCH?"... Option 1 matches the video's title. Every item is measured and checked so
 nothing important overlaps anything else or sits under YouTube's duration badge. Pick your favourite in the library;
 automatic API uploads use a random one of the three.
@@ -151,6 +159,6 @@ To use your own voice, record `voice/seg_00.mp3`, `seg_01.mp3`, … in a video's
 ## Good to know
 
 - Some big sites block automated browsers. They are detected, logged in `data/failed.txt` and skipped, and the queue moves on.
-- Gemini's free tier has daily limits. One video uses about 2 requests and one discovery run about 3, which is well inside them.
+- Gemini's free tier has daily limits. One video uses about 2 requests and one discovery run about 3 (24 runs a day), which is well inside them.
 - Custom thumbnails need a phone-verified YouTube channel (youtube.com/verify).
 - Reviews show logos and screenshots for commentary. Keep them honest and balanced, and never imply a sponsorship that doesn't exist.
