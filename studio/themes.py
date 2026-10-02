@@ -7,6 +7,7 @@ import random
 from . import config
 from .music import MOODS
 from .sfx import PACKS
+from .thumbnail import LAYOUTS as THUMBS, PALETTES as THUMB_PALETTES
 from .visuals import available_head_fonts, lum, mix, shift_hue, text_safe
 
 LAYOUTS = ["full", "side", "stage", "cinema"]
@@ -31,7 +32,6 @@ MOOD_BIAS = {"credit-cards": ["lofi", "acoustic", "upbeat"], "insurance": ["acou
              "freelancing": ["lofi", "upbeat", "acoustic"]}
 INTROS = ["logo_pop", "headline", "split"]
 HIGHLIGHTS = ["box", "underline", "spotlight"]
-THUMBS = ["tilt_right", "split", "stack", "phone", "sticker"]
 OUTROS = ["center", "ring"]
 ALT_ACCENTS = [(255, 212, 0), (0, 214, 170), (255, 94, 58), (122, 92, 255), (0, 170, 255),
                (255, 70, 140), (140, 230, 60), (255, 150, 30)]
@@ -106,7 +106,9 @@ def pick_theme(seed, brand, history, has_mobile, category=None):
         "highlight": _avoid(rnd, HIGHLIGHTS, rv("highlight")[-1:]),
         "progress": rnd.random() < 0.6,
         "outro": rnd.choice(OUTROS),
-        "thumb": _avoid(rnd, thumbs, rv("thumb")),
+        "thumb": _avoid(rnd, thumbs, [h.get("theme", {}).get("thumb") for h in history[-5:]]),
+        "thumb_palette": _avoid(rnd, list(THUMB_PALETTES),
+                                [h.get("theme", {}).get("thumb_palette") for h in history[-4:]]),
         "thumb_accent": _avoid(rnd, [(255, 212, 0), (255, 230, 0), (0, 230, 160), (255, 90, 60),
                                      (0, 200, 255), accent if lum(accent) > 120 else (255, 212, 0)],
                                [tuple(a) for a in rv("thumb_accent") if a]),

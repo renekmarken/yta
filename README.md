@@ -56,7 +56,7 @@ Each video gets its own random combination, chosen to differ from the last few v
 | Extras | progress bar; animated verdict end card (score counts up, ring or bar fills) |
 | Music | original track composed for each video: lofi · upbeat · ambient · tech · acoustic, new key/tempo/chords every time, ducked under the voice |
 | Sound effects | whooshes on transitions, pops for captions and stickers, riser + hit for the verdict: soft · crisp · punchy packs |
-| Thumbnail | tilted card · diagonal split · centred stack · phone · sticker |
+| Thumbnail | 10 formats: tilted card · diagonal split · centred stack · phone · sticker · giant key number with arrow · score badge · magnifying glass on the price · YES/NO split · bold brand poster — in 10 high-contrast colour schemes, never the same format or colours as the last few videos |
 
 Every thumbnail has the site's **logo**, its **name** and **"WORTH USING IT?"**.
 

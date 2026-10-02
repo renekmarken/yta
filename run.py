@@ -208,7 +208,7 @@ def produce(item, history, out=None, mode="new"):
                        "theme": {k: theme[k] for k in ("mode", "layout", "frame", "caption", "bg",
                                                        "head_font", "accent", "transitions", "intro",
                                                        "highlight", "thumb", "thumb_accent",
-                                                       "cap_anim", "callout", "music", "sfx")
+                                                       "cap_anim", "callout", "music", "sfx", "thumb_palette")
                                  if k in theme}}
 
 

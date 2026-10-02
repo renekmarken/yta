@@ -29,6 +29,8 @@ ICONS = {   # name -> codepoint (from MaterialIcons-Regular.codepoints)
     "favorite": 0xe87d, "forum": 0xe0bf, "reviews": 0xf054, "event": 0xe878, "build": 0xe869,
     "tune": 0xe429, "privacy_tip": 0xf0dc, "policy": 0xea17, "fingerprint": 0xe90d,
     "key": 0xe73c, "fact_check": 0xf0c5, "travel_explore": 0xe2db, "description": 0xe873,
+    "check": 0xe5ca, "close": 0xe5cd, "priority_high": 0xe645, "local_fire_department": 0xef55,
+    "new_releases": 0xe031, "verified": 0xef76, "zoom_in": 0xe8ff,
 }
 
 # keyword (regex, matched on lowercase text) -> icon. First match wins, so order = priority.
