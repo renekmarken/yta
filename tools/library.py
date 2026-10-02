@@ -195,7 +195,8 @@ def cmd_add(src, tag):
                  "title": title, "description": meta.get("description", ""), "tags": meta.get("tags", []),
                  "pinned_comment": meta.get("pinned_comment", ""), "verdict": meta.get("verdict", ""),
                  "score": meta.get("score", ""), "category": meta.get("category", ""),
-                 "checks": meta.get("check_before_publishing", []), "files": files}
+                 "checks": meta.get("check_before_publishing", []), "files": files,
+                 "kind": meta.get("kind", "review"), "story": meta.get("story")}
         yt = folder / "youtube_id.txt"
         if yt.exists():
             entry["youtube"] = f"https://youtu.be/{yt.read_text().strip()}"

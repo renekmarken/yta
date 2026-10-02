@@ -19,6 +19,11 @@ on:
         description: "Optional: also review these websites (outside the queue, space-separated)"
         required: false
         default: ""
+      kind:
+        description: "What to make"
+        type: choice
+        options: ["review", "risk"]
+        default: "review"
       parallel:
         description: "How many to make at the same time"
         type: choice
@@ -58,10 +63,11 @@ jobs:
           GEMINI_MODELS: ${{ vars.GEMINI_MODELS }}
           COUNT: ${{ inputs.count }}
           CUSTOM_URL: ${{ inputs.url }}
+          KIND: ${{ inputs.kind }}
         run: |
           min=1; [ -n "$CUSTOM_URL" ] && min=0
           n=$(( COUNT < min ? min : (COUNT > 30 ? 30 : COUNT) ))
-          python run.py --plan "$n" --plan-url "$CUSTOM_URL" --plan-out plan.json
+          python run.py --plan "$n" --plan-url "$CUSTOM_URL" --kind "${KIND:-review}" --plan-out plan.json
           echo "items=$(python -c 'import json;print(json.dumps(json.load(open("plan.json"))))')" >> "$GITHUB_OUTPUT"
           echo "total=$(python -c 'import json;print(len(json.load(open("plan.json"))))')" >> "$GITHUB_OUTPUT"
       - name: Save queue changes
@@ -133,6 +139,7 @@ jobs:
             output/*/UPLOAD_KIT.md
             output/*/metadata.json
             output/*/script.json
+            output/*/story.png
             output/*/site.json
             output/*/*.png
             output/*/logo.svg

@@ -87,6 +87,10 @@ textarea.box.desc{min-height:260px}
 .status.on{display:flex}
 .xbtn{margin-left:auto;border:0;background:none;color:inherit;font-size:16px;cursor:pointer;padding:2px 6px;opacity:.7}
 .xbtn:hover{opacity:1}
+.gen.risk{background:#d61f2c;color:#fff}
+.pill.risk-badge{background:#d61f2c;color:#fff;border-color:#d61f2c;font-weight:800}
+.story-link{display:inline-flex;gap:6px;align-items:center;margin-top:10px;font-size:14px;color:var(--muted)}
+.story-link a{color:var(--accent);font-weight:650;overflow-wrap:anywhere}
 .done-list{margin-top:28px;border-top:1px solid var(--line);padding-top:18px}
 .done-list summary{cursor:pointer;font-weight:750;font-size:16px;list-style:none;display:flex;align-items:center;gap:10px;
   padding:12px 16px;border:1px solid var(--line);border-radius:14px;background:var(--surface);width:max-content;max-width:100%}
@@ -143,7 +147,8 @@ select{width:100%;padding:11px;border-radius:12px;border:1px solid var(--line);b
     <div class="top-actions" id="actions" hidden>
       <input class="search" id="search" type="search" placeholder="Search videos…" aria-label="Search videos">
       <button class="ghost" id="queuebtn" title="Products waiting to be reviewed">Queue</button>
-      <button class="gen" id="gen">＋ Generate new videos</button>
+      <button class="gen" id="gen">＋ Generate Review</button>
+      <button class="gen risk" id="genrisk">⚠ Generate Risk Case</button>
       <button class="ghost" id="lockbtn" title="Lock this page on this device">Lock</button>
     </div>
   </header>
@@ -152,15 +157,15 @@ select{width:100%;padding:11px;border-radius:12px;border:1px solid var(--line);b
 </div>
 
 <dialog id="dlg">
-  <h2>Generate new videos</h2>
-  <p class="sub" style="margin:0">Picks the next products from the queue (never one that was already reviewed).</p>
-  <label for="count" style="display:block;font-weight:700;margin-top:18px">How many videos from the queue?</label>
+  <h2 id="dlgtitle">Generate reviews</h2>
+  <p class="sub" style="margin:0" id="dlgsub">Picks the next products from the queue (never one that was already reviewed).</p>
+  <label for="count" style="display:block;font-weight:700;margin-top:18px" id="countlabel">How many videos from the queue?</label>
   <div class="num">
     <button type="button" data-step="-1" aria-label="Fewer">−</button>
     <input id="count" type="number" min="0" max="30" value="3" inputmode="numeric">
     <button type="button" data-step="1" aria-label="More">+</button>
   </div>
-  <label for="custom" style="display:block;font-weight:700;margin-top:14px">Also review a specific website
+  <label for="custom" style="display:block;font-weight:700;margin-top:14px"><span id="customlabel">Also review a specific website</span>
     <span style="font-weight:500;color:var(--muted)">(optional)</span></label>
   <input id="custom" class="box" type="url" inputmode="url" autocomplete="off" spellcheck="false"
          placeholder="e.g. https://www.example.com" style="width:100%;margin-top:6px">
@@ -279,6 +284,7 @@ const card = v => `
         <div class="meta">
           <span>${esc(fmtDate(v.date))}</span>
           ${v.verdict ? `<span class="pill"><span class="dot" style="background:${verdictColor(v.verdict)}"></span>${esc(v.verdict)}${v.score !== "" ? " · " + esc(v.score) : ""}</span>` : ""}
+          ${v.kind === "risk" ? `<span class="pill risk-badge">⚠ Risk case</span>` : ""}
           ${isUploaded(v) ? `<span class="pill done-badge">Uploaded</span>` : ""}
         </div>
       </div>
@@ -332,8 +338,10 @@ function detail(v){
             <h2 class="big-title">${esc(v.title)}</h2>
             <div class="meta">
               <span>${esc(fmtDate(v.date))}</span>
-              ${v.verdict ? `<span class="pill"><span class="dot" style="background:${verdictColor(v.verdict)}"></span>${esc(v.verdict)}${v.score !== "" ? " · " + esc(v.score) + "/10" : ""}</span>` : ""}
+              ${v.kind === "risk" ? `<span class="pill risk-badge">⚠ Risk case</span>`
+                : v.verdict ? `<span class="pill"><span class="dot" style="background:${verdictColor(v.verdict)}"></span>${esc(v.verdict)}${v.score !== "" ? " · " + esc(v.score) + "/10" : ""}</span>` : ""}
             </div>
+            ${v.story && v.story.url ? `<div class="story-link">Story: <a href="${esc(v.story.url)}" target="_blank" rel="noopener">${esc(v.story.where || v.story.source || "source")} — ${esc((v.story.title || "").slice(0, 70))}</a></div>` : ""}
             <div class="downloads">
               ${dl("video", "Download video (MP4)" + (f.video && f.video.size ? ` · ${Math.round(f.video.size / 1048576)} MB` : ""), true)}
               ${thumbs.length > 1 ? "" : dl("thumbnail", "Thumbnail")}
@@ -673,10 +681,21 @@ function updateEta(){
   document.getElementById("eta").textContent = `About ${mins} minutes for ${n} video${n === 1 ? "" : "s"}. ` +
     "They appear on this page when they are done; sites that block visitors are skipped.";
 }
-document.getElementById("gen").addEventListener("click", () => {
+let genKind = "review";
+function openGenerate(kind){
+  genKind = kind;
+  const risk = kind === "risk";
+  document.getElementById("dlgtitle").textContent = risk ? "Generate Risk Cases" : "Generate reviews";
+  document.getElementById("dlgsub").textContent = risk
+    ? "Finds a real user's worst experience (Reddit, Hacker News, news) with popular products and explains what happened, why, and what to do. One per product."
+    : "Picks the next products from the queue (never one that was already reviewed).";
+  document.getElementById("countlabel").textContent = risk ? "How many Risk Cases?" : "How many videos from the queue?";
+  document.getElementById("customlabel").textContent = risk ? "Also make one for a specific product (its website)" : "Also review a specific website";
   document.getElementById("dlgerr").textContent = "";
   updateEta(); dlg.showModal();
-});
+}
+document.getElementById("gen").addEventListener("click", () => openGenerate("review"));
+document.getElementById("genrisk").addEventListener("click", () => openGenerate("risk"));
 dlg.addEventListener("click", e => {
   const step = e.target.closest("[data-step]");
   if (step) { countEl.value = clamp(Number(countEl.value) + Number(step.dataset.step)); updateEta(); }
@@ -698,11 +717,11 @@ document.getElementById("start").addEventListener("click", async () => {
   }
   btn.disabled = true; btn.textContent = "Starting…"; err.textContent = "";
   try {
-    await runWorkflow("batch.yml", {count: String(q), url: url || "", parallel: String(par)});
+    await runWorkflow("batch.yml", {count: String(q), url: url || "", parallel: String(par), kind: genKind});
     watching = "batch.yml";
     dlg.close();
     customEl.value = "";
-    showStatus(`<span class="spinner"></span> Starting ${n} new video${n === 1 ? "" : "s"}…`);
+    showStatus(`<span class="spinner"></span> Starting ${n} new ${genKind === "risk" ? "Risk Case" : "video"}${n === 1 ? "" : "s"}…`);
     setTimeout(checkRuns, 6000);
   } catch (e) {
     err.textContent = "Couldn't start: " + e.message;

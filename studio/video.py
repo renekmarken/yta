@@ -781,6 +781,8 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
 
     theme.setdefault("bg_image", str(out_dir / info["screenshots"][0]["file"]))
     lays = clip_layouts(theme, segs)
+    # the story card of a Risk Case is not the product's site: show it as a tilted card, no URL bar
+    lays = ["tilt" if s.get("screenshot") == "story.png" else l for s, l in zip(segs, lays)]
     variants = {lay: layout_variant(theme, lay) for lay in set(lays)}
     for lay, th in variants.items():                      # static layers once per layout
         for name, im in zip(("bg", "chrome", "mask", "light"), build_layers(th, info, logo, brand)):

@@ -259,8 +259,8 @@ def _phone(shot, height, tilt):
 # ------------------------------------------------------------------ background
 def _backdrop(shot, pal, light_at=(640, 330)):
     """Single-hue background: the site's screenshot blurred and tinted in the palette colour, a soft
-    lighter centre, two faint diagonal light bands and darker edges."""
-    dark, mid = PALETTES[pal]
+    lighter centre, two faint diagonal light bands and darker edges. `pal` is a name or (dark, mid)."""
+    dark, mid = PALETTES[pal] if isinstance(pal, str) else pal
     base = Image.new("RGB", (TW, TH), dark)
     glow = Image.radial_gradient("L").resize((TW * 2, TH * 2))
     glow = glow.crop((TW - light_at[0], TH - light_at[1], 2 * TW - light_at[0], 2 * TH - light_at[1]))
@@ -687,3 +687,133 @@ def choose_thumbnail(folder: Path):
     """The one used for API uploads: a random pick among the variations."""
     found = thumbnails(folder)
     return random.choice(found) if found else None
+
+
+# ------------------------------------------------------------------ Risk Case thumbnails
+# A different look from the reviews: near-black with a red glow, the logo big, the story's damage in
+# huge glowing red letters ("$70,000 GONE."), "WHAT HAPPENED?" with warning signs, and the post itself.
+RED, DANGER = (255, 38, 44), ((16, 0, 4), (128, 6, 18))
+RISK_LAYOUTS = ["alarm", "post", "evidence"]
+
+
+def _red_text(canvas, B, m, x, y, align="center"):
+    """Huge red letters with a red glow and a black outline."""
+    glow = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+    gd = ImageDraw.Draw(glow)
+    d = ImageDraw.Draw(canvas)
+    vy = y + m["stroke"]
+    words = []
+    for line, f, top, cap, tw in zip(m["lines"], m["fonts"], m["tops"], m["caps"], m["widths"]):
+        lx = x - tw / 2 if align == "center" else x + m["stroke"]
+        txt = " ".join(line)
+        gd.text((lx, vy - top), txt, font=f, fill=(*RED, 230), stroke_width=m["stroke"] + 18, stroke_fill=(*RED, 230))
+        words.append((lx, vy - top, txt, f))
+        vy += cap + m["gap"]
+    canvas.alpha_composite(glow.filter(ImageFilter.GaussianBlur(34)))
+    for lx, ly, txt, f in words:
+        d.text((lx, ly + 8), txt, font=f, fill=(0, 0, 0, 160), stroke_width=m["stroke"], stroke_fill=(0, 0, 0, 160))
+    for lx, ly, txt, f in words:
+        d.text((lx, ly), txt, font=f, fill=RED, stroke_width=m["stroke"], stroke_fill=(20, 0, 2))
+    x0 = x - m["w"] / 2 if align == "center" else x
+    B.add("big text", (x0, y, x0 + m["w"], y + m["h"]))
+    return y + m["h"]
+
+
+def _warn_line(canvas, B, text, x, y, size, align="center"):
+    """'WHAT HAPPENED?' in white with a yellow warning sign on each side. Returns bottom y."""
+    d = ImageDraw.Draw(canvas)
+    f = _hf(size)
+    tw = d.textlength(text, font=f)
+    sign = icons.glyph("warning", int(size * 0.95), (255, 200, 0))
+    gap = 18
+    total = tw + ((sign.width + gap) * 2 if sign is not None else 0)
+    x0 = x - total / 2 if align == "center" else x
+    bb = f.getbbox(text)
+    if sign is not None:
+        paste_shadowed(canvas, sign, (x0, y + (bb[3] - bb[1] - sign.height) // 2 + 4), 10, 10, 120, 4)
+        tx = x0 + sign.width + gap
+    else:
+        tx = x0
+    d.text((tx, y - bb[1]), text, font=f, fill=WHITE, stroke_width=5, stroke_fill=INK)
+    if sign is not None:
+        paste_shadowed(canvas, sign, (tx + tw + gap, y + (bb[3] - bb[1] - sign.height) // 2 + 4), 10, 10, 120, 4)
+    B.add("warning line", (x0, y, x0 + total, y + bb[3] - bb[1] + 10))
+    return y + bb[3] - bb[1] + 10
+
+
+def render_risk(data, info, out_dir, theme, layout, variant=0):
+    """One Risk Case thumbnail. Returns (image, Boxes)."""
+    B = Boxes()
+    story = data.get("story") or {}
+    logo = load_logo(out_dir / info["logo"]) if info.get("logo") else None
+    brand = data.get("brand") or info["domain"]
+    big = (story.get("thumb_big") or f"{story.get('amount') or 'ACCOUNT'} GONE.").upper()
+    small = (story.get("thumb_small") or "WHAT HAPPENED?").upper()
+    pages = _pages(info, out_dir)
+    card_src = out_dir / "story.png"
+    post = Image.open(card_src).convert("RGB") if card_src.exists() else None
+    first = pages[0] if pages else post
+    bg = _backdrop(first, DANGER, (640, 420) if layout == "alarm" else (380, 400))
+    words = big.split()
+    lines = [words] if len(words) <= 1 or len(big) <= 9 else [words[:-1], words[-1:]]
+    hk = {"lines": lines, "big": [True] * len(lines), "accent": set()}
+
+    if layout == "alarm":            # logo top-centre, giant red damage, warning line, screenshots faint behind
+        if pages:
+            for side, shot in ((-1, pages[0]), (1, (pages + pages)[1])):
+                card = _card(shot, 430, 7 * -side)
+                card.putalpha(card.getchannel("A").point(lambda a: int(a * 0.55)))
+                x = -210 if side < 0 else TW - card.width + 210
+                bg.alpha_composite(card, (x, (TH - card.height) // 2 + 60))
+        top = _brand_block(bg, B, logo, brand, TW // 2, 30, 560, 140, "center", review=False) + 20
+        m = _fit_hook(hk, 820, TH - top - 150, 260)
+        y = _red_text(bg, B, m, TW // 2, top, "center")
+        _warn_line(bg, B, small, TW // 2, min(y + 24, TH - 110), 74)
+
+    else:                            # logo top-left, red damage left, the post (or the site) on the right
+        hero = post if (layout == "post" and post is not None) else (pages[0] if pages else post)
+        if hero is not None:
+            crop = hero.crop((210, 130, 1710, 950)) if hero is post else hero
+            card = _card(crop, 620, -5 if variant % 2 == 0 else 5)
+            cx, cy = TW - card.width + 60, (TH - card.height) // 2 + 20
+            _glow(bg, (cx, cy, cx + card.width, cy + card.height), RED, 60, 150)
+            paste_shadowed(bg, card, (cx, cy), 22, 30, 210, 18)
+            B.add("post" if hero is post else "screenshot", (cx, cy, cx + card.width, cy + card.height), "hero")
+            if layout == "evidence":
+                b = icons.badge("warning", 150, (255, 200, 0), INK)
+                if b is not None:
+                    bx, by = cx - 40, cy - 40                   # on the card's corner, not over the text
+                    paste_shadowed(bg, b, (bx, by), 75, 24, 200, 10)
+            hero_x = cx
+        else:
+            hero_x = TW - 60
+        col_w = min(660, hero_x - 46 - 30)
+        top = _brand_block(bg, B, logo, brand, 46, 34, min(540, col_w), 140, review=False) + 18
+        m = _fit_hook(hk, col_w, TH - top - 140, 240)
+        y = _red_text(bg, B, m, 46, top, "left")
+        _warn_line(bg, B, small, 46, min(y + 22, TH - 110), 64, "left")
+
+    overlay = config.ASSETS_DIR / "thumbnail_overlay.png"
+    if overlay.exists():
+        bg.alpha_composite(Image.open(overlay).convert("RGBA").resize((TW, TH)))
+    return bg, B
+
+
+def make_risk_thumbnails(data, info, out_dir: Path, theme: dict, count=3):
+    """Three Risk Case thumbnails (different layouts). Same file names as the reviews."""
+    rnd = random.Random(theme["seed"] + "risk")
+    layouts = RISK_LAYOUTS[:]
+    rnd.shuffle(layouts)
+    for old in out_dir.glob("*thumbnail*.jpg"):
+        old.unlink()
+    paths = []
+    for i, lay in enumerate(layouts[:count], 1):
+        im, B = render_risk(data, info, out_dir, theme, lay, variant=i - 1)
+        problems = B.clashes() + [f"{n} near the edge" for n in B.outside()]
+        if problems:
+            print(f"   ! risk thumbnail {i} ({lay}): {', '.join(problems)}")
+        out = out_dir / f"911video-thumbnail-{i}.jpg"
+        im.convert("RGB").save(out, quality=92)
+        paths.append(out)
+    theme["thumbs"] = [f"risk/{l}" for l in layouts[:count]]
+    return paths

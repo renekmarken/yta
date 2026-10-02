@@ -106,6 +106,7 @@ def write_kit(out, data, info, description, theme, video_file="video.mp4"):
             "tags": _tags(data["tags"]),
             "verdict": data.get("verdict"), "score": data.get("score"),
             "category": data.get("category"), "pinned_comment": data.get("pinned_comment", ""),
+            "kind": data.get("kind", "review"), "story": data.get("story"),
             "check_before_publishing": data.get("check_before_publishing", [])}
     (out / "metadata.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False))
     checks = "\n".join(f"- [ ] {c}" for c in meta["check_before_publishing"]) or "- [ ] (none flagged)"
@@ -164,8 +165,16 @@ def produce(item, history, out=None, mode="new"):
         cat = BY_ID.get(item.get("category"))
         print(f"1/6 crawling {url}")
         info = crawl(url, out, cat["subpage_words"] if cat else None)
-        print(f"2/6 research + script ({len(info['screenshots'])} screenshots, logo={bool(info.get('logo'))})")
-        data = write_script(info, item, history)
+        if item.get("kind") == "risk":                      # Risk Case: a real user's story, explained
+            from studio import risk
+            print(f"2/6 finding a real story + script ({len(info['screenshots'])} screenshots)")
+            story = risk.find_story(item.get("name") or info["domain"], url)
+            info["screenshots"].insert(0, risk.story_card(story, out, item.get("name") or info["domain"]))
+            (out / "site.json").write_text(json.dumps(info, indent=1, ensure_ascii=False))
+            data = risk.write_script(info, item, story, history)
+        else:
+            print(f"2/6 research + script ({len(info['screenshots'])} screenshots, logo={bool(info.get('logo'))})")
+            data = write_script(info, item, history)
     else:
         info = json.loads((out / "site.json").read_text())
         data = json.loads((out / "script.json").read_text())
@@ -188,7 +197,11 @@ def produce(item, history, out=None, mode="new"):
     print(f"4/6 rendering video ({theme['layout']} layout, {theme['mode']} {theme['bg']}, {theme['head_font']})")
     shutil.rmtree(out / "render", ignore_errors=True)
     video = render(data, info, out, theme)
-    make_thumbnails(data, info, out, theme)
+    if data.get("kind") == "risk":
+        from studio.thumbnail import make_risk_thumbnails
+        make_risk_thumbnails(data, info, out, theme)
+    else:
+        make_thumbnails(data, info, out, theme)
     print(f"5/6 thumbnails ({', '.join(theme['thumbs'])})")
     srt = write_srt(data["segments"], out / "captions.srt")
     print("6/6 metadata")
@@ -218,6 +231,7 @@ def produce(item, history, out=None, mode="new"):
 
     opener = data["segments"][0]["text"].split(".")[0][:120]
     return out, data, {"date": date.today().isoformat(), "url": info["url"], "brand": data.get("brand"),
+                       "kind": data.get("kind", "review"), "story_url": (data.get("story") or {}).get("url"),
                        "category": data.get("category"), "title": data.get("youtube_title"),
                        "youtube": youtube_url,
                        "format": data.get("format"), "opener": opener, "title_style": data.get("title_style"),
@@ -236,6 +250,15 @@ def _label(data, item, youtube):
 def apply_result(res, history):
     """Book one finished (or failed) video into the queue, history and the never-again record."""
     item, key = res["item"], res["key"]
+    if item.get("kind") == "risk":              # Risk Cases keep their own record; the review queue is untouched
+        from studio import risk
+        if res["status"] == "done":
+            history.append(res["record"])
+            save_history(history)
+            risk.record(item["url"], item.get("name", ""), res["record"].get("story_url"), res["record"].get("title"), "done")
+        elif res.get("reason") == "no story found":
+            risk.record(item["url"], item.get("name", ""), "", "", "nostory")
+        return
     if res["status"] == "done":
         history.append(res["record"])
         save_history(history)
@@ -257,7 +280,7 @@ def make_one(key, item, history):
                 "label": _label(data, item, record.get("youtube")), "folder": out.name}
     except Exception as e:
         traceback.print_exc()
-        reason = "blocked/empty site" if type(e).__name__ == "BlockedSite" else type(e).__name__
+        reason = {"BlockedSite": "blocked/empty site", "NoStory": "no story found"}.get(type(e).__name__, type(e).__name__)
         print(f"✗ {item['url']} skipped ({reason}); next time the queue moves on")
         return {"status": "failed", "key": key, "item": item, "reason": reason}
 
@@ -284,6 +307,7 @@ def main():
     ap.add_argument("--plan", type=int, help="pick this many products and write them to --plan-out")
     ap.add_argument("--plan-out", type=Path, default=Path("plan.json"))
     ap.add_argument("--plan-url", default="", help="also review this website (outside the queue)")
+    ap.add_argument("--kind", default="review", choices=["review", "risk"], help="review or Risk Case (batch plan)")
     ap.add_argument("--item", help="make exactly this planned item (JSON) and write result.json, no bookkeeping")
     ap.add_argument("--apply-results", type=Path, help="book all result.json files found in this folder")
     a = ap.parse_args()
@@ -304,7 +328,11 @@ def main():
         return
 
     if a.plan is not None:
-        picks = plan(a.plan, history) if a.plan > 0 else []
+        if a.kind == "risk":
+            from studio import risk
+            picks = risk.candidates(history, a.plan) if a.plan > 0 else []
+        else:
+            picks = plan(a.plan, history) if a.plan > 0 else []
         q = load_queue()
         for custom in reversed(re.split(r"[\s,]+", a.plan_url.strip())):    # one or more websites
             if not custom:
@@ -314,6 +342,11 @@ def main():
             item = (hit[0], {**hit[1]}) if hit else \
                 (key_for(custom), {"name": _site_name(custom), "url": custom,
                                    "category": None, "custom": True})       # typed in: made even if reviewed
+            if a.kind == "risk":                    # a story search needs the brand, not the domain
+                nm = item[1]["name"]
+                if "." in nm and " " not in nm:
+                    nm = nm.split(".")[0].replace("-", " ").title()
+                item = (item[0], {**item[1], "name": nm, "kind": "risk"})
             picks = [item] + [(k, it) for k, it in picks if k != item[0]]
         a.plan_out.write_text(json.dumps([{"n": i + 1, "key": k, **it} for i, (k, it) in enumerate(picks)]))
         print(f"Planned {len(picks)} video(s):")
@@ -324,7 +357,7 @@ def main():
         it = json.loads(a.item)
         key = it.pop("key", None) or key_for(it["url"])
         it.pop("n", None)
-        if not it.get("custom") and Ledger().has(it["url"], it.get("name")):   # a typed-in site is made anyway
+        if not it.get("custom") and it.get("kind") != "risk" and Ledger().has(it["url"], it.get("name")):
             print(f"{it['name']} was already reviewed — skipping.")
             return
         res = make_one(key, it, history)
@@ -332,7 +365,7 @@ def main():
         folder.mkdir(parents=True, exist_ok=True)
         (folder / "result.json").write_text(json.dumps(res, ensure_ascii=False))
         # a blocked site is normal (it is recorded and skipped from now on) - don't turn the batch red
-        sys.exit(0 if res["status"] == "done" or res.get("reason") == "blocked/empty site" else 1)
+        sys.exit(0 if res["status"] == "done" or res.get("reason") in ("blocked/empty site", "no story found") else 1)
     if a.apply_results:
         results = [json.loads(p.read_text()) for p in sorted(a.apply_results.rglob("result.json"))]
         for res in results:
