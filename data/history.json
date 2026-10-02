@@ -229,5 +229,95 @@
    "sfx": "soft",
    "thumb_palette": "royal_yellow"
   }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://apps.apple.com/ee/app/moshly-create-unreal-videos/id6807285369",
+  "brand": "Moshly",
+  "category": "ai-tools",
+  "title": "Moshly: Real Datamosh on iPhone, But Is It Worth €35?",
+  "youtube": null,
+  "format": "pros_cons",
+  "opener": "If you are on Android, you can stop watching immediately",
+  "title_style": "good",
+  "theme": {
+   "mode": "light",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "glass",
+   "bg": "aurora",
+   "head_font": "inter",
+   "accent": [
+    29,
+    100,
+    240
+   ],
+   "transitions": [
+    "cut"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "tilt_right",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "lofi",
+   "sfx": "airy",
+   "thumb_palette": "paper_red",
+   "thumbs": [
+    "tilt_right/paper_red/good",
+    "poster/black_green/worth",
+    "phone/purple_lime/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.betterment.com",
+  "brand": "Betterment",
+  "category": "investing",
+  "title": "Betterment: Is It Actually Good? Automated Investing Reviewed",
+  "youtube": null,
+  "format": "pros_cons",
+  "opener": "Here is the catch with Betterment: while they advertise automated investing and high cash yields, small accounts get hit",
+  "title_style": "good",
+  "theme": {
+   "mode": "light",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "tag",
+   "bg": "spotlight",
+   "head_font": "inter",
+   "accent": [
+    17,
+    107,
+    241
+   ],
+   "transitions": [
+    "cut"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "tilt_right",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "pill",
+   "music": "lofi",
+   "sfx": "playful",
+   "thumb_palette": "teal_orange",
+   "thumbs": [
+    "tilt_right/teal_orange/good",
+    "poster/orange_ink/worth",
+    "verdict/purple_lime/scam"
+   ]
+  }
  }
 ]

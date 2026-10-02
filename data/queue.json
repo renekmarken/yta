@@ -1,19 +1,5 @@
 {
  "items": {
-  "betterment.com": {
-   "name": "Betterment",
-   "url": "https://www.betterment.com",
-   "category": "investing",
-   "hotness": 7.0,
-   "evergreen": false,
-   "why": "Adjusted RIA custody and platform fees starting at 0.20%, drawing advisory market interest.",
-   "sources": [
-    "Google News"
-   ],
-   "added": "2026-10-02T07:22:10+00:00",
-   "priority": 9.68,
-   "cat": "📈 Investing platforms"
-  },
   "chase.com": {
    "name": "Chase",
    "url": "https://www.chase.com",
@@ -785,5 +771,5 @@
    "cat": "💼 Freelancing platforms"
   }
  },
- "updated": "2026-10-02T14:39:57+00:00"
+ "updated": "2026-10-02T15:03:43+00:00"
 }
