@@ -68,6 +68,32 @@ textarea.box.desc{min-height:260px}
 .mark{display:flex;align-items:center;gap:10px;margin-top:14px;font-weight:600;cursor:pointer}
 .mark input{width:20px;height:20px;accent-color:var(--good)}
 .hint{color:var(--muted);font-size:13px;margin-top:8px}
+.top-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.top-actions[hidden]{display:none}
+.gen{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:12px;border:0;background:var(--accent);
+  color:var(--accent-fg);font:inherit;font-weight:700;cursor:pointer}
+.ghost{background:none;border:1px solid var(--line);color:var(--muted);padding:10px 14px;border-radius:12px;font:inherit;cursor:pointer}
+.status{display:none;margin-bottom:18px;padding:12px 16px;border-radius:14px;background:var(--surface);border:1px solid var(--line);
+  box-shadow:var(--shadow);align-items:center;gap:12px;font-size:15px}
+.status.on{display:flex}
+.spinner{width:18px;height:18px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--accent);animation:spin 1s linear infinite;flex:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.lock{min-height:70vh;display:grid;place-items:center}
+.lock-card{width:100%;max-width:380px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px 24px;box-shadow:var(--shadow)}
+.lock-card h1{font-size:24px;margin:0 0 6px}
+.lock-card input[type=password]{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface-2);
+  color:var(--fg);font:inherit;font-size:17px;margin:16px 0 10px}
+.lock-card .gen{width:100%;justify-content:center;padding:13px}
+.err{color:var(--bad);font-weight:600;min-height:22px;margin:8px 0 0;font-size:14px}
+dialog{border:1px solid var(--line);border-radius:20px;background:var(--surface);color:var(--fg);padding:24px;width:min(420px,calc(100vw - 32px));box-shadow:var(--shadow)}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+dialog h2{margin:0 0 4px;font-size:21px}
+.num{display:flex;align-items:center;gap:12px;margin:18px 0 6px}
+.num button{width:48px;height:48px;border-radius:12px;border:1px solid var(--line);background:var(--surface-2);color:var(--fg);font-size:24px;cursor:pointer}
+.num input{flex:1;min-width:0;text-align:center;font:inherit;font-size:30px;font-weight:800;padding:6px;border-radius:12px;border:1px solid var(--line);background:var(--surface-2);color:var(--fg)}
+.row{display:flex;gap:10px;margin-top:18px}
+.row > *{flex:1}
+select{width:100%;padding:11px;border-radius:12px;border:1px solid var(--line);background:var(--surface-2);color:var(--fg);font:inherit}
 </style>
 </head>
 <body>
@@ -77,10 +103,34 @@ textarea.box.desc{min-height:260px}
       <h1>Video Library</h1>
       <p class="sub" id="sub">Your finished review videos, ready to upload.</p>
     </div>
-    <input class="search" id="search" type="search" placeholder="Search videos…" aria-label="Search videos">
+    <div class="top-actions" id="actions" hidden>
+      <input class="search" id="search" type="search" placeholder="Search videos…" aria-label="Search videos">
+      <button class="gen" id="gen">＋ Generate new videos</button>
+      <button class="ghost" id="lockbtn" title="Lock this page on this device">Lock</button>
+    </div>
   </header>
+  <div class="status" id="status" role="status"></div>
   <main id="app"></main>
 </div>
+
+<dialog id="dlg">
+  <h2>Generate new videos</h2>
+  <p class="sub" style="margin:0">Picks the next products from the queue (never one that was already reviewed).</p>
+  <label for="count" style="display:block;font-weight:700;margin-top:18px">How many videos?</label>
+  <div class="num">
+    <button type="button" data-step="-1" aria-label="Fewer">−</button>
+    <input id="count" type="number" min="1" max="30" value="3" inputmode="numeric">
+    <button type="button" data-step="1" aria-label="More">+</button>
+  </div>
+  <label for="parallel" style="display:block;font-weight:700;margin-top:14px">At the same time</label>
+  <select id="parallel"><option>1</option><option selected>2</option><option>3</option><option>4</option></select>
+  <p class="hint" id="eta"></p>
+  <p class="err" id="dlgerr"></p>
+  <div class="row">
+    <button type="button" class="ghost" id="cancel">Cancel</button>
+    <button type="button" class="gen" id="start" style="justify-content:center">Start</button>
+  </div>
+</dialog>
 
 <script>
 const ICON = {
@@ -89,6 +139,12 @@ const ICON = {
 };
 const LIMITS = {title: 100, description: 5000, tags: 500, pinned: 10000};
 let videos = [];
+let dispatch = null;
+let unlocked = false;
+let box = null;            // the encrypted file
+const enc = new TextEncoder(), dec = new TextDecoder();
+const unb64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const tob64 = a => btoa(String.fromCharCode(...new Uint8Array(a)));
 
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const store = {
@@ -100,15 +156,66 @@ const verdictColor = v => v === "Worth it" ? "var(--good)" : v === "Not worth it
 const fmtDate = d => { try { return new Date(d + "T12:00:00").toLocaleDateString(undefined, {day:"numeric", month:"short", year:"numeric"}); } catch { return d; } };
 const tagsText = v => (v.tags || []).join(", ");
 
+async function deriveKey(password){
+  const base = await crypto.subtle.importKey("raw", enc.encode(password), "PBKDF2", false, ["deriveKey"]);
+  return crypto.subtle.deriveKey({name: "PBKDF2", hash: "SHA-256", salt: unb64(box.salt), iterations: box.iter},
+                                 base, {name: "AES-GCM", length: 256}, true, ["decrypt"]);
+}
+async function openBox(key){
+  const plain = await crypto.subtle.decrypt({name: "AES-GCM", iv: unb64(box.iv)}, key, unb64(box.data));
+  const payload = JSON.parse(dec.decode(plain));
+  videos = payload.videos || [];
+  dispatch = payload.dispatch || null;
+}
+
+function lockScreen(msg){
+  unlocked = false;
+  document.getElementById("actions").hidden = true;
+  document.getElementById("sub").textContent = "This page is locked.";
+  document.getElementById("app").innerHTML = `
+    <div class="lock"><form class="lock-card" id="lockform">
+      <h1>🔒 Enter password</h1>
+      <p class="sub">The video library is private.</p>
+      <input type="password" id="pw" autocomplete="current-password" placeholder="Password" required autofocus>
+      <label class="mark" style="margin:0 0 14px;font-weight:500"><input type="checkbox" id="remember" checked> Remember on this device</label>
+      <button class="gen" type="submit">Unlock</button>
+      <p class="err" id="pwerr">${esc(msg || "")}</p>
+    </form></div>`;
+  document.getElementById("pw").focus();
+}
+
+async function unlock(password, remember){
+  const key = await deriveKey(password);
+  await openBox(key);                                   // throws if the password is wrong
+  if (remember) store.set("lib-key", tob64(await crypto.subtle.exportKey("raw", key)) + "|" + box.salt);
+  ready();
+}
+
 async function load(){
   try {
-    const r = await fetch("videos.json?t=" + Date.now(), {cache: "no-store"});
-    videos = r.ok ? await r.json() : [];
-  } catch { videos = []; }
+    const r = await fetch("library.enc.json?t=" + Date.now(), {cache: "no-store"});
+    box = r.ok ? await r.json() : null;
+  } catch { box = null; }
+  if (!box) { document.getElementById("app").innerHTML = `<div class="empty">The library could not be loaded. Try again in a minute.</div>`; return; }
+  const saved = (store.get("lib-key") || "").split("|");
+  if (saved[0] && saved[1] === box.salt) {
+    try {
+      const key = await crypto.subtle.importKey("raw", unb64(saved[0]), {name: "AES-GCM"}, false, ["decrypt"]);
+      await openBox(key);
+      return ready();
+    } catch { store.set("lib-key", null); }
+  }
+  lockScreen();
+}
+
+function ready(){
+  unlocked = true;
+  document.getElementById("actions").hidden = false;
   document.getElementById("sub").textContent =
     videos.length ? `${videos.length} video${videos.length === 1 ? "" : "s"} · newest first. Click one to download it and copy its text.`
                   : "Your finished review videos, ready to upload.";
   route();
+  checkRuns();
 }
 
 function grid(){
@@ -187,6 +294,7 @@ function detail(v){
 }
 
 function route(){
+  if (!unlocked) return;
   const id = decodeURIComponent(location.hash.slice(1));
   const v = videos.find(x => x.id === id);
   const app = document.getElementById("app");
@@ -214,6 +322,89 @@ document.addEventListener("change", e => {
     store.set("uploaded:" + id, e.target.checked ? "1" : null);
   }
 });
+document.addEventListener("submit", async e => {
+  if (e.target.id !== "lockform") return;
+  e.preventDefault();
+  const btn = e.target.querySelector("button"), err = document.getElementById("pwerr");
+  btn.disabled = true; btn.textContent = "Unlocking…"; err.textContent = "";
+  try { await unlock(document.getElementById("pw").value, document.getElementById("remember").checked); }
+  catch { btn.disabled = false; btn.textContent = "Unlock"; err.textContent = "Wrong password. Try again."; }
+});
+document.getElementById("lockbtn").addEventListener("click", () => {
+  store.set("lib-key", null); videos = []; dispatch = null; location.hash = ""; lockScreen();
+});
+
+/* ---------- generate new videos */
+const dlg = document.getElementById("dlg"), countEl = document.getElementById("count");
+const clamp = n => Math.max(1, Math.min(30, Math.round(Number(n) || 1)));
+function updateEta(){
+  const n = clamp(countEl.value), par = Number(document.getElementById("parallel").value);
+  const mins = Math.round(Math.ceil(n / par) * 7 + 4);
+  document.getElementById("eta").textContent = `About ${mins} minutes for ${n} video${n === 1 ? "" : "s"}. ` +
+    "They appear on this page when they are done; sites that block visitors are skipped.";
+}
+document.getElementById("gen").addEventListener("click", () => {
+  document.getElementById("dlgerr").textContent = "";
+  updateEta(); dlg.showModal();
+});
+dlg.addEventListener("click", e => {
+  const step = e.target.closest("[data-step]");
+  if (step) { countEl.value = clamp(Number(countEl.value) + Number(step.dataset.step)); updateEta(); }
+});
+countEl.addEventListener("input", updateEta);
+document.getElementById("parallel").addEventListener("change", updateEta);
+document.getElementById("cancel").addEventListener("click", () => dlg.close());
+document.getElementById("start").addEventListener("click", async () => {
+  const n = clamp(countEl.value), par = document.getElementById("parallel").value;
+  const err = document.getElementById("dlgerr"), btn = document.getElementById("start");
+  if (!dispatch || !dispatch.token) {
+    err.innerHTML = 'The button isn\'t connected yet (no GitHub token). For now start it on GitHub: ' +
+      '<a href="https://github.com/renekmarken/yta/actions/workflows/batch.yml" target="_blank" rel="noopener">Run workflow</a>.';
+    return;
+  }
+  btn.disabled = true; btn.textContent = "Starting…"; err.textContent = "";
+  try {
+    const r = await fetch(`https://api.github.com/repos/${dispatch.repo}/actions/workflows/${dispatch.workflow}/dispatches`, {
+      method: "POST",
+      headers: {"Authorization": "Bearer " + dispatch.token, "Accept": "application/vnd.github+json",
+                "X-GitHub-Api-Version": "2022-11-28"},
+      body: JSON.stringify({ref: dispatch.ref, inputs: {count: String(n), parallel: String(par)}})
+    });
+    if (r.status !== 204) throw new Error(`GitHub said ${r.status}: ${(await r.text()).slice(0, 160)}`);
+    dlg.close();
+    showStatus(`<span class="spinner"></span> Starting ${n} new video${n === 1 ? "" : "s"}…`);
+    setTimeout(checkRuns, 6000);
+  } catch (e) {
+    err.textContent = "Couldn't start: " + e.message;
+  } finally { btn.disabled = false; btn.textContent = "Start"; }
+});
+
+function showStatus(html){
+  const el = document.getElementById("status");
+  el.innerHTML = html; el.classList.toggle("on", !!html);
+}
+let pollTimer = null;
+async function checkRuns(){
+  clearTimeout(pollTimer);
+  if (!dispatch || !dispatch.token) return;
+  try {
+    const r = await fetch(`https://api.github.com/repos/${dispatch.repo}/actions/workflows/${dispatch.workflow}/runs?per_page=1`,
+      {headers: {"Authorization": "Bearer " + dispatch.token, "Accept": "application/vnd.github+json"}});
+    const run = (await r.json()).workflow_runs?.[0];
+    if (!run) return showStatus("");
+    const age = (Date.now() - new Date(run.updated_at)) / 60000;
+    if (run.status !== "completed") {
+      const mins = Math.round((Date.now() - new Date(run.run_started_at || run.created_at)) / 60000);
+      showStatus(`<span class="spinner"></span> Making videos… (${mins} min so far) · <a href="${esc(run.html_url)}" target="_blank" rel="noopener">details</a>`);
+      pollTimer = setTimeout(checkRuns, 30000);
+    } else if (age < 30) {
+      const ok = run.conclusion === "success";
+      showStatus(ok ? `✅ New videos are ready — <a href="#" onclick="location.reload();return false">refresh the page</a> to see them.`
+                    : `⚠️ The last run finished with problems · <a href="${esc(run.html_url)}" target="_blank" rel="noopener">details</a>`);
+    } else showStatus("");
+  } catch { /* status is optional */ }
+}
+
 document.getElementById("search").addEventListener("input", route);
 window.addEventListener("hashchange", route);
 load();

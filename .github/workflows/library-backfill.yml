@@ -1,14 +1,17 @@
-name: Add earlier videos to the library
+name: Update the video library
 
-# For videos made before the video library existed (or if a library step failed):
-# give the run IDs (numbers at the end of the run's URL), comma-separated.
+# - Leave "run IDs" empty to just refresh the library (e.g. after adding or changing the
+#   LIBRARY_PASSWORD or DISPATCH_TOKEN secrets).
+# - Or give run IDs (numbers at the end of a run's URL), comma-separated, to add videos made
+#   before the library existed or whose library step failed.
 
 on:
   workflow_dispatch:
     inputs:
       run_ids:
-        description: "Run IDs to add, comma-separated (from the run page URL)"
-        required: true
+        description: "Run IDs to add, comma-separated (leave empty to just refresh)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -27,10 +30,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - run: pip install cryptography
       - name: Download, publish and index
         env:
           GH_TOKEN: ${{ github.token }}
           RUN_IDS: ${{ inputs.run_ids }}
+          LIBRARY_PASSWORD: ${{ secrets.LIBRARY_PASSWORD }}
+          DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+          LIBRARY_REF: ${{ github.event.repository.default_branch }}
         run: |
           git config user.name "review-bot"
           git config user.email "review-bot@users.noreply.github.com"
@@ -47,7 +54,8 @@ jobs:
               || gh release upload "$tag" rel/files/* --clobber
             python tools/video_index.py rel/entries.json
           done
-          git add docs/videos/videos.json
+          python tools/video_index.py            # refresh (re-encrypt with the current secrets)
+          git add -A docs/videos/
           git commit -m "Video library: add earlier videos" || exit 0
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
           echo "Video library: https://renekmarken.github.io/yta/videos/"

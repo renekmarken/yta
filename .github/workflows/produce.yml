@@ -107,6 +107,9 @@ jobs:
         if: always()
         env:
           GH_TOKEN: ${{ github.token }}
+          LIBRARY_PASSWORD: ${{ secrets.LIBRARY_PASSWORD }}
+          DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+          LIBRARY_REF: ${{ github.event.repository.default_branch }}
         run: |
           n=$(python tools/release.py output rel/files "${{ github.server_url }}/${{ github.repository }}/releases/download" "videos-${{ github.run_number }}")
           if [ "$n" = "0" ]; then echo "No finished videos to publish."; exit 0; fi
@@ -115,7 +118,7 @@ jobs:
           python tools/video_index.py rel/entries.json
           git config user.name "review-bot"
           git config user.email "review-bot@users.noreply.github.com"
-          git add docs/videos/videos.json
+          git add -A docs/videos/
           git commit -m "Video library: add videos-${{ github.run_number }}" || exit 0
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
           echo "Video library: https://renekmarken.github.io/yta/videos/"
