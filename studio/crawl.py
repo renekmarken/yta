@@ -144,13 +144,30 @@ def _find_logo(page, base_url):
     () => {
       const out = [];
       const abs = u => { try { return new URL(u, location.href).href } catch(e) { return null } };
-      document.querySelectorAll('header img, nav img, a[href="/"] img, [class*="logo" i] img, img').forEach(img => {
+      // App Store / Google Play: the app's own icon (square, near the top), not the store's logo
+      if (/(^|\.)apps\.apple\.com$|(^|\.)play\.google\.com$/.test(location.hostname)) {
+        [...document.images].forEach(img => {
+          const r = img.getBoundingClientRect(), src = img.currentSrc || img.src;
+          if (r.top < 900 && r.width >= 56 && Math.abs(r.width - r.height) < 8 && /mzstatic|googleusercontent/.test(src))
+            out.push(abs(src));
+        });
+      }
+      // never: cookie / privacy-choice banners, footers, badges and partner logos
+      const skipBox = '[id*="onetrust" i],[class*="onetrust" i],[id*="cookie" i],[class*="cookie" i],[id*="consent" i],' +
+                      '[class*="consent" i],[class*="privacy" i],[id*="privacy" i],footer,[role="dialog"]';
+      const skipHint = /privacy|ccpa|opt-?out|consent|cookie|choices|fdic|sipc|finra|bbb|badge|app-?store|google-?play|partner|press|award|trustpilot|as-seen|featured/;
+      const brandWord = location.hostname.replace(/^www\./, '').split('.')[0].toLowerCase();
+      const imgs = [];
+      document.querySelectorAll('img').forEach(img => {
         const hint = (img.alt + ' ' + img.className + ' ' + img.id + ' ' + img.src).toLowerCase();
-        if (hint.includes('logo') && img.naturalWidth >= 40) out.push(abs(img.currentSrc || img.src));
+        if (!hint.includes('logo') || img.naturalWidth < 40 || skipHint.test(hint) || img.closest(skipBox)) return;
+        const top = img.closest('header, nav, a[href="/"]') ? 0 : 1;
+        imgs.push([hint.includes(brandWord) ? 0 : 1, top, abs(img.currentSrc || img.src)]);
       });
+      imgs.sort((a, b) => a[0] - b[0] || a[1] - b[1]).forEach(x => out.push(x[2]));
       document.querySelectorAll('header svg, [class*="logo" i] svg, a[href="/"] svg').forEach(svg => {
         const r = svg.getBoundingClientRect();
-        if (r.width >= 60 && r.top < 200) {
+        if (r.width >= 60 && r.top < 200 && !svg.closest(skipBox)) {
           const c = svg.cloneNode(true);
           c.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
           if (!c.getAttribute('width')) c.setAttribute('width', Math.round(r.width));
@@ -173,13 +190,24 @@ def _find_logo(page, base_url):
     return list(dict.fromkeys(cands))
 
 
-def _download_logo(cands, out_dir: Path):
-    for c in cands[:10]:
+def _clean_svg(text):
+    """Inline SVGs copied from a page can carry attributes that are invalid on their own (e.g. a
+    stray '"=""'), which makes the image fail to render; drop anything that isn't a valid name."""
+    def tag(m):
+        attrs = re.findall(r'\s([A-Za-z_:][-\w:.]*)\s*=\s*("[^"]*"|\'[^\']*\')', m.group(2))
+        return "<" + m.group(1) + "".join(f" {k}={v}" for k, v in attrs) + m.group(3) + ">"
+    return re.sub(r"<(svg)\b([^>]*?)(/?)>", tag, text, count=1)
+
+
+def _download_logo(cands, out_dir: Path, start=0):
+    """Download the first usable candidate from position `start`. Returns (path, next position)."""
+    for i in range(start, min(len(cands), 10)):
+        c = cands[i]
         try:
             if c.startswith("inline-svg:"):
                 p = out_dir / "logo.svg"
-                p.write_text(c[len("inline-svg:"):])
-                return p
+                p.write_text(_clean_svg(c[len("inline-svg:"):]))
+                return p, i + 1
             if c.startswith("data:"):
                 continue
             r = requests.get(c, headers={"User-Agent": UA}, timeout=15)
@@ -189,10 +217,10 @@ def _download_logo(cands, out_dir: Path):
             ext = ".svg" if "svg" in ctype or c.lower().endswith(".svg") else ".img"
             p = out_dir / f"logo{ext}"
             p.write_bytes(r.content)
-            return p
+            return p, i + 1
         except Exception:
             continue
-    return None
+    return None, len(cands)
 
 
 def _logo_to_png(src: Path, out_dir: Path):
@@ -320,8 +348,10 @@ def crawl(url: str, out_dir: Path, subpage_words=None) -> dict:
 
     if not shots:
         raise BlockedSite("no usable screenshots")
-    logo = _download_logo(logo_cands, out_dir)
-    info["logo"] = _logo_to_png(logo, out_dir) if logo else None
+    info["logo"], pos = None, 0
+    while not info["logo"] and pos < min(len(logo_cands), 10):     # next candidate if one won't render
+        logo, pos = _download_logo(logo_cands, out_dir, pos)
+        info["logo"] = _logo_to_png(logo, out_dir) if logo else None
     info["screenshots"] = shots
     (out_dir / "site.json").write_text(json.dumps(info, indent=2))
     return info

@@ -414,7 +414,8 @@ def key_fact(data):
     best = None
     for seg in data.get("segments", []):
         c = (seg.get("callout") or "").strip()
-        m = re.search(r"(\$\s?\d[\d,.]*(?:\s?/\s?(?:mo|month|yr|year))?|\d[\d,.]*\s?%|\d[\d,.]*\s?(?:x|stars?|★))", c, re.I)
+        m = re.search(r"(\$\s?\d[\d,.]*(?:[kmb](?![a-z]))?\+?(?:\s?/\s?(?:mo|month|yr|year))?|\d[\d,.]*\s?%"
+                      r"|\d[\d,.]*\s?(?:x|stars?|★))", c, re.I)
         if not m:
             continue
         big = m.group(1).replace(" ", "")
