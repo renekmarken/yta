@@ -67,7 +67,7 @@ Each video gets its own random combination, chosen to differ from the last few v
 | Sound effects | 24 synthesised effects in 8 packs (soft, crisp, punchy, airy, digital, warm, minimal, playful), each tuned differently per video, levelled to the same quiet volume under the voice |
 | Thumbnails | **3 options per video**, each a different layout, colour and hook. 8 clean layouts: centre stack, YES/NO split, logo + phone, half-screen site, score ring, laptop + phone, big real number, website banner; 8 saturated single-colour backgrounds; big logo badge, huge Anton hook with one yellow word, yellow label |
 
-Every thumbnail sits on a glowing backdrop made from the site's own blurred screenshot, and shows the product's **logo** big and clear plus a huge hook (small lead-in, giant key word): "IS IT WORTH IT?", "IS IT A SCAM?",
+Every thumbnail uses one saturated colour built from the site's own blurred screenshot, the product's **logo** on a big white badge, crisp real screenshots (or the phone app), and a huge hook in Anton (white, black outline, one yellow word): "IS IT WORTH IT?", "IS IT A SCAM?",
 "LEGIT OR HYPE?", "WHAT'S THE CATCH?"... Option 1 matches the video's title. Every item is measured and checked so
 nothing important overlaps anything else or sits under YouTube's duration badge. Pick your favourite in the library;
 automatic API uploads use a random one of the three.
