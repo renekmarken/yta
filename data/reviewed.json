@@ -172,60 +172,17 @@
   "date": "2026-10-02"
  },
  {
-  "site": "legalzoom.com",
-  "name": "LegalZoom",
-  "url": "https://www.legalzoom.com",
-  "status": "done",
-  "date": "2026-10-02"
- },
- {
-  "site": "nordvpn.com",
-  "name": "NordVPN",
-  "url": "https://nordvpn.com",
+  "site": "armadin.com",
+  "name": "Armadin",
+  "url": "https://armadin.com",
   "status": "failed",
   "date": "2026-10-02"
  },
  {
-  "site": "amazon.com",
-  "name": "Amazon Web Services",
-  "url": "https://aws.amazon.com",
-  "status": "done",
-  "date": "2026-10-02",
-  "alt": "AWS"
- },
- {
-  "site": "upwork.com",
-  "name": "Upwork",
-  "url": "https://www.upwork.com",
+  "site": "wealthai.com",
+  "name": "WealthAi",
+  "url": "https://wealthai.com",
   "status": "failed",
-  "date": "2026-10-02"
- },
- {
-  "site": "expressvpn.com",
-  "name": "ExpressVPN",
-  "url": "https://www.expressvpn.com",
-  "status": "done",
-  "date": "2026-10-02"
- },
- {
-  "site": "capitalone.com",
-  "name": "Capital One",
-  "url": "https://www.capitalone.com",
-  "status": "done",
-  "date": "2026-10-02"
- },
- {
-  "site": "fiverr.com",
-  "name": "Fiverr",
-  "url": "https://www.fiverr.com",
-  "status": "done",
-  "date": "2026-10-02"
- },
- {
-  "site": "allstate.com",
-  "name": "Allstate",
-  "url": "https://www.allstate.com",
-  "status": "done",
   "date": "2026-10-02"
  }
 ]

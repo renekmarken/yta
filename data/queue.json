@@ -475,25 +475,8 @@
    "added": "2026-10-02T19:25:59+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:25:59+00:00",
-   "priority": 16.21,
+   "priority": 16.2,
    "cat": "🛡️ Insurance"
-  },
-  "armadin.com": {
-   "name": "Armadin",
-   "url": "https://armadin.com",
-   "category": "vpn-security",
-   "hotness": 10.0,
-   "evergreen": false,
-   "why": "Mandiant founder Kevin Mandia launches agent-swarm enterprise security.",
-   "sources": [
-    "Google News",
-    "TechCrunch"
-   ],
-   "added": "2026-10-02T19:25:59+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-02T19:25:59+00:00",
-   "priority": 19.51,
-   "cat": "🔐 Cybersecurity / VPNs"
   },
   "flowengineering.ai": {
    "name": "Flow Engineering",
@@ -508,7 +491,7 @@
    "added": "2026-10-02T19:25:59+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:25:59+00:00",
-   "priority": 16.08,
+   "priority": 16.07,
    "cat": "🤖 AI tools"
   },
   "magnitude.dev": {
@@ -524,7 +507,7 @@
    "added": "2026-10-02T19:25:59+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:25:59+00:00",
-   "priority": 15.35,
+   "priority": 15.34,
    "cat": "💻 SaaS / business software"
   },
   "vespper.com": {
@@ -540,7 +523,7 @@
    "added": "2026-10-02T19:25:59+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:25:59+00:00",
-   "priority": 15.43,
+   "priority": 15.42,
    "cat": "🤖 AI tools"
   },
   "earlyn.com": {
@@ -556,7 +539,7 @@
    "added": "2026-10-02T19:26:00+00:00",
    "launch": "today",
    "launch_seen": "2026-10-02T19:26:00+00:00",
-   "priority": 17.78,
+   "priority": 17.77,
    "cat": "🤖 AI tools"
   },
   "codync.com": {
@@ -572,7 +555,7 @@
    "added": "2026-10-02T19:26:00+00:00",
    "launch": "today",
    "launch_seen": "2026-10-02T19:26:00+00:00",
-   "priority": 17.78,
+   "priority": 17.77,
    "cat": "🤖 AI tools"
   },
   "gitsync.app": {
@@ -588,7 +571,7 @@
    "added": "2026-10-02T19:26:01+00:00",
    "launch": "today",
    "launch_seen": "2026-10-02T19:26:01+00:00",
-   "priority": 17.7,
+   "priority": 17.68,
    "cat": "📊 Business tools"
   },
   "cloudflare.com": {
@@ -604,7 +587,7 @@
    "added": "2026-10-02T19:26:01+00:00",
    "launch": "today",
    "launch_seen": "2026-10-02T19:26:01+00:00",
-   "priority": 17.7,
+   "priority": 17.68,
    "cat": "💻 SaaS / business software"
   },
   "rate.fm": {
@@ -620,7 +603,7 @@
    "added": "2026-10-02T19:26:01+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:01+00:00",
-   "priority": 14.7,
+   "priority": 14.69,
    "cat": "💻 SaaS / business software"
   },
   "chat.sh": {
@@ -636,24 +619,8 @@
    "added": "2026-10-02T19:26:02+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:02+00:00",
-   "priority": 14.7,
+   "priority": 14.69,
    "cat": "💻 SaaS / business software"
-  },
-  "wealthai.com": {
-   "name": "WealthAi",
-   "url": "https://wealthai.com",
-   "category": "investing",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "AI agents to automate wealth management onboarding and KYC.",
-   "sources": [
-    "Launch news"
-   ],
-   "added": "2026-10-02T19:26:02+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-02T19:26:02+00:00",
-   "priority": 18.56,
-   "cat": "📈 Investing platforms"
   },
   "dayforward.com": {
    "name": "Dayforward",
@@ -668,7 +635,7 @@
    "added": "2026-10-02T19:26:03+00:00",
    "launch": "today",
    "launch_seen": "2026-10-02T19:26:03+00:00",
-   "priority": 17.91,
+   "priority": 17.89,
    "cat": "🛡️ Insurance"
   },
   "sosovalue.com": {
@@ -684,7 +651,7 @@
    "added": "2026-10-02T19:26:03+00:00",
    "launch": "today",
    "launch_seen": "2026-10-02T19:26:03+00:00",
-   "priority": 17.91,
+   "priority": 17.89,
    "cat": "📈 Investing platforms"
   },
   "fidelity.com": {
@@ -758,5 +725,5 @@
    "cat": "📈 Investing platforms"
   }
  },
- "updated": "2026-10-02T19:33:19+00:00"
+ "updated": "2026-10-02T19:35:20+00:00"
 }
