@@ -19,3 +19,9 @@ https://www.hubspot.com
 https://stripe.com
 https://zoom.us
 https://www.shopify.com
+https://www.legalzoom.com
+https://aws.amazon.com
+https://www.expressvpn.com
+https://www.capitalone.com
+https://www.fiverr.com
+https://www.allstate.com

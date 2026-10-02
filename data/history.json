@@ -914,5 +914,278 @@
     "yes_no/magenta/worth"
    ]
   }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.legalzoom.com",
+  "brand": "LegalZoom",
+  "category": "legal",
+  "title": "LegalZoom: Flat Fees, But What's the Catch?",
+  "youtube": null,
+  "format": "first_look",
+  "opener": "LegalZoom claims to have supported over nine million legal milestones since launching back in twenty-one",
+  "title_style": "scam",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "underline",
+   "bg": "gradient",
+   "head_font": "inter",
+   "accent": [
+    122,
+    92,
+    255
+   ],
+   "transitions": [
+    "smoothleft",
+    "smoothright"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_left",
+   "callout": "glass",
+   "music": "ambient",
+   "sfx": "punchy",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "stack/ocean/scam",
+    "number/violet/worth",
+    "laptop/emerald/expect"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://aws.amazon.com",
+  "brand": "Amazon Web Services",
+  "category": "hosting",
+  "title": "Amazon Web Services: Pay-As-You-Go, But What's the Catch?",
+  "youtube": null,
+  "format": "five_questions",
+  "opener": "Amazon Web Services highlights an extensive infrastructure featuring thirty-one edge locations and nine geographic regio",
+  "title_style": "dont",
+  "theme": {
+   "mode": "light",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "pill",
+   "bg": "aurora",
+   "head_font": "interdisplay",
+   "accent": [
+    122,
+    92,
+    255
+   ],
+   "transitions": [
+    "slideleft",
+    "slideright"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "ambient",
+   "sfx": "minimal",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "score/midnight/dont",
+    "laptop/crimson/scam",
+    "left/charcoal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.expressvpn.com",
+  "brand": "ExpressVPN",
+  "category": "vpn-security",
+  "title": "Is ExpressVPN Actually Worth It? High Price, But...",
+  "youtube": null,
+  "format": "first_look",
+  "opener": "Are you paying for a VPN that actually protects your privacy, or just burning cash? Let's take a guided first look at Ex",
+  "title_style": "actually",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "underline",
+   "bg": "aurora",
+   "head_font": "interdisplay",
+   "accent": [
+    216,
+    48,
+    48
+   ],
+   "transitions": [
+    "cut"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_left",
+   "callout": "glass",
+   "music": "tech",
+   "sfx": "minimal",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "stack/violet/worth",
+    "banner/crimson/scam",
+    "split/magenta/good"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.capitalone.com",
+  "brand": "Capital One",
+  "category": "credit-cards",
+  "title": "Capital One: $0 Fees, But What's the Catch?",
+  "youtube": null,
+  "format": "first_look",
+  "opener": "Here is the catch with Capital One: while they advertise top rates and zero fees across banking and credit products, you",
+  "title_style": "before",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "tag",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    200,
+    53,
+    53
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "score",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "lofi",
+   "sfx": "punchy",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "score/crimson/before",
+    "banner/royal/scam",
+    "stack/midnight/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.fiverr.com",
+  "brand": "Fiverr",
+  "category": "freelancing",
+  "title": "Fiverr: Worth It or Too Much Friction?",
+  "youtube": null,
+  "format": "who_for",
+  "opener": "If you are looking for an instant, friction-free freelance marketplace without automated security checks or loading chal",
+  "title_style": "legit",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "bar",
+   "bg": "gradient",
+   "head_font": "inter",
+   "accent": [
+    255,
+    150,
+    30
+   ],
+   "transitions": [
+    "vertopen",
+    "horzopen"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "banner",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_left",
+   "callout": "glass",
+   "music": "lofi",
+   "sfx": "minimal",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "banner/ocean/legit",
+    "yes_no/royal/worth",
+    "split/midnight/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-02",
+  "url": "https://www.allstate.com",
+  "brand": "Allstate",
+  "category": "insurance",
+  "title": "Allstate Insurance: $900 Savings, But What's the Catch?",
+  "youtube": null,
+  "format": "five_questions",
+  "opener": "Allstate claims on its homepage that drivers who switch save an average of over nine hundred dollars",
+  "title_style": "scam",
+  "theme": {
+   "mode": "light",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "tag",
+   "bg": "aurora",
+   "head_font": "interdisplay",
+   "accent": [
+    122,
+    92,
+    255
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_left",
+   "callout": "glass",
+   "music": "lofi",
+   "sfx": "airy",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "stack/crimson/scam",
+    "yes_no/royal/worth",
+    "split/emerald/truth"
+   ]
+  }
  }
 ]

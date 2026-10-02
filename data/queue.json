@@ -1,19 +1,5 @@
 {
  "items": {
-  "capitalone.com": {
-   "name": "Capital One",
-   "url": "https://www.capitalone.com",
-   "category": "credit-cards",
-   "hotness": 5.3999999999999995,
-   "evergreen": true,
-   "why": "Popular no-foreign-fee cards and competitive travel rewards.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:21+00:00",
-   "priority": 6.87,
-   "cat": "💳 Credit cards / financial products"
-  },
   "discover.com": {
    "name": "Discover",
    "url": "https://www.discover.com",
@@ -41,20 +27,6 @@
    "added": "2026-10-02T07:22:22+00:00",
    "priority": 6.87,
    "cat": "💳 Credit cards / financial products"
-  },
-  "allstate.com": {
-   "name": "Allstate",
-   "url": "https://www.allstate.com",
-   "category": "insurance",
-   "hotness": 5.3999999999999995,
-   "evergreen": true,
-   "why": "Established national insurer with widespread review interest.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:24+00:00",
-   "priority": 6.87,
-   "cat": "🛡️ Insurance"
   },
   "ally.com": {
    "name": "Ally Bank",
@@ -139,20 +111,6 @@
    "added": "2026-10-02T07:22:26+00:00",
    "priority": 6.52,
    "cat": "🏠 Real estate services"
-  },
-  "legalzoom.com": {
-   "name": "LegalZoom",
-   "url": "https://www.legalzoom.com",
-   "category": "legal",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Pioneering online legal document and business formation service.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:26+00:00",
-   "priority": 6.91,
-   "cat": "⚖️ Legal services / platforms"
   },
   "rocketlawyer.com": {
    "name": "Rocket Lawyer",
@@ -364,34 +322,6 @@
    "priority": 6.27,
    "cat": "📣 Marketing platforms"
   },
-  "nordvpn.com": {
-   "name": "NordVPN",
-   "url": "https://nordvpn.com",
-   "category": "vpn-security",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Top-rated consumer virtual private network service for privacy.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:51+00:00",
-   "priority": 6.91,
-   "cat": "🔐 Cybersecurity / VPNs"
-  },
-  "expressvpn.com": {
-   "name": "ExpressVPN",
-   "url": "https://www.expressvpn.com",
-   "category": "vpn-security",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Premium high-speed VPN provider frequently reviewed by experts.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:51+00:00",
-   "priority": 6.91,
-   "cat": "🔐 Cybersecurity / VPNs"
-  },
   "surfshark.com": {
    "name": "Surfshark",
    "url": "https://surfshark.com",
@@ -433,20 +363,6 @@
    "added": "2026-10-02T07:22:52+00:00",
    "priority": 6.52,
    "cat": "🔐 Cybersecurity / VPNs"
-  },
-  "aws.amazon.com": {
-   "name": "AWS",
-   "url": "https://aws.amazon.com",
-   "category": "hosting",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Amazon Web Services dominates global cloud computing and hosting.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:52+00:00",
-   "priority": 6.91,
-   "cat": "☁️ Cloud / hosting"
   },
   "bluehost.com": {
    "name": "Bluehost",
@@ -503,34 +419,6 @@
    "added": "2026-10-02T07:22:53+00:00",
    "priority": 6.52,
    "cat": "☁️ Cloud / hosting"
-  },
-  "upwork.com": {
-   "name": "Upwork",
-   "url": "https://www.upwork.com",
-   "category": "freelancing",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Leading global freelance talent marketplace for remote professionals.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:53+00:00",
-   "priority": 6.91,
-   "cat": "💼 Freelancing platforms"
-  },
-  "fiverr.com": {
-   "name": "Fiverr",
-   "url": "https://www.fiverr.com",
-   "category": "freelancing",
-   "hotness": 6.0,
-   "evergreen": true,
-   "why": "Popular digital services marketplace for gig economy workers.",
-   "sources": [
-    "evergreen"
-   ],
-   "added": "2026-10-02T07:22:53+00:00",
-   "priority": 6.91,
-   "cat": "💼 Freelancing platforms"
   },
   "toptal.com": {
    "name": "Toptal",
@@ -870,5 +758,5 @@
    "cat": "📈 Investing platforms"
   }
  },
- "updated": "2026-10-02T19:26:06+00:00"
+ "updated": "2026-10-02T19:33:19+00:00"
 }
