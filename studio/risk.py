@@ -9,7 +9,10 @@ Pipeline (all free, no login):
                   "<brand> froze account", "<brand> closed my account", "<brand> lost money", ...
   pick_story()    Gemini picks the strongest *real* candidate by its number (it can't invent one)
                   and extracts the claim, the amount and the thumbnail words
-  story_card()    a clean "post" card (source, title, short excerpt) used as a screenshot in the video
+  investigate()   reads the whole thread: the full post, the poster's own updates, the top replies,
+                  and lists similar public reports, so the script tells the complete story
+  story_cards()   2-4 clean "post" cards (the post's text, its continuation, an update or a reply)
+                  used as screenshots in the video
   write_script()  narration in the same JSON shape as reviews, so voice/render/library are shared
 
 data/risk_cases.json remembers every story (and product) already used, so nothing repeats.
@@ -84,6 +87,34 @@ def _get(url, **kw):
 def _clean(text):
     text = html.unescape(re.sub(r"<[^>]+>", " ", text or ""))
     return re.sub(r"\s+", " ", text).strip()
+
+
+def _paras(text):
+    """HTML (or plain text) to clean paragraphs separated by blank lines."""
+    text = re.sub(r"(?i)</p>|<br\s*/?>|</li>|</h\d>", "\n\n", text or "")
+    text = re.sub(r"(?i)<li[^>]*>", "\n\n• ", text)
+    text = html.unescape(re.sub(r"<[^>]+>", " ", text))
+    paras = []
+    for x in re.split(r"\n\s*\n", text):
+        x = re.sub(r"\s+", " ", x).strip()
+        if x.count(" • ") >= 2:                          # bullets typed inline: one per line
+            paras += [b if i == 0 else "• " + b for i, b in enumerate(x.split(" • "))]
+        else:
+            paras.append(x)
+    paras = [x for x in paras if x and x not in ("[deleted]", "[removed]") and not x.startswith("submitted by")]
+    return "\n\n".join(paras)
+
+
+def platform(story):
+    """Where it was posted, said simply: "Reddit", "Hacker News", "Facebook", or the news outlet."""
+    src = story.get("source") or ""
+    if src == "News":
+        return story.get("where") or "the news"
+    return src or "an online forum"
+
+
+ACCENT = {"Reddit": (255, 69, 0), "Hacker News": (255, 102, 0), "Facebook": (24, 119, 242),
+          "Quora": (185, 43, 39), "Trustpilot": (0, 182, 122)}
 
 
 def _reddit_json(query):
@@ -241,47 +272,209 @@ def pick_story(brand, url, cands):
                             ("claim", "amount", "thumb_big", "thumb_small", "what_happened", "excerpt", "issue")}}
     if story["excerpt"] and story["excerpt"].lower()[:30] not in (story["title"] + " " + story["text"]).lower():
         story["excerpt"] = ""                          # only real quotes
-    print(f"   story: {story['where']} — {story['title'][:80]} ({story['url']})")
+    print(f"   story: {platform(story)} ({story['where']}) — {story['title'][:80]} ({story['url']})")
     return story
 
 
-# ------------------------------------------------------------------ the post as an image
-def story_card(story, out_dir, brand):
-    """A clean, readable card of the post (source, title, short excerpt) as a 1920x1080 'screenshot'."""
+# ------------------------------------------------------------------ the whole story
+def _reddit_thread(url):
+    """The full post, the poster's own later comments (updates) and the replies, from the thread feed."""
+    base = url.split("?")[0].rstrip("/")
+    ns = {"a": "http://www.w3.org/2005/Atom"}
+    entries = []
+    for i, u in enumerate((base, base.replace("://www.", "://old."), base)):
+        if i == 2:
+            time.sleep(6)                               # Reddit's rate limit: one more try after a pause
+        r = _get(u + "/.rss?limit=100")
+        try:
+            entries = ET.fromstring(r.text).findall("a:entry", ns) if r else []
+        except ET.ParseError:
+            entries = []
+        if entries:
+            break
+    if not entries:
+        return None
+    who = lambda e: (e.findtext("a:author/a:name", "", ns) or "").replace("/u/", "")
+    op = who(entries[0])
+    post = _paras(entries[0].findtext("a:content", "", ns))
+    updates, replies = [], []
+    for e in entries[1:]:
+        text = _paras(e.findtext("a:content", "", ns))
+        if len(text) < 40:
+            continue
+        (updates if op and who(e) == op else replies).append(text)
+    return {"text": post, "updates": updates[:6], "replies": replies[:12]}
+
+
+def _hn_thread(url):
+    m = re.search(r"id=(\d+)", url)
+    r = _get(f"https://hn.algolia.com/api/v1/items/{m.group(1)}") if m else None
+    if not r:
+        return None
+    try:
+        it = r.json()
+    except ValueError:
+        return None
+    op = it.get("author")
+    updates, replies = [], []
+
+    def walk(node, depth):
+        for k in node.get("children") or []:
+            text = _paras(k.get("text") or "")
+            if len(text) >= 40:
+                (updates if k.get("author") == op else replies if depth < 2 else []).append(text)
+            walk(k, depth + 1)
+    walk(it, 0)
+    return {"text": _paras(it.get("text") or ""), "updates": updates[:6], "replies": replies[:12]}
+
+
+def _article(url):
+    """The text of a news article (Google News links redirect to the outlet)."""
+    r = _get(url, allow_redirects=True)
+    if not r or "news.google." in r.url:
+        return None
+    paras = [_clean(p) for p in re.findall(r"(?is)<p[^>]*>(.*?)</p>", r.text)]
+    text = "\n\n".join(p for p in paras if len(p) > 60)
+    return {"text": text[:6000], "updates": [], "replies": []} if len(text) > 300 else None
+
+
+def investigate(story, others=()):
+    """Read the whole story: the full post, the poster's updates, what others replied, and other
+    public reports of the same kind of problem. Fills story["text"], ["updates"], ["replies"], ["similar"]."""
+    src = story.get("source")
+    try:
+        found = (_reddit_thread(story["url"]) if src == "Reddit" else
+                 _hn_thread(story["url"]) if src == "Hacker News" else _article(story["url"]))
+    except Exception as e:                                # never lose the story over the extra reading
+        print(f"   ! could not read the whole thread: {e}")
+        found = None
+    if found:
+        if len(found["text"]) > len(story.get("text") or ""):
+            story["text"] = found["text"]
+        story["updates"], story["replies"] = found["updates"], found["replies"]
+    else:
+        story.setdefault("updates", [])
+        story.setdefault("replies", [])
+    story["similar"] = [f"{platform(c)}, {c.get('date') or 'undated'}: {c['title']}"
+                        for c in others if c.get("url") != story["url"] and c.get("title")][:8]
+    print(f"   whole story: post {len(story['text'])} chars, {len(story['updates'])} update(s) from the poster, "
+          f"{len(story['replies'])} replies, {len(story['similar'])} similar reports")
+    return story
+
+
+# ------------------------------------------------------------------ the post as images
+def _excerpt_of(story):
+    """The quote for cards and thumbnails: the picked excerpt, else the start of the post."""
+    q = (story.get("excerpt") or "").strip()
+    if q:
+        return q
+    words = (story.get("text") or story.get("what_happened") or "").split()
+    return " ".join(words[:30]) + ("…" if len(words) > 30 else "")
+
+
+def story_cards(story, out_dir, brand):
+    """The post as 2-4 readable cards (1920x1080 'screenshots'): the post with as much of its text as
+    fits, the rest of it, then the poster's update or a top reply. Returns screenshot entries."""
     from PIL import Image, ImageDraw
     from .visuals import font, rounded, wrap
     W, H = 1920, 1080
-    im = Image.new("RGB", (W, H), (236, 239, 244))
-    card = rounded((1500, 820), 34, (255, 255, 255, 255))
-    d = ImageDraw.Draw(card)
-    accent = {"Reddit": (255, 69, 0), "Hacker News": (255, 102, 0)}.get(story["source"], (40, 90, 220))
-    d.ellipse([60, 56, 140, 136], fill=accent)
-    d.text((100, 96), story["source"][0], font=font("Black", 46), fill=(255, 255, 255), anchor="mm")
-    d.text((166, 62), story["where"] or story["source"], font=font("Bold", 38), fill=(30, 32, 38))
-    d.text((166, 110), f"{story['source']} · {story.get('date') or 'public post'}", font=font("Medium", 28),
-           fill=(110, 116, 128))
-    tf = font("Black", 62)
-    y = 190
-    for line in wrap(d, story["title"], tf, 1380)[:3]:
-        d.text((60, y), line, font=tf, fill=(18, 20, 24))
-        y += 78
-    excerpt = story.get("excerpt") or (story.get("what_happened") or "")[:220]
-    if excerpt:
-        y += 24
-        bf = font("Medium", 40)
-        lines = wrap(d, ("“" + excerpt + "”") if story.get("excerpt") else excerpt, bf, 1300)[:4]
-        d.rounded_rectangle([60, y, 70, y + 56 * len(lines) - 8], 5, fill=accent)
-        for line in lines:
-            d.text((100, y), line, font=bf, fill=(52, 56, 66))
-            y += 56
-    d.text((60, 740), story["url"][:90], font=font("Medium", 26), fill=(120, 126, 138))
-    im.paste(card, ((W - card.width) // 2, (H - card.height) // 2), card)
-    p = out_dir / "story.png"
-    im.save(p)
-    boxes = [{"t": story["title"][:80], "x": 210, "y": 320, "w": 1380, "h": 240}]
-    if story.get("amount"):
-        boxes.append({"t": story["amount"], "x": 210, "y": 320, "w": 700, "h": 90})
-    return {"file": "story.png", "page": "the story", "visible_text": story["title"], "boxes": boxes}
+    CW, MAX_H, PAD = 1560, 940, 64
+    LINE, GAP, HEAD_H, FOOT_H = 50, 20, 172, 110          # body line, paragraph gap, header, footer room
+    accent = ACCENT.get(story.get("source"), (40, 90, 220))
+    where = platform(story)
+    body_f, title_f = font("Medium", 36), font("Black", 54)
+    probe = ImageDraw.Draw(Image.new("RGB", (8, 8)))
+
+    def lines_of(text):
+        out = []
+        for para in (text or "").split("\n\n"):
+            if para.startswith("• ") and out and out[-1] == "" and len(out) > 1 and out[-2].startswith(("• ", "  ")):
+                out.pop()                                   # list items sit close together
+            out += [l if i == 0 or not para.startswith("• ") else "  " + l
+                    for i, l in enumerate(wrap(probe, para, body_f, CW - PAD * 2 - 80))] + [""]
+        return out[:-1]
+
+    def height(lines):
+        return sum(LINE if l else GAP for l in lines)
+
+    def take(lines, room):
+        """As many lines as fit in `room` pixels, ending at a paragraph break when one is close."""
+        n, used = 0, 0
+        while n < len(lines) and used + (LINE if lines[n] else GAP) <= room:
+            used += LINE if lines[n] else GAP
+            n += 1
+        if n < len(lines):
+            br = max((i for i in range(n) if not lines[i]), default=-1)
+            if br >= n - 2:                         # end on a paragraph when that wastes at most 2 lines
+                n = br
+        return lines[:n], [l for l in lines[n:]]
+
+    def card(header, sub, title, lines, more, name):
+        tlines = wrap(probe, title, title_f, CW - PAD * 2)[:2] if title else []
+        top = HEAD_H + (66 * len(tlines) + 22 if tlines else 0)
+        ch = min(MAX_H, max(520, top + height(lines) + (50 if more else 0) + FOOT_H))
+        im = Image.new("RGB", (W, H), (236, 239, 244))
+        c = rounded((CW, ch), 34, (255, 255, 255, 255))
+        d = ImageDraw.Draw(c)
+        d.ellipse([PAD, 52, PAD + 80, 132], fill=accent)
+        d.text((PAD + 40, 92), where[0].upper(), font=font("Black", 46), fill=(255, 255, 255), anchor="mm")
+        d.text((PAD + 106, 56), header, font=font("Bold", 38), fill=(30, 32, 38))
+        d.text((PAD + 106, 104), sub, font=font("Medium", 28), fill=(110, 116, 128))
+        ox, oy = (W - CW) // 2, (H - ch) // 2
+        boxes, y = [], HEAD_H
+        for line in tlines:
+            d.text((PAD, y), line, font=title_f, fill=(18, 20, 24))
+            y += 66
+        if tlines:
+            boxes.append({"t": title[:80], "x": ox + PAD, "y": oy + HEAD_H, "w": CW - PAD * 2, "h": y - HEAD_H})
+        y, para = top, []
+        for line in lines + [""]:
+            if line:
+                d.text((PAD + 40, y), line, font=body_f, fill=(52, 56, 66))
+                para.append((line, y))
+            elif para:                     # one box per paragraph: the video can zoom into it
+                boxes.append({"t": " ".join(t for t, _ in para)[:200], "x": ox + PAD + 40, "y": oy + para[0][1],
+                              "w": CW - PAD * 2 - 40, "h": LINE * len(para)})
+                para = []
+            y += LINE if line else GAP
+        y -= GAP
+        if lines:
+            d.rounded_rectangle([PAD, top + 4, PAD + 9, y - 10], 5, fill=accent)
+        if more:
+            d.text((PAD + 40, y + 8), "continued…", font=font("Bold", 30), fill=accent)
+        d.text((PAD, ch - 56), f"Public post on {where} · shown for awareness, not verified",
+               font=font("Medium", 24), fill=(140, 146, 158))
+        im.paste(c, (ox, oy), c)
+        im.save(out_dir / name)
+        return {"file": name, "page": "the story", "visible_text": (title + " " + " ".join(lines))[:600], "boxes": boxes}
+
+    def strip(lines):
+        while lines and not lines[0]:
+            lines = lines[1:]
+        while lines and not lines[-1]:
+            lines = lines[:-1]
+        return lines
+
+    date_s = story.get("date") or "public post"
+    body = strip(lines_of(story.get("text") or story.get("what_happened") or ""))
+    tl = len(wrap(probe, story["title"], title_f, CW - PAD * 2)[:2])
+    first, rest = take(body, MAX_H - HEAD_H - 66 * tl - 22 - FOOT_H - 50)
+    rest = strip(rest)
+    shots = [card(f"Posted on {where}", f"by a {brand} user · {date_s}", story["title"], strip(first), bool(rest), "story.png")]
+    while rest and len(shots) < 3:                       # the post's own words first: up to 3 cards
+        part, rest = take(rest, MAX_H - HEAD_H - FOOT_H - 50)
+        rest = strip(rest)
+        shots.append(card(f"Posted on {where}", "the post, continued", "", strip(part), bool(rest),
+                          f"story_{len(shots) + 1}.png"))
+    extra = None
+    if story.get("updates"):
+        extra = ("Update from the poster", "later in the same thread", story["updates"][0])
+    elif story.get("replies"):
+        extra = (f"A reply on {where}", "another user in the thread", story["replies"][0])   # the top reply
+    if extra:
+        part, left = take(strip(lines_of(extra[2])), MAX_H - HEAD_H - FOOT_H - 50)
+        shots.append(card(extra[0], extra[1], "", strip(part), bool(strip(left)), f"story_{len(shots) + 1}.png"))
+    return shots
 
 
 # ------------------------------------------------------------------ the script
@@ -290,16 +483,31 @@ awareness of a real risk with a popular product through one real person's public
 attack on the product: it is fair, factual and useful.
 
 PRODUCT: {brand} — {url}
-THE STORY (from {where}, {date}, {story_url}):
+THE STORY (a public post on {where}, {date}, {story_url}):
 Title: {title}
 What the poster says happened: {what_happened}
-Post text (excerpt): {text}
+The full post:
+{text}
+
+Later updates from the same poster in the thread (may say how it ended):
+{updates}
+
+Replies from other people in the thread (others with the same problem, explanations, advice):
+{replies}
+
+Other public reports of similar problems with {brand} (titles only):
+{similar}
 
 Write a 2-3 minute narration: {min_words}-{max_words} words in total (count them).
 Structure, in this order:
-1. Hook: the story in one or two gripping sentences, clearly attributed ("One {brand} user on {where} says...").
-2. What happened, step by step, as the poster tells it. Never state their claims as proven facts:
-   "they say", "according to the post". Do not add details that aren't in the post.
+1. Hook: the story in one or two gripping sentences, attributed simply to the platform: "A {brand}
+   user posted on {where}..." Never name a subreddit, group, forum section or username.
+2. The whole story, step by step, as the poster tells it: use the full post (quote a few short
+   phrases), then what happened next if the poster posted updates (was it resolved? say so plainly),
+   and what other people in the thread said (others with the same problem, or the likely explanation
+   they gave). If there are similar public reports, say briefly that it is not the only report like
+   it, without inventing numbers. Never state claims as proven facts: "they say", "according to the
+   post". Do not add details that aren't in the material above.
 3. Why this can happen: the most likely real reasons on {brand}'s side (e.g. risk reviews, payout
    holds, terms of service, verification, chargebacks), based on the WEBSITE TEXT and common, well-known
    industry practice. Be fair: say when the company has its side, or when we only have one side.
@@ -313,8 +521,10 @@ Finance/legal topics: one short "not financial or legal advice" line.
 Evergreen: never mention the current year or any year.
 Style: calm, serious, documentary tone, short spoken sentences. No hype words like "insane".
 
-VISUALS: 8-9 segments of 38-48 words EACH. Each segment shows ONE screenshot from the list below
-(the story card "story.png" for the hook and the story part; the product's pages for the rest).
+VISUALS: 8-9 segments of 38-48 words EACH. Each segment shows ONE screenshot from the list below.
+The story cards ({story_files}) show the post itself: use them in order for the hook and the
+story part (the first {n_story} segments, each card at least once, the narration matching the text on
+that card); the product's pages for the rest.
 Optionally a "focus": exact short text from that screenshot's ON-SCREEN TEXT. A punchy caption (max 6
 words) per segment. On about half the segments a "callout" sticker (max 4 words, e.g. "$70,000 on hold",
 "Document everything", "File a CFPB complaint"). An "icon" per segment from: {icons}
@@ -330,7 +540,7 @@ Return ONLY JSON:
   "score": 0,
   "segments": [{{"screenshot": "story.png", "focus": "", "caption": "...", "callout": "", "icon": "warning", "text": "..."}}],
   "youtube_title": "catchy title straight from the story, max 70 characters, the brand first, the claim in the poster's words, ending with a question, e.g. '{brand} FROZE $70,000 for 'No Reason' — What Now?' (at most two words in CAPS, no year)",
-  "youtube_description": "150-250 words: what the video covers, that it is based on a public post (name the source and include its link: {story_url}), that it is one person's account we could not independently verify, and the practical takeaways. No hashtags.",
+  "youtube_description": "150-250 words: what the video covers, that it is based on a public post on {where} (include its link: {story_url}), that it is one person's account we could not independently verify, and the practical takeaways. No hashtags.",
   "tags": ["15-25 real search phrases, e.g. '{brand} froze account', '{brand} holding funds', '{brand} account closed', 'is {brand} safe'"],
   "pinned_comment": "a short comment asking if this has happened to them, and what helped",
   "check_before_publishing": ["claims the human should double-check, including the source link"]
@@ -345,10 +555,14 @@ WEBSITE TEXT (the product's own pages):
 def write_script(info, item, story, history):
     from .script import ICONS, _fix_segments, _shots_for_prompt, _validate, YEAR
     brand = story.get("brand") or item.get("name") or info.get("site_name") or info["domain"]
+    stories = [x["file"] for x in info["screenshots"] if x["file"].startswith("story")] or ["story.png"]
     prompt = SCRIPT_PROMPT.format(
-        channel=config.CHANNEL_NAME, brand=brand, url=info["url"], where=story["where"], date=story.get("date") or "",
+        channel=config.CHANNEL_NAME, brand=brand, url=info["url"], where=platform(story), date=story.get("date") or "",
         story_url=story["url"], title=story["title"], what_happened=story.get("what_happened", ""),
-        text=story["text"][:3000], min_words=320, max_words=390, icons=", ".join(ICONS), shots=_shots_for_prompt(info),
+        text=story["text"][:5000], updates="\n---\n".join(u[:1200] for u in story.get("updates", [])[:4]) or "(none)",
+        replies="\n---\n".join(r[:600] for r in story.get("replies", [])[:8]) or "(none)",
+        similar="\n".join("- " + x for x in story.get("similar", [])) or "(none found)",
+        story_files=", ".join(stories), n_story=max(2, len(stories)), min_words=320, max_words=390, icons=", ".join(ICONS), shots=_shots_for_prompt(info),
         cat_ids=", ".join(BY_ID), home=info.get("home_text", "")[:6000],
         subpages="\n".join(f"Sub-page {p['url']}: {p['text'][:2500]}" for p in info.get("pages", [])))
     best, best_gap, feedback = None, None, ""
@@ -379,7 +593,10 @@ def write_script(info, item, story, history):
         desc += f"\n\nThe story: {story['url']} (one person's public account; not independently verified)."
     data["youtube_description"] = desc
     data["story"] = {k: story.get(k) for k in ("source", "where", "title", "url", "date", "claim", "amount",
-                                                "thumb_big", "thumb_small", "issue")}
+                                                "thumb_big", "thumb_small", "issue", "excerpt")}
+    data["story"]["platform"] = platform(story)
+    data["story"]["text"] = (story.get("text") or "")[:1500]           # for the thumbnails' post card
+    data["story"]["update"] = (story.get("updates") or [""])[0][:400]
     data["thumbnail_subtitle"] = story.get("thumb_small") or "WHAT HAPPENED?"
     data["check_before_publishing"] = [f"Read the original post and check the video tells it fairly: {story['url']}"] + \
         list(data.get("check_before_publishing") or [])
@@ -388,7 +605,9 @@ def write_script(info, item, story, history):
 
 def find_story(brand, url):
     cands = gather(brand)
-    return pick_story(brand, url, cands)
+    story = pick_story(brand, url, list(cands))
+    word = brand.lower().split()[0]
+    return investigate(story, [c for c in cands if word in c["title"].lower()])
 
 
 def candidates(history, n):

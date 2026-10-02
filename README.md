@@ -133,12 +133,18 @@ the risk (not to attack the product).
 1. Takes popular products from the queue and past reviews (one Risk Case per product, never the same story twice).
 2. Searches public posts: Reddit, Hacker News and news ("<brand> froze my account", "closed my account",
    "won't refund"...). Gemini picks the strongest real, specific story by number, so it can't invent one.
-3. The video: the story (shown as a post card, clearly attributed: "one user on r/stripe says..."), why it can
-   happen, how to avoid it, what to do if it happens (support, appeal, chargeback, CFPB/BBB...), and a fair close.
-4. Title straight from the story, e.g. "Stripe FROZE $50,000 for Over a Year — What Now?". The description links
+3. Investigates the whole story: reads the full thread (the complete post, the poster's own updates, the top
+   replies) and notes similar public reports.
+4. The video: the story told in full (the post shown on 2-4 cards with its real text, then the poster's update
+   or a top reply), attributed to the platform only ("a Stripe user posted on Reddit...", never the subreddit
+   or username), why it can happen, how to avoid it, what to do if it happens (support, appeal, chargeback,
+   CFPB/BBB...), and a fair close.
+5. Title straight from the story, e.g. "Stripe FROZE $50,000 for Over a Year — What Now?". The description links
    the original post and says it is one person's account.
-5. Its own thumbnail style: big logo, huge glowing red damage text ("$50,000 GONE."), "WHAT HAPPENED?" with
-   warning signs, the post itself; 3 options per video.
+6. Its own thumbnail style, every option showing the post: big logo, huge glowing red damage text
+   ("$50,000 GONE."), "WHAT HAPPENED?" with warning signs. Option 1 is always the post card tilted on the right;
+   the other two are picked from: headline (red words across the top, the post big below), phone (the post
+   in a phone app) and highlight (the post's key quote marked in yellow).
 
 Always read the original post before publishing (it's the first item in the video's checklist).
 

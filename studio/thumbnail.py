@@ -22,6 +22,7 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageOps
 
 from . import config, icons
 from .visuals import fit, font, head_font, load_logo, mix, paste_shadowed, rounded, round_corners
+from .visuals import wrap as wrap_lines
 
 TW, TH = 1280, 720
 YELLOW, INK, WHITE = (255, 214, 0), (12, 12, 14), (255, 255, 255)
@@ -197,7 +198,7 @@ def _pages(info, out_dir):
     (bot checks, loading screens) are left out."""
     pages = []
     for s in info["screenshots"]:
-        if s["file"] == "mobile.png":
+        if s["file"] == "mobile.png" or s["file"].startswith("story"):    # the post is drawn on its own
             continue
         try:
             im = Image.open(out_dir / s["file"]).convert("RGB")
@@ -706,7 +707,92 @@ def choose_thumbnail(folder: Path):
 # A different look from the reviews: near-black with a red glow, the logo big, the story's damage in
 # huge glowing red letters ("$70,000 GONE."), "WHAT HAPPENED?" with warning signs, and the post itself.
 RED, DANGER = (255, 38, 44), ((16, 0, 4), (128, 6, 18))
-RISK_LAYOUTS = ["alarm", "post", "evidence"]
+# Every option shows the post itself: "post" (the favourite: red words left, the post tilted right)
+# is always option 1; the other two are picked from the post-based styles below.
+RISK_FIRST = "post"
+RISK_LAYOUTS = ["headline", "phone", "highlight"]
+
+
+def _post_card(story, highlight=False, quote_only=False):
+    """The post as a clean white card, like a screenshot of it: platform badge, "Posted on Reddit",
+    the title and a quote. highlight: the quote marked in yellow. quote_only: the quote extra big."""
+    from .risk import ACCENT, _excerpt_of
+    W, PAD = 1500, 60
+    where = story.get("platform") or story.get("source") or "Reddit"
+    accent = ACCENT.get(story.get("source"), (40, 90, 220))
+    im = Image.new("RGB", (W, 1600), WHITE)
+    d = ImageDraw.Draw(im)
+    d.ellipse([PAD, 56, PAD + 80, 136], fill=accent)
+    d.text((PAD + 40, 96), where[0].upper(), font=font("Black", 46), fill=WHITE, anchor="mm")
+    d.text((PAD + 106, 62), f"Posted on {where}", font=font("Bold", 38), fill=(30, 32, 38))
+    d.text((PAD + 106, 110), f"by a user · {story.get('date') or 'public post'}", font=font("Medium", 28),
+           fill=(110, 116, 128))
+    y = 190
+    if True:
+        tf = font("Black", 54 if quote_only else 62)
+        for line in wrap_lines(d, story.get("title") or "", tf, W - PAD * 2)[:2 if quote_only else 3]:
+            d.text((PAD, y), line, font=tf, fill=(18, 20, 24))
+            y += 68 if quote_only else 78
+        y += 24
+    quote = _excerpt_of(story)
+    if quote:
+        qf = font("Bold" if quote_only else "Medium", 72 if quote_only else 40)
+        lh = 96 if quote_only else 56
+        lines = wrap_lines(d, "“" + quote + "”", qf, W - PAD * 2 - 60)[:5 if quote_only else 4]
+        if highlight:
+            for i, line in enumerate(lines):
+                tw = d.textlength(line, font=qf)
+                d.rectangle([PAD + 30, y + i * lh - 4, PAD + 50 + tw, y + i * lh + lh - 14], fill=(255, 226, 40))
+        else:
+            d.rounded_rectangle([PAD, y, PAD + 10, y + lh * len(lines) - 8], 5, fill=accent)
+        for line in lines:
+            d.text((PAD + 40, y), line, font=qf, fill=INK if highlight else (52, 56, 66))
+            y += lh
+    return im.crop((0, 0, W, y + 44))
+
+
+def _post_mobile(story):
+    """The post as it looks in a phone app (dark mode): top bar, title, text, vote bar."""
+    from .risk import ACCENT, _excerpt_of
+    W, H, PAD = 600, 1300, 40
+    where = story.get("platform") or story.get("source") or "Reddit"
+    accent = ACCENT.get(story.get("source"), (40, 90, 220))
+    im = Image.new("RGB", (W, H), (11, 20, 22))
+    d = ImageDraw.Draw(im)
+    d.text((PAD, 40), "9:41", font=font("Bold", 26), fill=WHITE)
+    d.rectangle([0, 92, W, 190], fill=(22, 32, 36))
+    d.ellipse([PAD, 112, PAD + 58, 170], fill=accent)
+    d.text((PAD + 29, 141), where[0].upper(), font=font("Black", 34), fill=WHITE, anchor="mm")
+    d.text((PAD + 76, 116), where, font=font("Bold", 30), fill=WHITE)
+    d.text((PAD + 76, 152), f"a user · {story.get('date') or 'public post'}", font=font("Medium", 22), fill=(150, 160, 166))
+    y = 230
+    tf = font("Black", 46)
+    for line in wrap_lines(d, story.get("title") or "", tf, W - PAD * 2)[:5]:
+        d.text((PAD, y), line, font=tf, fill=WHITE)
+        y += 58
+    y += 20
+    bf = font("Medium", 30)
+    body = (story.get("text") or _excerpt_of(story)).replace("\n\n• ", " ").replace("\n\n", " ")
+    for line in wrap_lines(d, body, bf, W - PAD * 2)[:max(0, (H - 160 - y) // 42)]:
+        d.text((PAD, y), line, font=bf, fill=(205, 212, 216))
+        y += 42
+    by = H - 120
+    d.rectangle([0, by - 20, W, H], fill=(11, 20, 22))
+    for i, (label, w) in enumerate((("Vote", 140), ("Comments", 190), ("Share", 140))):
+        x = PAD + sum((140, 190, 140)[:i]) + i * 16
+        d.rounded_rectangle([x, by, x + w, by + 60], 30, fill=(36, 46, 50))
+        d.text((x + w // 2, by + 30), label, font=font("Bold", 24), fill=(220, 226, 230), anchor="mm")
+    return im
+
+
+def _post_image(data, out_dir, **kw):
+    """The thumbnail's post: drawn from the story (platform name only), or for older videos the
+    story card of the video cropped."""
+    story = data.get("story") or {}
+    if story.get("title") and (story.get("excerpt") or story.get("text")):
+        return _post_card(story, **kw)
+    p = out_dir / "story.png"
+    return Image.open(p).convert("RGB").crop((210, 130, 1710, 950)) if p.exists() else None
 
 
 def _red_text(canvas, B, m, x, y, align="center"):
@@ -717,7 +803,7 @@ def _red_text(canvas, B, m, x, y, align="center"):
     vy = y + m["stroke"]
     words = []
     for line, f, top, cap, tw in zip(m["lines"], m["fonts"], m["tops"], m["caps"], m["widths"]):
-        lx = x - tw / 2 if align == "center" else x + m["stroke"]
+        lx = x - tw / 2 if align == "center" else x - tw - m["stroke"] if align == "right" else x + m["stroke"]
         txt = " ".join(line)
         gd.text((lx, vy - top), txt, font=f, fill=(*RED, 230), stroke_width=m["stroke"] + 18, stroke_fill=(*RED, 230))
         words.append((lx, vy - top, txt, f))
@@ -727,7 +813,7 @@ def _red_text(canvas, B, m, x, y, align="center"):
         d.text((lx, ly + 8), txt, font=f, fill=(0, 0, 0, 160), stroke_width=m["stroke"], stroke_fill=(0, 0, 0, 160))
     for lx, ly, txt, f in words:
         d.text((lx, ly), txt, font=f, fill=RED, stroke_width=m["stroke"], stroke_fill=(20, 0, 2))
-    x0 = x - m["w"] / 2 if align == "center" else x
+    x0 = x - m["w"] / 2 if align == "center" else x - m["w"] if align == "right" else x
     B.add("big text", (x0, y, x0 + m["w"], y + m["h"]))
     return y + m["h"]
 
@@ -740,7 +826,7 @@ def _warn_line(canvas, B, text, x, y, size, align="center"):
     sign = icons.glyph("warning", int(size * 0.95), (255, 200, 0))
     gap = 18
     total = tw + ((sign.width + gap) * 2 if sign is not None else 0)
-    x0 = x - total / 2 if align == "center" else x
+    x0 = x - total / 2 if align == "center" else x - total if align == "right" else x
     bb = f.getbbox(text)
     if sign is not None:
         paste_shadowed(canvas, sign, (x0, y + (bb[3] - bb[1] - sign.height) // 2 + 4), 10, 10, 120, 4)
@@ -755,7 +841,7 @@ def _warn_line(canvas, B, text, x, y, size, align="center"):
 
 
 def render_risk(data, info, out_dir, theme, layout, variant=0):
-    """One Risk Case thumbnail. Returns (image, Boxes)."""
+    """One Risk Case thumbnail; every layout shows the post. Returns (image, Boxes)."""
     B = Boxes()
     story = data.get("story") or {}
     logo = load_logo(out_dir / info["logo"]) if info.get("logo") else None
@@ -763,48 +849,54 @@ def render_risk(data, info, out_dir, theme, layout, variant=0):
     big = (story.get("thumb_big") or f"{story.get('amount') or 'ACCOUNT'} GONE.").upper()
     small = (story.get("thumb_small") or "WHAT HAPPENED?").upper()
     pages = _pages(info, out_dir)
-    card_src = out_dir / "story.png"
-    post = Image.open(card_src).convert("RGB") if card_src.exists() else None
-    first = pages[0] if pages else post
-    bg = _backdrop(first, DANGER, (640, 420) if layout == "alarm" else (380, 400))
+    post = _post_image(data, out_dir, highlight=layout == "highlight", quote_only=layout == "highlight")
+    bg = _backdrop(pages[0] if pages else post, DANGER, (640, 140) if layout == "headline" else (380, 400))
     words = big.split()
     lines = [words] if len(words) <= 1 or len(big) <= 9 else [words[:-1], words[-1:]]
     hk = {"lines": lines, "big": [True] * len(lines), "accent": set()}
 
-    if layout == "alarm":            # logo top-centre, giant red damage, warning line, screenshots faint behind
-        if pages:
-            for side, shot in ((-1, pages[0]), (1, (pages + pages)[1])):
-                card = _card(shot, 430, 7 * -side)
-                card.putalpha(card.getchannel("A").point(lambda a: int(a * 0.55)))
-                x = -210 if side < 0 else TW - card.width + 210
-                bg.alpha_composite(card, (x, (TH - card.height) // 2 + 60))
-        top = _brand_block(bg, B, logo, brand, TW // 2, 30, 560, 140, "center", review=False) + 20
-        m = _fit_hook(hk, 820, TH - top - 150, 260)
-        y = _red_text(bg, B, m, TW // 2, top, "center")
-        _warn_line(bg, B, small, TW // 2, min(y + 24, TH - 110), 74)
-
-    else:                            # logo top-left, red damage left, the post (or the site) on the right
-        hero = post if (layout == "post" and post is not None) else (pages[0] if pages else post)
-        if hero is not None:
-            crop = hero.crop((210, 130, 1710, 950)) if hero is post else hero
-            card = _card(crop, 620, -5 if variant % 2 == 0 else 5)
-            cx, cy = TW - card.width + 60, (TH - card.height) // 2 + 20
-            _glow(bg, (cx, cy, cx + card.width, cy + card.height), RED, 60, 150)
-            paste_shadowed(bg, card, (cx, cy), 22, 30, 210, 18)
-            B.add("post" if hero is post else "screenshot", (cx, cy, cx + card.width, cy + card.height), "hero")
-            if layout == "evidence":
-                b = icons.badge("warning", 150, (255, 200, 0), INK)
-                if b is not None:
-                    bx, by = cx - 40, cy - 40                   # on the card's corner, not over the text
-                    paste_shadowed(bg, b, (bx, by), 75, 24, 200, 10)
-            hero_x = cx
-        else:
-            hero_x = TW - 60
+    def left_column(hero_x):
+        """Logo top-left, the damage in huge red, the warning line: the left side of most layouts."""
         col_w = min(660, hero_x - 46 - 30)
         top = _brand_block(bg, B, logo, brand, 46, 34, min(540, col_w), 140, review=False) + 18
         m = _fit_hook(hk, col_w, TH - top - 140, 240)
         y = _red_text(bg, B, m, 46, top, "left")
         _warn_line(bg, B, small, 46, min(y + 22, TH - 110), 64, "left")
+
+    def place(card, cx, cy, name="post"):
+        _glow(bg, (cx, cy, cx + card.width, cy + card.height), RED, 60, 150)
+        paste_shadowed(bg, card, (cx, cy), 22, 30, 210, 18)
+        B.add(name, (cx, cy, cx + card.width, cy + card.height), "hero")
+
+    if post is None:                                   # nothing to show: words only, still on brand
+        left_column(TW - 60)
+
+    elif layout == "headline":       # logo + huge red words across the top, the post big and straight below
+        badge_bottom = _brand_block(bg, B, logo, brand, 46, 30, 400, 130, review=False)
+        badge_right = max(r[2] for n, k, r in B.items if n == "logo")
+        tx = badge_right + 40
+        m = _fit_hook({"lines": [words], "big": [True], "accent": set()}, TW - tx - 46, 150, 200)
+        y = _red_text(bg, B, m, tx, 26, "left")
+        y = _warn_line(bg, B, small, tx, y + 14, 46, "left")
+        card = _card(post, 1040, 0)
+        cy = max(badge_bottom, y) + 34
+        place(card, (TW - card.width) // 2, cy)        # bleeds off the bottom: the title and quote show
+
+    elif layout == "phone":          # the post in a phone app, tilted, on the right
+        ph = _phone(_post_mobile(story) if story.get("title") else post, 660, -6 if variant % 2 else 6)
+        cx, cy = TW - ph.width - 40, (TH - ph.height) // 2 + 10
+        place(ph, cx, cy, "phone")
+        left_column(cx + 30)
+
+    else:                            # "post" (the favourite) and "highlight" (big quote marked in yellow)
+        if layout == "post":
+            card = _card(post, 620, -5 if variant % 2 == 0 else 5)
+            cx, cy = TW - card.width + 60, (TH - card.height) // 2 + 20
+        else:                                          # the whole card in view, quote readable
+            card = _card(post, 660, 3 if variant % 2 == 0 else -3)
+            cx, cy = TW - card.width - 24, (TH - card.height) // 2 + 30
+        place(card, cx, cy)
+        left_column(cx)
 
     overlay = config.ASSETS_DIR / "thumbnail_overlay.png"
     if overlay.exists():
@@ -813,10 +905,12 @@ def render_risk(data, info, out_dir, theme, layout, variant=0):
 
 
 def make_risk_thumbnails(data, info, out_dir: Path, theme: dict, count=3):
-    """Three Risk Case thumbnails (different layouts). Same file names as the reviews."""
+    """Three Risk Case thumbnails, all showing the post: the favourite "post" style first, then two
+    other post-based styles. Same file names as the reviews."""
     rnd = random.Random(theme["seed"] + "risk")
-    layouts = RISK_LAYOUTS[:]
-    rnd.shuffle(layouts)
+    others = RISK_LAYOUTS[:]
+    rnd.shuffle(others)
+    layouts = [RISK_FIRST] + others
     for old in out_dir.glob("*thumbnail*.jpg"):
         old.unlink()
     paths = []

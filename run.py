@@ -169,7 +169,7 @@ def produce(item, history, out=None, mode="new"):
             from studio import risk
             print(f"2/6 finding a real story + script ({len(info['screenshots'])} screenshots)")
             story = risk.find_story(item.get("name") or info["domain"], url)
-            info["screenshots"].insert(0, risk.story_card(story, out, item.get("name") or info["domain"]))
+            info["screenshots"][0:0] = risk.story_cards(story, out, item.get("name") or info["domain"])
             (out / "site.json").write_text(json.dumps(info, indent=1, ensure_ascii=False))
             data = risk.write_script(info, item, story, history)
         else:
