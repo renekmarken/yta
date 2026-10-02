@@ -36,7 +36,8 @@ PLAIN = DOCS / "videos.json"
 VAULT = Path(os.environ.get("VAULT_DIR", ROOT / "vault"))
 ITERATIONS = 600_000
 KINDS = {"video": ("video/mp4", ".mp4"), "thumbnail": ("image/jpeg", ".jpg"),
-         "captions": ("text/plain", ".srt"), "kit": ("text/markdown", ".md")}
+         "captions": ("text/plain", ".srt"), "kit": ("text/markdown", ".md"),
+         "script": ("application/json", ".json")}             # kept so thumbnails can be remade later
 b64 = lambda b: base64.b64encode(b).decode()
 
 
@@ -155,7 +156,8 @@ def cmd_add(src, tag):
             files["thumbnails"] = [lib.store(vid, "thumbnail", t.read_bytes(), f"911video - {site} - thumbnail {i}.jpg",
                                              f"-{i}") for i, t in enumerate(thumbs, 1)]
             files["thumbnail"] = files["thumbnails"][0]
-        for kind, fname, label in (("captions", "captions.srt", "captions"), ("kit", "UPLOAD_KIT.md", "upload kit")):
+        for kind, fname, label in (("captions", "captions.srt", "captions"), ("kit", "UPLOAD_KIT.md", "upload kit"),
+                                   ("script", "script.json", "script")):
             if (folder / fname).exists():
                 files[kind] = lib.store(vid, kind, (folder / fname).read_bytes(),
                                         f"911video - {site} - {label}{KINDS[kind][1]}")

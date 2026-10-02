@@ -1,0 +1,51 @@
+name: Remake thumbnails
+
+# Draws 3 fresh thumbnail options (current design, fresh screenshots and logo) for videos already in
+# the library and swaps them in. The videos themselves are not changed.
+
+on:
+  workflow_dispatch:
+    inputs:
+      videos:
+        description: "Which videos (brand names, comma-separated; 'all' = every video with files)"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: library               # same queue as every other library change
+  cancel-in-progress: false
+
+jobs:
+  thumbnails:
+    runs-on: ubuntu-24.04            # pinned: ubuntu-latest moves to 26.04 on 2026-10-19
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install Python packages and Chromium
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Get extra fonts
+        run: python tools/get_fonts.py
+      - name: Draw new thumbnails
+        env:
+          VIDEOS: ${{ inputs.videos }}
+          LIBRARY_PASSWORD: ${{ secrets.LIBRARY_PASSWORD }}
+          DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+          LIBRARY_REF: ${{ github.event.repository.default_branch }}
+        run: |
+          git config user.name "review-bot"
+          git config user.email "review-bot@users.noreply.github.com"
+          git pull -q --ff-only || true
+          tools/vault.sh pull
+          python tools/remake_thumbs.py "$VIDEOS"
+          tools/vault.sh push
+          git add -A docs/videos/
+          git commit -qm "Video library: new thumbnails" || exit 0
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
