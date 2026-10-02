@@ -1,0 +1,67 @@
+name: Upload one video to YouTube
+
+# Started by the "Upload to YouTube" button in the (password-protected) video library.
+# Decrypts that video from the vault and uploads it with its title, description, tags,
+# thumbnail and captions (visibility from the YT_PRIVACY variable, default unlisted).
+
+on:
+  workflow_dispatch:
+    inputs:
+      video_id:
+        description: "Library video id"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-writer
+  cancel-in-progress: false
+
+env:
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install cryptography requests beautifulsoup4 google-api-python-client google-auth
+      - name: Decrypt the video
+        env:
+          LIBRARY_PASSWORD: ${{ secrets.LIBRARY_PASSWORD }}
+          VIDEO_ID: ${{ inputs.video_id }}
+        run: |
+          tools/vault.sh pull
+          python tools/library.py get "$VIDEO_ID" up
+      - name: Upload to YouTube
+        id: yt
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          YT_PRIVACY: ${{ vars.YT_PRIVACY || 'unlisted' }}
+          YT_PUBLISH_DELAY_HOURS: ${{ vars.YT_PUBLISH_DELAY_HOURS }}
+        run: |
+          python run.py --upload up | tee upload.log
+          echo "url=$(grep -o 'https://youtu.be/[A-Za-z0-9_-]*' upload.log | tail -1)" >> "$GITHUB_OUTPUT"
+          rm -rf up                                   # never leave decrypted files around
+      - name: Mark it as uploaded in the library
+        if: steps.yt.outputs.url != ''
+        env:
+          LIBRARY_PASSWORD: ${{ secrets.LIBRARY_PASSWORD }}
+          DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+          LIBRARY_REF: ${{ github.event.repository.default_branch }}
+          VIDEO_ID: ${{ inputs.video_id }}
+          URL: ${{ steps.yt.outputs.url }}
+        run: |
+          python tools/library.py set-youtube "$VIDEO_ID" "$URL"
+          git config user.name "review-bot"
+          git config user.email "review-bot@users.noreply.github.com"
+          git add -A docs/videos/
+          git commit -m "Video library: uploaded to YouTube" || exit 0
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done

@@ -70,7 +70,7 @@ Every thumbnail has the site's **logo**, its **name** and **"WORTH USING IT?"**.
    - `NTFY_TOPIC` (optional): any hard-to-guess name. Install the free **ntfy** app and subscribe to that name to get a phone notification when videos are ready.
 3. Optional **Variables** (same page, *Variables* tab): `VIDEOS_PER_RUN` (default 1), `CHANNEL_NAME`, `TTS_VOICE`.
 4. Open the **Actions** tab and enable workflows. Run **Discover trending products** first, then **Produce review videos**.
-5. Get the videos from the **Releases** page: github.com/renekmarken/yta/releases (also linked on the repo's front page, right side). Each run adds an entry with a download button per file — works on a phone, no zip. The ntfy notification opens it directly.
+5. Open your **private video library**: https://renekmarken.github.io/yta/videos/ (password-protected). Every video has download buttons, copy boxes for title/description/tags, an **Upload to YouTube** button, and **＋ Generate new videos** at the top.
 
 ### Publish (about 2 minutes per video)
 
@@ -93,6 +93,15 @@ YouTube permanently locks videos uploaded through an unverified API project as p
 4. After approval, set the variable `UPLOAD_MODE` = `api`. Videos then arrive on your channel as unlisted videos (change with the variable `YT_PRIVACY`), with their thumbnail and captions.
 
 ---
+
+### The private video library
+
+Everything in the library is encrypted with your password (GitHub secret `LIBRARY_PASSWORD`): the list
+of videos *and* the files themselves (kept encrypted on the repo's `vault` branch). The page unlocks them in
+your browser. The buttons that start GitHub runs use a token (secret `DISPATCH_TOKEN`, a fine-grained
+token with *Actions: read and write* on this repo only) that is stored inside the encrypted data.
+After changing either secret, run **Actions → Update the video library**. The newest 150 videos keep
+their files (`LIBRARY_KEEP` variable).
 
 ### Make many videos at once
 

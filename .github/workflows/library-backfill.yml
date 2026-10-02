@@ -1,37 +1,42 @@
 name: Update the video library
 
-# - Leave "run IDs" empty to just refresh the library (e.g. after adding or changing the
-#   LIBRARY_PASSWORD or DISPATCH_TOKEN secrets).
-# - Or give run IDs (numbers at the end of a run's URL), comma-separated, to add videos made
-#   before the library existed or whose library step failed.
+# Run this (leave the box empty) after adding or changing the LIBRARY_PASSWORD or DISPATCH_TOKEN
+# secrets. It also:
+#   * moves any older, unencrypted videos into the encrypted vault,
+#   * deletes the old public copies (GitHub Releases and Actions downloads) when "cleanup" is on,
+#   * optionally adds videos from earlier runs (give their run IDs, comma-separated).
 
 on:
   workflow_dispatch:
     inputs:
       run_ids:
-        description: "Run IDs to add, comma-separated (leave empty to just refresh)"
+        description: "Optional: run IDs to add, comma-separated"
         required: false
         default: ""
+      cleanup:
+        description: "Delete old public copies (Releases, Actions downloads)"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
-  actions: read
+  actions: write
 
 concurrency:
   group: data-writer
   cancel-in-progress: false
 
 jobs:
-  backfill:
+  update:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install cryptography
-      - name: Download, publish and index
+      - name: Encrypt, add and refresh
         env:
           GH_TOKEN: ${{ github.token }}
           RUN_IDS: ${{ inputs.run_ids }}
@@ -39,23 +44,29 @@ jobs:
           DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
           LIBRARY_REF: ${{ github.event.repository.default_branch }}
         run: |
-          git config user.name "review-bot"
-          git config user.email "review-bot@users.noreply.github.com"
+          tools/vault.sh pull
           for id in $(echo "$RUN_IDS" | tr ',' ' '); do
             id=$(echo "$id" | tr -cd '0-9')
             [ -z "$id" ] && continue
-            echo "== run $id"
-            rm -rf old rel
+            rm -rf old
             gh run download "$id" -D old || { echo "no downloads left for run $id"; continue; }
-            tag="earlier-$id"
-            n=$(python tools/release.py old rel/files "${{ github.server_url }}/${{ github.repository }}/releases/download" "$tag")
-            if [ "$n" = "0" ]; then echo "no finished videos in run $id"; continue; fi
-            gh release create "$tag" rel/files/* --title "Videos from run $id" --notes-file rel/release_notes.md \
-              || gh release upload "$tag" rel/files/* --clobber
-            python tools/video_index.py rel/entries.json
+            python tools/library.py add old "earlier-$id"
           done
-          python tools/video_index.py            # refresh (re-encrypt with the current secrets)
+          python tools/library.py migrate
+          tools/vault.sh push
+          git config user.name "review-bot"
+          git config user.email "review-bot@users.noreply.github.com"
           git add -A docs/videos/
-          git commit -m "Video library: add earlier videos" || exit 0
+          git commit -m "Video library: update" || true
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
-          echo "Video library: https://renekmarken.github.io/yta/videos/"
+      - name: Delete old public copies
+        if: inputs.cleanup
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release list --limit 1000 --json tagName --jq '.[].tagName' | while read -r tag; do
+            echo "deleting release $tag"; gh release delete "$tag" --yes --cleanup-tag
+          done
+          gh api "repos/${{ github.repository }}/actions/artifacts" --paginate --jq '.artifacts[].id' \
+            | while read -r id; do gh api -X DELETE "repos/${{ github.repository }}/actions/artifacts/$id"; done
+          echo "Old public copies removed."
