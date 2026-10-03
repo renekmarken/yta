@@ -2285,5 +2285,53 @@
     "risk/highlight"
    ]
   }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://www.sophia.org",
+  "brand": "Sophia Learning",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/SophiaLearning/comments/1wvhsw6/is_sophia_reviewing_every_finished_course_now/",
+  "category": "saas",
+  "title": "Sophia Learning USERS Facing Sudden Course Reviews — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "A Sophia Learning user posted on Reddit asking if unexpected account checks have become the new standard",
+  "title_style": null,
+  "theme": {
+   "mode": "light",
+   "layout": "side",
+   "frame": "mac_light",
+   "caption": "glass",
+   "bg": "spotlight",
+   "head_font": "poppins",
+   "accent": [
+    192,
+    216,
+    0
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "laptop",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "ambient",
+   "sfx": "airy",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "risk/post",
+    "risk/blackout",
+    "risk/highlight"
+   ]
+  }
  }
 ]
