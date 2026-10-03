@@ -290,5 +290,12 @@
   "url": "https://magnitude.dev",
   "status": "done",
   "date": "2026-10-02"
+ },
+ {
+  "site": "finbar.ai",
+  "name": "Finbar",
+  "url": "https://finbar.ai",
+  "status": "failed",
+  "date": "2026-10-03"
  }
 ]
