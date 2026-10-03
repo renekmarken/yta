@@ -170,14 +170,30 @@ comment, trash, lock, hourglass...) and simple sound effects at the key words. N
 - **Or give it your own:** a title, a topic/instructions, or both ("＋ Add another" for more).
 - Scripts follow the channel's own examples (`assets/whitescreen/examples.md`) and today's date, so
   "I'll bring it back in November" makes sense; never promises money or prizes.
-- 3 thumbnails per video in the channel's styles: the sad/locked/glitched YouTube face for
-  [Bracket] titles, YouTube-interface mock-ups ("0 Comments", the like bar, "Delete your channel?")
-  with a red ring and arrow, the masked blue-hoodie character big on one half with 1-3 huge words,
-  a headline style, a big-icon style and a white style.
-- Assets: `assets/whitescreen/characters` (27 emotions cut out of your sheet),
-  `assets/whitescreen/ytfaces` (30 red YouTube faces from your sheet), crisp icons, arrows and YouTube
-  interface drawn in code (Roboto, YouTube's own font). **White Screen: improve assets** (Actions)
-  redraws the character in full quality with Gemini's image model and adds new poses.
+- Every script says "Like this video and comment ..." with one exact thing to comment, tied to the
+  video's idea, asked at least twice, ending on a memorable line. The description is 2-4 short
+  human-sounding paragraphs with the call to action, then `Keywords:` with 20-30 comma-separated
+  keywords (no hashtags); the same keywords become the tags.
+- 3 thumbnails per video, each filling the whole frame (coloured background with light rays, no
+  small print): the sad/locked/glitched YouTube face for [Bracket] titles, YouTube-interface mock-ups
+  ("0 Comments", the like bar, "Delete your channel?") with your hand-drawn ring and one of your
+  arrows pointing exactly at it, the masked blue-hoodie character big on one half with 1-3 huge
+  words, a headline style, a big-3D-picture style and a white style.
+- Assets (`assets/whitescreen/`):
+  - `characters/` the masked character's emotions (and new poses, see below)
+  - `ytfaces/` 30 red YouTube faces from your sheet, plus crisp drawn ones
+  - `arrows/` your arrow sheet cut out: 28 arrows (each with its exact tail and tip, so it can be
+    turned to point at any spot), 8 rings, bursts, underlines and an X
+  - `ui/` your UI sheet cut out: 42 pieces (subscribe buttons, bells, like/dislike, share, play, LIVE...)
+  - `emoji/` 355 glossy 3D emoji (Microsoft Fluent Emoji, MIT licence), found by word ("deleted" ->
+    trash, "birthday" -> balloon...) for the videos and the thumbnails
+  - `objects/` unique YouTube-style 3D objects drawn by Gemini (like button on fire, cracked play
+    button, padlocked video...)
+- **White Screen: improve assets** (Actions): Gemini's image model redraws every emotion of the
+  character on its own (your sheet packs them so tightly that the hoods overlap, so they can't be cut
+  out cleanly), adds new poses (pointing left/right/down, phone, shrug...) and the 3D objects. Every
+  picture is keyed, checked for leftovers or cut-off parts, and compared with the original by Gemini
+  before it is kept; results wait in `assets/whitescreen/redraw/` until reviewed and promoted.
 
 ### Make many videos at once
 
