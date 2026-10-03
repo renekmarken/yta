@@ -3767,5 +3767,52 @@
     "risk/stack"
    ]
   }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://sapien.io",
+  "brand": "Sapien",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Sapien: Legit AI Quality Tool or Overhyped Pilot?",
+  "youtube": null,
+  "format": "pros_cons",
+  "opener": "Can you trust your AI models before sending them to production? Sapien claims to solve this exact problem using what it ",
+  "title_style": "legit",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "tag",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "split",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "fade_up",
+   "callout": "glass",
+   "music": "tech",
+   "sfx": "punchy",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "split/violet/legit",
+    "left/midnight/scam",
+    "stack/crimson/worth"
+   ]
+  }
  }
 ]
