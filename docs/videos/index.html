@@ -909,20 +909,37 @@ async function checkRuns(){
     const files = watching ? [watching, "library-backfill.yml"] : ["batch.yml", "upload-one.yml", "library-backfill.yml"];
     const runs = (await Promise.all(files.map(latest))).filter(Boolean)
       .filter(r => !(r.event === "schedule" && r.status === "completed"));   // quiet hourly safety-net runs
-    runs.sort((a, b) => (a.status === "completed") - (b.status === "completed") || new Date(b.updated_at) - new Date(a.updated_at));
+    // a library update that only saves your "uploaded" marks is not news: never show it over a batch
+    const marksOnly = r => r.path.includes("library-backfill") && /Uploaded marks/.test(r.head_commit?.message || "");
+    const rank = r => (r.status === "completed" ? 2 : 0) + (marksOnly(r) ? 1 : 0);
+    runs.sort((a, b) => rank(a) - rank(b) || new Date(b.updated_at) - new Date(a.updated_at));
     let run = runs[0];
     const isBatch = r => r && r.path.includes("batch.yml"), isLib = r => r && r.path.includes("library-backfill");
     const batch = runs.find(isBatch);
     // a finished library update that a finished batch started: report the batch (what was made, what wasn't)
-    const follows = (lib, b) => b && b.status === "completed" && new Date(lib.created_at) >= new Date(b.updated_at) - 120000;
+    const follows = (lib, b) => b && b.status === "completed" && !marksOnly(lib) &&
+                                new Date(lib.created_at) >= new Date(b.updated_at) - 120000;
     if (isLib(run) && run.status === "completed" && follows(run, batch)) run = batch;
+    if (marksOnly(run) && run.status === "completed") return showStatus("");   // marks saved: nothing to say
     const what = !run ? "" : run.path.includes("upload-one") ? "Uploading to YouTube"
+               : marksOnly(run) ? "Saving your uploaded marks"
                : run.path.includes("library-backfill") ? "Adding the new videos to the library" : "Making videos";
     if (!run) return showStatus("");
     const age = (Date.now() - new Date(run.updated_at)) / 60000;
     if (run.status !== "completed") {
       const mins = Math.round((Date.now() - new Date(run.run_started_at || run.created_at)) / 60000);
-      showStatus(`<span class="spinner"></span> ${what}… (${mins} min so far) · <a href="${esc(run.html_url)}" target="_blank" rel="noopener">details</a>`);
+      let extra = "";
+      if (what === "Making videos") {                 // how far along: videos done / total
+        try {
+          const r = await fetch(run.jobs_url + "?per_page=100",
+            {headers: {"Authorization": "Bearer " + dispatch.token, "Accept": "application/vnd.github+json"}});
+          const vids = r.ok ? ((await r.json()).jobs || []).filter(j => /^Video \d+/.test(j.name)) : [];
+          const done = vids.filter(j => j.status === "completed").length;
+          if (vids.length) extra = ` ${done} of ${vids.length} done`;
+          if (vids.length && done === vids.length) extra = ` all ${vids.length} done, saving them`;
+        } catch {}
+      }
+      showStatus(`<span class="spinner"></span> ${what}…${extra} (${mins} min so far) · <a href="${esc(run.html_url)}" target="_blank" rel="noopener">details</a>`);
       pollTimer = setTimeout(checkRuns, 30000);
     } else if (age < 30 && store.get("dismissed-run") !== String(run.id)) {
       const ok = run.conclusion === "success";
