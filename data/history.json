@@ -3431,5 +3431,341 @@
     "risk/stack"
    ]
   }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://greenlight.com",
+  "brand": "Greenlight",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/personalfinance/comments/104gfqg/greenlight_kids_cards_beware/",
+  "category": "banking-apps",
+  "title": "Greenlight FROZE Kids Accounts Over Chargebacks — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "A Greenlight user posted on Reddit about unexpected charges when someone accessed their kids' Amazon account",
+  "title_style": null,
+  "theme": {
+   "mode": "dark",
+   "layout": "side",
+   "frame": "floating",
+   "caption": "underline",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    0,
+    216,
+    168
+   ],
+   "transitions": [
+    "vertopen",
+    "horzopen"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "number",
+   "thumb_accent": [
+    0,
+    216,
+    168
+   ],
+   "cap_anim": "slide_up",
+   "callout": "pill",
+   "music": "acoustic",
+   "sfx": "warm",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "risk/post",
+    "risk/stamp",
+    "risk/headline"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://www.acorns.com",
+  "brand": "Acorns",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/acorns/comments/1mav5sa/acorns_earn_frozen_for_ebay/",
+  "category": "investing",
+  "title": "Acorns FROZE Earn for eBay — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "An Acorns user posted on Reddit about a frustrating issue where their Acorns Earn feature became completely frozen speci",
+  "title_style": null,
+  "theme": {
+   "mode": "brand",
+   "layout": "side",
+   "frame": "floating",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    96,
+    192,
+    48
+   ],
+   "transitions": [
+    "squeezeh",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "banner",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "acoustic",
+   "sfx": "playful",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "risk/post",
+    "risk/blackout",
+    "risk/stamp"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://www.anthropic.com",
+  "brand": "Anthropic",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/CreditCardsIndia/comments/1ud7700/anthropic_claude_ai_took_my_236_cancelled_my/",
+  "category": "ai-tools",
+  "title": "Anthropic TOOK $236 — What Happened to This User's Refund?",
+  "youtube": null,
+  "format": null,
+  "opener": "An Anthropic user posted on Reddit that they paid two hundred thirty-six dollars for a one-year Claude Pro annual subscr",
+  "title_style": null,
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "floating",
+   "caption": "underline",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    150,
+    30
+   ],
+   "transitions": [
+    "radial",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "pill",
+   "music": "upbeat",
+   "sfx": "punchy",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "risk/post",
+    "risk/blackout",
+    "risk/stamp"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://1password.com",
+  "brand": "1Password",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/1Password/comments/1mg1gmz/subscription_renewed_but_account_frozen_with/",
+  "category": "saas",
+  "title": "1Password Account FROZEN After Renewal? What You Need to Know",
+  "youtube": null,
+  "format": null,
+  "opener": "A 1Password user posted on Reddit that their annual subscription renewed through the App Store and the payment went thro",
+  "title_style": null,
+  "theme": {
+   "mode": "dark",
+   "layout": "side",
+   "frame": "mac_dark",
+   "caption": "glass",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    150,
+    30
+   ],
+   "transitions": [
+    "hblur",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    150,
+    30
+   ],
+   "cap_anim": "slide_right",
+   "callout": "pill",
+   "music": "lofi",
+   "sfx": "punchy",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "risk/post",
+    "risk/blackout",
+    "risk/phone"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://www.digitalocean.com",
+  "brand": "DigitalOcean",
+  "kind": "risk",
+  "story_url": "https://news.ycombinator.com/item?id=19205874",
+  "category": "hosting",
+  "title": "DigitalOcean DESTROYED All My Data — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "A DigitalOcean user posted on Hacker News about a shocking cloud nightmare",
+  "title_style": null,
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "floating",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    0,
+    120,
+    240
+   ],
+   "transitions": [
+    "hblur",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "score",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_up",
+   "callout": "pill",
+   "music": "upbeat",
+   "sfx": "soft",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "risk/post",
+    "risk/blackout",
+    "risk/caution"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://www.freelancer.com",
+  "brand": "Freelancer",
+  "kind": "risk",
+  "story_url": "https://news.ycombinator.com/item?id=7659352",
+  "category": "freelancing",
+  "title": "Freelancer FROZE $6,000 for 'No Reason' — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "A Freelancer user posted on Hacker News about severe withdrawal issues",
+  "title_style": null,
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "mac_dark",
+   "caption": "glass",
+   "bg": "aurora",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    212,
+    0
+   ],
+   "transitions": [
+    "wipeleft",
+    "wiperight"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "banner",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_left",
+   "callout": "pill",
+   "music": "lofi",
+   "sfx": "minimal",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "risk/post",
+    "risk/blackout",
+    "risk/stamp"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://www.guru.com",
+  "brand": "Guru",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/pdf/comments/1nmffc4/pdf_guru_is_a_scam_unauthorized_50_charges/",
+  "category": "saas",
+  "title": "Guru PDF tool charged $50 monthly? What you need to know",
+  "youtube": null,
+  "format": null,
+  "opener": "A Guru user posted online with a serious warning about unexpected billing",
+  "title_style": null,
+  "theme": {
+   "mode": "brand",
+   "layout": "spotlight",
+   "frame": "floating",
+   "caption": "underline",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    72,
+    120,
+    192
+   ],
+   "transitions": [
+    "circleopen",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "number",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_up",
+   "callout": "card",
+   "music": "lofi",
+   "sfx": "playful",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "risk/post",
+    "risk/caution",
+    "risk/stack"
+   ]
+  }
  }
 ]

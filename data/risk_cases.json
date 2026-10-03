@@ -383,6 +383,62 @@
    "story_url": "https://www.reddit.com/r/legaladvice/comments/qhg0ue/boss_racked_up_60k_on_my_corporate_card/",
    "title": "Slack Message Led to $60,000 Corporate Card Debt — What Now?",
    "status": "done"
+  },
+  {
+   "date": "2026-10-03",
+   "site": "greenlight.com",
+   "name": "greenlight",
+   "story_url": "https://www.reddit.com/r/personalfinance/comments/104gfqg/greenlight_kids_cards_beware/",
+   "title": "Greenlight FROZE Kids Accounts Over Chargebacks — What Now?",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-03",
+   "site": "acorns.com",
+   "name": "acorns",
+   "story_url": "https://www.reddit.com/r/acorns/comments/1mav5sa/acorns_earn_frozen_for_ebay/",
+   "title": "Acorns FROZE Earn for eBay — What Now?",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-03",
+   "site": "anthropic.com",
+   "name": "anthropic",
+   "story_url": "https://www.reddit.com/r/CreditCardsIndia/comments/1ud7700/anthropic_claude_ai_took_my_236_cancelled_my/",
+   "title": "Anthropic TOOK $236 — What Happened to This User's Refund?",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-03",
+   "site": "1password.com",
+   "name": "1password",
+   "story_url": "https://www.reddit.com/r/1Password/comments/1mg1gmz/subscription_renewed_but_account_frozen_with/",
+   "title": "1Password Account FROZEN After Renewal? What You Need to Know",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-03",
+   "site": "digitalocean.com",
+   "name": "digitalocean",
+   "story_url": "https://news.ycombinator.com/item?id=19205874",
+   "title": "DigitalOcean DESTROYED All My Data — What Now?",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-03",
+   "site": "freelancer.com",
+   "name": "freelancer",
+   "story_url": "https://news.ycombinator.com/item?id=7659352",
+   "title": "Freelancer FROZE $6,000 for 'No Reason' — What Now?",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-03",
+   "site": "guru.com",
+   "name": "guru",
+   "story_url": "https://www.reddit.com/r/pdf/comments/1nmffc4/pdf_guru_is_a_scam_unauthorized_50_charges/",
+   "title": "Guru PDF tool charged $50 monthly? What you need to know",
+   "status": "done"
   }
  ]
 }
