@@ -297,5 +297,19 @@
   "url": "https://finbar.ai",
   "status": "failed",
   "date": "2026-10-03"
+ },
+ {
+  "site": "akasa.com",
+  "name": "AKASA",
+  "url": "https://akasa.com",
+  "status": "done",
+  "date": "2026-10-03"
+ },
+ {
+  "site": "paynearme.com",
+  "name": "PayNearMe",
+  "url": "https://paynearme.com",
+  "status": "done",
+  "date": "2026-10-03"
  }
 ]

@@ -2333,5 +2333,100 @@
     "risk/highlight"
    ]
   }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://akasa.com",
+  "brand": "AKASA",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "AKASA: AI Medical Billing, But What's the Catch?",
+  "youtube": null,
+  "format": "who_for",
+  "opener": "Here is the catch: AKASA builds generative artificial intelligence specifically for hospital revenue cycles, promising t",
+  "title_style": "legit",
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "mac_dark",
+   "caption": "bar",
+   "bg": "mesh",
+   "head_font": "inter",
+   "accent": [
+    139,
+    77,
+    98
+   ],
+   "transitions": [
+    "coverleft",
+    "revealright"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "number",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_right",
+   "callout": "pill",
+   "music": "acoustic",
+   "sfx": "soft",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "number/royal/legit",
+    "yes_no/ocean/scam",
+    "laptop/charcoal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://paynearme.com",
+  "brand": "PayNearMe",
+  "kind": "review",
+  "story_url": null,
+  "category": "banking-apps",
+  "title": "PayNearMe Honest Review: Pros, Cons & Verdict",
+  "youtube": null,
+  "format": "red_flags",
+  "opener": "If you are looking for a consumer checking account, high-yield savings, or free peer-to-peer transfers, you should stop ",
+  "title_style": "honest",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "bar",
+   "bg": "mesh",
+   "head_font": "inter",
+   "accent": [
+    122,
+    92,
+    255
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "score",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "fade_up",
+   "callout": "glass",
+   "music": "tech",
+   "sfx": "soft",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "score/crimson/worth",
+    "banner/violet/scam",
+    "stack/emerald/truth"
+   ]
+  }
  }
 ]
