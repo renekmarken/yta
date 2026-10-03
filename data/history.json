@@ -3860,5 +3860,28 @@
    ]
   },
   "youtube": null
+ },
+ {
+  "date": "2026-10-03",
+  "url": "whitescreen:own-face-reveal-150747-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Face Reveal…",
+  "title_base": "Face Reveal…",
+  "format": "reveal",
+  "comment_word": "FACE REVEAL",
+  "hook": [
+   "I'm giving this face reveal challenge one more shot...",
+   "We missed the goal last time, so let's see if this one works.",
+   "If this video reaches 13,000 likes in the next 24 hours..."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "headline",
+    "icon"
+   ]
+  },
+  "youtube": null
  }
 ]
