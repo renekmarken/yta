@@ -766,18 +766,51 @@ def resolve_product(text):
     return name, url
 
 
+BROWSER_UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                            "Chrome/128.0 Safari/537.36", "Accept-Language": "en-US,en;q=0.9"}
+
+
 def _expand(link):
-    """Where a short or share link really goes (reddit.com/r/x/s/AbC -> the post), without tracking."""
-    for _ in range(4):
-        try:
-            r = requests.get(link, headers=UA, timeout=15, allow_redirects=False)
-        except requests.RequestException:
-            break
-        loc = r.headers.get("location")
-        if r.status_code in (301, 302, 303, 307, 308) and loc and "/login" not in loc:
-            link = requests.compat.urljoin(link, loc)
-            continue
-        break
+    """Where a short or share link really goes (reddit.com/r/x/s/AbC -> the post), without tracking.
+    Reddit refuses some servers: then other hosts/agents, and last a real browser, are tried."""
+    def follow(start, headers):
+        cur = start
+        for _ in range(4):
+            try:
+                r = requests.get(cur, headers=headers, timeout=15, allow_redirects=False)
+            except requests.RequestException:
+                return cur
+            loc = r.headers.get("location")
+            if r.status_code in (301, 302, 303, 307, 308) and loc and "/login" not in loc:
+                cur = requests.compat.urljoin(cur, loc)
+                continue
+            return cur
+        return cur
+    share = re.search(r"reddit\.com/r/[^/]+/s/\w+", link)
+    tries = [(link, UA), (link, BROWSER_UA)]
+    if share:
+        tries.append((link.replace("://www.", "://old."), BROWSER_UA))
+    for start, headers in tries:
+        got = follow(start, headers)
+        if not share or "/comments/" in got:
+            return got.split("?")[0].split("#")[0]
+    try:                                                    # a real browser follows it like a phone would
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            b = p.chromium.launch()
+            pg = b.new_page(user_agent=BROWSER_UA["User-Agent"])
+            pg.goto(link, wait_until="domcontentloaded", timeout=30000)
+            pg.wait_for_timeout(1500)
+            got = pg.url
+            if "/comments/" not in got:                     # the page may hold the canonical link instead
+                got = pg.evaluate("() => (document.querySelector('link[rel=canonical]')||{}).href || "
+                                  "(document.querySelector('shreddit-post')||{}).getAttribute?.('permalink') || ''") or got
+            b.close()
+        if got.startswith("/"):
+            got = "https://www.reddit.com" + got
+        return got.split("?")[0].split("#")[0]
+    except Exception as e:
+        print(f"   ! browser could not follow {link}: {type(e).__name__}")
     return link.split("?")[0].split("#")[0]
 
 
@@ -806,6 +839,13 @@ def linked_posts(text):
 
 def find_story(brand, url, issue=None):
     linked = linked_posts(issue) if issue and "http" in issue else []
+    if issue and "http" in issue and not linked:
+        rest = re.sub(r"https?://\S+", " ", issue)
+        rest = re.sub(r"^(?:\s|and|,|&|;|\+)+|(?:\s|and|,|&|;|\+)+$", "", re.sub(r"\s+", " ", rest)).strip()
+        if len(rest) < 8:                        # only links, and none opened: searching for them is pointless
+            raise NoStory("could not open the posts you linked (the site refused the visit); "
+                          "try the full post address, or describe the issue in words")
+        issue = rest
     if linked:                                   # the viewer chose the posts: use them, don't search
         rest = re.sub(r"https?://\S+", " ", issue)
         rest = re.sub(r"^(?:\s|and|,|&|;|\+)+|(?:\s|and|,|&|;|\+)+$", "", re.sub(r"\s+", " ", rest)).strip()
