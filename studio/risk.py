@@ -884,7 +884,11 @@ def candidates(history, n):
                      1 if it.get("evergreen") else 0))
     pool.sort(key=lambda kv: -kv[2])
     out, seen = [], set()
+    deadline = time.time() + 14 * 60                     # planning must finish well inside its 25 minutes
     for k, it, _ in pool:
+        if time.time() > deadline:
+            print(f"   time is up for checking products: going ahead with {len(out)}")
+            break
         sid = site_id(it["url"])
         if sid in seen or sid in done or name_id(it["name"]) in done:
             continue
