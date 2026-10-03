@@ -3883,5 +3883,74 @@
    ]
   },
   "youtube": null
+ },
+ {
+  "date": "2026-10-03",
+  "url": "whitescreen:own-only-you-can-comment-on-this-video-153443-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Only You Can Comment On This Video",
+  "title_base": "Only You Can Comment On This Video",
+  "format": "only",
+  "comment_word": "I WAS HERE",
+  "hook": [
+   "I set this video up so that literally only you can like and comment on it...",
+   "Think about that for a second...",
+   "Right now, nobody else in the entire world can interact with this post..."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "icon",
+    "headline"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-03",
+  "url": "whitescreen:own-this-video-has-0-likes-153443-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This video has 0 likes",
+  "title_base": "This video has 0 likes",
+  "format": "count",
+  "comment_word": "FIRST",
+  "hook": [
+   "This video currently has 0 likes and 0 comments.",
+   "And I want to see how long it can stay completely empty.",
+   "Most videos get thousands of views and interactions instantly..."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "headline",
+    "white"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-03",
+  "url": "whitescreen:own-private-video-153443-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Private Video]",
+  "title_base": "[Private Video]",
+  "format": "error",
+  "comment_word": "TIME CAPSULE",
+  "hook": [
+   "This video is going private very soon.",
+   "So if you’re watching this right now... you’re one of the early ones.",
+   "Before I lock it away, I want to leave a small time capsule here."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "error_glow",
+    "ui"
+   ]
+  },
+  "youtube": null
  }
 ]
