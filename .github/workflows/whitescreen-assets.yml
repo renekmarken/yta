@@ -1,7 +1,9 @@
 name: "White Screen: improve assets"
 
-# Redraws the White Screen character's emotions in full quality with Gemini's image model and/or adds
-# new poses (tools/ws_hd_assets.py). A picture is only replaced when the redraw looks right.
+# Full-quality White Screen assets made with Gemini's image model (tools/ws_hd_assets.py): every
+# character emotion redrawn on its own, new poses, unique 3D objects. Each picture is keyed, checked
+# and judged by Gemini before it is kept. Results land in assets/whitescreen/redraw/ for review;
+# "promote" moves them into place.
 
 on:
   workflow_dispatch:
@@ -9,8 +11,12 @@ on:
       what:
         description: "What to do"
         type: choice
-        options: ["all", "characters", "new"]
+        options: ["all", "characters", "poses", "objects", "promote"]
         default: "all"
+      names:
+        description: "Only these (space separated, optional)"
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -22,22 +28,27 @@ concurrency:
 jobs:
   assets:
     runs-on: ubuntu-24.04            # pinned: ubuntu-latest moves to 26.04 on 2026-10-19
-    timeout-minutes: 45
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - run: pip install requests Pillow numpy
-      - name: Redraw / add characters
+      - run: pip install requests Pillow numpy scipy
+      - name: Make the assets
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python tools/ws_hd_assets.py "${{ inputs.what }}"
+          WHAT: ${{ inputs.what }}
+          NAMES: ${{ inputs.names }}
+        run: python tools/ws_hd_assets.py "$WHAT" $NAMES
       - name: Save them
+        if: always()
         run: |
           git config user.name "review-bot"
           git config user.email "review-bot@users.noreply.github.com"
-          git add assets/whitescreen/characters
+          git add -A assets/whitescreen
           git diff --cached --quiet && { echo "nothing changed"; exit 0; }
-          git commit -qm "White Screen: improved character pictures"
+          git commit -qm "White Screen: assets ($WHAT)"
           for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
+        env:
+          WHAT: ${{ inputs.what }}

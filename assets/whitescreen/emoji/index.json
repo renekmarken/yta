@@ -1,0 +1,1460 @@
+{
+ "thumbs_up": [
+  "like",
+  "likes",
+  "liked",
+  "thumbs",
+  "up",
+  "good",
+  "yes"
+ ],
+ "thumbs_down": [
+  "dislike",
+  "dislikes",
+  "thumbs",
+  "down",
+  "bad",
+  "no"
+ ],
+ "speech_balloon": [
+  "comment",
+  "comments",
+  "chat",
+  "talk",
+  "reply"
+ ],
+ "left_speech_bubble": [
+  "reply",
+  "replies",
+  "message"
+ ],
+ "thought_balloon": [
+  "think",
+  "thought",
+  "idea",
+  "wonder"
+ ],
+ "right_anger_bubble": [
+  "rant",
+  "argue",
+  "mad"
+ ],
+ "eye_in_speech_bubble": [
+  "witness",
+  "seen"
+ ],
+ "bell": [
+  "bell",
+  "notification",
+  "notifications",
+  "subscribe",
+  "alert"
+ ],
+ "bell_with_slash": [
+  "muted",
+  "unsubscribe",
+  "silent"
+ ],
+ "play_button": [
+  "play",
+  "video",
+  "watch",
+  "start"
+ ],
+ "pause_button": [
+  "pause",
+  "stop",
+  "wait"
+ ],
+ "stop_button": [
+  "stop",
+  "end"
+ ],
+ "record_button": [
+  "record",
+  "live",
+  "recording"
+ ],
+ "fast_forward_button": [
+  "skip",
+  "forward",
+  "fast"
+ ],
+ "reverse_button": [
+  "rewind",
+  "back"
+ ],
+ "repeat_button": [
+  "repeat",
+  "again",
+  "loop",
+  "replay"
+ ],
+ "television": [
+  "tv",
+  "television",
+  "screen"
+ ],
+ "movie_camera": [
+  "camera",
+  "filming",
+  "film"
+ ],
+ "video_camera": [
+  "vlog",
+  "recording"
+ ],
+ "clapper_board": [
+  "scene",
+  "take",
+  "action"
+ ],
+ "film_frames": [
+  "film",
+  "movie"
+ ],
+ "mobile_phone": [
+  "phone",
+  "screen",
+  "app"
+ ],
+ "mobile_phone_with_arrow": [
+  "download",
+  "share"
+ ],
+ "mobile_phone_off": [
+  "offline"
+ ],
+ "vibration_mode": [
+  "buzz",
+  "vibrate"
+ ],
+ "laptop": [
+  "laptop",
+  "computer"
+ ],
+ "desktop_computer": [
+  "computer",
+  "pc"
+ ],
+ "computer_mouse": [
+  "click",
+  "mouse"
+ ],
+ "keyboard": [
+  "type",
+  "typing",
+  "keyboard"
+ ],
+ "studio_microphone": [
+  "mic",
+  "microphone",
+  "voice",
+  "podcast"
+ ],
+ "microphone": [
+  "sing",
+  "singer",
+  "karaoke"
+ ],
+ "loudspeaker": [
+  "announce",
+  "announcement"
+ ],
+ "megaphone": [
+  "shout",
+  "loud",
+  "yell"
+ ],
+ "speaker_high_volume": [
+  "sound",
+  "loud",
+  "volume"
+ ],
+ "muted_speaker": [
+  "mute",
+  "quiet"
+ ],
+ "headphone": [
+  "listen",
+  "headphones",
+  "music"
+ ],
+ "antenna_bars": [
+  "signal"
+ ],
+ "wireless": [
+  "wifi",
+  "internet",
+  "online"
+ ],
+ "satellite_antenna": [
+  "broadcast"
+ ],
+ "battery": [
+  "battery",
+  "charged",
+  "energy"
+ ],
+ "low_battery": [
+  "tired",
+  "drained",
+  "empty"
+ ],
+ "electric_plug": [
+  "plug",
+  "unplug"
+ ],
+ "light_bulb": [
+  "idea",
+  "smart",
+  "tip"
+ ],
+ "hundred_points": [
+  "hundred",
+  "perfect",
+  "100"
+ ],
+ "keycap_0": [
+  "zero",
+  "0",
+  "none",
+  "nobody"
+ ],
+ "keycap_1": [
+  "one",
+  "1",
+  "first"
+ ],
+ "keycap_2": [
+  "two",
+  "2",
+  "second"
+ ],
+ "keycap_3": [
+  "three",
+  "3"
+ ],
+ "keycap_10": [
+  "ten",
+  "10"
+ ],
+ "keycap_hashtag": [
+  "number",
+  "hashtag"
+ ],
+ "input_numbers": [
+  "numbers",
+  "count"
+ ],
+ "bar_chart": [
+  "stats",
+  "chart",
+  "views"
+ ],
+ "chart_increasing": [
+  "growing",
+  "up",
+  "rising",
+  "views",
+  "growth"
+ ],
+ "chart_decreasing": [
+  "falling",
+  "down",
+  "dropping"
+ ],
+ "link": [
+  "link"
+ ],
+ "pushpin": [
+  "pin",
+  "pinned"
+ ],
+ "round_pushpin": [
+  "location",
+  "place"
+ ],
+ "paperclip": [
+  "attach"
+ ],
+ "bookmark": [
+  "save",
+  "saved"
+ ],
+ "label": [
+  "tag",
+  "label"
+ ],
+ "memo": [
+  "note",
+  "notes",
+  "list",
+  "write"
+ ],
+ "clipboard": [
+  "checklist",
+  "plan"
+ ],
+ "page_facing_up": [
+  "page",
+  "document"
+ ],
+ "scroll": [
+  "story",
+  "history",
+  "old"
+ ],
+ "newspaper": [
+  "news"
+ ],
+ "e_mail": [
+  "email",
+  "mail"
+ ],
+ "envelope": [
+  "letter",
+  "message"
+ ],
+ "love_letter": [
+  "lovenote",
+  "letter",
+  "love"
+ ],
+ "incoming_envelope": [
+  "inbox"
+ ],
+ "package": [
+  "box",
+  "package",
+  "delivery"
+ ],
+ "wrapped_gift": [
+  "gift",
+  "surprise",
+  "present"
+ ],
+ "inbox_tray": [
+  "inbox"
+ ],
+ "outbox_tray": [
+  "outbox",
+  "send"
+ ],
+ "file_folder": [
+  "folder",
+  "files"
+ ],
+ "card_file_box": [
+  "archive"
+ ],
+ "wastebasket": [
+  "delete",
+  "deleted",
+  "trash",
+  "bin",
+  "remove",
+  "removed"
+ ],
+ "litter_in_bin_sign": [
+  "throw",
+  "away"
+ ],
+ "locked": [
+  "private",
+  "locked",
+  "lock",
+  "hidden",
+  "secret"
+ ],
+ "unlocked": [
+  "unlock",
+  "unlocked",
+  "open",
+  "public"
+ ],
+ "locked_with_key": [
+  "secure"
+ ],
+ "key": [
+  "key",
+  "access"
+ ],
+ "old_key": [
+  "unlock",
+  "secret"
+ ],
+ "shield": [
+  "safe",
+  "protect"
+ ],
+ "magnifying_glass_tilted_left": [
+  "search",
+  "find",
+  "look"
+ ],
+ "magnifying_glass_tilted_right": [
+  "investigate"
+ ],
+ "eye": [
+  "eye",
+  "watching"
+ ],
+ "eyes": [
+  "see",
+  "look",
+  "watching",
+  "views",
+  "viewers"
+ ],
+ "mirror": [
+  "mirror",
+  "reflection"
+ ],
+ "crystal_ball": [
+  "future",
+  "predict",
+  "prediction",
+  "fortune"
+ ],
+ "magic_wand": [
+  "magic",
+  "wish"
+ ],
+ "sparkles": [
+  "sparkle",
+  "new",
+  "shiny",
+  "special"
+ ],
+ "sparkle": [
+  "spark"
+ ],
+ "glowing_star": [
+  "star",
+  "shine"
+ ],
+ "star": [
+  "favorite",
+  "star",
+  "rating"
+ ],
+ "shooting_star": [
+  "wish",
+  "dream"
+ ],
+ "dizzy": [
+  "dizzy"
+ ],
+ "collision": [
+  "boom",
+  "crash",
+  "impact"
+ ],
+ "fire": [
+  "fire",
+  "hot",
+  "lit",
+  "viral",
+  "trending"
+ ],
+ "heart_on_fire": [
+  "passion"
+ ],
+ "high_voltage": [
+  "electric",
+  "energy",
+  "fast",
+  "quick"
+ ],
+ "bomb": [
+  "bomb",
+  "explode"
+ ],
+ "firecracker": [
+  "firework"
+ ],
+ "fireworks": [
+  "fireworks",
+  "celebrate"
+ ],
+ "party_popper": [
+  "party",
+  "congrats",
+  "celebrate",
+  "celebration"
+ ],
+ "confetti_ball": [
+  "confetti",
+  "win"
+ ],
+ "balloon": [
+  "balloon",
+  "birthday"
+ ],
+ "birthday_cake": [
+  "birthday",
+  "cake"
+ ],
+ "trophy": [
+  "trophy",
+  "win",
+  "winner",
+  "champion",
+  "record"
+ ],
+ "1st_place_medal": [
+  "first",
+  "winner",
+  "gold"
+ ],
+ "2nd_place_medal": [
+  "second",
+  "silver"
+ ],
+ "3rd_place_medal": [
+  "third",
+  "bronze"
+ ],
+ "sports_medal": [
+  "medal"
+ ],
+ "military_medal": [
+  "honor"
+ ],
+ "rosette": [
+  "award"
+ ],
+ "crown": [
+  "king",
+  "queen",
+  "best",
+  "top",
+  "crown"
+ ],
+ "gem_stone": [
+  "rare",
+  "diamond",
+  "precious"
+ ],
+ "ring": [
+  "ring",
+  "promise"
+ ],
+ "bullseye": [
+  "goal",
+  "target",
+  "aim"
+ ],
+ "game_die": [
+  "random",
+  "luck",
+  "chance",
+  "dice"
+ ],
+ "slot_machine": [
+  "jackpot",
+  "lucky"
+ ],
+ "four_leaf_clover": [
+  "luck",
+  "lucky"
+ ],
+ "joker": [
+  "joke",
+  "prank"
+ ],
+ "puzzle_piece": [
+  "puzzle",
+  "mystery"
+ ],
+ "video_game": [
+  "game",
+  "gaming",
+  "gamer"
+ ],
+ "joystick": [
+  "arcade"
+ ],
+ "rocket": [
+  "launch",
+  "rocket",
+  "boost"
+ ],
+ "flying_saucer": [
+  "ufo",
+  "alien"
+ ],
+ "alien": [
+  "alien"
+ ],
+ "robot": [
+  "robot",
+  "ai",
+  "algorithm",
+  "bot"
+ ],
+ "ghost": [
+  "ghost",
+  "gone",
+  "vanished",
+  "deleted",
+  "haunted"
+ ],
+ "skull": [
+  "dead",
+  "dying",
+  "rip"
+ ],
+ "coffin": [
+  "dead",
+  "died",
+  "gone"
+ ],
+ "headstone": [
+  "rip",
+  "grave"
+ ],
+ "jack_o_lantern": [
+  "halloween",
+  "pumpkin",
+  "spooky"
+ ],
+ "spider_web": [
+  "spooky",
+  "creepy"
+ ],
+ "hourglass_done": [
+  "time",
+  "over",
+  "ended"
+ ],
+ "hourglass_not_done": [
+  "time",
+  "hourglass",
+  "waiting",
+  "timer"
+ ],
+ "alarm_clock": [
+  "alarm",
+  "clock",
+  "deadline",
+  "wake"
+ ],
+ "stopwatch": [
+  "seconds",
+  "timer",
+  "stopwatch"
+ ],
+ "timer_clock": [
+  "timer",
+  "countdown"
+ ],
+ "watch": [
+  "watch",
+  "time"
+ ],
+ "mantelpiece_clock": [
+  "clock",
+  "hour"
+ ],
+ "calendar": [
+  "date",
+  "calendar",
+  "day"
+ ],
+ "spiral_calendar": [
+  "schedule"
+ ],
+ "tear_off_calendar": [
+  "tomorrow",
+  "today"
+ ],
+ "twelve_oclock": [
+  "midnight",
+  "noon"
+ ],
+ "warning": [
+  "warning",
+  "careful",
+  "danger"
+ ],
+ "stop_sign": [
+  "stop"
+ ],
+ "no_entry": [
+  "no",
+  "forbidden",
+  "banned"
+ ],
+ "prohibited": [
+  "banned",
+  "blocked",
+  "not",
+  "allowed"
+ ],
+ "police_car_light": [
+  "emergency",
+  "alert",
+  "siren"
+ ],
+ "construction": [
+  "construction",
+  "building"
+ ],
+ "cross_mark": [
+  "wrong",
+  "cross",
+  "no",
+  "x"
+ ],
+ "check_mark_button": [
+  "yes",
+  "done",
+  "correct",
+  "check"
+ ],
+ "check_box_with_check": [
+  "done",
+  "checked"
+ ],
+ "red_question_mark": [
+  "question",
+  "why",
+  "what"
+ ],
+ "white_question_mark": [
+  "unknown"
+ ],
+ "red_exclamation_mark": [
+  "important",
+  "attention"
+ ],
+ "double_exclamation_mark": [
+  "urgent"
+ ],
+ "exclamation_question_mark": [
+  "what",
+  "really"
+ ],
+ "sos_button": [
+  "help",
+  "sos"
+ ],
+ "new_button": [
+  "new"
+ ],
+ "free_button": [
+  "free"
+ ],
+ "up_button": [
+  "up",
+  "level"
+ ],
+ "cool_button": [
+  "cool"
+ ],
+ "ok_button": [
+  "ok",
+  "okay"
+ ],
+ "vs_button": [
+  "versus",
+  "vs",
+  "battle"
+ ],
+ "soon_arrow": [
+  "soon"
+ ],
+ "end_arrow": [
+  "end"
+ ],
+ "on_arrow": [
+  "on"
+ ],
+ "top_arrow": [
+  "top"
+ ],
+ "back_arrow": [
+  "back",
+  "return"
+ ],
+ "up_arrow": [
+  "up"
+ ],
+ "down_arrow": [
+  "down",
+  "below"
+ ],
+ "right_arrow": [
+  "right",
+  "next"
+ ],
+ "left_arrow": [
+  "left"
+ ],
+ "recycling_symbol": [
+  "again",
+  "recycle",
+  "reuse"
+ ],
+ "infinity": [
+  "forever",
+  "infinite"
+ ],
+ "atom_symbol": [
+  "science"
+ ],
+ "dna": [
+  "dna"
+ ],
+ "brain": [
+  "brain",
+  "smart",
+  "iq",
+  "genius"
+ ],
+ "anatomical_heart": [
+  "real",
+  "heart"
+ ],
+ "red_heart": [
+  "heart",
+  "love",
+  "loved"
+ ],
+ "sparkling_heart": [
+  "cute"
+ ],
+ "beating_heart": [
+  "heartbeat"
+ ],
+ "growing_heart": [
+  "more",
+  "love"
+ ],
+ "two_hearts": [
+  "hearts"
+ ],
+ "revolving_hearts": [
+  "lovely"
+ ],
+ "heart_with_arrow": [
+  "crush"
+ ],
+ "heart_with_ribbon": [
+  "gift",
+  "love"
+ ],
+ "broken_heart": [
+  "broken",
+  "heartbroken",
+  "sad"
+ ],
+ "mending_heart": [
+  "healing"
+ ],
+ "black_heart": [
+  "dark"
+ ],
+ "blue_heart": [
+  "blue"
+ ],
+ "purple_heart": [
+  "purple"
+ ],
+ "yellow_heart": [
+  "yellow",
+  "friend"
+ ],
+ "green_heart": [
+  "green"
+ ],
+ "orange_heart": [
+  "orange"
+ ],
+ "white_heart": [
+  "pure"
+ ],
+ "kiss_mark": [
+  "kiss"
+ ],
+ "anger_symbol": [
+  "angry",
+  "mad"
+ ],
+ "sweat_droplets": [
+  "sweat",
+  "nervous"
+ ],
+ "droplet": [
+  "drop",
+  "tear"
+ ],
+ "dashing_away": [
+  "fast",
+  "run",
+  "away",
+  "gone"
+ ],
+ "zzz": [
+  "sleep",
+  "sleeping",
+  "bored",
+  "zzz"
+ ],
+ "bubbles": [
+  "bubbles"
+ ],
+ "cyclone": [
+  "chaos",
+  "crazy"
+ ],
+ "tornado": [
+  "storm"
+ ],
+ "cloud_with_lightning": [
+  "thunder"
+ ],
+ "rainbow": [
+  "rainbow"
+ ],
+ "sun": [
+  "sun",
+  "day",
+  "morning"
+ ],
+ "crescent_moon": [
+  "night",
+  "moon"
+ ],
+ "snowflake": [
+  "winter",
+  "snow",
+  "cold"
+ ],
+ "fallen_leaf": [
+  "autumn",
+  "fall"
+ ],
+ "christmas_tree": [
+  "christmas"
+ ],
+ "snowman": [
+  "snowman"
+ ],
+ "globe_showing_americas": [
+  "world",
+  "everyone",
+  "global"
+ ],
+ "world_map": [
+  "map",
+  "countries"
+ ],
+ "footprints": [
+  "footsteps",
+  "steps"
+ ],
+ "door": [
+  "door",
+  "leave",
+  "exit"
+ ],
+ "hole": [
+  "hole",
+  "disappear"
+ ],
+ "chains": [
+  "locked",
+  "chained"
+ ],
+ "broken_chain": [
+  "free",
+  "freed"
+ ],
+ "hammer": [
+  "build",
+  "fix"
+ ],
+ "wrench": [
+  "fix",
+  "repair",
+  "settings"
+ ],
+ "gear": [
+  "settings",
+  "setup"
+ ],
+ "toolbox": [
+  "tools"
+ ],
+ "magnet": [
+  "attract"
+ ],
+ "balance_scale": [
+  "fair",
+  "judge"
+ ],
+ "pill": [
+  "medicine"
+ ],
+ "thermometer": [
+  "fever",
+  "temperature"
+ ],
+ "test_tube": [
+  "experiment",
+  "test"
+ ],
+ "microscope": [
+  "research"
+ ],
+ "telescope": [
+  "look",
+  "far"
+ ],
+ "compass": [
+  "direction"
+ ],
+ "books": [
+  "books",
+  "study",
+  "learn"
+ ],
+ "graduation_cap": [
+  "school",
+  "graduate"
+ ],
+ "pencil": [
+  "pencil",
+  "write"
+ ],
+ "crayon": [
+  "draw"
+ ],
+ "artist_palette": [
+  "art",
+  "paint"
+ ],
+ "camera_with_flash": [
+  "photo",
+  "picture"
+ ],
+ "framed_picture": [
+  "picture",
+  "frame"
+ ],
+ "popcorn": [
+  "popcorn",
+  "drama",
+  "watching"
+ ],
+ "pizza": [
+  "pizza",
+  "food"
+ ],
+ "hamburger": [
+  "burger",
+  "hungry"
+ ],
+ "french_fries": [
+  "fries"
+ ],
+ "doughnut": [
+  "donut"
+ ],
+ "cookie": [
+  "cookie"
+ ],
+ "ice_cream": [
+  "icecream"
+ ],
+ "hot_beverage": [
+  "coffee",
+  "morning"
+ ],
+ "bubble_tea": [
+  "drink"
+ ],
+ "teddy_bear": [
+  "cute",
+  "soft"
+ ],
+ "cat_face": [
+  "cat"
+ ],
+ "dog_face": [
+  "dog"
+ ],
+ "unicorn": [
+  "unicorn",
+  "rare"
+ ],
+ "dragon": [
+  "dragon",
+  "legendary"
+ ],
+ "t_rex": [
+  "dinosaur"
+ ],
+ "penguin": [
+  "penguin"
+ ],
+ "monkey_face": [
+  "monkey"
+ ],
+ "see_no_evil_monkey": [
+  "dont",
+  "look",
+  "embarrassing",
+  "oops"
+ ],
+ "hear_no_evil_monkey": [
+  "dont",
+  "listen"
+ ],
+ "speak_no_evil_monkey": [
+  "secret",
+  "quiet"
+ ],
+ "pile_of_poo": [
+  "poop"
+ ],
+ "clown_face": [
+  "clown",
+  "fool"
+ ],
+ "alien_monster": [
+  "monster"
+ ],
+ "goblin": [
+  "goblin"
+ ],
+ "ogre": [
+  "ogre"
+ ],
+ "moai": [
+  "stone",
+  "stare"
+ ],
+ "smiling_face_with_sunglasses": [
+  "cool",
+  "smart"
+ ],
+ "face_with_tears_of_joy": [
+  "laugh",
+  "lol",
+  "funny"
+ ],
+ "rolling_on_the_floor_laughing": [
+  "rofl",
+  "hilarious"
+ ],
+ "loudly_crying_face": [
+  "cry",
+  "crying",
+  "sobbing"
+ ],
+ "crying_face": [
+  "sad"
+ ],
+ "smiling_face_with_tear": [
+  "bittersweet"
+ ],
+ "face_holding_back_tears": [
+  "touched",
+  "emotional"
+ ],
+ "pleading_face": [
+  "please",
+  "pleading",
+  "beg"
+ ],
+ "face_screaming_in_fear": [
+  "scream",
+  "scared",
+  "terrified"
+ ],
+ "fearful_face": [
+  "afraid"
+ ],
+ "exploding_head": [
+  "mind",
+  "blown"
+ ],
+ "thinking_face": [
+  "thinking",
+  "hmm"
+ ],
+ "face_with_monocle": [
+  "suspicious",
+  "inspect"
+ ],
+ "face_with_raised_eyebrow": [
+  "sus",
+  "doubt"
+ ],
+ "shushing_face": [
+  "shh",
+  "shush",
+  "quiet"
+ ],
+ "zipper_mouth_face": [
+  "secret",
+  "silent"
+ ],
+ "face_with_hand_over_mouth": [
+  "oops"
+ ],
+ "face_with_open_eyes_and_hand_over_mouth": [
+  "gasp"
+ ],
+ "face_with_peeking_eye": [
+  "peek"
+ ],
+ "melting_face": [
+  "melting",
+  "awkward"
+ ],
+ "grimacing_face": [
+  "awkward",
+  "cringe"
+ ],
+ "upside_down_face": [
+  "silly"
+ ],
+ "zany_face": [
+  "crazy"
+ ],
+ "star_struck": [
+  "amazing",
+  "wow",
+  "starstruck"
+ ],
+ "smiling_face_with_heart_eyes": [
+  "love",
+  "it"
+ ],
+ "smiling_face_with_hearts": [
+  "loved"
+ ],
+ "partying_face": [
+  "partying"
+ ],
+ "nerd_face": [
+  "nerd"
+ ],
+ "cowboy_hat_face": [
+  "yeehaw"
+ ],
+ "disguised_face": [
+  "disguise",
+  "undercover"
+ ],
+ "smirking_face": [
+  "smirk"
+ ],
+ "unamused_face": [
+  "unamused"
+ ],
+ "face_with_rolling_eyes": [
+  "eyeroll"
+ ],
+ "expressionless_face": [
+  "blank"
+ ],
+ "neutral_face": [
+  "meh"
+ ],
+ "face_without_mouth": [
+  "speechless"
+ ],
+ "dotted_line_face": [
+  "invisible",
+  "hidden"
+ ],
+ "sleeping_face": [
+  "asleep"
+ ],
+ "yawning_face": [
+  "boring",
+  "yawn"
+ ],
+ "woozy_face": [
+  "dizzy",
+  "confused"
+ ],
+ "face_with_spiral_eyes": [
+  "hypnotized"
+ ],
+ "astonished_face": [
+  "shocked",
+  "astonished"
+ ],
+ "hushed_face": [
+  "surprised"
+ ],
+ "flushed_face": [
+  "embarrassed"
+ ],
+ "angry_face": [
+  "angry"
+ ],
+ "pouting_face": [
+  "furious"
+ ],
+ "face_with_steam_from_nose": [
+  "frustrated"
+ ],
+ "smiling_face_with_horns": [
+  "evil",
+  "devil",
+  "mischief"
+ ],
+ "smiling_face_with_halo": [
+  "angel",
+  "innocent"
+ ],
+ "hot_face": [
+  "hot"
+ ],
+ "cold_face": [
+  "freezing"
+ ],
+ "saluting_face": [
+  "salute",
+  "respect"
+ ],
+ "shaking_face": [
+  "shaking"
+ ],
+ "winking_face": [
+  "wink"
+ ],
+ "grinning_face_with_sweat": [
+  "phew"
+ ],
+ "anxious_face_with_sweat": [
+  "anxious"
+ ],
+ "lying_face": [
+  "lie",
+  "liar"
+ ],
+ "clapping_hands": [
+  "clap",
+  "applause"
+ ],
+ "folded_hands": [
+  "pray",
+  "thank",
+  "thanks"
+ ],
+ "raising_hands": [
+  "yay",
+  "hooray"
+ ],
+ "waving_hand": [
+  "hello",
+  "hi",
+  "bye",
+  "wave"
+ ],
+ "backhand_index_pointing_down": [
+  "below",
+  "down",
+  "here"
+ ],
+ "backhand_index_pointing_left": [
+  "point",
+  "left"
+ ],
+ "backhand_index_pointing_right": [
+  "point",
+  "right"
+ ],
+ "backhand_index_pointing_up": [
+  "above",
+  "up"
+ ],
+ "index_pointing_at_the_viewer": [
+  "you"
+ ],
+ "index_pointing_up": [
+  "one",
+  "wait"
+ ],
+ "flexed_biceps": [
+  "strong",
+  "strength"
+ ],
+ "crossed_fingers": [
+  "hope",
+  "hoping"
+ ],
+ "heart_hands": [
+  "support"
+ ],
+ "ok_hand": [
+  "okay",
+  "perfect"
+ ],
+ "victory_hand": [
+  "peace",
+  "victory"
+ ],
+ "raised_hand": [
+  "raise",
+  "hand"
+ ],
+ "raised_fist": [
+  "fight"
+ ],
+ "oncoming_fist": [
+  "punch"
+ ],
+ "open_hands": [
+  "hug"
+ ],
+ "palms_up_together": [
+  "please"
+ ],
+ "writing_hand": [
+  "write",
+  "writing"
+ ],
+ "selfie": [
+  "selfie"
+ ],
+ "pinching_hand": [
+  "tiny",
+  "little",
+  "small"
+ ],
+ "ninja": [
+  "ninja",
+  "stealth"
+ ],
+ "detective": [
+  "detective",
+  "investigate"
+ ],
+ "person_shrugging": [
+  "shrug",
+  "whatever"
+ ],
+ "person_facepalming": [
+  "facepalm"
+ ],
+ "person_raising_hand": [
+  "me"
+ ],
+ "person_gesturing_no": [
+  "nope"
+ ],
+ "person_running": [
+  "run",
+  "running"
+ ]
+}
