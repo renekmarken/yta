@@ -311,5 +311,64 @@
   "url": "https://paynearme.com",
   "status": "done",
   "date": "2026-10-03"
+ },
+ {
+  "site": "mews.com",
+  "name": "Mews",
+  "url": "https://mews.com",
+  "status": "done",
+  "date": "2026-10-03"
+ },
+ {
+  "site": "tungstenautomation.com",
+  "name": "Tungsten Automation",
+  "url": "https://tungstenautomation.com",
+  "status": "done",
+  "date": "2026-10-03"
+ },
+ {
+  "site": "vespper.com",
+  "name": "Vespper",
+  "url": "https://vespper.com",
+  "status": "done",
+  "date": "2026-10-03"
+ },
+ {
+  "site": "shiphq.io",
+  "name": "ShipHQ",
+  "url": "https://shiphq.io",
+  "status": "done",
+  "date": "2026-10-03"
+ },
+ {
+  "site": "neverboring.ai",
+  "name": "Never Boring AI",
+  "url": "https://neverboring.ai",
+  "status": "done",
+  "date": "2026-10-03"
+ },
+ {
+  "site": "manus.im",
+  "name": "Manus",
+  "url": "https://manus.im",
+  "status": "done",
+  "date": "2026-10-03",
+  "alt": "Cue by Manus"
+ },
+ {
+  "site": "mintlify.com",
+  "name": "Mintlify",
+  "url": "https://mintlify.com",
+  "status": "done",
+  "date": "2026-10-03",
+  "alt": "Mintlify Desktop"
+ },
+ {
+  "site": "omniaagent.com",
+  "name": "Omnia",
+  "url": "https://omniaagent.com",
+  "status": "done",
+  "date": "2026-10-03",
+  "alt": "Omnia Agent"
  }
 ]

@@ -481,22 +481,6 @@
    "priority": 5.74,
    "cat": "💼 Freelancing platforms"
   },
-  "vespper.com": {
-   "name": "Vespper",
-   "url": "https://vespper.com",
-   "category": "ai-tools",
-   "hotness": 9.0,
-   "evergreen": false,
-   "why": "MCP letting AI agents efficiently edit Word documents.",
-   "sources": [
-    "Launch HN"
-   ],
-   "added": "2026-10-03T05:29:12+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-02T19:25:59+00:00",
-   "priority": 15.61,
-   "cat": "🤖 AI tools"
-  },
   "rate.fm": {
    "name": "Rate.fm",
    "url": "https://rate.fm",
@@ -510,7 +494,7 @@
    "added": "2026-10-02T19:26:01+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:01+00:00",
-   "priority": 13.91,
+   "priority": 13.77,
    "cat": "💻 SaaS / business software"
   },
   "chat.sh": {
@@ -526,7 +510,7 @@
    "added": "2026-10-02T19:26:02+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:02+00:00",
-   "priority": 13.91,
+   "priority": 13.77,
    "cat": "💻 SaaS / business software"
   },
   "fidelity.com": {
@@ -599,38 +583,6 @@
    "priority": 6.48,
    "cat": "📈 Investing platforms"
   },
-  "shiphq.io": {
-   "name": "ShipHQ",
-   "url": "https://shiphq.io",
-   "category": "saas",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Build your own app studio powered by your real apps.",
-   "sources": [
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-02T23:52:21+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-02T23:52:21+00:00",
-   "priority": 14.87,
-   "cat": "💻 SaaS / business software"
-  },
-  "mintlify.com": {
-   "name": "Mintlify Desktop",
-   "url": "https://mintlify.com",
-   "category": "saas",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "AI-native app for writing documentation and knowledge bases.",
-   "sources": [
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-02T23:52:22+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-02T23:52:22+00:00",
-   "priority": 14.87,
-   "cat": "💻 SaaS / business software"
-  },
   "gauthmath.com": {
    "name": "Gauth Unlimited Digital Canvas",
    "url": "https://gauthmath.com",
@@ -644,39 +596,7 @@
    "added": "2026-10-02T23:52:22+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:22+00:00",
-   "priority": 14.95,
-   "cat": "🤖 AI tools"
-  },
-  "neverboring.ai": {
-   "name": "Never Boring AI",
-   "url": "https://neverboring.ai",
-   "category": "marketing",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "AI agent that writes your LinkedIn posts in your voice.",
-   "sources": [
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-02T23:52:23+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-02T23:52:23+00:00",
-   "priority": 14.87,
-   "cat": "📣 Marketing platforms"
-  },
-  "manus.im": {
-   "name": "Cue by Manus",
-   "url": "https://manus.im",
-   "category": "ai-tools",
-   "hotness": 9.0,
-   "evergreen": false,
-   "why": "Personal AI agents with identity handling life end to end.",
-   "sources": [
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-02T23:52:24+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-02T23:52:24+00:00",
-   "priority": 15.57,
+   "priority": 14.8,
    "cat": "🤖 AI tools"
   },
   "chainsnip.com": {
@@ -692,7 +612,7 @@
    "added": "2026-10-02T23:52:45+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:45+00:00",
-   "priority": 14.45,
+   "priority": 14.31,
    "cat": "📈 Investing platforms"
   },
   "notchmind.com": {
@@ -708,7 +628,7 @@
    "added": "2026-10-02T23:52:45+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:45+00:00",
-   "priority": 14.24,
+   "priority": 14.1,
    "cat": "💻 SaaS / business software"
   },
   "typestream.io": {
@@ -724,7 +644,7 @@
    "added": "2026-10-02T23:53:05+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:05+00:00",
-   "priority": 14.95,
+   "priority": 14.8,
    "cat": "🤖 AI tools"
   },
   "staylokal.com": {
@@ -740,24 +660,8 @@
    "added": "2026-10-02T23:53:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:06+00:00",
-   "priority": 14.1,
+   "priority": 13.96,
    "cat": "🔐 Cybersecurity / VPNs"
-  },
-  "omniaagent.com": {
-   "name": "Omnia Agent",
-   "url": "https://omniaagent.com",
-   "category": "marketing",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "AI agent that handles 95% of your GEO optimization work.",
-   "sources": [
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-02T23:53:06+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-02T23:53:06+00:00",
-   "priority": 14.87,
-   "cat": "📣 Marketing platforms"
   },
   "vitra.ai": {
    "name": "Vitra.ai",
@@ -772,40 +676,8 @@
    "added": "2026-10-02T23:53:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:06+00:00",
-   "priority": 14.95,
+   "priority": 14.8,
    "cat": "🤖 AI tools"
-  },
-  "tungstenautomation.com": {
-   "name": "Tungsten Automation",
-   "url": "https://tungstenautomation.com",
-   "category": "business-tools",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "New AI invoice processing tool for enterprise workflows.",
-   "sources": [
-    "Launch news"
-   ],
-   "added": "2026-10-03T05:29:12+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-02T23:53:08+00:00",
-   "priority": 17.91,
-   "cat": "📊 Business tools"
-  },
-  "mews.com": {
-   "name": "Mews",
-   "url": "https://mews.com",
-   "category": "saas",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Launches AI-powered guest messaging and hotel automation tools.",
-   "sources": [
-    "Launch news"
-   ],
-   "added": "2026-10-03T05:29:12+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-02T23:53:09+00:00",
-   "priority": 17.91,
-   "cat": "💻 SaaS / business software"
   },
   "citi.com": {
    "name": "Citi",
@@ -990,5 +862,5 @@
    "cat": "⚖️ Legal services / platforms"
   }
  },
- "updated": "2026-10-03T05:39:04+00:00"
+ "updated": "2026-10-03T07:28:35+00:00"
 }

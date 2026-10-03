@@ -2428,5 +2428,386 @@
     "stack/emerald/truth"
    ]
   }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://mews.com",
+  "brand": "Mews",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "Mews: 1,000+ Integrations, But What's the Catch?",
+  "youtube": null,
+  "format": "pros_cons",
+  "opener": "Are you running a modern hotel and tired of clunky legacy software holding back your daily operations? Today we are brea",
+  "title_style": "scam",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "floating",
+   "caption": "tag",
+   "bg": "spotlight",
+   "head_font": "poppins",
+   "accent": [
+    240,
+    120,
+    216
+   ],
+   "transitions": [
+    "radial",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "card",
+   "music": "lofi",
+   "sfx": "warm",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "split/charcoal/scam",
+    "yes_no/violet/worth",
+    "score/magenta/catch"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://tungstenautomation.com",
+  "brand": "Tungsten Automation",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "Tungsten Automation: Hidden Pricing, But Is It Worth It?",
+  "youtube": null,
+  "format": "pros_cons",
+  "opener": "The Tungsten Automation homepage notes that the bulk of your business knowledge lives in unstructured files that standar",
+  "title_style": "scam",
+  "theme": {
+   "mode": "light",
+   "layout": "full",
+   "frame": "floating",
+   "caption": "glass",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "left",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "drop",
+   "callout": "card",
+   "music": "lofi",
+   "sfx": "crisp",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "left/ocean/scam",
+    "yes_no/midnight/worth",
+    "number/violet/good"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://vespper.com",
+  "brand": "Vespper",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Vespper: Fast Word Document MCP, But Is It Worth It?",
+  "youtube": null,
+  "format": "pros_cons",
+  "opener": "If you are not building AI agents that touch Microsoft Word documents, you should stop watching right now",
+  "title_style": "actually",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "minimal",
+   "caption": "glass",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    240,
+    144,
+    48
+   ],
+   "transitions": [
+    "circleopen",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "pill",
+   "music": "ambient",
+   "sfx": "airy",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "yes_no/ocean/worth",
+    "laptop/crimson/scam",
+    "stack/emerald/good"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://shiphq.io",
+  "brand": "ShipHQ",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "ShipHQ: What's the Catch?",
+  "youtube": null,
+  "format": "first_look",
+  "opener": "Here is the catch: when you visit ShipHQ, you do not find a shipping app at all",
+  "title_style": "catch",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "minimal",
+   "caption": "underline",
+   "bg": "spotlight",
+   "head_font": "poppins",
+   "accent": [
+    0,
+    214,
+    170
+   ],
+   "transitions": [
+    "cut"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "left",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "upbeat",
+   "sfx": "crisp",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "left/charcoal/catch",
+    "stack/magenta/worth",
+    "banner/ocean/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://neverboring.ai",
+  "brand": "Never Boring AI",
+  "kind": "review",
+  "story_url": null,
+  "category": "marketing",
+  "title": "Never Boring AI: $39/mo LinkedIn Agent Reviewed",
+  "youtube": null,
+  "format": "pros_cons",
+  "opener": "Are you tired of staring at a blank LinkedIn screen every week trying to figure out what to write? Never Boring AI promi",
+  "title_style": "before",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "floating",
+   "caption": "glass",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    0,
+    170,
+    255
+   ],
+   "transitions": [
+    "hblur",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "pill",
+   "music": "ambient",
+   "sfx": "playful",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "split/emerald/before",
+    "banner/violet/scam",
+    "yes_no/magenta/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://manus.im",
+  "brand": "Manus",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Manus: Watch This Before You Sign Up",
+  "youtube": null,
+  "format": "pros_cons",
+  "opener": "Manus claims to be the action engine that goes beyond simple answers to execute tasks, automate workflows, and extend hu",
+  "title_style": "before",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "floating",
+   "caption": "tag",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    70,
+    140
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "laptop",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "pill",
+   "music": "ambient",
+   "sfx": "warm",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "laptop/ocean/before",
+    "number/royal/scam",
+    "left/charcoal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://mintlify.com",
+  "brand": "Mintlify",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Mintlify: $450/mo Pro Plan, But What's the Catch?",
+  "youtube": null,
+  "format": "five_questions",
+  "opener": "The homepage claims Mintlify powers over twenty thousand companies with self-updating documentation built for AI agents",
+  "title_style": "dont",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "minimal",
+   "caption": "glass",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    24,
+    216,
+    144
+   ],
+   "transitions": [
+    "smoothleft",
+    "smoothright"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "split",
+   "thumb_accent": [
+    24,
+    216,
+    144
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "ambient",
+   "sfx": "airy",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "split/ocean/dont",
+    "banner/emerald/worth",
+    "left/magenta/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://omniaagent.com",
+  "brand": "Omnia",
+  "kind": "review",
+  "story_url": null,
+  "category": "insurance",
+  "title": "Omnia: Automated Brokerage AI, But What's the Catch?",
+  "youtube": null,
+  "format": "fine_print",
+  "opener": "Can an artificial intelligence agent handle lead outreach, text messaging, and phone call routing for insurance brokerag",
+  "title_style": "good",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "floating",
+   "caption": "underline",
+   "bg": "aurora",
+   "head_font": "poppins",
+   "accent": [
+    192,
+    144,
+    72
+   ],
+   "transitions": [
+    "vertopen",
+    "horzopen"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "ambient",
+   "sfx": "warm",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "split/charcoal/good",
+    "stack/ocean/worth",
+    "score/magenta/scam"
+   ]
+  }
  }
 ]
