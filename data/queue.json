@@ -494,7 +494,7 @@
    "added": "2026-10-02T19:26:01+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:01+00:00",
-   "priority": 13.45,
+   "priority": 13.14,
    "cat": "💻 SaaS / business software"
   },
   "chat.sh": {
@@ -510,7 +510,7 @@
    "added": "2026-10-02T19:26:02+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:02+00:00",
-   "priority": 13.45,
+   "priority": 13.14,
    "cat": "💻 SaaS / business software"
   },
   "fidelity.com": {
@@ -596,7 +596,7 @@
    "added": "2026-10-02T23:52:45+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:45+00:00",
-   "priority": 13.98,
+   "priority": 13.65,
    "cat": "📈 Investing platforms"
   },
   "notchmind.com": {
@@ -612,7 +612,7 @@
    "added": "2026-10-02T23:52:45+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:45+00:00",
-   "priority": 13.77,
+   "priority": 13.44,
    "cat": "💻 SaaS / business software"
   },
   "typestream.io": {
@@ -628,7 +628,7 @@
    "added": "2026-10-02T23:53:05+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:05+00:00",
-   "priority": 14.45,
+   "priority": 14.1,
    "cat": "🤖 AI tools"
   },
   "staylokal.com": {
@@ -644,7 +644,7 @@
    "added": "2026-10-02T23:53:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:06+00:00",
-   "priority": 13.63,
+   "priority": 13.3,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "vitra.ai": {
@@ -660,7 +660,7 @@
    "added": "2026-10-02T23:53:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:06+00:00",
-   "priority": 14.45,
+   "priority": 14.1,
    "cat": "🤖 AI tools"
   },
   "citi.com": {
@@ -858,7 +858,7 @@
    "added": "2026-10-03T11:50:19+00:00",
    "launch": "today",
    "launch_seen": "2026-10-03T11:50:19+00:00",
-   "priority": 18.54,
+   "priority": 18.03,
    "cat": "🛡️ Insurance"
   },
   "healthintech.com": {
@@ -871,10 +871,10 @@
    "sources": [
     "Google News"
    ],
-   "added": "2026-10-03T11:50:20+00:00",
+   "added": "2026-10-03T16:32:04+00:00",
    "launch": "today",
    "launch_seen": "2026-10-03T11:50:20+00:00",
-   "priority": 18.54,
+   "priority": 18.21,
    "cat": "🛡️ Insurance"
   },
   "fabletics.com": {
@@ -887,10 +887,10 @@
    "sources": [
     "trend scan"
    ],
-   "added": "2026-10-03T11:50:40+00:00",
+   "added": "2026-10-03T16:32:04+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:40+00:00",
-   "priority": 14.9,
+   "priority": 14.69,
    "cat": "💳 Credit cards / financial products"
   },
   "gov.ca.gov": {
@@ -906,7 +906,7 @@
    "added": "2026-10-03T11:50:41+00:00",
    "launch": "today",
    "launch_seen": "2026-10-03T11:50:41+00:00",
-   "priority": 18.33,
+   "priority": 17.82,
    "cat": "📊 Business tools"
   },
   "yubi.ai": {
@@ -922,7 +922,7 @@
    "added": "2026-10-03T11:50:42+00:00",
    "launch": "today",
    "launch_seen": "2026-10-03T11:50:42+00:00",
-   "priority": 18.41,
+   "priority": 17.91,
    "cat": "🤖 AI tools"
   },
   "musegadgets.com": {
@@ -938,7 +938,7 @@
    "added": "2026-10-03T11:50:42+00:00",
    "launch": "today",
    "launch_seen": "2026-10-03T11:50:42+00:00",
-   "priority": 19.06,
+   "priority": 18.54,
    "cat": "🤖 AI tools"
   },
   "singularity.ai": {
@@ -954,7 +954,7 @@
    "added": "2026-10-03T11:50:42+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:42+00:00",
-   "priority": 15.42,
+   "priority": 15.04,
    "cat": "🤖 AI tools"
   },
   "feelmymac.com": {
@@ -970,7 +970,7 @@
    "added": "2026-10-03T11:50:43+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:43+00:00",
-   "priority": 14.69,
+   "priority": 14.33,
    "cat": "💻 SaaS / business software"
   },
   "thanor.ai": {
@@ -986,7 +986,7 @@
    "added": "2026-10-03T11:50:43+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:43+00:00",
-   "priority": 14.77,
+   "priority": 14.41,
    "cat": "🤖 AI tools"
   },
   "bmux.dev": {
@@ -1002,7 +1002,7 @@
    "added": "2026-10-03T11:50:44+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:44+00:00",
-   "priority": 14.69,
+   "priority": 14.33,
    "cat": "💻 SaaS / business software"
   },
   "otpfill.com": {
@@ -1018,7 +1018,7 @@
    "added": "2026-10-03T11:50:44+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:44+00:00",
-   "priority": 14.69,
+   "priority": 14.33,
    "cat": "💻 SaaS / business software"
   },
   "maccam.app": {
@@ -1034,7 +1034,7 @@
    "added": "2026-10-03T11:50:45+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:45+00:00",
-   "priority": 14.69,
+   "priority": 14.33,
    "cat": "💻 SaaS / business software"
   },
   "unamano.app": {
@@ -1050,7 +1050,7 @@
    "added": "2026-10-03T11:50:45+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:45+00:00",
-   "priority": 14.69,
+   "priority": 14.33,
    "cat": "💻 SaaS / business software"
   },
   "wattmate.app": {
@@ -1066,9 +1066,73 @@
    "added": "2026-10-03T11:50:46+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:46+00:00",
-   "priority": 14.69,
+   "priority": 14.33,
    "cat": "💻 SaaS / business software"
+  },
+  "carnival.com": {
+   "name": "Carnival Rewards Mastercard",
+   "url": "https://carnival.com",
+   "category": "credit-cards",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Cruise-line loyalty credit card earning status points.",
+   "sources": [
+    "Google News"
+   ],
+   "added": "2026-10-03T16:32:04+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-03T16:32:04+00:00",
+   "priority": 14.91,
+   "cat": "💳 Credit cards / financial products"
+  },
+  "millenniumsystems.com": {
+   "name": "MeevoIQ",
+   "url": "https://millenniumsystems.com",
+   "category": "saas",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "AI advisors built to grow salons, spas, and med spas.",
+   "sources": [
+    "Launch news"
+   ],
+   "added": "2026-10-03T16:32:05+00:00",
+   "launch": "today",
+   "launch_seen": "2026-10-03T16:32:05+00:00",
+   "priority": 18.35,
+   "cat": "💻 SaaS / business software"
+  },
+  "primeintellect.ai": {
+   "name": "Prime Inference",
+   "url": "https://primeintellect.ai",
+   "category": "ai-tools",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "Serverless and reserved serving for frontier open models.",
+   "sources": [
+    "Launch news"
+   ],
+   "added": "2026-10-03T16:32:06+00:00",
+   "launch": "today",
+   "launch_seen": "2026-10-03T16:32:06+00:00",
+   "priority": 18.43,
+   "cat": "🤖 AI tools"
+  },
+  "bambulab.com": {
+   "name": "Bambu Lab R1",
+   "url": "https://bambulab.com",
+   "category": "business-tools",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "CO2 laser cutting machine featuring Bambu-style automation.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-03T16:32:06+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-03T16:32:06+00:00",
+   "priority": 15.35,
+   "cat": "📊 Business tools"
   }
  },
- "updated": "2026-10-03T12:01:38+00:00"
+ "updated": "2026-10-03T16:32:06+00:00"
 }
