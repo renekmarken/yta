@@ -2809,5 +2809,149 @@
     "score/magenta/scam"
    ]
   }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://www.instagram.com",
+  "brand": "Instagram",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/legaladvice/comments/wzw4ho/someone_is_claiming_i_must_give_up_my_instagram/",
+  "category": "legal",
+  "title": "Instagram Username Claimed By Business — Are You Legally Forced to Give It Up?",
+  "youtube": null,
+  "format": null,
+  "opener": "An Instagram user posted on Reddit asking if they were legally compelled to hand over their account handle",
+  "title_style": null,
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "bar",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    122,
+    92,
+    255
+   ],
+   "transitions": [
+    "squeezeh",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "lofi",
+   "sfx": "soft",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "risk/post",
+    "risk/caution",
+    "risk/strip"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://www.facebook.com",
+  "brand": "Facebook",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/facebook/comments/1rq5b5g/banned_from_marketplace_for_no_reason_ai_flagged/",
+  "category": "business-tools",
+  "title": "Facebook BANNED Me From Marketplace For No Reason? What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "A Facebook user posted on Reddit that they opened the app one day to find they were suddenly banned from Marketplace",
+  "title_style": null,
+  "theme": {
+   "mode": "light",
+   "layout": "spotlight",
+   "frame": "mac_light",
+   "caption": "glass",
+   "bg": "mesh",
+   "head_font": "interdisplay",
+   "accent": [
+    17,
+    107,
+    241
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_right",
+   "callout": "pill",
+   "music": "upbeat",
+   "sfx": "playful",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "risk/post",
+    "risk/stamp",
+    "risk/stack"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://www.snapchat.com",
+  "brand": "Snapchat",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/SnapchatHelp/comments/1uo2mxm/snapchat_memories_storage/",
+  "category": "saas",
+  "title": "Snapchat MEMORIES storage full issue and export problems: What now?",
+  "youtube": null,
+  "format": null,
+  "opener": "A Snapchat user posted on Reddit about a frustrating storage issue, stating they hate Snapchat for starting a hostage me",
+  "title_style": null,
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    255,
+    150,
+    30
+   ],
+   "transitions": [
+    "circleopen",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "number",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_right",
+   "callout": "pill",
+   "music": "tech",
+   "sfx": "airy",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "risk/post",
+    "risk/caution",
+    "risk/blackout"
+   ]
+  }
  }
 ]
