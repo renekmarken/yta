@@ -42,6 +42,22 @@ def main(names):
         files = e.get("files") or {}
         if not ("all" in wanted or any(w in text for w in wanted)) or e.get("missing") or "video" not in files:
             continue
+        if e.get("kind") == "whitescreen":               # no website: the thumbnails come from the script
+            if "script" not in files:
+                print(f"  ! {e['title']}: no script saved, skipped")
+                continue
+            from studio.ws_thumb import make as ws_make
+            data = json.loads(lib.fetch(files["script"]))
+            out = Path(tempfile.mkdtemp()) / e["id"]
+            out.mkdir(parents=True)
+            paths = ws_make(data, out)
+            files["thumbnails"] = [lib.store(e["id"], "thumbnail", p.read_bytes(),
+                                             f"911video - {e.get('title', 'video')[:40]} - thumbnail {i}.jpg", f"-{i}")
+                                   for i, p in enumerate(paths, 1)]
+            files["thumbnail"] = files["thumbnails"][0]
+            print(f"  {e['title']}: new thumbnails ({', '.join(data.get('thumbs', []))})")
+            done += 1
+            continue
         kit = lib.fetch(files["kit"]).decode("utf-8", "replace") if "kit" in files else ""
         m = re.search(r"^Source: (\S+)", kit, re.M)
         if not m:

@@ -20,13 +20,13 @@ on:
         required: false
         default: ""
       topics:
-        description: 'Optional, Risk Cases only: your own, as JSON [{"product": "Instagram", "issue": "users banned for no reason"}]'
+        description: 'Optional: your own, as JSON. Risk Cases [{"product": "Instagram", "issue": "..."}]; White Screen [{"title": "", "instructions": "..."}]'
         required: false
         default: ""
       kind:
         description: "What to make"
         type: choice
-        options: ["review", "risk"]
+        options: ["review", "risk", "whitescreen"]
         default: "review"
       parallel:
         description: "How many to make at the same time"

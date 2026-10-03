@@ -150,6 +150,9 @@ Source: {info['url']} · Format: {data.get('format')} · Look: {theme['layout']}
 
 def produce(item, history, out=None, mode="new"):
     """mode: new | rerender (same look) | restyle (new look)."""
+    if item and item.get("kind") == "whitescreen":           # a completely different kind of video
+        from studio.whitescreen import produce as whitescreen
+        return whitescreen(item, history)
     from studio.crawl import BlockedSite, crawl
     from studio.script import write_script
     from studio.themes import normalize, pick_theme
@@ -268,6 +271,11 @@ def _label(data, item, youtube):
 def apply_result(res, history):
     """Book one finished (or failed) video into the queue, history and the never-again record."""
     item, key = res["item"], res["key"]
+    if item.get("kind") == "whitescreen":         # no website: nothing to book in the queue or the ledger
+        if res["status"] == "done":
+            history.append(res["record"])
+            save_history(history)
+        return
     if item.get("kind") == "risk":              # Risk Cases keep their own record; the review queue is untouched
         from studio import risk
         if res["status"] == "done":
@@ -326,7 +334,8 @@ def main():
     ap.add_argument("--plan-out", type=Path, default=Path("plan.json"))
     ap.add_argument("--plan-url", default="", help="also review this website (outside the queue)")
     ap.add_argument("--plan-topics", default="", help='Risk Cases you asked for: JSON [{"product": "Instagram", "issue": "..."}]')
-    ap.add_argument("--kind", default="review", choices=["review", "risk"], help="review or Risk Case (batch plan)")
+    ap.add_argument("--kind", default="review", choices=["review", "risk", "whitescreen"],
+                    help="review, Risk Case or White Screen (batch plan)")
     ap.add_argument("--item", help="make exactly this planned item (JSON) and write result.json, no bookkeeping")
     ap.add_argument("--apply-results", type=Path, help="book all result.json files found in this folder")
     a = ap.parse_args()
@@ -346,6 +355,37 @@ def main():
         produce(None, history, out=a.rerender or a.restyle, mode="rerender" if a.rerender else "restyle")
         return
 
+    if a.plan is not None and a.kind == "whitescreen":    # White Screen: titles from its own queue
+        from studio import ws_script
+        picks = []
+        stamp = datetime.now(timezone.utc).strftime("%H%M%S")
+        for i, t in enumerate(ws_script.pick(a.plan, history) if a.plan > 0 else []):
+            sl = re.sub(r"[^a-z0-9]+", "-", t["title"].lower()).strip("-")[:40]
+            picks.append((f"ws-{sl}-{stamp}-{i}", {"name": t["title"], "title": t["title"], "kind": "whitescreen",
+                                                   "url": f"whitescreen:{sl}-{stamp}-{i}", "category": None,
+                                                   "done_before": t["done_before"]}))
+        topics = []
+        if a.plan_topics.strip():
+            try:
+                topics = json.loads(a.plan_topics)
+            except json.JSONDecodeError:
+                topics = [{"instructions": line} for line in a.plan_topics.splitlines()]
+        mine = []
+        for i, t in enumerate(topics if isinstance(topics, list) else []):
+            title = str(t.get("title") or "").strip()[:100]
+            instr = str(t.get("instructions") or t.get("issue") or t.get("product") or "").strip()[:600]
+            if not (title or instr):
+                continue
+            sl = re.sub(r"[^a-z0-9]+", "-", (title or instr).lower()).strip("-")[:40] or "topic"
+            mine.append((f"ws-own-{sl}-{stamp}-{i}", {"name": title or instr[:60], "title": title, "instructions": instr,
+                                                      "kind": "whitescreen", "url": f"whitescreen:own-{sl}-{stamp}-{i}",
+                                                      "category": None, "custom": True}))
+        picks = mine[:10] + picks
+        a.plan_out.write_text(json.dumps([{"n": i + 1, "key": k, **it} for i, (k, it) in enumerate(picks)]))
+        print(f"Planned {len(picks)} White Screen video(s):")
+        for i, (k, it) in enumerate(picks, 1):
+            print(f"  {i}. {it['name']}" + (f" — your notes: {it['instructions'][:80]}" if it.get("instructions") else ""))
+        return
     if a.plan is not None:
         if a.kind == "risk":
             from studio import risk
@@ -395,7 +435,7 @@ def main():
         it = json.loads(a.item)
         key = it.pop("key", None) or key_for(it["url"])
         it.pop("n", None)
-        if not it.get("custom") and it.get("kind") != "risk" and Ledger().has(it["url"], it.get("name")):
+        if not it.get("custom") and it.get("kind") not in ("risk", "whitescreen") and Ledger().has(it["url"], it.get("name")):
             print(f"{it['name']} was already reviewed — skipping.")
             return
         res = make_one(key, it, history)

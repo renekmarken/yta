@@ -156,6 +156,29 @@ video the same way. These are made even for products that already had a Risk Cas
 
 Always read the original post before publishing (it's the first item in the video's checklist).
 
+### White Screen videos (third format)
+
+**＋ Generate White Screen** in the library makes 35-45 second videos built for likes and comments: a
+voice talks straight to the viewer while the words pop up one by one, centred, in big black Airone
+letters on a plain white 16:9 screen (perfectly in time with the voice), with a few icons (like,
+comment, trash, lock, hourglass...) and simple sound effects at the key words. No music.
+
+- **It makes everything itself:** titles come from a queue of proven formats
+  (`studio/ws_script.py`, editable in `data/whitescreen_titles.json`), where [Private Video],
+  [Deleted Video] and the other attention-grabbing ones come up more often; a title can come back,
+  with a fresh script (different goal, comment word and twist).
+- **Or give it your own:** a title, a topic/instructions, or both ("＋ Add another" for more).
+- Scripts follow the channel's own examples (`assets/whitescreen/examples.md`) and today's date, so
+  "I'll bring it back in November" makes sense; never promises money or prizes.
+- 3 thumbnails per video in the channel's styles: the sad/locked/glitched YouTube face for
+  [Bracket] titles, YouTube-interface mock-ups ("0 Comments", the like bar, "Delete your channel?")
+  with a red ring and arrow, the masked blue-hoodie character big on one half with 1-3 huge words,
+  a headline style, a big-icon style and a white style.
+- Assets: `assets/whitescreen/characters` (27 emotions cut out of your sheet),
+  `assets/whitescreen/ytfaces` (30 red YouTube faces from your sheet), crisp icons, arrows and YouTube
+  interface drawn in code (Roboto, YouTube's own font). **White Screen: improve assets** (Actions)
+  redraws the character in full quality with Gemini's image model and adds new poses.
+
 ### Make many videos at once
 
 **Actions → Make a batch of videos → Run workflow** (or **＋ Generate new videos** in the library) asks

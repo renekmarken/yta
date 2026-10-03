@@ -96,6 +96,8 @@ textarea.box.desc{min-height:260px}
 .xbtn{margin-left:auto;border:0;background:none;color:inherit;font-size:16px;cursor:pointer;padding:2px 6px;opacity:.7}
 .xbtn:hover{opacity:1}
 .gen.risk{background:#d61f2c;color:#fff}
+.gen.ws{background:#fff;color:#111;border:2px solid #111}
+.pill.ws-badge{background:#fff;color:#111;border:1.5px solid #111;font-weight:800}
 .pill.risk-badge{background:#d61f2c;color:#fff;border-color:#d61f2c;font-weight:800}
 .story-link{display:flex;flex-wrap:wrap;gap:4px 6px;align-items:baseline;margin-top:10px;font-size:14px;color:var(--muted);min-width:0}
 .story-link a{min-width:0}
@@ -186,6 +188,7 @@ select{width:100%;padding:11px;border-radius:12px;border:1px solid var(--line);b
       <button class="ghost" id="queuebtn" title="Products waiting to be reviewed">Queue</button>
       <button class="gen" id="gen">＋ Generate Review</button>
       <button class="gen risk" id="genrisk">⚠ Generate Risk Case</button>
+      <button class="gen ws" id="genws">＋ Generate White Screen</button>
       <button class="ghost" id="lockbtn" title="Lock this page on this device">Lock</button>
     </div>
   </header>
@@ -210,8 +213,8 @@ select{width:100%;padding:11px;border-radius:12px;border:1px solid var(--line);b
   <p class="hint" style="margin-top:6px">Made in addition to the queue videos (set the number above to 0 to make only this one).</p>
   </div>
   <div id="topicwrap" hidden>
-    <div style="font-weight:700;margin-top:14px">Your own Risk Cases <span style="font-weight:500;color:var(--muted)">(optional)</span></div>
-    <p class="hint" style="margin:2px 0 8px">Any app, product or website, and the issue to look for. It searches real users'
+    <div style="font-weight:700;margin-top:14px" id="topichead">Your own Risk Cases <span style="font-weight:500;color:var(--muted)">(optional)</span></div>
+    <p class="hint" style="margin:2px 0 8px" id="topichint">Any app, product or website, and the issue to look for. It searches real users'
       posts about exactly that and makes the video. You can also paste links to specific posts (Reddit, Hacker News, articles) and it uses those. Made in addition to the number above (set it to 0 to make only these).</p>
     <div id="topics"></div>
     <button type="button" class="ghost addtopic" id="addtopic">＋ Add another</button>
@@ -384,6 +387,7 @@ const card = v => `
           <span>${esc(fmtDate(v.date))}</span>
           ${v.verdict && v.kind !== "risk" ? `<span class="pill"><span class="dot" style="background:${verdictColor(v.verdict)}"></span>${esc(v.verdict)}${v.score !== "" ? " · " + esc(v.score) : ""}</span>` : ""}
           ${v.kind === "risk" ? `<span class="pill risk-badge">⚠ Risk case</span>` : ""}
+          ${v.kind === "whitescreen" ? `<span class="pill ws-badge">White Screen</span>` : ""}
           ${isUploaded(v) ? `<span class="pill done-badge">Uploaded</span>` : ""}
         </div>
       </div>
@@ -449,7 +453,8 @@ function detail(v){
             <h2 class="big-title">${esc(v.title)}</h2>
             <div class="meta">
               <span>${esc(fmtDate(v.date))}</span>
-              ${v.kind === "risk" ? `<span class="pill risk-badge">⚠ Risk case</span>`
+              ${v.kind === "whitescreen" ? `<span class="pill ws-badge">White Screen</span>`
+                : v.kind === "risk" ? `<span class="pill risk-badge">⚠ Risk case</span>`
                 : v.verdict ? `<span class="pill"><span class="dot" style="background:${verdictColor(v.verdict)}"></span>${esc(v.verdict)}${v.score !== "" ? " · " + esc(v.score) + "/10" : ""}</span>` : ""}
             </div>
             ${v.story && v.story.url ? `<div class="story-link">Story: <a href="${esc(v.story.url)}" target="_blank" rel="noopener">${esc(v.story.platform || v.story.source || "source")} — ${esc((v.story.title || "").slice(0, 70))}</a></div>` : ""}
@@ -795,9 +800,10 @@ function addTopic(product = "", issue = ""){
   if (topicsEl.children.length >= 10) return;
   const row = document.createElement("div");
   row.className = "topic";
+  const t = KIND_TEXT[genKind] || KIND_TEXT.risk;
   row.innerHTML = `<div class="tnum"></div>
-    <input class="box tprod" autocomplete="off" placeholder="App, product or website, e.g. Instagram">
-    <textarea class="box tissue" placeholder="What issue to look for, e.g. users getting banned for no reason — or paste links to the posts to use"></textarea>
+    <input class="box tprod" autocomplete="off" placeholder="${esc(t.a)}">
+    <textarea class="box tissue" placeholder="${esc(t.b)}"></textarea>
     <button type="button" class="xbtn" aria-label="Remove">✕</button>`;
   row.querySelector(".tprod").value = product;
   row.querySelector(".tissue").value = issue;
@@ -805,13 +811,15 @@ function addTopic(product = "", issue = ""){
   numberTopics();
 }
 function numberTopics(){
-  [...topicsEl.children].forEach((r, i) => r.querySelector(".tnum").textContent = `Risk Case ${i + 1}`);
+  const label = (KIND_TEXT[genKind] || KIND_TEXT.risk).row;
+  [...topicsEl.children].forEach((r, i) => r.querySelector(".tnum").textContent = `${label} ${i + 1}`);
   document.getElementById("addtopic").hidden = topicsEl.children.length >= 10;
 }
 function topicList(){
-  return [...topicsEl.children].map(r => ({product: r.querySelector(".tprod").value.trim(),
-                                           issue: r.querySelector(".tissue").value.trim()}))
-                               .filter(t => t.product || t.issue);
+  const rows = [...topicsEl.children].map(r => [r.querySelector(".tprod").value.trim(), r.querySelector(".tissue").value.trim()])
+                                     .filter(([a, b]) => a || b);
+  return genKind === "whitescreen" ? rows.map(([a, b]) => ({title: a, instructions: b}))
+                                   : rows.map(([a, b]) => ({product: a, issue: b}));
 }
 document.getElementById("addtopic").addEventListener("click", () => {
   addTopic(); topicsEl.lastElementChild.querySelector(".tprod").focus(); updateEta();
@@ -824,36 +832,56 @@ topicsEl.addEventListener("click", e => {
   numberTopics(); updateEta();
 });
 topicsEl.addEventListener("input", updateEta);
-addTopic();
 
 function extraCount(){
-  return genKind === "risk" ? topicList().filter(t => t.product).length : (customURL() ? 1 : 0);
+  return genKind === "risk" ? topicList().filter(t => t.product).length
+       : genKind === "whitescreen" ? topicList().length : (customURL() ? 1 : 0);
 }
 function updateEta(){
   const n = clamp(countEl.value) + extraCount(), par = Number(document.getElementById("parallel").value);
   if (!n) { document.getElementById("eta").textContent = genKind === "risk"
-    ? "Choose at least 1 video or fill in a product below." : "Choose at least 1 video or type a website."; return; }
-  const mins = Math.round(Math.ceil(n / par) * 7 + 4);
+    ? "Choose at least 1 video or fill in a product below."
+    : genKind === "whitescreen" ? "Choose at least 1 video or write a title or topic below." : "Choose at least 1 video or type a website."; return; }
+  const mins = Math.round(Math.ceil(n / par) * (genKind === "whitescreen" ? 3 : 7) + 3);
   document.getElementById("eta").textContent = `About ${mins} minutes for ${n} video${n === 1 ? "" : "s"}. ` +
-    "They appear on this page when they are done; sites that block visitors are skipped.";
+    (genKind === "whitescreen" ? "They appear on this page when they are done."
+                               : "They appear on this page when they are done; sites that block visitors are skipped.");
 }
 let genKind = "review";
+const KIND_TEXT = {
+  review: {title: "Generate reviews", sub: "Picks the next products from the queue (never one that was already reviewed).",
+           count: "How many videos from the queue?"},
+  risk: {title: "Generate Risk Cases", sub: "Finds a real user's worst experience (Reddit, Hacker News, news) with popular products and explains what happened, why, and what to do. One per product.",
+         count: "How many Risk Cases?", head: "Your own Risk Cases",
+         hint: "Any app, product or website, and the issue to look for. It searches real users' posts about exactly that and makes the video. You can also paste links to specific posts (Reddit, Hacker News, articles) and it uses those. Made in addition to the number above (set it to 0 to make only these).",
+         a: "App, product or website, e.g. Instagram", b: "What issue to look for, e.g. users getting banned for no reason — or paste links to the posts to use", row: "Risk Case"},
+  whitescreen: {title: "Generate White Screen videos", sub: "35-45 second videos: a voice talking to the viewer, the words popping up one by one on a white screen, made to get likes and comments. 3 thumbnails each.",
+                count: "How many from the title queue? (it picks the titles and writes everything)", head: "Your own White Screen videos",
+                hint: "Give a title, or just a topic or instructions (or both) and it writes the rest in the channel's style. Made in addition to the number above (set it to 0 to make only these).",
+                a: "Title (optional), e.g. [Private Video]", b: "Topic or instructions, e.g. a video that asks people to comment their age and promises a pinned comment", row: "Video"}
+};
 function openGenerate(kind){
+  const changed = genKind !== kind;
   genKind = kind;
-  const risk = kind === "risk";
-  document.getElementById("dlgtitle").textContent = risk ? "Generate Risk Cases" : "Generate reviews";
-  document.getElementById("dlgsub").textContent = risk
-    ? "Finds a real user's worst experience (Reddit, Hacker News, news) with popular products and explains what happened, why, and what to do. One per product."
-    : "Picks the next products from the queue (never one that was already reviewed).";
-  document.getElementById("countlabel").textContent = risk ? "How many Risk Cases?" : "How many videos from the queue?";
+  const t = KIND_TEXT[kind], own = kind !== "review";
+  document.getElementById("dlgtitle").textContent = t.title;
+  document.getElementById("dlgsub").textContent = t.sub;
+  document.getElementById("countlabel").textContent = t.count;
   document.getElementById("customlabel").textContent = "Also review a specific website";
-  document.getElementById("customwrap").hidden = risk;           // Risk Cases: the free-form list instead
-  document.getElementById("topicwrap").hidden = !risk;
+  document.getElementById("customwrap").hidden = own;           // Risk Case / White Screen: the free-form list
+  document.getElementById("topicwrap").hidden = !own;
+  if (own) {
+    document.getElementById("topichead").innerHTML = `${t.head} <span style="font-weight:500;color:var(--muted)">(optional)</span>`;
+    document.getElementById("topichint").textContent = t.hint;
+    if (changed) { topicsEl.innerHTML = ""; addTopic(); }
+  }
   document.getElementById("dlgerr").textContent = "";
   updateEta(); dlg.showModal();
 }
 document.getElementById("gen").addEventListener("click", () => openGenerate("review"));
 document.getElementById("genrisk").addEventListener("click", () => openGenerate("risk"));
+document.getElementById("genws").addEventListener("click", () => openGenerate("whitescreen"));
+addTopic();                                   // the first empty row (after KIND_TEXT and genKind exist)
 dlg.addEventListener("click", e => {
   const step = e.target.closest("[data-step]");
   if (step) { countEl.value = clamp(Number(countEl.value) + Number(step.dataset.step)); updateEta(); }
@@ -863,14 +891,15 @@ customEl.addEventListener("input", updateEta);
 document.getElementById("parallel").addEventListener("change", updateEta);
 document.getElementById("cancel").addEventListener("click", () => dlg.close());
 document.getElementById("start").addEventListener("click", async () => {
-  const risk = genKind === "risk";
-  const q = clamp(countEl.value), par = document.getElementById("parallel").value, url = risk ? "" : customURL();
+  const risk = genKind === "risk", ws = genKind === "whitescreen";
+  const q = clamp(countEl.value), par = document.getElementById("parallel").value, url = (risk || ws) ? "" : customURL();
   const err = document.getElementById("dlgerr"), btn = document.getElementById("start");
   if (url === null) { err.textContent = "That website address doesn't look right."; return; }
-  const topics = risk ? topicList() : [];
-  if (topics.some(t => !t.product)) { err.textContent = "Each Risk Case needs an app, product or website name."; return; }
+  const topics = (risk || ws) ? topicList() : [];
+  if (risk && topics.some(t => !t.product)) { err.textContent = "Each Risk Case needs an app, product or website name."; return; }
   const n = q + (url ? 1 : 0) + topics.length;
-  if (!n) { err.textContent = risk ? "Choose at least 1 video or fill in a product." : "Choose at least 1 video or type a website."; return; }
+  if (!n) { err.textContent = risk ? "Choose at least 1 video or fill in a product."
+                           : ws ? "Choose at least 1 video or write a title or topic." : "Choose at least 1 video or type a website."; return; }
   if (!dispatch || !dispatch.token) {
     err.innerHTML = 'The button isn\'t connected yet (no GitHub token). For now start it on GitHub: ' +
       '<a href="https://github.com/renekmarken/yta/actions/workflows/batch.yml" target="_blank" rel="noopener">Run workflow</a>.';
@@ -885,7 +914,7 @@ document.getElementById("start").addEventListener("click", async () => {
     dlg.close();
     customEl.value = "";
     if (topics.length) { topicsEl.innerHTML = ""; addTopic(); }
-    showStatus(`<span class="spinner"></span> Starting ${n} new ${genKind === "risk" ? "Risk Case" : "video"}${n === 1 ? "" : "s"}…`);
+    showStatus(`<span class="spinner"></span> Starting ${n} new ${risk ? "Risk Case" : ws ? "White Screen video" : "video"}${n === 1 ? "" : "s"}…`);
     setTimeout(checkRuns, 6000);
   } catch (e) {
     err.textContent = "Couldn't start: " + e.message;

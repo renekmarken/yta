@@ -32,6 +32,9 @@ OPENAI_MODEL = env("OPENAI_MODEL", "gpt-4o-mini")
 # --- Voice ---
 TTS_VOICE = env("TTS_VOICE", "en-US-AndrewMultilingualNeural")
 TTS_RATE = env("TTS_RATE", "+5%")
+# White Screen videos: their own voice/speed if set (else the main voice), a touch livelier
+WS_VOICE = env("WS_VOICE", "")
+WS_RATE = env("WS_RATE", "+4%")
 PIPER_VOICE = env("PIPER_VOICE", "en_US-ryan-high")   # offline backup voice
 
 # --- Production ---

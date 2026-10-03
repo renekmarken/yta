@@ -1,0 +1,43 @@
+name: "White Screen: improve assets"
+
+# Redraws the White Screen character's emotions in full quality with Gemini's image model and/or adds
+# new poses (tools/ws_hd_assets.py). A picture is only replaced when the redraw looks right.
+
+on:
+  workflow_dispatch:
+    inputs:
+      what:
+        description: "What to do"
+        type: choice
+        options: ["all", "characters", "new"]
+        default: "all"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-writer
+  cancel-in-progress: false
+
+jobs:
+  assets:
+    runs-on: ubuntu-24.04            # pinned: ubuntu-latest moves to 26.04 on 2026-10-19
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install requests Pillow numpy
+      - name: Redraw / add characters
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python tools/ws_hd_assets.py "${{ inputs.what }}"
+      - name: Save them
+        run: |
+          git config user.name "review-bot"
+          git config user.email "review-bot@users.noreply.github.com"
+          git add assets/whitescreen/characters
+          git diff --cached --quiet && { echo "nothing changed"; exit 0; }
+          git commit -qm "White Screen: improved character pictures"
+          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
