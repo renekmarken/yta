@@ -1998,5 +1998,292 @@
     "number/charcoal/scam"
    ]
   }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://www.instagram.com",
+  "brand": "Instagram",
+  "kind": "risk",
+  "story_url": "https://news.ycombinator.com/item?id=44465796",
+  "category": "saas",
+  "title": "Instagram BANNED new account for 'no reason'? What now?",
+  "youtube": null,
+  "format": null,
+  "opener": "An Instagram user posted on Hacker News about a frustrating experience",
+  "title_style": null,
+  "theme": {
+   "mode": "light",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "glass",
+   "bg": "gradient",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    212,
+    0
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "pill",
+   "music": "upbeat",
+   "sfx": "digital",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "risk/post",
+    "risk/stamp",
+    "risk/highlight"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://www.meta.com",
+  "brand": "Meta",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/FacebookAds/comments/1oshibc/meta_ads_are_broken_spent_my_entire_daily_budget/",
+  "category": "marketing",
+  "title": "Meta Ads Spent Entire Budget in Minutes — Glitch or Scam?",
+  "youtube": null,
+  "format": null,
+  "opener": "A Meta user posted on Reddit about a shocking advertising experience where their daily budget vanished almost instantly",
+  "title_style": null,
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "bar",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    0,
+    120,
+    240
+   ],
+   "transitions": [
+    "smoothup",
+    "smoothdown"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "number",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "pill",
+   "music": "lofi",
+   "sfx": "punchy",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "risk/post",
+    "risk/blackout",
+    "risk/caution"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://www.instagram.com",
+  "brand": "Instagram",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/webdev/comments/1vkii7b/instagram_webhook_tests_work_but_real_dms_and/",
+  "category": "saas",
+  "title": "Instagram webhook tests work, but real DMs never arrive — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "An Instagram user posted that their webhook tests work fine, but real direct messages and postbacks never arrive",
+  "title_style": null,
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "tag",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    0,
+    170,
+    255
+   ],
+   "transitions": [
+    "smoothleft",
+    "smoothright"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "lofi",
+   "sfx": "punchy",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "risk/post",
+    "risk/caution",
+    "risk/stamp"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://cloudflare.com",
+  "brand": "Cloudflare",
+  "kind": "risk",
+  "story_url": "https://news.ycombinator.com/item?id=45250553",
+  "category": "hosting",
+  "title": "Cloudflare PAID $2400 But Support Refuses To Help?",
+  "youtube": null,
+  "format": null,
+  "opener": "A Cloudflare user posted on Hacker News about paying two thousand four hundred dollars upfront for a Business plan, only",
+  "title_style": null,
+  "theme": {
+   "mode": "light",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "glass",
+   "bg": "aurora",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    212,
+    0
+   ],
+   "transitions": [
+    "squeezeh",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "upbeat",
+   "sfx": "playful",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "risk/post",
+    "risk/blackout",
+    "risk/headline"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://www.ally.com",
+  "brand": "Ally Bank",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/AllyBank/comments/1rveopx/run_away_while_you_can_ally_admits_to_mistakenly/",
+  "category": "banking-apps",
+  "title": "Ally Bank FROZE Account for 16-Year Customer — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "An Ally Bank user posted on Reddit about a shocking experience",
+  "title_style": null,
+  "theme": {
+   "mode": "light",
+   "layout": "stage",
+   "frame": "floating",
+   "caption": "tag",
+   "bg": "aurora",
+   "head_font": "inter",
+   "accent": [
+    0,
+    214,
+    170
+   ],
+   "transitions": [
+    "wipeleft",
+    "wiperight"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "upbeat",
+   "sfx": "soft",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "risk/post",
+    "risk/blackout",
+    "risk/highlight"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://www.sofi.com",
+  "brand": "SoFi",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/sofi/comments/1ok1pnw/sofi_froze_my_account_denied_my_fraud_dispute_and/",
+  "category": "banking-apps",
+  "title": "SoFi FROZE Account and Denied Dispute — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "A SoFi user posted on Reddit about a severe banking nightmare",
+  "title_style": null,
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "minimal",
+   "caption": "bar",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    0,
+    170,
+    255
+   ],
+   "transitions": [
+    "wipeleft",
+    "wiperight"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "banner",
+   "thumb_accent": [
+    0,
+    170,
+    255
+   ],
+   "cap_anim": "fade_up",
+   "callout": "glass",
+   "music": "lofi",
+   "sfx": "crisp",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "risk/post",
+    "risk/stamp",
+    "risk/highlight"
+   ]
+  }
  }
 ]

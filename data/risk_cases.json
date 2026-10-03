@@ -199,6 +199,62 @@
    "story_url": "https://news.ycombinator.com/item?id=41269838",
    "title": "Discover REVERSED My Chargeback Without Notice — What Now?",
    "status": "done"
+  },
+  {
+   "date": "2026-10-03",
+   "site": "instagram.com",
+   "name": "instagram",
+   "story_url": "https://news.ycombinator.com/item?id=44465796",
+   "title": "Instagram BANNED new account for 'no reason'? What now?",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-03",
+   "site": "meta.com",
+   "name": "meta",
+   "story_url": "https://www.reddit.com/r/FacebookAds/comments/1oshibc/meta_ads_are_broken_spent_my_entire_daily_budget/",
+   "title": "Meta Ads Spent Entire Budget in Minutes — Glitch or Scam?",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-03",
+   "site": "instagram.com",
+   "name": "instagram",
+   "story_url": "https://www.reddit.com/r/webdev/comments/1vkii7b/instagram_webhook_tests_work_but_real_dms_and/",
+   "title": "Instagram webhook tests work, but real DMs never arrive — What Now?",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-03",
+   "site": "cloudflare.com",
+   "name": "cloudflare",
+   "story_url": "https://news.ycombinator.com/item?id=45250553",
+   "title": "Cloudflare PAID $2400 But Support Refuses To Help?",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-03",
+   "site": "magnitude.dev",
+   "name": "magnitude",
+   "story_url": "",
+   "title": "",
+   "status": "nostory"
+  },
+  {
+   "date": "2026-10-03",
+   "site": "ally.com",
+   "name": "allybank",
+   "story_url": "https://www.reddit.com/r/AllyBank/comments/1rveopx/run_away_while_you_can_ally_admits_to_mistakenly/",
+   "title": "Ally Bank FROZE Account for 16-Year Customer — What Now?",
+   "status": "done"
+  },
+  {
+   "date": "2026-10-03",
+   "site": "sofi.com",
+   "name": "sofi",
+   "story_url": "https://www.reddit.com/r/sofi/comments/1ok1pnw/sofi_froze_my_account_denied_my_fraud_dispute_and/",
+   "title": "SoFi FROZE Account and Denied Dispute — What Now?",
+   "status": "done"
   }
  ]
 }
