@@ -3144,5 +3144,292 @@
     "risk/blackout"
    ]
   }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://akasa.com",
+  "brand": "AKASA",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/Frugal_Ind/comments/1u2ll2f/airline_cancelled_my_5k_srinagar_ticket_now_the/",
+  "category": "business-tools",
+  "title": "AKASA Ticket Cancelled: Why Rebooking Costs Double Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "A user posted on Reddit that they booked a Mumbai to Srinagar ticket for around five thousand rupees, only for the fligh",
+  "title_style": null,
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "underline",
+   "bg": "aurora",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    150,
+    30
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_right",
+   "callout": "glass",
+   "music": "acoustic",
+   "sfx": "warm",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "risk/post",
+    "risk/stamp",
+    "risk/strip"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://manus.im",
+  "brand": "Manus",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/ManusOfficial/comments/1pczook/manus_is_scam/",
+  "category": "ai-tools",
+  "title": "Manus FROZE $429 for 'Trial' — Refund Refused Within Minutes?",
+  "youtube": null,
+  "format": null,
+  "opener": "A Manus user posted on Reddit describing a frustrating billing dispute",
+  "title_style": null,
+  "theme": {
+   "mode": "brand",
+   "layout": "stage",
+   "frame": "mac_dark",
+   "caption": "tag",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    240,
+    144,
+    96
+   ],
+   "transitions": [
+    "radial",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "ambient",
+   "sfx": "minimal",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "risk/post",
+    "risk/caution",
+    "risk/phone"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://www.realtor.com",
+  "brand": "Realtor.com",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/realtors/comments/1ccg8jz/made_a_mistake_buying_leads_from_realtorcomi_want/",
+  "category": "real-estate",
+  "title": "Realtor.com LEAD Generation Waste? — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "A Realtor",
+  "title_style": null,
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "bar",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    150,
+    30
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "acoustic",
+   "sfx": "crisp",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "risk/post",
+    "risk/caution",
+    "risk/blackout"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://www.avvo.com",
+  "brand": "Avvo",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/legaladvice/comments/4x11rd/tn_lawyer_ignoring_callsemails_on_time_sensitive/",
+  "category": "legal",
+  "title": "Avvo Lawyer Ignored Case For Months — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "An Avvo user posted a public story about a frustrating legal experience",
+  "title_style": null,
+  "theme": {
+   "mode": "light",
+   "layout": "tilt",
+   "frame": "minimal",
+   "caption": "tag",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "laptop",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "pill",
+   "music": "ambient",
+   "sfx": "digital",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "risk/post",
+    "risk/blackout",
+    "risk/highlight"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://www.notion.so",
+  "brand": "Notion",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/Notion/comments/1wbshy5/how_is_this_good_for_business_notion_terminated/",
+  "category": "saas",
+  "title": "Notion TERMINATED Account Without Warning — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "A Notion user posted on Reddit that their business account was suddenly terminated without warning, asking, 'How is this",
+  "title_style": null,
+  "theme": {
+   "mode": "brand",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "underline",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "split",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "ambient",
+   "sfx": "airy",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "risk/post",
+    "risk/caution",
+    "risk/blackout"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "https://slack.com",
+  "brand": "Slack",
+  "kind": "risk",
+  "story_url": "https://www.reddit.com/r/legaladvice/comments/qhg0ue/boss_racked_up_60k_on_my_corporate_card/",
+  "category": "legal",
+  "title": "Slack Message Led to $60,000 Corporate Card Debt — What Now?",
+  "youtube": null,
+  "format": null,
+  "opener": "A Slack user posted on Reddit that their boss sent a message saying a few workers would be getting corporate cards",
+  "title_style": null,
+  "theme": {
+   "mode": "light",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "tag",
+   "bg": "spotlight",
+   "head_font": "inter",
+   "accent": [
+    220,
+    31,
+    115
+   ],
+   "transitions": [
+    "smoothup",
+    "smoothdown"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "tech",
+   "sfx": "airy",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "risk/post",
+    "risk/stamp",
+    "risk/stack"
+   ]
+  }
  }
 ]
