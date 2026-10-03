@@ -184,6 +184,13 @@ def _png(im):
     return buf.getvalue()
 
 
+_WORKS = {}          # the model/endpoint that answered last time: tried first from then on
+
+
+class QuotaError(RuntimeError):
+    pass
+
+
 def _image_call(prompt, ref=None, aspect="3:4"):
     key = config.GEMINI_API_KEY
     if not key:
@@ -191,41 +198,54 @@ def _image_call(prompt, ref=None, aspect="3:4"):
     parts = [{"text": prompt}]
     if ref is not None:
         parts.append({"inline_data": {"mime_type": "image/png", "data": base64.b64encode(_png(ref.convert("RGB"))).decode()}})
-    errors = []
-    for model in MODELS:
-        for url, kw in ((AISTUDIO.format(m=model), {"headers": {"x-goog-api-key": key}}),
-                        (VERTEX.format(m=model), {"params": {"key": key}})):
-            for with_aspect in ((True, False) if aspect else (False,)):
-                gen = {"responseModalities": ["IMAGE", "TEXT"]}
-                if with_aspect:
-                    gen["imageConfig"] = {"aspectRatio": aspect}
-                body = {"contents": [{"role": "user", "parts": parts}], "generationConfig": gen}
-                r = None
-                for attempt in range(3):
-                    try:
-                        r = requests.post(url, json=body, timeout=180, **kw)
-                    except requests.RequestException as e:
-                        errors.append(str(e)[:120])
-                        time.sleep(5)
-                        continue
-                    if r.status_code in (429, 500, 503):
-                        time.sleep(20 * (attempt + 1))
-                        continue
+    combos = [(m, ep) for m in MODELS for ep in ("aistudio", "vertex")]
+    if _WORKS.get("combo") in combos:
+        combos.remove(_WORKS["combo"])
+        combos.insert(0, _WORKS["combo"])
+    errors, quota = [], 0
+    for model, ep in combos:
+        url = (AISTUDIO if ep == "aistudio" else VERTEX).format(m=model)
+        kw = {"headers": {"x-goog-api-key": key}} if ep == "aistudio" else {"params": {"key": key}}
+        for with_aspect in ((True, False) if aspect else (False,)):
+            gen = {"responseModalities": ["IMAGE", "TEXT"]}
+            if with_aspect:
+                gen["imageConfig"] = {"aspectRatio": aspect}
+            body = {"contents": [{"role": "user", "parts": parts}], "generationConfig": gen}
+            r = None
+            for attempt in range(2):
+                try:
+                    r = requests.post(url, json=body, timeout=120, **kw)
+                except requests.RequestException as e:
+                    errors.append(f"{model}/{ep}: {str(e)[:100]}")
+                    r = None
                     break
-                if r is None:
+                if r.status_code == 429:
+                    if "limit: 0" in r.text or "free_tier" in r.text.lower():
+                        quota += 1                              # this key has no image quota on this model
+                        break
+                    time.sleep(15 * (attempt + 1))
                     continue
-                if r.status_code == 400 and with_aspect:          # this model doesn't take the aspect: without it
+                if r.status_code in (500, 503):
+                    time.sleep(8)
                     continue
-                if r.status_code != 200:
-                    errors.append(f"{model} {r.status_code}: {r.text[:160]}")
-                    break
-                for cand in r.json().get("candidates", []):
-                    for part in cand.get("content", {}).get("parts", []):
-                        data = (part.get("inlineData") or part.get("inline_data") or {}).get("data")
-                        if data:
-                            return Image.open(io.BytesIO(base64.b64decode(data))).convert("RGB")
-                errors.append(f"{model}: no image in the answer")
                 break
+            if r is None:
+                break
+            if r.status_code == 400 and with_aspect:            # this model doesn't take the aspect: without it
+                continue
+            if r.status_code != 200:
+                errors.append(f"{model}/{ep} {r.status_code}: {r.text[:200]}")
+                break
+            for cand in r.json().get("candidates", []):
+                for part in cand.get("content", {}).get("parts", []):
+                    data = (part.get("inlineData") or part.get("inline_data") or {}).get("data")
+                    if data:
+                        _WORKS["combo"] = (model, ep)
+                        return Image.open(io.BytesIO(base64.b64decode(data))).convert("RGB")
+            errors.append(f"{model}/{ep}: no image in the answer")
+            break
+    if quota and not _WORKS:
+        raise QuotaError("this Gemini key has no image-generation quota (free tier limit 0). " + " | ".join(errors[-2:]))
     raise RuntimeError(" | ".join(errors[-3:]))
 
 
@@ -354,6 +374,8 @@ def make(prompt, ref, judge_what, dst, bottom_ok=True, aspect="3:4", tries=3):
     for t in range(tries):
         try:
             raw = _image_call(prompt, ref, aspect)
+        except QuotaError:
+            raise
         except Exception as e:
             last = str(e)[:200]
             time.sleep(6)
@@ -420,6 +442,7 @@ def promote(names=None):
 
 
 if __name__ == "__main__":
+    sys.stdout.reconfigure(line_buffering=True)
     what = sys.argv[1] if len(sys.argv) > 1 else "all"
     names = set(sys.argv[2:]) or None
     if what in ("characters", "all"):

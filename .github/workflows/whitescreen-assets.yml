@@ -28,7 +28,7 @@ concurrency:
 jobs:
   assets:
     runs-on: ubuntu-24.04            # pinned: ubuntu-latest moves to 26.04 on 2026-10-19
-    timeout-minutes: 120
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -40,7 +40,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           WHAT: ${{ inputs.what }}
           NAMES: ${{ inputs.names }}
-        run: python tools/ws_hd_assets.py "$WHAT" $NAMES
+        run: python -u tools/ws_hd_assets.py "$WHAT" $NAMES
       - name: Save them
         if: always()
         run: |
