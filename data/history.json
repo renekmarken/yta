@@ -3814,5 +3814,51 @@
     "stack/crimson/worth"
    ]
   }
+ },
+ {
+  "date": "2026-10-03",
+  "url": "whitescreen:own-ask-viewers-to-comment-their-birth-month-131612-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 0 Comments...",
+  "title_base": "This Video Has 0 Comments...",
+  "format": "count",
+  "comment_word": "your birth month",
+  "hook": [
+   "This video has zero comments right now.",
+   "And I want to find out which birth month is actually watching this channel the most.",
+   "So here is what we are going to do."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "character",
+    "headline"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-03",
+  "url": "whitescreen:i-will-heart-every-comment-131612-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "I Will Heart Every Comment",
+  "title_base": "I Will Heart Every Comment",
+  "format": "pin",
+  "comment_word": "HEART ME",
+  "hook": [
+   "I'm going to heart every single comment on this video.",
+   "But only for the next 24 hours.",
+   "Starting right now, I'm sitting here and reading everything you write."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "headline",
+    "character"
+   ]
+  },
+  "youtube": null
  }
 ]
