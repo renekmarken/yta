@@ -113,9 +113,17 @@ Rules:
   sentences per line, spoken like a real person talks: always contract (I'm, don't, let's, you're,
   it's; never "let us" or "do not"), "..." for pauses. First line = the hook, said
   in the first two seconds (no "hey guys", no intro).
-- Ask for the like AND one specific comment ("comment "I WAS HERE"") at least twice, the last line
-  being the strongest call to action. Give a reason to do it NOW (it's disappearing, a goal, a record,
-  being early, a future-self message...). Goals are believable numbers.
+- THE SCRIPT MUST MAKE VIEWERS BOTH LIKE THE VIDEO AND LEAVE A COMMENT:
+  * Always include a clear CTA within or near the end of the script, and ask at least twice in total.
+  * Explicitly say: "Like this video and comment..." (those exact words, followed by the comment).
+  * Give the viewer a specific reason to comment, rather than simply saying "comment below".
+  * Make the comment prompt directly connected to the video's concept (one exact thing to type).
+  * Make the like and comment feel like part of the challenge/story, not an unrelated advertisement.
+  * Create a small sense of urgency or curiosity around completing BOTH actions.
+  * End with a memorable line that reinforces the challenge.
+  Example: "If you made it this far, like this video and comment 'I WAS HERE' so we know you actually
+  stayed until the end. Then come back later and see how many other people found this video."
+  Goals are believable numbers.
 - Simple words a 12-year-old gets. No hashtags, no emojis, no "smash that like button".
 - Be honest: never promise money, prizes or gifts, never pretend to be another creator, never claim
   YouTube itself will do something. Playful mystery is fine ("I'll do something random").
@@ -126,26 +134,46 @@ Return ONLY JSON:
 {{"title": "the title (keep it as given unless a small variation is clearly better)",
  "lines": ["line 1", "line 2", "..."],
  "comment_word": "the exact thing to comment, e.g. I WAS HERE",
- "description": "3-4 short paragraphs like the examples: restate the hook, the goal and the call to like and comment (no keywords here)",
- "tags": ["25-30 search tags like the examples' keywords"],
+ "description": "the YouTube description (see DESCRIPTION below), WITHOUT the keywords",
+ "keywords": ["20-30 keywords, see DESCRIPTION below"],
  "pinned_comment": "a short pinned comment from the channel that invites replies",
  "thumbnail": {{
    "phrase": "1-3 BIG words for the thumbnail, the most important words of the title, e.g. DELETING SOON / 0 LIKES / FACE REVEAL (empty for error-style titles)",
    "small": "optional 2-5 small words, e.g. 'This video is private.' for error titles, else empty",
    "emotion": "the character's emotion, one of: {emotions}",
-   "icon": "one icon that fits, one of: {icons}",
+   "icon": "the ONE picture that fits the video best (it's shown big on the thumbnail), one of: {icons}",
    "ui": "a YouTube-interface mock that fits, one of: {uis}"}},
- "cues": [{{"word": "a word in the script", "sfx": "one of: {sfx}", "icon": "one of the icons or empty"}}]
+ "cues": [{{"word": "a word in the script", "sfx": "one of: {sfx}", "icon": "one of the pictures above or empty"}}]
 }}
 "cues": 3-6 key moments (e.g. the word "like" -> sfx pop + icon like; "comment" -> bubble + comment;
 "deleted" -> glitch + trash; "private" -> click + lock; a deadline -> ding + hourglass). The word
-must appear in the lines exactly."""
+must appear in the lines exactly.
+
+DESCRIPTION (write it based directly on the video's title and script):
+- 2-4 short paragraphs explaining the video's premise, challenge, or story. Natural, engaging and
+  relevant to the actual video.
+- Include the main viewer CTA naturally, with wording such as "Like this video and comment ...".
+- It must sound like a normal human-written YouTube description, not an SEO article. Concise and
+  focused on the video's actual concept. Paragraphs separated by a blank line (write "\\n\\n" in the JSON string).
+KEYWORDS (the "keywords" list; they go under the description as "Keywords: a, b, c"):
+- 20-30 keywords. No hashtags (#). Do not repeat the exact same keyword. Do not explain them.
+- Keywords directly related to the video, different variations of the main topic, and realistic
+  search phrases viewers might use. You may invent realistic keyword variations.
+- Mix specific keywords with broader YouTube/trending terms such as viral video, YouTube Shorts,
+  shorts, trending, recommended, YouTube algorithm, challenge, comment challenge, must watch.
+- No completely unrelated keywords just because they are trending."""
 
 # the character's emotions = the pictures in assets/whitescreen/characters (new poses join automatically)
 EMOTIONS = sorted(p.stem for p in (config.ASSETS_DIR / "whitescreen" / "characters").glob("*.webp")) or ["shocked"]
 ICONS = ["like", "dislike", "comment", "bell", "subscribe", "lock", "trash", "hourglass", "pin", "heart",
-         "eye", "question", "warning", "fire", "crown", "sad_face", "dead_face", "glitch_face", "cracked_face",
-         "crying_face", "angry_face", "happy_face", "dots_face", "none"]
+         "eye", "question", "warning", "fire", "crown", "trophy", "clock", "calendar", "play", "share", "live",
+         "sad_face", "dead_face", "glitch_face", "cracked_face", "crying_face", "angry_face", "happy_face", "dots_face"]
+try:                                                     # + every picture in the asset library (3D emoji, objects, UI)
+    from . import ws_assets as _A
+    ICONS += [n for n in _A.asset_names() if n not in ICONS]
+except Exception:
+    pass
+ICONS.append("none")
 UIS = ["comments_zero", "likes_zero", "likes_and_comments_zero", "pinned_comment", "delete_video",
        "delete_channel", "private_player", "video_unavailable", "view_count", "none"]
 SFX = ["pop", "click", "bubble", "ding", "glitch", "whoosh", "coin", "tap", "sparkle", "thud", "none"]
@@ -156,6 +184,19 @@ def _today():
     nm = (now.replace(day=1) + timedelta(days=32)).strftime("%B")
     ma = (now.replace(day=1) + timedelta(days=63)).strftime("%B")
     return now.strftime("%A, %B %-d"), nm, ma
+
+
+def _keywords(data):
+    raw = data.get("keywords") or data.get("tags") or []
+    if isinstance(raw, str):
+        raw = raw.split(",")
+    out, seen = [], set()
+    for k in raw:
+        k = re.sub(r"\s+", " ", str(k).replace("#", "")).strip(" .,")
+        if k and k.lower() not in seen:
+            seen.add(k.lower())
+            out.append(k)
+    return out
 
 
 def words(lines):
@@ -195,8 +236,16 @@ def write(title, instructions="", history=(), done_before=0, min_words=125, max_
             problems.append(f"only {n} words, write {min_words}-{max_words}")
         if n > max_words + 12:
             problems.append(f"{n} words is too long, write {min_words}-{max_words}")
-        if not any("like" in l.lower() for l in lines) or not any("comment" in l.lower() for l in lines):
-            problems.append("ask for the like and the comment")
+        low = " ".join(lines).lower().replace("’", "'")
+        if low.count("like this video and comment") < 1:
+            problems.append('say "Like this video and comment ..." explicitly (at least once, near the end)')
+        elif low.count("like") < 2 or low.count("comment") < 2:
+            problems.append("ask for the like and the comment at least twice in total")
+        kws = _keywords(data)
+        if len(kws) < 20:
+            problems.append(f"only {len(kws)} keywords, give 20-30")
+        if len(re.findall(r"\n\s*\n", str(data.get("description", "")))) < 1:
+            problems.append("the description needs 2-4 short paragraphs separated by blank lines")
         if best is None or abs(n - (min_words + max_words) / 2) < abs(words(best["lines"]) - (min_words + max_words) / 2):
             best = data
         if not problems:
@@ -214,6 +263,10 @@ def write(title, instructions="", history=(), done_before=0, min_words=125, max_
     th["ui"] = th.get("ui") if th.get("ui") in UIS else "none"
     data["thumbnail"] = th
     data["cues"] = [c for c in data.get("cues", []) if isinstance(c, dict) and c.get("word")][:7]
-    data["tags"] = [t for t in data.get("tags", []) if isinstance(t, str) and t.strip()][:30]
+    data["keywords"] = _keywords(data)[:30]
+    data["tags"] = data["keywords"]
+    desc = re.sub(r"(?im)^\s*(description|keywords)\s*:.*$", "", str(data.get("description", ""))).strip()
+    desc = re.sub(r"\n{3,}", "\n\n", desc)
+    data["description"] = desc + ("\n\nKeywords: " + ", ".join(data["keywords"]) if data["keywords"] else "")
     data["text"] = " ".join(data["lines"])
     return data

@@ -593,3 +593,169 @@ DRAWN_FACE = [("privat", ["lock", "neutral"]), ("delet", ["sad", "trash", "dead"
 def drawn_faces(title):
     t = title.lower()
     return next(f for key, f in DRAWN_FACE if key in t)
+
+
+# ------------------------------------------------------------------ the big asset library
+# emoji/    355 glossy 3D emoji (Microsoft Fluent Emoji, MIT), index.json = the words each one fits
+# objects/  unique YouTube-style 3D objects drawn by Gemini (tools/ws_hd_assets.py)
+# ui/       the owner's UI sheet cut out: subscribe buttons, bells, like/dislike, share, play, LIVE...
+# arrows/   the owner's arrow sheet cut out, each arrow with its tail and tip (arrows.json), rings, bursts
+import json  # noqa: E402
+
+import numpy as np  # noqa: E402
+
+
+@lru_cache(maxsize=1)
+def emoji_index():
+    p = ROOT / "emoji" / "index.json"
+    return json.loads(p.read_text()) if p.exists() else {}
+
+
+def _names(folder):
+    return sorted(p.stem for p in (ROOT / folder).glob("*.webp"))
+
+
+@lru_cache(maxsize=1)
+def library():
+    """Every picture asset by name -> path (objects first, then the UI pieces, then emoji)."""
+    out = {}
+    for folder in ("emoji", "ui", "objects"):                    # later folders win a name clash
+        for n in _names(folder):
+            out[n] = ROOT / folder / f"{n}.webp"
+    return out
+
+
+# icon names used by scripts -> the best picture for it, in order of preference
+ICON_ASSET = {
+    "like": ["like_button", "like_blue", "thumbs_up"], "dislike": ["dislike_button", "dislike_red", "thumbs_down"],
+    "comment": ["comment_bubble", "speech_balloon"], "bell": ["bell_ringing", "bell_gold_ring", "bell"],
+    "subscribe": ["subscribe_red", "subscribe_red_cursor"], "lock": ["padlock_red", "locked"],
+    "trash": ["trash_can", "wastebasket"], "hourglass": ["hourglass_red", "hourglass_not_done"],
+    "pin": ["pin_red", "pushpin"], "heart": ["heart_glossy", "red_heart"], "eye": ["eye_glowing", "eyes"],
+    "question": ["question_3d", "red_question_mark"], "warning": ["warning_red", "warning"],
+    "fire": ["fire_big", "fire"], "crown": ["crown_gold", "crown"], "trophy": ["trophy_gold", "trophy"],
+    "clock": ["alarm_clock_red", "alarm_clock"], "calendar": ["calendar_x", "tear_off_calendar"],
+    "play": ["play_red", "play_big"], "share": ["share_red_circle"], "live": ["live"],
+}
+
+
+def asset_names():
+    return sorted(set(library()) | set(ICON_ASSET))
+
+
+def find_asset(word):
+    """The picture that goes with a word ("deleted" -> trash, "100" -> hundred points...), or None."""
+    w = "".join(ch for ch in str(word).lower() if ch.isalnum())
+    if not w:
+        return None
+    if w in ICON_ASSET:
+        return w
+    lib = library()
+    if w in lib:
+        return w
+    for name in lib:                                            # objects/ui by their own name
+        if name.split("_")[0] == w and not (ROOT / "emoji" / f"{name}.webp").exists():
+            return name
+    for name, words in emoji_index().items():
+        if w in words or (len(w) > 4 and w.rstrip("s") in words):
+            return name
+    return None
+
+
+def picture(name, size, shadow=True):
+    """Any asset (an ICON_ASSET name, a library name or a drawn icon) fitted into a size x size box."""
+    path = None
+    cands = ICON_ASSET.get(name, []) + [name]
+    for part in str(name).split("_"):                           # "comment_bubble" -> the comment pictures
+        cands += ICON_ASSET.get(part, [])
+        found = find_asset(part)
+        if found:
+            cands += ICON_ASSET.get(found, []) + [found]
+    for cand in cands:
+        if cand in library():
+            path = library()[cand]
+            break
+    if path is None:
+        return icon(name if name in ICON_STYLE or name in FACE_ICON or name == "subscribe" else "question", size)
+    im = _load(str(path)).copy()
+    k = size / max(im.width, im.height)
+    im = im.resize((max(1, int(im.width * k)), max(1, int(im.height * k))), Image.LANCZOS)
+    return _shadow(im) if shadow else im
+
+
+@lru_cache(maxsize=1)
+def _arrow_meta():
+    p = ROOT / "arrows" / "arrows.json"
+    return json.loads(p.read_text()) if p.exists() else {}
+
+
+ARROW_STYLES = {   # which sheet arrows suit which look
+    "bold": ["bold_swoop", "bold_up", "bold_straight", "bold_block", "bold_down", "bold_curl_down"],
+    "clean": ["arc", "arc2", "arc_down", "swoop_white", "curl_down", "curve_down", "hook_up", "block"],
+    "brush": ["brush_right", "brush_right2", "brush_up", "brush_arc", "brush_long"],
+    "fun": ["loop", "loop2", "dashed", "dashed_arc", "wavy", "zigzag", "elbow"],
+}
+
+
+def point_arrow(canvas, start, end, name=None, seed=0, style=None, max_thick=None):
+    """Paste one of the owner's arrows so its tail is at `start` and its tip lands exactly on `end`.
+    The arrow is mirrored instead of turned upside down, so its curve and shading stay natural."""
+    meta = _arrow_meta()
+    if not meta:                                                # no sheet: the drawn arrow
+        L = math.dist(start, end)
+        im = arrow(int(L / 0.9))
+        ang = math.degrees(math.atan2(end[1] - start[1], end[0] - start[0]))
+        im = im.rotate(-ang, Image.BICUBIC, expand=True)
+        canvas.alpha_composite(im, (int(end[0] - im.width / 2 - (end[0] - start[0]) / 2),
+                                    int(end[1] - im.height / 2 - (end[1] - start[1]) / 2)))
+        return
+    rnd = random.Random(seed)
+    if name not in meta:                                        # the arrows that need the least turning
+        pool = [n for n in (ARROW_STYLES.get(style) or meta) if n in meta]
+        tx, ty = end[0] - start[0], end[1] - start[1]
+        want = math.atan2(ty, abs(tx))                          # mirrored to point right
+
+        def turn_of(n):
+            vx, vy = meta[n]["tip"][0] - meta[n]["tail"][0], meta[n]["tip"][1] - meta[n]["tail"][1]
+            return abs((want - math.atan2(vy, vx) + math.pi) % (2 * math.pi) - math.pi)
+        best = sorted(pool, key=turn_of)[:3]
+        name = rnd.choice(best)
+    m = meta[name]
+    im = _load(str(ROOT / "arrows" / f"{name}.webp")).copy()
+    tail, tip = np.array(m["tail"], float), np.array(m["tip"], float)
+    target = np.array(end, float) - np.array(start, float)
+    if target[0] < 0:                                           # pointing left: mirror, don't flip over
+        im = im.transpose(Image.FLIP_LEFT_RIGHT)
+        tail[0], tip[0] = im.width - tail[0], im.width - tip[0]
+    v = tip - tail
+    k = np.linalg.norm(target) / max(1.0, np.linalg.norm(v))
+    if max_thick:                                               # never fatter than max_thick px
+        k = min(k, max_thick / max(1.0, min(im.width, im.height)))
+    im = im.resize((max(1, int(im.width * k)), max(1, int(im.height * k))), Image.LANCZOS)
+    tail, tip = tail * k, tip * k
+    v = tip - tail
+    turn = math.atan2(target[1], target[0]) - math.atan2(v[1], v[0])   # radians, y down
+    deg = -math.degrees(turn)                                   # PIL turns counter-clockwise on screen
+    c = np.array([im.width / 2, im.height / 2])
+    rot = im.rotate(deg, Image.BICUBIC, expand=True)
+    c2 = np.array([rot.width / 2, rot.height / 2])
+    cs, sn = math.cos(turn), math.sin(turn)
+    d = tip - c
+    tip2 = c2 + np.array([cs * d[0] - sn * d[1], sn * d[0] + cs * d[1]])
+    canvas.alpha_composite(rot, (int(round(end[0] - tip2[0])), int(round(end[1] - tip2[1]))))
+
+
+def mark(name, width):
+    """A ring, burst, underline or cross from the owner's sheet, `width` px wide."""
+    p = ROOT / "arrows" / f"{name}.webp"
+    im = _load(str(p)).copy()
+    return im.resize((width, max(1, int(im.height * width / im.width))), Image.LANCZOS)
+
+
+def sheet_ring(w, h, seed=0):
+    """A hand-drawn ring from the owner's sheet stretched around a w x h spot."""
+    rings = [n for n in _names("arrows") if n.startswith("ring_") and n not in ("ring_arrow", "ring_dashed")]
+    if not rings:
+        return ring(w, h, seed=seed)
+    im = _load(str(ROOT / "arrows" / f"{random.Random(seed).choice(rings)}.webp")).copy()
+    return im.resize((int(w * 1.22 + 34), int(h * 1.55 + 30)), Image.LANCZOS)

@@ -144,7 +144,7 @@ def plan_cues(words, script_cues, max_icons=5):
     for target, sfx, ic in wanted:
         for i, p in enumerate(plain):
             if p == target and i not in used and words[i][0] - last > 1.6:
-                ic = ic if ic and ic != "none" else ICON_FOR.get(p)
+                ic = ic if ic and ic != "none" else (ICON_FOR.get(p) or A.find_asset(p))
                 picked.append({"t": words[i][0], "i": i, "sfx": sfx if sfx and sfx != "none" else SFX_FOR.get(p, "pop"),
                                "icon": ic})
                 used.add(i)
@@ -240,7 +240,8 @@ def render(words, cues, voice_mp3: Path, total: float, out_mp4: Path, work: Path
     icons = {}
     for c in cues:
         if c.get("icon") and c["icon"] not in icons:
-            icons[c["icon"]] = A.icon(c["icon"], 300 if c["icon"] != "subscribe" else 520)
+            wide = c["icon"].startswith(("subscribe", "comment_", "like_1", "like_2", "dislike_1", "share_red", "live"))
+            icons[c["icon"]] = A.picture(c["icon"], 520 if wide else 300)
     sfx = sfx_track(cues, total, work / "sfx.wav")
     frames = int(math.ceil(total * FPS))
     cmd = ["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),
