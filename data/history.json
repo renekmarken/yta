@@ -3863,23 +3863,23 @@
  },
  {
   "date": "2026-10-03",
-  "url": "whitescreen:own-face-reveal-150747-0",
+  "url": "whitescreen:secret-video-151220-0",
   "brand": "",
   "kind": "whitescreen",
-  "title": "Face Reveal…",
-  "title_base": "Face Reveal…",
-  "format": "reveal",
-  "comment_word": "FACE REVEAL",
+  "title": "[Secret Video]",
+  "title_base": "[Secret Video]",
+  "format": "error",
+  "comment_word": "SECRET FOUND",
   "hook": [
-   "I'm giving this face reveal challenge one more shot...",
-   "We missed the goal last time, so let's see if this one works.",
-   "If this video reaches 13,000 likes in the next 24 hours..."
+   "This is a secret video that almost nobody is supposed to find.",
+   "It's not listed anywhere on the channel, and it won't stay up for long.",
+   "I'm testing how the algorithm reacts when people discover something completely hidden."
   ],
   "theme": {
    "thumbs": [
+    "error",
     "character",
-    "headline",
-    "icon"
+    "ui"
    ]
   },
   "youtube": null
