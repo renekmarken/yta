@@ -494,7 +494,7 @@
    "added": "2026-10-02T19:26:01+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:01+00:00",
-   "priority": 13.77,
+   "priority": 13.47,
    "cat": "💻 SaaS / business software"
   },
   "chat.sh": {
@@ -510,7 +510,7 @@
    "added": "2026-10-02T19:26:02+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:02+00:00",
-   "priority": 13.77,
+   "priority": 13.47,
    "cat": "💻 SaaS / business software"
   },
   "fidelity.com": {
@@ -583,22 +583,6 @@
    "priority": 6.48,
    "cat": "📈 Investing platforms"
   },
-  "gauthmath.com": {
-   "name": "Gauth Unlimited Digital Canvas",
-   "url": "https://gauthmath.com",
-   "category": "ai-tools",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "An AI tutor on an infinite whiteboard instead of a chat.",
-   "sources": [
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-02T23:52:22+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-02T23:52:22+00:00",
-   "priority": 14.8,
-   "cat": "🤖 AI tools"
-  },
   "chainsnip.com": {
    "name": "ChainSnip",
    "url": "https://chainsnip.com",
@@ -612,7 +596,7 @@
    "added": "2026-10-02T23:52:45+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:45+00:00",
-   "priority": 14.31,
+   "priority": 14.0,
    "cat": "📈 Investing platforms"
   },
   "notchmind.com": {
@@ -628,7 +612,7 @@
    "added": "2026-10-02T23:52:45+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:45+00:00",
-   "priority": 14.1,
+   "priority": 13.79,
    "cat": "💻 SaaS / business software"
   },
   "typestream.io": {
@@ -644,7 +628,7 @@
    "added": "2026-10-02T23:53:05+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:05+00:00",
-   "priority": 14.8,
+   "priority": 14.47,
    "cat": "🤖 AI tools"
   },
   "staylokal.com": {
@@ -660,7 +644,7 @@
    "added": "2026-10-02T23:53:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:06+00:00",
-   "priority": 13.96,
+   "priority": 13.65,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "vitra.ai": {
@@ -676,7 +660,7 @@
    "added": "2026-10-02T23:53:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:06+00:00",
-   "priority": 14.8,
+   "priority": 14.47,
    "cat": "🤖 AI tools"
   },
   "citi.com": {
@@ -862,5 +846,5 @@
    "cat": "⚖️ Legal services / platforms"
   }
  },
- "updated": "2026-10-03T07:28:35+00:00"
+ "updated": "2026-10-03T11:39:31+00:00"
 }
