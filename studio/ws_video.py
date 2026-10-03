@@ -234,6 +234,23 @@ class Captions:
         return cur, w
 
 
+def _on_white(im):
+    """A very light picture (white speech bubble, white bell...) gets a soft grey outline so it shows
+    on the white screen."""
+    import numpy as np
+    from PIL import ImageFilter
+    px = np.asarray(im.convert("RGBA")).astype(float)
+    solid = px[..., 3] > 200
+    if not solid.any() or px[..., :3][solid].mean() < 205:
+        return im
+    a = im.getchannel("A")
+    edge = a.filter(ImageFilter.MaxFilter(9)).filter(ImageFilter.GaussianBlur(2))
+    out = Image.new("RGBA", im.size, (70, 74, 86, 0))
+    out.putalpha(edge.point(lambda v: int(v * 0.8)))
+    out.alpha_composite(im)
+    return out
+
+
 def render(words, cues, voice_mp3: Path, total: float, out_mp4: Path, work: Path):
     """Write the finished video. words: [(start, end, TEXT)]; cues from plan_cues()."""
     caps = Captions(words)
@@ -241,7 +258,7 @@ def render(words, cues, voice_mp3: Path, total: float, out_mp4: Path, work: Path
     for c in cues:
         if c.get("icon") and c["icon"] not in icons:
             wide = c["icon"].startswith(("subscribe", "comment_", "like_1", "like_2", "dislike_1", "share_red", "live"))
-            icons[c["icon"]] = A.picture(c["icon"], 520 if wide else 300)
+            icons[c["icon"]] = _on_white(A.picture(c["icon"], 520 if wide else 300))
     sfx = sfx_track(cues, total, work / "sfx.wav")
     frames = int(math.ceil(total * FPS))
     cmd = ["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),
