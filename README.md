@@ -174,11 +174,11 @@ comment, trash, lock, hourglass...) and simple sound effects at the key words. N
   video's idea, asked at least twice, ending on a memorable line. The description is 2-4 short
   human-sounding paragraphs with the call to action, then `Keywords:` with 20-30 comma-separated
   keywords (no hashtags); the same keywords become the tags.
-- 3 thumbnails per video, each filling the whole frame (coloured background with light rays, no
+- 3 thumbnails per video, each filling the whole frame (black background with a faint glow and rays, no
   small print): the sad/locked/glitched YouTube face for [Bracket] titles, YouTube-interface mock-ups
   ("0 Comments", the like bar, "Delete your channel?") with your hand-drawn ring and one of your
   arrows pointing exactly at it, the masked blue-hoodie character big on one half with 1-3 huge
-  words, a headline style, a big-3D-picture style and a white style.
+  words, a headline style, a big-3D-picture style and a big-words style.
 - Assets (`assets/whitescreen/`):
   - `characters/` the masked character's emotions (and new poses, see below)
   - `ytfaces/` 30 red YouTube faces from your sheet, plus crisp drawn ones
