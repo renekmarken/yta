@@ -32,14 +32,15 @@
    "name": "Ally Bank",
    "url": "https://www.ally.com",
    "category": "banking-apps",
-   "hotness": 5.3999999999999995,
+   "hotness": 7.0,
    "evergreen": true,
    "why": "Popular online-only bank known for high yield savings.",
    "sources": [
-    "evergreen"
+    "evergreen",
+    "trend scan"
    ],
-   "added": "2026-10-02T07:22:24+00:00",
-   "priority": 6.87,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 7.91,
    "cat": "💰 Finance apps / banking"
   },
   "sofi.com": {
@@ -60,14 +61,15 @@
    "name": "Acorns",
    "url": "https://www.acorns.com",
    "category": "banking-apps",
-   "hotness": 4.8,
+   "hotness": 7.0,
    "evergreen": true,
    "why": "Micro-investing and automated savings mobile app.",
    "sources": [
-    "evergreen"
+    "evergreen",
+    "trend scan"
    ],
-   "added": "2026-10-02T07:22:25+00:00",
-   "priority": 6.48,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 7.91,
    "cat": "💰 Finance apps / banking"
   },
   "realtor.com": {
@@ -88,28 +90,30 @@
    "name": "Opendoor",
    "url": "https://www.opendoor.com",
    "category": "real-estate",
-   "hotness": 4.8,
+   "hotness": 7.0,
    "evergreen": true,
    "why": "Leading iBuyer platform for selling homes instantly online.",
    "sources": [
-    "evergreen"
+    "evergreen",
+    "trend scan"
    ],
-   "added": "2026-10-02T07:22:25+00:00",
-   "priority": 6.13,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 7.56,
    "cat": "🏠 Real estate services"
   },
   "apartments.com": {
    "name": "Apartments.com",
    "url": "https://www.apartments.com",
    "category": "real-estate",
-   "hotness": 5.3999999999999995,
+   "hotness": 7.0,
    "evergreen": true,
    "why": "Top rental listing and apartment search platform.",
    "sources": [
-    "evergreen"
+    "evergreen",
+    "trend scan"
    ],
-   "added": "2026-10-02T07:22:26+00:00",
-   "priority": 6.52,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 7.56,
    "cat": "🏠 Real estate services"
   },
   "rocketlawyer.com": {
@@ -120,9 +124,10 @@
    "evergreen": true,
    "why": "Popular legal services platform offering documents and attorney advice.",
    "sources": [
-    "evergreen"
+    "evergreen",
+    "trend scan"
    ],
-   "added": "2026-10-02T07:22:26+00:00",
+   "added": "2026-10-03T05:29:12+00:00",
    "priority": 8.21,
    "cat": "⚖️ Legal services / platforms"
   },
@@ -144,14 +149,15 @@
    "name": "Notion",
    "url": "https://www.notion.so",
    "category": "saas",
-   "hotness": 5.3999999999999995,
+   "hotness": 8.0,
    "evergreen": true,
    "why": "All-in-one workspace app for notes, tasks, and wikis.",
    "sources": [
-    "evergreen"
+    "evergreen",
+    "trend scan"
    ],
-   "added": "2026-10-02T07:22:28+00:00",
-   "priority": 6.66,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 8.35,
    "cat": "💻 SaaS / business software"
   },
   "slack.com": {
@@ -186,14 +192,15 @@
    "name": "Midjourney",
    "url": "https://www.midjourney.com",
    "category": "ai-tools",
-   "hotness": 5.3999999999999995,
+   "hotness": 9.0,
    "evergreen": true,
    "why": "Leading text-to-image generative AI creation platform.",
    "sources": [
-    "evergreen"
+    "evergreen",
+    "trend scan"
    ],
-   "added": "2026-10-02T07:22:29+00:00",
-   "priority": 6.74,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 9.08,
    "cat": "🤖 AI tools"
   },
   "jasper.ai": {
@@ -214,84 +221,90 @@
    "name": "Perplexity",
    "url": "https://www.perplexity.ai",
    "category": "ai-tools",
-   "hotness": 4.8,
+   "hotness": 9.0,
    "evergreen": true,
    "why": "Popular conversational AI search engine and research assistant.",
    "sources": [
-    "evergreen"
+    "evergreen",
+    "trend scan"
    ],
-   "added": "2026-10-02T07:22:29+00:00",
-   "priority": 6.35,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 9.08,
    "cat": "🤖 AI tools"
   },
   "gusto.com": {
    "name": "Gusto",
    "url": "https://gusto.com",
    "category": "business-tools",
-   "hotness": 5.3999999999999995,
+   "hotness": 8.0,
    "evergreen": true,
    "why": "Popular online payroll, benefits, and HR tool for small business.",
    "sources": [
+    "Google News",
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:29+00:00",
-   "priority": 6.66,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 8.35,
    "cat": "📊 Business tools"
   },
   "monday.com": {
    "name": "Monday.com",
    "url": "https://monday.com",
    "category": "business-tools",
-   "hotness": 5.3999999999999995,
+   "hotness": 8.0,
    "evergreen": true,
    "why": "Flexible work operating system and project management software.",
    "sources": [
-    "evergreen"
+    "evergreen",
+    "trend scan"
    ],
-   "added": "2026-10-02T07:22:50+00:00",
-   "priority": 6.66,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 8.35,
    "cat": "📊 Business tools"
   },
   "mailchimp.com": {
    "name": "Mailchimp",
    "url": "https://mailchimp.com",
    "category": "marketing",
-   "hotness": 5.3999999999999995,
+   "hotness": 7.0,
    "evergreen": true,
    "why": "Pioneering email marketing and automation platform for businesses.",
    "sources": [
+    "Google News",
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:50+00:00",
-   "priority": 6.66,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 7.7,
    "cat": "📣 Marketing platforms"
   },
   "klaviyo.com": {
    "name": "Klaviyo",
    "url": "https://www.klaviyo.com",
    "category": "marketing",
-   "hotness": 4.8,
+   "hotness": 8.0,
    "evergreen": true,
    "why": "Top email and SMS marketing automation platform for e-commerce.",
    "sources": [
-    "evergreen"
+    "evergreen",
+    "trend scan"
    ],
-   "added": "2026-10-02T07:22:50+00:00",
-   "priority": 6.27,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 8.35,
    "cat": "📣 Marketing platforms"
   },
   "semrush.com": {
    "name": "Semrush",
    "url": "https://www.semrush.com",
    "category": "marketing",
-   "hotness": 5.3999999999999995,
+   "hotness": 8.0,
    "evergreen": true,
    "why": "Leading SEO, PPC, and digital marketing competitive research toolkit.",
    "sources": [
+    "Google News",
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:51+00:00",
-   "priority": 6.66,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 8.35,
    "cat": "📣 Marketing platforms"
   },
   "hootsuite.com": {
@@ -326,42 +339,45 @@
    "name": "Surfshark",
    "url": "https://surfshark.com",
    "category": "vpn-security",
-   "hotness": 5.3999999999999995,
+   "hotness": 8.0,
    "evergreen": true,
    "why": "Affordable, feature-rich VPN challenger with unlimited device connections.",
    "sources": [
-    "evergreen"
+    "evergreen",
+    "trend scan"
    ],
-   "added": "2026-10-02T07:22:51+00:00",
-   "priority": 6.52,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 8.21,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "1password.com": {
    "name": "1Password",
    "url": "https://1password.com",
    "category": "vpn-security",
-   "hotness": 5.3999999999999995,
+   "hotness": 8.0,
    "evergreen": true,
    "why": "Leading secure password manager for individuals and businesses.",
    "sources": [
+    "Google News",
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:51+00:00",
-   "priority": 6.52,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 8.21,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "malwarebytes.com": {
    "name": "Malwarebytes",
    "url": "https://www.malwarebytes.com",
    "category": "vpn-security",
-   "hotness": 5.3999999999999995,
+   "hotness": 7.0,
    "evergreen": true,
    "why": "Popular anti-malware and cybersecurity software for devices.",
    "sources": [
-    "evergreen"
+    "evergreen",
+    "trend scan"
    ],
-   "added": "2026-10-02T07:22:52+00:00",
-   "priority": 6.52,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 7.56,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "bluehost.com": {
@@ -382,14 +398,15 @@
    "name": "DigitalOcean",
    "url": "https://www.digitalocean.com",
    "category": "hosting",
-   "hotness": 4.8,
+   "hotness": 7.0,
    "evergreen": true,
    "why": "Developer-friendly cloud infrastructure hosting provider.",
    "sources": [
-    "evergreen"
+    "evergreen",
+    "trend scan"
    ],
-   "added": "2026-10-02T07:22:52+00:00",
-   "priority": 6.13,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 7.56,
    "cat": "☁️ Cloud / hosting"
   },
   "siteground.com": {
@@ -410,28 +427,30 @@
    "name": "Hostinger",
    "url": "https://www.hostinger.com",
    "category": "hosting",
-   "hotness": 5.3999999999999995,
+   "hotness": 7.0,
    "evergreen": true,
    "why": "Rapidly growing budget web hosting provider with high search interest.",
    "sources": [
+    "Google News",
     "evergreen"
    ],
-   "added": "2026-10-02T07:22:53+00:00",
-   "priority": 6.52,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 7.56,
    "cat": "☁️ Cloud / hosting"
   },
   "toptal.com": {
    "name": "Toptal",
    "url": "https://www.toptal.com",
    "category": "freelancing",
-   "hotness": 4.8,
+   "hotness": 7.0,
    "evergreen": true,
    "why": "Exclusive network of elite freelance software engineers and designers.",
    "sources": [
-    "evergreen"
+    "evergreen",
+    "trend scan"
    ],
-   "added": "2026-10-02T07:22:53+00:00",
-   "priority": 6.13,
+   "added": "2026-10-03T05:29:12+00:00",
+   "priority": 7.56,
    "cat": "💼 Freelancing platforms"
   },
   "freelancer.com": {
@@ -466,16 +485,16 @@
    "name": "Vespper",
    "url": "https://vespper.com",
    "category": "ai-tools",
-   "hotness": 8.0,
+   "hotness": 9.0,
    "evergreen": false,
    "why": "MCP letting AI agents efficiently edit Word documents.",
    "sources": [
     "Launch HN"
    ],
-   "added": "2026-10-02T19:25:59+00:00",
+   "added": "2026-10-03T05:29:12+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:25:59+00:00",
-   "priority": 15.03,
+   "priority": 15.62,
    "cat": "🤖 AI tools"
   },
   "rate.fm": {
@@ -491,7 +510,7 @@
    "added": "2026-10-02T19:26:01+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:01+00:00",
-   "priority": 14.32,
+   "priority": 13.92,
    "cat": "💻 SaaS / business software"
   },
   "chat.sh": {
@@ -507,7 +526,7 @@
    "added": "2026-10-02T19:26:02+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:02+00:00",
-   "priority": 14.32,
+   "priority": 13.92,
    "cat": "💻 SaaS / business software"
   },
   "fidelity.com": {
@@ -593,7 +612,7 @@
    "added": "2026-10-02T23:52:21+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:21+00:00",
-   "priority": 15.32,
+   "priority": 14.88,
    "cat": "💻 SaaS / business software"
   },
   "mintlify.com": {
@@ -609,7 +628,7 @@
    "added": "2026-10-02T23:52:22+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:22+00:00",
-   "priority": 15.32,
+   "priority": 14.88,
    "cat": "💻 SaaS / business software"
   },
   "gauthmath.com": {
@@ -625,7 +644,7 @@
    "added": "2026-10-02T23:52:22+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:22+00:00",
-   "priority": 15.4,
+   "priority": 14.96,
    "cat": "🤖 AI tools"
   },
   "neverboring.ai": {
@@ -641,7 +660,7 @@
    "added": "2026-10-02T23:52:23+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:23+00:00",
-   "priority": 15.32,
+   "priority": 14.88,
    "cat": "📣 Marketing platforms"
   },
   "manus.im": {
@@ -657,7 +676,7 @@
    "added": "2026-10-02T23:52:24+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:24+00:00",
-   "priority": 16.05,
+   "priority": 15.59,
    "cat": "🤖 AI tools"
   },
   "chainsnip.com": {
@@ -673,7 +692,7 @@
    "added": "2026-10-02T23:52:45+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:45+00:00",
-   "priority": 14.88,
+   "priority": 14.47,
    "cat": "📈 Investing platforms"
   },
   "notchmind.com": {
@@ -689,7 +708,7 @@
    "added": "2026-10-02T23:52:45+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:45+00:00",
-   "priority": 14.67,
+   "priority": 14.26,
    "cat": "💻 SaaS / business software"
   },
   "typestream.io": {
@@ -705,7 +724,7 @@
    "added": "2026-10-02T23:53:05+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:05+00:00",
-   "priority": 15.4,
+   "priority": 14.97,
    "cat": "🤖 AI tools"
   },
   "staylokal.com": {
@@ -721,7 +740,7 @@
    "added": "2026-10-02T23:53:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:06+00:00",
-   "priority": 14.53,
+   "priority": 14.12,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "omniaagent.com": {
@@ -737,7 +756,7 @@
    "added": "2026-10-02T23:53:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:06+00:00",
-   "priority": 15.32,
+   "priority": 14.88,
    "cat": "📣 Marketing platforms"
   },
   "vitra.ai": {
@@ -753,23 +772,23 @@
    "added": "2026-10-02T23:53:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:06+00:00",
-   "priority": 15.4,
+   "priority": 14.97,
    "cat": "🤖 AI tools"
   },
   "akasa.com": {
    "name": "AKASA",
    "url": "https://akasa.com",
    "category": "business-tools",
-   "hotness": 8.0,
+   "hotness": 9.0,
    "evergreen": false,
    "why": "Autonomous AI platform for medical coding and documentation.",
    "sources": [
     "Launch news"
    ],
-   "added": "2026-10-02T23:53:07+00:00",
+   "added": "2026-10-03T05:29:12+00:00",
    "launch": "today",
    "launch_seen": "2026-10-02T23:53:07+00:00",
-   "priority": 18.31,
+   "priority": 18.58,
    "cat": "📊 Business tools"
   },
   "paynearme.com": {
@@ -782,26 +801,26 @@
    "sources": [
     "Launch news"
    ],
-   "added": "2026-10-02T23:53:07+00:00",
+   "added": "2026-10-03T05:29:12+00:00",
    "launch": "today",
    "launch_seen": "2026-10-02T23:53:07+00:00",
-   "priority": 18.52,
+   "priority": 18.14,
    "cat": "💰 Finance apps / banking"
   },
   "tungstenautomation.com": {
    "name": "Tungsten Automation",
    "url": "https://tungstenautomation.com",
    "category": "business-tools",
-   "hotness": 7.0,
+   "hotness": 8.0,
    "evergreen": false,
    "why": "New AI invoice processing tool for enterprise workflows.",
    "sources": [
     "Launch news"
    ],
-   "added": "2026-10-02T23:53:08+00:00",
+   "added": "2026-10-03T05:29:12+00:00",
    "launch": "today",
    "launch_seen": "2026-10-02T23:53:08+00:00",
-   "priority": 17.66,
+   "priority": 17.93,
    "cat": "📊 Business tools"
   },
   "mews.com": {
@@ -814,10 +833,10 @@
    "sources": [
     "Launch news"
    ],
-   "added": "2026-10-02T23:53:09+00:00",
+   "added": "2026-10-03T05:29:12+00:00",
    "launch": "today",
    "launch_seen": "2026-10-02T23:53:09+00:00",
-   "priority": 18.31,
+   "priority": 17.93,
    "cat": "💻 SaaS / business software"
   },
   "citi.com": {
@@ -1003,5 +1022,5 @@
    "cat": "⚖️ Legal services / platforms"
   }
  },
- "updated": "2026-10-03T00:14:57+00:00"
+ "updated": "2026-10-03T05:29:12+00:00"
 }
