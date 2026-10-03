@@ -72,6 +72,7 @@ def record(url, name, story_url, title, status):
 
 # ------------------------------------------------------------------ sources
 STATUS = {}                                          # last answer per source, for the log
+PATIENT = {"reddit": True}                           # wait out Reddit's "slow down"? (not in quick checks)
 
 
 def _get(url, **kw):
@@ -83,7 +84,7 @@ def _get(url, **kw):
             STATUS[host] = type(e).__name__
             return None
         STATUS[host] = r.status_code
-        if r.status_code == 429 and "reddit" in host and attempt < 2:
+        if r.status_code == 429 and "reddit" in host and attempt < 2 and PATIENT["reddit"]:
             wait = min(30, int(r.headers.get("retry-after", "0") or 0) or 8 * (attempt + 1))
             time.sleep(wait)                               # Reddit says "slow down": wait, then try again
             continue
@@ -889,7 +890,11 @@ def candidates(history, n):
             continue
         seen.add(sid)
         word = it["name"].lower().split()[0]
-        hits = [c for c in gather(it["name"], queries=3) if word in c["title"].lower()]
+        PATIENT["reddit"] = False                        # a quick count only: don't wait on rate limits
+        try:
+            hits = [c for c in gather(it["name"], queries=3) if word in c["title"].lower()]
+        finally:
+            PATIENT["reddit"] = True
         if len(hits) < 3:
             print(f"   {it['name']}: too few public stories ({len(hits)}), skipped")
             continue
