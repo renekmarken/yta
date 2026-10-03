@@ -3952,5 +3952,189 @@
    ]
   },
   "youtube": null
+ },
+ {
+  "date": "2026-10-03",
+  "url": "whitescreen:cursed-video-161118-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Cursed Video",
+  "title_base": "[Cursed Video]",
+  "format": "error",
+  "comment_word": "CURSED",
+  "hook": [
+   "This video is apparently cursed...",
+   "and I know that sounds like a joke.",
+   "But ever since I uploaded it, weird things keep happening to my channel views."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "error_glow",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-03",
+  "url": "whitescreen:private-video-161118-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "<Private Video>",
+  "title_base": "<Private Video>",
+  "format": "error",
+  "comment_word": "I WAS HERE",
+  "hook": [
+   "This video is going private in just a few hours.",
+   "So if you’re watching this right now... you’re one of the very few who found it early.",
+   "Before it disappears completely, I want to see who made it here."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "error_glow",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-03",
+  "url": "whitescreen:face-reveal-final-chance-161118-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Face Reveal Final Chance...",
+  "title_base": "Face Reveal Final Chance...",
+  "format": "reveal",
+  "comment_word": "FACE REVEAL",
+  "hook": [
+   "This is genuinely your absolute final chance to see my face.",
+   "I am giving this specific video just 48 hours.",
+   "If it hits 12,000 likes by then, I will finally do the face reveal."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "icon",
+    "headline"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-03",
+  "url": "whitescreen:this-video-has-0-comments-161118-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 0 Comments",
+  "title_base": "This Video Has 0 Comments",
+  "format": "count",
+  "comment_word": "FIRST",
+  "hook": [
+   "This video has zero comments right now...",
+   "And I want to see how long we can keep it that way before someone ruins it.",
+   "Most videos get flooded with comments in the first few minutes."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "character",
+    "white"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-03",
+  "url": "whitescreen:no-access-161118-4",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[No Access]",
+  "title_base": "[No Access]",
+  "format": "error",
+  "comment_word": "NO ACCESS",
+  "hook": [
+   "This video currently has no access for almost everyone...",
+   "Only a tiny group of people can actually watch this right now.",
+   "And honestly, I'm not sure how long this page will stay open."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "ui",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-03",
+  "url": "whitescreen:glitched-video-161118-5",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Glitched Video",
+  "title_base": "{{Glitched Video}}",
+  "format": "error",
+  "comment_word": "GLITCHED",
+  "hook": [
+   "Something is seriously wrong with this video...",
+   "and if you're watching right now, you can probably see the glitch.",
+   "The entire frame keeps flickering, and the algorithm is struggling to process it."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "character",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-03",
+  "url": "whitescreen:can-this-video-get-10-million-views-161118-6",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Can This Video Get 10 Million Views?",
+  "title_base": "Can This Video Get 10 Million Views?",
+  "format": "goal",
+  "comment_word": "10 MILLION",
+  "hook": [
+   "Can this video actually reach 10 million views?",
+   "That is the big question I want to test right now.",
+   "Most videos on this channel stay small."
+  ],
+  "theme": {
+   "thumbs": [
+    "white",
+    "headline",
+    "icon"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-03",
+  "url": "whitescreen:unlisted-video-161118-7",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Unlisted Video]",
+  "title_base": "[Unlisted Video]",
+  "format": "error",
+  "comment_word": "UNLISTED LINK",
+  "hook": [
+   "This video is completely unlisted right now...",
+   "So nobody can find it unless they have the direct link.",
+   "And honestly, I want to see how far a hidden video can actually travel."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "ui",
+    "error_glow"
+   ]
+  },
+  "youtube": null
  }
 ]
