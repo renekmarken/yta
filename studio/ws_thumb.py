@@ -177,21 +177,28 @@ def render(style, data, variant=0):
         m = re.search(r"(\d[\d,]*)", title)
         if m and fmt in ("count", "goal"):
             count = m.group(1)
+        pinned = ""
+        if name == "pinned_comment":                             # the pinned comment is the word viewers are asked to type
+            word = re.sub(r'["“”]', "", str(data.get("comment_word") or "")).strip()
+            pinned = word.upper() if 0 < len(word) <= 16 else "FIRST!"
         card = A.ui(name, int(TW * (0.8 if name not in ("delete_video", "view_count") else 0.66)),
-                    title=title if name in ("likes_zero", "likes_and_comments_zero") else "", count=count,
+                    title=title if name in ("likes_zero", "likes_and_comments_zero") else pinned, count=count,
                     note=small or _error_note(title))
         cx, cy = (TW - card.width) // 2, (TH - card.height) // 2
         _paste(bg, card, (cx, cy))
         # ring the key spot, arrow pointing at it
         spot = {"comments_zero": (0.02, 0.04, 0.48, 0.24), "likes_zero": (0.02, 0.66, 0.36, 0.95),
-                "likes_and_comments_zero": (0.02, 0.48, 0.36, 0.69), "pinned_comment": (0.14, 0.62, 0.48, 0.84),
+                "likes_and_comments_zero": (0.02, 0.48, 0.36, 0.69),
+                "pinned_comment": (0.135, 0.665, min(0.9, 0.2 + 0.052 * len(pinned)), 0.79),
                 "view_count": None, "delete_video": None, "delete_channel": (0.52, 0.72, 0.9, 0.93),
                 "private_player": (0.3, 0.7, 0.7, 0.9), "video_unavailable": (0.36, 0.36, 0.95, 0.62)}.get(name)
         if spot:
             x0, y0 = cx + spot[0] * card.width, cy + spot[1] * card.height
             x1, y1 = cx + spot[2] * card.width, cy + spot[3] * card.height
-            r = A.ring(x1 - x0 + 30, y1 - y0 + 30, seed=variant)
-            bg.alpha_composite(r, (int(x0 - 15 - (r.width - (x1 - x0 + 30)) / 2), int(y0 - 15 - (r.height - (y1 - y0 + 30)) / 2)))
+            pad = 16 if name == "pinned_comment" else 30                # tight there: lines above and below
+            r = A.ring(x1 - x0 + pad, y1 - y0 + pad, seed=variant)
+            bg.alpha_composite(r, (int(x0 - pad / 2 - (r.width - (x1 - x0 + pad)) / 2),
+                                   int(y0 - pad / 2 - (r.height - (y1 - y0 + pad)) / 2)))
             # the arrow comes from the free side and points down at the ring
             base = A.arrow(210, curve=0.32)
             mid_y = (y0 + y1) / 2
@@ -229,13 +236,15 @@ def render(style, data, variant=0):
         lines = [phrase.upper()]
         if _fit_anton(lines[0], TW - 80, 280).size < 160:            # too long for one big line
             lines = phrase_lines(phrase)
-        _words(bg, lines, (40, 18, TW - 40, 300), [RED] + [WHITE] * (len(lines) - 1), "anton")
-        _character(bg, emotion, "right" if variant % 2 == 0 else "left", height=int(TH * 0.66))
+        # the character big on one half (behind the words), the icon on the other
+        _character(bg, emotion, "right" if variant % 2 == 0 else "left", height=int(TH * 0.8))
+        bbs = _words(bg, lines, (40, 18, TW - 40, 300), [RED] + [WHITE] * (len(lines) - 1), "anton")
         ic = th.get("icon")
         if ic and ic != "none":
             im = A.icon(ic, 230)
-            x = 120 if variant % 2 == 0 else TW - 120 - im.width
-            _paste(bg, im, (x, TH - im.height - 60), shadow=False)
+            x = (TW * 0.25 if variant % 2 == 0 else TW * 0.75) - im.width / 2
+            top = max(b[3] for b in bbs) + 30
+            _paste(bg, im, (x, top + max(0, (TH - top - im.height) // 2 - 10)), shadow=False)
         return bg.convert("RGB")
 
     if style == "icon":

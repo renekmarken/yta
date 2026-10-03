@@ -110,7 +110,8 @@ Title: {title}
 
 Rules:
 - {min_words}-{max_words} spoken words in total (count them; that is 38-43 seconds of voice). 10-15 short lines, one or two short
-  sentences per line, spoken naturally (contractions, "..." for pauses). First line = the hook, said
+  sentences per line, spoken like a real person talks: always contract (I'm, don't, let's, you're,
+  it's; never "let us" or "do not"), "..." for pauses. First line = the hook, said
   in the first two seconds (no "hey guys", no intro).
 - Ask for the like AND one specific comment ("comment "I WAS HERE"") at least twice, the last line
   being the strongest call to action. Give a reason to do it NOW (it's disappearing, a goal, a record,
