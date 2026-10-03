@@ -108,6 +108,7 @@ def _paras(text):
             paras += [b if i == 0 else "• " + b for i, b in enumerate(x.split(" • "))]
         else:
             paras.append(x)
+    paras = [re.sub(r"\s*\[link\]\s*\[comments\]\s*$", "", x).strip() for x in paras]
     paras = [x for x in paras if x and x not in ("[deleted]", "[removed]") and not x.startswith("submitted by")]
     return "\n\n".join(paras)
 
@@ -349,9 +350,10 @@ POSTS:
 """
 
 
-def pick_story(brand, url, cands, issue=None):
+def pick_story(brand, url, cands, issue=None, chosen=False):
     used_urls, _ = used()
-    cands = [c for c in cands if c["url"] not in used_urls]
+    if not chosen:                               # posts the viewer pasted are used even if used before
+        cands = [c for c in cands if c["url"] not in used_urls]
     if not cands:
         raise NoStory(f"no public stories found for {brand}")
     word = brand.lower().split()[0]
@@ -362,10 +364,16 @@ def pick_story(brand, url, cands, issue=None):
                                + bool(re.search(r"\$\s?\d", c["title"] + c["text"][:600])) + (len(c["text"]) > 400)))
     cands = cands[:30]
     posts = "\n\n".join(f"[{i}] ({c['where']}, {c['date']}) {c['title']}\n{c['text'][:900]}" for i, c in enumerate(cands))
-    focus = (f"\nTHE VIEWER ASKED SPECIFICALLY FOR THIS ISSUE: \"{issue}\". Pick the post that is about this issue; "
+    if chosen:
+        focus = (f"\nTHE VIEWER CHOSE THESE POSTS THEMSELVES. Pick the best one for the video (short posts are fine: "
+                 f"use the whole thread). Return -1 only if none is about {brand} at all.\n")
+    else:
+        focus = ""
+    if not focus and issue:
+        focus = (f"\nTHE VIEWER ASKED SPECIFICALLY FOR THIS ISSUE: \"{issue}\". Pick the post that is about this issue; "
              f"if none is exactly about it, pick one about a closely related problem with {brand} (the same kind of "
              f"harm, e.g. a different reason for the same suspension or rejection). Only if nothing is even related, "
-             f"return {{\"index\": -1}}.\n") if issue else ""
+             f"return {{\"index\": -1}}.\n")
     text, _ = ai.ask(PICK_PROMPT.format(brand=brand, url=url, posts=posts, focus=focus,
                                         used=", ".join(list(used_urls)[:20]) or "none"),
                      json_mode=True, temperature=0.3)
@@ -386,13 +394,14 @@ def _reddit_thread(url):
     """The full post, the poster's own later comments (updates) and the replies, from the thread feed."""
     base = url.split("?")[0].rstrip("/")
     ns = {"a": "http://www.w3.org/2005/Atom"}
-    entries = []
+    entries, root = [], None
     for i, u in enumerate((base, base.replace("://www.", "://old."), base)):
         if i == 2:
             time.sleep(6)                               # Reddit's rate limit: one more try after a pause
         r = _get(u + "/.rss?limit=100")
         try:
-            entries = ET.fromstring(r.text).findall("a:entry", ns) if r else []
+            root = ET.fromstring(r.text) if r else None
+            entries = root.findall("a:entry", ns) if root is not None else []
         except ET.ParseError:
             entries = []
         if entries:
@@ -402,13 +411,17 @@ def _reddit_thread(url):
     who = lambda e: (e.findtext("a:author/a:name", "", ns) or "").replace("/u/", "")
     op = who(entries[0])
     post = _paras(entries[0].findtext("a:content", "", ns))
+    cat = root.find("a:category", ns)
+    head = {"title": _clean(entries[0].findtext("a:title", "", ns)),
+            "date": (entries[0].findtext("a:updated", "", ns) or "")[:10],
+            "where": (cat.get("label") if cat is not None else "") or "Reddit"}
     updates, replies = [], []
     for e in entries[1:]:
         text = _paras(e.findtext("a:content", "", ns))
         if len(text) < 40:
             continue
         (updates if op and who(e) == op else replies).append(text)
-    return {"text": post, "updates": updates[:6], "replies": replies[:12]}
+    return {"text": post, "updates": updates[:6], "replies": replies[:12], **head}
 
 
 def _hn_thread(url):
@@ -753,7 +766,58 @@ def resolve_product(text):
     return name, url
 
 
+def _expand(link):
+    """Where a short or share link really goes (reddit.com/r/x/s/AbC -> the post), without tracking."""
+    for _ in range(4):
+        try:
+            r = requests.get(link, headers=UA, timeout=15, allow_redirects=False)
+        except requests.RequestException:
+            break
+        loc = r.headers.get("location")
+        if r.status_code in (301, 302, 303, 307, 308) and loc and "/login" not in loc:
+            link = requests.compat.urljoin(link, loc)
+            continue
+        break
+    return link.split("?")[0].split("#")[0]
+
+
+def linked_posts(text):
+    """Posts the viewer pasted as links (Reddit, Hacker News, any article): opened and read in full."""
+    out = []
+    for raw in dict.fromkeys(re.findall(r"https?://[^\s,;]+", text or "")):
+        link = _expand(raw.rstrip(").]"))
+        host = re.sub(r"^www\.", "", link.split("/")[2]) if "//" in link else ""
+        if "reddit.com" in host and "/comments/" in link:
+            got, src = _reddit_thread(link), "Reddit"
+        elif "ycombinator.com" in host:
+            got, src = _hn_thread(link), "Hacker News"
+        else:
+            got, src = _article(link), "News"
+        if not got:
+            print(f"   ! could not open the link {raw}")
+            continue
+        out.append({"source": src, "where": got.get("where") or (host if src == "News" else src),
+                    "title": got.get("title") or host, "text": got.get("text") or "", "url": link,
+                    "date": got.get("date") or "", "updates": got.get("updates", []), "replies": got.get("replies", [])})
+        print(f"   your link: {out[-1]['title'][:80]} ({len(out[-1]['text'])} chars, "
+              f"{len(out[-1]['updates'])} updates, {len(out[-1]['replies'])} replies)")
+    return out
+
+
 def find_story(brand, url, issue=None):
+    linked = linked_posts(issue) if issue and "http" in issue else []
+    if linked:                                   # the viewer chose the posts: use them, don't search
+        rest = re.sub(r"https?://\S+", " ", issue)
+        rest = re.sub(r"^(?:\s|and|,|&|;|\+)+|(?:\s|and|,|&|;|\+)+$", "", re.sub(r"\s+", " ", rest)).strip()
+        topic = rest if len(rest) >= 8 else None
+        story = pick_story(brand, url, list(linked), topic, chosen=True)
+        others = [c for c in linked if c["url"] != story["url"]]
+        story = investigate(story, others)
+        story["similar"] = [f"{platform(c)}, {c.get('date') or 'undated'}: {c['title']} — {c['text'][:400]}"
+                            + (f" (the poster later added: {c['updates'][0][:300]})" if c.get("updates") else "")
+                            for c in others] + story["similar"][len(others):]
+        story["focus"] = topic or story.get("issue") or ""
+        return story
     cands = gather(brand, issue=issue)
     story = pick_story(brand, url, list(cands), issue)
     story["focus"] = issue or ""

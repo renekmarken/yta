@@ -212,7 +212,7 @@ select{width:100%;padding:11px;border-radius:12px;border:1px solid var(--line);b
   <div id="topicwrap" hidden>
     <div style="font-weight:700;margin-top:14px">Your own Risk Cases <span style="font-weight:500;color:var(--muted)">(optional)</span></div>
     <p class="hint" style="margin:2px 0 8px">Any app, product or website, and the issue to look for. It searches real users'
-      posts about exactly that and makes the video. Made in addition to the number above (set it to 0 to make only these).</p>
+      posts about exactly that and makes the video. You can also paste links to specific posts (Reddit, Hacker News, articles) and it uses those. Made in addition to the number above (set it to 0 to make only these).</p>
     <div id="topics"></div>
     <button type="button" class="ghost addtopic" id="addtopic">＋ Add another</button>
   </div>
@@ -797,7 +797,7 @@ function addTopic(product = "", issue = ""){
   row.className = "topic";
   row.innerHTML = `<div class="tnum"></div>
     <input class="box tprod" autocomplete="off" placeholder="App, product or website, e.g. Instagram">
-    <textarea class="box tissue" placeholder="What issue to look for, e.g. users getting banned for no reason"></textarea>
+    <textarea class="box tissue" placeholder="What issue to look for, e.g. users getting banned for no reason — or paste links to the posts to use"></textarea>
     <button type="button" class="xbtn" aria-label="Remove">✕</button>`;
   row.querySelector(".tprod").value = product;
   row.querySelector(".tissue").value = issue;
