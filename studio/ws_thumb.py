@@ -42,17 +42,11 @@ UI_FOR = {"error": ["private_player", "video_unavailable"], "count": ["comments_
 
 
 # ------------------------------------------------------------------ backgrounds
-SCHEMES = {   # base, glow, ray colour
-    "red": ((26, 2, 4), (170, 10, 18), (255, 60, 60)),
-    "blue": ((3, 8, 30), (20, 80, 230), (90, 150, 255)),
-    "purple": ((14, 3, 30), (110, 30, 200), (180, 110, 255)),
-    "dark": ((8, 8, 10), (70, 70, 80), (150, 150, 160)),
-    "gold": ((26, 14, 0), (210, 130, 0), (255, 210, 80)),
-    "teal": ((0, 18, 22), (0, 140, 150), (80, 230, 230)),
+SCHEMES = {   # base, glow, ray colour -- the channel's look is black: every scheme is black with a faint glow
+    "black": ((2, 2, 3), (34, 34, 40), (120, 120, 132)),
+    "red": ((2, 2, 2), (34, 4, 6), (150, 40, 40)),          # error videos: black with a faint red glow
 }
-SCHEME_FOR = {"error": ["red", "dark"], "count": ["blue", "purple", "dark"], "deadline": ["red", "gold"],
-              "goal": ["gold", "blue", "purple"], "reveal": ["purple", "blue"], "dare": ["red", "purple"],
-              "pin": ["blue", "teal"], "only": ["teal", "blue", "purple"]}
+SCHEME_FOR = {"error": ["red", "black"]}
 
 
 def _dark(glow=(60, 60, 64), center=(0.5, 0.45), base=(6, 6, 8)):
@@ -74,7 +68,7 @@ def _glow(canvas, box, color, blur=60, alpha=170):
 
 def _backdrop(scheme, focus=(0.5, 0.5), rays=True):
     """A filled background: deep colour, a strong glow behind the subject, soft sunburst rays, vignette."""
-    base, glow, ray = SCHEMES.get(scheme, SCHEMES["dark"])
+    base, glow, ray = SCHEMES.get(scheme, SCHEMES["black"])
     bg = _dark(glow, focus, base)
     fx, fy = TW * focus[0], TH * focus[1]
     if rays:
@@ -246,7 +240,7 @@ def render(style, data, variant=0):
     rnd = random.Random(f"{title}-{style}-{variant}")
     side = "left" if variant % 2 else "right"
     other = "right" if side == "left" else "left"
-    scheme = SCHEME_FOR.get(fmt, ["blue"])[variant % len(SCHEME_FOR.get(fmt, ["blue"]))]
+    scheme = SCHEME_FOR.get(fmt, ["black"])[variant % len(SCHEME_FOR.get(fmt, ["black"]))]
     icon = _icon_name(th, fmt)
 
     if style in ("error", "error_glow"):
@@ -257,10 +251,10 @@ def render(style, data, variant=0):
             if face.height > TH * 0.86:
                 face = face.resize((int(face.width * TH * 0.86 / face.height), int(TH * 0.86)), Image.LANCZOS)
             _glow(bg, ((TW - face.width) // 2, (TH - face.height) // 2, (TW + face.width) // 2,
-                       (TH + face.height) // 2), (255, 20, 30), 90, 150)
+                       (TH + face.height) // 2), (255, 20, 30), 90, 85)
             _paste(bg, face, ((TW - face.width) // 2, (TH - face.height) // 2))
             return bg.convert("RGB")
-        bg = _backdrop("dark" if variant % 2 else "red", (0.3 if side == "right" else 0.7, 0.5))
+        bg = _backdrop("black" if variant % 2 else "red", (0.3 if side == "right" else 0.7, 0.5))
         box = _character(bg, emotion if emotion in ("sad", "crying", "shocked", "scared", "nervous") else
                          _pose(["sad", "phone_shock"], "shocked"), side, max_w=0.46)
         free_w = (box[0] if side == "right" else TW - box[2]) - 50
@@ -269,7 +263,7 @@ def render(style, data, variant=0):
             face = face.resize((int(face.width * TH * 0.8 / face.height), int(TH * 0.8)), Image.LANCZOS)
         free0, free1 = (0, box[0]) if side == "right" else (box[2], TW)
         fx = (free0 + free1 - face.width) / 2
-        _glow(bg, (fx, (TH - face.height) / 2, fx + face.width, (TH + face.height) / 2), (255, 20, 30), 90, 130)
+        _glow(bg, (fx, (TH - face.height) / 2, fx + face.width, (TH + face.height) / 2), (255, 20, 30), 90, 75)
         _paste(bg, face, (fx, (TH - face.height) / 2))
         return bg.convert("RGB")
 
@@ -366,7 +360,7 @@ def render(style, data, variant=0):
             pic = pic.resize((int(TW * 0.42), int(pic.height * TW * 0.42 / pic.width)), Image.LANCZOS)
         x = TW - pic.width - 40 if side == "right" else 40
         _glow(bg, (x + 40, (TH - pic.height) / 2 + 40, x + pic.width - 40, (TH + pic.height) / 2 - 40),
-              SCHEMES[scheme][1], 70, 160)
+              (60, 60, 70), 70, 140)
         _paste(bg, pic, (x, (TH - pic.height) // 2))
         tx0, tx1 = (36, x + 20) if side == "right" else (x + pic.width - 20, TW - 36)
         lines = phrase_lines(phrase, 3)
@@ -376,8 +370,8 @@ def render(style, data, variant=0):
         return bg.convert("RGB")
 
     if style == "white":
-        bg = _white_backdrop((0.75 if side == "right" else 0.25, 0.5))
-        box = _character(bg, emotion, side, max_w=0.42, glow=(170, 200, 255), rim=False)
+        bg = _backdrop("black", (0.75 if side == "right" else 0.25, 0.5))
+        box = _character(bg, emotion, side, max_w=0.42)
         tx0, tx1 = (40, box[0] - 20) if side == "right" else (box[2] + 20, TW - 40)
         lines = phrase_lines(phrase, 3)
         d = ImageDraw.Draw(bg)
@@ -387,8 +381,8 @@ def render(style, data, variant=0):
             f = _fit_anton(line, tx1 - tx0, (TH - 120) / n * 0.95)
             cy = 60 + (TH - 120) / n * (i + 0.5)
             cxm = (tx0 + tx1) / 2
-            d.text((cxm, cy), line, font=f, fill=INK, anchor="mm")
-            bbs.append(d.textbbox((cxm, cy), line, font=f, anchor="mm"))
+            d.text((cxm, cy), line, font=f, fill=WHITE, anchor="mm", stroke_width=max(5, f.size // 18), stroke_fill=INK)
+            bbs.append(d.textbbox((cxm, cy), line, font=f, anchor="mm", stroke_width=max(5, f.size // 18)))
         x0, y0, x1, y1 = bbs[0]
         if re.search(r"\d", lines[0]) and rnd.random() < 0.6:   # a number gets the red cross-out
             w = max(16, int((y1 - y0) * 0.1))
