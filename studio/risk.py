@@ -76,13 +76,19 @@ STATUS = {}                                          # last answer per source, f
 
 def _get(url, **kw):
     host = url.split("/")[2]
-    try:
-        r = requests.get(url, headers=UA, timeout=25, **kw)
+    for attempt in range(3):
+        try:
+            r = requests.get(url, headers=UA, timeout=25, **kw)
+        except requests.RequestException as e:
+            STATUS[host] = type(e).__name__
+            return None
         STATUS[host] = r.status_code
+        if r.status_code == 429 and "reddit" in host and attempt < 2:
+            wait = min(30, int(r.headers.get("retry-after", "0") or 0) or 8 * (attempt + 1))
+            time.sleep(wait)                               # Reddit says "slow down": wait, then try again
+            continue
         return r if r.status_code == 200 else None
-    except requests.RequestException as e:
-        STATUS[host] = type(e).__name__
-        return None
+    return None
 
 
 def _clean(text):
@@ -144,6 +150,26 @@ def _reddit(query):
         _get(f"https://old.reddit.com/search.rss?q={quote(query)}&sort=relevance&t=all&limit=15")
     if not r:
         return _reddit_json(query)
+    return _reddit_feed(r)
+
+
+def _reddit_sub(brand, words):
+    """Search inside the product's own subreddit (r/SophiaLearning, r/Instagram...): where most
+    first-hand complaints are, and what the site-wide search often misses."""
+    out = []
+    for sub in dict.fromkeys([re.sub(r"[^A-Za-z0-9]", "", brand), re.sub(r"[^A-Za-z0-9]", "", brand.split()[0])]):
+        if len(sub) < 3:
+            continue
+        for host in ("www", "old"):
+            r = _get(f"https://{host}.reddit.com/r/{sub}/search.rss?q={quote(words)}&restrict_sr=on&sort=relevance&t=all&limit=25")
+            if r:
+                out += _reddit_feed(r)
+                break
+        time.sleep(1)
+    return out
+
+
+def _reddit_feed(r):
     out = []
     try:
         root = ET.fromstring(r.text)
@@ -222,10 +248,50 @@ def issue_queries(brand, issue):
     return list(dict.fromkeys(base + qs))[:9]
 
 
+WEB_PROMPT = """Search the web for first-hand public posts where users of {brand} describe this problem:
+"{issue}". Look on Reddit, forums, Trustpilot, BBB complaints, Quora, Facebook groups, app reviews and
+news. Return ONLY a JSON list (up to 10) of the posts you actually found:
+[{{"url": "the post's address", "title": "its title", "summary": "2-3 sentences of what the user says"}}]"""
+
+
+def _web_posts(brand, issue):
+    """Posts about the issue found by Gemini's Google search. Only ones that really open are kept
+    (with their own text), so nothing made up can become a story."""
+    try:
+        text, sources = ai.ask(WEB_PROMPT.format(brand=brand, issue=issue), grounded=True, temperature=0.2)
+        found = ai.parse_json(text)
+    except Exception as e:
+        print(f"   web search for posts unavailable ({type(e).__name__})")
+        return []
+    out = []
+    for f in (found if isinstance(found, list) else [])[:10]:
+        url = ai.resolve_url(str(f.get("url") or "")).split("#")[0]
+        if not url.startswith("http"):
+            continue
+        host = re.sub(r"^www\.", "", url.split("/")[2])
+        if "reddit.com" in host and "/comments/" in url:
+            got, src = _reddit_thread(url), "Reddit"
+        elif "ycombinator.com" in host:
+            got, src = _hn_thread(url), "Hacker News"
+        else:
+            got = _article(url)
+            src = next((n for k, n in (("trustpilot", "Trustpilot"), ("quora", "Quora"), ("facebook", "Facebook"),
+                                       ("bbb.org", "BBB"), ("apple.com", "App Store"), ("play.google", "Google Play"))
+                        if k in host), "News")
+        if not got or len(got.get("text") or "") < 120:
+            continue                                      # couldn't open it: not used
+        out.append({"source": src, "where": host if src == "News" else src, "title": _clean(f.get("title")) or host,
+                    "text": got["text"][:4000], "url": url, "date": "", "updates": got.get("updates", []),
+                    "replies": got.get("replies", [])})
+    print(f"   web search: {len(out)} post(s) opened")
+    return out
+
+
 def gather(brand, queries=8, issue=None):
     """Real public posts about bad experiences with `brand`, from several sources. With `issue`, the
     searches are about that one problem instead of the usual list."""
     words = brand.lower().split()[0]
+    full = brand.lower()
     cands, seen = [], set()
     phrases = issue_queries(brand, issue) if issue else [f"{brand} {p}" for p in PROBLEMS[:queries]]
     for i, q in enumerate(phrases):
@@ -233,11 +299,19 @@ def gather(brand, queries=8, issue=None):
             hay = (c["title"] + " " + c["text"]).lower()
             if c["url"] in seen or words not in hay:
                 continue
+            if issue and " " in full and full not in hay and full.replace(" ", "") not in hay:
+                continue                                  # "Sophia Learning", not any post naming a Sophia
             if len(c["text"]) < 120 and not re.search(r"\$\s?\d", c["title"]):
                 continue
             seen.add(c["url"])
             cands.append(c)
-        time.sleep(1.2)                                 # be polite to the free endpoints
+        time.sleep(2.0)                                 # be polite to the free endpoints (Reddit limits hard)
+    if issue:                                           # asked for one issue: look harder for it
+        words_issue = " ".join(re.sub(r"[^\w\s]", " ", issue).split()[:6])
+        for c in _reddit_sub(brand, words_issue) + _web_posts(brand, issue):
+            if c["url"] not in seen and len(c.get("text") or "") >= 80:
+                seen.add(c["url"])
+                cands.append(c)
     by = {}
     for c in cands:
         by[c["source"]] = by.get(c["source"], 0) + 1
@@ -288,8 +362,10 @@ def pick_story(brand, url, cands, issue=None):
                                + bool(re.search(r"\$\s?\d", c["title"] + c["text"][:600])) + (len(c["text"]) > 400)))
     cands = cands[:30]
     posts = "\n\n".join(f"[{i}] ({c['where']}, {c['date']}) {c['title']}\n{c['text'][:900]}" for i, c in enumerate(cands))
-    focus = (f"\nTHE VIEWER ASKED SPECIFICALLY FOR THIS ISSUE: \"{issue}\". Pick a post about this issue (or one very "
-             f"close to it); if none of the posts is about it, return {{\"index\": -1}}.\n") if issue else ""
+    focus = (f"\nTHE VIEWER ASKED SPECIFICALLY FOR THIS ISSUE: \"{issue}\". Pick the post that is about this issue; "
+             f"if none is exactly about it, pick one about a closely related problem with {brand} (the same kind of "
+             f"harm, e.g. a different reason for the same suspension or rejection). Only if nothing is even related, "
+             f"return {{\"index\": -1}}.\n") if issue else ""
     text, _ = ai.ask(PICK_PROMPT.format(brand=brand, url=url, posts=posts, focus=focus,
                                         used=", ".join(list(used_urls)[:20]) or "none"),
                      json_mode=True, temperature=0.3)
@@ -655,7 +731,13 @@ def resolve_product(text):
     if re.match(r"^(https?://)?[\w-]+(\.[\w-]+)+(/\S*)?$", text):      # it already is a web address
         url = text if "://" in text else "https://" + text
         host = re.sub(r"^www\.", "", url.split("/")[2])
-        return host.split(".")[0].replace("-", " ").title(), url
+        name = host.split(".")[0].replace("-", " ").title()
+        try:                                              # "study.com" is called "Study.com", not "Study"
+            got = ai.parse_json(ai.ask(RESOLVE_PROMPT.format(text=host), json_mode=True, temperature=0.1)[0])
+            name = str(got.get("name") or "").strip() or name
+        except Exception:
+            pass
+        return name, url
     name, url = text.title() if text.islower() else text, ""
     try:
         got = ai.parse_json(ai.ask(RESOLVE_PROMPT.format(text=text.replace('"', "'")), json_mode=True, temperature=0.1)[0])

@@ -910,7 +910,12 @@ async function checkRuns(){
     const runs = (await Promise.all(files.map(latest))).filter(Boolean)
       .filter(r => !(r.event === "schedule" && r.status === "completed"));   // quiet hourly safety-net runs
     runs.sort((a, b) => (a.status === "completed") - (b.status === "completed") || new Date(b.updated_at) - new Date(a.updated_at));
-    const run = runs[0];
+    let run = runs[0];
+    const isBatch = r => r && r.path.includes("batch.yml"), isLib = r => r && r.path.includes("library-backfill");
+    const batch = runs.find(isBatch);
+    // a finished library update that a finished batch started: report the batch (what was made, what wasn't)
+    const follows = (lib, b) => b && b.status === "completed" && new Date(lib.created_at) >= new Date(b.updated_at) - 120000;
+    if (isLib(run) && run.status === "completed" && follows(run, batch)) run = batch;
     const what = !run ? "" : run.path.includes("upload-one") ? "Uploading to YouTube"
                : run.path.includes("library-backfill") ? "Adding the new videos to the library" : "Making videos";
     if (!run) return showStatus("");
@@ -922,9 +927,29 @@ async function checkRuns(){
     } else if (age < 30 && store.get("dismissed-run") !== String(run.id)) {
       const ok = run.conclusion === "success";
       const close = `<button class="xbtn" data-dismiss="${run.id}" aria-label="Dismiss">✕</button>`;
-      if (ok && what === "Making videos") {           // the library update starts right after
-        showStatus(`<span class="spinner"></span> Adding the new videos to the library…`);
-        pollTimer = setTimeout(checkRuns, 20000);
+      if (what === "Making videos") {                // say how many were really made, and which weren't
+        let made = null, missed = [];
+        try {
+          const r = await fetch(run.jobs_url + "?per_page=100",
+            {headers: {"Authorization": "Bearer " + dispatch.token, "Accept": "application/vnd.github+json"}});
+          const jobs = r.ok ? (await r.json()).jobs || [] : [];
+          const vids = jobs.filter(j => /^Video \d+/.test(j.name));
+          if (vids.length) {
+            made = vids.filter(j => j.conclusion === "success").length;
+            missed = vids.filter(j => j.conclusion !== "success").map(j => j.name.replace(/^Video \d+:\s*/, ""));
+          }
+        } catch {}
+        const link = `<a href="${esc(run.html_url)}" target="_blank" rel="noopener">why</a>`;
+        const missNote = missed.length ? ` ${missed.length} couldn't be made (${esc(missed.join(", "))}) · ${link}` : "";
+        const lib = runs.find(r => isLib(r) && follows(r, run));
+        const n = made ?? 0, vids = `${made ?? "The new"} video${made === 1 ? "" : "s"}`;
+        if (made === 0) showStatus(`⚠️ No video was made.${missNote}` + close);
+        else if (lib && lib.status === "completed")
+          showStatus(`✅ ${vids} ${n === 1 ? "is" : "are"} in the library — <a href="#" onclick="location.reload();return false">refresh the page</a> to see ${n === 1 ? "it" : "them"}.${missNote}` + close);
+        else {
+          showStatus(`<span class="spinner"></span> Adding ${vids.toLowerCase()} to the library…${missNote}`);
+          pollTimer = setTimeout(checkRuns, 20000);
+        }
       } else showStatus((ok ? `✅ ${what === "Uploading to YouTube" ? "Uploaded to YouTube" : "New videos are in the library"} — <a href="#" onclick="location.reload();return false">refresh the page</a> to see them.`
                     : `⚠️ The last run finished with problems · <a href="${esc(run.html_url)}" target="_blank" rel="noopener">details</a>`) + close);
     } else showStatus("");

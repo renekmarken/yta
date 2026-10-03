@@ -150,7 +150,7 @@ Source: {info['url']} · Format: {data.get('format')} · Look: {theme['layout']}
 
 def produce(item, history, out=None, mode="new"):
     """mode: new | rerender (same look) | restyle (new look)."""
-    from studio.crawl import crawl
+    from studio.crawl import BlockedSite, crawl
     from studio.script import write_script
     from studio.themes import normalize, pick_theme
     from studio.thumbnail import make_thumbnails, choose_thumbnail
@@ -166,7 +166,23 @@ def produce(item, history, out=None, mode="new"):
             shutil.rmtree(out)
         cat = BY_ID.get(item.get("category"))
         print(f"1/6 crawling {url}")
-        info = crawl(url, out, cat["subpage_words"] if cat else None, brand=item.get("name"))
+        try:
+            info = crawl(url, out, cat["subpage_words"] if cat else None, brand=item.get("name"))
+        except BlockedSite as e:
+            if item.get("kind") != "risk":
+                raise
+            # a Risk Case is about the story, not the website: go on with the story cards and the logo
+            print(f"   the website blocks visitors ({e}); going on without its screenshots")
+            from studio.logo import find as find_logo
+            out.mkdir(parents=True, exist_ok=True)
+            name = item.get("name") or urlparse(url).netloc
+            info = {"url": url, "domain": urlparse(url).netloc.replace("www.", ""), "title": name, "site_name": name,
+                    "home_text": "", "meta_description": "", "pages": [], "screenshots": [], "blocked": True}
+            try:
+                info["logo"], info["logo_has_name"] = find_logo([], name, info["domain"], out)
+            except Exception as le:
+                print(f"   ! logo search failed: {str(le)[:120]}")
+                info["logo"], info["logo_has_name"] = None, False
         if item.get("kind") == "risk":                      # Risk Case: a real user's story, explained
             from studio import risk
             print(f"2/6 finding a real story + script ({len(info['screenshots'])} screenshots)")
@@ -284,7 +300,7 @@ def make_one(key, item, history):
         traceback.print_exc()
         reason = {"BlockedSite": "blocked/empty site", "NoStory": "no story found"}.get(type(e).__name__, type(e).__name__)
         print(f"✗ {item['url']} skipped ({reason}); next time the queue moves on")
-        return {"status": "failed", "key": key, "item": item, "reason": reason}
+        return {"status": "failed", "key": key, "item": item, "reason": reason, "detail": str(e)[:300]}
 
 
 def plan(n, history):
@@ -386,14 +402,18 @@ def main():
         folder = config.OUTPUT_DIR / res.get("folder", "failed-" + key.replace("/", "_"))
         folder.mkdir(parents=True, exist_ok=True)
         (folder / "result.json").write_text(json.dumps(res, ensure_ascii=False))
-        # a blocked site is normal (it is recorded and skipped from now on) - don't turn the batch red
-        sys.exit(0 if res["status"] == "done" or res.get("reason") in ("blocked/empty site", "no story found") else 1)
+        if res["status"] != "done":       # no video: say why at the top of the run page, and show it red
+            why = {"no story found": "no usable public story was found",
+                   "blocked/empty site": "the website blocks automated visitors"}.get(res.get("reason"), res.get("reason"))
+            print(f"::error title=No video for {it['name']}::{why}" + (f" — {res['detail']}" if res.get("detail") else ""))
+        sys.exit(0 if res["status"] == "done" else 1)
     if a.apply_results:
         results = [json.loads(p.read_text()) for p in sorted(a.apply_results.rglob("result.json"))]
         for res in results:
             apply_result(res, history)
         made = [r["label"] for r in results if r["status"] == "done"]
-        failed = [r["item"]["name"] for r in results if r["status"] != "done"]
+        failed = [f"{r['item']['name']}" + (f" ({r['item']['issue']})" if r["item"].get("issue") else "")
+                  + f": {r.get('reason') or 'error'}" for r in results if r["status"] != "done"]
         print(f"Booked {len(made)} video(s), {len(failed)} failed.")
         if failed:              # finished videos are announced by the library update, once they're in
             notify(f"{len(failed)} video(s) could not be made", "\n".join(f"• {n}" for n in failed))
