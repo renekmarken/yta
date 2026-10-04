@@ -1211,5 +1211,5 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
           "-t", f"{total_len:.3f}", *X264, "-c:a", "aac", "-b:a", "160k", "-ar", "48000",
           "-movflags", "+faststart", str(final)])
     theme["layouts"] = [scenes[i][0] + "+" + lays[i] if i in scenes else lays[i] for i in range(len(segs))]
-    print(f"   video ready: {duration(final):.0f}s · layouts {', '.join(theme["layouts"])} · music {theme["music"]}")
+    print(f"   video ready: {duration(final):.0f}s · layouts {', '.join(theme['layouts'])} · music {theme['music']}")
     return final
