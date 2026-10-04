@@ -399,5 +399,13 @@
   "status": "done",
   "date": "2026-10-04",
   "alt": "Aleph Alpha Kolibri"
+ },
+ {
+  "site": "pricelabs.co",
+  "name": "PriceLabs",
+  "url": "https://pricelabs.co",
+  "status": "done",
+  "date": "2026-10-04",
+  "alt": "PriceLabs Athena"
  }
 ]

@@ -4231,5 +4231,53 @@
     "laptop/emerald/worth"
    ]
   }
+ },
+ {
+  "date": "2026-10-04",
+  "url": "https://pricelabs.co",
+  "brand": "PriceLabs",
+  "kind": "review",
+  "story_url": null,
+  "category": "real-estate",
+  "title": "PriceLabs: $14.49 Fees, But What's the Catch?",
+  "youtube": null,
+  "format": "fine_print",
+  "opener": "Here is the catch with PriceLabs: they promise to boost your vacation rental revenue using automated dynamic pricing, bu",
+  "title_style": "worth",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "underline",
+   "bg": "aurora",
+   "head_font": "inter",
+   "accent": [
+    240,
+    48,
+    48
+   ],
+   "transitions": [
+    "wipeleft",
+    "wiperight"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "acoustic",
+   "sfx": "airy",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "score/violet/worth_using",
+    "left/charcoal/scam",
+    "split/crimson/good"
+   ]
+  }
  }
 ]
