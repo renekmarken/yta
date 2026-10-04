@@ -439,5 +439,12 @@
   "status": "done",
   "date": "2026-10-04",
   "alt": "HitRix"
+ },
+ {
+  "site": "musegadgets.com",
+  "name": "Muse Gadgets",
+  "url": "https://musegadgets.com",
+  "status": "failed",
+  "date": "2026-10-04"
  }
 ]
