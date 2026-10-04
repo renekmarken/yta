@@ -4471,5 +4471,53 @@
     "stack/royal/worth"
    ]
   }
+ },
+ {
+  "date": "2026-10-04",
+  "url": "https://yubi.ai",
+  "brand": "Yubi",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Yubi: Not An AI App, Watch This Before You Bid",
+  "youtube": null,
+  "format": "pros_cons",
+  "opener": "Ever wonder what happens when an exciting artificial intelligence domain name does not actually host any revolutionary s",
+  "title_style": "before",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "bar",
+   "bg": "spotlight",
+   "head_font": "poppins",
+   "accent": [
+    110,
+    110,
+    170
+   ],
+   "transitions": [
+    "wipeleft",
+    "wiperight"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "stack/violet/before",
+    "banner/charcoal/worth",
+    "laptop/magenta/scam"
+   ]
+  }
  }
 ]
