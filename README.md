@@ -170,6 +170,13 @@ the detail being discussed, duo (with a second page), scroll (the whole homepage
 phone for the mobile screenshot. Plus an animated title, chapter tags, key-fact cards that pop in,
 a soft outline on the spot being talked about, and a verdict card with an animated score ring.
 
+Opening: every video starts on the owner's MacBook mock-up (the "SCRT Reviews" wall; day or night,
+picked per video), with the website perfectly in the screen (perspective-matched, under the notch).
+The camera dollies in slowly: the desk grows faster than the wall, and the wall softens with depth;
+at night the keyboard catches the screen's own colours. Then the iPhone mock-up (same day/night)
+with the mobile page under the Dynamic Island, on a super slow push-in with the slightest turn.
+`tools/mockup_prep.py` prepared them (4x upscale, exact screen corners and masks in assets/mockups).
+
 Voice: Microsoft's Ava (the most natural free female voice; set `TTS_VOICE` to change it). Music:
 quiet background chords (soft piano and pad, no drums), ducked under the voice. Sites behind a
 bot/human check (Cloudflare, hCaptcha, "press & hold"...) are skipped. `REVIEW_STYLE=classic`

@@ -777,6 +777,198 @@ def _intro(frame, job, t, accent):
     frame.alpha_composite(_alpha(layer, k))
 
 
+# ------------------------------------------------------------------ device scenes (owner's mock-ups)
+MOCK = config.ASSETS_DIR / "mockups"
+
+
+def _quad_coeffs(dst, src):
+    """PIL PERSPECTIVE coefficients mapping output points dst[i] to input points src[i]."""
+    A, b = [], []
+    for (x, y), (u, v) in zip(dst, src):
+        A.append([x, y, 1, 0, 0, 0, -u * x, -u * y])
+        A.append([0, 0, 0, x, y, 1, -v * x, -v * y])
+        b += [u, v]
+    return tuple(np.linalg.solve(np.array(A, float), np.array(b, float)))
+
+
+def _cover(img, aspect, top=False):
+    """Crop img to the given width/height ratio (centre, or the top for tall pages)."""
+    w, h = img.size
+    if w / h > aspect:
+        nw = int(h * aspect)
+        return img.crop(((w - nw) // 2, 0, (w - nw) // 2 + nw, h))
+    nh = int(w / aspect)
+    y0 = 0 if top else (h - nh) // 2
+    return img.crop((0, y0, w, y0 + nh))
+
+
+def _onto_screen(base, content, name, top=False):
+    """Put the content into the device's white screen: perspective-matched to the measured corners,
+    clipped by the screen mask (the notch / Dynamic Island stay on top). Returns (image, content colour)."""
+    import json as _json
+    meta = _json.loads((MOCK / "mockups.json").read_text())[name]
+    c = meta["corners"]
+    sw = math.dist(c[0], c[1])
+    sh = math.dist(c[1], c[2])
+    src = _cover(content.convert("RGB"), sw / sh, top=top)
+    k = 2.0 if src.width < sw else 1.0
+    if k > 1:                                                   # small source: upscale first (sharper)
+        src = src.resize((int(src.width * k), int(src.height * k)), Image.LANCZOS)
+    rect = [(0, 0), (src.width, 0), (src.width, src.height), (0, src.height)]
+    warped = src.transform(base.size, Image.PERSPECTIVE, _quad_coeffs(c, rect), Image.BICUBIC)
+    mask = Image.open(MOCK / f"{name}_screen.png").convert("L")
+    out = base.copy()
+    out.paste(warped, (0, 0), mask)
+    small = src.resize((32, 18))
+    avg = tuple(int(v) for v in np.asarray(small).reshape(-1, 3).mean(0))
+    return out, (avg, c, src)
+
+
+def _screen_light(desk, c, src):
+    """Night scene: the screen lights the keyboard and the hinge in the colours on screen (a soft,
+    blurred reflection of the content) instead of plain white."""
+    W2, H2 = desk.size
+    x0, x1 = min(p[0] for p in c), max(p[0] for p in c)
+    yb = max(c[2][1], c[3][1])
+    sh = yb - min(c[0][1], c[1][1])
+    region_h = int(sh * 0.42)
+    refl = src.transpose(Image.FLIP_TOP_BOTTOM).resize((int(x1 - x0 + sh * 0.5), region_h), Image.BILINEAR)
+    refl = refl.filter(ImageFilter.GaussianBlur(region_h * 0.12))
+    tint = np.asarray(refl).astype(np.float32) / 255
+    lumv = tint.mean(-1, keepdims=True).mean() + 1e-3
+    tint = 0.55 + 0.45 * tint / max(lumv, 0.35)                 # colour, about the same brightness
+    fall = np.linspace(1.0, 0.0, region_h)[:, None, None] ** 1.6
+    xx = np.linspace(-1, 1, refl.width)[None, :, None]
+    fall = fall * np.clip(1.15 - xx ** 2, 0, 1)
+    rgba = np.asarray(desk).astype(np.float32)
+    ox = int(x0 - sh * 0.25)
+    oy = int(yb)
+    ys, ye = oy, min(H2, oy + region_h)
+    xs, xe = max(0, ox), min(W2, ox + refl.width)
+    patch = rgba[ys:ye, xs:xe, :3]
+    t = tint[: ye - ys, xs - ox: xe - ox]
+    f = fall[: ye - ys, xs - ox: xe - ox] * 0.85
+    lit = patch.mean(-1, keepdims=True) > 70                    # only where the screen's light falls
+    rgba[ys:ye, xs:xe, :3] = np.where(lit, patch * (1 - f + f * t), patch)
+    return Image.fromarray(rgba.clip(0, 255).astype(np.uint8), "RGBA")
+
+
+def _affine(img, scale, angle_deg, center, out_size, src_scale):
+    """Zoom (and turn) img about `center` (in img pixels) into an out_size frame. src_scale: how many
+    img pixels make one output pixel at scale 1."""
+    a = math.radians(angle_deg)
+    k = src_scale / scale
+    cs, sn = math.cos(a) * k, math.sin(a) * k
+    ow, oh = out_size
+    cx, cy = center
+    ox, oy = cx / src_scale, cy / src_scale                    # where the centre sits in the output
+    # output (u, v) -> input (x, y)
+    A, B = cs, -sn
+    D, E = sn, cs
+    C = cx - A * ox - B * oy
+    F = cy - D * ox - E * oy
+    return img.transform(out_size, Image.AFFINE, (A, B, C, D, E, F), Image.BICUBIC)
+
+
+def render_scene(job):
+    """The MacBook or iPhone mock-up scene for one segment (or a preview)."""
+    scene = job["scene"]                                         # macbook_night / macbook_day / phone_day / phone_night
+    n = int(round(job["frames"]))
+    dur = n / FPS
+    content = Image.open(job["shot"]).convert("RGB")
+    accent = tuple(job["accent"])
+    caps = Captions(job["words"], accent, job["brand"], size=58, max_w=1480, align="center") if job["words"] else None
+    if scene.startswith("macbook"):
+        wall = Image.open(MOCK / f"{scene}_wall.jpg").convert("RGB")
+        desk = Image.open(MOCK / f"{scene}_desk.png").convert("RGBA")
+        desk, (avg, c, src) = _onto_screen(desk, content, f"{scene}_desk")
+        if "night" in scene:
+            desk = _screen_light(desk, c, src)
+        center = (sum(p[0] for p in c) / 4, sum(p[1] for p in c) / 4)
+        layers = (wall, desk)
+    else:
+        base = Image.open(MOCK / f"{scene}.jpg").convert("RGB")
+        img, (avg, c, src) = _onto_screen(base, content, scene, top=True)
+        center = (sum(p[0] for p in c) / 4, sum(p[1] for p in c) / 4)
+        layers = (img,)
+    src_scale = layers[0].width / W
+    preview = job.get("preview")
+    proc = None if preview else subprocess.Popen(
+        ["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
+         "-r", str(FPS), "-i", "-", "-an", *X264, job["out"]], stdin=subprocess.PIPE)
+    stills = []
+    label_font = _font("Inter-SemiBold.otf", 30)
+    for f in (range(n) if not preview else [int(x * FPS) for x in preview]):
+        t = f / FPS
+        p = ease_io(t / max(dur, 0.1))
+        if scene.startswith("macbook"):
+            # a slow dolly-in: the desk (closer) grows faster than the wall, which softens with depth
+            wall, desk = layers
+            bz = 1.0 + 0.10 * p
+            r = 7.0 * p
+            if r > 0.8:
+                small = _affine(wall, bz, 0, center, (W // 2, H // 2), src_scale * 2)
+                frame = small.filter(ImageFilter.GaussianBlur(r / 2)).resize((W, H), Image.BILINEAR).convert("RGBA")
+            else:
+                frame = _affine(wall, bz, 0, center, (W, H), src_scale).convert("RGBA")
+            frame.alpha_composite(_affine(desk, 1.0 + 0.22 * p, 0, center, (W, H), src_scale))
+        else:
+            # the phone: a super slow push-in with the slightest turn
+            frame = _affine(layers[0], 1.0 + 0.08 * p, -1.4 * p, center, (W, H), src_scale).convert("RGBA")
+        if job["index"] == 0:
+            _brand_tag(frame, job, t, accent)
+        elif job.get("label"):
+            _label(frame, job["label"], accent, t, dur, label_font)
+        if caps:
+            caps.draw(frame, t, (W // 2, H - 46))
+        if preview:
+            stills.append(frame.convert("RGB"))
+            continue
+        proc.stdin.write(frame.convert("RGB").tobytes())
+    if preview:
+        return stills
+    proc.stdin.close()
+    if proc.wait():
+        raise RuntimeError(f"ffmpeg failed on the {scene} scene")
+    return job["out"]
+
+
+def _brand_tag(frame, job, t, accent):
+    """Opening title for the device scene: a glass tag (logo, brand, kicker) top-left, no veil."""
+    k = min(ease((t - 0.3) / 0.6), 1 - ease((t - 4.2) / 0.5))
+    if k <= 0.01:
+        return
+    big = _font("InterDisplay-Black.otf", 64)
+    small = _font("Inter-SemiBold.otf", 26)
+    brand = job["brand"]
+    kicker = job.get("kicker") or "HONEST REVIEW"
+    lg = None
+    if job.get("logo") and Path(job["logo"]).exists():
+        try:
+            from .visuals import load_logo
+            lg = load_logo(Path(job["logo"]))
+            lg.thumbnail((84, 84))
+        except Exception:
+            lg = None
+    tw = max(big.getlength(brand), small.getlength(kicker) * 1.25)
+    w = int(tw + 80 + (110 if lg else 0))
+    h = 150
+    tag = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    d = ImageDraw.Draw(tag)
+    d.rounded_rectangle([0, 0, w - 1, h - 1], 30, fill=(10, 12, 18, 190), outline=(255, 255, 255, 50), width=2)
+    x = 40
+    if lg:
+        tag.alpha_composite(lg, (x, (h - lg.height) // 2))
+        x += 110
+    d.text((x, 60), brand, font=big, fill=(255, 255, 255), anchor="lm")
+    sp = 5
+    xx = x + 2
+    for ch in kicker:
+        d.text((xx, 112), ch, font=small, fill=accent, anchor="lm")
+        xx += small.getlength(ch) + sp
+    frame.alpha_composite(_alpha(tag, k), (int(56 - (1 - k) * 40), 48))
+
+
 # ------------------------------------------------------------------ outro: the verdict
 def outro_clip(job):
     shot = Image.open(job["shot"]).convert("RGB")
@@ -898,6 +1090,16 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
     shots = info["screenshots"]
     seed = theme.get("seed") or info["domain"]
     lays = choose_layouts(segs, seed, (out_dir / "mobile.png").exists(), len(shots))
+    # the opening: the owner's MacBook scene, then the iPhone (day or night, picked per video)
+    tod = "night" if random.Random(f"{seed}-tod").random() < 0.5 else "day"
+    scenes = {}
+    if (MOCK / "mockups.json").exists() and segs:
+        scenes[0] = (f"macbook_{tod}", segs[0]["screenshot"] if segs[0]["screenshot"] != "mobile.png"
+                     else (shots[0]["file"] if shots else segs[0]["screenshot"]))
+        if len(segs) > 2 and (out_dir / "mobile.png").exists():
+            scenes[1] = (f"phone_{tod}", "mobile.png")
+    for i, (sc, _) in scenes.items():
+        lays[i] = sc
     tall = stitch_home(out_dir, shots, work)
     theme["music"] = "chords" if config.MUSIC in ("auto", "chords") else config.MUSIC
     theme.setdefault("sfx", "soft" if config.SFX else "off")
@@ -909,7 +1111,7 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
         seg["clip_duration"] = d_i
         frames = int(round((d_i + T) * FPS))                    # + the overlap with the next clip
         words = align_words(seg["text"], word_times(Path(seg["audio"]), seg["text"]))
-        shot = out_dir / seg["screenshot"]
+        shot = out_dir / (scenes[i][1] if i in scenes else seg["screenshot"])
         others = [str(p) for p in shot_files if p != shot]
         rnd = random.Random(f"{seed}-{i}")
         rnd.shuffle(others)
@@ -919,6 +1121,7 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
                      "is_mobile": seg["screenshot"] == "mobile.png", "tall": str(tall) if tall else None,
                      "kicker": "WHAT HAPPENED?" if data.get("kind") == "risk" else "HONEST REVIEW",
                      "seed": f"{seed}-{i}", "t0": t0, "logo": str(out_dir / info["logo"]) if info.get("logo") else None,
+                     "scene": scenes[i][0] if i in scenes else None,
                      "out": str(work / f"clip_{i:02d}.mp4")})
         t0 += d_i
     outro_job = {"shot": str(shot_files[0] if shot_files else out_dir / segs[0]["screenshot"]), "accent": accent,
@@ -928,7 +1131,8 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
                  "out": str(work / "outro.mp4")}
     workers = max(1, min(len(jobs), (os.cpu_count() or 2)))
     with ProcessPoolExecutor(max_workers=workers) as ex:
-        futs = [ex.submit(render_segment, j) for j in jobs] + [ex.submit(outro_clip, outro_job)]
+        futs = [ex.submit(render_scene if j.get("scene") else render_segment, j) for j in jobs] + \
+            [ex.submit(outro_clip, outro_job)]
         for k, fu in enumerate(futs):
             fu.result()
             if k < len(jobs):
