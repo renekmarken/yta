@@ -1,45 +1,45 @@
 # Review queue
-Updated 2026-10-04T19:35:39+00:00 UTC · 91 products waiting
+Updated 2026-10-04T22:37:29+00:00 UTC · 91 products waiting
 
 | # | Priority | Category | Product | Why | Found via |
 |---|---|---|---|---|---|
-| 1 | 19.1 | 🤖 AI tools | [Aperture](https://tryaperture.com) | 🚀 new launch · AI code editor designed to autonomously check and verify its own written code. | Product Hunt (launch) |
-| 2 | 18.4 | 🤖 AI tools | [LaunchReel](https://launchreel.ai) | 🚀 new launch · AI-assisted professional video editing platform built for high-speed content iteration. | Product Hunt (launch) |
-| 3 | 18.4 | 💻 SaaS / business software | [Sellio](https://sellio.ai) | 🚀 new launch · Unified customer support inbox powered collaboratively by autonomous AI agents. | Product Hunt (launch) |
-| 4 | 17.8 | 🤖 AI tools | [BeatViz](https://beatviz.ai) | 🚀 new launch · Generative AI director creating synchronized, full-length music videos automatically. | Launch news |
-| 5 | 17.7 | 💻 SaaS / business software | [Kardinal](https://kardinal.ai) | 🚀 new launch · AI-powered self-serve route optimization API and scheduling engine for fleet logistics. | Launch news |
-| 6 | 17.6 | 🔐 Cybersecurity / VPNs | [Leebry](https://leebry.com) | 🚀 new launch · IT security management platform monitoring and securing enterprise AI workplace tools. | Launch news |
-| 7 | 14.9 | 🛡️ Insurance | [AXA XL E&S](https://axaxl.com) | 🚀 new launch · Dedicated excess and surplus commercial insurance company covering complex US business liabilities. | trend scan |
-| 8 | 14.7 | 📣 Marketing platforms | [opensend.cc](https://opensend.cc) | 🚀 new launch · Open-source email delivery platform you can self-host for transactional and marketing mail. | Product Hunt (launch) |
-| 9 | 14.1 | 💻 SaaS / business software | [qarunbook](https://qarunbook.com) | 🚀 new launch · Collaborative QA testing workspace built for product teams and autonomous testing agents. | Product Hunt (launch) |
-| 10 | 14.1 | 📊 Business tools | [Pass Designer](https://passdesigner.app) | 🚀 new launch · Visual builder and testing suite for custom Apple Wallet cards and passes. | Product Hunt (launch) |
-| 11 | 13.9 | ☁️ Cloud / hosting | [Quven](https://quven.app) | 🚀 new launch · Self-hosted media streaming server emphasizing high-performance native playback. | Product Hunt (launch) |
-| 12 | 13.5 | 🤖 AI tools | [Thanor AI](https://thanor.ai) | 🚀 new launch · Enhance AI-built websites to look professional rather than generic. | Product Hunt (launch) |
-| 13 | 13.5 | 🤖 AI tools | [Lathoa](https://lathoa.ai) | 🚀 new launch · Math learning app for kids where the AI is purposefully wrong. | Hacker News |
-| 14 | 13.5 | 🤖 AI tools | [Breadcrumb](https://innerloop.works/breadcrumb) | 🚀 new launch · Records everything on your Mac to act as context manager for AI. | Hacker News |
-| 15 | 13.5 | 🤖 AI tools | [ZooWork](https://zoowork.com) | 🚀 new launch · The AI agent delivery platform built specifically for domain experts. | Product Hunt (launch) |
-| 16 | 13.5 | 🤖 AI tools | [Yubi](https://yubi.app) | 🚀 new launch · Talk naturally to your Mac and let Yubi handle all the typing. | Product Hunt (launch) |
-| 17 | 13.4 | 💻 SaaS / business software | [OTPfill](https://otpfill.com) | 🚀 new launch · Automatically autofill one-time passwords from email on macOS. | Product Hunt (launch) |
-| 18 | 13.4 | 💻 SaaS / business software | [Rhun](https://rhun.app) | 🚀 new launch · An experimental open-source code editor written completely in assembly. | Hacker News |
-| 19 | 13.4 | 💻 SaaS / business software | [Cubicle](https://cubicle.dev) | 🚀 new launch · A live virtual office workspace designed to be read-only for your AI agents. | Product Hunt (launch) |
-| 20 | 13.4 | 💻 SaaS / business software | [Reassign](https://reassign.app) | 🚀 new launch · A unique daily planner designed to shape your schedule into a story. | Product Hunt (launch) |
-| 21 | 13.4 | 💻 SaaS / business software | [Kilo](https://kilo.health) | 🚀 new launch · Your personal agentic fitness coach accessible directly through iMessage. | Product Hunt (launch) |
-| 22 | 13.3 | 💻 SaaS / business software | [bmux](https://bmux.dev) | 🚀 new launch · Browser multiplexer built for the agentic web era. | Product Hunt (launch) |
-| 23 | 13.3 | 💻 SaaS / business software | [una mano](https://unamano.app) | 🚀 new launch · An iPhone keyboard that dynamically shifts toward your thumb. | Product Hunt (launch) |
-| 24 | 13.3 | 📊 Business tools | [Bambu Lab R1](https://bambulab.com) | 🚀 new launch · CO2 laser cutting machine featuring Bambu-style automation. | Product Hunt (launch) |
-| 25 | 13.2 | 🛡️ Insurance | [Outmarket](https://outmarket.com) | 🚀 new launch · Insurtech platform raising capital and expanding digital commercial insurance distribution. | Google News |
-| 26 | 13.1 | 🤖 AI tools | [Lloyal](https://lloyal.ai) | 🚀 new launch · Developer platform enabling teams to turn open-weight AI models into distributable apps. | Product Hunt (launch) |
-| 27 | 13.1 | 🤖 AI tools | [Singularity](https://singularity.ai) | 🚀 new launch · Run parallel AI coding agents ticket-by-ticket. | Product Hunt (launch) |
-| 28 | 13.0 | 💳 Credit cards / financial products | [Fabletics Credit Card](https://fabletics.com) | 🚀 new launch · Fabletics debuted a dedicated credit card for loyalty rewards members. | trend scan |
-| 29 | 13.0 | 💻 SaaS / business software | [Communicate](https://communicate.so) | 🚀 new launch · Knowledge-grounded AI customer support agents with automated human escalation. | Product Hunt (launch) |
-| 30 | 12.9 | 💻 SaaS / business software | [MacCam](https://maccam.app) | 🚀 new launch · Advanced native camera application designed specifically for Mac users. | Product Hunt (launch) |
-| 31 | 12.9 | 💻 SaaS / business software | [WattMate](https://wattmate.app) | 🚀 new launch · Tracks energy-draining apps on your Mac in real-time. | Product Hunt (launch) |
-| 32 | 12.8 | 💻 SaaS / business software | [FeelMyMac](https://feelmymac.com) | 🚀 new launch · Utility that lets you feel different textures using your MacBook's trackpad. | Product Hunt (launch) |
-| 33 | 12.4 | 📊 Business tools | [Pastily](https://pastily.app) | 🚀 new launch · Intelligent clipboard manager enhancing copy-paste workflows with search and history. | Product Hunt (launch) |
-| 34 | 12.3 | 🤖 AI tools | [Typestream](https://typestream.io) | 🚀 new launch · Type like a human without touching the keyboard. | Product Hunt (launch) |
-| 35 | 12.3 | 🤖 AI tools | [Vitra.ai](https://vitra.ai) | 🚀 new launch · Agentic content platform to create and localize content. | Product Hunt (launch) |
-| 36 | 12.0 | 📈 Investing platforms | [ChainSnip](https://chainsnip.com) | 🚀 new launch · Accountant's cryptographic proof of wallet balance. | Product Hunt (launch) |
-| 37 | 11.8 | 💻 SaaS / business software | [NotchMind](https://notchmind.com) | 🚀 new launch · Put your MacBook notch to work for music, files, and timers. | Product Hunt (launch) |
-| 38 | 11.6 | 🔐 Cybersecurity / VPNs | [StayLokal](https://staylokal.com) | 🚀 new launch · Private file tools that run locally on your device. | Product Hunt (launch) |
-| 39 | 11.5 | 💻 SaaS / business software | [Rate.fm](https://rate.fm) | 🚀 new launch · Letterboxd for music, built for iPhone. | Product Hunt (launch) |
-| 40 | 11.5 | 💻 SaaS / business software | [Chat.sh](https://chat.sh) | 🚀 new launch · Help center built as an alternative to Intercom search. | Product Hunt (launch) |
+| 1 | 18.7 | 🤖 AI tools | [Aperture](https://tryaperture.com) | 🚀 new launch · AI code editor designed to autonomously check and verify its own written code. | Product Hunt (launch) |
+| 2 | 18.1 | 🤖 AI tools | [LaunchReel](https://launchreel.ai) | 🚀 new launch · AI-assisted professional video editing platform built for high-speed content iteration. | Product Hunt (launch) |
+| 3 | 18.0 | 💻 SaaS / business software | [Sellio](https://sellio.ai) | 🚀 new launch · Unified customer support inbox powered collaboratively by autonomous AI agents. | Product Hunt (launch) |
+| 4 | 17.4 | 🤖 AI tools | [BeatViz](https://beatviz.ai) | 🚀 new launch · Generative AI director creating synchronized, full-length music videos automatically. | Launch news |
+| 5 | 17.4 | 💻 SaaS / business software | [Kardinal](https://kardinal.ai) | 🚀 new launch · AI-powered self-serve route optimization API and scheduling engine for fleet logistics. | Launch news |
+| 6 | 17.2 | 🔐 Cybersecurity / VPNs | [Leebry](https://leebry.com) | 🚀 new launch · IT security management platform monitoring and securing enterprise AI workplace tools. | Launch news |
+| 7 | 14.7 | 🛡️ Insurance | [AXA XL E&S](https://axaxl.com) | 🚀 new launch · Dedicated excess and surplus commercial insurance company covering complex US business liabilities. | trend scan |
+| 8 | 14.5 | 📣 Marketing platforms | [opensend.cc](https://opensend.cc) | 🚀 new launch · Open-source email delivery platform you can self-host for transactional and marketing mail. | Product Hunt (launch) |
+| 9 | 13.8 | 💻 SaaS / business software | [qarunbook](https://qarunbook.com) | 🚀 new launch · Collaborative QA testing workspace built for product teams and autonomous testing agents. | Product Hunt (launch) |
+| 10 | 13.8 | 📊 Business tools | [Pass Designer](https://passdesigner.app) | 🚀 new launch · Visual builder and testing suite for custom Apple Wallet cards and passes. | Product Hunt (launch) |
+| 11 | 13.7 | ☁️ Cloud / hosting | [Quven](https://quven.app) | 🚀 new launch · Self-hosted media streaming server emphasizing high-performance native playback. | Product Hunt (launch) |
+| 12 | 13.3 | 🤖 AI tools | [Thanor AI](https://thanor.ai) | 🚀 new launch · Enhance AI-built websites to look professional rather than generic. | Product Hunt (launch) |
+| 13 | 13.3 | 🤖 AI tools | [Lathoa](https://lathoa.ai) | 🚀 new launch · Math learning app for kids where the AI is purposefully wrong. | Hacker News |
+| 14 | 13.3 | 🤖 AI tools | [Breadcrumb](https://innerloop.works/breadcrumb) | 🚀 new launch · Records everything on your Mac to act as context manager for AI. | Hacker News |
+| 15 | 13.3 | 🤖 AI tools | [ZooWork](https://zoowork.com) | 🚀 new launch · The AI agent delivery platform built specifically for domain experts. | Product Hunt (launch) |
+| 16 | 13.3 | 🤖 AI tools | [Yubi](https://yubi.app) | 🚀 new launch · Talk naturally to your Mac and let Yubi handle all the typing. | Product Hunt (launch) |
+| 17 | 13.2 | 💻 SaaS / business software | [OTPfill](https://otpfill.com) | 🚀 new launch · Automatically autofill one-time passwords from email on macOS. | Product Hunt (launch) |
+| 18 | 13.2 | 💻 SaaS / business software | [Rhun](https://rhun.app) | 🚀 new launch · An experimental open-source code editor written completely in assembly. | Hacker News |
+| 19 | 13.2 | 💻 SaaS / business software | [Cubicle](https://cubicle.dev) | 🚀 new launch · A live virtual office workspace designed to be read-only for your AI agents. | Product Hunt (launch) |
+| 20 | 13.2 | 💻 SaaS / business software | [Reassign](https://reassign.app) | 🚀 new launch · A unique daily planner designed to shape your schedule into a story. | Product Hunt (launch) |
+| 21 | 13.2 | 💻 SaaS / business software | [Kilo](https://kilo.health) | 🚀 new launch · Your personal agentic fitness coach accessible directly through iMessage. | Product Hunt (launch) |
+| 22 | 13.1 | 💻 SaaS / business software | [bmux](https://bmux.dev) | 🚀 new launch · Browser multiplexer built for the agentic web era. | Product Hunt (launch) |
+| 23 | 13.1 | 💻 SaaS / business software | [una mano](https://unamano.app) | 🚀 new launch · An iPhone keyboard that dynamically shifts toward your thumb. | Product Hunt (launch) |
+| 24 | 13.1 | 📊 Business tools | [Bambu Lab R1](https://bambulab.com) | 🚀 new launch · CO2 laser cutting machine featuring Bambu-style automation. | Product Hunt (launch) |
+| 25 | 13.0 | 🛡️ Insurance | [Outmarket](https://outmarket.com) | 🚀 new launch · Insurtech platform raising capital and expanding digital commercial insurance distribution. | Google News |
+| 26 | 12.9 | 🤖 AI tools | [Singularity](https://singularity.ai) | 🚀 new launch · Run parallel AI coding agents ticket-by-ticket. | Product Hunt (launch) |
+| 27 | 12.9 | 🤖 AI tools | [Lloyal](https://lloyal.ai) | 🚀 new launch · Developer platform enabling teams to turn open-weight AI models into distributable apps. | Product Hunt (launch) |
+| 28 | 12.8 | 💳 Credit cards / financial products | [Fabletics Credit Card](https://fabletics.com) | 🚀 new launch · Fabletics debuted a dedicated credit card for loyalty rewards members. | trend scan |
+| 29 | 12.8 | 💻 SaaS / business software | [Communicate](https://communicate.so) | 🚀 new launch · Knowledge-grounded AI customer support agents with automated human escalation. | Product Hunt (launch) |
+| 30 | 12.7 | 💻 SaaS / business software | [MacCam](https://maccam.app) | 🚀 new launch · Advanced native camera application designed specifically for Mac users. | Product Hunt (launch) |
+| 31 | 12.7 | 💻 SaaS / business software | [WattMate](https://wattmate.app) | 🚀 new launch · Tracks energy-draining apps on your Mac in real-time. | Product Hunt (launch) |
+| 32 | 12.6 | 💻 SaaS / business software | [FeelMyMac](https://feelmymac.com) | 🚀 new launch · Utility that lets you feel different textures using your MacBook's trackpad. | Product Hunt (launch) |
+| 33 | 12.2 | 📊 Business tools | [Pastily](https://pastily.app) | 🚀 new launch · Intelligent clipboard manager enhancing copy-paste workflows with search and history. | Product Hunt (launch) |
+| 34 | 12.1 | 🤖 AI tools | [Typestream](https://typestream.io) | 🚀 new launch · Type like a human without touching the keyboard. | Product Hunt (launch) |
+| 35 | 12.1 | 🤖 AI tools | [Vitra.ai](https://vitra.ai) | 🚀 new launch · Agentic content platform to create and localize content. | Product Hunt (launch) |
+| 36 | 11.8 | 📈 Investing platforms | [ChainSnip](https://chainsnip.com) | 🚀 new launch · Accountant's cryptographic proof of wallet balance. | Product Hunt (launch) |
+| 37 | 11.6 | 💻 SaaS / business software | [NotchMind](https://notchmind.com) | 🚀 new launch · Put your MacBook notch to work for music, files, and timers. | Product Hunt (launch) |
+| 38 | 11.4 | 🔐 Cybersecurity / VPNs | [StayLokal](https://staylokal.com) | 🚀 new launch · Private file tools that run locally on your device. | Product Hunt (launch) |
+| 39 | 11.3 | 💻 SaaS / business software | [Rate.fm](https://rate.fm) | 🚀 new launch · Letterboxd for music, built for iPhone. | Product Hunt (launch) |
+| 40 | 11.3 | 💻 SaaS / business software | [Chat.sh](https://chat.sh) | 🚀 new launch · Help center built as an alternative to Intercom search. | Product Hunt (launch) |
