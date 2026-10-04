@@ -233,7 +233,8 @@ def tone_problems(data):
     firsts = [st.split()[0] if st else "" for st in starts]
     if any(firsts[i] and firsts[i] == firsts[i + 1] for i in range(len(firsts) - 1)):
         out.append("two segments in a row start with the same word; vary them")
-    if "like" not in low or "comment" not in low:
+    ends_on_question = bool(segs) and segs[-1].strip().endswith("?")
+    if "like" not in low or not ("comment" in low or ends_on_question):
         out.append("add the friendly calls to action (a like mid-video, a comment question at the end)")
     return out
 
