@@ -156,6 +156,25 @@ video the same way. These are made even for products that already had a Risk Cas
 
 Always read the original post before publishing (it's the first item in the video's checklist).
 
+### Review videos: the cinematic look
+
+Every review (and Risk Case) video is built in three layers: a huge, heavily blurred copy of the
+website (deepened with soft glows of the site's own colours, darker at the edges, drifting very
+slowly), the website itself razor-sharp in front with a soft shadow and glow, and kinetic captions:
+each word rises into place exactly when it is spoken, key words (numbers, prices, the brand) light
+up in the accent colour, and each sentence clears before the next one.
+
+13 layouts, rotated so neighbouring segments never repeat: center, browser window, tilted left/right
+(3D), split left/right (big side captions), full-bleed, spotlight, stacked cards, magnifier lens on
+the detail being discussed, duo (with a second page), scroll (the whole homepage glides by) and a
+phone for the mobile screenshot. Plus an animated title, chapter tags, key-fact cards that pop in,
+a soft outline on the spot being talked about, and a verdict card with an animated score ring.
+
+Voice: Microsoft's Ava (the most natural free female voice; set `TTS_VOICE` to change it). Music:
+quiet background chords (soft piano and pad, no drums), ducked under the voice. Sites behind a
+bot/human check (Cloudflare, hCaptcha, "press & hold"...) are skipped. `REVIEW_STYLE=classic`
+brings back the old look.
+
 ### White Screen videos (third format)
 
 **＋ Generate White Screen** in the library makes 35-45 second videos built for likes and comments: a

@@ -158,7 +158,10 @@ def produce(item, history, out=None, mode="new"):
     from studio.themes import normalize, pick_theme
     from studio.thumbnail import make_thumbnails, choose_thumbnail
     from studio.tts import fit_length, narrate, write_srt
-    from studio.video import render
+    if config.REVIEW_STYLE == "classic":
+        from studio.video import OUTRO, PAD, render
+    else:                                                  # the cinematic layouts (default)
+        from studio.review_video import OUTRO, PAD, render
     from studio.visuals import brand_color, load_logo
     if mode == "new":
         url = item["url"]
@@ -213,9 +216,8 @@ def produce(item, history, out=None, mode="new"):
     print("3/6 voice-over")
     narrate(data["segments"], out)
     if mode == "new":            # keep your own recordings (rerender) untouched
-        from studio.video import OUTRO, PAD
         fit_length(data["segments"], OUTRO + PAD * len(data["segments"]))
-    print(f"4/6 rendering video ({theme['layout']} layout, {theme['mode']} {theme['bg']}, {theme['head_font']})")
+    print("4/6 rendering video" + (f" ({theme['layout']} layout)" if config.REVIEW_STYLE == "classic" else " (cinematic layouts)"))
     shutil.rmtree(out / "render", ignore_errors=True)
     video = render(data, info, out, theme)
     if data.get("kind") == "risk":
