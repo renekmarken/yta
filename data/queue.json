@@ -628,7 +628,7 @@
    "added": "2026-10-02T23:53:05+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:05+00:00",
-   "priority": 12.54,
+   "priority": 12.53,
    "cat": "🤖 AI tools"
   },
   "staylokal.com": {
@@ -644,7 +644,7 @@
    "added": "2026-10-02T23:53:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:06+00:00",
-   "priority": 11.83,
+   "priority": 11.82,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "vitra.ai": {
@@ -660,7 +660,7 @@
    "added": "2026-10-02T23:53:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:06+00:00",
-   "priority": 12.54,
+   "priority": 12.53,
    "cat": "🤖 AI tools"
   },
   "citi.com": {
@@ -858,24 +858,8 @@
    "added": "2026-10-03T23:12:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:40+00:00",
-   "priority": 13.22,
+   "priority": 13.21,
    "cat": "💳 Credit cards / financial products"
-  },
-  "singularity.ai": {
-   "name": "Singularity",
-   "url": "https://singularity.ai",
-   "category": "ai-tools",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Run parallel AI coding agents ticket-by-ticket.",
-   "sources": [
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-03T11:50:42+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-03T11:50:42+00:00",
-   "priority": 13.3,
-   "cat": "🤖 AI tools"
   },
   "feelmymac.com": {
    "name": "FeelMyMac",
@@ -890,7 +874,7 @@
    "added": "2026-10-03T23:11:52+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:43+00:00",
-   "priority": 13.01,
+   "priority": 13.0,
    "cat": "💻 SaaS / business software"
   },
   "thanor.ai": {
@@ -906,7 +890,7 @@
    "added": "2026-10-04T02:52:54+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:43+00:00",
-   "priority": 13.79,
+   "priority": 13.78,
    "cat": "🤖 AI tools"
   },
   "bmux.dev": {
@@ -938,7 +922,7 @@
    "added": "2026-10-04T02:53:18+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:44+00:00",
-   "priority": 13.71,
+   "priority": 13.7,
    "cat": "💻 SaaS / business software"
   },
   "maccam.app": {
@@ -1018,7 +1002,7 @@
    "added": "2026-10-03T20:01:48+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:01:48+00:00",
-   "priority": 13.23,
+   "priority": 13.22,
    "cat": "💻 SaaS / business software"
   },
   "lloyal.ai": {
@@ -1050,7 +1034,7 @@
    "added": "2026-10-03T23:11:52+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:01:49+00:00",
-   "priority": 13.98,
+   "priority": 13.97,
    "cat": "🤖 AI tools"
   },
   "outmarket.com": {
@@ -1066,7 +1050,7 @@
    "added": "2026-10-03T20:02:30+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:02:30+00:00",
-   "priority": 13.44,
+   "priority": 13.43,
    "cat": "🛡️ Insurance"
   },
   "pastily.app": {
@@ -1082,7 +1066,7 @@
    "added": "2026-10-03T20:02:30+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:02:30+00:00",
-   "priority": 12.67,
+   "priority": 12.66,
    "cat": "📊 Business tools"
   },
   "rhun.app": {
@@ -1098,7 +1082,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:33+00:00",
-   "priority": 13.71,
+   "priority": 13.7,
    "cat": "💻 SaaS / business software"
   },
   "lathoa.ai": {
@@ -1162,7 +1146,7 @@
    "added": "2026-10-04T02:52:54+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:54+00:00",
-   "priority": 13.71,
+   "priority": 13.7,
    "cat": "💻 SaaS / business software"
   },
   "reassign.app": {
@@ -1178,24 +1162,8 @@
    "added": "2026-10-04T02:52:55+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:55+00:00",
-   "priority": 13.71,
+   "priority": 13.7,
    "cat": "💻 SaaS / business software"
-  },
-  "yubi.app": {
-   "name": "Yubi",
-   "url": "https://yubi.app",
-   "category": "ai-tools",
-   "hotness": 7.0,
-   "evergreen": false,
-   "why": "Talk naturally to your Mac and let Yubi handle all the typing.",
-   "sources": [
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-04T02:53:17+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-04T02:53:17+00:00",
-   "priority": 13.79,
-   "cat": "🤖 AI tools"
   },
   "kilo.health": {
    "name": "Kilo",
@@ -1210,9 +1178,9 @@
    "added": "2026-10-04T02:53:18+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:53:18+00:00",
-   "priority": 13.71,
+   "priority": 13.7,
    "cat": "💻 SaaS / business software"
   }
  },
- "updated": "2026-10-04T15:48:17+00:00"
+ "updated": "2026-10-04T15:54:00+00:00"
 }
