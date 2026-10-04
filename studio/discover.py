@@ -424,6 +424,10 @@ def _add(q, raw, evergreen, sources, skip):
     if skip.has(url, raw.get("name")) or _domain(url) in BLOCKED_DOMAINS:
         return False                                           # reviewed before: never again
     k = _queued_site(q, url) or key_for(url)
+    name = re.sub(r"[^a-z0-9]", "", (raw.get("name") or "").lower())
+    if k not in q["items"] and name:                           # same product under another web address
+        k = next((kk for kk, it in q["items"].items()
+                  if re.sub(r"[^a-z0-9]", "", it.get("name", "").lower()) == name), k)
     if k in q["items"]:
         it = q["items"][k]                                     # seen again: refresh heat
         it["hotness"] = max(float(it.get("hotness", 0)), float(raw.get("hotness", 0)))

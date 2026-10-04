@@ -890,7 +890,7 @@
    "added": "2026-10-03T23:12:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:40+00:00",
-   "priority": 13.5,
+   "priority": 13.49,
    "cat": "💳 Credit cards / financial products"
   },
   "gov.ca.gov": {
@@ -939,23 +939,7 @@
    "added": "2026-10-04T02:52:54+00:00",
    "launch": "today",
    "launch_seen": "2026-10-03T11:50:42+00:00",
-   "priority": 17.09,
-   "cat": "🤖 AI tools"
-  },
-  "singularity.ai": {
-   "name": "Singularity",
-   "url": "https://singularity.ai",
-   "category": "ai-tools",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Run parallel AI coding agents ticket-by-ticket.",
-   "sources": [
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-03T11:50:42+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-03T11:50:42+00:00",
-   "priority": 13.59,
+   "priority": 17.08,
    "cat": "🤖 AI tools"
   },
   "feelmymac.com": {
@@ -971,7 +955,7 @@
    "added": "2026-10-03T23:11:52+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:43+00:00",
-   "priority": 13.29,
+   "priority": 13.28,
    "cat": "💻 SaaS / business software"
   },
   "thanor.ai": {
@@ -1035,7 +1019,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:45+00:00",
-   "priority": 13.4,
+   "priority": 13.39,
    "cat": "💻 SaaS / business software"
   },
   "unamano.app": {
@@ -1099,7 +1083,7 @@
    "added": "2026-10-03T16:32:05+00:00",
    "launch": "today",
    "launch_seen": "2026-10-03T16:32:05+00:00",
-   "priority": 16.34,
+   "priority": 16.33,
    "cat": "💻 SaaS / business software"
   },
   "primeintellect.ai": {
@@ -1115,7 +1099,7 @@
    "added": "2026-10-03T23:12:33+00:00",
    "launch": "today",
    "launch_seen": "2026-10-03T16:32:06+00:00",
-   "priority": 17.24,
+   "priority": 17.23,
    "cat": "🤖 AI tools"
   },
   "bambulab.com": {
@@ -1182,7 +1166,7 @@
    "added": "2026-10-03T23:12:33+00:00",
    "launch": "today",
    "launch_seen": "2026-10-03T20:01:45+00:00",
-   "priority": 16.79,
+   "priority": 16.78,
    "cat": "📣 Marketing platforms"
   },
   "eset.com": {
@@ -1214,7 +1198,7 @@
    "added": "2026-10-03T20:01:48+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:01:48+00:00",
-   "priority": 13.52,
+   "priority": 13.51,
    "cat": "💻 SaaS / business software"
   },
   "lloyal.ai": {
@@ -1278,7 +1262,7 @@
    "added": "2026-10-03T20:02:30+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:02:30+00:00",
-   "priority": 12.94,
+   "priority": 12.93,
    "cat": "📊 Business tools"
   },
   "singularity.network": {
@@ -1326,7 +1310,7 @@
    "added": "2026-10-04T02:52:32+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:32+00:00",
-   "priority": 14.63,
+   "priority": 14.62,
    "cat": "💻 SaaS / business software"
   },
   "rhun.app": {
@@ -1342,7 +1326,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:33+00:00",
-   "priority": 14.02,
+   "priority": 14.01,
    "cat": "💻 SaaS / business software"
   },
   "lathoa.ai": {
@@ -1406,7 +1390,7 @@
    "added": "2026-10-04T02:52:54+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:54+00:00",
-   "priority": 14.02,
+   "priority": 14.01,
    "cat": "💻 SaaS / business software"
   },
   "reassign.app": {
@@ -1422,24 +1406,8 @@
    "added": "2026-10-04T02:52:55+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:55+00:00",
-   "priority": 14.02,
+   "priority": 14.01,
    "cat": "💻 SaaS / business software"
-  },
-  "yubi.app": {
-   "name": "Yubi",
-   "url": "https://yubi.app",
-   "category": "ai-tools",
-   "hotness": 7.0,
-   "evergreen": false,
-   "why": "Talk naturally to your Mac and let Yubi handle all the typing.",
-   "sources": [
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-04T02:53:17+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-04T02:53:17+00:00",
-   "priority": 14.1,
-   "cat": "🤖 AI tools"
   },
   "kilo.health": {
    "name": "Kilo",
@@ -1454,7 +1422,7 @@
    "added": "2026-10-04T02:53:18+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:53:18+00:00",
-   "priority": 14.02,
+   "priority": 14.01,
    "cat": "💻 SaaS / business software"
   },
   "blog.google": {
@@ -1509,5 +1477,5 @@
    "cat": "💻 SaaS / business software"
   }
  },
- "updated": "2026-10-04T11:38:30+00:00"
+ "updated": "2026-10-04T11:40:40+00:00"
 }
