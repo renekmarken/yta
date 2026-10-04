@@ -544,10 +544,10 @@ def render_segment(job):
             frame.alpha_composite(sh_im, (int(px - sm2), int(py - sm2)))
             frame.alpha_composite(ph, (int(px), int(py)))
             if caps:
-                caps.draw(frame, t, (int(px + ph.width + 150), 300))
+                caps.draw(frame, t + job.get("toff", 0.0), (int(px + ph.width + 150), 300))
         else:
             # the card's own motion: a gentle float, and a soft scale-in at the start
-            intro_k = ease(t / 0.55) if job["index"] > 0 else 1.0
+            intro_k = ease(t / 0.55) if (job["index"] > 0 or job.get("toff")) else 1.0
             fx = cx + (3 * math.sin(t * 0.9) if lay not in ("full_bleed",) else 0)
             fy = cy + 4 * math.sin(t * 0.7 + 1.0)
             aspect = cw / ch
@@ -608,10 +608,10 @@ def render_segment(job):
             if caps:
                 if side:
                     ax = cx + cw + 70 if lay == "split_left" else 86
-                    caps.draw(frame, t, (ax, cy + 40))
+                    caps.draw(frame, t + job.get("toff", 0.0), (ax, cy + 40))
                 else:
-                    caps.draw(frame, t, (W // 2, H - 52 if lay == "full_bleed" else H - 46))
-        if job["index"] == 0 and t < INTRO + 0.6:
+                    caps.draw(frame, t + job.get("toff", 0.0), (W // 2, H - 52 if lay == "full_bleed" else H - 46))
+        if job["index"] == 0 and not job.get("toff") and t < INTRO + 0.6:
             _intro(frame, job, t, accent)
         if preview:
             stills.append(frame.convert("RGB"))
@@ -815,8 +815,18 @@ def _onto_screen(base, content, name, top=False):
     if k > 1:                                                   # small source: upscale first (sharper)
         src = src.resize((int(src.width * k), int(src.height * k)), Image.LANCZOS)
     rect = [(0, 0), (src.width, 0), (src.width, src.height), (0, src.height)]
-    warped = src.transform(base.size, Image.PERSPECTIVE, _quad_coeffs(c, rect), Image.BICUBIC)
+    # the content reaches a few pixels past the screen's edge and the mask is grown to match, so it
+    # meets the black bezel directly: no sliver of the white placeholder screen can show
+    mx, my = sum(p[0] for p in c) / 4, sum(p[1] for p in c) / 4
+    grow = 9.0
+    cg = []
+    for x, y in c:
+        dx, dy = x - mx, y - my
+        L = math.hypot(dx, dy) or 1.0
+        cg.append((x + dx / L * grow * 1.4, y + dy / L * grow * 1.4))
+    warped = src.transform(base.size, Image.PERSPECTIVE, _quad_coeffs(cg, rect), Image.BICUBIC)
     mask = Image.open(MOCK / f"{name}_screen.png").convert("L")
+    mask = mask.point(lambda v: 255 if v > 30 else 0).filter(ImageFilter.MaxFilter(9)).filter(ImageFilter.GaussianBlur(1.2))
     out = base.copy()
     out.paste(warped, (0, 0), mask)
     small = src.resize((32, 18))
@@ -900,18 +910,18 @@ def render_scene(job):
     label_font = _font("Inter-SemiBold.otf", 30)
     for f in (range(n) if not preview else [int(x * FPS) for x in preview]):
         t = f / FPS
-        p = ease_io(t / max(dur, 0.1))
+        p = ease_io(t / max(job.get("move", dur), 0.1))          # the move ends as the scene hands over
         if scene.startswith("macbook"):
             # a slow dolly-in: the desk (closer) grows faster than the wall, which softens with depth
             wall, desk = layers
-            bz = 1.0 + 0.10 * p
-            r = 7.0 * p
+            bz = 1.0 + 0.12 * p
+            r = 7.5 * p
             if r > 0.8:
                 small = _affine(wall, bz, 0, center, (W // 2, H // 2), src_scale * 2)
                 frame = small.filter(ImageFilter.GaussianBlur(r / 2)).resize((W, H), Image.BILINEAR).convert("RGBA")
             else:
                 frame = _affine(wall, bz, 0, center, (W, H), src_scale).convert("RGBA")
-            frame.alpha_composite(_affine(desk, 1.0 + 0.22 * p, 0, center, (W, H), src_scale))
+            frame.alpha_composite(_affine(desk, 1.0 + 0.24 * p, 0, center, (W, H), src_scale))
         else:
             # the phone: a super slow push-in with the slightest turn
             frame = _affine(layers[0], 1.0 + 0.08 * p, -1.4 * p, center, (W, H), src_scale).convert("RGBA")
@@ -1098,31 +1108,43 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
                      else (shots[0]["file"] if shots else segs[0]["screenshot"]))
         if len(segs) > 2 and (out_dir / "mobile.png").exists():
             scenes[1] = (f"phone_{tod}", "mobile.png")
-    for i, (sc, _) in scenes.items():
-        lays[i] = sc
+    SCENE_LEN = {"macbook": 5.0, "phone": 4.5}                    # then the segment carries on in a layout
     tall = stitch_home(out_dir, shots, work)
     theme["music"] = "chords" if config.MUSIC in ("auto", "chords") else config.MUSIC
     theme.setdefault("sfx", "soft" if config.SFX else "off")
     shot_files = [out_dir / s["file"] for s in shots if s["file"] != "mobile.png"]
 
     jobs, t0 = [], 0.0
+    pieces = []                                                 # (job, seconds on screen)
     for i, seg in enumerate(segs):
         d_i = round((seg["duration"] + PAD) * FPS) / FPS
         seg["clip_duration"] = d_i
-        frames = int(round((d_i + T) * FPS))                    # + the overlap with the next clip
         words = align_words(seg["text"], word_times(Path(seg["audio"]), seg["text"]))
-        shot = out_dir / (scenes[i][1] if i in scenes else seg["screenshot"])
+        shot = out_dir / seg["screenshot"]
         others = [str(p) for p in shot_files if p != shot]
         rnd = random.Random(f"{seed}-{i}")
         rnd.shuffle(others)
-        jobs.append({"index": i, "shot": str(shot), "others": others[:2], "layout": lays[i], "accent": accent,
-                     "frames": frames, "focus": seg.get("focus_box"), "words": words, "brand": brand,
-                     "domain": info["domain"], "label": seg.get("caption", ""), "callout": seg.get("callout", ""),
-                     "is_mobile": seg["screenshot"] == "mobile.png", "tall": str(tall) if tall else None,
-                     "kicker": "WHAT HAPPENED?" if data.get("kind") == "risk" else "HONEST REVIEW",
-                     "seed": f"{seed}-{i}", "t0": t0, "logo": str(out_dir / info["logo"]) if info.get("logo") else None,
-                     "scene": scenes[i][0] if i in scenes else None,
-                     "out": str(work / f"clip_{i:02d}.mp4")})
+        base = {"index": i, "shot": str(shot), "others": others[:2], "layout": lays[i], "accent": accent,
+                "focus": seg.get("focus_box"), "words": words, "brand": brand,
+                "domain": info["domain"], "label": seg.get("caption", ""), "callout": seg.get("callout", ""),
+                "is_mobile": seg["screenshot"] == "mobile.png", "tall": str(tall) if tall else None,
+                "kicker": "WHAT HAPPENED?" if data.get("kind") == "risk" else "HONEST REVIEW",
+                "seed": f"{seed}-{i}", "t0": t0, "logo": str(out_dir / info["logo"]) if info.get("logo") else None}
+        parts = []
+        if i in scenes:
+            sc, sc_shot = scenes[i]
+            slen = SCENE_LEN[sc.split("_")[0]]
+            slen = d_i if d_i < slen + 2.5 else slen               # short segment: the scene fills it
+            parts.append(dict(base, scene=sc, shot=str(out_dir / sc_shot), move=slen, toff=0.0, d=slen,
+                              layout=sc, out=str(work / f"clip_{i:02d}a.mp4")))
+            if slen < d_i:
+                parts.append(dict(base, toff=slen, d=d_i - slen, label="", out=str(work / f"clip_{i:02d}b.mp4")))
+        else:
+            parts.append(dict(base, toff=0.0, d=d_i, out=str(work / f"clip_{i:02d}.mp4")))
+        for pj in parts:
+            pj["frames"] = int(round((pj["d"] + T) * FPS))     # + the overlap with the next piece
+            jobs.append(pj)
+            pieces.append(pj)
         t0 += d_i
     outro_job = {"shot": str(shot_files[0] if shot_files else out_dir / segs[0]["screenshot"]), "accent": accent,
                  "brand": brand, "score": data.get("score") if data.get("kind") != "risk" else None,
@@ -1136,7 +1158,8 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
         for k, fu in enumerate(futs):
             fu.result()
             if k < len(jobs):
-                print(f"   clip {k + 1}/{len(jobs)} ({segs[k]['clip_duration']:.1f}s, {lays[k]})")
+                print(f"   clip {k + 1}/{len(jobs)} (segment {jobs[k]['index'] + 1}, {jobs[k]['d']:.1f}s, "
+                      f"{jobs[k].get('scene') or jobs[k]['layout']})")
 
     # ---- assemble: soft transitions, narration, quiet chords, a few gentle sound effects
     clips = [Path(j["out"]) for j in jobs] + [Path(outro_job["out"])]
@@ -1147,13 +1170,15 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
         args += ["-i", str(c)]
     for k in range(len(clips)):
         fl.append(f"[{k}:v]settb=AVTB,fps={FPS},format=yuv420p[c{k}]")
-    acc, prev = segs[0]["clip_duration"], "c0"
+    acc, prev = pieces[0]["d"], "c0"
     for k in range(1, len(clips)):
         out = "vx" if k == len(clips) - 1 else f"x{k}"
-        name = TRANSITIONS[(k - 1) % len(TRANSITIONS)] if k < len(clips) - 1 else "fade"
+        same_seg = k < len(pieces) and pieces[k]["index"] == pieces[k - 1]["index"]
+        name = "fade" if (k == len(clips) - 1 or same_seg) else TRANSITIONS[(k - 1) % len(TRANSITIONS)]
         fl.append(f"[{prev}][c{k}]xfade=transition={name}:duration={T}:offset={acc:.3f}[{out}]")
-        events.append((acc, "whoosh"))
-        acc += segs[k]["clip_duration"] if k < len(segs) else 0
+        if not same_seg:
+            events.append((acc, "whoosh"))
+        acc += pieces[k]["d"] if k < len(pieces) else 0
         prev = out
     a0 = len(clips)
     for s in segs:
@@ -1185,6 +1210,6 @@ def render(data, info, out_dir: Path, theme: dict) -> Path:
     _run(["ffmpeg", "-y", "-v", "error", *args, "-filter_complex", ";".join(fl), "-map", "[vx]", "-map", "[mix]",
           "-t", f"{total_len:.3f}", *X264, "-c:a", "aac", "-b:a", "160k", "-ar", "48000",
           "-movflags", "+faststart", str(final)])
-    theme["layouts"] = lays
-    print(f"   video ready: {duration(final):.0f}s · layouts {', '.join(lays)} · music {theme['music']}")
+    theme["layouts"] = [scenes[i][0] + "+" + lays[i] if i in scenes else lays[i] for i in range(len(segs))]
+    print(f"   video ready: {duration(final):.0f}s · layouts {', '.join(theme["layouts"])} · music {theme["music"]}")
     return final
