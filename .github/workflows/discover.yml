@@ -2,7 +2,8 @@ name: Discover trending products
 
 # Every hour: scans launch sites and news for products launched today / this week (plus trends,
 # charts and an evergreen backlog), ranks the queue with new launches first, and immediately
-# starts a video for fresh launches (max AUTO_VIDEOS_PER_DAY a day, default 3; set it to 0 to stop).
+# used to start videos for fresh launches by itself. That is OFF (turned off on request): it only
+# updates the queue now. To turn automatic videos back on, remove `if: false` from "Start the videos".
 
 on:
   schedule:
@@ -38,6 +39,7 @@ jobs:
           GEMINI_MODELS: ${{ vars.GEMINI_MODELS }}
         run: python discover.py
       - name: Pick fresh launches to make right now
+        if: false            # automatic videos are OFF
         id: auto
         env:
           AUTO_VIDEOS_PER_DAY: ${{ vars.AUTO_VIDEOS_PER_DAY }}
@@ -52,7 +54,7 @@ jobs:
           git commit -m "Update review queue"
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
       - name: Start the videos
-        if: steps.auto.outputs.urls != ''
+        if: false            # automatic videos are OFF; was: steps.auto.outputs.urls != ''
         env:
           GH_TOKEN: ${{ github.token }}
           URLS: ${{ steps.auto.outputs.urls }}
