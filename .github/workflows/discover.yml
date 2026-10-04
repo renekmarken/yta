@@ -7,7 +7,9 @@ name: Discover trending products
 
 on:
   schedule:
-    - cron: "23 * * * *"       # every hour
+    # Hourly. GitHub drops many scheduled runs when it's busy, so it is asked four times an hour
+    # and the first step skips the run if the queue was already updated in the last 55 minutes.
+    - cron: "8,23,38,53 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -27,12 +29,25 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
+      - name: Due? (last update over 55 minutes ago)
+        id: due
+        run: |
+          last=$(cat data/discover_last_run.txt 2>/dev/null || echo 0)
+          age=$(( $(date +%s) - last ))
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$age" -ge 3300 ]; then
+            echo "run=yes" >> "$GITHUB_OUTPUT"; echo "last update ${age}s ago: updating the queue"
+          else
+            echo "run=no" >> "$GITHUB_OUTPUT"; echo "updated ${age}s ago: nothing to do yet"
+          fi
       - uses: actions/setup-python@v6
+        if: steps.due.outputs.run == 'yes'
         with:
           python-version: "3.12"
           cache: pip
       - run: pip install requests beautifulsoup4
+        if: steps.due.outputs.run == 'yes'
       - name: Find new launches / hot products and rank the queue
+        if: steps.due.outputs.run == 'yes'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -46,9 +61,11 @@ jobs:
           AUTO_MIN_HOTNESS: ${{ vars.AUTO_MIN_HOTNESS }}
         run: python tools/auto_launch.py
       - name: Save queue
+        if: steps.due.outputs.run == 'yes'
         run: |
           git config user.name "review-bot"
           git config user.email "review-bot@users.noreply.github.com"
+          date +%s > data/discover_last_run.txt
           git add data/
           git diff --cached --quiet && exit 0
           git commit -m "Update review queue"

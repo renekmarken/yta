@@ -266,8 +266,39 @@ its own website. Return ONLY a JSON array: [{{"name": "...", "url": "official we
         return []
 
 
-SOURCES = [src_gemini_search, src_product_hunt, src_launch_hn, src_launch_news, src_techcrunch,
-           src_google_news, src_hacker_news, src_app_store, src_google_trends]
+TECH_FEEDS = ["https://www.theverge.com/rss/index.xml", "https://www.engadget.com/rss.xml",
+              "https://feeds.feedburner.com/venturebeat/SZYF"]
+LAUNCH_WORDS = re.compile(r"\b(launch|launches|launched|unveil|unveils|introduc|debut|now available|rolls out|"
+                          r"releases|new app|goes live|opens to)", re.I)
+
+
+def src_tech_launches():
+    """Launch headlines from the big tech sites, last 2 days."""
+    out = []
+    for u in TECH_FEEDS:
+        r = _get(u)
+        if not r:
+            continue
+        for it in _rss_items(r.text):
+            w = _when(it["date"])
+            if LAUNCH_WORDS.search(it["title"]) and (not w or (NOW() - w).days <= 2):
+                out.append({"source": "Tech news (launch)", "title": it["title"], "detail": it["detail"][:160],
+                            "cat_hint": None, "date": it["date"]})
+    return out
+
+
+def src_fresh_show_hn():
+    """Show HN posts from the last 2 days that are taking off (lower bar than src_hacker_news)."""
+    since = int(time.time()) - 2 * 86400
+    r = _get(f"https://hn.algolia.com/api/v1/search_by_date?tags=show_hn&numericFilters=created_at_i>{since},points>15&hitsPerPage=40")
+    if not r:
+        return []
+    return [{"source": "Show HN (new)", "title": h.get("title", ""), "detail": f"{h.get('points', 0)} points; {h.get('url') or ''}",
+             "cat_hint": None, "date": h.get("created_at", "")} for h in r.json().get("hits", [])]
+
+
+SOURCES = [src_gemini_search, src_product_hunt, src_launch_hn, src_launch_news, src_tech_launches, src_techcrunch,
+           src_fresh_show_hn, src_google_news, src_hacker_news, src_app_store, src_google_trends]
 
 
 # ---------------------------------------------------------------- queue storage
