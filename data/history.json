@@ -4519,5 +4519,341 @@
     "laptop/magenta/scam"
    ]
   }
+ },
+ {
+  "date": "2026-10-04",
+  "url": "https://influenscout.com",
+  "brand": "influenScout",
+  "kind": "review",
+  "story_url": null,
+  "category": "marketing",
+  "title": "InfluenScout: $97/mo DTC Influencer Tool Tested",
+  "youtube": null,
+  "format": "five_questions",
+  "opener": "InfluenScout boldly claims to be the next-generation creator and DTC brand collaboration platform featuring transparent ",
+  "title_style": "scam",
+  "theme": {
+   "mode": "light",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    134,
+    79,
+    152
+   ],
+   "transitions": [
+    "vertopen",
+    "horzopen"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "laptop",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "fade_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "laptop/ocean/scam",
+    "banner/midnight/worth",
+    "stack/crimson/legit"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-04",
+  "url": "https://www.eset.com",
+  "brand": "ESET PROTECT",
+  "kind": "review",
+  "story_url": null,
+  "category": "vpn-security",
+  "title": "ESET PROTECT: 96% Recommended, But What's the Catch?",
+  "youtube": null,
+  "format": "five_questions",
+  "opener": "Here is the catch: ESET PROTECT gives you decades of cybersecurity expertise and advanced endpoint protection, but their",
+  "title_style": "scam",
+  "theme": {
+   "mode": "light",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "tag",
+   "bg": "gradient",
+   "head_font": "interdisplay",
+   "accent": [
+    0,
+    144,
+    144
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "number",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "number/midnight/scam",
+    "left/charcoal/worth",
+    "split/emerald/catch"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-04",
+  "url": "https://oneinc.com",
+  "brand": "One Inc",
+  "kind": "review",
+  "story_url": null,
+  "category": "insurance",
+  "title": "One Inc: Is It a Scam?",
+  "youtube": null,
+  "format": "who_for",
+  "opener": "Here is the catch: One Inc XpressOne promises to accelerate claims resolution for insurance networks, but it is built st",
+  "title_style": "scam",
+  "theme": {
+   "mode": "brand",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "tag",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    45,
+    110,
+    154
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "yes_no/royal/scam",
+    "banner/crimson/worth",
+    "score/ocean/legit"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-04",
+  "url": "https://gov.ca.gov",
+  "brand": "Governor of California",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "Governor of California: Is It a Scam?",
+  "youtube": null,
+  "format": "five_questions",
+  "opener": "Did you stumble across this site expecting a specialized California business compliance software? Governor of California",
+  "title_style": "scam",
+  "theme": {
+   "mode": "light",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "tag",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    255,
+    212,
+    0
+   ],
+   "transitions": [
+    "coverleft",
+    "revealright"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "number",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "number/charcoal/scam",
+    "banner/violet/worth",
+    "split/crimson/truth"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-04",
+  "url": "https://elevenlabs.io",
+  "brand": "ElevenLabs",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "ElevenLabs: What to Actually Expect (EXPLAINED)",
+  "youtube": null,
+  "format": "five_questions",
+  "opener": "Have you ever wanted to clone any voice or generate ultra-realistic speech in over seventy languages instantly? Let's wa",
+  "title_style": "expect",
+  "theme": {
+   "mode": "light",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    0,
+    170,
+    255
+   ],
+   "transitions": [
+    "radial",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "number",
+   "thumb_accent": [
+    0,
+    170,
+    255
+   ],
+   "cap_anim": "fade_up",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "number/ocean/expect",
+    "split/royal/worth",
+    "yes_no/charcoal/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-04",
+  "url": "https://pipod.dev",
+  "brand": "pi pod",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Pi Pod: Open Source AI Sandboxes Worth It?",
+  "youtube": null,
+  "format": "who_for",
+  "opener": "Ever wondered how to run your AI sessions inside isolated sandboxes on a server you control? Pi pod aims to do just that",
+  "title_style": "scam",
+  "theme": {
+   "mode": "brand",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "underline",
+   "bg": "mesh",
+   "head_font": "inter",
+   "accent": [
+    131,
+    75,
+    168
+   ],
+   "transitions": [
+    "circleopen",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "laptop",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "laptop/midnight/scam",
+    "score/crimson/worth",
+    "banner/emerald/expect"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-04",
+  "url": "https://carnival.com",
+  "brand": "Carnival Rewards Mastercard",
+  "kind": "review",
+  "story_url": null,
+  "category": "credit-cards",
+  "title": "Carnival Rewards Mastercard: $0 Fees, But What's the Catch?",
+  "youtube": null,
+  "format": "red_flags",
+  "opener": "Stop watching right now if you never sail with Carnival or prefer booking independent trips",
+  "title_style": "expect",
+  "theme": {
+   "mode": "light",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "tag",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    204,
+    51,
+    89
+   ],
+   "transitions": [
+    "coverleft",
+    "revealright"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "number",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_left",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "number/ocean/expect",
+    "banner/royal/scam",
+    "split/emerald/worth"
+   ]
+  }
  }
 ]

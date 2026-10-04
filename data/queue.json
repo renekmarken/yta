@@ -494,7 +494,7 @@
    "added": "2026-10-02T19:26:01+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:01+00:00",
-   "priority": 11.8,
+   "priority": 11.76,
    "cat": "💻 SaaS / business software"
   },
   "chat.sh": {
@@ -510,7 +510,7 @@
    "added": "2026-10-02T19:26:02+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:02+00:00",
-   "priority": 11.8,
+   "priority": 11.76,
    "cat": "💻 SaaS / business software"
   },
   "fidelity.com": {
@@ -596,7 +596,7 @@
    "added": "2026-10-02T23:52:45+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:45+00:00",
-   "priority": 12.27,
+   "priority": 12.22,
    "cat": "📈 Investing platforms"
   },
   "notchmind.com": {
@@ -612,7 +612,7 @@
    "added": "2026-10-02T23:52:45+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:45+00:00",
-   "priority": 12.06,
+   "priority": 12.01,
    "cat": "💻 SaaS / business software"
   },
   "typestream.io": {
@@ -628,7 +628,7 @@
    "added": "2026-10-02T23:53:05+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:05+00:00",
-   "priority": 12.63,
+   "priority": 12.59,
    "cat": "🤖 AI tools"
   },
   "staylokal.com": {
@@ -644,7 +644,7 @@
    "added": "2026-10-02T23:53:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:06+00:00",
-   "priority": 11.92,
+   "priority": 11.87,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "vitra.ai": {
@@ -660,7 +660,7 @@
    "added": "2026-10-02T23:53:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:06+00:00",
-   "priority": 12.63,
+   "priority": 12.59,
    "cat": "🤖 AI tools"
   },
   "citi.com": {
@@ -845,22 +845,6 @@
    "priority": 5.35,
    "cat": "⚖️ Legal services / platforms"
   },
-  "oneinc.com": {
-   "name": "One Inc XpressOne",
-   "url": "https://oneinc.com",
-   "category": "insurance",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Insurtech platform One Inc launched XpressOne for seamless insurance vendor payments.",
-   "sources": [
-    "trend scan"
-   ],
-   "added": "2026-10-03T11:50:19+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-03T11:50:19+00:00",
-   "priority": 15.86,
-   "cat": "🛡️ Insurance"
-  },
   "fabletics.com": {
    "name": "Fabletics Credit Card",
    "url": "https://fabletics.com",
@@ -874,24 +858,8 @@
    "added": "2026-10-03T23:12:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:40+00:00",
-   "priority": 13.32,
+   "priority": 13.27,
    "cat": "💳 Credit cards / financial products"
-  },
-  "gov.ca.gov": {
-   "name": "AwareCA",
-   "url": "https://gov.ca.gov",
-   "category": "business-tools",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Emergency alerts app launched to provide real-time wildfire updates.",
-   "sources": [
-    "Launch news"
-   ],
-   "added": "2026-10-03T11:50:41+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-03T11:50:41+00:00",
-   "priority": 15.65,
-   "cat": "📊 Business tools"
   },
   "singularity.ai": {
    "name": "Singularity",
@@ -906,7 +874,7 @@
    "added": "2026-10-03T11:50:42+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:42+00:00",
-   "priority": 13.41,
+   "priority": 13.36,
    "cat": "🤖 AI tools"
   },
   "feelmymac.com": {
@@ -922,7 +890,7 @@
    "added": "2026-10-03T23:11:52+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:43+00:00",
-   "priority": 13.11,
+   "priority": 13.06,
    "cat": "💻 SaaS / business software"
   },
   "thanor.ai": {
@@ -938,7 +906,7 @@
    "added": "2026-10-04T02:52:54+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:43+00:00",
-   "priority": 13.9,
+   "priority": 13.85,
    "cat": "🤖 AI tools"
   },
   "bmux.dev": {
@@ -954,7 +922,7 @@
    "added": "2026-10-03T23:11:52+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:44+00:00",
-   "priority": 13.69,
+   "priority": 13.64,
    "cat": "💻 SaaS / business software"
   },
   "otpfill.com": {
@@ -970,7 +938,7 @@
    "added": "2026-10-04T02:53:18+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:44+00:00",
-   "priority": 13.82,
+   "priority": 13.77,
    "cat": "💻 SaaS / business software"
   },
   "maccam.app": {
@@ -986,7 +954,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:45+00:00",
-   "priority": 13.22,
+   "priority": 13.17,
    "cat": "💻 SaaS / business software"
   },
   "unamano.app": {
@@ -1002,7 +970,7 @@
    "added": "2026-10-03T23:11:52+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:45+00:00",
-   "priority": 13.69,
+   "priority": 13.64,
    "cat": "💻 SaaS / business software"
   },
   "wattmate.app": {
@@ -1018,39 +986,7 @@
    "added": "2026-10-04T02:53:17+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:46+00:00",
-   "priority": 13.22,
-   "cat": "💻 SaaS / business software"
-  },
-  "carnival.com": {
-   "name": "Carnival Rewards Mastercard",
-   "url": "https://carnival.com",
-   "category": "credit-cards",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Cruise-line loyalty credit card earning status points.",
-   "sources": [
-    "Google News"
-   ],
-   "added": "2026-10-03T23:12:33+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-03T16:32:04+00:00",
-   "priority": 14.08,
-   "cat": "💳 Credit cards / financial products"
-  },
-  "millenniumsystems.com": {
-   "name": "MeevoIQ",
-   "url": "https://millenniumsystems.com",
-   "category": "saas",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "AI advisors built to grow salons, spas, and med spas.",
-   "sources": [
-    "Launch news"
-   ],
-   "added": "2026-10-03T16:32:05+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-03T16:32:05+00:00",
-   "priority": 16.09,
+   "priority": 13.17,
    "cat": "💻 SaaS / business software"
   },
   "bambulab.com": {
@@ -1066,41 +1002,8 @@
    "added": "2026-10-03T16:32:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T16:32:06+00:00",
-   "priority": 13.65,
+   "priority": 13.6,
    "cat": "📊 Business tools"
-  },
-  "influenscout.com": {
-   "name": "influenScout",
-   "url": "https://influenscout.com",
-   "category": "marketing",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "New evidence-based influencer marketing platform providing transparent campaign collaboration.",
-   "sources": [
-    "Google News",
-    "Launch news"
-   ],
-   "added": "2026-10-03T23:12:33+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-03T20:01:45+00:00",
-   "priority": 16.53,
-   "cat": "📣 Marketing platforms"
-  },
-  "eset.com": {
-   "name": "ESET PROTECT",
-   "url": "https://www.eset.com",
-   "category": "vpn-security",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Security vendor launched an updated multi-tiered endpoint and identity protection suite.",
-   "sources": [
-    "trend scan"
-   ],
-   "added": "2026-10-03T20:01:45+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-03T20:01:45+00:00",
-   "priority": 16.28,
-   "cat": "🔐 Cybersecurity / VPNs"
   },
   "communicate.so": {
    "name": "Communicate",
@@ -1115,7 +1018,7 @@
    "added": "2026-10-03T20:01:48+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:01:48+00:00",
-   "priority": 13.34,
+   "priority": 13.29,
    "cat": "💻 SaaS / business software"
   },
   "lloyal.ai": {
@@ -1131,7 +1034,7 @@
    "added": "2026-10-03T20:01:48+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:01:48+00:00",
-   "priority": 13.42,
+   "priority": 13.37,
    "cat": "🤖 AI tools"
   },
   "weftcut.com": {
@@ -1147,7 +1050,7 @@
    "added": "2026-10-03T23:11:52+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:01:49+00:00",
-   "priority": 14.09,
+   "priority": 14.04,
    "cat": "🤖 AI tools"
   },
   "outmarket.com": {
@@ -1163,7 +1066,7 @@
    "added": "2026-10-03T20:02:30+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:02:30+00:00",
-   "priority": 13.55,
+   "priority": 13.5,
    "cat": "🛡️ Insurance"
   },
   "pastily.app": {
@@ -1179,7 +1082,7 @@
    "added": "2026-10-03T20:02:30+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:02:30+00:00",
-   "priority": 12.77,
+   "priority": 12.72,
    "cat": "📊 Business tools"
   },
   "singularity.network": {
@@ -1195,40 +1098,8 @@
    "added": "2026-10-03T23:11:52+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T23:11:52+00:00",
-   "priority": 14.22,
+   "priority": 14.17,
    "cat": "🤖 AI tools"
-  },
-  "elevenlabs.io": {
-   "name": "ElevenLabs",
-   "url": "https://elevenlabs.io",
-   "category": "ai-tools",
-   "hotness": 9.0,
-   "evergreen": false,
-   "why": "AI voice platform doubles its valuation to $22B amid massive growth.",
-   "sources": [
-    "TechCrunch"
-   ],
-   "added": "2026-10-04T02:52:32+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-04T02:52:32+00:00",
-   "priority": 15.1,
-   "cat": "🤖 AI tools"
-  },
-  "pipod.dev": {
-   "name": "Pi pod",
-   "url": "https://pipod.dev",
-   "category": "saas",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Run pi coding agents in secure sandboxes on your own server.",
-   "sources": [
-    "Hacker News"
-   ],
-   "added": "2026-10-04T02:52:32+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-04T02:52:32+00:00",
-   "priority": 14.42,
-   "cat": "💻 SaaS / business software"
   },
   "rhun.app": {
    "name": "Rhun",
@@ -1243,7 +1114,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:33+00:00",
-   "priority": 13.82,
+   "priority": 13.77,
    "cat": "💻 SaaS / business software"
   },
   "lathoa.ai": {
@@ -1259,7 +1130,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:33+00:00",
-   "priority": 13.91,
+   "priority": 13.86,
    "cat": "🤖 AI tools"
   },
   "innerloop.works/breadcrumb": {
@@ -1275,7 +1146,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:33+00:00",
-   "priority": 13.91,
+   "priority": 13.86,
    "cat": "🤖 AI tools"
   },
   "zoowork.com": {
@@ -1291,7 +1162,7 @@
    "added": "2026-10-04T02:52:54+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:54+00:00",
-   "priority": 13.91,
+   "priority": 13.86,
    "cat": "🤖 AI tools"
   },
   "cubicle.dev": {
@@ -1307,7 +1178,7 @@
    "added": "2026-10-04T02:52:54+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:54+00:00",
-   "priority": 13.82,
+   "priority": 13.77,
    "cat": "💻 SaaS / business software"
   },
   "reassign.app": {
@@ -1323,7 +1194,7 @@
    "added": "2026-10-04T02:52:55+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:55+00:00",
-   "priority": 13.82,
+   "priority": 13.77,
    "cat": "💻 SaaS / business software"
   },
   "yubi.app": {
@@ -1339,7 +1210,7 @@
    "added": "2026-10-04T02:53:17+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:53:17+00:00",
-   "priority": 13.91,
+   "priority": 13.86,
    "cat": "🤖 AI tools"
   },
   "kilo.health": {
@@ -1355,9 +1226,9 @@
    "added": "2026-10-04T02:53:18+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:53:18+00:00",
-   "priority": 13.82,
+   "priority": 13.77,
    "cat": "💻 SaaS / business software"
   }
  },
- "updated": "2026-10-04T14:14:38+00:00"
+ "updated": "2026-10-04T14:57:05+00:00"
 }
