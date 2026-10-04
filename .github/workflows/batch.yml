@@ -111,7 +111,7 @@ jobs:
         uses: actions/cache@v5
         with:
           path: .cache/piper
-          key: piper-${{ vars.PIPER_VOICE || 'en_US-ryan-high' }}
+          key: piper-${{ vars.PIPER_VOICE || 'en_US-lessac-high' }}
       - name: Get extra fonts
         run: python tools/get_fonts.py
       - name: Make the video
@@ -126,7 +126,7 @@ jobs:
           YT_PRIVACY: ${{ vars.YT_PRIVACY || 'unlisted' }}
           YT_PUBLISH_DELAY_HOURS: ${{ vars.YT_PUBLISH_DELAY_HOURS }}
           CHANNEL_NAME: ${{ vars.CHANNEL_NAME || 'Secret' }}
-          TTS_VOICE: ${{ vars.TTS_VOICE || 'en-US-AndrewMultilingualNeural' }}
+          TTS_VOICE: ${{ vars.TTS_VOICE || 'en-US-AvaMultilingualNeural' }}
           GEMINI_MODELS: ${{ vars.GEMINI_MODELS }}
           PIPER_VOICE: ${{ vars.PIPER_VOICE }}
           MUSIC: ${{ vars.MUSIC }}

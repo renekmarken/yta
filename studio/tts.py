@@ -4,6 +4,7 @@ Tip: record your own voice as voice/seg_00.mp3, seg_01.mp3 ... in a video's fold
 your recordings are used instead of the AI voice.
 """
 import asyncio
+import json
 import re
 import subprocess
 import wave
@@ -34,14 +35,53 @@ def speakable(text):
 
 # ------------------------------------------------------------------ Edge (primary)
 async def _edge(text, path):
+    """Speak `text` into `path`; returns the time of every word [(start, end, word)] in seconds."""
     import edge_tts
-    await edge_tts.Communicate(text, config.TTS_VOICE, rate=config.TTS_RATE).save(str(path))
+    words = []
+    with open(path, "wb") as f:
+        c = edge_tts.Communicate(text, config.TTS_VOICE, rate=config.TTS_RATE, boundary="WordBoundary")
+        async for ch in c.stream():
+            if ch["type"] == "audio":
+                f.write(ch["data"])
+            elif ch["type"] == "WordBoundary":
+                s = ch["offset"] / 1e7
+                words.append((s, s + ch["duration"] / 1e7, ch["text"]))
+    return words
 
 
 def edge_say(text, path):
-    asyncio.run(_edge(text, path))
+    words = asyncio.run(_edge(text, path))
     if not path.exists() or path.stat().st_size < 2000:
         raise RuntimeError("edge-tts returned no audio")
+    words_file(path).write_text(json.dumps(words))
+
+
+def words_file(audio: Path) -> Path:
+    return Path(audio).with_suffix(".words.json")
+
+
+def word_times(audio: Path, text: str):
+    """Every spoken word with its start/end (seconds). From the voice engine when it reported them,
+    else spread over the audio by word length (own recordings, the offline voice)."""
+    f = words_file(audio)
+    if f.exists():
+        try:
+            return [tuple(w) for w in json.loads(f.read_text())]
+        except Exception:
+            pass
+    toks = text.split()
+    total = duration(Path(audio))
+    if not toks:
+        return []
+    lead, tail = 0.12, 0.25
+    span = max(0.5, total - lead - tail)
+    weights = [len(t) + 2 for t in toks]
+    k = span / sum(weights)
+    out, t = [], lead
+    for tok, w in zip(toks, weights):
+        out.append((t, t + w * k * 0.92, tok))
+        t += w * k
+    return out
 
 
 # ------------------------------------------------------------------ Piper (offline backup)
@@ -123,6 +163,10 @@ def fit_length(segments: list, extra: float, min_s=125.0, max_s=175.0) -> float:
                         "-b:a", "160k", str(tmp)], check=True)
         tmp.replace(src)
         seg["duration"] = duration(src)
+        wf = words_file(src)
+        if wf.exists():                                # the words move with the new speed
+            ws = json.loads(wf.read_text())
+            wf.write_text(json.dumps([(a / factor, b / factor, w) for a, b, w in ws]))
     total = sum(s["duration"] for s in segments) + extra
     if not min_s - 5 <= total <= max_s + 5:
         print(f"   ! video is {total:.0f}s, outside 2-3 minutes (script length was off)")

@@ -33,7 +33,28 @@ iframe[title*="chat" i], #launcher, .drift-frame-controller, #drift-widget, .zEW
 
 BLOCK_SIGNS = ["access denied", "just a moment", "attention required", "verify you are human",
                "are you a robot", "enable javascript and cookies", "request unsuccessful",
-               "pardon our interruption", "403 forbidden", "captcha"]
+               "pardon our interruption", "403 forbidden", "captcha", "checking your browser",
+               "verifying you are human", "human verification", "press & hold", "press and hold",
+               "security check", "one more step", "please verify you are a human", "bot detection",
+               "unusual traffic", "are you human", "complete the security check"]
+
+# a bot / human check on screen: Cloudflare, Turnstile, hCaptcha, reCAPTCHA challenge, PerimeterX
+# "press & hold", DataDome, Akamai, Imperva... (a small reCAPTCHA badge alone doesn't count)
+CHALLENGE_JS = """
+() => {
+  const sel = '#challenge-form, #challenge-running, #cf-challenge-running, #challenge-stage, .cf-turnstile,' +
+    'iframe[src*="challenges.cloudflare.com"], iframe[src*="hcaptcha.com"], iframe[src*="captcha-delivery.com"],' +
+    'iframe[src*="recaptcha/api2/bframe"], iframe[src*="recaptcha/enterprise/bframe"], #px-captcha,' +
+    '[id*="px-captcha" i], iframe[title*="challenge" i], iframe[src*="geo.captcha"], #sec-if-container,' +
+    'iframe[src*="_Incapsula_Resource"], [class*="captcha" i][class*="challenge" i]';
+  for (const el of document.querySelectorAll(sel)) {
+    const r = el.getBoundingClientRect(), st = getComputedStyle(el);
+    if (st.display !== 'none' && st.visibility !== 'hidden' && r.width >= 120 && r.height >= 40) return el.id || el.tagName;
+  }
+  const big = [...document.querySelectorAll('iframe[src*="recaptcha"]')].find(f => f.getBoundingClientRect().height > 300);
+  return big ? 'recaptcha' : '';
+}
+"""
 
 # Collect short, meaningful on-screen texts with their boxes (used for smart zoom + highlight).
 BOXES_JS = """
@@ -107,10 +128,26 @@ def _clean_text(html, limit=12000):
     return re.sub(r"\s+", " ", soup.get_text(" ")).strip()[:limit]
 
 
-def _check_blocked(title, text):
+def _check_blocked(title, text, page=None):
     low = (title + " " + text[:1500]).lower()
     if len(text) < 350 or any(s in low for s in BLOCK_SIGNS) and len(text) < 3000:
         raise BlockedSite(f"site blocked automated visit or has no content ({title!r})")
+    if page is not None and challenge_on(page):
+        raise BlockedSite(f"site is behind a bot/human verification ({title!r})")
+
+
+def challenge_on(page):
+    """Is a bot/human verification on screen? Waits a moment first: some checks pass by themselves."""
+    try:
+        hit = page.evaluate(CHALLENGE_JS)
+        if hit:
+            page.wait_for_timeout(6000)                     # auto-solving checks (Cloudflare) move on by now
+            hit = page.evaluate(CHALLENGE_JS)
+            if not hit:
+                return False
+        return bool(hit)
+    except Exception:
+        return False
 
 
 def _is_useful(path: Path, prev: Path | None):
@@ -280,7 +317,7 @@ def crawl(url: str, out_dir: Path, subpage_words=None, brand=None) -> dict:
         info["site_name"] = page.evaluate(
             "() => (document.querySelector('meta[property=\"og:site_name\"]')||{}).content || ''")
         info["home_text"] = _clean_text(page.content())
-        _check_blocked(info["title"], info["home_text"])
+        _check_blocked(info["title"], info["home_text"], page)
 
         height = page.evaluate("() => document.body.scrollHeight")
         for i, frac in enumerate((0, 0.16, 0.32, 0.5, 0.68)):
@@ -300,6 +337,9 @@ def crawl(url: str, out_dir: Path, subpage_words=None, brand=None) -> dict:
                 page.goto(sub, wait_until="domcontentloaded", timeout=30000)
                 page.wait_for_timeout(2200)
                 _dismiss_popups(page)
+                if challenge_on(page):
+                    print(f"   ! subpage behind a bot check, skipped: {sub}")
+                    continue
                 label = urlparse(sub).path
                 _shot(page, out_dir, f"sub_{j}_0.png", label, shots)
                 h = page.evaluate("() => document.body.scrollHeight")

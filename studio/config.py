@@ -30,12 +30,12 @@ OPENAI_API_KEY = env("OPENAI_API_KEY")
 OPENAI_MODEL = env("OPENAI_MODEL", "gpt-4o-mini")
 
 # --- Voice ---
-TTS_VOICE = env("TTS_VOICE", "en-US-AndrewMultilingualNeural")
+TTS_VOICE = env("TTS_VOICE", "en-US-AvaMultilingualNeural")       # review videos: the most natural female voice
 TTS_RATE = env("TTS_RATE", "+5%")
 # White Screen videos: their own voice/speed if set (else the main voice), a touch livelier
-WS_VOICE = env("WS_VOICE", "")
+WS_VOICE = env("WS_VOICE", "en-US-AndrewMultilingualNeural")
 WS_RATE = env("WS_RATE", "+4%")
-PIPER_VOICE = env("PIPER_VOICE", "en_US-ryan-high")   # offline backup voice
+PIPER_VOICE = env("PIPER_VOICE", "en_US-lessac-high")   # offline backup voice (female)
 
 # --- Production ---
 VIDEOS_PER_RUN = int(env("VIDEOS_PER_RUN", "1"))

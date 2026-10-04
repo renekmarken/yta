@@ -12,7 +12,7 @@ from pathlib import Path
 import numpy as np
 
 SR = 44100
-MOODS = ["lofi", "upbeat", "ambient", "tech", "acoustic"]
+MOODS = ["lofi", "upbeat", "ambient", "tech", "acoustic", "chords"]
 
 MAJOR = {"I": (0, "maj"), "ii": (2, "min"), "iii": (4, "min"), "IV": (5, "maj"), "V": (7, "maj"),
          "vi": (9, "min")}
@@ -29,10 +29,12 @@ PROGRESSIONS = {
              ("minor", "VI VII i i")],
     "acoustic": [("major", "I V vi IV"), ("major", "I IV I V"), ("major", "vi IV I V"),
                  ("major", "I iii IV V")],
+    "chords": [("major", "I vi IV V"), ("major", "IV I vi V"), ("major", "I iii vi IV"),
+               ("major", "vi IV I V"), ("minor", "i VI III VII"), ("major", "I IV vi IV")],
 }
 TEMPO = {"lofi": (72, 86), "upbeat": (108, 122), "ambient": (62, 74), "tech": (116, 126),
-         "acoustic": (92, 104)}
-SEVENTHS = {"lofi": True, "upbeat": False, "ambient": True, "tech": False, "acoustic": False}
+         "acoustic": (92, 104), "chords": (60, 70)}
+SEVENTHS = {"lofi": True, "upbeat": False, "ambient": True, "tech": False, "acoustic": False, "chords": True}
 
 
 # ------------------------------------------------------------------ basic synthesis
@@ -95,6 +97,12 @@ def bell(freq, dur):
     t = _t(n)
     out = sum(a * np.sin(2 * np.pi * freq * k * t) * np.exp(-t * (1.2 + k)) for k, a in parts)
     return out * _env(n, 0.003, 0.2)
+
+
+def soft_piano(freq, dur):
+    """A felt-damped piano note: warm, quiet attack, long soft decay (no bright 'ping')."""
+    parts = [(1, 1.0), (2, 0.42), (3, 0.18), (4, 0.09), (5, 0.05), (6, 0.03)]
+    return additive(freq, dur, parts, decay=3.2, attack=0.025, release=0.6, bright_decay=1.4)
 
 
 def pad(freq, dur, rnd):
@@ -340,6 +348,19 @@ def compose(mood, seconds, seed, path: Path) -> Path:
                     tr["drums"].add(kit.clap, t0 + s * beat, 0.5)
                 for i in range(16):
                     tr["drums"].add(kit.hat, t0 + i * beat / 4, 0.32 if i % 4 == 2 else 0.16, pan=0.3)
+        elif mood == "chords":                                  # quiet background chords: nothing else
+            if b % 2 == 0:                                      # each chord rings for two bars
+                low = chord[0] - 12
+                voicing = [low] + chord[1:] + [chord[0] + 12]
+                for j, m in enumerate(voicing):                 # gently rolled, low to high
+                    tr["keys"].add(soft_piano(hz(m), bar * 2.1), t0 + j * 0.045, 0.13 if j else 0.16,
+                                   pan=-0.25 + j * 0.12)
+                for j, m in enumerate(chord):
+                    tr["pad"].add(pad(hz(m), bar * 2.15, rnd), t0, 0.035, pan=-0.3 + j * 0.2)
+            elif rnd.random() < 0.6:                            # a soft re-touch of the top notes
+                for j, m in enumerate(chord[1:]):
+                    tr["keys"].add(soft_piano(hz(m + 12), bar * 1.1), t0 + 2 * beat + j * 0.06, 0.05,
+                                   pan=0.15 + j * 0.1)
         else:  # acoustic
             pick_pat = rnd.choice([[0, 2, 1, 2, 3, 2, 1, 2], [0, 1, 2, 3, 2, 1, 2, 3], [0, 2, 3, 2, 1, 2, 3, 2]])
             notes = [chord[0] - 12] + chord
@@ -366,9 +387,11 @@ def compose(mood, seconds, seed, path: Path) -> Path:
         R += t.r
         sendL += t.l * wet_send[k]
         sendR += t.r * wet_send[k]
-    wl, wr = reverb(sendL, sendR, size=1.4 if mood == "ambient" else 1.0,
-                    mix_amt=0.35 if mood in ("ambient", "lofi") else 0.18)
+    wl, wr = reverb(sendL, sendR, size=1.4 if mood in ("ambient", "chords") else 1.0,
+                    mix_amt=0.4 if mood == "chords" else 0.35 if mood in ("ambient", "lofi") else 0.18)
     L, R = L + (wl - sendL), R + (wr - sendR)
+    if mood == "chords":                                 # soft and far away: no highs to fight the voice
+        L, R = lowpass(L, 3200), lowpass(R, 3200)
     if mood == "lofi":                                   # warm, dusty
         L, R = lowpass(L, 5200), lowpass(R, 5200)
         nr = np.random.default_rng(rnd.randint(0, 10 ** 9))
