@@ -4855,5 +4855,53 @@
     "split/emerald/worth"
    ]
   }
+ },
+ {
+  "date": "2026-10-04",
+  "url": "https://weftcut.com",
+  "brand": "WeftCut",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "WeftCut Review: AI Video Editor That Codes?",
+  "youtube": null,
+  "format": "first_look",
+  "opener": "Okay, imagine loading up an open-source AI video editor where an agent actually cuts your clips using code",
+  "title_style": "truth",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "glass",
+   "bg": "aurora",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    212,
+    0
+   ],
+   "transitions": [
+    "smoothleft",
+    "smoothright"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_right",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "stack/royal/truth",
+    "laptop/midnight/scam",
+    "banner/emerald/worth"
+   ]
+  }
  }
 ]

@@ -519,5 +519,12 @@
   "url": "https://singularity.network",
   "status": "failed",
   "date": "2026-10-04"
+ },
+ {
+  "site": "weftcut.com",
+  "name": "WeftCut",
+  "url": "https://weftcut.com",
+  "status": "done",
+  "date": "2026-10-04"
  }
 ]

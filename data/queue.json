@@ -628,7 +628,7 @@
    "added": "2026-10-02T23:53:05+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:05+00:00",
-   "priority": 12.53,
+   "priority": 12.52,
    "cat": "🤖 AI tools"
   },
   "staylokal.com": {
@@ -660,7 +660,7 @@
    "added": "2026-10-02T23:53:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:06+00:00",
-   "priority": 12.53,
+   "priority": 12.52,
    "cat": "🤖 AI tools"
   },
   "citi.com": {
@@ -861,6 +861,22 @@
    "priority": 13.2,
    "cat": "💳 Credit cards / financial products"
   },
+  "singularity.ai": {
+   "name": "Singularity",
+   "url": "https://singularity.ai",
+   "category": "ai-tools",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "Run parallel AI coding agents ticket-by-ticket.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-03T11:50:42+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-03T11:50:42+00:00",
+   "priority": 13.29,
+   "cat": "🤖 AI tools"
+  },
   "feelmymac.com": {
    "name": "FeelMyMac",
    "url": "https://feelmymac.com",
@@ -890,7 +906,7 @@
    "added": "2026-10-04T02:52:54+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:43+00:00",
-   "priority": 13.78,
+   "priority": 13.77,
    "cat": "🤖 AI tools"
   },
   "bmux.dev": {
@@ -906,7 +922,7 @@
    "added": "2026-10-03T23:11:52+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:44+00:00",
-   "priority": 13.57,
+   "priority": 13.56,
    "cat": "💻 SaaS / business software"
   },
   "otpfill.com": {
@@ -954,7 +970,7 @@
    "added": "2026-10-03T23:11:52+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:45+00:00",
-   "priority": 13.57,
+   "priority": 13.56,
    "cat": "💻 SaaS / business software"
   },
   "wattmate.app": {
@@ -986,7 +1002,7 @@
    "added": "2026-10-03T16:32:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T16:32:06+00:00",
-   "priority": 13.53,
+   "priority": 13.52,
    "cat": "📊 Business tools"
   },
   "communicate.so": {
@@ -1002,7 +1018,7 @@
    "added": "2026-10-03T20:01:48+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:01:48+00:00",
-   "priority": 13.22,
+   "priority": 13.21,
    "cat": "💻 SaaS / business software"
   },
   "lloyal.ai": {
@@ -1018,23 +1034,7 @@
    "added": "2026-10-03T20:01:48+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:01:48+00:00",
-   "priority": 13.3,
-   "cat": "🤖 AI tools"
-  },
-  "weftcut.com": {
-   "name": "WeftCut",
-   "url": "https://weftcut.com",
-   "category": "ai-tools",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Open-source video editor engineered specifically for direct control by AI agents.",
-   "sources": [
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-03T23:11:52+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-03T20:01:49+00:00",
-   "priority": 13.97,
+   "priority": 13.29,
    "cat": "🤖 AI tools"
   },
   "outmarket.com": {
@@ -1050,7 +1050,7 @@
    "added": "2026-10-03T20:02:30+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:02:30+00:00",
-   "priority": 13.43,
+   "priority": 13.42,
    "cat": "🛡️ Insurance"
   },
   "pastily.app": {
@@ -1082,7 +1082,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:33+00:00",
-   "priority": 13.7,
+   "priority": 13.69,
    "cat": "💻 SaaS / business software"
   },
   "lathoa.ai": {
@@ -1098,7 +1098,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:33+00:00",
-   "priority": 13.78,
+   "priority": 13.77,
    "cat": "🤖 AI tools"
   },
   "innerloop.works/breadcrumb": {
@@ -1114,7 +1114,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:33+00:00",
-   "priority": 13.78,
+   "priority": 13.77,
    "cat": "🤖 AI tools"
   },
   "zoowork.com": {
@@ -1146,7 +1146,7 @@
    "added": "2026-10-04T02:52:54+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:54+00:00",
-   "priority": 13.7,
+   "priority": 13.69,
    "cat": "💻 SaaS / business software"
   },
   "reassign.app": {
@@ -1162,8 +1162,24 @@
    "added": "2026-10-04T02:52:55+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:55+00:00",
-   "priority": 13.7,
+   "priority": 13.69,
    "cat": "💻 SaaS / business software"
+  },
+  "yubi.app": {
+   "name": "Yubi",
+   "url": "https://yubi.app",
+   "category": "ai-tools",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Talk naturally to your Mac and let Yubi handle all the typing.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-04T02:53:17+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-04T02:53:17+00:00",
+   "priority": 13.78,
+   "cat": "🤖 AI tools"
   },
   "kilo.health": {
    "name": "Kilo",
@@ -1178,74 +1194,9 @@
    "added": "2026-10-04T02:53:18+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:53:18+00:00",
-   "priority": 13.7,
-   "cat": "💻 SaaS / business software"
-  },
-  "thoreaubasic.com": {
-   "name": "Thoreau BASIC",
-   "url": "https://thoreaubasic.com",
-   "category": "saas",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "What if BASIC hadn't gone out of fashion?",
-   "sources": [
-    "Hacker News",
-    "Show HN (new)"
-   ],
-   "added": "2026-10-04T15:59:03+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-04T15:59:03+00:00",
-   "priority": 15.35,
-   "cat": "💻 SaaS / business software"
-  },
-  "beatviz.com": {
-   "name": "BeatViz",
-   "url": "https://beatviz.com",
-   "category": "ai-tools",
-   "hotness": 9.0,
-   "evergreen": false,
-   "why": "AI Director for full-length music video creation.",
-   "sources": [
-    "Launch news"
-   ],
-   "added": "2026-10-04T15:59:04+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-04T15:59:04+00:00",
-   "priority": 19.08,
-   "cat": "🤖 AI tools"
-  },
-  "bizresco.com": {
-   "name": "BizResCo",
-   "url": "https://bizresco.com",
-   "category": "business-tools",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "AI marketplace connecting business owners to resources.",
-   "sources": [
-    "Launch news"
-   ],
-   "added": "2026-10-04T15:59:05+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-04T15:59:05+00:00",
-   "priority": 18.35,
-   "cat": "📊 Business tools"
-  },
-  "macpaw.com": {
-   "name": "Leebry",
-   "url": "https://macpaw.com",
-   "category": "saas",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "MacPaw launches tool to solve IT trust gap with AI.",
-   "sources": [
-    "Launch news"
-   ],
-   "added": "2026-10-04T15:59:05+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-04T15:59:05+00:00",
-   "priority": 18.35,
+   "priority": 13.69,
    "cat": "💻 SaaS / business software"
   }
  },
- "updated": "2026-10-04T15:59:25+00:00"
+ "updated": "2026-10-04T16:03:29+00:00"
 }
