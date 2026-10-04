@@ -1,12 +1,14 @@
 {
- "date": "2026-10-03",
- "count": 3,
+ "date": "2026-10-04",
+ "count": 2,
  "started": [
+  "paynearme.com",
+  "akasa.com",
+  "wealthai.com",
+  "finbar.ai",
   "armadin.com",
   "sapien.io",
-  "akasa.com",
-  "paynearme.com",
-  "wealthai.com",
-  "finbar.ai"
+  "offrun.dev",
+  "aleph-alpha.com"
  ]
 }
