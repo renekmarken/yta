@@ -195,6 +195,87 @@ def _validate(data, info):
     return problems
 
 
+STIFF = [r"\blet us\b", r"\bwe tested\b", r"\bwe will\b", r"\bwe looked\b", r"\bin conclusion\b",
+         r"\bfurthermore\b", r"\bmoreover\b", r"\bboldly claims\b", r"\bnext-generation\b"]
+UNCONTRACTED = r"\b(it is|do not|does not|you are|you will|that is|there is|is not|are not|can not|cannot|we are|i am|they are|you would|it will)\b"
+CONTRACTED = r"\b\w+'(s|t|re|ll|ve|d|m)\b"
+MARKERS = ["okay", "so,", "so ", "honestly", "here's the thing", "kinda", "pretty", "alright", "now,",
+           "a bit", "which brings", "but here's", "flip side"]
+CONNECT = ("but", "and", "so", "okay", "now", "which", "that", "alright", "here", "honestly", "plus",
+           "still", "speaking", "on the", "the good", "the not", "then", "next", "oh", "right")
+
+
+def tone_problems(data):
+    """Does the narration sound like a friendly person and flow? Returns the problems (empty = fine)."""
+    segs = [str(x.get("text", "")) for x in data.get("segments", [])]
+    text = " ".join(segs).replace("’", "'")
+    low = text.lower()
+    out = []
+    stiff = [re.search(p, low).group(0) for p in STIFF if re.search(p, low)]
+    if stiff:
+        out.append("it sounds stiff, never say: " + ", ".join(sorted(set(stiff))))
+    unc, con = len(re.findall(UNCONTRACTED, low)), len(re.findall(CONTRACTED, low))
+    if unc > 2 or con < 8:
+        out.append(f"use natural contractions everywhere (it's, don't, you're, that's): found {con} contractions "
+                   f"and {unc} un-contracted forms")
+    if sum(low.count(m) for m in MARKERS) < 5:
+        out.append('talk like a friendly person: use natural glue like "Okay, now...", "So...", "Honestly,", '
+                   '"Here\'s the thing:", "kinda", "pretty" (varied, at least 5 in total)')
+    if not (re.search(r"good stuff|the good|pros?\b|what i like|what's good", low)
+            and re.search(r"not-so-good|not so good|cons?\b|downside|the bad|annoying|catch", low)):
+        out.append('walk through the pros AND the cons clearly ("Okay, the good stuff first." ... '
+                   '"Now, the not-so-good stuff.")')
+    starts = [re.sub(r"[^a-z' ]", "", sg.lower()).strip() for sg in segs[1:]]
+    linked = sum(1 for st in starts if st.startswith(CONNECT))
+    if starts and linked < len(starts) * 0.5:
+        out.append("the segments don't flow: start most segments with a link to the one before "
+                   '("But here\'s the flip side.", "Which brings us to the price.", "Okay, so...")')
+    firsts = [st.split()[0] if st else "" for st in starts]
+    if any(firsts[i] and firsts[i] == firsts[i + 1] for i in range(len(firsts) - 1)):
+        out.append("two segments in a row start with the same word; vary them")
+    if "like" not in low or "comment" not in low:
+        out.append("add the friendly calls to action (a like mid-video, a comment question at the end)")
+    return out
+
+
+POLISH_PROMPT = """Rewrite ONLY the narration of these review segments so it sounds like a real, friendly
+person talking to a friend, and flows as one conversation. Keep every fact, number and claim exactly;
+add nothing new. Keep the same number of segments and roughly the same words per segment (38-48).
+- Very simple words, short sentences, contractions everywhere (it's, don't, you're).
+- Natural glue, varied: "Okay, now...", "So...", "Honestly,", "Here's the thing:", "kinda", "pretty".
+- Each segment starts by picking up where the last ended ("But here's the flip side.", "Which
+  brings us to the price."), no two segments start with the same word.
+- Clear pros ("Okay, the good stuff first.") and cons ("Now, the not-so-good stuff."), then a weigh-up.
+- 2-3 small, kind jokes or wry asides. A friendly like-ask mid-video; the verdict and one specific
+  comment question at the end. No "let us", no "we tested", no stage directions or [sound cues].
+These problems were found: {problems}
+Return ONLY JSON: {{"texts": ["segment 1 narration", "segment 2 narration", ...]}}
+
+SEGMENTS:
+{segments}"""
+
+
+def polish(data, problems):
+    """One extra pass that only rewrites the narration's tone and flow (facts stay)."""
+    segs = data.get("segments", [])
+    try:
+        text, _ = ai.ask(POLISH_PROMPT.format(problems="; ".join(problems),
+                                              segments=json.dumps([x.get("text", "") for x in segs], ensure_ascii=False)),
+                         json_mode=True, temperature=0.7)
+        texts = ai.parse_json(text).get("texts", [])
+    except Exception as e:
+        print(f"   ! tone polish failed: {str(e)[:120]}")
+        return data
+    if len(texts) != len(segs):
+        return data
+    new = sum(len(str(t).split()) for t in texts)
+    if not 290 <= new <= 420:
+        return data
+    for sg, t in zip(segs, texts):
+        sg["text"] = re.sub(r"\s+", " ", str(t)).strip()
+    return data
+
+
 def _fix_segments(data, info):
     files = [s["file"] for s in info["screenshots"]]
     boxes = {s["file"]: s.get("boxes", []) for s in info["screenshots"]}
@@ -260,8 +341,10 @@ def write_script(info: dict, item: dict, history: list) -> dict:
         text, _ = ai.ask(prompt + feedback, json_mode=True, temperature=0.8)
         data = ai.parse_json(text)
         problems = _validate(data, info)
+        tone = tone_problems(data)
+        problems += tone
         words = sum(len(s.get("text", "").split()) for s in data.get("segments", []))
-        gap = abs(words - 355) + (1000 if any("missing" in p for p in problems) else 0)
+        gap = abs(words - 355) + (1000 if any("missing" in p for p in problems) else 0) + 40 * len(tone)
         if best is None or gap < best_gap:
             best, best_gap = data, gap
         if not problems:
@@ -277,6 +360,12 @@ def write_script(info: dict, item: dict, history: list) -> dict:
         feedback = ("\n\nYOUR PREVIOUS ANSWER HAD PROBLEMS, FIX THEM: " + "; ".join(problems) + hint +
                     "\nReturn the complete JSON again.")
     data = best
+    tone = tone_problems(data)
+    if tone:                                                # still stiff: one pass just for tone and flow
+        print(f"   tone check: {'; '.join(tone)} — polishing the narration")
+        data = polish(data, tone)
+        left = tone_problems(data)
+        print("   tone: " + ("ok" if not left else "; ".join(left)))
 
     data = _fix_segments(data, info)
     if data.get("category") not in BY_ID:
