@@ -453,5 +453,64 @@
   "url": "https://yubi.ai",
   "status": "done",
   "date": "2026-10-04"
+ },
+ {
+  "site": "influenscout.com",
+  "name": "influenScout",
+  "url": "https://influenscout.com",
+  "status": "done",
+  "date": "2026-10-04"
+ },
+ {
+  "site": "eset.com",
+  "name": "ESET PROTECT",
+  "url": "https://www.eset.com",
+  "status": "done",
+  "date": "2026-10-04"
+ },
+ {
+  "site": "millenniumsystems.com",
+  "name": "MeevoIQ",
+  "url": "https://millenniumsystems.com",
+  "status": "failed",
+  "date": "2026-10-04"
+ },
+ {
+  "site": "oneinc.com",
+  "name": "One Inc",
+  "url": "https://oneinc.com",
+  "status": "done",
+  "date": "2026-10-04",
+  "alt": "One Inc XpressOne"
+ },
+ {
+  "site": "ca.gov",
+  "name": "Governor of California",
+  "url": "https://gov.ca.gov",
+  "status": "done",
+  "date": "2026-10-04",
+  "alt": "AwareCA"
+ },
+ {
+  "site": "elevenlabs.io",
+  "name": "ElevenLabs",
+  "url": "https://elevenlabs.io",
+  "status": "done",
+  "date": "2026-10-04"
+ },
+ {
+  "site": "pipod.dev",
+  "name": "pi pod",
+  "url": "https://pipod.dev",
+  "status": "done",
+  "date": "2026-10-04",
+  "alt": "Pi pod"
+ },
+ {
+  "site": "carnival.com",
+  "name": "Carnival Rewards Mastercard",
+  "url": "https://carnival.com",
+  "status": "done",
+  "date": "2026-10-04"
  }
 ]
