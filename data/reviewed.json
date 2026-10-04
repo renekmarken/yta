@@ -384,5 +384,20 @@
   "url": "https://sapien.io",
   "status": "done",
   "date": "2026-10-03"
+ },
+ {
+  "site": "offrun.dev",
+  "name": "Offrun",
+  "url": "https://offrun.dev",
+  "status": "done",
+  "date": "2026-10-04"
+ },
+ {
+  "site": "aleph-alpha.com",
+  "name": "Aleph Alpha",
+  "url": "https://aleph-alpha.com",
+  "status": "done",
+  "date": "2026-10-04",
+  "alt": "Aleph Alpha Kolibri"
  }
 ]

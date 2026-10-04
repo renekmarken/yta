@@ -4136,5 +4136,100 @@
    ]
   },
   "youtube": null
+ },
+ {
+  "date": "2026-10-04",
+  "url": "https://offrun.dev",
+  "brand": "Offrun",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Offrun Honest Review: $0 Cost, But Is It Worth It?",
+  "youtube": null,
+  "format": "five_questions",
+  "opener": "Here is the catch: Offrun lets you run multiple coding agents side by side on your Mac, but it is exclusively built for ",
+  "title_style": "honest",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "tag",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    72,
+    120,
+    72
+   ],
+   "transitions": [
+    "coverleft",
+    "revealright"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "left",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "ambient",
+   "sfx": "warm",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "left/ocean/worth",
+    "score/crimson/scam",
+    "stack/charcoal/truth"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-04",
+  "url": "https://aleph-alpha.com",
+  "brand": "Aleph Alpha",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Aleph Alpha Kolibri: Sovereign AI, But What's the Catch?",
+  "youtube": null,
+  "format": "pros_cons",
+  "opener": "Here is the catch with Aleph Alpha Kolibri",
+  "title_style": "dont",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "pill",
+   "bg": "spotlight",
+   "head_font": "poppins",
+   "accent": [
+    0,
+    170,
+    255
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_up",
+   "callout": "pill",
+   "music": "ambient",
+   "sfx": "digital",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "stack/crimson/dont",
+    "banner/royal/scam",
+    "laptop/emerald/worth"
+   ]
+  }
  }
 ]
