@@ -4423,5 +4423,53 @@
     "stack/violet/scam"
    ]
   }
+ },
+ {
+  "date": "2026-10-04",
+  "url": "https://healthintech.com",
+  "brand": "Health In Tech",
+  "kind": "review",
+  "story_url": null,
+  "category": "insurance",
+  "title": "Health In Tech: 2-Minute Quotes, But What's the Catch?",
+  "youtube": null,
+  "format": "fine_print",
+  "opener": "Health In Tech boldly advertises its standardized healthcare transaction platform and doctor network right on its homepa",
+  "title_style": "fees",
+  "theme": {
+   "mode": "light",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "glass",
+   "bg": "gradient",
+   "head_font": "inter",
+   "accent": [
+    57,
+    113,
+    169
+   ],
+   "transitions": [
+    "squeezeh",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "left",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "fade_up",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "left/crimson/fees",
+    "score/violet/scam",
+    "stack/royal/worth"
+   ]
+  }
  }
 ]

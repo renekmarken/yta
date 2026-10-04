@@ -431,5 +431,13 @@
   "status": "done",
   "date": "2026-10-04",
   "alt": "Falcon"
+ },
+ {
+  "site": "healthintech.com",
+  "name": "Health In Tech",
+  "url": "https://healthintech.com",
+  "status": "done",
+  "date": "2026-10-04",
+  "alt": "HitRix"
  }
 ]
