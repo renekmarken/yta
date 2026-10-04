@@ -83,6 +83,16 @@ Style - sound like a real, friendly person talking to a friend, not a narrator r
 - Talk to the viewer as "you". Calls to action, natural and short: early on, a light "stick
   around, the fine print's coming"; mid-video one friendly "if this is helping, a like really
   helps the channel"; at the end, the verdict, then one specific question for the comments.
+- Flow: it must feel like ONE conversation, not a list of separate clips. Every segment's first
+  sentence picks up where the last one ended, with a real link, not a reset: "Which brings us to
+  the price.", "But here's the flip side.", "And that's actually where it gets better.", "Okay, so
+  that's the good stuff. Now the stuff they don't put on the billboard." Never start two segments
+  the same way. Each segment ends on a little pull forward (a question, a "but...", a tease).
+- Pros and cons, whatever the format: somewhere in the middle, clearly walk through the real pros
+  (2-3, each with a specific detail from the site or research) and the real cons (2-3, same), said
+  naturally ("Okay, the good stuff first." ... "Now, the not-so-good stuff."), then weigh them
+  against each other before the verdict ("So is the good enough to make up for the annoying bits?").
+- The verdict ties back to the opening hook, so the video closes the loop it opened.
 - No "welcome back", no "in today's video", no "smash that like button", no "let's dive in",
   no "game-changer", no stage directions, no emojis, no [laughs] or other sound cues.
 Do not start with any of these openings used on recent videos: {recent_openers}
