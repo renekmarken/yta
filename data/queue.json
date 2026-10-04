@@ -942,6 +942,22 @@
    "priority": 17.08,
    "cat": "🤖 AI tools"
   },
+  "singularity.ai": {
+   "name": "Singularity",
+   "url": "https://singularity.ai",
+   "category": "ai-tools",
+   "hotness": 8.0,
+   "evergreen": false,
+   "why": "Run parallel AI coding agents ticket-by-ticket.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-03T11:50:42+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-03T11:50:42+00:00",
+   "priority": 13.59,
+   "cat": "🤖 AI tools"
+  },
   "feelmymac.com": {
    "name": "FeelMyMac",
    "url": "https://feelmymac.com",
@@ -1003,7 +1019,7 @@
    "added": "2026-10-04T02:53:18+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:44+00:00",
-   "priority": 14.01,
+   "priority": 14.0,
    "cat": "💻 SaaS / business software"
   },
   "maccam.app": {
@@ -1051,7 +1067,7 @@
    "added": "2026-10-04T02:53:17+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:46+00:00",
-   "priority": 13.4,
+   "priority": 13.39,
    "cat": "💻 SaaS / business software"
   },
   "carnival.com": {
@@ -1086,22 +1102,6 @@
    "priority": 16.33,
    "cat": "💻 SaaS / business software"
   },
-  "primeintellect.ai": {
-   "name": "Prime Inference",
-   "url": "https://primeintellect.ai",
-   "category": "ai-tools",
-   "hotness": 9.0,
-   "evergreen": false,
-   "why": "Serverless and reserved serving for frontier open models.",
-   "sources": [
-    "Launch news"
-   ],
-   "added": "2026-10-03T23:12:33+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-03T16:32:06+00:00",
-   "priority": 17.23,
-   "cat": "🤖 AI tools"
-  },
   "bambulab.com": {
    "name": "Bambu Lab R1",
    "url": "https://bambulab.com",
@@ -1117,40 +1117,6 @@
    "launch_seen": "2026-10-03T16:32:06+00:00",
    "priority": 13.84,
    "cat": "📊 Business tools"
-  },
-  "glaciersecurity.com": {
-   "name": "Glacier App",
-   "url": "https://glaciersecurity.com",
-   "category": "vpn-security",
-   "hotness": 9.0,
-   "evergreen": false,
-   "why": "Cybersecurity veterans launched this privacy app to disrupt consumer data harvesting.",
-   "sources": [
-    "Google News",
-    "Launch news"
-   ],
-   "added": "2026-10-03T20:01:41+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-03T20:01:41+00:00",
-   "priority": 17.12,
-   "cat": "🔐 Cybersecurity / VPNs"
-  },
-  "falcon.legal": {
-   "name": "Falcon",
-   "url": "https://falcon.legal",
-   "category": "legal",
-   "hotness": 9.0,
-   "evergreen": false,
-   "why": "AI-powered legal contract review platform launched to eliminate billable hours.",
-   "sources": [
-    "Google News",
-    "Launch news"
-   ],
-   "added": "2026-10-03T20:01:43+00:00",
-   "launch": "today",
-   "launch_seen": "2026-10-03T20:01:43+00:00",
-   "priority": 17.12,
-   "cat": "⚖️ Legal services / platforms"
   },
   "influenscout.com": {
    "name": "influenScout",
@@ -1182,7 +1148,7 @@
    "added": "2026-10-03T20:01:45+00:00",
    "launch": "today",
    "launch_seen": "2026-10-03T20:01:45+00:00",
-   "priority": 16.54,
+   "priority": 16.53,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "communicate.so": {
@@ -1246,7 +1212,7 @@
    "added": "2026-10-03T20:02:30+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:02:30+00:00",
-   "priority": 13.73,
+   "priority": 13.72,
    "cat": "🛡️ Insurance"
   },
   "pastily.app": {
@@ -1409,6 +1375,22 @@
    "priority": 14.01,
    "cat": "💻 SaaS / business software"
   },
+  "yubi.app": {
+   "name": "Yubi",
+   "url": "https://yubi.app",
+   "category": "ai-tools",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Talk naturally to your Mac and let Yubi handle all the typing.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-04T02:53:17+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-04T02:53:17+00:00",
+   "priority": 14.1,
+   "cat": "🤖 AI tools"
+  },
   "kilo.health": {
    "name": "Kilo",
    "url": "https://kilo.health",
@@ -1424,58 +1406,7 @@
    "launch_seen": "2026-10-04T02:53:18+00:00",
    "priority": 14.01,
    "cat": "💻 SaaS / business software"
-  },
-  "blog.google": {
-   "name": "Gemini 4 Argon",
-   "url": "https://blog.google",
-   "category": "ai-tools",
-   "hotness": 9.0,
-   "evergreen": false,
-   "why": "Google's frontier model for careful reasoning and complex work.",
-   "sources": [
-    "Google News",
-    "Launch news",
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-04T11:38:07+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-04T11:38:07+00:00",
-   "priority": 16.08,
-   "cat": "🤖 AI tools"
-  },
-  "opensend.cc": {
-   "name": "opensend.cc",
-   "url": "https://opensend.cc",
-   "category": "marketing",
-   "hotness": 7.0,
-   "evergreen": false,
-   "why": "The open source email platform that runs on your server.",
-   "sources": [
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-04T11:38:29+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-04T11:38:29+00:00",
-   "priority": 14.7,
-   "cat": "📣 Marketing platforms"
-  },
-  "thoreaubasic.com": {
-   "name": "Thoreau BASIC",
-   "url": "https://thoreaubasic.com",
-   "category": "saas",
-   "hotness": 7.0,
-   "evergreen": false,
-   "why": "What if BASIC hadn't gone out of fashion?",
-   "sources": [
-    "Hacker News",
-    "Show HN (new)"
-   ],
-   "added": "2026-10-04T11:38:30+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-04T11:38:30+00:00",
-   "priority": 14.7,
-   "cat": "💻 SaaS / business software"
   }
  },
- "updated": "2026-10-04T11:40:40+00:00"
+ "updated": "2026-10-04T11:41:35+00:00"
 }

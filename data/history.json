@@ -4279,5 +4279,149 @@
     "split/crimson/good"
    ]
   }
+ },
+ {
+  "date": "2026-10-04",
+  "url": "https://glaciersecurity.com",
+  "brand": "Glacier Security",
+  "kind": "review",
+  "story_url": null,
+  "category": "vpn-security",
+  "title": "Glacier Security: Is It Actually Good?",
+  "youtube": null,
+  "format": "who_for",
+  "opener": "If you are looking for a cheap, casual virtual private network to stream movies from another country, stop watching righ",
+  "title_style": "good",
+  "theme": {
+   "mode": "brand",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    150,
+    30
+   ],
+   "transitions": [
+    "slideleft",
+    "slideright"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "banner",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "lofi",
+   "sfx": "digital",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "banner/midnight/good",
+    "left/crimson/worth",
+    "stack/ocean/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-04",
+  "url": "https://primeintellect.ai",
+  "brand": "Prime Intellect",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Prime Intellect: Legit AI Compute or Overhyped?",
+  "youtube": null,
+  "format": "red_flags",
+  "opener": "Prime Intellect claims to offer the complete open superintelligence stack, letting you train, deploy, and run inference ",
+  "title_style": "legit",
+  "theme": {
+   "mode": "brand",
+   "layout": "side",
+   "frame": "mac_dark",
+   "caption": "glass",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    212,
+    0
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_up",
+   "callout": "pill",
+   "music": "tech",
+   "sfx": "punchy",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "split/magenta/legit",
+    "banner/charcoal/worth",
+    "laptop/midnight/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-10-04",
+  "url": "https://falcon.legal",
+  "brand": "Falcon Express Services",
+  "kind": "review",
+  "story_url": null,
+  "category": "legal",
+  "title": "Falcon Express Services: Legit PI and Process Server?",
+  "youtube": null,
+  "format": "first_look",
+  "opener": "Stop watching if you want do-it-yourself online legal forms or automated contract templates",
+  "title_style": "legit",
+  "theme": {
+   "mode": "brand",
+   "layout": "spotlight",
+   "frame": "mac_dark",
+   "caption": "bar",
+   "bg": "spotlight",
+   "head_font": "poppins",
+   "accent": [
+    110,
+    110,
+    170
+   ],
+   "transitions": [
+    "smoothleft",
+    "smoothright"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "banner",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "glass",
+   "music": "lofi",
+   "sfx": "warm",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "banner/emerald/legit",
+    "laptop/crimson/worth",
+    "stack/violet/scam"
+   ]
+  }
  }
 ]

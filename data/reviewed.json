@@ -407,5 +407,29 @@
   "status": "done",
   "date": "2026-10-04",
   "alt": "PriceLabs Athena"
+ },
+ {
+  "site": "glaciersecurity.com",
+  "name": "Glacier Security",
+  "url": "https://glaciersecurity.com",
+  "status": "done",
+  "date": "2026-10-04",
+  "alt": "Glacier App"
+ },
+ {
+  "site": "primeintellect.ai",
+  "name": "Prime Intellect",
+  "url": "https://primeintellect.ai",
+  "status": "done",
+  "date": "2026-10-04",
+  "alt": "Prime Inference"
+ },
+ {
+  "site": "falcon.legal",
+  "name": "Falcon Express Services",
+  "url": "https://falcon.legal",
+  "status": "done",
+  "date": "2026-10-04",
+  "alt": "Falcon"
  }
 ]
