@@ -178,18 +178,28 @@ class Captions:
 
     def __init__(self, words, accent, brand, size=54, max_w=1500, align="center", backing=True,
                  font="InterDisplay-ExtraBold.otf", max_lines=2):
-        self.accent, self.size, self.max_w, self.align, self.backing = accent, size, max_w, align, backing
+        self.accent, self.align, self.backing = accent, align, backing
+        self.max_w = max_w * 0.92                       # room for a key word's pop: never past the edge
+        longest = max((w for _, _, w in words), key=len, default="")
+        while size > 30 and _font(font, size).getlength(longest) > self.max_w:
+            size -= 2                                   # one very long word must still fit
+        self.size = size
         self.font = _font(font, size)
         self.space = self.font.getlength(" ")
         brand_words = {_norm(b) for b in (brand or "").split()}
         self.groups = []
-        for ph in phrases(words, max_words=8 if align == "center" else 12,
-                          max_chars=46 if align == "center" else 80):
+        todo = phrases(words, max_words=8 if align == "center" else 9, max_chars=46 if align == "center" else 56)
+        while todo:
+            ph = todo.pop(0)
             items = []
             for s, e, w in ph:
                 key = bool(KEY.search(w)) or _norm(w) in brand_words
                 items.append({"s": s, "e": e, "w": w, "key": key})
             self._layout(items, max_lines)
+            if items[0]["lines"] > max_lines and len(ph) > 1:      # too many lines: show it in two goes
+                half = len(ph) // 2
+                todo[0:0] = [ph[:half], ph[half:]]
+                continue
             self.groups.append(items)
         for gi, g in enumerate(self.groups):           # when each phrase leaves: just before the next
             nxt = self.groups[gi + 1][0]["s"] if gi + 1 < len(self.groups) else g[-1]["e"] + 1.2
@@ -460,20 +470,22 @@ def render_segment(job):
     side = lay in ("split_left", "split_right", "phone")
     if job["words"]:
         if side:
-            caps = Captions(job["words"], accent, job["brand"], size=66, max_w=640, align="left", backing=False,
+            free = 584 if lay != "phone" else 760                # the gap beside the card, minus margins
+            caps = Captions(job["words"], accent, job["brand"], size=62, max_w=free, align="left", backing=False,
                             max_lines=4)
         else:
             caps = Captions(job["words"], accent, job["brand"], size=58, max_w=1480, align="center")
-    # card geometry
+    # card geometry: every card stays between the chapter tag (top) and the captions (bottom)
+    TOP = 100                                                  # cards end by y=846 (captions below)
     if lay in ("center", "spotlight", "magnify"):
-        cw, ch = 1400, 788
-        cx, cy = (W - cw) // 2, 92
+        cw, ch = 1320, 742
+        cx, cy = (W - cw) // 2, TOP
     elif lay == "browser":
-        cw, ch = 1360, 765 - 54
-        cx, cy = (W - cw) // 2, 86 + 54
+        cw, ch = 1280, 666
+        cx, cy = (W - cw) // 2, TOP + 54
     elif lay in ("tilt_left", "tilt_right"):
-        cw, ch = 1360, 765
-        cx, cy = (W - cw) // 2, 100
+        cw, ch = 1320, 742
+        cx, cy = (W - cw) // 2, TOP
     elif lay == "split_left":
         cw, ch = 1120, 630
         cx, cy = 86, (H - ch) // 2 - 20
@@ -481,17 +493,17 @@ def render_segment(job):
         cw, ch = 1120, 630
         cx, cy = W - 1120 - 86, (H - ch) // 2 - 20
     elif lay == "full_bleed":
-        cw, ch = 1680, 945
-        cx, cy = (W - cw) // 2, 40
+        cw, ch = 1480, 832
+        cx, cy = (W - cw) // 2, 24
     elif lay == "stack":
-        cw, ch = 1280, 720
-        cx, cy = (W - cw) // 2 + 60, 110
+        cw, ch = 1240, 698
+        cx, cy = (W - cw) // 2 + 80, 148
     elif lay == "duo":
-        cw, ch = 1180, 664
-        cx, cy = 110, 120
+        cw, ch = 1080, 608
+        cx, cy = 100, 130
     elif lay == "scroll":
-        cw, ch = 1120, 850
-        cx, cy = (W - cw) // 2, 50
+        cw, ch = 1120, 740
+        cx, cy = (W - cw) // 2, TOP
     else:                                                        # phone
         cw, ch = 0, 0
         cx, cy = 0, 0
@@ -515,7 +527,7 @@ def render_segment(job):
     duo_im = None
     if lay == "duo" and others:
         o = others[0]
-        dw, dh = 560, 315
+        dw, dh = 560, 315                                     # sits 50 px clear of the main card
         duo_im = (o.resize((dw, int(o.height * dw / o.width)), Image.BILINEAR).crop((0, 0, dw, dh)),
                   rounded_mask(dw, dh, 18), shadow_for(dw, dh, 18, blur=28))
     label_font = _font("Inter-SemiBold.otf", 30)
@@ -562,7 +574,7 @@ def render_segment(job):
                     frame.paste(im, (int(ox), int(oy)), m)
             if lay == "duo" and duo_im:
                 im, m, (sh, smk) = duo_im
-                ox, oy = W - im.width - 110, 120 + 340 + 6 * math.sin(t * 0.8)
+                ox, oy = W - im.width - 130, 130 + 290 + 6 * math.sin(t * 0.8)
                 frame.alpha_composite(sh, (int(ox - smk), int(oy - smk)))
                 frame.paste(im, (int(ox), int(oy)), m)
             if lay in ("tilt_left", "tilt_right"):
@@ -602,12 +614,16 @@ def render_segment(job):
                     _magnifier(frame, page, focus, box, (fx, fy, cw, ch), accent, t)
             # segment label: a small chapter tag top-left
             if job.get("label") and lay != "full_bleed":
-                _label(frame, job["label"], accent, t, dur, label_font)
+                occ_x = cx - (330 if lay == "stack" else 0)
+                occ_y = cy - (140 if lay == "stack" else 0) - (54 if lay == "browser" else 0)
+                lw = label_font.getlength(job["label"].upper()) + 76
+                if not (occ_x < 48 + lw + 16 and occ_y < 20 + 62 + 16):   # only where it has room
+                    _label(frame, job["label"], accent, t, dur, label_font)
             if callout and t > 1.0 and lay not in ("split_left", "split_right"):
                 _callout(frame, callout, accent, t - 1.0, dur - 1.0, co_font, (fx, fy, cw, ch), lay)
             if caps:
                 if side:
-                    ax = cx + cw + 70 if lay == "split_left" else 86
+                    ax = cx + cw + 60 if lay == "split_left" else 70
                     caps.draw(frame, t + job.get("toff", 0.0), (ax, cy + 40))
                 else:
                     caps.draw(frame, t + job.get("toff", 0.0), (W // 2, H - 52 if lay == "full_bleed" else H - 46))
@@ -671,13 +687,15 @@ def _magnifier(frame, page, focus, box, card, accent, t):
     cyp = focus["y"] + focus["h"] / 2
     zoom = 2.2
     src_r = R / (sx * zoom)
-    crop = page.crop((int(cxp - src_r), int(cyp - src_r), int(cxp + src_r), int(cyp + src_r))).resize((2 * R, 2 * R), Image.BICUBIC)
+    qx = min(max(cxp, src_r), page.width - src_r)           # keep the lens inside the page (no black corners)
+    qy = min(max(cyp, src_r), page.height - src_r)
+    crop = page.crop((int(qx - src_r), int(qy - src_r), int(qx + src_r), int(qy + src_r))).resize((2 * R, 2 * R), Image.BICUBIC)
     m = Image.new("L", (2 * R, 2 * R), 0)
     ImageDraw.Draw(m).ellipse([0, 0, 2 * R - 1, 2 * R - 1], fill=255)
     spot_x = fx + (cxp - x0) * sx
     spot_y = fy + (cyp - y0) * sx
     lx = spot_x + (260 if spot_x < W / 2 else -260)
-    ly = min(H - R - 160, max(R + 30, spot_y - 140))
+    ly = min(H - R - 250, max(R + 100, spot_y - 140))
     lx = min(W - R - 30, max(R + 30, lx))
     sh = Image.new("RGBA", (2 * R + 120, 2 * R + 120), (0, 0, 0, 0))
     ImageDraw.Draw(sh).ellipse([60, 76, 60 + 2 * R, 76 + 2 * R], fill=(0, 0, 0, 170))
@@ -707,35 +725,60 @@ def _label(frame, text, accent, t, dur, f):
     d.rounded_rectangle([0, 0, w - 1, h - 1], 27, fill=(12, 14, 20, 175), outline=(255, 255, 255, 40), width=1)
     d.ellipse([22, h / 2 - 6, 34, h / 2 + 6], fill=accent)
     d.text((46, h / 2), text, font=f, fill=(240, 242, 248), anchor="lm")
-    frame.alpha_composite(_alpha(tag, k), (int(48 - (1 - k) * 30), 26))
+    frame.alpha_composite(_alpha(tag, k), (int(48 - (1 - k) * 30), 20))
+
+
+def fit_font(name, text, max_w, start, floor=20):
+    """The biggest size (from start down) at which text fits in max_w."""
+    size = start
+    while size > floor and _font(name, size).getlength(text) > max_w:
+        size -= 2
+    return _font(name, size)
+
+
+def fit_lines(name, text, max_w, start, one_line_min=60, floor=26):
+    """Font + lines for a title: one line if it fits at a good size, else two balanced lines."""
+    f = fit_font(name, text, max_w, start, one_line_min)
+    if f.getlength(text) <= max_w:
+        return f, [text]
+    words = text.split()
+    best = None
+    for i in range(1, len(words)):
+        a, b = " ".join(words[:i]), " ".join(words[i:])
+        wide = max(_font(name, 100).getlength(a), _font(name, 100).getlength(b))
+        if best is None or wide < best[0]:
+            best = (wide, [a, b])
+    lines = best[1] if best else [text]
+    size = start
+    while size > floor and max(_font(name, size).getlength(ln) for ln in lines) > max_w:
+        size -= 2
+    return _font(name, size), lines
 
 
 def _callout(frame, text, accent, t, dur, f, card, lay):
-    """The key fact: a glass card that pops in by the website's corner."""
+    """The key fact: a glass card that pops in inside the website's bottom-right corner."""
     k = back(min(1.0, t / 0.45)) if t < 0.45 else 1.0
     out = 1 - ease((t - min(dur - 0.6, 5.5)) / 0.4)
     a = min(1.0, t / 0.25) * out
     if a <= 0.01:
         return
+    fx, fy, cw, ch = card
+    f = fit_font("InterDisplay-ExtraBold.otf", text, cw * 0.42, f.size, 22)
     tw = f.getlength(text)
-    w, h = int(tw + 64), 84
+    w, h = int(tw + 64), int(f.size * 2.1)
     im = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
-    d.rounded_rectangle([0, 0, w - 1, h - 1], 22, fill=(255, 255, 255, 238))
+    d.rounded_rectangle([0, 0, w - 1, h - 1], 22, fill=(255, 255, 255, 240))
     d.rounded_rectangle([0, 0, 10, h - 1], 5, fill=accent)
     d.text((w / 2 + 4, h / 2), text, font=f, fill=(14, 16, 22), anchor="mm")
     sc = max(0.3, k)
     im2 = im.resize((max(1, int(w * sc)), max(1, int(h * sc))), Image.BILINEAR)
-    fx, fy, cw, ch = card
-    x = fx + cw - w * 0.75
-    y = fy + ch - h * 0.4
-    if lay in ("tilt_left",):
-        x = fx + cw - w * 0.9
-    x = min(W - w - 30, x)
-    y = min(H - h - 150, y)
+    inset = 28 + (40 if lay in ("tilt_left", "tilt_right") else 0)   # a tilted card's corners come in
+    x = fx + cw - w - inset
+    y = fy + ch - h - inset
     sh = Image.new("RGBA", (w + 80, h + 80), (0, 0, 0, 0))
-    ImageDraw.Draw(sh).rounded_rectangle([40, 52, 40 + w, 52 + h], 22, fill=(0, 0, 0, 150))
-    frame.alpha_composite(_alpha(sh.filter(ImageFilter.GaussianBlur(18)), a), (int(x - 40), int(y - 40)))
+    ImageDraw.Draw(sh).rounded_rectangle([40, 52, 40 + w, 52 + h], 22, fill=(0, 0, 0, 120))
+    frame.alpha_composite(_alpha(sh.filter(ImageFilter.GaussianBlur(16)), a), (int(x - 40), int(y - 40)))
     frame.alpha_composite(_alpha(im2, a), (int(x + (w - im2.width) / 2), int(y + (h - im2.height) / 2)))
 
 
@@ -749,7 +792,7 @@ def _intro(frame, job, t, accent):
     veil = Image.new("RGBA", (W, H), (6, 8, 12, int(185 * k)))
     frame.alpha_composite(veil)
     brand = job["brand"]
-    f = _font("InterDisplay-Black.otf", 150 if len(brand) < 12 else 110)
+    f = fit_font("InterDisplay-Black.otf", brand, W - 240, 150, 50)
     lift = (1 - k_out) * -40 + (1 - k_in) * 30
     cy = H / 2 - 30 + lift
     logo = job.get("logo")
@@ -948,9 +991,9 @@ def _brand_tag(frame, job, t, accent):
     k = min(ease((t - 0.3) / 0.6), 1 - ease((t - 4.2) / 0.5))
     if k <= 0.01:
         return
-    big = _font("InterDisplay-Black.otf", 64)
-    small = _font("Inter-SemiBold.otf", 26)
     brand = job["brand"]
+    big = fit_font("InterDisplay-Black.otf", brand, 760, 64, 30)
+    small = _font("Inter-SemiBold.otf", 26)
     kicker = job.get("kicker") or "HONEST REVIEW"
     lg = None
     if job.get("logo") and Path(job["logo"]).exists():
@@ -988,18 +1031,25 @@ def outro_clip(job):
     score = job.get("score")
     verdict = job.get("verdict") or ""
     brand = job["brand"]
-    big = _font("InterDisplay-Black.otf", 92)
-    mid = _font("InterDisplay-ExtraBold.otf", 50)
     small = _font("Inter-SemiBold.otf", 30)
-    proc = subprocess.Popen(["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
-                             "-r", str(FPS), "-i", "-", "-an", *X264, job["out"]], stdin=subprocess.PIPE)
+    proc = None if job.get("preview") else subprocess.Popen(
+        ["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
+         "-r", str(FPS), "-i", "-", "-an", *X264, job["out"]], stdin=subprocess.PIPE)
     vcol = (60, 220, 130) if verdict.lower().startswith("worth it") and "some" not in verdict.lower() else \
         (255, 196, 60) if "some" in verdict.lower() else (255, 90, 90)
+    panel_w, panel_h = 1240, 560
+    inner = panel_w - 140                                   # text never closer than 70 px to the panel edge
+    big, brand_lines = fit_lines("InterDisplay-Black.otf", brand, inner, 92, 60)
+    has_score = isinstance(score, (int, float))
+    r = 96
+    mid = fit_font("InterDisplay-ExtraBold.otf", verdict, inner - (2 * r + 70 if has_score else 0), 56, 26)
+    vw = mid.getlength(verdict)
+    group = (2 * r + 70 + vw) if has_score else vw
+    gx0 = W / 2 - group / 2                                 # ring + verdict, centred as one group
     for f in range(n):
         t = f / FPS
         frame = bg_frame(bg, t, 1.0)
         k = ease(t / 0.7)
-        panel_w, panel_h = 1180, 560
         px, py = (W - panel_w) / 2, (H - panel_h) / 2 - 40 + (1 - k) * 40
         glass = Image.new("RGBA", (panel_w, panel_h), (0, 0, 0, 0))
         ImageDraw.Draw(glass).rounded_rectangle([0, 0, panel_w - 1, panel_h - 1], 36, fill=(14, 16, 24, int(200 * k)),
@@ -1009,23 +1059,28 @@ def outro_clip(job):
         frame.alpha_composite(glass, (int(px), int(py)))
         layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
         d = ImageDraw.Draw(layer)
-        d.text((W / 2, py + 90), job.get("label") or "THE VERDICT", font=small, fill=(*accent, 255), anchor="mm")
-        d.text((W / 2, py + 175), brand, font=big, fill=(255, 255, 255, 255), anchor="mm")
-        # the score ring draws itself
-        if isinstance(score, (int, float)):
+        d.text((W / 2, py + 78), job.get("label") or "THE VERDICT", font=small, fill=(*accent, 255), anchor="mm")
+        lh = big.size * 1.1
+        for li, ln in enumerate(brand_lines):
+            d.text((W / 2, py + 200 + (li - (len(brand_lines) - 1) / 2) * lh), ln, font=big,
+                   fill=(255, 255, 255, 255), anchor="mm")
+        vk = ease((t - 1.1) / 0.5)
+        if has_score:                                       # the score ring draws itself
             rk = ease((t - 0.5) / 1.2)
-            r = 96
-            cxr, cyr = W / 2 - 330, py + 380
+            cxr, cyr = gx0 + r, py + 385
             d.ellipse([cxr - r, cyr - r, cxr + r, cyr + r], outline=(255, 255, 255, 40), width=14)
             d.arc([cxr - r, cyr - r, cxr + r, cyr + r], -90, -90 + 360 * (score / 10) * rk, fill=(*vcol, 255), width=14)
-            d.text((cxr, cyr), f"{score * rk:.1f}", font=mid, fill=(255, 255, 255, 255), anchor="mm")
-            vx = W / 2 - 190
+            ring_f = _font("InterDisplay-ExtraBold.otf", 50)
+            d.text((cxr, cyr), f"{score * rk:.1f}", font=ring_f, fill=(255, 255, 255, 255), anchor="mm")
+            d.text((gx0 + 2 * r + 70, py + 385 + (1 - vk) * 20), verdict, font=mid,
+                   fill=(*vcol, int(255 * vk)), anchor="lm")
         else:
-            vx = W / 2
-        vk = ease((t - 1.1) / 0.5)
-        d.text((vx if isinstance(score, (int, float)) else W / 2, py + 380 + (1 - vk) * 20), verdict,
-               font=mid, fill=(*vcol, int(255 * vk)), anchor="lm" if isinstance(score, (int, float)) else "mm")
+            d.text((W / 2, py + 385 + (1 - vk) * 20), verdict, font=mid, fill=(*vcol, int(255 * vk)), anchor="mm")
         frame.alpha_composite(_alpha(layer, k))
+        if proc is None:
+            if f == n - 1:
+                return frame.convert("RGB")
+            continue
         proc.stdin.write(frame.convert("RGB").tobytes())
     proc.stdin.close()
     if proc.wait():

@@ -638,7 +638,13 @@ Structure, in this order:
    in the comments if it has happened to them.
 Finance/legal topics: one short "not financial or legal advice" line.
 Evergreen: never mention the current year or any year.
-Style: calm, serious, documentary tone, short spoken sentences. No hype words like "insane".
+Style: like a calm, caring friend explaining what happened - human and simple, not a news anchor.
+Very simple words, short sentences, contractions. Natural spoken glue now and then ("Okay, so...",
+"Now, here's where it gets messy.", "Honestly,", "kinda"). Show empathy for the person ("that's a
+rough spot to be in"). No jokes about the person's loss or money troubles; at most one gentle, wry
+line about the company's wording. A short friendly call to action mid-video ("if this could save
+someone a headache, a like helps it reach them") and the comment question at the end.
+No hype words like "insane", no stage directions or [sound cues].
 
 VISUALS: 8-9 segments of 38-48 words EACH. Each segment shows ONE screenshot from the list below.
 The story cards ({story_files}) show the post itself: use them in order for the hook and the

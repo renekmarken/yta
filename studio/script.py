@@ -70,10 +70,22 @@ Honesty rules (very important):
 
 Evergreen: never mention the current year or any year, and avoid "right now"/"this year" phrasing,
 so the video stays useful for years. (Facts that change, like prices, are fine: say "at the time of recording".)
-Style: spoken, confident, specific, short sentences, natural contractions. No "welcome back",
-no "in today's video", no "smash that like button", no "let's dive in", no "game-changer".
+Style - sound like a real, friendly person talking to a friend, not a narrator reading an article:
+- Very simple words a 12-year-old gets. Short sentences. Contractions always (it's, you'll, don't).
+  Explain any jargon in plain words the moment you use it ("APY, so basically the interest you earn").
+- Natural spoken glue, used now and then (not in every sentence): "Okay, now...", "So...",
+  "Alright,", "Honestly,", "Here's the thing:", "kinda", "pretty", "a bit", "Now, this part's
+  interesting." Vary them; never the same one twice in a row.
+- A little light humour: 2-3 small, kind jokes or wry asides in the whole script (e.g. "which is
+  a lot of words for 'we keep some of it'", "my wallet flinched a bit there"). Never mock the
+  viewer or real people, never jokes about money troubles, health or anything sensitive.
+- React like a human: short honest reactions ("Okay, that's actually nice.", "Hmm, not great.").
+- Talk to the viewer as "you". Calls to action, natural and short: early on, a light "stick
+  around, the fine print's coming"; mid-video one friendly "if this is helping, a like really
+  helps the channel"; at the end, the verdict, then one specific question for the comments.
+- No "welcome back", no "in today's video", no "smash that like button", no "let's dive in",
+  no "game-changer", no stage directions, no emojis, no [laughs] or other sound cues.
 Do not start with any of these openings used on recent videos: {recent_openers}
-End with the verdict and one specific question for the comments.
 
 VISUALS: split the narration into 8-9 segments of 38-48 words EACH (2-4 full sentences per
 segment; short one-line segments make the video too short). Each segment shows ONE screenshot from the list
