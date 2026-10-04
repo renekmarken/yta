@@ -494,7 +494,7 @@
    "added": "2026-10-02T19:26:01+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:01+00:00",
-   "priority": 11.72,
+   "priority": 11.71,
    "cat": "💻 SaaS / business software"
   },
   "chat.sh": {
@@ -510,7 +510,7 @@
    "added": "2026-10-02T19:26:02+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:02+00:00",
-   "priority": 11.72,
+   "priority": 11.71,
    "cat": "💻 SaaS / business software"
   },
   "fidelity.com": {
@@ -596,7 +596,7 @@
    "added": "2026-10-02T23:52:45+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:45+00:00",
-   "priority": 12.18,
+   "priority": 12.17,
    "cat": "📈 Investing platforms"
   },
   "notchmind.com": {
@@ -612,7 +612,7 @@
    "added": "2026-10-02T23:52:45+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:45+00:00",
-   "priority": 11.97,
+   "priority": 11.96,
    "cat": "💻 SaaS / business software"
   },
   "typestream.io": {
@@ -874,7 +874,7 @@
    "added": "2026-10-03T11:50:42+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:42+00:00",
-   "priority": 13.31,
+   "priority": 13.3,
    "cat": "🤖 AI tools"
   },
   "feelmymac.com": {
@@ -906,7 +906,7 @@
    "added": "2026-10-04T02:52:54+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:43+00:00",
-   "priority": 13.8,
+   "priority": 13.79,
    "cat": "🤖 AI tools"
   },
   "bmux.dev": {
@@ -922,7 +922,7 @@
    "added": "2026-10-03T23:11:52+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:44+00:00",
-   "priority": 13.59,
+   "priority": 13.58,
    "cat": "💻 SaaS / business software"
   },
   "otpfill.com": {
@@ -954,7 +954,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:45+00:00",
-   "priority": 13.12,
+   "priority": 13.11,
    "cat": "💻 SaaS / business software"
   },
   "unamano.app": {
@@ -970,7 +970,7 @@
    "added": "2026-10-03T23:11:52+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:45+00:00",
-   "priority": 13.59,
+   "priority": 13.58,
    "cat": "💻 SaaS / business software"
   },
   "wattmate.app": {
@@ -986,7 +986,7 @@
    "added": "2026-10-04T02:53:17+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:46+00:00",
-   "priority": 13.12,
+   "priority": 13.11,
    "cat": "💻 SaaS / business software"
   },
   "bambulab.com": {
@@ -1002,7 +1002,7 @@
    "added": "2026-10-03T16:32:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T16:32:06+00:00",
-   "priority": 13.55,
+   "priority": 13.54,
    "cat": "📊 Business tools"
   },
   "communicate.so": {
@@ -1034,7 +1034,7 @@
    "added": "2026-10-03T20:01:48+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:01:48+00:00",
-   "priority": 13.32,
+   "priority": 13.31,
    "cat": "🤖 AI tools"
   },
   "weftcut.com": {
@@ -1050,7 +1050,7 @@
    "added": "2026-10-03T23:11:52+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:01:49+00:00",
-   "priority": 13.99,
+   "priority": 13.98,
    "cat": "🤖 AI tools"
   },
   "outmarket.com": {
@@ -1085,22 +1085,6 @@
    "priority": 12.67,
    "cat": "📊 Business tools"
   },
-  "singularity.network": {
-   "name": "Singularity",
-   "url": "https://singularity.network",
-   "category": "ai-tools",
-   "hotness": 8.0,
-   "evergreen": false,
-   "why": "Run multiple AI coding agents in parallel, one ticket at a time.",
-   "sources": [
-    "Product Hunt (launch)"
-   ],
-   "added": "2026-10-03T23:11:52+00:00",
-   "launch": "this_week",
-   "launch_seen": "2026-10-03T23:11:52+00:00",
-   "priority": 14.11,
-   "cat": "🤖 AI tools"
-  },
   "rhun.app": {
    "name": "Rhun",
    "url": "https://rhun.app",
@@ -1114,7 +1098,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:33+00:00",
-   "priority": 13.72,
+   "priority": 13.71,
    "cat": "💻 SaaS / business software"
   },
   "lathoa.ai": {
@@ -1130,7 +1114,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:33+00:00",
-   "priority": 13.8,
+   "priority": 13.79,
    "cat": "🤖 AI tools"
   },
   "innerloop.works/breadcrumb": {
@@ -1146,7 +1130,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:33+00:00",
-   "priority": 13.8,
+   "priority": 13.79,
    "cat": "🤖 AI tools"
   },
   "zoowork.com": {
@@ -1162,7 +1146,7 @@
    "added": "2026-10-04T02:52:54+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:54+00:00",
-   "priority": 13.8,
+   "priority": 13.79,
    "cat": "🤖 AI tools"
   },
   "cubicle.dev": {
@@ -1178,7 +1162,7 @@
    "added": "2026-10-04T02:52:54+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:54+00:00",
-   "priority": 13.72,
+   "priority": 13.71,
    "cat": "💻 SaaS / business software"
   },
   "reassign.app": {
@@ -1194,8 +1178,24 @@
    "added": "2026-10-04T02:52:55+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:55+00:00",
-   "priority": 13.72,
+   "priority": 13.71,
    "cat": "💻 SaaS / business software"
+  },
+  "yubi.app": {
+   "name": "Yubi",
+   "url": "https://yubi.app",
+   "category": "ai-tools",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Talk naturally to your Mac and let Yubi handle all the typing.",
+   "sources": [
+    "Product Hunt (launch)"
+   ],
+   "added": "2026-10-04T02:53:17+00:00",
+   "launch": "this_week",
+   "launch_seen": "2026-10-04T02:53:17+00:00",
+   "priority": 13.79,
+   "cat": "🤖 AI tools"
   },
   "kilo.health": {
    "name": "Kilo",
@@ -1210,9 +1210,9 @@
    "added": "2026-10-04T02:53:18+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:53:18+00:00",
-   "priority": 13.72,
+   "priority": 13.71,
    "cat": "💻 SaaS / business software"
   }
  },
- "updated": "2026-10-04T15:42:51+00:00"
+ "updated": "2026-10-04T15:48:17+00:00"
 }

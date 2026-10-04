@@ -512,5 +512,12 @@
   "url": "https://carnival.com",
   "status": "done",
   "date": "2026-10-04"
+ },
+ {
+  "site": "singularity.network",
+  "name": "Singularity",
+  "url": "https://singularity.network",
+  "status": "failed",
+  "date": "2026-10-04"
  }
 ]
