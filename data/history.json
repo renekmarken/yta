@@ -4903,5 +4903,97 @@
     "banner/emerald/worth"
    ]
   }
+ },
+ {
+  "date": "2026-10-05",
+  "url": "whitescreen:video-unavailable-091156-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Video Unavailable]",
+  "title_base": "[Video Unavailable]",
+  "format": "error",
+  "comment_word": "STILL HERE",
+  "hook": [
+   "This video is showing as unavailable for almost everyone right now.",
+   "If you’re somehow watching this, you’re looking at a major glitch in the system.",
+   "I’m not sure how long this page is going to stay up before it completely disappears."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "ui",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-05",
+  "url": "whitescreen:only-you-can-watch-this-video-091156-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Only You Can Watch This Video",
+  "title_base": "Only You Can Watch This Video",
+  "format": "only",
+  "comment_word": "ONLY ME",
+  "hook": [
+   "This video isn't meant for everyone...",
+   "In fact, right now, only you are supposed to be watching this exact link.",
+   "It's a little test to see who finds it before it gets restricted."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "headline",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-05",
+  "url": "whitescreen:don-t-be-the-1st-person-to-comment-091156-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Don't Be The 1st Person To Comment",
+  "title_base": "Don't Be The 1st Person To Comment",
+  "format": "dare",
+  "comment_word": "NOT FIRST",
+  "hook": [
+   "Everybody wants to be the very first person to leave a comment on a new video.",
+   "But for this specific video... I actually don't want you to be first.",
+   "In fact, let's see if you can hold back and wait until someone else does it."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "headline",
+    "white"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-05",
+  "url": "whitescreen:i-will-heart-every-comment-091156-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "I Will Heart Every Comment",
+  "title_base": "I Will Heart Every Comment",
+  "format": "pin",
+  "comment_word": "HEART ME",
+  "hook": [
+   "I'm going to heart every single comment on this video...",
+   "but only for the next 24 hours.",
+   "Starting right now, I'm sitting here and reading everything you write."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "headline",
+    "character"
+   ]
+  },
+  "youtube": null
  }
 ]
