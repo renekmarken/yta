@@ -4995,5 +4995,189 @@
    ]
   },
   "youtube": null
+ },
+ {
+  "date": "2026-10-05",
+  "url": "whitescreen:this-video-has-0-likes-131056-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 0 Likes",
+  "title_base": "This Video Has 0 Likes",
+  "format": "count",
+  "comment_word": "ZERO",
+  "hook": [
+   "This video has 0 likes and 0 comments right now.",
+   "And honestly, I want to keep it that way for a little experiment.",
+   "I'm going to leave this video here and see how long it takes for someone to finally interact with it."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "white",
+    "headline"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-05",
+  "url": "whitescreen:only-you-can-comment-on-this-video-131056-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Only YOU can comment on this video",
+  "title_base": "Only YOU can comment on this video",
+  "format": "only",
+  "comment_word": "ONLY ME",
+  "hook": [
+   "Only you can comment on this exact video right now.",
+   "Because I changed the settings so nobody else on YouTube can leave a message.",
+   "No matter how many people watch this, the comment section belongs to whoever is watching this single second."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "icon",
+    "headline"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-05",
+  "url": "whitescreen:removed-video-131056-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Removed Video]",
+  "title_base": "[Removed Video]",
+  "format": "error",
+  "comment_word": "REMOVED",
+  "hook": [
+   "This video is getting removed from YouTube in 24 hours.",
+   "Not private, not unlisted... it's getting permanently removed.",
+   "Once that happens, you won't ever see it on your feed again."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "error_glow",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-05",
+  "url": "whitescreen:glitched-video-131056-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Glitched Video]",
+  "title_base": "[Glitched Video]",
+  "format": "error",
+  "comment_word": "GLITCHED",
+  "hook": [
+   "This video is completely glitched right now...",
+   "and it might disappear from your feed in the next 24 hours.",
+   "If you are watching this before it fixes itself..."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "character",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-05",
+  "url": "whitescreen:this-video-disappears-in-1-hour-131056-4",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Disappears In 1 Hour",
+  "title_base": "This Video Disappears In 1 Hour",
+  "format": "deadline",
+  "comment_word": "ONE HOUR",
+  "hook": [
+   "This video is going to completely disappear in exactly one hour.",
+   "So if you are watching this right now, you found it just in time.",
+   "I am not making it private, and I am not hiding it."
+  ],
+  "theme": {
+   "thumbs": [
+    "headline",
+    "ui",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-05",
+  "url": "whitescreen:hidden-video-131056-5",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Hidden Video]",
+  "title_base": "[Hidden Video]",
+  "format": "error",
+  "comment_word": "HIDDEN VIEWER",
+  "hook": [
+   "This video is completely hidden from search right now...",
+   "So if you managed to find it, you're one of the very first people here.",
+   "I'm keeping it unlisted for just a few days before I open it up to everyone."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "ui",
+    "error_glow"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-05",
+  "url": "whitescreen:let-s-balance-the-likes-comments-131056-6",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Let's Balance The Likes & Comments",
+  "title_base": "Let's Balance The Likes & Comments",
+  "format": "goal",
+  "comment_word": "BALANCE",
+  "hook": [
+   "Right now, we have a major problem with this video.",
+   "The number of likes and comments is completely unbalanced.",
+   "One side is way higher than the other, and it's driving me crazy."
+  ],
+  "theme": {
+   "thumbs": [
+    "white",
+    "headline",
+    "icon"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-05",
+  "url": "whitescreen:this-video-has-0-likes-and-0-comments-131056-7",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 0 Likes And 0 Comments",
+  "title_base": "This Video Has 0 Likes And 0 Comments",
+  "format": "count",
+  "comment_word": "ZERO LIKES",
+  "hook": [
+   "This video currently has zero likes and zero comments.",
+   "And honestly...",
+   "I want to see how long we can keep it that way."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "character",
+    "headline"
+   ]
+  },
+  "youtube": null
  }
 ]
