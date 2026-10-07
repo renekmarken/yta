@@ -5225,5 +5225,189 @@
    ]
   },
   "youtube": null
+ },
+ {
+  "date": "2026-10-07",
+  "url": "whitescreen:face-reveal-final-chance-143306-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Face Reveal Final Chance...",
+  "title_base": "Face Reveal Final Chance...",
+  "format": "reveal",
+  "comment_word": "FACE REVEAL",
+  "hook": [
+   "This is genuinely your absolute final chance to see my face.",
+   "I am giving this specific video just 48 hours.",
+   "If it hits 12,000 likes by then, I will finally do the face reveal."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "icon",
+    "headline"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-07",
+  "url": "whitescreen:first-comment-gets-pinned-143306-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "First Comment Gets Pinned",
+  "title_base": "First Comment Gets Pinned",
+  "format": "pin",
+  "comment_word": "FIRST",
+  "hook": [
+   "Whoever leaves the very first comment on this video...",
+   "is going to get their comment pinned to the top.",
+   "And that means everyone who watches this after you..."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "headline",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-07",
+  "url": "whitescreen:this-video-has-0-comments-143306-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 0 Comments",
+  "title_base": "This Video Has 0 Comments",
+  "format": "count",
+  "comment_word": "FIRST",
+  "hook": [
+   "This video has zero comments right now...",
+   "And I want to see how long we can keep it that way before someone ruins it.",
+   "Most videos get flooded with comments in the first few minutes."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "character",
+    "white"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-07",
+  "url": "whitescreen:deleted-video-143306-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Deleted Video]",
+  "title_base": "[Deleted Video]",
+  "format": "error",
+  "comment_word": "FIRST WAVE",
+  "hook": [
+   "This video is going to be deleted in 24 hours.",
+   "So if you are watching this right now, you found it just in time.",
+   "I am not making it private."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "ui",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-07",
+  "url": "whitescreen:my-real-age-reveal-143306-4",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "My REAL Age Reveal",
+  "title_base": "My REAL Age Reveal",
+  "format": "reveal",
+  "comment_word": "MY AGE",
+  "hook": [
+   "I bet you think I'm way older than I actually am...",
+   "Most people in the comments always guess the wrong number.",
+   "So let's finally clear this up."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "headline",
+    "icon"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-07",
+  "url": "whitescreen:this-video-disappears-in-1-hour-143306-5",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Disappears In 1 Hour",
+  "title_base": "This Video Disappears In 1 Hour",
+  "format": "deadline",
+  "comment_word": "ONE HOUR",
+  "hook": [
+   "This video is going to completely disappear in exactly one hour.",
+   "So if you are watching this right now, you found it just in time.",
+   "I am not making it private, and I am not hiding it."
+  ],
+  "theme": {
+   "thumbs": [
+    "headline",
+    "ui",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-07",
+  "url": "whitescreen:only-67-people-can-comment-143306-6",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Only 67 People Can Comment",
+  "title_base": "Only 67 People Can Comment",
+  "format": "goal",
+  "comment_word": "I WAS HERE",
+  "hook": [
+   "Only sixty seven people are allowed to comment on this video.",
+   "That is the absolute limit.",
+   "Once we hit that exact number, I am turning the comments off forever."
+  ],
+  "theme": {
+   "thumbs": [
+    "white",
+    "headline",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-07",
+  "url": "whitescreen:unlisted-video-143306-7",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Unlisted Video]",
+  "title_base": "[Unlisted Video]",
+  "format": "error",
+  "comment_word": "UNLISTED LINK",
+  "hook": [
+   "This video is completely unlisted right now...",
+   "So nobody can find it unless they have the direct link.",
+   "And honestly, I want to see how far a hidden video can actually travel."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "ui",
+    "error_glow"
+   ]
+  },
+  "youtube": null
  }
 ]
