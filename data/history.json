@@ -5228,90 +5228,67 @@
  },
  {
   "date": "2026-10-07",
-  "url": "whitescreen:face-reveal-final-chance-143306-0",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Face Reveal Final Chance...",
-  "title_base": "Face Reveal Final Chance...",
-  "format": "reveal",
-  "comment_word": "FACE REVEAL",
-  "hook": [
-   "This is genuinely your absolute final chance to see my face.",
-   "I am giving this specific video just 48 hours.",
-   "If it hits 12,000 likes by then, I will finally do the face reveal."
-  ],
-  "theme": {
-   "thumbs": [
-    "character",
-    "icon",
-    "headline"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-07",
-  "url": "whitescreen:first-comment-gets-pinned-143306-1",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "First Comment Gets Pinned",
-  "title_base": "First Comment Gets Pinned",
-  "format": "pin",
-  "comment_word": "FIRST",
-  "hook": [
-   "Whoever leaves the very first comment on this video...",
-   "is going to get their comment pinned to the top.",
-   "And that means everyone who watches this after you..."
-  ],
-  "theme": {
-   "thumbs": [
-    "ui",
-    "headline",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-07",
-  "url": "whitescreen:this-video-has-0-comments-143306-2",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "This Video Has 0 Comments",
-  "title_base": "This Video Has 0 Comments",
-  "format": "count",
-  "comment_word": "FIRST",
-  "hook": [
-   "This video has zero comments right now...",
-   "And I want to see how long we can keep it that way before someone ruins it.",
-   "Most videos get flooded with comments in the first few minutes."
-  ],
-  "theme": {
-   "thumbs": [
-    "ui",
-    "character",
-    "white"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-07",
-  "url": "whitescreen:deleted-video-143306-3",
+  "url": "whitescreen:deleted-video-145117-0",
   "brand": "",
   "kind": "whitescreen",
   "title": "[Deleted Video]",
   "title_base": "[Deleted Video]",
   "format": "error",
-  "comment_word": "FIRST WAVE",
+  "comment_word": "FOUND IT",
   "hook": [
-   "This video is going to be deleted in 24 hours.",
-   "So if you are watching this right now, you found it just in time.",
-   "I am not making it private."
+   "This video is getting deleted in exactly 24 hours.",
+   "So if you managed to find it right now, you are one of the very few.",
+   "I am not making it private..."
   ],
   "theme": {
    "thumbs": [
     "error",
+    "error_glow",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-07",
+  "url": "whitescreen:glitched-video-145117-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Glitched Video",
+  "title_base": "{{Glitched Video}}",
+  "format": "error",
+  "comment_word": "GLITCHED",
+  "hook": [
+   "Something is seriously wrong with this video...",
+   "and if you're watching right now, you can probably see the glitch.",
+   "The entire frame keeps flickering, and the algorithm is struggling to process it."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "character",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-07",
+  "url": "whitescreen:this-video-will-be-deleted-tomorrow-145117-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Will Be Deleted Tomorrow",
+  "title_base": "This Video Will Be Deleted Tomorrow",
+  "format": "deadline",
+  "comment_word": "DELETED",
+  "hook": [
+   "This video is scheduled to be completely deleted tomorrow.",
+   "So if you’re watching this right now, you found it just in time.",
+   "I’m not hiding it or making it private... I’m actually deleting it for good."
+  ],
+  "theme": {
+   "thumbs": [
+    "headline",
     "ui",
     "character"
    ]
@@ -5320,22 +5297,45 @@
  },
  {
   "date": "2026-10-07",
-  "url": "whitescreen:my-real-age-reveal-143306-4",
+  "url": "whitescreen:only-you-can-watch-this-video-145117-3",
   "brand": "",
   "kind": "whitescreen",
-  "title": "My REAL Age Reveal",
-  "title_base": "My REAL Age Reveal",
-  "format": "reveal",
-  "comment_word": "MY AGE",
+  "title": "Only You Can Watch This Video",
+  "title_base": "Only You Can Watch This Video",
+  "format": "only",
+  "comment_word": "ONLY ME",
   "hook": [
-   "I bet you think I'm way older than I actually am...",
-   "Most people in the comments always guess the wrong number.",
-   "So let's finally clear this up."
+   "This video isn't meant for everyone...",
+   "In fact, right now, only you are supposed to be watching this exact link.",
+   "It's a tiny test to see who finds it before it gets completely restricted."
   ],
   "theme": {
    "thumbs": [
     "character",
     "headline",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-07",
+  "url": "whitescreen:this-video-won-t-get-1-000-comments-145117-4",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Won't Get 1,000 Comments",
+  "title_base": "This Video Won't Get 1,000 Comments",
+  "format": "goal",
+  "comment_word": "ONE THOUSAND",
+  "hook": [
+   "I have a strange challenge for you today...",
+   "I want to see if this video can somehow reach one thousand comments...",
+   "Even though most people will probably just scroll right past it."
+  ],
+  "theme": {
+   "thumbs": [
+    "white",
+    "character",
     "icon"
    ]
   },
@@ -5343,69 +5343,69 @@
  },
  {
   "date": "2026-10-07",
-  "url": "whitescreen:this-video-disappears-in-1-hour-143306-5",
+  "url": "whitescreen:no-access-145117-5",
   "brand": "",
   "kind": "whitescreen",
-  "title": "This Video Disappears In 1 Hour",
-  "title_base": "This Video Disappears In 1 Hour",
-  "format": "deadline",
-  "comment_word": "ONE HOUR",
-  "hook": [
-   "This video is going to completely disappear in exactly one hour.",
-   "So if you are watching this right now, you found it just in time.",
-   "I am not making it private, and I am not hiding it."
-  ],
-  "theme": {
-   "thumbs": [
-    "headline",
-    "ui",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-07",
-  "url": "whitescreen:only-67-people-can-comment-143306-6",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Only 67 People Can Comment",
-  "title_base": "Only 67 People Can Comment",
-  "format": "goal",
-  "comment_word": "I WAS HERE",
-  "hook": [
-   "Only sixty seven people are allowed to comment on this video.",
-   "That is the absolute limit.",
-   "Once we hit that exact number, I am turning the comments off forever."
-  ],
-  "theme": {
-   "thumbs": [
-    "white",
-    "headline",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-07",
-  "url": "whitescreen:unlisted-video-143306-7",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Unlisted Video]",
-  "title_base": "[Unlisted Video]",
+  "title": "[No Access]",
+  "title_base": "[No Access]",
   "format": "error",
-  "comment_word": "UNLISTED LINK",
+  "comment_word": "NO ACCESS",
   "hook": [
-   "This video is completely unlisted right now...",
-   "So nobody can find it unless they have the direct link.",
-   "And honestly, I want to see how far a hidden video can actually travel."
+   "This video currently has no access for almost everyone...",
+   "Only a tiny group of people can actually watch this right now.",
+   "And honestly, I'm not sure how long this page will stay open."
   ],
   "theme": {
    "thumbs": [
     "error",
     "ui",
-    "error_glow"
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-07",
+  "url": "whitescreen:don-t-pause-this-video-145117-6",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Don't Pause This Video",
+  "title_base": "Don't Pause This Video",
+  "format": "dare",
+  "comment_word": "STAYED UNTIL THE END",
+  "hook": [
+   "Don't pause this video...",
+   "Seriously, just let it keep playing right until the very end.",
+   "I'm testing something with the algorithm today..."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "icon",
+    "white"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-07",
+  "url": "whitescreen:don-t-watch-this-video-twice-145117-7",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Don't Watch This Video Twice",
+  "title_base": "Don't Watch This Video Twice",
+  "format": "dare",
+  "comment_word": "ONE TIME ONLY",
+  "hook": [
+   "You just clicked on this video... but you're not supposed to stay.",
+   "This is a strict one-time-only rule.",
+   "If you watch it twice, the experiment is completely ruined."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "white",
+    "icon"
    ]
   },
   "youtube": null
