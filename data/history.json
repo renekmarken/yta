@@ -5179,5 +5179,28 @@
    ]
   },
   "youtube": null
+ },
+ {
+  "date": "2026-10-07",
+  "url": "whitescreen:own-you-have-no-access-to-this-video-120946-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "You have no access to this video",
+  "title_base": "You have no access to this video",
+  "format": "goal",
+  "comment_word": "NO ACCESS",
+  "hook": [
+   "You actually have no access to this video right now.",
+   "At least, that is what the system tells you...",
+   "Even though you are watching it."
+  ],
+  "theme": {
+   "thumbs": [
+    "white",
+    "headline",
+    "icon"
+   ]
+  },
+  "youtube": null
  }
 ]
