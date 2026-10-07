@@ -5202,5 +5202,28 @@
    ]
   },
   "youtube": null
+ },
+ {
+  "date": "2026-10-07",
+  "url": "whitescreen:own-video-not-found-140933-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Video not found",
+  "title_base": "Video not found",
+  "format": "goal",
+  "comment_word": "ERROR 404",
+  "hook": [
+   "Most people are going to click away from this video right now.",
+   "Because according to YouTube, this video technically doesn't even exist.",
+   "There's no title showing up on most feeds."
+  ],
+  "theme": {
+   "thumbs": [
+    "white",
+    "icon",
+    "character"
+   ]
+  },
+  "youtube": null
  }
 ]
