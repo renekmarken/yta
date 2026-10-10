@@ -5409,5 +5409,189 @@
    ]
   },
   "youtube": null
+ },
+ {
+  "date": "2026-10-10",
+  "url": "whitescreen:video-unavailable-085959-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Video Unavailable]",
+  "title_base": "[Video Unavailable]",
+  "format": "error",
+  "comment_word": "UNLOCKED",
+  "hook": [
+   "You weren't supposed to be able to play this video.",
+   "Right now, this link is marked as completely unavailable for almost everyone.",
+   "So if you're watching this screen move, you're part of a tiny test group."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "error_glow",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-10",
+  "url": "whitescreen:hidden-video-085959-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Hidden Video]",
+  "title_base": "[Hidden Video]",
+  "format": "error",
+  "comment_word": "SECRET LINK",
+  "hook": [
+   "You weren't supposed to find this video today.",
+   "If you check my channel page right now, this video doesn't exist.",
+   "It's completely hidden from my uploads... and invisible to search."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "character",
+    "error_glow"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-10",
+  "url": "whitescreen:this-video-has-1-comment-085959-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 1 Comment",
+  "title_base": "This Video Has 1 Comment",
+  "format": "count",
+  "comment_word": "SECOND",
+  "hook": [
+   "This video has exactly 1 comment right now... and it's mine.",
+   "I left one pinned comment below, and I wanted to see how long this video could stay at just one.",
+   "But since you found this on your feed, the experiment is about to change."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "headline",
+    "white"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-10",
+  "url": "whitescreen:cursed-video-085959-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Cursed Video]",
+  "title_base": "[Cursed Video]",
+  "format": "error",
+  "comment_word": "SAFE",
+  "hook": [
+   "There’s an old rumor that this video is cursed.",
+   "People say that if you watch it without interacting, your YouTube feed gets completely ruined.",
+   "I didn’t believe it at first..."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "error_glow",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-10",
+  "url": "whitescreen:this-video-has-0-comments-085959-4",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 0 Comments",
+  "title_base": "This Video Has 0 Comments",
+  "format": "count",
+  "comment_word": "FIRST",
+  "hook": [
+   "This video has zero comments right now...",
+   "and I want to see how long we can keep it that way.",
+   "Most videos get flooded with comments in the first few minutes."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "character",
+    "white"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-10",
+  "url": "whitescreen:private-video-085959-5",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "<Private Video>",
+  "title_base": "<Private Video>",
+  "format": "error",
+  "comment_word": "LOCKED IN",
+  "hook": [
+   "You weren't supposed to find this video today.",
+   "In exactly 24 hours, I'm switching this video to private.",
+   "Once that happens, it's locked forever and nobody else can search for it."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "character",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-10",
+  "url": "whitescreen:unlisted-video-085959-6",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Unlisted Video]",
+  "title_base": "[Unlisted Video]",
+  "format": "error",
+  "comment_word": "RECOMMENDED",
+  "hook": [
+   "YouTube was never supposed to show you this video.",
+   "I set this video to unlisted earlier today, so nobody should find it without a link.",
+   "It shouldn't be in your feed, and it shouldn't be recommended."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "character",
+    "error_glow"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-10",
+  "url": "whitescreen:face-reveal-final-chance-085959-7",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Face Reveal Final Chance...",
+  "title_base": "Face Reveal Final Chance...",
+  "format": "reveal",
+  "comment_word": "FACE REVEAL",
+  "hook": [
+   "This is genuinely your absolute final chance to see my face.",
+   "I'm giving this specific video just 48 hours.",
+   "If it hits 12,000 likes by then, I will finally do the face reveal."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "icon",
+    "headline"
+   ]
+  },
+  "youtube": null
  }
 ]
