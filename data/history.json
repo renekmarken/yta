@@ -5593,5 +5593,189 @@
    ]
   },
   "youtube": null
+ },
+ {
+  "date": "2026-10-10",
+  "url": "whitescreen:deleted-content-153815-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Deleted Content]",
+  "title_base": "[Deleted Content]",
+  "format": "error",
+  "comment_word": "ARCHIVED",
+  "hook": [
+   "This piece of content is scheduled to be completely deleted tomorrow night.",
+   "Once it disappears from this channel, there won't be any backup or re-upload.",
+   "YouTube pushed this straight to your feed before the timer ran out... which means you got lucky."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "ui",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-10",
+  "url": "whitescreen:face-reveal-153815-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Face Reveal...",
+  "title_base": "Face Reveal...",
+  "format": "reveal",
+  "comment_word": "UNMASK",
+  "hook": [
+   "Everyone keeps asking who's behind this channel, so I'm making a deal before this weekend ends.",
+   "If this video hits 12,000 likes before Sunday midnight, I'm finally showing my face.",
+   "I've kept my identity completely hidden, but I'm ready to end the mystery."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "headline",
+    "icon"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-10",
+  "url": "whitescreen:locked-video-153815-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Locked Video]",
+  "title_base": "[Locked Video]",
+  "format": "error",
+  "comment_word": "UNLOCKED",
+  "hook": [
+   "This video is getting locked tomorrow.",
+   "Once it's locked, nobody new can ever watch it or leave a comment.",
+   "So if you're watching this right now, you found it while the door was still open."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "error_glow",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-10",
+  "url": "whitescreen:secret-video-153815-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Secret Video]",
+  "title_base": "[Secret Video]",
+  "format": "error",
+  "comment_word": "SECRET FOUND",
+  "hook": [
+   "This is a secret video that barely anyone is meant to find.",
+   "It's hidden deep inside the channel and it won't stay up long.",
+   "I'm testing how the algorithm acts when a totally unknown link gets discovered."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "ui",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-10",
+  "url": "whitescreen:this-video-is-upside-down-153815-4",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "this video is upside down",
+  "title_base": "this video is upside down",
+  "format": "dare",
+  "comment_word": "UPSIDE DOWN",
+  "hook": [
+   "Most people are watching this video the wrong way right now...",
+   "And honestly, it's pretty funny.",
+   "I uploaded this entire video completely upside down just to see who would notice."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "white",
+    "headline"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-10",
+  "url": "whitescreen:this-video-has-5-comments-153815-5",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 5 Comments",
+  "title_base": "This Video Has 5 Comments",
+  "format": "count",
+  "comment_word": "FIVE COMMENTS",
+  "hook": [
+   "This video currently has exactly five comments.",
+   "And I want to see how long we can keep it frozen at that exact number.",
+   "If you're watching this right now and the comment count is still five..."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "white",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-10",
+  "url": "whitescreen:i-m-deleting-this-in-2-days-153815-6",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "I'm Deleting This in 2 Days...",
+  "title_base": "I'm Deleting This in 2 Days...",
+  "format": "deadline",
+  "comment_word": "2 DAYS",
+  "hook": [
+   "I'm actually deleting this video in 2 days.",
+   "So if you're watching it right now, you found it just in time.",
+   "Before it disappears completely, I want to see who made it here."
+  ],
+  "theme": {
+   "thumbs": [
+    "headline",
+    "ui",
+    "icon"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-10",
+  "url": "whitescreen:this-video-will-self-destruct-in-24-hour-153815-7",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Will Self Destruct In 24 Hours...",
+  "title_base": "This Video Will Self Destruct In 24 Hours...",
+  "format": "deadline",
+  "comment_word": "TIME OUT",
+  "hook": [
+   "This video is going to self destruct in exactly twenty four hours.",
+   "So if you're watching this right now, you found it just in time.",
+   "I'm setting a timer, and when it runs out, the video is gone for good."
+  ],
+  "theme": {
+   "thumbs": [
+    "headline",
+    "icon",
+    "ui"
+   ]
+  },
+  "youtube": null
  }
 ]
