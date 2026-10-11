@@ -5961,5 +5961,120 @@
    ]
   },
   "youtube": null
+ },
+ {
+  "date": "2026-10-11",
+  "url": "whitescreen:own-mrbeast-won-t-comment-191942-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "MrBeast won’t comment",
+  "title_base": "MrBeast won’t comment",
+  "format": "goal",
+  "comment_word": "MRBEAST",
+  "hook": [
+   "It's mathematically impossible for MrBeast to comment on this video.",
+   "Let's be completely honest with each other for a second.",
+   "He gets millions of notifications every single day."
+  ],
+  "theme": {
+   "thumbs": [
+    "white",
+    "icon",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-11",
+  "url": "whitescreen:own-mrbeast-will-not-comment-191942-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Mrbeast will not comment",
+  "title_base": "Mrbeast will not comment",
+  "format": "goal",
+  "comment_word": "MRBEAST",
+  "hook": [
+   "Everybody always talks about MrBeast commenting on random videos.",
+   "So I wanted to test it out right here on this channel.",
+   "I bet you right now that MrBeast will not comment on this video."
+  ],
+  "theme": {
+   "thumbs": [
+    "white",
+    "icon",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-11",
+  "url": "whitescreen:cursed-video-191942-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Cursed Video]",
+  "title_base": "[Cursed Video]",
+  "format": "error",
+  "comment_word": "IMMUNE",
+  "hook": [
+   "If this video appeared on your feed, whatever you do, don't scroll yet.",
+   "People have been calling this the most cursed video on YouTube.",
+   "The story goes that if you watch it and just swipe past, your recommendations get completely broken for a whole week."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "ui",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-11",
+  "url": "whitescreen:private-video-191942-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "<Private Video>",
+  "title_base": "<Private Video>",
+  "format": "error",
+  "comment_word": "LOCKED IN",
+  "hook": [
+   "You weren't supposed to find this video today.",
+   "In exactly 48 hours, I'm switching this video to private.",
+   "Once that happens, it's locked forever and nobody else can search for it."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "character",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-11",
+  "url": "whitescreen:face-reveal-191942-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Face Reveal...",
+  "title_base": "Face Reveal...",
+  "format": "reveal",
+  "comment_word": "UNMASK",
+  "hook": [
+   "Everyone keeps asking who's behind this channel...",
+   "so I'm making a deal before this weekend ends.",
+   "If this video hits 14,000 likes before Sunday midnight..."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "headline",
+    "icon"
+   ]
+  },
+  "youtube": null
  }
 ]
