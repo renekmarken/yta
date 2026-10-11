@@ -5777,5 +5777,189 @@
    ]
   },
   "youtube": null
+ },
+ {
+  "date": "2026-10-11",
+  "url": "whitescreen:deleted-video-141920-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Deleted Video]",
+  "title_base": "[Deleted Video]",
+  "format": "error",
+  "comment_word": "GOODBYE",
+  "hook": [
+   "This video is getting deleted the moment it hits 5,000 likes.",
+   "That means every single like brings it closer to being gone forever.",
+   "Most creators want their videos to stay up... but I want to see how fast we can erase this one."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "character",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-11",
+  "url": "whitescreen:glitched-video-141920-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Glitched Video",
+  "title_base": "{{Glitched Video}}",
+  "format": "error",
+  "comment_word": "CORRUPTED",
+  "hook": [
+   "This video wasn't supposed to go public today.",
+   "When I exported it, the file corrupted at 99 percent...",
+   "but somehow, YouTube still processed it and put it on your screen."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "error_glow",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-11",
+  "url": "whitescreen:this-video-has-0-likes-141920-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 0 Likes",
+  "title_base": "This Video Has 0 Likes",
+  "format": "count",
+  "comment_word": "FIRST 5K",
+  "hook": [
+   "Check the like button right now...",
+   "Does it still say zero?",
+   "If it does, you just caught this video at the rarest possible moment."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "white",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-11",
+  "url": "whitescreen:this-video-won-t-get-1-000-comments-141920-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Won't Get 1,000 Comments",
+  "title_base": "This Video Won't Get 1,000 Comments",
+  "format": "goal",
+  "comment_word": "PROVE IT",
+  "hook": [
+   "Most videos get thousands of views, but barely any comments.",
+   "So I'm running a fast experiment to see what happens.",
+   "Somebody told me this video won't get one thousand comments before tomorrow."
+  ],
+  "theme": {
+   "thumbs": [
+    "white",
+    "icon",
+    "headline"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-11",
+  "url": "whitescreen:removed-video-141920-4",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Removed Video]",
+  "title_base": "[Removed Video]",
+  "format": "error",
+  "comment_word": "LOST",
+  "hook": [
+   "By tomorrow night, this upload is getting removed.",
+   "And honestly... I wasn't even supposed to post it today.",
+   "I set an automatic timer, and once it runs out, the entire video disappears."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "ui",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-11",
+  "url": "whitescreen:this-video-will-be-deleted-tomorrow-141920-5",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Will Be Deleted Tomorrow",
+  "title_base": "This Video Will Be Deleted Tomorrow",
+  "format": "deadline",
+  "comment_word": "GOODBYE",
+  "hook": [
+   "Tomorrow morning, this entire video is getting permanently deleted.",
+   "You literally have less than twenty-four hours to see this before it’s gone.",
+   "I’m not setting it to unlisted or private… I’m deleting it completely."
+  ],
+  "theme": {
+   "thumbs": [
+    "headline",
+    "icon",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-11",
+  "url": "whitescreen:video-unavailable-141920-6",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Video Unavailable]",
+  "title_base": "[Video Unavailable]",
+  "format": "error",
+  "comment_word": "BYPASS",
+  "hook": [
+   "This video was supposed to say Video Unavailable.",
+   "For most people who click this link today... that's all they see.",
+   "An error screen, an endless loading wheel, and nothing else."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "error_glow",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-11",
+  "url": "whitescreen:this-video-will-self-destruct-in-24-hour-141920-7",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Will Self Destruct In 24 Hours...",
+  "title_base": "This Video Will Self Destruct In 24 Hours...",
+  "format": "deadline",
+  "comment_word": "SURVIVED",
+  "hook": [
+   "Right now, this video has a 24-hour countdown ticking down to zero.",
+   "When the timer hits tomorrow, this entire upload gets wiped from YouTube.",
+   "No private mode... no unlisted link... it's just completely gone."
+  ],
+  "theme": {
+   "thumbs": [
+    "headline",
+    "icon",
+    "ui"
+   ]
+  },
+  "youtube": null
  }
 ]
