@@ -186,7 +186,7 @@
     "evergreen"
    ],
    "added": "2026-10-08T22:26:00+00:00",
-   "priority": 10.97,
+   "priority": 10.84,
    "cat": "🤖 AI tools",
    "launch": "this_week",
    "launch_seen": "2026-10-08T22:26:00+00:00"
@@ -497,7 +497,7 @@
    "added": "2026-10-02T19:26:01+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:01+00:00",
-   "priority": 4.37,
+   "priority": 4.29,
    "cat": "💻 SaaS / business software"
   },
   "chat.sh": {
@@ -513,7 +513,7 @@
    "added": "2026-10-02T19:26:02+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T19:26:02+00:00",
-   "priority": 4.37,
+   "priority": 4.29,
    "cat": "💻 SaaS / business software"
   },
   "fidelity.com": {
@@ -599,7 +599,7 @@
    "added": "2026-10-02T23:52:45+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:45+00:00",
-   "priority": 4.62,
+   "priority": 4.55,
    "cat": "📈 Investing platforms"
   },
   "notchmind.com": {
@@ -615,7 +615,7 @@
    "added": "2026-10-02T23:52:45+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:52:45+00:00",
-   "priority": 4.41,
+   "priority": 4.34,
    "cat": "💻 SaaS / business software"
   },
   "typestream.io": {
@@ -631,7 +631,7 @@
    "added": "2026-10-02T23:53:05+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:05+00:00",
-   "priority": 4.61,
+   "priority": 4.53,
    "cat": "🤖 AI tools"
   },
   "staylokal.com": {
@@ -647,7 +647,7 @@
    "added": "2026-10-02T23:53:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:06+00:00",
-   "priority": 4.27,
+   "priority": 4.2,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "vitra.ai": {
@@ -663,7 +663,7 @@
    "added": "2026-10-02T23:53:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-02T23:53:06+00:00",
-   "priority": 4.61,
+   "priority": 4.53,
    "cat": "🤖 AI tools"
   },
   "citi.com": {
@@ -861,7 +861,7 @@
    "added": "2026-10-03T23:12:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:40+00:00",
-   "priority": 4.82,
+   "priority": 4.74,
    "cat": "💳 Credit cards / financial products"
   },
   "singularity.ai": {
@@ -877,7 +877,7 @@
    "added": "2026-10-03T11:50:42+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:42+00:00",
-   "priority": 4.75,
+   "priority": 4.66,
    "cat": "🤖 AI tools"
   },
   "feelmymac.com": {
@@ -893,7 +893,7 @@
    "added": "2026-10-03T23:11:52+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:43+00:00",
-   "priority": 4.61,
+   "priority": 4.53,
    "cat": "💻 SaaS / business software"
   },
   "thanor.ai": {
@@ -909,7 +909,7 @@
    "added": "2026-10-04T02:52:54+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:43+00:00",
-   "priority": 4.86,
+   "priority": 4.76,
    "cat": "🤖 AI tools"
   },
   "bmux.dev": {
@@ -925,7 +925,7 @@
    "added": "2026-10-03T23:11:52+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:44+00:00",
-   "priority": 4.75,
+   "priority": 4.65,
    "cat": "💻 SaaS / business software"
   },
   "otpfill.com": {
@@ -941,7 +941,7 @@
    "added": "2026-10-04T02:53:18+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:44+00:00",
-   "priority": 4.78,
+   "priority": 4.68,
    "cat": "💻 SaaS / business software"
   },
   "maccam.app": {
@@ -957,7 +957,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:45+00:00",
-   "priority": 4.64,
+   "priority": 4.55,
    "cat": "💻 SaaS / business software"
   },
   "unamano.app": {
@@ -973,7 +973,7 @@
    "added": "2026-10-03T23:11:52+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:45+00:00",
-   "priority": 4.75,
+   "priority": 4.65,
    "cat": "💻 SaaS / business software"
   },
   "wattmate.app": {
@@ -989,7 +989,7 @@
    "added": "2026-10-04T02:53:17+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T11:50:46+00:00",
-   "priority": 4.64,
+   "priority": 4.55,
    "cat": "💻 SaaS / business software"
   },
   "bambulab.com": {
@@ -1005,7 +1005,7 @@
    "added": "2026-10-03T16:32:06+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T16:32:06+00:00",
-   "priority": 4.72,
+   "priority": 4.63,
    "cat": "📊 Business tools"
   },
   "communicate.so": {
@@ -1021,7 +1021,7 @@
    "added": "2026-10-03T20:01:48+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:01:48+00:00",
-   "priority": 4.64,
+   "priority": 4.55,
    "cat": "💻 SaaS / business software"
   },
   "lloyal.ai": {
@@ -1037,7 +1037,7 @@
    "added": "2026-10-03T20:01:48+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:01:48+00:00",
-   "priority": 4.72,
+   "priority": 4.63,
    "cat": "🤖 AI tools"
   },
   "outmarket.com": {
@@ -1053,7 +1053,7 @@
    "added": "2026-10-03T20:02:30+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:02:30+00:00",
-   "priority": 4.85,
+   "priority": 4.76,
    "cat": "🛡️ Insurance"
   },
   "pastily.app": {
@@ -1069,7 +1069,7 @@
    "added": "2026-10-03T20:02:30+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-03T20:02:30+00:00",
-   "priority": 4.51,
+   "priority": 4.43,
    "cat": "📊 Business tools"
   },
   "rhun.app": {
@@ -1085,7 +1085,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:33+00:00",
-   "priority": 4.72,
+   "priority": 4.63,
    "cat": "💻 SaaS / business software"
   },
   "lathoa.ai": {
@@ -1101,7 +1101,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:33+00:00",
-   "priority": 4.81,
+   "priority": 4.71,
    "cat": "🤖 AI tools"
   },
   "innerloop.works/breadcrumb": {
@@ -1117,7 +1117,7 @@
    "added": "2026-10-04T02:52:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:33+00:00",
-   "priority": 4.81,
+   "priority": 4.71,
    "cat": "🤖 AI tools"
   },
   "zoowork.com": {
@@ -1133,7 +1133,7 @@
    "added": "2026-10-04T02:52:54+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:54+00:00",
-   "priority": 4.81,
+   "priority": 4.71,
    "cat": "🤖 AI tools"
   },
   "cubicle.dev": {
@@ -1149,7 +1149,7 @@
    "added": "2026-10-04T02:52:54+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:54+00:00",
-   "priority": 4.72,
+   "priority": 4.63,
    "cat": "💻 SaaS / business software"
   },
   "reassign.app": {
@@ -1165,7 +1165,7 @@
    "added": "2026-10-04T02:52:55+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:52:55+00:00",
-   "priority": 4.72,
+   "priority": 4.63,
    "cat": "💻 SaaS / business software"
   },
   "yubi.app": {
@@ -1181,7 +1181,7 @@
    "added": "2026-10-04T02:53:17+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:53:17+00:00",
-   "priority": 4.81,
+   "priority": 4.71,
    "cat": "🤖 AI tools"
   },
   "kilo.health": {
@@ -1197,7 +1197,7 @@
    "added": "2026-10-04T02:53:18+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T02:53:18+00:00",
-   "priority": 4.72,
+   "priority": 4.63,
    "cat": "💻 SaaS / business software"
   },
   "tryaperture.com": {
@@ -1213,7 +1213,7 @@
    "added": "2026-10-06T02:33:34+00:00",
    "launch": "today",
    "launch_seen": "2026-10-04T19:34:12+00:00",
-   "priority": 6.13,
+   "priority": 5.95,
    "cat": "🤖 AI tools"
   },
   "launchreel.ai": {
@@ -1229,7 +1229,7 @@
    "added": "2026-10-06T02:33:34+00:00",
    "launch": "today",
    "launch_seen": "2026-10-04T19:34:13+00:00",
-   "priority": 5.94,
+   "priority": 5.77,
    "cat": "🤖 AI tools"
   },
   "sellio.ai": {
@@ -1245,7 +1245,7 @@
    "added": "2026-10-04T19:34:13+00:00",
    "launch": "today",
    "launch_seen": "2026-10-04T19:34:13+00:00",
-   "priority": 5.54,
+   "priority": 5.4,
    "cat": "💻 SaaS / business software"
   },
   "kardinal.ai": {
@@ -1261,7 +1261,7 @@
    "added": "2026-10-04T19:34:15+00:00",
    "launch": "today",
    "launch_seen": "2026-10-04T19:34:15+00:00",
-   "priority": 5.39,
+   "priority": 5.25,
    "cat": "💻 SaaS / business software"
   },
   "beatviz.ai": {
@@ -1277,7 +1277,7 @@
    "added": "2026-10-04T19:34:15+00:00",
    "launch": "today",
    "launch_seen": "2026-10-04T19:34:15+00:00",
-   "priority": 5.47,
+   "priority": 5.34,
    "cat": "🤖 AI tools"
   },
   "leebry.com": {
@@ -1293,7 +1293,7 @@
    "added": "2026-10-04T19:34:15+00:00",
    "launch": "today",
    "launch_seen": "2026-10-04T19:34:15+00:00",
-   "priority": 5.25,
+   "priority": 5.11,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "opensend.cc": {
@@ -1309,7 +1309,7 @@
    "added": "2026-10-04T19:34:17+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T19:34:17+00:00",
-   "priority": 4.95,
+   "priority": 4.84,
    "cat": "📣 Marketing platforms"
   },
   "qarunbook.com": {
@@ -1325,7 +1325,7 @@
    "added": "2026-10-04T19:34:17+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T19:34:17+00:00",
-   "priority": 4.8,
+   "priority": 4.7,
    "cat": "💻 SaaS / business software"
   },
   "passdesigner.app": {
@@ -1341,7 +1341,7 @@
    "added": "2026-10-06T02:33:34+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T19:34:17+00:00",
-   "priority": 5.22,
+   "priority": 5.1,
    "cat": "📊 Business tools"
   },
   "quven.app": {
@@ -1357,7 +1357,7 @@
    "added": "2026-10-04T19:35:18+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T19:35:18+00:00",
-   "priority": 4.66,
+   "priority": 4.56,
    "cat": "☁️ Cloud / hosting"
   },
   "axaxl.com": {
@@ -1373,7 +1373,7 @@
    "added": "2026-10-07T06:30:39+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-04T19:35:38+00:00",
-   "priority": 5.73,
+   "priority": 5.59,
    "cat": "🛡️ Insurance"
   },
   "bitdefender.com": {
@@ -1389,7 +1389,7 @@
    "added": "2026-10-05T01:13:22+00:00",
    "launch": "today",
    "launch_seen": "2026-10-05T01:13:22+00:00",
-   "priority": 5.52,
+   "priority": 5.37,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "angebotsmeister.de": {
@@ -1405,7 +1405,7 @@
    "added": "2026-10-06T02:33:34+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-05T01:14:24+00:00",
-   "priority": 5.26,
+   "priority": 5.14,
    "cat": "📊 Business tools"
   },
   "alaskaair.com": {
@@ -1421,7 +1421,7 @@
    "added": "2026-10-05T01:14:25+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-05T01:14:25+00:00",
-   "priority": 5.25,
+   "priority": 5.14,
    "cat": "💰 Finance apps / banking"
   },
   "cupola.app": {
@@ -1437,7 +1437,7 @@
    "added": "2026-10-05T01:14:25+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-05T01:14:25+00:00",
-   "priority": 4.88,
+   "priority": 4.77,
    "cat": "📊 Business tools"
   },
   "blenny.app": {
@@ -1453,7 +1453,7 @@
    "added": "2026-10-05T01:14:26+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-05T01:14:26+00:00",
-   "priority": 4.72,
+   "priority": 4.62,
    "cat": "📊 Business tools"
   },
   "thinkingorbs.com": {
@@ -1469,7 +1469,7 @@
    "added": "2026-10-05T01:14:26+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-05T01:14:26+00:00",
-   "priority": 4.72,
+   "priority": 4.62,
    "cat": "📊 Business tools"
   },
   "sorcrr.com": {
@@ -1483,7 +1483,7 @@
     "Product Hunt (launch)"
    ],
    "added": "2026-10-05T01:14:27+00:00",
-   "priority": 3.81,
+   "priority": 3.77,
    "cat": "💼 Freelancing platforms"
   },
   "fastrouter.ai": {
@@ -1499,7 +1499,7 @@
    "added": "2026-10-06T02:33:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-05T16:11:09+00:00",
-   "priority": 5.85,
+   "priority": 5.7,
    "cat": "🤖 AI tools"
   },
   "cowbell.insure": {
@@ -1515,7 +1515,7 @@
    "added": "2026-10-06T09:26:03+00:00",
    "launch": "today",
    "launch_seen": "2026-10-05T22:47:57+00:00",
-   "priority": 6.69,
+   "priority": 6.49,
    "cat": "🛡️ Insurance"
   },
   "reflection.ai": {
@@ -1532,7 +1532,7 @@
    "added": "2026-10-06T09:26:03+00:00",
    "launch": "today",
    "launch_seen": "2026-10-05T22:47:57+00:00",
-   "priority": 6.77,
+   "priority": 6.55,
    "cat": "🤖 AI tools"
   },
   "hyperframes.studio": {
@@ -1548,7 +1548,7 @@
    "added": "2026-10-06T02:33:33+00:00",
    "launch": "today",
    "launch_seen": "2026-10-05T22:47:58+00:00",
-   "priority": 6.48,
+   "priority": 6.28,
    "cat": "🤖 AI tools"
   },
   "crosswalk.to": {
@@ -1564,7 +1564,7 @@
    "added": "2026-10-05T22:48:00+00:00",
    "launch": "today",
    "launch_seen": "2026-10-05T22:48:00+00:00",
-   "priority": 5.97,
+   "priority": 5.8,
    "cat": "💻 SaaS / business software"
   },
   "reviu.dev": {
@@ -1580,7 +1580,7 @@
    "added": "2026-10-05T22:48:01+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-05T22:48:01+00:00",
-   "priority": 5.41,
+   "priority": 5.27,
    "cat": "💻 SaaS / business software"
   },
   "iland.app": {
@@ -1597,7 +1597,7 @@
    "added": "2026-10-05T22:48:01+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-05T22:48:01+00:00",
-   "priority": 5.41,
+   "priority": 5.27,
    "cat": "💻 SaaS / business software"
   },
   "xtracticle.com": {
@@ -1613,7 +1613,7 @@
    "added": "2026-10-06T02:33:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-05T22:48:01+00:00",
-   "priority": 5.63,
+   "priority": 5.48,
    "cat": "💻 SaaS / business software"
   },
   "marv.ai": {
@@ -1630,7 +1630,7 @@
    "added": "2026-10-06T02:33:34+00:00",
    "launch": "today",
    "launch_seen": "2026-10-05T22:48:01+00:00",
-   "priority": 6.29,
+   "priority": 6.1,
    "cat": "🤖 AI tools"
   },
   "netra.app": {
@@ -1646,7 +1646,7 @@
    "added": "2026-10-05T22:48:02+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-05T22:48:02+00:00",
-   "priority": 5.41,
+   "priority": 5.27,
    "cat": "💻 SaaS / business software"
   },
   "websearchapi.com": {
@@ -1662,7 +1662,7 @@
    "added": "2026-10-06T02:33:34+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-05T22:48:03+00:00",
-   "priority": 5.63,
+   "priority": 5.48,
    "cat": "💻 SaaS / business software"
   },
   "unscary.ai": {
@@ -1678,7 +1678,7 @@
    "added": "2026-10-06T02:33:33+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-05T22:48:03+00:00",
-   "priority": 5.72,
+   "priority": 5.57,
    "cat": "🤖 AI tools"
   },
   "flexchords.com": {
@@ -1694,7 +1694,7 @@
    "added": "2026-10-06T02:33:34+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-05T22:48:03+00:00",
-   "priority": 5.44,
+   "priority": 5.3,
    "cat": "💻 SaaS / business software"
   },
   "dailyhelm.com": {
@@ -1710,7 +1710,7 @@
    "added": "2026-10-06T02:33:34+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-06T02:33:34+00:00",
-   "priority": 5.67,
+   "priority": 5.52,
    "cat": "📣 Marketing platforms"
   },
   "okx.com": {
@@ -1727,7 +1727,7 @@
    "added": "2026-10-10T13:43:53+00:00",
    "launch": "today",
    "launch_seen": "2026-10-06T09:26:03+00:00",
-   "priority": 10.78,
+   "priority": 10.47,
    "cat": "💰 Finance apps / banking"
   },
   "pumpkins.sh": {
@@ -1743,7 +1743,7 @@
    "added": "2026-10-06T16:07:46+00:00",
    "launch": "today",
    "launch_seen": "2026-10-06T09:26:03+00:00",
-   "priority": 6.31,
+   "priority": 6.11,
    "cat": "💻 SaaS / business software"
   },
   "mailbird.com": {
@@ -1759,7 +1759,7 @@
    "added": "2026-10-07T00:40:36+00:00",
    "launch": "today",
    "launch_seen": "2026-10-06T16:07:45+00:00",
-   "priority": 6.74,
+   "priority": 6.52,
    "cat": "📊 Business tools"
   },
   "jotbus.com": {
@@ -1775,7 +1775,7 @@
    "added": "2026-10-06T16:07:45+00:00",
    "launch": "today",
    "launch_seen": "2026-10-06T16:07:45+00:00",
-   "priority": 6.63,
+   "priority": 6.42,
    "cat": "💻 SaaS / business software"
   },
   "parseable.com": {
@@ -1792,7 +1792,7 @@
    "added": "2026-10-08T03:04:27+00:00",
    "launch": "today",
    "launch_seen": "2026-10-06T16:07:45+00:00",
-   "priority": 7.12,
+   "priority": 6.88,
    "cat": "💻 SaaS / business software"
   },
   "mailaccess.pro": {
@@ -1809,7 +1809,7 @@
    "added": "2026-10-08T03:04:27+00:00",
    "launch": "today",
    "launch_seen": "2026-10-06T16:07:46+00:00",
-   "priority": 6.98,
+   "priority": 6.74,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "underdog.ai": {
@@ -1826,7 +1826,7 @@
    "added": "2026-10-08T03:04:26+00:00",
    "launch": "today",
    "launch_seen": "2026-10-06T21:00:18+00:00",
-   "priority": 7.56,
+   "priority": 7.3,
    "cat": "🤖 AI tools"
   },
   "hark.ai": {
@@ -1844,7 +1844,7 @@
    "added": "2026-10-07T00:40:36+00:00",
    "launch": "today",
    "launch_seen": "2026-10-06T21:00:19+00:00",
-   "priority": 7.14,
+   "priority": 6.9,
    "cat": "🤖 AI tools"
   },
   "typeform.com": {
@@ -1855,12 +1855,13 @@
    "evergreen": false,
    "why": "Helps businesses build, capture, and convert leads in one place.",
    "sources": [
+    "Launch news",
     "trend scan"
    ],
-   "added": "2026-10-08T10:28:27+00:00",
+   "added": "2026-10-13T11:07:22+00:00",
    "launch": "today",
    "launch_seen": "2026-10-06T21:00:19+00:00",
-   "priority": 9.33,
+   "priority": 12.1,
    "cat": "📣 Marketing platforms"
   },
   "lawvu.com": {
@@ -1876,7 +1877,7 @@
    "added": "2026-10-07T00:40:36+00:00",
    "launch": "today",
    "launch_seen": "2026-10-06T21:00:19+00:00",
-   "priority": 6.69,
+   "priority": 6.46,
    "cat": "⚖️ Legal services / platforms"
   },
   "plaid.com": {
@@ -1892,7 +1893,7 @@
    "added": "2026-10-06T21:00:20+00:00",
    "launch": "today",
    "launch_seen": "2026-10-06T21:00:20+00:00",
-   "priority": 6.99,
+   "priority": 6.77,
    "cat": "💰 Finance apps / banking"
   },
   "chunk.app": {
@@ -1908,7 +1909,7 @@
    "added": "2026-10-06T21:00:40+00:00",
    "launch": "today",
    "launch_seen": "2026-10-06T21:00:40+00:00",
-   "priority": 6.56,
+   "priority": 6.35,
    "cat": "💻 SaaS / business software"
   },
   "extrovert.ai": {
@@ -1924,7 +1925,7 @@
    "added": "2026-10-06T21:00:41+00:00",
    "launch": "today",
    "launch_seen": "2026-10-06T21:00:41+00:00",
-   "priority": 6.56,
+   "priority": 6.35,
    "cat": "📣 Marketing platforms"
   },
   "socialpost.ai": {
@@ -1941,7 +1942,7 @@
    "added": "2026-10-07T06:30:39+00:00",
    "launch": "today",
    "launch_seen": "2026-10-06T21:00:43+00:00",
-   "priority": 6.91,
+   "priority": 6.67,
    "cat": "📣 Marketing platforms"
   },
   "melius.com": {
@@ -1957,7 +1958,7 @@
    "added": "2026-10-09T02:35:17+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T00:40:15+00:00",
-   "priority": 10.0,
+   "priority": 9.71,
    "cat": "📣 Marketing platforms"
   },
   "ghost.computer": {
@@ -1974,7 +1975,7 @@
    "added": "2026-10-07T00:40:16+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T00:40:16+00:00",
-   "priority": 6.98,
+   "priority": 6.75,
    "cat": "🤖 AI tools"
   },
   "hark.com": {
@@ -1990,7 +1991,7 @@
    "added": "2026-10-07T06:30:39+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T06:30:39+00:00",
-   "priority": 7.41,
+   "priority": 7.15,
    "cat": "🤖 AI tools"
   },
   "mistral.ai": {
@@ -2006,7 +2007,7 @@
    "added": "2026-10-07T13:53:15+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T13:53:15+00:00",
-   "priority": 7.67,
+   "priority": 7.4,
    "cat": "🤖 AI tools"
   },
   "basedash.com": {
@@ -2022,7 +2023,7 @@
    "added": "2026-10-08T03:04:27+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T13:53:15+00:00",
-   "priority": 7.54,
+   "priority": 7.27,
    "cat": "📊 Business tools"
   },
   "walrus.xyz": {
@@ -2038,7 +2039,7 @@
    "added": "2026-10-07T13:53:15+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T13:53:15+00:00",
-   "priority": 7.2,
+   "priority": 6.94,
    "cat": "☁️ Cloud / hosting"
   },
   "reika.ai": {
@@ -2054,7 +2055,7 @@
    "added": "2026-10-07T13:53:16+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T13:53:16+00:00",
-   "priority": 7.42,
+   "priority": 7.16,
    "cat": "🤖 AI tools"
   },
   "neural.love": {
@@ -2070,7 +2071,7 @@
    "added": "2026-10-07T13:53:16+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T13:53:16+00:00",
-   "priority": 7.18,
+   "priority": 6.93,
    "cat": "🤖 AI tools"
   },
   "splashark.com": {
@@ -2086,7 +2087,7 @@
    "added": "2026-10-07T13:53:17+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T13:53:17+00:00",
-   "priority": 7.09,
+   "priority": 6.85,
    "cat": "💻 SaaS / business software"
   },
   "lofidesk.com": {
@@ -2102,7 +2103,7 @@
    "added": "2026-10-07T13:53:17+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T13:53:17+00:00",
-   "priority": 7.09,
+   "priority": 6.85,
    "cat": "📊 Business tools"
   },
   "gate.com": {
@@ -2118,7 +2119,7 @@
    "added": "2026-10-08T10:28:27+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T13:53:18+00:00",
-   "priority": 9.87,
+   "priority": 7.59,
    "cat": "💰 Finance apps / banking"
   },
   "irisgo.ai": {
@@ -2134,7 +2135,7 @@
    "added": "2026-10-07T13:53:18+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-07T13:53:18+00:00",
-   "priority": 6.35,
+   "priority": 6.16,
    "cat": "🤖 AI tools"
   },
   "vresk.com": {
@@ -2150,7 +2151,7 @@
    "added": "2026-10-07T13:53:18+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-07T13:53:18+00:00",
-   "priority": 6.35,
+   "priority": 6.16,
    "cat": "🤖 AI tools"
   },
   "cosmicjs.com": {
@@ -2166,7 +2167,7 @@
    "added": "2026-10-07T13:53:18+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-07T13:53:18+00:00",
-   "priority": 6.26,
+   "priority": 6.07,
    "cat": "💻 SaaS / business software"
   },
   "sunsed.com": {
@@ -2182,7 +2183,7 @@
    "added": "2026-10-08T03:04:27+00:00",
    "launch": "today",
    "launch_seen": "2026-10-08T03:04:27+00:00",
-   "priority": 7.57,
+   "priority": 7.29,
    "cat": "💻 SaaS / business software"
   },
   "flai.ai": {
@@ -2198,7 +2199,7 @@
    "added": "2026-10-07T13:53:19+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-07T13:53:19+00:00",
-   "priority": 6.6,
+   "priority": 6.39,
    "cat": "🤖 AI tools"
   },
   "vertice.one": {
@@ -2214,7 +2215,7 @@
    "added": "2026-10-08T03:04:27+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-07T13:53:20+00:00",
-   "priority": 6.71,
+   "priority": 6.5,
    "cat": "📊 Business tools"
   },
   "zavi.ai": {
@@ -2231,7 +2232,7 @@
    "added": "2026-10-07T13:53:20+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-07T13:53:20+00:00",
-   "priority": 6.26,
+   "priority": 6.07,
    "cat": "📣 Marketing platforms"
   },
   "heylinda.ai": {
@@ -2247,7 +2248,7 @@
    "added": "2026-10-07T13:53:41+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-07T13:53:41+00:00",
-   "priority": 6.35,
+   "priority": 6.16,
    "cat": "🤖 AI tools"
   },
   "higgsfield.ai": {
@@ -2263,7 +2264,7 @@
    "added": "2026-10-07T19:37:32+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T19:37:32+00:00",
-   "priority": 7.55,
+   "priority": 7.28,
    "cat": "📣 Marketing platforms"
   },
   "incognia.com": {
@@ -2279,7 +2280,7 @@
    "added": "2026-10-08T10:28:27+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T19:37:33+00:00",
-   "priority": 9.64,
+   "priority": 7.36,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "indecomm.com": {
@@ -2296,7 +2297,7 @@
    "added": "2026-10-08T10:28:27+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T19:37:33+00:00",
-   "priority": 9.64,
+   "priority": 7.36,
    "cat": "🏠 Real estate services"
   },
   "biorender.com": {
@@ -2312,7 +2313,7 @@
    "added": "2026-10-07T23:48:01+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T19:37:34+00:00",
-   "priority": 7.61,
+   "priority": 7.34,
    "cat": "💻 SaaS / business software"
   },
   "klipboard.io": {
@@ -2328,7 +2329,7 @@
    "added": "2026-10-07T19:37:35+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T19:37:35+00:00",
-   "priority": 7.29,
+   "priority": 7.03,
    "cat": "📊 Business tools"
   },
   "ownfeed.com": {
@@ -2344,7 +2345,7 @@
    "added": "2026-10-07T19:37:36+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T19:37:36+00:00",
-   "priority": 7.55,
+   "priority": 7.28,
    "cat": "📣 Marketing platforms"
   },
   "gosense.ai": {
@@ -2361,7 +2362,7 @@
    "added": "2026-10-07T19:37:37+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T19:37:37+00:00",
-   "priority": 7.5,
+   "priority": 7.24,
    "cat": "💰 Finance apps / banking"
   },
   "devally.ai": {
@@ -2377,7 +2378,7 @@
    "added": "2026-10-07T19:37:37+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-07T19:37:37+00:00",
-   "priority": 6.42,
+   "priority": 6.22,
    "cat": "💻 SaaS / business software"
   },
   "pluginsradar.com": {
@@ -2393,7 +2394,7 @@
    "added": "2026-10-07T19:37:37+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-07T19:37:37+00:00",
-   "priority": 6.42,
+   "priority": 6.22,
    "cat": "📣 Marketing platforms"
   },
   "featherweight.app": {
@@ -2409,7 +2410,7 @@
    "added": "2026-10-07T19:37:38+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-07T19:37:38+00:00",
-   "priority": 6.76,
+   "priority": 6.55,
    "cat": "🤖 AI tools"
   },
   "parakeetai.com": {
@@ -2425,7 +2426,7 @@
    "added": "2026-10-07T19:37:38+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-07T19:37:38+00:00",
-   "priority": 6.76,
+   "priority": 6.55,
    "cat": "🤖 AI tools"
   },
   "genpage.ai": {
@@ -2441,7 +2442,7 @@
    "added": "2026-10-07T19:37:59+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-07T19:37:59+00:00",
-   "priority": 6.42,
+   "priority": 6.22,
    "cat": "📣 Marketing platforms"
   },
   "viibeo.com": {
@@ -2457,7 +2458,7 @@
    "added": "2026-10-07T19:37:59+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-07T19:37:59+00:00",
-   "priority": 6.67,
+   "priority": 6.46,
    "cat": "📣 Marketing platforms"
   },
   "nasuni.com": {
@@ -2473,7 +2474,7 @@
    "added": "2026-10-08T03:04:27+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T19:37:59+00:00",
-   "priority": 7.25,
+   "priority": 6.99,
    "cat": "☁️ Cloud / hosting"
   },
   "gtlds.fyi": {
@@ -2489,7 +2490,7 @@
    "added": "2026-10-07T23:48:01+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T23:48:01+00:00",
-   "priority": 7.3,
+   "priority": 7.03,
    "cat": "☁️ Cloud / hosting"
   },
   "agent.reviews": {
@@ -2506,7 +2507,7 @@
    "added": "2026-10-09T02:35:17+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T23:48:01+00:00",
-   "priority": 9.92,
+   "priority": 9.63,
    "cat": "🤖 AI tools"
   },
   "bigwords.page": {
@@ -2523,7 +2524,7 @@
    "added": "2026-10-09T02:35:17+00:00",
    "launch": "today",
    "launch_seen": "2026-10-07T23:48:01+00:00",
-   "priority": 10.16,
+   "priority": 9.85,
    "cat": "💻 SaaS / business software"
   },
   "parallelsystems.com": {
@@ -2539,7 +2540,7 @@
    "added": "2026-10-08T03:04:27+00:00",
    "launch": "today",
    "launch_seen": "2026-10-08T03:04:27+00:00",
-   "priority": 7.84,
+   "priority": 7.54,
    "cat": "📊 Business tools"
   },
   "parakeet.ai": {
@@ -2555,7 +2556,7 @@
    "added": "2026-10-08T03:04:27+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T03:04:27+00:00",
-   "priority": 6.71,
+   "priority": 6.5,
    "cat": "🤖 AI tools"
   },
   "strac.io": {
@@ -2571,7 +2572,7 @@
    "added": "2026-10-09T09:38:41+00:00",
    "launch": "today",
    "launch_seen": "2026-10-08T10:28:27+00:00",
-   "priority": 10.56,
+   "priority": 10.23,
    "cat": "📊 Business tools"
   },
   "nousresearch.com": {
@@ -2589,7 +2590,7 @@
    "added": "2026-10-08T17:36:38+00:00",
    "launch": "today",
    "launch_seen": "2026-10-08T17:36:38+00:00",
-   "priority": 10.84,
+   "priority": 10.49,
    "cat": "🤖 AI tools"
   },
   "tab.ai": {
@@ -2608,7 +2609,7 @@
    "added": "2026-10-09T02:35:17+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T17:36:39+00:00",
-   "priority": 9.94,
+   "priority": 9.66,
    "cat": "🤖 AI tools"
   },
   "vesta.com": {
@@ -2624,7 +2625,7 @@
    "added": "2026-10-09T02:35:17+00:00",
    "launch": "today",
    "launch_seen": "2026-10-08T17:36:39+00:00",
-   "priority": 10.48,
+   "priority": 10.14,
    "cat": "🏠 Real estate services"
   },
   "opsy.ai": {
@@ -2640,7 +2641,7 @@
    "added": "2026-10-09T09:38:38+00:00",
    "launch": "today",
    "launch_seen": "2026-10-08T17:36:39+00:00",
-   "priority": 10.96,
+   "priority": 10.61,
    "cat": "🛡️ Insurance"
   },
   "tractionwave.com": {
@@ -2656,7 +2657,7 @@
    "added": "2026-10-08T17:36:39+00:00",
    "launch": "today",
    "launch_seen": "2026-10-08T17:36:39+00:00",
-   "priority": 10.46,
+   "priority": 10.12,
    "cat": "📣 Marketing platforms"
   },
   "clawcall.com": {
@@ -2672,7 +2673,7 @@
    "added": "2026-10-10T01:03:36+00:00",
    "launch": "today",
    "launch_seen": "2026-10-08T17:36:40+00:00",
-   "priority": 11.16,
+   "priority": 10.79,
    "cat": "🤖 AI tools"
   },
   "termaxa.com": {
@@ -2688,7 +2689,7 @@
    "added": "2026-10-08T17:36:40+00:00",
    "launch": "today",
    "launch_seen": "2026-10-08T17:36:40+00:00",
-   "priority": 10.32,
+   "priority": 9.98,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "offtherecord.ai": {
@@ -2704,7 +2705,7 @@
    "added": "2026-10-08T17:36:41+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T17:36:41+00:00",
-   "priority": 9.23,
+   "priority": 8.98,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "liquidinference.com": {
@@ -2720,7 +2721,7 @@
    "added": "2026-10-08T17:36:41+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T17:36:41+00:00",
-   "priority": 8.93,
+   "priority": 8.69,
    "cat": "☁️ Cloud / hosting"
   },
   "semwright.com": {
@@ -2736,7 +2737,7 @@
    "added": "2026-10-10T01:03:37+00:00",
    "launch": "today",
    "launch_seen": "2026-10-08T17:37:02+00:00",
-   "priority": 10.69,
+   "priority": 10.35,
    "cat": "💻 SaaS / business software"
   },
   "simo.ai": {
@@ -2752,7 +2753,7 @@
    "added": "2026-10-08T17:37:02+00:00",
    "launch": "today",
    "launch_seen": "2026-10-08T17:37:02+00:00",
-   "priority": 10.24,
+   "priority": 9.92,
    "cat": "🤖 AI tools"
   },
   "judged.systems": {
@@ -2768,7 +2769,7 @@
    "added": "2026-10-10T01:03:37+00:00",
    "launch": "today",
    "launch_seen": "2026-10-08T17:37:02+00:00",
-   "priority": 10.69,
+   "priority": 10.35,
    "cat": "💻 SaaS / business software"
   },
   "botbus.io": {
@@ -2784,7 +2785,7 @@
    "added": "2026-10-10T01:03:36+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T17:37:04+00:00",
-   "priority": 9.61,
+   "priority": 9.34,
    "cat": "📊 Business tools"
   },
   "leanback.ai": {
@@ -2800,7 +2801,7 @@
    "added": "2026-10-08T17:37:04+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T17:37:04+00:00",
-   "priority": 9.07,
+   "priority": 8.83,
    "cat": "📊 Business tools"
   },
   "tunnl.gg": {
@@ -2816,7 +2817,7 @@
    "added": "2026-10-08T17:37:04+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T17:37:04+00:00",
-   "priority": 8.93,
+   "priority": 8.69,
    "cat": "☁️ Cloud / hosting"
   },
   "procboss.com": {
@@ -2832,7 +2833,7 @@
    "added": "2026-10-08T17:37:05+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T17:37:05+00:00",
-   "priority": 8.93,
+   "priority": 8.69,
    "cat": "☁️ Cloud / hosting"
   },
   "zoefin.com": {
@@ -2849,7 +2850,7 @@
    "added": "2026-10-09T09:38:38+00:00",
    "launch": "today",
    "launch_seen": "2026-10-08T17:37:05+00:00",
-   "priority": 11.3,
+   "priority": 10.94,
    "cat": "💰 Finance apps / banking"
   },
   "penfed.org/credit-cards/defender-rewards": {
@@ -2865,7 +2866,7 @@
    "added": "2026-10-10T13:43:53+00:00",
    "launch": "today",
    "launch_seen": "2026-10-08T22:25:37+00:00",
-   "priority": 11.71,
+   "priority": 11.32,
    "cat": "💳 Credit cards / financial products"
   },
   "offstage.app": {
@@ -2881,7 +2882,7 @@
    "added": "2026-10-08T22:25:37+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T22:25:37+00:00",
-   "priority": 9.54,
+   "priority": 9.28,
    "cat": "📊 Business tools"
   },
   "mailwell.app": {
@@ -2897,7 +2898,7 @@
    "added": "2026-10-08T22:25:37+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T22:25:37+00:00",
-   "priority": 9.54,
+   "priority": 9.28,
    "cat": "💻 SaaS / business software"
   },
   "side.ai": {
@@ -2916,7 +2917,7 @@
    "added": "2026-10-08T22:25:58+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T22:25:58+00:00",
-   "priority": 9.32,
+   "priority": 9.07,
    "cat": "🤖 AI tools"
   },
   "sineframe.com": {
@@ -2932,7 +2933,7 @@
    "added": "2026-10-08T22:25:58+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T22:25:58+00:00",
-   "priority": 9.23,
+   "priority": 8.98,
    "cat": "💻 SaaS / business software"
   },
   "hallmonitor.app": {
@@ -2948,7 +2949,7 @@
    "added": "2026-10-08T22:26:00+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T22:26:00+00:00",
-   "priority": 9.54,
+   "priority": 9.28,
    "cat": "📊 Business tools"
   },
   "openswarm.ai": {
@@ -2964,7 +2965,7 @@
    "added": "2026-10-08T22:26:00+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T22:26:00+00:00",
-   "priority": 9.32,
+   "priority": 9.07,
    "cat": "🤖 AI tools"
   },
   "aegissafe.com": {
@@ -2980,7 +2981,7 @@
    "added": "2026-10-08T22:26:01+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T22:26:01+00:00",
-   "priority": 9.09,
+   "priority": 8.84,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "markdoc.live": {
@@ -2996,7 +2997,7 @@
    "added": "2026-10-10T01:03:36+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T22:26:01+00:00",
-   "priority": 9.7,
+   "priority": 9.42,
    "cat": "💻 SaaS / business software"
   },
   "cekura.ai": {
@@ -3012,7 +3013,7 @@
    "added": "2026-10-08T22:26:01+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T22:26:01+00:00",
-   "priority": 9.23,
+   "priority": 8.98,
    "cat": "📊 Business tools"
   },
   "epilude.com": {
@@ -3028,7 +3029,7 @@
    "added": "2026-10-08T22:26:02+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T22:26:02+00:00",
-   "priority": 9.32,
+   "priority": 9.07,
    "cat": "🤖 AI tools"
   },
   "udon.sh": {
@@ -3044,7 +3045,7 @@
    "added": "2026-10-08T22:26:02+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-08T22:26:02+00:00",
-   "priority": 9.09,
+   "priority": 8.84,
    "cat": "☁️ Cloud / hosting"
   },
   "kloudmate.com": {
@@ -3058,7 +3059,7 @@
     "Product Hunt (launch)"
    ],
    "added": "2026-10-08T22:26:03+00:00",
-   "priority": 6.89,
+   "priority": 6.79,
    "cat": "☁️ Cloud / hosting"
   },
   "biltrewards.com": {
@@ -3073,7 +3074,7 @@
     "Google News"
    ],
    "added": "2026-10-08T22:26:03+00:00",
-   "priority": 7.87,
+   "priority": 7.73,
    "cat": "💳 Credit cards / financial products"
   },
   "sorted.app": {
@@ -3089,7 +3090,7 @@
    "added": "2026-10-09T09:38:36+00:00",
    "launch": "today",
    "launch_seen": "2026-10-09T09:38:36+00:00",
-   "priority": 11.57,
+   "priority": 11.17,
    "cat": "💻 SaaS / business software"
   },
   "rune.app": {
@@ -3105,7 +3106,7 @@
    "added": "2026-10-10T01:03:38+00:00",
    "launch": "today",
    "launch_seen": "2026-10-09T09:38:37+00:00",
-   "priority": 11.93,
+   "priority": 11.51,
    "cat": "💻 SaaS / business software"
   },
   "assist.app": {
@@ -3124,7 +3125,7 @@
    "added": "2026-10-10T01:03:36+00:00",
    "launch": "today",
    "launch_seen": "2026-10-09T09:38:37+00:00",
-   "priority": 12.02,
+   "priority": 11.6,
    "cat": "🤖 AI tools"
   },
   "openvids.com": {
@@ -3140,7 +3141,7 @@
    "added": "2026-10-10T01:03:36+00:00",
    "launch": "today",
    "launch_seen": "2026-10-09T09:38:37+00:00",
-   "priority": 11.64,
+   "priority": 11.24,
    "cat": "🤖 AI tools"
   },
   "refs.dev": {
@@ -3156,7 +3157,7 @@
    "added": "2026-10-09T09:38:38+00:00",
    "launch": "today",
    "launch_seen": "2026-10-09T09:38:38+00:00",
-   "priority": 11.32,
+   "priority": 10.94,
    "cat": "🤖 AI tools"
   },
   "heypi.com": {
@@ -3172,7 +3173,7 @@
    "added": "2026-10-09T09:38:39+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-09T09:38:39+00:00",
-   "priority": 9.72,
+   "priority": 9.44,
    "cat": "🤖 AI tools"
   },
   "labs.google": {
@@ -3188,7 +3189,7 @@
    "added": "2026-10-09T09:38:39+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-09T09:38:39+00:00",
-   "priority": 10.06,
+   "priority": 9.76,
    "cat": "🤖 AI tools"
   },
   "zernio.com": {
@@ -3204,7 +3205,7 @@
    "added": "2026-10-10T01:03:37+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-09T09:38:39+00:00",
-   "priority": 10.29,
+   "priority": 9.98,
    "cat": "📣 Marketing platforms"
   },
   "comcent.io": {
@@ -3220,7 +3221,7 @@
    "added": "2026-10-09T09:38:40+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-09T09:38:40+00:00",
-   "priority": 9.63,
+   "priority": 9.36,
    "cat": "📊 Business tools"
   },
   "staffcoder.com": {
@@ -3236,7 +3237,7 @@
    "added": "2026-10-10T01:03:38+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-09T09:38:41+00:00",
-   "priority": 10.38,
+   "priority": 10.07,
    "cat": "🤖 AI tools"
   },
   "regunow.com": {
@@ -3252,7 +3253,7 @@
    "added": "2026-10-09T09:38:41+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-09T09:38:41+00:00",
-   "priority": 9.49,
+   "priority": 9.22,
    "cat": "⚖️ Legal services / platforms"
   },
   "odyssey.world": {
@@ -3268,7 +3269,7 @@
    "added": "2026-10-09T16:35:29+00:00",
    "launch": "today",
    "launch_seen": "2026-10-09T16:35:29+00:00",
-   "priority": 12.05,
+   "priority": 11.62,
    "cat": "🤖 AI tools"
   },
   "iwant.dev": {
@@ -3284,7 +3285,7 @@
    "added": "2026-10-10T01:03:36+00:00",
    "launch": "today",
    "launch_seen": "2026-10-09T16:35:29+00:00",
-   "priority": 12.03,
+   "priority": 11.59,
    "cat": "☁️ Cloud / hosting"
   },
   "pocketty.app": {
@@ -3300,7 +3301,7 @@
    "added": "2026-10-10T13:43:55+00:00",
    "launch": "today",
    "launch_seen": "2026-10-09T16:35:30+00:00",
-   "priority": 12.08,
+   "priority": 11.65,
    "cat": "📊 Business tools"
   },
   "savyre.com": {
@@ -3316,7 +3317,7 @@
    "added": "2026-10-09T16:35:31+00:00",
    "launch": "today",
    "launch_seen": "2026-10-09T16:35:31+00:00",
-   "priority": 10.89,
+   "priority": 10.52,
    "cat": "💻 SaaS / business software"
   },
   "litixlegal.com": {
@@ -3332,7 +3333,7 @@
    "added": "2026-10-10T01:03:36+00:00",
    "launch": "today",
    "launch_seen": "2026-10-09T16:35:31+00:00",
-   "priority": 11.65,
+   "priority": 11.23,
    "cat": "⚖️ Legal services / platforms"
   },
   "opposable.ai": {
@@ -3348,7 +3349,7 @@
    "added": "2026-10-10T01:03:36+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-09T16:35:32+00:00",
-   "priority": 10.52,
+   "priority": 10.2,
    "cat": "🤖 AI tools"
   },
   "opencharm.dev": {
@@ -3364,7 +3365,7 @@
    "added": "2026-10-10T01:03:36+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-09T16:35:54+00:00",
-   "priority": 10.52,
+   "priority": 10.2,
    "cat": "🤖 AI tools"
   },
   "novacli.com": {
@@ -3380,7 +3381,7 @@
    "added": "2026-10-09T16:35:56+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-09T16:35:56+00:00",
-   "priority": 9.98,
+   "priority": 9.69,
    "cat": "🤖 AI tools"
   },
   "agentsdr.com": {
@@ -3396,7 +3397,7 @@
    "added": "2026-10-09T16:35:56+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-09T16:35:56+00:00",
-   "priority": 10.26,
+   "priority": 9.95,
    "cat": "📣 Marketing platforms"
   },
   "together.ai": {
@@ -3412,7 +3413,7 @@
    "added": "2026-10-09T16:35:56+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-09T16:35:56+00:00",
-   "priority": 10.34,
+   "priority": 10.03,
    "cat": "🤖 AI tools"
   },
   "cakie.ai": {
@@ -3428,7 +3429,7 @@
    "added": "2026-10-09T16:35:57+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-09T16:35:57+00:00",
-   "priority": 9.98,
+   "priority": 9.69,
    "cat": "🤖 AI tools"
   },
   "usbank.com": {
@@ -3444,7 +3445,7 @@
    "added": "2026-10-09T16:36:28+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-09T16:36:28+00:00",
-   "priority": 10.11,
+   "priority": 9.82,
    "cat": "💳 Credit cards / financial products"
   },
   "spellbook.legal": {
@@ -3460,7 +3461,7 @@
    "added": "2026-10-09T21:18:25+00:00",
    "launch": "today",
    "launch_seen": "2026-10-09T21:18:25+00:00",
-   "priority": 11.73,
+   "priority": 11.31,
    "cat": "⚖️ Legal services / platforms"
   },
   "lumenus.co": {
@@ -3473,10 +3474,10 @@
    "sources": [
     "TechCrunch"
    ],
-   "added": "2026-10-11T21:53:18+00:00",
+   "added": "2026-10-13T11:07:23+00:00",
    "launch": "today",
    "launch_seen": "2026-10-09T21:18:29+00:00",
-   "priority": 12.97,
+   "priority": 13.71,
    "cat": "⚖️ Legal services / platforms"
   },
   "kore.ai": {
@@ -3492,7 +3493,7 @@
    "added": "2026-10-12T06:42:30+00:00",
    "launch": "today",
    "launch_seen": "2026-10-09T21:18:29+00:00",
-   "priority": 13.47,
+   "priority": 12.97,
    "cat": "🤖 AI tools"
   },
   "kynd.io": {
@@ -3508,7 +3509,7 @@
    "added": "2026-10-09T21:18:30+00:00",
    "launch": "today",
    "launch_seen": "2026-10-09T21:18:30+00:00",
-   "priority": 11.71,
+   "priority": 11.31,
    "cat": "🛡️ Insurance"
   },
   "maestrow.ai": {
@@ -3524,7 +3525,7 @@
    "added": "2026-10-09T21:18:30+00:00",
    "launch": "today",
    "launch_seen": "2026-10-09T21:18:30+00:00",
-   "priority": 11.5,
+   "priority": 11.1,
    "cat": "💻 SaaS / business software"
   },
   "privesa.ai": {
@@ -3541,7 +3542,7 @@
    "added": "2026-10-10T01:03:36+00:00",
    "launch": "today",
    "launch_seen": "2026-10-09T21:18:30+00:00",
-   "priority": 11.95,
+   "priority": 11.53,
    "cat": "💻 SaaS / business software"
   },
   "trophy.so": {
@@ -3557,7 +3558,7 @@
    "added": "2026-10-09T21:19:12+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-09T21:19:12+00:00",
-   "priority": 10.09,
+   "priority": 9.79,
    "cat": "💻 SaaS / business software"
   },
   "mecka.ai": {
@@ -3573,7 +3574,7 @@
    "added": "2026-10-09T21:19:43+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-09T21:19:43+00:00",
-   "priority": 10.18,
+   "priority": 9.87,
    "cat": "🤖 AI tools"
   },
   "voicera.io": {
@@ -3589,7 +3590,7 @@
    "added": "2026-10-09T21:19:44+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-09T21:19:44+00:00",
-   "priority": 9.81,
+   "priority": 9.52,
    "cat": "🤖 AI tools"
   },
   "murmurnotes.com": {
@@ -3603,7 +3604,7 @@
     "Product Hunt (launch)"
    ],
    "added": "2026-10-09T21:19:44+00:00",
-   "priority": 7.45,
+   "priority": 7.33,
    "cat": "🤖 AI tools"
   },
   "busabase.com": {
@@ -3617,7 +3618,7 @@
     "Product Hunt (launch)"
    ],
    "added": "2026-10-10T01:03:37+00:00",
-   "priority": 7.89,
+   "priority": 7.75,
    "cat": "🤖 AI tools"
   },
   "porch.com": {
@@ -3633,7 +3634,7 @@
    "added": "2026-10-10T01:03:36+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T01:03:36+00:00",
-   "priority": 12.18,
+   "priority": 11.74,
    "cat": "🤖 AI tools"
   },
   "openpilot.ai": {
@@ -3649,7 +3650,7 @@
    "added": "2026-10-10T01:03:36+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T01:03:36+00:00",
-   "priority": 12.56,
+   "priority": 12.1,
    "cat": "🤖 AI tools"
   },
   "comcent.com": {
@@ -3665,7 +3666,7 @@
    "added": "2026-10-10T01:03:36+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T01:03:36+00:00",
-   "priority": 10.63,
+   "priority": 10.29,
    "cat": "📊 Business tools"
   },
   "openseo.net": {
@@ -3681,7 +3682,7 @@
    "added": "2026-10-10T01:03:37+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T01:03:37+00:00",
-   "priority": 10.63,
+   "priority": 10.29,
    "cat": "📣 Marketing platforms"
   },
   "phonable.com": {
@@ -3697,7 +3698,7 @@
    "added": "2026-10-10T01:03:37+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T01:03:37+00:00",
-   "priority": 10.25,
+   "priority": 9.94,
    "cat": "📊 Business tools"
   },
   "vocascript.com": {
@@ -3711,7 +3712,7 @@
     "Product Hunt (launch)"
    ],
    "added": "2026-10-10T01:03:38+00:00",
-   "priority": 7.43,
+   "priority": 7.31,
    "cat": "💻 SaaS / business software"
   },
   "ironcladapp.com": {
@@ -3728,7 +3729,7 @@
    "added": "2026-10-10T06:59:58+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T06:59:58+00:00",
-   "priority": 12.32,
+   "priority": 11.86,
    "cat": "⚖️ Legal services / platforms"
   },
   "typesafe.ai": {
@@ -3744,7 +3745,7 @@
    "added": "2026-10-10T06:59:59+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T06:59:59+00:00",
-   "priority": 12.94,
+   "priority": 12.45,
    "cat": "🤖 AI tools"
   },
   "eliseai.com": {
@@ -3761,7 +3762,7 @@
    "added": "2026-10-10T06:59:59+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T06:59:59+00:00",
-   "priority": 12.32,
+   "priority": 11.86,
    "cat": "🏠 Real estate services"
   },
   "fora.travel": {
@@ -3777,7 +3778,7 @@
    "added": "2026-10-10T07:00:00+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T07:00:00+00:00",
-   "priority": 11.92,
+   "priority": 11.48,
    "cat": "💼 Freelancing platforms"
   },
   "orders.co": {
@@ -3793,7 +3794,7 @@
    "added": "2026-10-10T07:00:00+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T07:00:00+00:00",
-   "priority": 12.06,
+   "priority": 11.62,
    "cat": "💻 SaaS / business software"
   },
   "aytm.com": {
@@ -3809,7 +3810,7 @@
    "added": "2026-10-10T07:00:01+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T07:00:01+00:00",
-   "priority": 12.06,
+   "priority": 11.62,
    "cat": "📣 Marketing platforms"
   },
   "assorthealth.com": {
@@ -3826,7 +3827,7 @@
    "added": "2026-10-10T07:00:01+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T07:00:01+00:00",
-   "priority": 12.06,
+   "priority": 11.62,
    "cat": "💻 SaaS / business software"
   },
   "gemini.com/credit-card": {
@@ -3842,7 +3843,7 @@
    "added": "2026-10-10T13:43:53+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T07:00:01+00:00",
-   "priority": 11.69,
+   "priority": 11.31,
    "cat": "💳 Credit cards / financial products"
   },
   "pinecomputer.com": {
@@ -3858,7 +3859,7 @@
    "added": "2026-10-10T07:00:05+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T07:00:05+00:00",
-   "priority": 10.76,
+   "priority": 10.41,
    "cat": "☁️ Cloud / hosting"
   },
   "healthleap.ai": {
@@ -3874,7 +3875,7 @@
    "added": "2026-10-10T07:00:27+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T07:00:27+00:00",
-   "priority": 10.51,
+   "priority": 10.18,
    "cat": "💻 SaaS / business software"
   },
   "melete.ai": {
@@ -3888,7 +3889,7 @@
     "Product Hunt (launch)"
    ],
    "added": "2026-10-10T07:00:48+00:00",
-   "priority": 7.61,
+   "priority": 7.49,
    "cat": "🤖 AI tools"
   },
   "privatetechshares.com": {
@@ -3904,7 +3905,7 @@
    "added": "2026-10-10T13:43:54+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T13:43:54+00:00",
-   "priority": 12.68,
+   "priority": 12.22,
    "cat": "📈 Investing platforms"
   },
   "carrierexplode.com": {
@@ -3921,7 +3922,7 @@
    "added": "2026-10-10T13:43:55+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T13:43:54+00:00",
-   "priority": 13.31,
+   "priority": 12.8,
    "cat": "📊 Business tools"
   },
   "readrare.com": {
@@ -3937,7 +3938,7 @@
    "added": "2026-10-10T13:43:54+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T13:43:54+00:00",
-   "priority": 12.89,
+   "priority": 12.4,
    "cat": "📊 Business tools"
   },
   "oldroll.io": {
@@ -3953,7 +3954,7 @@
    "added": "2026-10-10T13:43:55+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T13:43:55+00:00",
-   "priority": 10.82,
+   "priority": 10.47,
    "cat": "📊 Business tools"
   },
   "svg-spark.vercel.app": {
@@ -3970,7 +3971,7 @@
    "added": "2026-10-10T13:43:55+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T13:43:55+00:00",
-   "priority": 10.82,
+   "priority": 10.47,
    "cat": "📊 Business tools"
   },
   "opper.ai/jevman-benchmark": {
@@ -3987,7 +3988,7 @@
    "added": "2026-10-10T13:43:55+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T13:43:55+00:00",
-   "priority": 10.9,
+   "priority": 10.55,
    "cat": "🤖 AI tools"
   },
   "lune.ai": {
@@ -4003,7 +4004,7 @@
    "added": "2026-10-11T21:53:18+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T17:59:11+00:00",
-   "priority": 14.03,
+   "priority": 13.48,
    "cat": "🤖 AI tools"
   },
   "maildun.com": {
@@ -4019,7 +4020,7 @@
    "added": "2026-10-11T21:53:18+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T17:59:12+00:00",
-   "priority": 13.94,
+   "priority": 13.4,
    "cat": "📣 Marketing platforms"
   },
   "agentdock.com": {
@@ -4035,7 +4036,7 @@
    "added": "2026-10-12T06:42:30+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T17:59:12+00:00",
-   "priority": 14.3,
+   "priority": 13.74,
    "cat": "🤖 AI tools"
   },
   "mobavenue.com": {
@@ -4051,7 +4052,7 @@
    "added": "2026-10-10T17:59:15+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T17:59:15+00:00",
-   "priority": 12.75,
+   "priority": 12.27,
    "cat": "📣 Marketing platforms"
   },
   "vannor.ai": {
@@ -4067,7 +4068,7 @@
    "added": "2026-10-10T17:59:15+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T17:59:15+00:00",
-   "priority": 12.75,
+   "priority": 12.27,
    "cat": "📣 Marketing platforms"
   },
   "ehunt.ai": {
@@ -4083,7 +4084,7 @@
    "added": "2026-10-10T17:59:15+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T17:59:15+00:00",
-   "priority": 12.75,
+   "priority": 12.27,
    "cat": "💻 SaaS / business software"
   },
   "neural4d.com": {
@@ -4099,7 +4100,7 @@
    "added": "2026-10-10T17:59:19+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T17:59:19+00:00",
-   "priority": 12.4,
+   "priority": 11.94,
    "cat": "🤖 AI tools"
   },
   "gitglow.com": {
@@ -4115,7 +4116,7 @@
    "added": "2026-10-11T21:53:18+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T17:59:19+00:00",
-   "priority": 12.22,
+   "priority": 11.79,
    "cat": "📊 Business tools"
   },
   "pocketwebtools.com": {
@@ -4131,7 +4132,7 @@
    "added": "2026-10-12T06:42:30+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T17:59:20+00:00",
-   "priority": 12.02,
+   "priority": 11.61,
    "cat": "🤖 AI tools"
   },
   "historymonk.com": {
@@ -4147,7 +4148,7 @@
    "added": "2026-10-12T06:42:30+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T17:59:20+00:00",
-   "priority": 11.94,
+   "priority": 11.53,
    "cat": "📊 Business tools"
   },
   "croissantpay.com": {
@@ -4163,7 +4164,7 @@
    "added": "2026-10-10T17:59:21+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T17:59:21+00:00",
-   "priority": 11.24,
+   "priority": 10.87,
    "cat": "💰 Finance apps / banking"
   },
   "isly.app": {
@@ -4179,7 +4180,7 @@
    "added": "2026-10-10T17:59:21+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T17:59:21+00:00",
-   "priority": 10.6,
+   "priority": 10.26,
    "cat": "📊 Business tools"
   },
   "rankkiwi.com": {
@@ -4195,7 +4196,7 @@
    "added": "2026-10-12T06:42:30+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T17:59:21+00:00",
-   "priority": 11.94,
+   "priority": 11.53,
    "cat": "📣 Marketing platforms"
   },
   "notchzy.com": {
@@ -4211,7 +4212,7 @@
    "added": "2026-10-10T17:59:22+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T17:59:22+00:00",
-   "priority": 10.6,
+   "priority": 10.26,
    "cat": "📊 Business tools"
   },
   "royalcaribbean.com": {
@@ -4227,7 +4228,7 @@
    "added": "2026-10-10T21:35:54+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T21:35:54+00:00",
-   "priority": 13.64,
+   "priority": 13.12,
    "cat": "💳 Credit cards / financial products"
   },
   "onlyoffice.com": {
@@ -4243,7 +4244,7 @@
    "added": "2026-10-10T21:35:54+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T21:35:54+00:00",
-   "priority": 13.43,
+   "priority": 12.91,
    "cat": "📊 Business tools"
   },
   "digital.marketing": {
@@ -4260,7 +4261,7 @@
    "added": "2026-10-10T21:35:54+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T21:35:54+00:00",
-   "priority": 12.99,
+   "priority": 12.49,
    "cat": "📣 Marketing platforms"
   },
   "hotcoin.com": {
@@ -4276,7 +4277,7 @@
    "added": "2026-10-10T21:35:54+00:00",
    "launch": "today",
    "launch_seen": "2026-10-10T21:35:54+00:00",
-   "priority": 13.2,
+   "priority": 12.7,
    "cat": "📈 Investing platforms"
   },
   "museumofmodels.com": {
@@ -4292,7 +4293,7 @@
    "added": "2026-10-12T06:42:30+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T21:35:55+00:00",
-   "priority": 12.68,
+   "priority": 12.23,
    "cat": "🤖 AI tools"
   },
   "adsnotch.com": {
@@ -4308,7 +4309,7 @@
    "added": "2026-10-11T18:04:50+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T21:35:56+00:00",
-   "priority": 11.7,
+   "priority": 11.3,
    "cat": "📣 Marketing platforms"
   },
   "venmo.com": {
@@ -4324,7 +4325,7 @@
    "added": "2026-10-10T21:35:56+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T21:35:56+00:00",
-   "priority": 11.86,
+   "priority": 11.46,
    "cat": "💳 Credit cards / financial products"
   },
   "sezzle.com": {
@@ -4340,7 +4341,7 @@
    "added": "2026-10-10T21:35:56+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-10T21:35:56+00:00",
-   "priority": 11.42,
+   "priority": 11.04,
    "cat": "💰 Finance apps / banking"
   },
   "kalshi.com": {
@@ -4355,7 +4356,7 @@
     "Launch news"
    ],
    "added": "2026-10-10T21:35:56+00:00",
-   "priority": 9.32,
+   "priority": 9.11,
    "cat": "📈 Investing platforms"
   },
   "affirm.com": {
@@ -4369,7 +4370,7 @@
     "Google News"
    ],
    "added": "2026-10-10T21:35:56+00:00",
-   "priority": 8.88,
+   "priority": 8.69,
    "cat": "💰 Finance apps / banking"
   },
   "klarna.com": {
@@ -4383,7 +4384,7 @@
     "Google News"
    ],
    "added": "2026-10-10T21:35:57+00:00",
-   "priority": 8.88,
+   "priority": 8.69,
    "cat": "💰 Finance apps / banking"
   },
   "toolaby.com": {
@@ -4397,7 +4398,7 @@
     "Product Hunt (launch)"
    ],
    "added": "2026-10-12T06:42:30+00:00",
-   "priority": 12.6,
+   "priority": 12.13,
    "cat": "💻 SaaS / business software",
    "launch": "this_week",
    "launch_seen": "2026-10-12T06:42:30+00:00"
@@ -4413,7 +4414,7 @@
     "Product Hunt (launch)"
    ],
    "added": "2026-10-10T21:35:57+00:00",
-   "priority": 7.79,
+   "priority": 7.65,
    "cat": "💻 SaaS / business software"
   },
   "ilia.page/writing/introducing-nagare": {
@@ -4429,7 +4430,7 @@
    "added": "2026-10-11T00:32:16+00:00",
    "launch": "today",
    "launch_seen": "2026-10-11T00:32:16+00:00",
-   "priority": 13.19,
+   "priority": 12.68,
    "cat": "📊 Business tools"
   },
   "kernelai.app": {
@@ -4445,7 +4446,7 @@
    "added": "2026-10-11T18:04:50+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-11T00:32:16+00:00",
-   "priority": 12.38,
+   "priority": 11.95,
    "cat": "🤖 AI tools"
   },
   "skymir.app": {
@@ -4459,7 +4460,7 @@
     "Product Hunt (launch)"
    ],
    "added": "2026-10-12T06:42:30+00:00",
-   "priority": 12.46,
+   "priority": 11.99,
    "cat": "☁️ Cloud / hosting",
    "launch": "this_week",
    "launch_seen": "2026-10-12T06:42:30+00:00"
@@ -4475,7 +4476,7 @@
     "Product Hunt (launch)"
    ],
    "added": "2026-10-11T00:32:18+00:00",
-   "priority": 7.93,
+   "priority": 7.79,
    "cat": "🤖 AI tools"
   },
   "resoai.com": {
@@ -4489,7 +4490,7 @@
     "Product Hunt (launch)"
    ],
    "added": "2026-10-11T00:32:38+00:00",
-   "priority": 7.85,
+   "priority": 7.7,
    "cat": "📣 Marketing platforms"
   },
   "commissary.club": {
@@ -4505,7 +4506,7 @@
    "added": "2026-10-11T06:24:19+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-11T06:24:19+00:00",
-   "priority": 11.53,
+   "priority": 11.13,
    "cat": "💼 Freelancing platforms"
   },
   "notchpit.com": {
@@ -4521,7 +4522,7 @@
    "added": "2026-10-12T06:42:30+00:00",
    "launch": "today",
    "launch_seen": "2026-10-11T13:08:26+00:00",
-   "priority": 15.15,
+   "priority": 14.52,
    "cat": "📊 Business tools"
   },
   "gremlin.com": {
@@ -4537,7 +4538,7 @@
    "added": "2026-10-11T13:08:26+00:00",
    "launch": "today",
    "launch_seen": "2026-10-11T13:08:26+00:00",
-   "priority": 15.11,
+   "priority": 14.49,
    "cat": "💻 SaaS / business software"
   },
   "omnissa.com": {
@@ -4553,7 +4554,7 @@
    "added": "2026-10-12T06:42:30+00:00",
    "launch": "today",
    "launch_seen": "2026-10-11T13:08:36+00:00",
-   "priority": 15.01,
+   "priority": 14.38,
    "cat": "🔐 Cybersecurity / VPNs"
   },
   "wallhop.io": {
@@ -4571,7 +4572,7 @@
    "added": "2026-10-12T16:07:58+00:00",
    "launch": "today",
    "launch_seen": "2026-10-11T13:08:37+00:00",
-   "priority": 16.07,
+   "priority": 15.39,
    "cat": "📊 Business tools"
   },
   "truefit.com": {
@@ -4587,7 +4588,7 @@
    "added": "2026-10-11T13:08:37+00:00",
    "launch": "today",
    "launch_seen": "2026-10-11T13:08:37+00:00",
-   "priority": 14.62,
+   "priority": 14.02,
    "cat": "💻 SaaS / business software"
   },
   "farol.sh": {
@@ -4603,7 +4604,7 @@
    "added": "2026-10-11T21:53:17+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-11T13:08:37+00:00",
-   "priority": 13.33,
+   "priority": 12.83,
    "cat": "📊 Business tools"
   },
   "agibot.app": {
@@ -4619,7 +4620,7 @@
    "added": "2026-10-12T06:42:30+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-11T13:08:38+00:00",
-   "priority": 13.16,
+   "priority": 12.68,
    "cat": "🤖 AI tools"
   },
   "usehalo.app": {
@@ -4636,7 +4637,7 @@
    "added": "2026-10-11T13:08:39+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-11T13:08:39+00:00",
-   "priority": 12.55,
+   "priority": 12.09,
    "cat": "📊 Business tools"
   },
   "devterminal.app": {
@@ -4652,7 +4653,7 @@
    "added": "2026-10-12T06:42:30+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-11T13:08:39+00:00",
-   "priority": 13.08,
+   "priority": 12.6,
    "cat": "📊 Business tools"
   },
   "focuswrite.app": {
@@ -4668,7 +4669,7 @@
    "added": "2026-10-12T06:42:30+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-11T13:08:40+00:00",
-   "priority": 13.08,
+   "priority": 12.6,
    "cat": "📊 Business tools"
   },
   "getcue.app": {
@@ -4684,7 +4685,7 @@
    "added": "2026-10-11T21:53:18+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-11T13:08:41+00:00",
-   "priority": 12.8,
+   "priority": 12.34,
    "cat": "📊 Business tools"
   },
   "betterwispr.com": {
@@ -4701,7 +4702,7 @@
    "added": "2026-10-11T18:04:50+00:00",
    "launch": "today",
    "launch_seen": "2026-10-11T18:04:50+00:00",
-   "priority": 15.63,
+   "priority": 14.97,
    "cat": "🤖 AI tools"
   },
   "servicestamp.com": {
@@ -4717,7 +4718,7 @@
    "added": "2026-10-11T18:04:50+00:00",
    "launch": "today",
    "launch_seen": "2026-10-11T18:04:50+00:00",
-   "priority": 14.52,
+   "priority": 13.92,
    "cat": "📊 Business tools"
   },
   "resoniks.com": {
@@ -4733,7 +4734,7 @@
    "added": "2026-10-12T06:42:25+00:00",
    "launch": "today",
    "launch_seen": "2026-10-11T18:04:51+00:00",
-   "priority": 15.98,
+   "priority": 15.3,
    "cat": "📊 Business tools"
   },
   "mira.tours/wander": {
@@ -4750,7 +4751,7 @@
    "added": "2026-10-12T06:42:25+00:00",
    "launch": "today",
    "launch_seen": "2026-10-11T21:53:16+00:00",
-   "priority": 15.72,
+   "priority": 15.06,
    "cat": "🤖 AI tools"
   },
   "openscreen.com": {
@@ -4766,7 +4767,7 @@
    "added": "2026-10-12T06:42:30+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-11T21:53:17+00:00",
-   "priority": 13.47,
+   "priority": 12.96,
    "cat": "🤖 AI tools"
   },
   "hirekey.ai": {
@@ -4782,7 +4783,7 @@
    "added": "2026-10-11T21:53:17+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-11T21:53:17+00:00",
-   "priority": 12.67,
+   "priority": 12.21,
    "cat": "🤖 AI tools"
   },
   "tapnoise.com": {
@@ -4798,7 +4799,7 @@
    "added": "2026-10-11T21:53:18+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-11T21:53:18+00:00",
-   "priority": 12.06,
+   "priority": 11.62,
    "cat": "💻 SaaS / business software"
   },
   "cynario.com": {
@@ -4814,7 +4815,7 @@
    "added": "2026-10-12T00:47:55+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T00:47:55+00:00",
-   "priority": 15.83,
+   "priority": 15.17,
    "cat": "🛡️ Insurance"
   },
   "vussens.com": {
@@ -4830,7 +4831,7 @@
    "added": "2026-10-12T16:08:09+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T00:47:56+00:00",
-   "priority": 15.52,
+   "priority": 14.87,
    "cat": "📣 Marketing platforms"
   },
   "codeifai.com": {
@@ -4846,7 +4847,7 @@
    "added": "2026-10-12T06:42:30+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T00:47:56+00:00",
-   "priority": 15.25,
+   "priority": 14.6,
    "cat": "📣 Marketing platforms"
   },
   "iesve.com": {
@@ -4862,7 +4863,7 @@
    "added": "2026-10-12T00:47:57+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T00:47:57+00:00",
-   "priority": 15.09,
+   "priority": 14.45,
    "cat": "💻 SaaS / business software"
   },
   "hts.hopper.com": {
@@ -4878,7 +4879,7 @@
    "added": "2026-10-12T00:47:58+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T00:47:58+00:00",
-   "priority": 15.09,
+   "priority": 14.45,
    "cat": "💻 SaaS / business software"
   },
   "edgee.ai": {
@@ -4894,7 +4895,7 @@
    "added": "2026-10-12T00:47:58+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-12T00:47:58+00:00",
-   "priority": 13.39,
+   "priority": 12.89,
    "cat": "🤖 AI tools"
   },
   "karmaboard.app": {
@@ -4910,7 +4911,7 @@
    "added": "2026-10-12T00:48:20+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-12T00:48:20+00:00",
-   "priority": 12.23,
+   "priority": 11.79,
    "cat": "📊 Business tools"
   },
   "mepersona.ai": {
@@ -4924,7 +4925,7 @@
     "Product Hunt (launch)"
    ],
    "added": "2026-10-12T00:48:21+00:00",
-   "priority": 7.83,
+   "priority": 7.69,
    "cat": "📣 Marketing platforms"
   },
   "joinkudos.com": {
@@ -4940,7 +4941,7 @@
    "added": "2026-10-12T16:07:58+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T16:07:58+00:00",
-   "priority": 17.92,
+   "priority": 17.12,
    "cat": "💳 Credit cards / financial products"
   },
   "tabby.ai": {
@@ -4954,10 +4955,10 @@
     "Google News",
     "Launch news"
    ],
-   "added": "2026-10-12T16:07:58+00:00",
+   "added": "2026-10-13T11:07:22+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T16:07:58+00:00",
-   "priority": 17.32,
+   "priority": 17.22,
    "cat": "💰 Finance apps / banking"
   },
   "context.dev": {
@@ -4973,7 +4974,7 @@
    "added": "2026-10-12T16:07:59+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T16:07:59+00:00",
-   "priority": 16.51,
+   "priority": 15.78,
    "cat": "💻 SaaS / business software"
   },
   "electrictwin.com": {
@@ -4986,10 +4987,10 @@
    "sources": [
     "Launch news"
    ],
-   "added": "2026-10-12T16:08:09+00:00",
+   "added": "2026-10-13T11:07:22+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T16:08:09+00:00",
-   "priority": 16.59,
+   "priority": 16.45,
    "cat": "🤖 AI tools"
   },
   "echo7.ai": {
@@ -5005,7 +5006,7 @@
    "added": "2026-10-12T16:08:10+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T16:08:10+00:00",
-   "priority": 16.59,
+   "priority": 15.86,
    "cat": "🤖 AI tools"
   },
   "ncino.com": {
@@ -5021,7 +5022,7 @@
    "added": "2026-10-12T16:08:10+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T16:08:10+00:00",
-   "priority": 17.32,
+   "priority": 16.56,
    "cat": "💰 Finance apps / banking"
   },
   "caseware.com": {
@@ -5037,7 +5038,7 @@
    "added": "2026-10-12T16:08:10+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T16:08:10+00:00",
-   "priority": 16.51,
+   "priority": 15.78,
    "cat": "📊 Business tools"
   },
   "slotsup.com": {
@@ -5053,23 +5054,23 @@
    "added": "2026-10-12T16:08:10+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T16:08:10+00:00",
-   "priority": 15.99,
+   "priority": 15.3,
    "cat": "🤖 AI tools"
   },
   "agent37.com": {
    "name": "Agent37",
    "url": "https://agent37.com",
    "category": "hosting",
-   "hotness": 8.0,
+   "hotness": 9.0,
    "evergreen": false,
    "why": "YC F26 launch providing low-cost cloud sandboxes for running AI agents efficiently.",
    "sources": [
     "Launch HN"
    ],
-   "added": "2026-10-12T22:56:26+00:00",
+   "added": "2026-10-13T11:07:22+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T22:56:26+00:00",
-   "priority": 17.69,
+   "priority": 17.97,
    "cat": "☁️ Cloud / hosting"
   },
   "honeyjar.ai": {
@@ -5082,10 +5083,10 @@
    "sources": [
     "TechCrunch"
    ],
-   "added": "2026-10-12T22:56:26+00:00",
+   "added": "2026-10-13T11:07:23+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T22:56:26+00:00",
-   "priority": 17.83,
+   "priority": 17.46,
    "cat": "📣 Marketing platforms"
   },
   "equora.ai": {
@@ -5098,26 +5099,26 @@
    "sources": [
     "Launch news"
    ],
-   "added": "2026-10-12T22:56:31+00:00",
+   "added": "2026-10-13T11:07:23+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T22:56:31+00:00",
-   "priority": 17.41,
+   "priority": 17.02,
    "cat": "📈 Investing platforms"
   },
   "approvalmax.com": {
    "name": "ApprovalMax",
    "url": "https://approvalmax.com",
    "category": "saas",
-   "hotness": 7.0,
+   "hotness": 8.0,
    "evergreen": false,
    "why": "Financial workflow platform launched new automated AI approval layer for corporate bills.",
    "sources": [
     "Launch news"
    ],
-   "added": "2026-10-12T22:56:31+00:00",
+   "added": "2026-10-13T11:07:22+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T22:56:31+00:00",
-   "priority": 17.2,
+   "priority": 17.46,
    "cat": "💻 SaaS / business software"
   },
   "veriv.com": {
@@ -5133,7 +5134,7 @@
    "added": "2026-10-12T22:56:31+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T22:56:31+00:00",
-   "priority": 17.41,
+   "priority": 16.64,
    "cat": "💰 Finance apps / banking"
   },
   "galleri5.com": {
@@ -5149,7 +5150,7 @@
    "added": "2026-10-12T22:56:32+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T22:56:32+00:00",
-   "priority": 17.29,
+   "priority": 16.52,
    "cat": "🤖 AI tools"
   },
   "metropolix.com": {
@@ -5165,7 +5166,7 @@
    "added": "2026-10-12T22:56:32+00:00",
    "launch": "today",
    "launch_seen": "2026-10-12T22:56:32+00:00",
-   "priority": 16.58,
+   "priority": 15.84,
    "cat": "📊 Business tools"
   },
   "excaliclaw.com": {
@@ -5181,7 +5182,7 @@
    "added": "2026-10-12T22:56:37+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-12T22:56:37+00:00",
-   "priority": 14.33,
+   "priority": 13.76,
    "cat": "📊 Business tools"
   },
   "manifoldmcp.com": {
@@ -5197,7 +5198,7 @@
    "added": "2026-10-12T22:56:37+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-12T22:56:37+00:00",
-   "priority": 14.33,
+   "priority": 13.76,
    "cat": "📣 Marketing platforms"
   },
   "guilds.run": {
@@ -5213,7 +5214,7 @@
    "added": "2026-10-12T22:56:46+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-12T22:56:46+00:00",
-   "priority": 14.42,
+   "priority": 13.85,
    "cat": "🤖 AI tools"
   },
   "salesrep.com": {
@@ -5229,7 +5230,7 @@
    "added": "2026-10-12T22:56:50+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-12T22:56:50+00:00",
-   "priority": 14.96,
+   "priority": 14.36,
    "cat": "📣 Marketing platforms"
   },
   "codemind.ai": {
@@ -5245,7 +5246,7 @@
    "added": "2026-10-12T22:56:54+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-12T22:56:54+00:00",
-   "priority": 14.42,
+   "priority": 13.85,
    "cat": "🤖 AI tools"
   },
   "ngram.ai": {
@@ -5259,7 +5260,7 @@
     "Product Hunt (launch)"
    ],
    "added": "2026-10-12T22:57:30+00:00",
-   "priority": 9.01,
+   "priority": 8.81,
    "cat": "🤖 AI tools"
   },
   "bearconnect.io": {
@@ -5273,7 +5274,7 @@
     "Product Hunt (launch)"
    ],
    "added": "2026-10-12T22:57:34+00:00",
-   "priority": 8.92,
+   "priority": 8.72,
    "cat": "📣 Marketing platforms"
   },
   "leela.ai": {
@@ -5287,10 +5288,10 @@
     "Google News",
     "Launch news"
    ],
-   "added": "2026-10-13T03:31:31+00:00",
+   "added": "2026-10-13T11:07:23+00:00",
    "launch": "today",
    "launch_seen": "2026-10-13T03:31:31+00:00",
-   "priority": 18.21,
+   "priority": 17.65,
    "cat": "⚖️ Legal services / platforms"
   },
   "etoro.com": {
@@ -5306,7 +5307,7 @@
    "added": "2026-10-13T03:31:31+00:00",
    "launch": "today",
    "launch_seen": "2026-10-13T03:31:31+00:00",
-   "priority": 18.56,
+   "priority": 17.72,
    "cat": "📈 Investing platforms"
   },
   "origence.com": {
@@ -5322,7 +5323,7 @@
    "added": "2026-10-13T03:31:31+00:00",
    "launch": "today",
    "launch_seen": "2026-10-13T03:31:31+00:00",
-   "priority": 17.91,
+   "priority": 17.1,
    "cat": "💰 Finance apps / banking"
   },
   "jump.ai": {
@@ -5339,23 +5340,23 @@
    "added": "2026-10-13T03:31:32+00:00",
    "launch": "today",
    "launch_seen": "2026-10-13T03:31:32+00:00",
-   "priority": 17.7,
+   "priority": 16.89,
    "cat": "💻 SaaS / business software"
   },
   "descartes.com": {
    "name": "Descartes",
    "url": "https://descartes.com",
    "category": "saas",
-   "hotness": 7.0,
+   "hotness": 8.0,
    "evergreen": false,
    "why": "Unveiled a supply chain AI agent control plane for autonomous enterprise logistics.",
    "sources": [
     "Launch news"
    ],
-   "added": "2026-10-13T03:31:32+00:00",
+   "added": "2026-10-13T11:07:22+00:00",
    "launch": "today",
    "launch_seen": "2026-10-13T03:31:32+00:00",
-   "priority": 17.7,
+   "priority": 17.79,
    "cat": "💻 SaaS / business software"
   },
   "shopview.com": {
@@ -5369,10 +5370,10 @@
     "Google News",
     "Launch news"
    ],
-   "added": "2026-10-13T03:31:35+00:00",
+   "added": "2026-10-13T11:07:23+00:00",
    "launch": "today",
    "launch_seen": "2026-10-13T03:31:35+00:00",
-   "priority": 17.7,
+   "priority": 17.14,
    "cat": "💻 SaaS / business software"
   },
   "alteryx.com": {
@@ -5388,23 +5389,24 @@
    "added": "2026-10-13T03:31:41+00:00",
    "launch": "today",
    "launch_seen": "2026-10-13T03:31:41+00:00",
-   "priority": 17.7,
+   "priority": 16.89,
    "cat": "💻 SaaS / business software"
   },
   "binance.com": {
    "name": "Binance",
    "url": "https://binance.com",
    "category": "investing",
-   "hotness": 7.0,
+   "hotness": 8.0,
    "evergreen": false,
    "why": "Officially rolled out an automated AI trading copilot following beta testing.",
    "sources": [
+    "Google News",
     "Launch news"
    ],
-   "added": "2026-10-13T03:31:42+00:00",
+   "added": "2026-10-13T11:07:22+00:00",
    "launch": "today",
    "launch_seen": "2026-10-13T03:31:42+00:00",
-   "priority": 17.91,
+   "priority": 18.0,
    "cat": "📈 Investing platforms"
   },
   "hexis.cloud": {
@@ -5420,7 +5422,7 @@
    "added": "2026-10-13T03:31:42+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-13T03:31:42+00:00",
-   "priority": 15.43,
+   "priority": 14.8,
    "cat": "🤖 AI tools"
   },
   "invitedapp.com": {
@@ -5436,7 +5438,7 @@
    "added": "2026-10-13T03:31:42+00:00",
    "launch": "this_week",
    "launch_seen": "2026-10-13T03:31:42+00:00",
-   "priority": 14.78,
+   "priority": 14.19,
    "cat": "🤖 AI tools"
   },
   "knocket.com": {
@@ -5450,7 +5452,7 @@
     "Product Hunt (launch)"
    ],
    "added": "2026-10-13T03:32:34+00:00",
-   "priority": 9.05,
+   "priority": 8.84,
    "cat": "📣 Marketing platforms"
   },
   "ayven.ai": {
@@ -5464,9 +5466,42 @@
     "Product Hunt (launch)"
    ],
    "added": "2026-10-13T03:32:34+00:00",
-   "priority": 8.4,
+   "priority": 8.23,
    "cat": "📊 Business tools"
+  },
+  "freebeat.ai": {
+   "name": "Freebeat",
+   "url": "https://freebeat.ai",
+   "category": "ai-tools",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Fuses song lyrics into video scenes using AI.",
+   "sources": [
+    "Launch news"
+   ],
+   "added": "2026-10-13T11:07:22+00:00",
+   "launch": "today",
+   "launch_seen": "2026-10-13T11:07:22+00:00",
+   "priority": 17.78,
+   "cat": "🤖 AI tools"
+  },
+  "brickbrag.com": {
+   "name": "Brickbrag",
+   "url": "https://brickbrag.com",
+   "category": "ai-tools",
+   "hotness": 7.0,
+   "evergreen": false,
+   "why": "Multiplayer brick-building browser world.",
+   "sources": [
+    "Hacker News",
+    "Show HN (new)"
+   ],
+   "added": "2026-10-13T11:07:23+00:00",
+   "launch": "today",
+   "launch_seen": "2026-10-13T11:07:23+00:00",
+   "priority": 17.78,
+   "cat": "🤖 AI tools"
   }
  },
- "updated": "2026-10-13T03:32:34+00:00"
+ "updated": "2026-10-13T11:07:23+00:00"
 }
