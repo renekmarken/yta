@@ -6076,5 +6076,189 @@
    ]
   },
   "youtube": null
+ },
+ {
+  "date": "2026-10-14",
+  "url": "whitescreen:deleted-video-162122-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Deleted Video]",
+  "title_base": "[Deleted Video]",
+  "format": "error",
+  "comment_word": "GOODBYE",
+  "hook": [
+   "This video is getting deleted the exact moment it hits 3,000 likes.",
+   "That means every single like brings it closer to being gone forever.",
+   "Most creators want their videos to stay up..."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "character",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-14",
+  "url": "whitescreen:unlisted-video-162122-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Unlisted Video]",
+  "title_base": "[Unlisted Video]",
+  "format": "error",
+  "comment_word": "RECOMMENDED",
+  "hook": [
+   "This video was never supposed to show up in your feed.",
+   "I set it to unlisted earlier today, so nobody should find it without a direct link.",
+   "Yet somehow... you're watching it right now."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "error_glow",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-14",
+  "url": "whitescreen:don-t-be-the-1st-person-to-comment-162122-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Don't Be The 1st Person To Comment",
+  "title_base": "Don't Be The 1st Person To Comment",
+  "format": "dare",
+  "comment_word": "NOT FIRST",
+  "hook": [
+   "Everybody wants to be the very first person to leave a comment on a new video.",
+   "But for this specific video... I actually don't want you to be the first.",
+   "In fact, let's see if you can hold back and wait until someone else does it."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "headline",
+    "white"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-14",
+  "url": "whitescreen:only-verified-youtubers-can-comment-162122-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Only Verified YouTubers Can Comment",
+  "title_base": "Only Verified YouTubers Can Comment",
+  "format": "only",
+  "comment_word": "VERIFIED",
+  "hook": [
+   "I made a rule that only verified YouTubers can comment on this video...",
+   "Or at least, that's what I'm telling the algorithm.",
+   "Most of you watching right now aren't even verified."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "ui",
+    "headline"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-14",
+  "url": "whitescreen:don-t-pause-this-video-162122-4",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Don't Pause This Video",
+  "title_base": "Don't Pause This Video",
+  "format": "dare",
+  "comment_word": "STAYED UNTIL THE END",
+  "hook": [
+   "Don't pause this video...",
+   "Seriously, just let it keep playing right until the very end.",
+   "I'm testing a brand new algorithm theory today..."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "icon",
+    "white"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-14",
+  "url": "whitescreen:private-video-162122-5",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Private Video]",
+  "title_base": "[Private Video]",
+  "format": "error",
+  "comment_word": "TIME CAPSULE",
+  "hook": [
+   "This video is going private in just a few hours.",
+   "So if you managed to find it right now... you are one of the very few.",
+   "Before I lock this away and nobody else can watch it..."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "character",
+    "error_glow"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-14",
+  "url": "whitescreen:secret-video-162122-6",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Secret Video]",
+  "title_base": "[Secret Video]",
+  "format": "error",
+  "comment_word": "SECRET FOUND",
+  "hook": [
+   "This is a secret video that barely anyone is meant to find.",
+   "It is hidden deep inside the channel and it will not stay up long.",
+   "I am testing how the algorithm reacts when a totally unknown link gets discovered."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "ui",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-14",
+  "url": "whitescreen:this-video-is-upside-down-162122-7",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "this video is upside down",
+  "title_base": "this video is upside down",
+  "format": "dare",
+  "comment_word": "UPSIDE DOWN",
+  "hook": [
+   "Most people are watching this video the wrong way right now...",
+   "And honestly, it's pretty funny.",
+   "I uploaded this entire video completely upside down just to see who would notice."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "white",
+    "headline"
+   ]
+  },
+  "youtube": null
  }
 ]
