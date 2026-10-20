@@ -6260,5 +6260,189 @@
    ]
   },
   "youtube": null
+ },
+ {
+  "date": "2026-10-20",
+  "url": "whitescreen:removed-video-173351-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Removed Video]",
+  "title_base": "[Removed Video]",
+  "format": "error",
+  "comment_word": "GONE",
+  "hook": [
+   "This video is getting removed from the channel very soon.",
+   "And honestly... I wasn't even supposed to post it today.",
+   "The removal timer is already running out in the background."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "character",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-20",
+  "url": "whitescreen:this-video-will-be-deleted-tomorrow-173351-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Will Be Deleted Tomorrow",
+  "title_base": "This Video Will Be Deleted Tomorrow",
+  "format": "deadline",
+  "comment_word": "GOODBYE",
+  "hook": [
+   "This video is getting permanently deleted tomorrow.",
+   "So if you are watching this right now, you found it just in time.",
+   "I am not making it private or unlisted..."
+  ],
+  "theme": {
+   "thumbs": [
+    "headline",
+    "character",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-20",
+  "url": "whitescreen:this-video-has-1-comment-173351-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 1 Comment",
+  "title_base": "This Video Has 1 Comment",
+  "format": "count",
+  "comment_word": "UNLOCKED",
+  "hook": [
+   "Right now, this video has exactly 1 comment.",
+   "And inside that comment is a mystery I haven't revealed yet.",
+   "Here’s the deal..."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "headline",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-20",
+  "url": "whitescreen:this-video-disappears-in-1-hour-173351-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Disappears In 1 Hour",
+  "title_base": "This Video Disappears In 1 Hour",
+  "format": "deadline",
+  "comment_word": "SAVED",
+  "hook": [
+   "I just set a countdown timer on my phone for sixty minutes.",
+   "When that timer hits zero... this video is gone forever.",
+   "Most people will never get to see this upload."
+  ],
+  "theme": {
+   "thumbs": [
+    "headline",
+    "icon",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-20",
+  "url": "whitescreen:this-video-has-5-comments-173351-4",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 5 Comments",
+  "title_base": "This Video Has 5 Comments",
+  "format": "count",
+  "comment_word": "FIVE COMMENTS",
+  "hook": [
+   "This video currently has exactly five comments.",
+   "And I want to see how long we can keep it frozen at that exact number.",
+   "If you're watching this right now and the comment count is still five..."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "white",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-20",
+  "url": "whitescreen:deleted-video-173351-5",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Deleted Video]",
+  "title_base": "[Deleted Video]",
+  "format": "error",
+  "comment_word": "GONE",
+  "hook": [
+   "This video is getting deleted the exact moment it hits 5,000 likes.",
+   "That means every single like brings it closer to being gone forever.",
+   "Most creators want their videos to stay up forever..."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "character",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-20",
+  "url": "whitescreen:cursed-video-173351-6",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Cursed Video]",
+  "title_base": "[Cursed Video]",
+  "format": "error",
+  "comment_word": "IMMUNE",
+  "hook": [
+   "If this video appeared on your feed right now, do not swipe away.",
+   "People are saying this is the most cursed video on YouTube today.",
+   "The rumor is that if you watch it and just scroll past without doing anything..."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "error_glow",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-20",
+  "url": "whitescreen:i-m-deleting-this-in-2-days-173351-7",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "I'm Deleting This in 2 Days...",
+  "title_base": "I'm Deleting This in 2 Days...",
+  "format": "deadline",
+  "comment_word": "2 DAYS",
+  "hook": [
+   "I'm actually deleting this video in 2 days...",
+   "So if you're watching it right now, you found it just in time.",
+   "Before it disappears completely, I want to see who made it here."
+  ],
+  "theme": {
+   "thumbs": [
+    "headline",
+    "ui",
+    "icon"
+   ]
+  },
+  "youtube": null
  }
 ]
