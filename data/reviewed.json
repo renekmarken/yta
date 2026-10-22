@@ -526,5 +526,12 @@
   "url": "https://weftcut.com",
   "status": "done",
   "date": "2026-10-04"
+ },
+ {
+  "site": "blacksmith.sh",
+  "name": "Blacksmith",
+  "url": "https://blacksmith.sh",
+  "status": "done",
+  "date": "2026-10-22"
  }
 ]

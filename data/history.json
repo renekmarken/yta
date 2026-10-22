@@ -6444,5 +6444,53 @@
    ]
   },
   "youtube": null
+ },
+ {
+  "date": "2026-10-22",
+  "url": "https://blacksmith.sh",
+  "brand": "Blacksmith",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Blacksmith: $0.004/Min CI, But What's the Catch?",
+  "youtube": null,
+  "format": "red_flags",
+  "opener": "So their site says it's the absolute fastest way to run your GitHub Actions, promising a dead simple drop-in replacement",
+  "title_style": "scam",
+  "theme": {
+   "mode": "light",
+   "layout": "full",
+   "frame": "minimal",
+   "caption": "pill",
+   "bg": "aurora",
+   "head_font": "inter",
+   "accent": [
+    0,
+    214,
+    170
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "number",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "fade_up",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "number/magenta/scam",
+    "yes_no/ocean/worth",
+    "split/crimson/expect"
+   ]
+  }
  }
 ]

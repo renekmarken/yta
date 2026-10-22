@@ -56,3 +56,4 @@ https://elevenlabs.io
 https://pipod.dev
 https://carnival.com
 https://weftcut.com
+https://blacksmith.sh
