@@ -6492,5 +6492,189 @@
     "split/crimson/expect"
    ]
   }
+ },
+ {
+  "date": "2026-10-26",
+  "url": "whitescreen:first-comment-gets-pinned-223838-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "First Comment Gets Pinned",
+  "title_base": "First Comment Gets Pinned",
+  "format": "pin",
+  "comment_word": "FIRST",
+  "hook": [
+   "I want to see who is actually watching this video right now.",
+   "Because whoever manages to leave the very first comment on this video...",
+   "Is going to get their comment pinned right at the very top."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "character",
+    "headline"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-26",
+  "url": "whitescreen:this-video-has-0-likes-and-0-comments-223838-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 0 Likes And 0 Comments",
+  "title_base": "This Video Has 0 Likes And 0 Comments",
+  "format": "count",
+  "comment_word": "BROKE IT",
+  "hook": [
+   "Right now, this video has zero likes and zero comments.",
+   "It’s a completely clean slate.",
+   "Almost nobody ever catches a video when it’s totally empty."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "character",
+    "headline"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-26",
+  "url": "whitescreen:don-t-pause-this-video-223838-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Don't Pause This Video",
+  "title_base": "Don't Pause This Video",
+  "format": "dare",
+  "comment_word": "STAYED UNTIL THE END",
+  "hook": [
+   "Don't pause this video...",
+   "Seriously, just let it keep playing right until the very end.",
+   "I'm testing a brand new algorithm theory today..."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "icon",
+    "white"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-26",
+  "url": "whitescreen:private-video-223838-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "<Private Video>",
+  "title_base": "<Private Video>",
+  "format": "error",
+  "comment_word": "VAULT",
+  "hook": [
+   "This video has a countdown on it.",
+   "In 24 hours, I'm locking this entire video behind a private link.",
+   "Only the people who interact with it right now will ever know it existed."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "ui",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-26",
+  "url": "whitescreen:no-access-223838-4",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[No Access]",
+  "title_base": "[No Access]",
+  "format": "error",
+  "comment_word": "NO ACCESS",
+  "hook": [
+   "This video currently has no access for almost everyone...",
+   "Only a tiny group of people can actually watch this right now.",
+   "And honestly, I'm not sure how long this page will stay open."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "ui",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-26",
+  "url": "whitescreen:this-video-won-t-get-1-million-views-223838-5",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Won't Get 1 Million Views",
+  "title_base": "This Video Won't Get 1 Million Views",
+  "format": "goal",
+  "comment_word": "ONE MILLION",
+  "hook": [
+   "Most people are going to scroll right past this video...",
+   "because they think it's impossible to reach one million views.",
+   "And honestly... they're probably right."
+  ],
+  "theme": {
+   "thumbs": [
+    "white",
+    "headline",
+    "icon"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-26",
+  "url": "whitescreen:this-video-has-0-likes-223838-6",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 0 Likes",
+  "title_base": "This Video Has 0 Likes",
+  "format": "count",
+  "comment_word": "FIRST 10K",
+  "hook": [
+   "Look at the like button right now...",
+   "Does it still say zero?",
+   "If it does, you've found this video at the absolute rarest moment possible."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "white",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-26",
+  "url": "whitescreen:unlisted-video-223838-7",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Unlisted Video]",
+  "title_base": "[Unlisted Video]",
+  "format": "error",
+  "comment_word": "RECOMMENDED",
+  "hook": [
+   "This video was never supposed to show up in your feed.",
+   "I set it to unlisted earlier today.",
+   "So nobody should find it without a direct link."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "error_glow",
+    "ui"
+   ]
+  },
+  "youtube": null
  }
 ]
