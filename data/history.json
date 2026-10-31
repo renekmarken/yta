@@ -6676,5 +6676,189 @@
    ]
   },
   "youtube": null
+ },
+ {
+  "date": "2026-10-31",
+  "url": "whitescreen:private-video-142646-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Private Video]",
+  "title_base": "[Private Video]",
+  "format": "error",
+  "comment_word": "TIME CAPSULE",
+  "hook": [
+   "This video is going private in just a few hours.",
+   "So if you managed to find it right now... you are one of the very few.",
+   "Before I lock this away and nobody else can watch it..."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "character",
+    "error_glow"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-31",
+  "url": "whitescreen:i-will-heart-every-comment-142646-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "I Will Heart Every Comment",
+  "title_base": "I Will Heart Every Comment",
+  "format": "pin",
+  "comment_word": "HEART ME",
+  "hook": [
+   "I'm going to heart every single comment on this video...",
+   "but I'm only doing it for the next 24 hours.",
+   "Starting right now, I'm sitting here and reading everything you write."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "headline",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-31",
+  "url": "whitescreen:this-video-will-be-deleted-tomorrow-142646-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Will Be Deleted Tomorrow",
+  "title_base": "This Video Will Be Deleted Tomorrow",
+  "format": "deadline",
+  "comment_word": "GOODBYE",
+  "hook": [
+   "This video is getting permanently deleted tomorrow.",
+   "So if you are watching this right now, you found it just in time.",
+   "I am not making it private or unlisted..."
+  ],
+  "theme": {
+   "thumbs": [
+    "headline",
+    "character",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-31",
+  "url": "whitescreen:i-m-deleting-this-in-2-days-142646-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "I'm Deleting This in 2 Days...",
+  "title_base": "I'm Deleting This in 2 Days...",
+  "format": "deadline",
+  "comment_word": "2 DAYS",
+  "hook": [
+   "I'm actually deleting this video in just 2 days...",
+   "So if you're watching it right now, you found it just in time.",
+   "Before it disappears completely, I want to see who made it here."
+  ],
+  "theme": {
+   "thumbs": [
+    "headline",
+    "icon",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-31",
+  "url": "whitescreen:locked-video-142646-4",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Locked Video]",
+  "title_base": "[Locked Video]",
+  "format": "error",
+  "comment_word": "UNLOCKED",
+  "hook": [
+   "This video is getting locked in 24 hours.",
+   "Once it's locked, nobody new can ever watch it or leave a comment.",
+   "So if you're watching this right now, you found it while the door was still open."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "ui",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-31",
+  "url": "whitescreen:this-video-has-5-comments-142646-5",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 5 Comments",
+  "title_base": "This Video Has 5 Comments",
+  "format": "count",
+  "comment_word": "FIVE COMMENTS",
+  "hook": [
+   "This video currently has exactly five comments.",
+   "And I want to see how long we can keep it frozen at that exact number.",
+   "If you're watching this right now and the comment count is still five..."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "white",
+    "character"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-31",
+  "url": "whitescreen:this-video-will-self-destruct-in-24-hour-142646-6",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Will Self Destruct In 24 Hours...",
+  "title_base": "This Video Will Self Destruct In 24 Hours...",
+  "format": "deadline",
+  "comment_word": "SURVIVED",
+  "hook": [
+   "Right now, this video has a 24-hour countdown ticking down to zero.",
+   "When the timer hits tomorrow, this entire upload gets wiped from YouTube.",
+   "No private mode... no unlisted link... it's just completely gone."
+  ],
+  "theme": {
+   "thumbs": [
+    "headline",
+    "icon",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-10-31",
+  "url": "whitescreen:don-t-watch-this-video-twice-142646-7",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Don't Watch This Video Twice",
+  "title_base": "Don't Watch This Video Twice",
+  "format": "dare",
+  "comment_word": "ONE TIME ONLY",
+  "hook": [
+   "You just clicked on this video...",
+   "but you're not supposed to stay for long.",
+   "This is a strict one-time-only rule."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "white",
+    "icon"
+   ]
+  },
+  "youtube": null
  }
 ]
