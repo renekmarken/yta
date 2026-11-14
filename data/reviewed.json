@@ -569,5 +569,93 @@
   "status": "done",
   "date": "2026-11-14",
   "alt": "Marqly 7.0"
+ },
+ {
+  "site": "didit.io",
+  "name": "Didit MCP",
+  "url": "https://didit.io",
+  "status": "failed",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "offstage.cloud",
+  "name": "offstage cloud",
+  "url": "https://offstage.cloud",
+  "status": "done",
+  "date": "2026-11-14",
+  "alt": "Offstage Cloud"
+ },
+ {
+  "site": "leasewire.com",
+  "name": "LeaseWire",
+  "url": "https://leasewire.com",
+  "status": "failed",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "constantcontact.com",
+  "name": "Constant Contact",
+  "url": "https://www.constantcontact.com",
+  "status": "failed",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "starlingbank.com",
+  "name": "Starling Bank",
+  "url": "https://starlingbank.com",
+  "status": "done",
+  "date": "2026-11-14",
+  "alt": "Starling Bank Talk to Transact"
+ },
+ {
+  "site": "pomerado.ai",
+  "name": "Pomerado",
+  "url": "https://pomerado.ai",
+  "status": "done",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "monefit.com",
+  "name": "Monefit",
+  "url": "https://monefit.com",
+  "status": "done",
+  "date": "2026-11-14",
+  "alt": "Monefit Credit Card"
+ },
+ {
+  "site": "binq.com",
+  "name": "Binq",
+  "url": "https://binq.com",
+  "status": "failed",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "vanta.com",
+  "name": "Vanta",
+  "url": "https://vanta.com",
+  "status": "done",
+  "date": "2026-11-14",
+  "alt": "Vanta AI Governance"
+ },
+ {
+  "site": "anyday.com",
+  "name": "Anyday ExploitTotal",
+  "url": "https://anyday.com",
+  "status": "failed",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "langchain.com",
+  "name": "LangChain",
+  "url": "https://langchain.com",
+  "status": "done",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "crossfade.ai",
+  "name": "Crossfade",
+  "url": "https://crossfade.ai",
+  "status": "failed",
+  "date": "2026-11-14"
  }
 ]

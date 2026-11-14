@@ -7004,5 +7004,291 @@
     "laptop/ocean/expect"
    ]
   }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://offstage.cloud",
+  "brand": "offstage cloud",
+  "kind": "review",
+  "story_url": null,
+  "category": "hosting",
+  "title": "Offstage Cloud: What to Actually Expect (EXPLAINED)",
+  "youtube": "https://youtu.be/FpMVDGcqTZY",
+  "format": "who_for",
+  "opener": "Here's the catch: you're wanting your AI coding agent to build iOS apps or run Swift tests, but renting a full Mac serve",
+  "title_style": "expect",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "pill",
+   "bg": "mesh",
+   "head_font": "poppins",
+   "accent": [
+    192,
+    48,
+    216
+   ],
+   "transitions": [
+    "circleopen",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "number",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "drop",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "number/royal/expect",
+    "left/ocean/scam",
+    "laptop/charcoal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://starlingbank.com",
+  "brand": "Starling Bank",
+  "kind": "review",
+  "story_url": null,
+  "category": "banking-apps",
+  "title": "Starling Bank: $0 Fees, But What's the Catch?",
+  "youtube": "https://youtu.be/ylg9DHwa_-k",
+  "format": "five_questions",
+  "opener": "Ever wondered if you're actually getting the most out of your digital banking app without getting hit by hidden fees? Ok",
+  "title_style": "legit",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "glass",
+   "bg": "mesh",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    212,
+    0
+   ],
+   "transitions": [
+    "cut"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "split/violet/legit",
+    "stack/crimson/scam",
+    "number/midnight/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://pomerado.ai",
+  "brand": "Pomerado",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Pomerado: Is It Actually Good?",
+  "youtube": "https://youtu.be/m9w7P_EN5Vg",
+  "format": "first_look",
+  "opener": "Here's the catch: it promises to turn any website into an API or MCP in minutes without needing an official API",
+  "title_style": "good",
+  "theme": {
+   "mode": "light",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "underline",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    122,
+    92,
+    255
+   ],
+   "transitions": [
+    "vertopen",
+    "horzopen"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "laptop",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "laptop/violet/good",
+    "banner/charcoal/worth",
+    "number/crimson/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://monefit.com",
+  "brand": "Monefit",
+  "kind": "review",
+  "story_url": null,
+  "category": "credit-cards",
+  "title": "Monefit: 10.52% APY Claims, But Where Are the Fees?",
+  "youtube": "https://youtu.be/0G3Bz9rsoBg",
+  "format": "five_questions",
+  "opener": "Okay, let's take a look at Monefit",
+  "title_style": "fees",
+  "theme": {
+   "mode": "dark",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "underline",
+   "bg": "gradient",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    70,
+    140
+   ],
+   "transitions": [
+    "circleopen",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    70,
+    140
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "split/royal/fees",
+    "banner/ocean/worth",
+    "left/charcoal/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://vanta.com",
+  "brand": "Vanta",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Is Vanta Actually Worth It? Hidden Pricing & AI Features",
+  "youtube": "https://youtu.be/pkFcsvpXTG0",
+  "format": "first_look",
+  "opener": "Okay, so Vanta promises to automate SOC 2, HIPAA, and over 35 other compliance frameworks using AI and continuous monito",
+  "title_style": "actually",
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "pill",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    122,
+    92,
+    255
+   ],
+   "transitions": [
+    "smoothleft",
+    "smoothright"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "number",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_up",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "minimal",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "number/royal/worth",
+    "stack/charcoal/scam",
+    "score/ocean/works"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://langchain.com",
+  "brand": "LangChain",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "LangChain: $0 Free Tier, But What's the Catch?",
+  "youtube": "https://youtu.be/e3K3s8Gf7ZI",
+  "format": "pros_cons",
+  "opener": "LangChain claims it's the open agent platform to own your intelligence, letting companies run, improve, and govern AI ag",
+  "title_style": "expect",
+  "theme": {
+   "mode": "light",
+   "layout": "stage",
+   "frame": "mac_light",
+   "caption": "underline",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    22,
+    109,
+    219
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "banner",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_up",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "banner/crimson/expect",
+    "yes_no/ocean/worth",
+    "split/emerald/scam"
+   ]
+  }
  }
 ]
