@@ -26,7 +26,7 @@ Gemini acts as the editor: it picks the products worth reviewing, finds each off
 New launches jump to the top of the queue (launched today: +8 priority, this week: +5, fading over a few
 days). Every hourly discovery run then **starts a batch of review videos from the top of the queue**, up to
 `UPLOADS_PER_DAY` uploaded videos a day (repository variable, default 50, `0` turns this off;
-`AUTO_VIDEOS_PER_RUN`, default 4, sets how many start each hour). With `UPLOAD_MODE` = `api` each one goes
+`AUTO_VIDEOS_PER_RUN`, default 4, sets how many start each hour; a run that GitHub starts late catches up, up to 12). With `UPLOAD_MODE` = `api` each one goes
 to YouTube as unlisted as soon as it's done, and lands in your library with its YouTube link.
 
 **2. Priority.** `priority = 0.65 × hotness (halves every 4 days) + 0.35 × category value + 2 if fresh`.

@@ -76,4 +76,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           COUNT: ${{ steps.auto.outputs.count }}
-        run: gh workflow run batch.yml --ref "${{ github.ref_name }}" -f count="$COUNT" -f kind=review -f parallel=2
+        run: gh workflow run batch.yml --ref "${{ github.ref_name }}" -f count="$COUNT" -f kind=review -f parallel=4

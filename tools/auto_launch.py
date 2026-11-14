@@ -3,7 +3,8 @@ gets up to UPLOADS_PER_DAY videos a day, each uploaded to YouTube as soon as it'
 
 Repository variables: UPLOADS_PER_DAY (default 50, the volume in the YouTube API quota application;
 0 = off) and AUTO_VIDEOS_PER_RUN (default 4: started per hourly run, since some websites block
-visitors and give no video). Today's uploads are counted from data/history.json, plus the videos
+visitors and give no video). GitHub often skips scheduled runs for hours, so a run that comes late
+starts more to catch up (4 per hour since the last start, at most 12). Today's uploads are counted from data/history.json, plus the videos
 started in the last 75 minutes that aren't booked yet. data/auto_videos.json remembers those starts.
 
   python tools/auto_launch.py          -> prints the decision, writes count=N to $GITHUB_OUTPUT
@@ -18,7 +19,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from studio import config                                       # noqa: E402
 
 STATE = config.DATA_DIR / "auto_videos.json"
-IN_FLIGHT = timedelta(minutes=75)               # a batch of 4 takes about 30-45 minutes
+IN_FLIGHT = timedelta(minutes=90)               # a batch of 12 (4 at a time) takes about an hour
+MAX_RUN = 12
 
 
 def main():
@@ -32,12 +34,16 @@ def main():
     uploaded = sum(1 for h in history if h.get("date") == today and h.get("youtube"))
     starts = [s for s in state.get("starts", []) if now - datetime.fromisoformat(s["at"]) < IN_FLIGHT]
     in_flight = sum(s["count"] for s in starts)
-    count = max(0, min(per_run, per_day - uploaded - in_flight))
+    last = state.get("last")
+    hours = (now - datetime.fromisoformat(last)).total_seconds() / 3600 if last else 3
+    catch_up = min(MAX_RUN, max(per_run, round(per_run * hours)))
+    count = max(0, min(catch_up, per_day - uploaded - in_flight))
     print(f"{uploaded}/{per_day} uploaded today, {in_flight} still being made -> starting {count} now")
 
     if count:
         starts.append({"at": now.isoformat(timespec="seconds"), "count": count})
-    STATE.write_text(json.dumps({"starts": starts}, indent=1))
+        last = now.isoformat(timespec="seconds")
+    STATE.write_text(json.dumps({"starts": starts, "last": last}, indent=1))
     if os.environ.get("GITHUB_OUTPUT"):
         with open(os.environ["GITHUB_OUTPUT"], "a") as f:
             f.write(f"count={count}\n")
