@@ -7290,5 +7290,435 @@
     "split/emerald/scam"
    ]
   }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://aboard.com",
+  "brand": "Aboard",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "Aboard Review: High-End AI Consulting, But What's the Catch?",
+  "youtube": "https://youtu.be/Mn8R4BEsc5Q",
+  "format": "red_flags",
+  "opener": "Here's the catch: they're promising to handle your whole AI transformation and custom software needs, but you won't find",
+  "title_style": "honest",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "bar",
+   "bg": "aurora",
+   "head_font": "poppins",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "yes_no/magenta/worth",
+    "left/charcoal/scam",
+    "split/emerald/legit"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://worker.ai",
+  "brand": "Worker.ai",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Worker.ai Review: Free Business OS, But What's the Catch?",
+  "youtube": "https://youtu.be/U7YOJ5jv35E",
+  "format": "fine_print",
+  "opener": "Ever wondered if an artificial intelligence tool could actually take over your boring weekly team meetings and spreadshe",
+  "title_style": "truth",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "mac_dark",
+   "caption": "pill",
+   "bg": "aurora",
+   "head_font": "inter",
+   "accent": [
+    98,
+    80,
+    243
+   ],
+   "transitions": [
+    "wipeleft",
+    "wiperight"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "left",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "left/emerald/truth",
+    "banner/ocean/scam",
+    "split/charcoal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://skysoon.app",
+  "brand": "Skysoon",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "Skysoon: One-Time Purchase Weather App, But Is It Good?",
+  "youtube": "https://youtu.be/rgtfVu1Tk5M",
+  "format": "red_flags",
+  "opener": "Ever wonder how long you've got before the sky opens up and ruins your afternoon? Alright, let's take a look at Skysoon,",
+  "title_style": "before",
+  "theme": {
+   "mode": "brand",
+   "layout": "full",
+   "frame": "floating",
+   "caption": "bar",
+   "bg": "aurora",
+   "head_font": "inter",
+   "accent": [
+    119,
+    104,
+    151
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "left",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "fade_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "left/charcoal/before",
+    "split/magenta/scam",
+    "laptop/crimson/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://omnigraph.dev",
+  "brand": "Omnigraph",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Omnigraph: Worth Using It? Git-Style Graph DB for Agents",
+  "youtube": "https://youtu.be/tWO-friAb0Y",
+  "format": "red_flags",
+  "opener": "So, Omnigraph's this object-storage native graph database built just for AI agents with branching and a typed ontology, ",
+  "title_style": "worth",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "glass",
+   "bg": "aurora",
+   "head_font": "inter",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "fade_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "minimal",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "yes_no/midnight/worth_using",
+    "score/royal/scam",
+    "stack/crimson/works"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://insight7.ai",
+  "brand": "Insight7",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Insight7 Voice AI Agents: Worth Using It?",
+  "youtube": "https://youtu.be/oK21pWR7I8k",
+  "format": "fine_print",
+  "opener": "Here's the catch: Insight7 promises an all-in-one AI call center for calls, emails, and chats, plus team coaching",
+  "title_style": "worth",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "mac_dark",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    255,
+    94,
+    58
+   ],
+   "transitions": [
+    "cut"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "stack/midnight/worth_using",
+    "yes_no/charcoal/scam",
+    "banner/royal/legit"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://www.becu.org",
+  "brand": "BECU",
+  "kind": "review",
+  "story_url": null,
+  "category": "credit-cards",
+  "title": "BECU Credit Cards Review: $0 Fees, But What's the Catch?",
+  "youtube": "https://youtu.be/c89zIKdPoe8",
+  "format": "fine_print",
+  "opener": "Here's the catch: BECU promises a fresh credit card lineup with zero annual fees, but you'll need to check the fine prin",
+  "title_style": "truth",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "tag",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    200,
+    53,
+    53
+   ],
+   "transitions": [
+    "wipeleft",
+    "wiperight"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "fade_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "minimal",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "stack/magenta/truth",
+    "left/emerald/worth",
+    "banner/midnight/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://photalabs.com",
+  "brand": "Phota Labs",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Phota Labs: Consistent AI Faces, But What's the Catch?",
+  "youtube": "https://youtu.be/YmkU_aELs94",
+  "format": "fine_print",
+  "opener": "Ever wondered why most AI photo generators totally scramble your face the second you change the background? Alright, let",
+  "title_style": "before",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "tag",
+   "bg": "mesh",
+   "head_font": "inter",
+   "accent": [
+    255,
+    94,
+    58
+   ],
+   "transitions": [
+    "slideleft",
+    "slideright"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_left",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "stack/ocean/before",
+    "split/violet/worth",
+    "banner/magenta/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://wizardnote.app",
+  "brand": "WizardNote",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "WizardNote: $0 Basic App, But What's the Catch?",
+  "youtube": "https://youtu.be/XfvXIhtpoxU",
+  "format": "who_for",
+  "opener": "Ever noticed how many voice notes you've got sitting around that you'll never actually listen to again? Well, WizardNote",
+  "title_style": "dont",
+  "theme": {
+   "mode": "brand",
+   "layout": "full",
+   "frame": "mac_dark",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    48,
+    216,
+    192
+   ],
+   "transitions": [
+    "dissolve"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "laptop",
+   "thumb_accent": [
+    48,
+    216,
+    192
+   ],
+   "cap_anim": "slide_right",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "laptop/magenta/dont",
+    "banner/royal/scam",
+    "stack/ocean/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://www.cloudways.com",
+  "brand": "Cloudways",
+  "kind": "review",
+  "story_url": null,
+  "category": "hosting",
+  "title": "Cloudways Review: 80% Off, But What's the Catch?",
+  "youtube": "https://youtu.be/xJv7QZ6jwt4",
+  "format": "red_flags",
+  "opener": "Ever noticed how Cloudways advertises an eighty percent discount for two months across all products and add-ons right on",
+  "title_style": "truth",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "glass",
+   "bg": "aurora",
+   "head_font": "poppins",
+   "accent": [
+    108,
+    88,
+    146
+   ],
+   "transitions": [
+    "smoothup",
+    "smoothdown"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "fade_up",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "score/ocean/truth",
+    "split/charcoal/worth",
+    "yes_no/royal/scam"
+   ]
+  }
  }
 ]
