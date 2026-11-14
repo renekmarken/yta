@@ -7720,5 +7720,576 @@
     "yes_no/royal/scam"
    ]
   }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://foxpit.dev",
+  "brand": "Foxpit",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Foxpit Honest Review: $12/mo Multi-Agent Orchestrator Worth It?",
+  "youtube": "https://youtu.be/I0D_uKMrScc",
+  "format": "pros_cons",
+  "opener": "Okay, now",
+  "title_style": "honest",
+  "theme": {
+   "mode": "light",
+   "layout": "side",
+   "frame": "mac_light",
+   "caption": "bar",
+   "bg": "spotlight",
+   "head_font": "inter",
+   "accent": [
+    216,
+    120,
+    96
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "banner",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "banner/emerald/worth",
+    "score/charcoal/scam",
+    "left/royal/legit"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://ulys.ai",
+  "brand": "Ulys",
+  "kind": "review",
+  "story_url": null,
+  "category": "investing",
+  "title": "Ulys Review: $0 Gas Fees, But What's the Catch?",
+  "youtube": "https://youtu.be/zJAtMOTDFSc",
+  "format": "five_questions",
+  "opener": "Ever wondered if an AI assistant could turn your random hunches into actual investments without needing a finance degree",
+  "title_style": "fees",
+  "theme": {
+   "mode": "brand",
+   "layout": "spotlight",
+   "frame": "mac_light",
+   "caption": "tag",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    0,
+    170,
+    255
+   ],
+   "transitions": [
+    "wipeleft",
+    "wiperight"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    0,
+    170,
+    255
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "yes_no/royal/fees",
+    "score/midnight/worth",
+    "number/magenta/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://cowbell.insure",
+  "brand": "Cowbell",
+  "kind": "review",
+  "story_url": null,
+  "category": "insurance",
+  "title": "Cowbell AI Insurance Review: Pros, Cons & Verdict",
+  "youtube": "https://youtu.be/ZKswEJWCpl0",
+  "format": "pros_cons",
+  "opener": "Here's the catch: Cowbell promises specialized cyber and AI liability insurance to protect your business from modern dig",
+  "title_style": "honest",
+  "theme": {
+   "mode": "brand",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "bar",
+   "bg": "mesh",
+   "head_font": "inter",
+   "accent": [
+    53,
+    110,
+    186
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "yes_no/emerald/worth",
+    "score/violet/scam",
+    "laptop/royal/good"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://lampkey.ai",
+  "brand": "Lampkey.ai",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "Lampkey.ai: Evidence-Linked AI, Or Just Hype?",
+  "youtube": "https://youtu.be/50rXY3-758E",
+  "format": "pros_cons",
+  "opener": "Alright, Lampkey",
+  "title_style": "legit",
+  "theme": {
+   "mode": "brand",
+   "layout": "stage",
+   "frame": "mac_light",
+   "caption": "pill",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    24,
+    168,
+    144
+   ],
+   "transitions": [
+    "vertopen",
+    "horzopen"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "split/crimson/legit",
+    "laptop/ocean/worth",
+    "number/violet/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://subscriptrack.com",
+  "brand": "Subscriptrack",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Subscriptrack: $0 Bank Logins, But What's the Catch?",
+  "youtube": "https://youtu.be/yfvXCbuj0gU",
+  "format": "first_look",
+  "opener": "Ever noticed how streaming services and apps love sneaking in price rises right when you're not looking? Today we're loo",
+  "title_style": "catch",
+  "theme": {
+   "mode": "light",
+   "layout": "stage",
+   "frame": "mac_light",
+   "caption": "underline",
+   "bg": "gradient",
+   "head_font": "inter",
+   "accent": [
+    96,
+    72,
+    216
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "left",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "left/crimson/catch",
+    "number/midnight/scam",
+    "banner/royal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://three.dev",
+  "brand": "three.dev",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "three.dev Honest Review: $0 Free Tier, But What's the Catch?",
+  "youtube": "https://youtu.be/PMau3z21TJ4",
+  "format": "pros_cons",
+  "opener": "The site claims it can find the failures hiding in your agent's live traffic and fix the ones that matter first",
+  "title_style": "honest",
+  "theme": {
+   "mode": "brand",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "underline",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    240,
+    120,
+    0
+   ],
+   "transitions": [
+    "wipeleft",
+    "wiperight"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "banner",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "banner/emerald/worth",
+    "left/midnight/scam",
+    "split/royal/legit"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://altruist.com",
+  "brand": "Altruist",
+  "kind": "review",
+  "story_url": null,
+  "category": "investing",
+  "title": "Altruist: $0 Commissions, But What's the Catch?",
+  "youtube": "https://youtu.be/1nNVjOQmCx8",
+  "format": "first_look",
+  "opener": "Okay, let's look at Altruist, an AI-forward wealth platform built specifically for independent financial advisors",
+  "title_style": "catch",
+  "theme": {
+   "mode": "brand",
+   "layout": "stage",
+   "frame": "mac_light",
+   "caption": "underline",
+   "bg": "spotlight",
+   "head_font": "inter",
+   "accent": [
+    0,
+    170,
+    255
+   ],
+   "transitions": [
+    "vertopen",
+    "horzopen"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "number",
+   "thumb_accent": [
+    0,
+    170,
+    255
+   ],
+   "cap_anim": "drop",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "minimal",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "number/emerald/catch",
+    "banner/crimson/scam",
+    "left/royal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://mdcalc.com",
+  "brand": "MDCalc",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "MDCalc Honest Review: Pros, Cons & Verdict",
+  "youtube": "https://youtu.be/_czeBlg68vQ",
+  "format": "pros_cons",
+  "opener": "Here's the catch: MDCalc promises a massive library of medical calculators, but you'll need to check how it fits your da",
+  "title_style": "honest",
+  "theme": {
+   "mode": "brand",
+   "layout": "spotlight",
+   "frame": "mac_light",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    0,
+    168,
+    144
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "left",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "drop",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "left/violet/worth",
+    "stack/magenta/scam",
+    "laptop/charcoal/legit"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://startapropfirm.com",
+  "brand": "Start A Prop Firm",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "Start A Prop Firm: Legit Launchpad or Overhyped Setup?",
+  "youtube": "https://youtu.be/H-vf01xzrNA",
+  "format": "first_look",
+  "opener": "Ever dreamed of launching your own trading business without spending months getting lost in the technical weeds? Alright",
+  "title_style": "legit",
+  "theme": {
+   "mode": "light",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "underline",
+   "bg": "gradient",
+   "head_font": "inter",
+   "accent": [
+    44,
+    104,
+    222
+   ],
+   "transitions": [
+    "hblur",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "left",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "left/crimson/legit",
+    "stack/violet/scam",
+    "split/ocean/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://x.ai",
+  "brand": "Grok Bot 1.0",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Grok Bot 1.0: Fast API, But What's the Catch?",
+  "youtube": "https://youtu.be/gzrFrz5USLE",
+  "format": "pros_cons",
+  "opener": "Frontier AI models for everything you see is the big promise plastered right across the x",
+  "title_style": "actually",
+  "theme": {
+   "mode": "brand",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "bar",
+   "bg": "gradient",
+   "head_font": "inter",
+   "accent": [
+    122,
+    92,
+    255
+   ],
+   "transitions": [
+    "cut"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "banner",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "banner/crimson/worth",
+    "yes_no/midnight/scam",
+    "laptop/magenta/legit"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://bay.ai",
+  "brand": "Bay AI",
+  "kind": "review",
+  "story_url": null,
+  "category": "vpn-security",
+  "title": "Bay AI: $595,000 Domain, But What's the Catch?",
+  "youtube": "https://youtu.be/VFtRHZY1jAE",
+  "format": "pros_cons",
+  "opener": "Ever wondered what you actually get when a cybersecurity site doesn't offer any privacy tools at all? Alright, let's tak",
+  "title_style": "catch",
+  "theme": {
+   "mode": "brand",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "pill",
+   "bg": "mesh",
+   "head_font": "inter",
+   "accent": [
+    255,
+    70,
+    140
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "number",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "number/crimson/catch",
+    "left/violet/scam",
+    "stack/charcoal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://fractile.ai",
+  "brand": "Fractile",
+  "kind": "review",
+  "story_url": null,
+  "category": "hosting",
+  "title": "Fractile: Chip-First AI Hardware, But What's the Catch?",
+  "youtube": "https://youtu.be/pmJmM0MjNLs",
+  "format": "five_questions",
+  "opener": "Have you ever wondered what happens when a company decides to build custom hardware just to make artificial intelligence",
+  "title_style": "actually",
+  "theme": {
+   "mode": "brand",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "bar",
+   "bg": "spotlight",
+   "head_font": "inter",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "cut"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "left",
+   "thumb_accent": [
+    140,
+    230,
+    60
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "left/charcoal/worth",
+    "banner/midnight/scam",
+    "split/ocean/works"
+   ]
+  }
  }
 ]

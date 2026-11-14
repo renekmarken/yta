@@ -759,5 +759,119 @@
   "url": "https://nameshot.com",
   "status": "failed",
   "date": "2026-11-14"
+ },
+ {
+  "site": "foxpit.dev",
+  "name": "Foxpit",
+  "url": "https://foxpit.dev",
+  "status": "done",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "google.com",
+  "name": "Gemini Decisions API",
+  "url": "https://cloud.google.com",
+  "status": "failed",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "ulys.ai",
+  "name": "Ulys",
+  "url": "https://ulys.ai",
+  "status": "done",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "cowbell.insure",
+  "name": "Cowbell",
+  "url": "https://cowbell.insure",
+  "status": "done",
+  "date": "2026-11-14",
+  "alt": "Cowbell AI Liability Policy"
+ },
+ {
+  "site": "canyonos.com",
+  "name": "CanyonOS",
+  "url": "https://canyonos.com",
+  "status": "failed",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "lampkey.ai",
+  "name": "Lampkey.ai",
+  "url": "https://lampkey.ai",
+  "status": "done",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "subscriptrack.com",
+  "name": "Subscriptrack",
+  "url": "https://subscriptrack.com",
+  "status": "done",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "three.dev",
+  "name": "three.dev",
+  "url": "https://three.dev",
+  "status": "done",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "altruist.com",
+  "name": "Altruist",
+  "url": "https://altruist.com",
+  "status": "done",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "spacefast.com",
+  "name": "Spacefast",
+  "url": "https://spacefast.com",
+  "status": "failed",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "sluice.dev",
+  "name": "Sluice",
+  "url": "https://sluice.dev",
+  "status": "failed",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "mdcalc.com",
+  "name": "MDCalc",
+  "url": "https://mdcalc.com",
+  "status": "done",
+  "date": "2026-11-14",
+  "alt": "MDCalc CrossCover"
+ },
+ {
+  "site": "startapropfirm.com",
+  "name": "Start A Prop Firm",
+  "url": "https://startapropfirm.com",
+  "status": "done",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "x.ai",
+  "name": "Grok Bot 1.0",
+  "url": "https://x.ai",
+  "status": "done",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "bay.ai",
+  "name": "Bay AI",
+  "url": "https://bay.ai",
+  "status": "done",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "fractile.ai",
+  "name": "Fractile",
+  "url": "https://fractile.ai",
+  "status": "done",
+  "date": "2026-11-14"
  }
 ]

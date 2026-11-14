@@ -28,3 +28,7 @@ https://adobe.com
 https://www.sunoco.com
 https://jot.app
 https://nameshot.com
+https://cloud.google.com
+https://canyonos.com
+https://spacefast.com
+https://sluice.dev
