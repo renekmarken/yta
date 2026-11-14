@@ -42,6 +42,8 @@ See the live ranking in **`data/QUEUE.md`** on GitHub.
 
 - visits the site and takes clean screenshots (cookie banners and chat bubbles are hidden), pricing and fee pages, the mobile view and the logo
 - researches the product on the web: who runs it, licences, fees, recent news and real user complaints, with sources
+  (only with the variable `USE_WEB_RESEARCH` = `1`; off by default because its free Gemini quota runs out
+  long before 50 videos a day, so scripts are written from the product's own website)
 - writes a 2–3 minute script in one of 6 formats, follows a category checklist (for example renewal price for VPNs, FDIC partner bank for fintechs), avoids repeating openings from earlier videos and is quality-checked
 - records the voice with free Microsoft neural voices, falling back to Piper offline if Microsoft blocks it
 - renders the video with a **unique design**, a thumbnail, a captions file and an upload kit
@@ -264,6 +266,7 @@ To use your own voice, record `voice/seg_00.mp3`, `seg_01.mp3`, … in a video's
 ## Good to know
 
 - Some big sites block automated browsers. They are detected, logged in `data/failed.txt` and skipped, and the queue moves on.
-- Gemini's free tier has daily limits. One video uses about 2 requests and one discovery run about 3 (24 runs a day), which is well inside them.
+- Gemini's free tier has daily limits. One video uses about 1 request without web research, and one product search about 3 (4 a day).
+- Everything is free: OpenAI (paid) is only used as a fallback if you add `OPENAI_API_KEY` **and** set `ALLOW_PAID_AI` = `1`.
 - Custom thumbnails need a phone-verified YouTube channel (youtube.com/verify).
 - Reviews show logos and screenshots for commentary. Keep them honest and balanced, and never imply a sponsorship that doesn't exist.

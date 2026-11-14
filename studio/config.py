@@ -25,8 +25,11 @@ GEMINI_API_KEY = env("GEMINI_API_KEY")
 GEMINI_MODELS = [m.strip() for m in env(
     "GEMINI_MODELS", "gemini-flash-latest,gemini-2.5-flash,gemini-flash-lite-latest,gemini-2.5-flash-lite"
 ).split(",") if m.strip()]
-USE_WEB_RESEARCH = env("USE_WEB_RESEARCH", "1") == "1"   # Gemini + Google Search grounding
+# Gemini + Google Search research before each review script. Off by default: its free daily quota runs
+# out long before 50 videos a day, and the scripts are written from the website alone without it.
+USE_WEB_RESEARCH = env("USE_WEB_RESEARCH", "0") == "1"
 OPENAI_API_KEY = env("OPENAI_API_KEY")
+ALLOW_PAID_AI = env("ALLOW_PAID_AI", "0") == "1"   # only then is OpenAI (paid) used when Gemini fails
 OPENAI_MODEL = env("OPENAI_MODEL", "gpt-4o-mini")
 
 # --- Voice ---

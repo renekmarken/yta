@@ -3,9 +3,10 @@ gets up to UPLOADS_PER_DAY videos a day, each uploaded to YouTube as soon as it'
 
 Repository variables: UPLOADS_PER_DAY (default 50, the volume in the YouTube API quota application;
 0 = off) and AUTO_VIDEOS_PER_RUN (default 6: started per hourly run; about half the websites block
-visitors and give no video, and those don't count). GitHub often skips scheduled runs for hours, so a run that comes late
-starts more to catch up (6 per hour since the last start, at most 16). Today's uploads are counted from data/history.json, plus the videos
-started in the last 75 minutes that aren't booked yet. data/auto_videos.json remembers those starts.
+visitors and give no video, and those don't count). GitHub often skips scheduled runs for hours, so a
+run that comes late starts more to catch up (6 per hour since the last start, at most 16). Today's
+uploads are counted from data/history.json, plus the videos started in the last 90 minutes that
+aren't booked yet. data/auto_videos.json remembers those starts.
 
   python tools/auto_launch.py          -> prints the decision, writes count=N to $GITHUB_OUTPUT
 """

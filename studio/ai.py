@@ -166,14 +166,14 @@ def openai_chat(prompt, json_mode=False, temperature=0.7):
 
 
 def ask(prompt, json_mode=False, grounded=False, temperature=0.7):
-    """Returns (text, sources). Tries Gemini first, then OpenAI if configured."""
+    """Returns (text, sources). Tries Gemini (free) first, then OpenAI only if paid AI is allowed."""
     errors = []
     if config.GEMINI_API_KEY:
         try:
             return gemini(prompt, json_mode, grounded, temperature)
         except AIError as e:
             errors.append(str(e))
-    if config.OPENAI_API_KEY and not grounded:
+    if config.OPENAI_API_KEY and config.ALLOW_PAID_AI and not grounded:
         return openai_chat(prompt, json_mode, temperature), []
     raise AIError(" | ".join(errors) or "Set GEMINI_API_KEY (free) or OPENAI_API_KEY")
 
