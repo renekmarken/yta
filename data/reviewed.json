@@ -533,5 +533,41 @@
   "url": "https://blacksmith.sh",
   "status": "done",
   "date": "2026-10-22"
+ },
+ {
+  "site": "whoop.com",
+  "name": "WHOOP Humans",
+  "url": "https://www.whoop.com",
+  "status": "failed",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "nectar.ai",
+  "name": "Nectar",
+  "url": "https://www.nectar.ai",
+  "status": "done",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "alphapai.ai",
+  "name": "AlphaPai",
+  "url": "https://alphapai.ai",
+  "status": "failed",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "blog.google",
+  "name": "Gemini 4 Hydrogen",
+  "url": "https://blog.google",
+  "status": "done",
+  "date": "2026-11-14"
+ },
+ {
+  "site": "marqly.com",
+  "name": "Marqly",
+  "url": "https://marqly.com",
+  "status": "done",
+  "date": "2026-11-14",
+  "alt": "Marqly 7.0"
  }
 ]

@@ -6860,5 +6860,149 @@
    ]
   },
   "youtube": null
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://www.nectar.ai",
+  "brand": "Nectar",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Nectar AI: Worth Using It? (Fine-Print Check)",
+  "youtube": "https://youtu.be/iXRUPD6cWOE",
+  "format": "fine_print",
+  "opener": "Ever wondered if an AI companion platform can actually handle wild roleplay and custom image generation without breaking",
+  "title_style": "worth",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "bar",
+   "bg": "spotlight",
+   "head_font": "inter",
+   "accent": [
+    240,
+    72,
+    72
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "fade_up",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "stack/charcoal/worth_using",
+    "banner/midnight/scam",
+    "yes_no/ocean/good"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://blog.google",
+  "brand": "Gemini 4 Hydrogen",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Gemini 4 Hydrogen: What's the Catch?",
+  "youtube": "https://youtu.be/UDxJFDsBghw",
+  "format": "fine_print",
+  "opener": "Can a new model really make coding and everyday tasks feel effortless? Alright, let's take a close look at Gemini 4 Hydr",
+  "title_style": "catch",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "tag",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "coverleft",
+    "revealright"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "fade_up",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "score/charcoal/catch",
+    "split/emerald/worth",
+    "yes_no/magenta/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://marqly.com",
+  "brand": "Marqly",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "Marqly: $49 First Year, But What's the Catch?",
+  "youtube": "https://youtu.be/5NKcT_wmEqw",
+  "format": "red_flags",
+  "opener": "Here is the catch: you've probably got hundreds of bookmarks you'll never look at again",
+  "title_style": "scam",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "tag",
+   "bg": "aurora",
+   "head_font": "inter",
+   "accent": [
+    255,
+    150,
+    30
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "left",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "fade_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "left/magenta/scam",
+    "yes_no/charcoal/worth",
+    "laptop/ocean/expect"
+   ]
+  }
  }
 ]
