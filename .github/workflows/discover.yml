@@ -1,8 +1,9 @@
 name: Discover trending products
 
-# Every hour: scans launch sites and news for products launched today / this week (plus trends,
-# charts and an evergreen backlog), ranks the queue with new launches first, then starts a batch
-# of review videos from the top of the queue, up to UPLOADS_PER_DAY (default 50) a day. With
+# Every DISCOVER_EVERY_HOURS hours (repository variable, default 6, so 4 searches a day): scans launch
+# sites and news for products launched today / this week (plus trends, charts and an evergreen
+# backlog) and ranks the queue with new launches first. Every hour: starts a batch of review videos
+# from the top of the queue, up to UPLOADS_PER_DAY (default 50) a day. With
 # UPLOAD_MODE=api each video goes to YouTube (unlisted) as soon as it's done.
 # Turn it off: set the repository variable UPLOADS_PER_DAY to 0.
 
@@ -30,7 +31,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
-      - name: Due? (last update over 55 minutes ago)
+      - name: Due? (last run over 55 minutes ago; product search every few hours)
         id: due
         run: |
           last=$(cat data/discover_last_run.txt 2>/dev/null || echo 0)
@@ -40,6 +41,14 @@ jobs:
           else
             echo "run=no" >> "$GITHUB_OUTPUT"; echo "updated ${age}s ago: nothing to do yet"
           fi
+          every=$(( ${{ vars.DISCOVER_EVERY_HOURS || 6 }} * 3600 - 300 ))
+          searched=$(cat data/search_last_run.txt 2>/dev/null || echo 0)
+          sage=$(( $(date +%s) - searched ))
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$sage" -ge "$every" ]; then
+            echo "search=yes" >> "$GITHUB_OUTPUT"; echo "last product search ${sage}s ago: searching now"
+          else
+            echo "search=no" >> "$GITHUB_OUTPUT"; echo "last product search ${sage}s ago: not searching this hour"
+          fi
       - uses: actions/setup-python@v6
         if: steps.due.outputs.run == 'yes'
         with:
@@ -48,7 +57,7 @@ jobs:
       - run: pip install requests beautifulsoup4
         if: steps.due.outputs.run == 'yes'
       - name: Find new launches / hot products and rank the queue
-        if: steps.due.outputs.run == 'yes'
+        if: steps.due.outputs.run == 'yes' && steps.due.outputs.search == 'yes'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -67,6 +76,7 @@ jobs:
           git config user.name "review-bot"
           git config user.email "review-bot@users.noreply.github.com"
           date +%s > data/discover_last_run.txt
+          if [ "${{ steps.due.outputs.search }}" = "yes" ]; then date +%s > data/search_last_run.txt; fi
           git add data/
           git diff --cached --quiet && exit 0
           git commit -m "Update review queue"

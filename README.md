@@ -10,7 +10,7 @@ Runs on GitHub Actions (free). Your PC can be off.
 
 ## How it works
 
-**1. Discovery (every hour), new launches first.** Scans free sources for products launched **today or this
+**1. Discovery (every 6 hours, variable `DISCOVER_EVERY_HOURS`), new launches first.** Scans free sources for products launched **today or this
 week**, plus hot products, in your 13 money categories:
 
 - Launch radar: Product Hunt launches, "Launch HN" (YC startups), TechCrunch startups, and Google News
@@ -24,7 +24,7 @@ week**, plus hot products, in your 13 money categories:
 Gemini acts as the editor: it picks the products worth reviewing, finds each official website, assigns a category, scores hotness from 0 to 10 and marks what launched today / this week. Every website is checked to exist before it goes into the queue.
 
 New launches jump to the top of the queue (launched today: +8 priority, this week: +5, fading over a few
-days). Every hourly discovery run then **starts a batch of review videos from the top of the queue**, up to
+days). Every hour the discovery workflow then **starts a batch of review videos from the top of the queue**, up to
 `UPLOADS_PER_DAY` uploaded videos a day (repository variable, default 50, `0` turns this off;
 `AUTO_VIDEOS_PER_RUN`, default 4, sets how many start each hour; a run that GitHub starts late catches up, up to 12). With `UPLOAD_MODE` = `api` each one goes
 to YouTube as unlisted as soon as it's done, and lands in your library with its YouTube link.
