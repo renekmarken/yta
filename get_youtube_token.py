@@ -1,14 +1,16 @@
 """Run once on your own PC to get a YouTube refresh token (only needed for UPLOAD_MODE=api).
 
 1. Google Cloud Console -> new project -> enable "YouTube Data API v3"
-2. OAuth consent screen: External, add yourself as a test user
+2. OAuth consent screen: External, add yourself as a test user; under "Data access" add the scopes
+   youtube.upload, youtube and youtube.force-ssl (captions need the last one)
 3. Credentials -> Create OAuth client ID -> Desktop app -> download JSON as client_secret.json
 4. python get_youtube_token.py   (a browser opens; pick the account that owns the channel)
 """
 from google_auth_oauthlib.flow import InstalledAppFlow
 
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload",
-          "https://www.googleapis.com/auth/youtube"]
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl"]   # captions.insert needs this one
 
 flow = InstalledAppFlow.from_client_secrets_file("client_secret.json", SCOPES)
 creds = flow.run_local_server(port=0, access_type="offline", prompt="consent")

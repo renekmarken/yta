@@ -13,7 +13,8 @@ from pathlib import Path
 from . import config
 
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload",
-          "https://www.googleapis.com/auth/youtube"]
+          "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl"]   # captions.insert needs this one
 
 
 def _client():
@@ -21,7 +22,7 @@ def _client():
     from googleapiclient.discovery import build
     creds = Credentials(None, refresh_token=config.YT_REFRESH_TOKEN,
                         client_id=config.YT_CLIENT_ID, client_secret=config.YT_CLIENT_SECRET,
-                        token_uri="https://oauth2.googleapis.com/token", scopes=SCOPES)
+                        token_uri="https://oauth2.googleapis.com/token")   # whatever scopes the token was given
     return build("youtube", "v3", credentials=creds, cache_discovery=False)
 
 
@@ -61,7 +62,10 @@ def upload(video: Path, thumb: Path, title: str, description: str, tags: list,
                 "videoId": vid, "language": "en", "name": "English", "isDraft": False}},
                 media_body=MediaFileUpload(str(captions), mimetype="application/octet-stream")).execute()
         except Exception as e:
-            print(f"   ! captions not uploaded: {str(e)[:150]}")
+            why = getattr(e, "reason", None) or str(e)[:300]
+            hint = (" (sign in again with get_youtube_token.py so the token can add captions)"
+                    if getattr(getattr(e, "resp", None), "status", None) == 403 else "")
+            print(f"   ! captions not uploaded: {why}{hint}")
     return vid
 
 
