@@ -2,9 +2,9 @@
 gets up to UPLOADS_PER_DAY videos a day, each uploaded to YouTube as soon as it's done.
 
 Repository variables: UPLOADS_PER_DAY (default 50, the volume in the YouTube API quota application;
-0 = off) and AUTO_VIDEOS_PER_RUN (default 4: started per hourly run, since some websites block
-visitors and give no video). GitHub often skips scheduled runs for hours, so a run that comes late
-starts more to catch up (4 per hour since the last start, at most 12). Today's uploads are counted from data/history.json, plus the videos
+0 = off) and AUTO_VIDEOS_PER_RUN (default 6: started per hourly run; about half the websites block
+visitors and give no video, and those don't count). GitHub often skips scheduled runs for hours, so a run that comes late
+starts more to catch up (6 per hour since the last start, at most 16). Today's uploads are counted from data/history.json, plus the videos
 started in the last 75 minutes that aren't booked yet. data/auto_videos.json remembers those starts.
 
   python tools/auto_launch.py          -> prints the decision, writes count=N to $GITHUB_OUTPUT
@@ -19,13 +19,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from studio import config                                       # noqa: E402
 
 STATE = config.DATA_DIR / "auto_videos.json"
-IN_FLIGHT = timedelta(minutes=90)               # a batch of 12 (4 at a time) takes about an hour
-MAX_RUN = 12
+IN_FLIGHT = timedelta(minutes=90)               # a batch of 16 (4 at a time) takes about an hour
+MAX_RUN = 16
 
 
 def main():
     per_day = int(os.environ.get("UPLOADS_PER_DAY") or 50)
-    per_run = int(os.environ.get("AUTO_VIDEOS_PER_RUN") or 4)
+    per_run = int(os.environ.get("AUTO_VIDEOS_PER_RUN") or 6)
     now = datetime.now(timezone.utc)
     today = date.today().isoformat()
     state = json.loads(STATE.read_text()) if STATE.exists() else {}
