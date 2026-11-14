@@ -1,27 +1,27 @@
 # Review queue
-Updated 2026-11-14T12:34:50+00:00 UTC · 541 products waiting
+Updated 2026-11-14T12:41:43+00:00 UTC · 536 products waiting
 
 | # | Priority | Category | Product | Why | Found via |
 |---|---|---|---|---|---|
 | 1 | 15.6 | 💻 SaaS / business software | [Didit MCP](https://didit.io) | 🚀 new launch · The MCP server for identity verification and fraud checks. | Product Hunt (launch) |
 | 2 | 15.5 | 💰 Finance apps / banking | [Starling Bank Talk to Transact](https://starlingbank.com) | 🚀 new launch · Voice payments powered by agentic AI integrations. | trend scan |
-| 3 | 15.5 | 💰 Finance apps / banking | [Binq](https://binq.com) | 🚀 new launch · AI-powered financial platform addressing small business credit and cash flow needs. | Google News, Launch news |
-| 4 | 15.4 | 💳 Credit cards / financial products | [Monefit Credit Card](https://monefit.com) | 🚀 new launch · Creditstar Group enters everyday payments with new card. | Google News |
-| 5 | 15.3 | 💻 SaaS / business software | [Vanta AI Governance](https://vanta.com) | 🚀 new launch · AI governance, risk quantification, and Vanta agent. | trend scan |
-| 6 | 15.3 | 🤖 AI tools | [Pomerado](https://pomerado.ai) | 🚀 new launch · Turns any public website into a deterministic, self-healing MCP tool for agents. | Launch HN |
+| 3 | 15.5 | 🤖 AI tools | [Pomerado](https://pomerado.ai) | 🚀 new launch · Turns any public website into a deterministic, self-healing MCP tool for agents. | Launch HN |
+| 4 | 15.5 | 💰 Finance apps / banking | [Binq](https://binq.com) | 🚀 new launch · AI-powered financial platform addressing small business credit and cash flow needs. | Google News, Launch news |
+| 5 | 15.4 | 💳 Credit cards / financial products | [Monefit Credit Card](https://monefit.com) | 🚀 new launch · Creditstar Group enters everyday payments with new card. | Google News |
+| 6 | 15.3 | 💻 SaaS / business software | [Vanta AI Governance](https://vanta.com) | 🚀 new launch · AI governance, risk quantification, and Vanta agent. | trend scan |
 | 7 | 15.2 | 🔐 Cybersecurity / VPNs | [Anyday ExploitTotal](https://anyday.com) | 🚀 new launch · Free exploit total AI tool with over 200 reported exploits. | trend scan |
 | 8 | 15.2 | 🤖 AI tools | [LangChain](https://langchain.com) | 🚀 new launch · Agent management platform hits massive valuation with 7,000 customers. | TechCrunch |
-| 9 | 15.1 | 🤖 AI tools | [LeaseWire](https://leasewire.com) | 🚀 new launch · Lease abstraction, wired to your model. | Product Hunt (launch) |
-| 10 | 15.1 | 🤖 AI tools | [Insight7 Voice AI Agents](https://insight7.ai) | 🚀 new launch · AI voice agents that call your customers for you. | Product Hunt (launch) |
-| 11 | 15.1 | 📊 Business tools | [Crossfade](https://crossfade.ai) | 🚀 new launch · Design integration tool enabling AI coding agents to edit open Figma files. | Product Hunt (launch) |
+| 9 | 15.0 | 🤖 AI tools | [LeaseWire](https://leasewire.com) | 🚀 new launch · Lease abstraction, wired to your model. | Product Hunt (launch) |
+| 10 | 15.0 | 🤖 AI tools | [Insight7 Voice AI Agents](https://insight7.ai) | 🚀 new launch · AI voice agents that call your customers for you. | Product Hunt (launch) |
+| 11 | 15.0 | 📊 Business tools | [Crossfade](https://crossfade.ai) | 🚀 new launch · Design integration tool enabling AI coding agents to edit open Figma files. | Product Hunt (launch) |
 | 12 | 14.8 | 🤖 AI tools | [Phota Labs](https://photalabs.com) | 🚀 new launch · Automated AI editing tool turning casual smartphone photos into professional shots. | TechCrunch |
-| 13 | 14.8 | ☁️ Cloud / hosting | [Offstage Cloud](https://offstage.cloud) | 🚀 new launch · On-demand macOS sandboxes for AI agents. | Product Hunt (launch) |
+| 13 | 14.7 | ☁️ Cloud / hosting | [Offstage Cloud](https://offstage.cloud) | 🚀 new launch · On-demand macOS sandboxes for AI agents. | Product Hunt (launch) |
 | 14 | 14.7 | 🤖 AI tools | [Nameshot](https://nameshot.com) | 🚀 new launch · Names your screenshots automatically using AI. | Product Hunt (launch) |
 | 15 | 14.7 | 📣 Marketing platforms | [Constant Contact](https://www.constantcontact.com) | 🚀 new launch · Longstanding email marketing and digital campaign tool. | evergreen, trend scan |
 | 16 | 14.5 | 🤖 AI tools | [Worker.ai](https://worker.ai) | 🚀 new launch · Billionaire-backed enterprise platform deploying AI voice and workflow workers. | Google News, Launch news |
 | 17 | 14.4 | 🤖 AI tools | [Foxpit](https://foxpit.dev) | 🚀 new launch · Run Claude Code, Codex & OpenCode as one AI team. | Product Hunt (launch) |
 | 18 | 14.4 | 📊 Business tools | [Aboard Sign](https://aboard.com) | 🚀 new launch · Free document signing app offering instant e-signatures without login requirements. | Launch news |
-| 19 | 14.4 | 📊 Business tools | [Jot 2.0](https://jot.app) | 🚀 new launch · Select text, tap Shift twice, it's a markdown file. | Product Hunt (launch) |
+| 19 | 14.3 | 📊 Business tools | [Jot 2.0](https://jot.app) | 🚀 new launch · Select text, tap Shift twice, it's a markdown file. | Product Hunt (launch) |
 | 20 | 14.3 | 💳 Credit cards / financial products | [Sunoco Rewards Plus Mastercard](https://www.sunoco.com) | 🚀 new launch · New card by Credit One Bank delivering more value at the pump. | Google News |
 | 21 | 14.1 | 🤖 AI tools | [Sluice](https://sluice.dev) | 🚀 new launch · Room to build on your Mac, even with 20 agents at once. | Product Hunt (launch) |
 | 22 | 13.9 | 📊 Business tools | [WizardNote](https://wizardnote.app) | 🚀 new launch · Mobile voice app transcribing spoken thoughts directly into clean Markdown files. | Product Hunt (launch) |
@@ -42,4 +42,4 @@ Updated 2026-11-14T12:34:50+00:00 UTC · 541 products waiting
 | 37 | 12.6 | 🤖 AI tools | [Klang](https://klang.ai) | 🚀 new launch · Speech AI tool building searchable team memory from internal calls and meetings. | Product Hunt (launch) |
 | 38 | 12.6 | 🤖 AI tools | [mang.sh](https://mang.sh) | 🚀 new launch · Terminal assistant translating natural language instructions into executable shell commands. | Product Hunt (launch) |
 | 39 | 12.6 | 🤖 AI tools | [Siggy](https://siggy.ai) | 🚀 new launch · AI-powered mental health support platform backed by $6M in fresh funding. | Google News, Launch news |
-| 40 | 12.5 | 💻 SaaS / business software | [MDCalc CrossCover](https://mdcalc.com) | 🚀 new launch · Independent safety layer providing a rumble strip for clinical AI tools. | trend scan |
+| 40 | 12.5 | 📊 Business tools | [Start A Prop Firm](https://startapropfirm.com) | 🚀 new launch · Turnkey platform providing technology and legal infrastructure to launch proprietary trading desks. | Launch news |

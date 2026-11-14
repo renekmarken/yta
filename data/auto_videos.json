@@ -1,15 +1,9 @@
 {
- "date": "2026-10-04",
- "count": 3,
- "started": [
-  "wealthai.com",
-  "finbar.ai",
-  "offrun.dev",
-  "armadin.com",
-  "sapien.io",
-  "paynearme.com",
-  "akasa.com",
-  "aleph-alpha.com",
-  "pricelabs.co"
- ]
+ "starts": [
+  {
+   "at": "2026-11-14T12:41:43+00:00",
+   "count": 12
+  }
+ ],
+ "last": "2026-11-14T12:41:43+00:00"
 }
