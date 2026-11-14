@@ -730,12 +730,6 @@ def thumbnails(folder: Path):
     return sorted(Path(folder).glob("*thumbnail*.jpg"))
 
 
-def choose_thumbnail(folder: Path):
-    """The one used for API uploads: a random pick among the variations."""
-    found = thumbnails(folder)
-    return random.choice(found) if found else None
-
-
 # ------------------------------------------------------------------ Risk Case thumbnails
 # A different look from the reviews: near-black with a red glow, the logo big, the story's damage in
 # huge glowing red letters ("$70,000 GONE."), "WHAT HAPPENED?" with warning signs, and the post itself.

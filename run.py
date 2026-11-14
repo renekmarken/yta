@@ -156,7 +156,7 @@ def produce(item, history, out=None, mode="new"):
     from studio.crawl import BlockedSite, crawl
     from studio.script import write_script
     from studio.themes import normalize, pick_theme
-    from studio.thumbnail import make_thumbnails, choose_thumbnail
+    from studio.thumbnail import make_thumbnails
     from studio.tts import fit_length, narrate, write_srt
     if config.REVIEW_STYLE == "classic":
         from studio.video import OUTRO, PAD, render
@@ -226,7 +226,7 @@ def produce(item, history, out=None, mode="new"):
     else:
         make_thumbnails(data, info, out, theme)
     print(f"5/6 thumbnails ({', '.join(theme['thumbs'])})")
-    srt = write_srt(data["segments"], out / "captions.srt")
+    write_srt(data["segments"], out / "captions.srt")
     print("6/6 metadata")
     (out / "script.json").write_text(json.dumps(data, indent=2, ensure_ascii=False))
     description = full_description(data, info)
@@ -238,25 +238,11 @@ def produce(item, history, out=None, mode="new"):
     write_kit(out, data, info, description, theme, named.name)
     shutil.rmtree(out / "render", ignore_errors=True)
 
-    youtube_url = None
-    if config.UPLOAD_MODE == "api":
-        from studio.upload import upload
-        meta = json.loads((out / "metadata.json").read_text())
-        try:                     # a failed upload must not throw away a finished video
-            thumb = choose_thumbnail(out)
-            print(f"   thumbnail: {thumb.name}")
-            vid = upload(video, thumb, meta["title"], description, meta["tags"], srt)
-            (out / "youtube_id.txt").write_text(vid)
-            youtube_url = f"https://youtu.be/{vid}"
-            print(f"   uploaded: {youtube_url}")
-        except Exception as e:
-            print(f"   ! YouTube upload failed, upload this one by hand: {str(e)[:300]}")
-
     opener = data["segments"][0]["text"].split(".")[0][:120]
     return out, data, {"date": date.today().isoformat(), "url": info["url"], "brand": data.get("brand"),
                        "kind": data.get("kind", "review"), "story_url": (data.get("story") or {}).get("url"),
                        "category": data.get("category"), "title": data.get("youtube_title"),
-                       "youtube": youtube_url,
+                       "youtube": None,                  # filled in by make_one after the upload
                        "format": data.get("format"), "opener": opener, "title_style": data.get("title_style"),
                        "theme": {k: theme[k] for k in ("mode", "layout", "frame", "caption", "bg",
                                                        "head_font", "accent", "transitions", "intro",
@@ -304,6 +290,12 @@ def make_one(key, item, history):
     try:
         out, data, record = produce(item, history)
         print(f"✓ done -> {out}")
+        if config.UPLOAD_MODE == "api":          # every kind of video, straight to YouTube
+            from studio.upload import upload_folder
+            try:                                 # a failed upload must not throw away a finished video
+                record["youtube"] = f"https://youtu.be/{upload_folder(out)}"
+            except Exception as e:
+                print(f"   ! YouTube upload failed, upload this one by hand: {str(e)[:300]}")
         return {"status": "done", "key": key, "item": item, "record": record, "brand": data.get("brand", ""),
                 "label": _label(data, item, record.get("youtube")), "folder": out.name}
     except Exception as e:
@@ -344,14 +336,8 @@ def main():
     history = load_history()
 
     if a.upload:
-        from studio.upload import upload
-        from studio.thumbnail import choose_thumbnail
-        meta = json.loads((a.upload / "metadata.json").read_text())
-        thumb = choose_thumbnail(a.upload)
-        print(f"thumbnail: {thumb.name if thumb else 'none'}")
-        vid = upload(a.upload / meta.get("video_file", "video.mp4"), thumb, meta["title"],
-                     meta["description"], meta["tags"], a.upload / "captions.srt")
-        print(f"https://youtu.be/{vid}")
+        from studio.upload import upload_folder
+        print(f"https://youtu.be/{upload_folder(a.upload)}")
         return
     if a.rerender or a.restyle:
         produce(None, history, out=a.rerender or a.restyle, mode="rerender" if a.rerender else "restyle")

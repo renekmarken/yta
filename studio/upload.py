@@ -5,6 +5,8 @@ they can never be made public. So keep UPLOAD_MODE=manual (default) until your G
 project passes YouTube's free API audit (https://support.google.com/youtube/contact/yt_api_form).
 After approval, set UPLOAD_MODE=api and the pipeline uploads straight into YouTube Studio.
 """
+import json
+import random
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -49,7 +51,8 @@ def upload(video: Path, thumb: Path, title: str, description: str, tags: list,
             print(f"   upload {int(status.progress() * 100)}%")
     vid = resp["id"]
     try:
-        yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(str(thumb))).execute()
+        if thumb:
+            yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(str(thumb))).execute()
     except Exception as e:   # custom thumbnails need a phone-verified channel
         print(f"   ! thumbnail not set ({e}); verify your channel at youtube.com/verify")
     if captions and captions.exists():
@@ -59,4 +62,22 @@ def upload(video: Path, thumb: Path, title: str, description: str, tags: list,
                 media_body=MediaFileUpload(str(captions), mimetype="application/octet-stream")).execute()
         except Exception as e:
             print(f"   ! captions not uploaded: {str(e)[:150]}")
+    return vid
+
+
+def upload_folder(folder: Path) -> str:
+    """Upload a finished video folder (any kind) with its metadata, a random one of its thumbnails
+    and its captions. Writes youtube_id.txt next to it and returns the video id."""
+    folder = Path(folder)
+    meta = json.loads((folder / "metadata.json").read_text())
+    video = folder / meta.get("video_file", "video.mp4")
+    if not video.exists():
+        video = sorted(folder.glob("*.mp4"))[0]
+    thumbs = sorted(folder.glob("*thumbnail*.jpg"))      # no Pillow needed (the upload workflow lacks it)
+    thumb = random.choice(thumbs) if thumbs else None
+    print(f"   uploading to YouTube (thumbnail: {thumb.name if thumb else 'none'})")
+    vid = upload(video, thumb, meta["title"], meta.get("description", ""), meta.get("tags", []),
+                 folder / "captions.srt")
+    (folder / "youtube_id.txt").write_text(vid)
+    print(f"   uploaded: https://youtu.be/{vid}")
     return vid

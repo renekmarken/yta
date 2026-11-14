@@ -205,9 +205,16 @@ def cmd_add(src, tag):
                  "score": meta.get("score", ""), "category": meta.get("category", ""),
                  "checks": meta.get("check_before_publishing", []), "files": files,
                  "kind": meta.get("kind", "review"), "story": meta.get("story")}
-        yt = folder / "youtube_id.txt"
+        yt, res = folder / "youtube_id.txt", folder / "result.json"
         if yt.exists():
             entry["youtube"] = f"https://youtu.be/{yt.read_text().strip()}"
+        elif res.exists():                   # batch runs keep the upload's link in result.json
+            try:
+                url = (json.loads(res.read_text()).get("record") or {}).get("youtube")
+            except json.JSONDecodeError:
+                url = None
+            if url:
+                entry["youtube"] = url
         added.append(entry)
     ids = {e["id"] for e in added}
     sites = {e["site"] for e in added}                   # a remade video replaces one whose files were lost
