@@ -1,9 +1,10 @@
 name: Discover trending products
 
 # Every hour: scans launch sites and news for products launched today / this week (plus trends,
-# charts and an evergreen backlog), ranks the queue with new launches first, and immediately
-# used to start videos for fresh launches by itself. That is OFF (turned off on request): it only
-# updates the queue now. To turn automatic videos back on, remove `if: false` from "Start the videos".
+# charts and an evergreen backlog), ranks the queue with new launches first, then starts a batch
+# of review videos from the top of the queue, up to UPLOADS_PER_DAY (default 50) a day. With
+# UPLOAD_MODE=api each video goes to YouTube (unlisted) as soon as it's done.
+# Turn it off: set the repository variable UPLOADS_PER_DAY to 0.
 
 on:
   schedule:
@@ -53,12 +54,12 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_MODELS: ${{ vars.GEMINI_MODELS }}
         run: python discover.py
-      - name: Pick fresh launches to make right now
-        if: false            # automatic videos are OFF
+      - name: How many videos to start now
+        if: steps.due.outputs.run == 'yes'
         id: auto
         env:
-          AUTO_VIDEOS_PER_DAY: ${{ vars.AUTO_VIDEOS_PER_DAY }}
-          AUTO_MIN_HOTNESS: ${{ vars.AUTO_MIN_HOTNESS }}
+          UPLOADS_PER_DAY: ${{ vars.UPLOADS_PER_DAY }}
+          AUTO_VIDEOS_PER_RUN: ${{ vars.AUTO_VIDEOS_PER_RUN }}
         run: python tools/auto_launch.py
       - name: Save queue
         if: steps.due.outputs.run == 'yes'
@@ -71,8 +72,8 @@ jobs:
           git commit -m "Update review queue"
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
       - name: Start the videos
-        if: false            # automatic videos are OFF; was: steps.auto.outputs.urls != ''
+        if: steps.due.outputs.run == 'yes' && steps.auto.outputs.count != '0'
         env:
           GH_TOKEN: ${{ github.token }}
-          URLS: ${{ steps.auto.outputs.urls }}
-        run: gh workflow run batch.yml --ref "${{ github.ref_name }}" -f count=0 -f url="$URLS" -f parallel=2
+          COUNT: ${{ steps.auto.outputs.count }}
+        run: gh workflow run batch.yml --ref "${{ github.ref_name }}" -f count="$COUNT" -f kind=review -f parallel=2
