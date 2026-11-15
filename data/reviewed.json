@@ -988,5 +988,120 @@
   "url": "https://kettle.chat",
   "status": "failed",
   "date": "2026-11-15"
+ },
+ {
+  "site": "antelog.com",
+  "name": "Antelog",
+  "url": "https://antelog.com",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "pixeloffice.app",
+  "name": "Pixel Office",
+  "url": "https://pixeloffice.app",
+  "status": "failed",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "talyn.ai",
+  "name": "Talyn",
+  "url": "https://talyn.ai",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "byteask.com",
+  "name": "ByteAsk Cloud Agents",
+  "url": "https://byteask.com",
+  "status": "failed",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "obsiva.com",
+  "name": "Obsiva",
+  "url": "https://obsiva.com",
+  "status": "failed",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "cloudflare.dev",
+  "name": "Cloudflare",
+  "url": "https://ember.cloudflare.dev",
+  "status": "done",
+  "date": "2026-11-15",
+  "alt": "Ember"
+ },
+ {
+  "site": "agentgrid.io",
+  "name": "AgentGrid.io",
+  "url": "https://agentgrid.io",
+  "status": "failed",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "moreframe.app",
+  "name": "MoreFrame",
+  "url": "https://moreframe.app",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "codemesh.io",
+  "name": "CodeMesh",
+  "url": "https://codemesh.io",
+  "status": "failed",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "paxper.com",
+  "name": "Paxper",
+  "url": "https://paxper.com",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "emayler.com",
+  "name": "Emayler",
+  "url": "https://emayler.com",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "labs.google",
+  "name": "Tabletop by Google Labs",
+  "url": "https://labs.google",
+  "status": "failed",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "inread.app",
+  "name": "inread",
+  "url": "https://inread.app",
+  "status": "done",
+  "date": "2026-11-15",
+  "alt": "inread.app"
+ },
+ {
+  "site": "defaulttamer.com",
+  "name": "Default Tamer",
+  "url": "https://defaulttamer.com",
+  "status": "failed",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "rakazo.com",
+  "name": "Rakazo",
+  "url": "https://rakazo.com",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "twobucket.com",
+  "name": "Tow Marketing",
+  "url": "https://twobucket.com",
+  "status": "done",
+  "date": "2026-11-15",
+  "alt": "TwoBucket"
  }
 ]

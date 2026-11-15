@@ -8865,5 +8865,436 @@
     "banner/crimson/good"
    ]
   }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://antelog.com",
+  "brand": "Antelog",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Antelog: ID Checks for Reviews, But What's the Catch?",
+  "youtube": "https://youtu.be/vYV9RqXKM-o",
+  "format": "fine_print",
+  "opener": "If you are hunting for a quick AI tool or a flashy app with endless video clips, you can stop watching right now",
+  "title_style": "catch",
+  "theme": {
+   "mode": "light",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "underline",
+   "bg": "spotlight",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    70,
+    140
+   ],
+   "transitions": [
+    "smoothup",
+    "smoothdown"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    70,
+    140
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "stack/crimson/catch",
+    "laptop/violet/worth",
+    "yes_no/midnight/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://talyn.ai",
+  "brand": "Talyn",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Talyn: AI Interviews, But What's the Catch?",
+  "youtube": "https://youtu.be/ZWJ2_FTPboM",
+  "format": "pros_cons",
+  "opener": "If you're a recruiter drowning in screening calls, you can keep watching",
+  "title_style": "scam",
+  "theme": {
+   "mode": "light",
+   "layout": "stage",
+   "frame": "floating",
+   "caption": "pill",
+   "bg": "gradient",
+   "head_font": "inter",
+   "accent": [
+    84,
+    116,
+    164
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "banner",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "banner/ocean/scam",
+    "yes_no/charcoal/worth",
+    "stack/violet/works"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://ember.cloudflare.dev",
+  "brand": "Cloudflare",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Cloudflare Developer Docs: What's the Catch?",
+  "youtube": "https://youtu.be/OrHf1Pd90x8",
+  "format": "pros_cons",
+  "opener": "Ever wondered if you're overpaying for messy cloud infrastructure that feels way too complicated? Alright, let's take a ",
+  "title_style": "catch",
+  "theme": {
+   "mode": "brand",
+   "layout": "spotlight",
+   "frame": "floating",
+   "caption": "underline",
+   "bg": "mesh",
+   "head_font": "poppins",
+   "accent": [
+    240,
+    96,
+    48
+   ],
+   "transitions": [
+    "radial",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "left",
+   "thumb_accent": [
+    240,
+    96,
+    48
+   ],
+   "cap_anim": "slide_left",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "left/ocean/catch",
+    "score/crimson/scam",
+    "split/emerald/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://moreframe.app",
+  "brand": "MoreFrame",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "Is MoreFrame Actually Worth It? Screen Recorder Honest Review",
+  "youtube": "https://youtu.be/_Eb0YxUZcv8",
+  "format": "pros_cons",
+  "opener": "Looking for a quick browser tool that runs anywhere without installing local software? You can totally stop watching rig",
+  "title_style": "actually",
+  "theme": {
+   "mode": "brand",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "pill",
+   "bg": "gradient",
+   "head_font": "inter",
+   "accent": [
+    140,
+    95,
+    170
+   ],
+   "transitions": [
+    "radial",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "left",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "left/crimson/worth",
+    "laptop/midnight/scam",
+    "number/magenta/expect"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://paxper.com",
+  "brand": "Paxper",
+  "kind": "review",
+  "story_url": null,
+  "category": "hosting",
+  "title": "Is Paxper Actually Worth It? Visual Cloud IaC Reviewed",
+  "youtube": "https://youtu.be/NIeZhnB6VIk",
+  "format": "five_questions",
+  "opener": "Ever tried to figure out a messy cloud setup and just wanted to draw it instead? Well, Paxper's a visual infrastructure ",
+  "title_style": "actually",
+  "theme": {
+   "mode": "light",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "glass",
+   "bg": "mesh",
+   "head_font": "poppins",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "slideleft",
+    "slideright"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "stack/crimson/worth",
+    "number/ocean/scam",
+    "yes_no/royal/catch"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://emayler.com",
+  "brand": "Emayler",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "Emayler Review: No Per-User Fees, But What's the Catch?",
+  "youtube": "https://youtu.be/Ts9IbOD2OX0",
+  "format": "five_questions",
+  "opener": "Ever get tired of email providers charging you extra for every single teammate you add? Okay, let's look at Emayler, a c",
+  "title_style": "actually",
+  "theme": {
+   "mode": "light",
+   "layout": "stage",
+   "frame": "floating",
+   "caption": "underline",
+   "bg": "spotlight",
+   "head_font": "inter",
+   "accent": [
+    255,
+    70,
+    140
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "banner",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_left",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "banner/royal/worth",
+    "yes_no/crimson/scam",
+    "split/ocean/expect"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://inread.app",
+  "brand": "inread",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Inread: $0 Free Plan, But What's the Catch?",
+  "youtube": "https://youtu.be/IRr2JsJumZg",
+  "format": "five_questions",
+  "opener": "If you're tired of newsletters turning your personal email into a total disaster zone, you can keep watching",
+  "title_style": "catch",
+  "theme": {
+   "mode": "brand",
+   "layout": "side",
+   "frame": "floating",
+   "caption": "bar",
+   "bg": "aurora",
+   "head_font": "inter",
+   "accent": [
+    122,
+    92,
+    255
+   ],
+   "transitions": [
+    "squeezeh",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "minimal",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "score/ocean/catch",
+    "left/crimson/scam",
+    "stack/royal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://rakazo.com",
+  "brand": "Rakazo",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Rakazo: Open Source AI or Just Hype?",
+  "youtube": "https://youtu.be/88f9MHOukqo",
+  "format": "pros_cons",
+  "opener": "If you are looking for an open source AI teammate to run routines and handle your inbox, you can stop watching right now",
+  "title_style": "catch",
+  "theme": {
+   "mode": "brand",
+   "layout": "stage",
+   "frame": "floating",
+   "caption": "bar",
+   "bg": "mesh",
+   "head_font": "inter",
+   "accent": [
+    240,
+    96,
+    0
+   ],
+   "transitions": [
+    "slideleft",
+    "slideright"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    240,
+    96,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "stack/ocean/catch",
+    "banner/emerald/scam",
+    "left/midnight/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://twobucket.com",
+  "brand": "Tow Marketing",
+  "kind": "review",
+  "story_url": null,
+  "category": "marketing",
+  "title": "Tow Marketing Review: Is This Framework Worth Your Time?",
+  "youtube": "https://youtu.be/oWzIvjCEGtQ",
+  "format": "pros_cons",
+  "opener": "Here's the catch: Tow Marketing promises to help towing companies get more customers, but you'll need to rely heavily on",
+  "title_style": "honest",
+  "theme": {
+   "mode": "brand",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "bar",
+   "bg": "spotlight",
+   "head_font": "inter",
+   "accent": [
+    0,
+    168,
+    72
+   ],
+   "transitions": [
+    "vertopen",
+    "horzopen"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "stack/midnight/worth",
+    "laptop/royal/scam",
+    "left/ocean/expect"
+   ]
+  }
  }
 ]
