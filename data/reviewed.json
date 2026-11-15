@@ -873,5 +873,120 @@
   "url": "https://fractile.ai",
   "status": "done",
   "date": "2026-11-14"
+ },
+ {
+  "site": "minimax.io",
+  "name": "MiniMax H3-Image",
+  "url": "https://minimax.io",
+  "status": "failed",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "mang.sh",
+  "name": "mang.sh",
+  "url": "https://mang.sh",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "pitchbook.com",
+  "name": "PitchBook",
+  "url": "https://pitchbook.com",
+  "status": "done",
+  "date": "2026-11-15",
+  "alt": "PitchBook Origin"
+ },
+ {
+  "site": "hitpayapp.com",
+  "name": "HitPay",
+  "url": "https://hitpayapp.com",
+  "status": "done",
+  "date": "2026-11-15",
+  "alt": "HitPay Agentic Discovery"
+ },
+ {
+  "site": "siggy.ai",
+  "name": "Siggy",
+  "url": "https://siggy.ai",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "dover.com",
+  "name": "Dover Startup Jobs",
+  "url": "https://www.dover.com",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "watched.earth",
+  "name": "Watched",
+  "url": "https://www.watched.earth",
+  "status": "done",
+  "date": "2026-11-15",
+  "alt": "Watched.earth"
+ },
+ {
+  "site": "valin.ai",
+  "name": "Valin",
+  "url": "https://valin.ai",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "criminalip.io",
+  "name": "Criminal IP TI Feed",
+  "url": "https://criminalip.io",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "bluehost.com",
+  "name": "Bluehost",
+  "url": "https://www.bluehost.com",
+  "status": "failed",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "harnessmemory.com",
+  "name": "Harness Memory",
+  "url": "https://harnessmemory.com",
+  "status": "failed",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "shot.video",
+  "name": "Shot.video",
+  "url": "https://shot.video",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "stablebar.app",
+  "name": "StableBar",
+  "url": "https://stablebar.app",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "klang.ai",
+  "name": "Klang",
+  "url": "https://klang.ai",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "aircad.com",
+  "name": "Aircad",
+  "url": "https://aircad.com",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "kettle.chat",
+  "name": "Kettle",
+  "url": "https://kettle.chat",
+  "status": "failed",
+  "date": "2026-11-15"
  }
 ]

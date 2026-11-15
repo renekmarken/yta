@@ -8291,5 +8291,579 @@
     "split/ocean/works"
    ]
   }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://mang.sh",
+  "brand": "mang.sh",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "mang.sh: Can AI Safely Run Your Terminal?",
+  "youtube": "https://youtu.be/rMgAeLv_kR4",
+  "format": "red_flags",
+  "opener": "So mang",
+  "title_style": "fees",
+  "theme": {
+   "mode": "light",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "underline",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    0,
+    192,
+    48
+   ],
+   "transitions": [
+    "smoothleft",
+    "smoothright"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "laptop",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "laptop/emerald/fees",
+    "score/ocean/worth",
+    "banner/magenta/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://pitchbook.com",
+  "brand": "PitchBook",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "PitchBook: $0 Fees? Wait, What's the Catch?",
+  "youtube": "https://youtu.be/4yOs70a6vi8",
+  "format": "first_look",
+  "opener": "If you're an institutional investor, private equity analyst, or corporate strategist trying to track venture capital and",
+  "title_style": "dont",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "tag",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    0,
+    214,
+    170
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "score/ocean/dont",
+    "laptop/royal/scam",
+    "left/charcoal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://hitpayapp.com",
+  "brand": "HitPay",
+  "kind": "review",
+  "story_url": null,
+  "category": "marketing",
+  "title": "HitPay Review: $0 Monthly Fees, But What's the Catch?",
+  "youtube": "https://youtu.be/NNrZSLl-GoU",
+  "format": "first_look",
+  "opener": "Ever wondered how smaller shops take fifty different digital wallets without losing half their profits to software subs?",
+  "title_style": "truth",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "glass",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    94,
+    58
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "stack/violet/truth",
+    "left/magenta/scam",
+    "laptop/charcoal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://siggy.ai",
+  "brand": "Siggy",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Siggy: AI Signal Booster, But What's the Catch?",
+  "youtube": "https://youtu.be/ghWk3gn6Ofw",
+  "format": "who_for",
+  "opener": "If you're tired of dropped calls and dead zones in your house, you should probably keep watching",
+  "title_style": "expect",
+  "theme": {
+   "mode": "light",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "underline",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    0,
+    170,
+    255
+   ],
+   "transitions": [
+    "vertopen",
+    "horzopen"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "laptop",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "fade_up",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "laptop/ocean/expect",
+    "stack/magenta/scam",
+    "banner/royal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://www.dover.com",
+  "brand": "Dover Startup Jobs",
+  "kind": "review",
+  "story_url": null,
+  "category": "freelancing",
+  "title": "Dover Startup Jobs: Worth Using It?",
+  "youtube": "https://youtu.be/PddEK6Gg1lw",
+  "format": "red_flags",
+  "opener": "Dover claims it's your startup's all-in-one hiring solution with an AI-powered ATS and public recruiting costs",
+  "title_style": "worth",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "pill",
+   "bg": "aurora",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    212,
+    0
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "yes_no/royal/worth_using",
+    "left/crimson/scam",
+    "stack/magenta/truth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://www.watched.earth",
+  "brand": "Watched",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "Watched: Is It Actually Good? Free Satellite Viewer Checked",
+  "youtube": "https://youtu.be/7R-Nk83dpYA",
+  "format": "fine_print",
+  "opener": "Ever wondered if something watched you this week? Well, according to the homepage of Watched dot earth, sixteen thousand",
+  "title_style": "good",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "underline",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    240,
+    96,
+    24
+   ],
+   "transitions": [
+    "wipeleft",
+    "wiperight"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "score",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "score/violet/good",
+    "yes_no/ocean/worth",
+    "left/magenta/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://valin.ai",
+  "brand": "Valin",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Valin: On-Device AI, But What's the Catch?",
+  "youtube": "https://youtu.be/8m2LBeAty88",
+  "format": "fine_print",
+  "opener": "If you're looking for a cloud app that runs on your laptop or web browser, you can stop watching right now",
+  "title_style": "dont",
+  "theme": {
+   "mode": "light",
+   "layout": "full",
+   "frame": "floating",
+   "caption": "underline",
+   "bg": "aurora",
+   "head_font": "interdisplay",
+   "accent": [
+    148,
+    79,
+    34
+   ],
+   "transitions": [
+    "coverleft",
+    "revealright"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "left",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "left/violet/dont",
+    "score/magenta/worth",
+    "stack/emerald/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://criminalip.io",
+  "brand": "Criminal IP TI Feed",
+  "kind": "review",
+  "story_url": null,
+  "category": "vpn-security",
+  "title": "Criminal IP TI Feed: $0 Pricing Listed, But What's the Catch?",
+  "youtube": "https://youtu.be/tSMWXU4LEoU",
+  "format": "red_flags",
+  "opener": "Here's the catch: Criminal IP TI Feed promises deep cyber threat intelligence, but you'll need to dig past the marketing",
+  "title_style": "fees",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "mac_light",
+   "caption": "glass",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    0,
+    214,
+    170
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    0,
+    214,
+    170
+   ],
+   "cap_anim": "slide_right",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "yes_no/royal/fees",
+    "left/emerald/scam",
+    "score/ocean/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://shot.video",
+  "brand": "Shot.video",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Shot.video: $0 Free Plan, But What's the Catch?",
+  "youtube": "https://youtu.be/YtvgtfEc2gs",
+  "format": "first_look",
+  "opener": "Alright, let's take a look at Shot",
+  "title_style": "expect",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "tag",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    240,
+    72,
+    48
+   ],
+   "transitions": [
+    "vertopen",
+    "horzopen"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "split/magenta/expect",
+    "laptop/emerald/worth",
+    "banner/midnight/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://stablebar.app",
+  "brand": "StableBar",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "StableBar: What to Actually Expect (EXPLAINED)",
+  "youtube": "https://youtu.be/Xhuj632ead0",
+  "format": "red_flags",
+  "opener": "Here's the catch: StableBar gives your Mac a brand new menu bar, but you'll need Apple Silicon running macOS 14 or later",
+  "title_style": "expect",
+  "theme": {
+   "mode": "light",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "tag",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    240,
+    216,
+    72
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "split",
+   "thumb_accent": [
+    240,
+    216,
+    72
+   ],
+   "cap_anim": "slide_right",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "split/violet/expect",
+    "stack/midnight/worth",
+    "banner/magenta/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://klang.ai",
+  "brand": "Klang",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Klang Review: European AI Transcription, But Is It Worth It?",
+  "youtube": "https://youtu.be/MoCftb_WiNs",
+  "format": "who_for",
+  "opener": "Ever noticed how Klang's homepage greets you with European AI for conversations that matter? Alright, let's take a look ",
+  "title_style": "truth",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    0,
+    214,
+    170
+   ],
+   "transitions": [
+    "circleopen",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "split",
+   "thumb_accent": [
+    0,
+    214,
+    170
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "split/violet/truth",
+    "laptop/midnight/scam",
+    "stack/magenta/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-14",
+  "url": "https://aircad.com",
+  "brand": "Aircad",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Aircad: $19 Pro Plan, But Is It Worth Using?",
+  "youtube": "https://youtu.be/tNm01V1sZq8",
+  "format": "red_flags",
+  "opener": "Ever wondered if browser-based CAD could actually handle heavy design work without melting your laptop? Alright, today w",
+  "title_style": "worth",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "mac_dark",
+   "caption": "tag",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    94,
+    58
+   ],
+   "transitions": [
+    "wipeleft",
+    "wiperight"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "laptop",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "fade_up",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "laptop/emerald/worth_using",
+    "split/midnight/scam",
+    "banner/crimson/good"
+   ]
+  }
  }
 ]
