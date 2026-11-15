@@ -1219,5 +1219,118 @@
   "url": "https://thunderdb.com",
   "status": "failed",
   "date": "2026-11-15"
+ },
+ {
+  "site": "screengo.app",
+  "name": "ScreenGo",
+  "url": "https://screengo.app",
+  "status": "failed",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "acorns.com",
+  "name": "Acorns",
+  "url": "https://www.acorns.com",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "stiro.ai",
+  "name": "Stiro",
+  "url": "https://stiro.ai",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "midjourney.com",
+  "name": "Midjourney",
+  "url": "https://www.midjourney.com",
+  "status": "failed",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "sofi.com",
+  "name": "SoFi",
+  "url": "https://www.sofi.com",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "monday.com",
+  "name": "monday.com",
+  "url": "https://monday.com",
+  "status": "done",
+  "date": "2026-11-15",
+  "alt": "Monday.com"
+ },
+ {
+  "site": "perplexity.ai",
+  "name": "Perplexity",
+  "url": "https://www.perplexity.ai",
+  "status": "failed",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "klaviyo.com",
+  "name": "Klaviyo",
+  "url": "https://www.klaviyo.com",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "gusto.com",
+  "name": "Gusto",
+  "url": "https://gusto.com",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "youart.ai",
+  "name": "YouArt",
+  "url": "https://youart.ai",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "someonewashere.app",
+  "name": "Someone Was Here",
+  "url": "https://someonewashere.app",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "rivet.dev",
+  "name": "Rivet",
+  "url": "https://rivet.dev",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "seldon.dev",
+  "name": "Seldon",
+  "url": "https://seldon.dev",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "ally.com",
+  "name": "Ally Bank",
+  "url": "https://www.ally.com",
+  "status": "failed",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "quotedpart.com",
+  "name": "QuotedPart",
+  "url": "https://quotedpart.com",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "openvibe.dev",
+  "name": "OpenVibe",
+  "url": "https://openvibe.dev",
+  "status": "done",
+  "date": "2026-11-15"
  }
 ]

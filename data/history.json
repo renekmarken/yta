@@ -9919,5 +9919,577 @@
     "score/midnight/worth"
    ]
   }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://www.acorns.com",
+  "brand": "Acorns",
+  "kind": "review",
+  "story_url": null,
+  "category": "banking-apps",
+  "title": "Acorns: $4 Fees, But What's the Catch?",
+  "youtube": "https://youtu.be/OHFCjSC_zm0",
+  "format": "fine_print",
+  "opener": "If you already manage a complex stock portfolio or hate monthly subscriptions, you can stop watching right now",
+  "title_style": "catch",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "pill",
+   "bg": "spotlight",
+   "head_font": "inter",
+   "accent": [
+    255,
+    94,
+    58
+   ],
+   "transitions": [
+    "vertopen",
+    "horzopen"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "stack/midnight/catch",
+    "left/emerald/worth",
+    "number/magenta/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://stiro.ai",
+  "brand": "Stiro",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Stiro: Is It Actually Good? Pricing & Security Reviewed",
+  "youtube": "https://youtu.be/G4ZPgFlE-M8",
+  "format": "five_questions",
+  "opener": "Ever tried to explain a complex software feature to a confused user who won't read your docs? Well, Stiro claims it's an",
+  "title_style": "good",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "floating",
+   "caption": "bar",
+   "bg": "gradient",
+   "head_font": "inter",
+   "accent": [
+    255,
+    150,
+    30
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "fade_up",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "yes_no/royal/good",
+    "left/midnight/worth",
+    "laptop/emerald/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://www.sofi.com",
+  "brand": "SoFi",
+  "kind": "review",
+  "story_url": null,
+  "category": "banking-apps",
+  "title": "SoFi: 4.40% APY, But What's the Catch?",
+  "youtube": "https://youtu.be/_HaGqp_IZM4",
+  "format": "pros_cons",
+  "opener": "So, seventeen point one million folks trust these guys, wild right? We're checking out SoFi, a massive online finance hu",
+  "title_style": "catch",
+  "theme": {
+   "mode": "brand",
+   "layout": "side",
+   "frame": "mac_dark",
+   "caption": "underline",
+   "bg": "spotlight",
+   "head_font": "inter",
+   "accent": [
+    0,
+    144,
+    192
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "yes_no/midnight/catch",
+    "score/emerald/worth",
+    "stack/violet/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://monday.com",
+  "brand": "monday.com",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "Monday.com: $9 Seats, But What's the Catch?",
+  "youtube": "https://youtu.be/-zzbI5Yb3WY",
+  "format": "five_questions",
+  "opener": "Here's the catch: Monday",
+  "title_style": "legit",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "mac_dark",
+   "caption": "underline",
+   "bg": "gradient",
+   "head_font": "interdisplay",
+   "accent": [
+    240,
+    192,
+    0
+   ],
+   "transitions": [
+    "dissolve"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "score",
+   "thumb_accent": [
+    240,
+    192,
+    0
+   ],
+   "cap_anim": "fade_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "score/royal/legit",
+    "laptop/emerald/worth",
+    "yes_no/magenta/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://www.klaviyo.com",
+  "brand": "Klaviyo",
+  "kind": "review",
+  "story_url": null,
+  "category": "marketing",
+  "title": "Klaviyo: Legit or Overhyped? Pricing and Features Reviewed",
+  "youtube": "https://youtu.be/_O_b_-LwtHQ",
+  "format": "five_questions",
+  "opener": "Ever wonder why every big online store uses the exact same marketing tools? Alright, let's take a look at Klaviyo, an au",
+  "title_style": "legit",
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "mac_dark",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    169,
+    94,
+    94
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "score",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "score/royal/legit",
+    "number/magenta/scam",
+    "stack/charcoal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://gusto.com",
+  "brand": "Gusto",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "Gusto: $49 Fees, But What's the Catch?",
+  "youtube": "https://youtu.be/LcLmy__hB10",
+  "format": "pros_cons",
+  "opener": "Ever wondered if running payroll for your small business could actually feel easy instead of terrifying? Stick around, b",
+  "title_style": "catch",
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "floating",
+   "caption": "glass",
+   "bg": "gradient",
+   "head_font": "interdisplay",
+   "accent": [
+    240,
+    72,
+    48
+   ],
+   "transitions": [
+    "dissolve"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "banner",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "fade_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "banner/emerald/catch",
+    "laptop/midnight/worth",
+    "left/ocean/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://youart.ai",
+  "brand": "YouArt",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "YouArt: $7.99 AI Studio, But What's the Catch?",
+  "youtube": "https://youtu.be/VcTGkDUVOqE",
+  "format": "pros_cons",
+  "opener": "YouArt claims it's an all-in-one AI creative studio where you can generate images and videos using models like Midjourne",
+  "title_style": "good",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "mac_dark",
+   "caption": "glass",
+   "bg": "mesh",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    212,
+    0
+   ],
+   "transitions": [
+    "radial",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "fade_up",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "yes_no/midnight/good",
+    "number/emerald/scam",
+    "laptop/charcoal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://someonewashere.app",
+  "brand": "Someone Was Here",
+  "kind": "review",
+  "story_url": null,
+  "category": "vpn-security",
+  "title": "Someone Was Here: Is It Worth Using?",
+  "youtube": "https://youtu.be/JZxxiFHTK0M",
+  "format": "pros_cons",
+  "opener": "Ever wonder who sneaks a peek at your laptop when you grab a coffee? Someone Was Here is a Mac app promising to snap a p",
+  "title_style": "scam",
+  "theme": {
+   "mode": "brand",
+   "layout": "stage",
+   "frame": "mac_dark",
+   "caption": "pill",
+   "bg": "gradient",
+   "head_font": "interdisplay",
+   "accent": [
+    219,
+    43,
+    43
+   ],
+   "transitions": [
+    "cut"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "stack/midnight/scam",
+    "yes_no/magenta/worth",
+    "banner/crimson/expect"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://rivet.dev",
+  "brand": "Rivet",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Rivet: $0 Control Plane, But What's the Catch?",
+  "youtube": "https://youtu.be/gCbQ36pBJf4",
+  "format": "five_questions",
+  "opener": "Did you know Rivet claims p99 cold starts of just 4",
+  "title_style": "catch",
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "mac_dark",
+   "caption": "underline",
+   "bg": "gradient",
+   "head_font": "inter",
+   "accent": [
+    255,
+    94,
+    58
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    94,
+    58
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "stack/ocean/catch",
+    "laptop/emerald/worth",
+    "banner/royal/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://seldon.dev",
+  "brand": "Seldon",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Seldon: Legit or Overhyped? The Fine Print Check",
+  "youtube": "https://youtu.be/FqHpzZVS9kA",
+  "format": "fine_print",
+  "opener": "If you're looking for a fully launched, ready-to-buy AI report platform for your business, you can probably stop watchin",
+  "title_style": "legit",
+  "theme": {
+   "mode": "brand",
+   "layout": "spotlight",
+   "frame": "mac_dark",
+   "caption": "bar",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    122,
+    92,
+    255
+   ],
+   "transitions": [
+    "vertopen",
+    "horzopen"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "yes_no/emerald/legit",
+    "laptop/midnight/scam",
+    "left/violet/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://quotedpart.com",
+  "brand": "QuotedPart",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "QuotedPart: Is This AI Quoting Tool Actually Worth It?",
+  "youtube": "https://youtu.be/TKrP-MjUMmQ",
+  "format": "five_questions",
+  "opener": "Here's the catch: QuotedPart promises to price customer drawings using your shop rates in under sixty seconds, but you'l",
+  "title_style": "before",
+  "theme": {
+   "mode": "brand",
+   "layout": "spotlight",
+   "frame": "floating",
+   "caption": "pill",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    70,
+    140
+   ],
+   "transitions": [
+    "radial",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "banner",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "fade_up",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "banner/emerald/before",
+    "split/charcoal/worth",
+    "laptop/violet/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://openvibe.dev",
+  "brand": "OpenVibe",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "OpenVibe: Legit AI Tool or Confusing Game Sandbox?",
+  "youtube": "https://youtu.be/NuNF9piEhSU",
+  "format": "five_questions",
+  "opener": "Ever wonder what you're actually getting when a site loads up a basic physics sandbox with zero explanation? Today we're",
+  "title_style": "legit",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "pill",
+   "bg": "spotlight",
+   "head_font": "inter",
+   "accent": [
+    122,
+    92,
+    255
+   ],
+   "transitions": [
+    "dissolve"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "yes_no/ocean/legit",
+    "banner/midnight/worth",
+    "left/royal/scam"
+   ]
+  }
  }
 ]
