@@ -9296,5 +9296,628 @@
     "left/ocean/expect"
    ]
   }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://lemfi.com",
+  "brand": "LemFi",
+  "kind": "review",
+  "story_url": null,
+  "category": "banking-apps",
+  "title": "LemFi: $0 Fees, But Is It Actually Good?",
+  "youtube": "https://youtu.be/vNjUM29YK4c",
+  "format": "red_flags",
+  "opener": "Ever tried sending cash back home and felt like half your paycheck just vanished into thin air? Alright, let's take a cl",
+  "title_style": "good",
+  "theme": {
+   "mode": "light",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "underline",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "coverleft",
+    "revealright"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "yes_no/emerald/good",
+    "number/crimson/worth",
+    "score/violet/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://anyonehiring.today",
+  "brand": "AnyoneHiring.today",
+  "kind": "review",
+  "story_url": null,
+  "category": "freelancing",
+  "title": "AnyoneHiring.today: Good Job Board or Total Waste?",
+  "youtube": "https://youtu.be/HbMIwRRsc54",
+  "format": "red_flags",
+  "opener": "Anyone hiring? Asking for me, actually, because the cat has bills too",
+  "title_style": "fees",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "glass",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    216,
+    48,
+    48
+   ],
+   "transitions": [
+    "hblur",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "left",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "left/violet/fees",
+    "laptop/charcoal/worth",
+    "split/midnight/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://frevana.com",
+  "brand": "Frevana",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Frevana: $1 Activation, But What's the Catch?",
+  "youtube": "https://youtu.be/qOkPJApLKN0",
+  "format": "who_for",
+  "opener": "Frevana claims it delivers winning ads, on command, using no-code agent apps that take on real work for your business",
+  "title_style": "fees",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "pill",
+   "bg": "mesh",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    150,
+    30
+   ],
+   "transitions": [
+    "wipeleft",
+    "wiperight"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_left",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "yes_no/emerald/fees",
+    "split/midnight/scam",
+    "score/crimson/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://expo.dev",
+  "brand": "Expo",
+  "kind": "review",
+  "story_url": null,
+  "category": "hosting",
+  "title": "Expo Hosting: $19/mo Starter, But What's the Catch?",
+  "youtube": "https://youtu.be/E4f_DSIsZDc",
+  "format": "red_flags",
+  "opener": "Here's the thing: Expo promises agentic mobile infrastructure to build and test iOS, Android, and web apps from one code",
+  "title_style": "dont",
+  "theme": {
+   "mode": "light",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "underline",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "coverleft",
+    "revealright"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "left",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "fade_up",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "left/emerald/dont",
+    "yes_no/ocean/scam",
+    "banner/royal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://4frontcu.com",
+  "brand": "4Front Credit Union",
+  "kind": "review",
+  "story_url": null,
+  "category": "banking-apps",
+  "title": "4Front Credit Union: 4.08% APY, But What's the Catch?",
+  "youtube": "https://youtu.be/Ms0eEGkpTXU",
+  "format": "fine_print",
+  "opener": "Ever wondered if local credit unions actually beat big banks for everyday banking? Today we're looking at 4Front Credit ",
+  "title_style": "fees",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "underline",
+   "bg": "mesh",
+   "head_font": "interdisplay",
+   "accent": [
+    45,
+    110,
+    154
+   ],
+   "transitions": [
+    "smoothup",
+    "smoothdown"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "yes_no/crimson/fees",
+    "score/emerald/worth",
+    "laptop/ocean/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://hoverine.com",
+  "brand": "Hoverine",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "Hoverine Review: $9.99 Animations, But What's the Catch?",
+  "youtube": "https://youtu.be/H1Kl33YSWfE",
+  "format": "first_look",
+  "opener": "If you're a designer or developer tired of boring static interfaces, you'll wanna keep watching",
+  "title_style": "truth",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "mac_dark",
+   "caption": "tag",
+   "bg": "aurora",
+   "head_font": "poppins",
+   "accent": [
+    240,
+    72,
+    24
+   ],
+   "transitions": [
+    "hblur",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "number",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "number/charcoal/truth",
+    "stack/royal/worth",
+    "yes_no/crimson/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://restorationscope.com",
+  "brand": "Restoration Scope",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Restoration Scope: Custom Quotes, But What's the Catch?",
+  "youtube": "https://youtu.be/9seWisA1yGU",
+  "format": "who_for",
+  "opener": "Here's the thing: managing a large carbon or reforestation project across messy spreadsheets is a total headache",
+  "title_style": "dont",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "tag",
+   "bg": "aurora",
+   "head_font": "poppins",
+   "accent": [
+    72,
+    144,
+    96
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "left",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "minimal",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "left/charcoal/dont",
+    "banner/emerald/worth",
+    "score/royal/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://a2e.ai",
+  "brand": "A2E AI",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "A2E AI: Free Tier Limits, Face Swaps, But What's the Catch?",
+  "youtube": "https://youtu.be/X75pOjgDJaQ",
+  "format": "first_look",
+  "opener": "If you're looking for a quick free way to test face swaps, voice cloning, and AI avatars, you can keep watching",
+  "title_style": "worth",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "mac_dark",
+   "caption": "pill",
+   "bg": "gradient",
+   "head_font": "interdisplay",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "number",
+   "thumb_accent": [
+    140,
+    230,
+    60
+   ],
+   "cap_anim": "fade_up",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "number/magenta/worth_using",
+    "banner/crimson/scam",
+    "left/charcoal/expect"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://tipalti.com",
+  "brand": "Tipalti AP Agent",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "Tipalti Review: $99 Start, But What's the Catch?",
+  "youtube": "https://youtu.be/lQzfm4Oic60",
+  "format": "red_flags",
+  "opener": "Alright, let's take a look at Tipalti, where they claim to process over one hundred billion dollars in total payment vol",
+  "title_style": "truth",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "mac_dark",
+   "caption": "underline",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    70,
+    140
+   ],
+   "transitions": [
+    "radial",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "left",
+   "thumb_accent": [
+    255,
+    70,
+    140
+   ],
+   "cap_anim": "drop",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "left/crimson/truth",
+    "banner/emerald/scam",
+    "score/royal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://perit.ai",
+  "brand": "Perit Marketplace",
+  "kind": "review",
+  "story_url": null,
+  "category": "freelancing",
+  "title": "Perit Marketplace: Custom AI Data, But What's the Catch?",
+  "youtube": "https://youtu.be/MaeFwCEoQ0Q",
+  "format": "first_look",
+  "opener": "Here's the catch: Perit promises custom training data for AI models, but you'll need to jump on a phone call just to get",
+  "title_style": "fees",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "mac_dark",
+   "caption": "tag",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    70,
+    140
+   ],
+   "transitions": [
+    "smoothleft",
+    "smoothright"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "number",
+   "thumb_accent": [
+    255,
+    70,
+    140
+   ],
+   "cap_anim": "fade_up",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "number/charcoal/fees",
+    "yes_no/magenta/worth",
+    "laptop/violet/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://translated.com",
+  "brand": "Translated",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Translated: What to Actually Expect (EXPLAINED)",
+  "youtube": "https://youtu.be/TSUboYXpqWA",
+  "format": "red_flags",
+  "opener": "Here's the thing: Translated claims it's making professional translation super easy by mixing expert human linguists wit",
+  "title_style": "expect",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "glass",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "circleopen",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "laptop",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "fade_up",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "laptop/violet/expect",
+    "split/emerald/worth",
+    "banner/charcoal/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://umbrella.pixelegg.me",
+  "brand": "Umbrella",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Umbrella: Mac Audio Recorder Checked, But What's Missing?",
+  "youtube": "https://youtu.be/w41_FEt3CsI",
+  "format": "first_look",
+  "opener": "Ever tried to record audio from just one single app on your Mac without picking up random notification sounds? Alright, ",
+  "title_style": "dont",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "glass",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    240,
+    144,
+    144
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "split/crimson/dont",
+    "yes_no/magenta/scam",
+    "banner/ocean/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-15",
+  "url": "https://tacie.app",
+  "brand": "Tacie",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Tacie: AI Meeting Notes Without Bots, But What's the Catch?",
+  "youtube": "https://youtu.be/mRjcAueTdko",
+  "format": "who_for",
+  "opener": "Here's the catch: Tacie promises to give you meeting notes and answer questions live without putting an awkward recordin",
+  "title_style": "fees",
+  "theme": {
+   "mode": "light",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "tag",
+   "bg": "aurora",
+   "head_font": "poppins",
+   "accent": [
+    0,
+    214,
+    170
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "minimal",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "split/magenta/fees",
+    "left/royal/scam",
+    "score/midnight/worth"
+   ]
+  }
  }
 ]

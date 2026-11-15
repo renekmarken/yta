@@ -1103,5 +1103,121 @@
   "status": "done",
   "date": "2026-11-15",
   "alt": "TwoBucket"
+ },
+ {
+  "site": "lemfi.com",
+  "name": "LemFi",
+  "url": "https://lemfi.com",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "anyonehiring.today",
+  "name": "AnyoneHiring.today",
+  "url": "https://anyonehiring.today",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "frevana.com",
+  "name": "Frevana",
+  "url": "https://frevana.com",
+  "status": "done",
+  "date": "2026-11-15",
+  "alt": "Frevana Multiplayer"
+ },
+ {
+  "site": "expo.dev",
+  "name": "Expo",
+  "url": "https://expo.dev",
+  "status": "done",
+  "date": "2026-11-15",
+  "alt": "Expo Simulators"
+ },
+ {
+  "site": "4frontcu.com",
+  "name": "4Front Credit Union",
+  "url": "https://4frontcu.com",
+  "status": "done",
+  "date": "2026-11-15",
+  "alt": "4Front Credit Union BNPL"
+ },
+ {
+  "site": "pocketstudio.app",
+  "name": "Pocket Studio for Supabase",
+  "url": "https://pocketstudio.app",
+  "status": "failed",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "hoverine.com",
+  "name": "Hoverine",
+  "url": "https://hoverine.com",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "restorationscope.com",
+  "name": "Restoration Scope",
+  "url": "https://restorationscope.com",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "a2e.ai",
+  "name": "A2E AI",
+  "url": "https://a2e.ai",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "tipalti.com",
+  "name": "Tipalti AP Agent",
+  "url": "https://tipalti.com",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "perit.ai",
+  "name": "Perit Marketplace",
+  "url": "https://perit.ai",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "translated.com",
+  "name": "Translated",
+  "url": "https://translated.com",
+  "status": "done",
+  "date": "2026-11-15",
+  "alt": "Translated Lara Mini"
+ },
+ {
+  "site": "pixelegg.me",
+  "name": "Umbrella",
+  "url": "https://umbrella.pixelegg.me",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "privacyboard.com",
+  "name": "Privacyboard",
+  "url": "https://privacyboard.com",
+  "status": "failed",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "tacie.app",
+  "name": "Tacie",
+  "url": "https://tacie.app",
+  "status": "done",
+  "date": "2026-11-15"
+ },
+ {
+  "site": "thunderdb.com",
+  "name": "Thunder",
+  "url": "https://thunderdb.com",
+  "status": "failed",
+  "date": "2026-11-15"
  }
 ]
