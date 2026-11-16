@@ -1332,5 +1332,119 @@
   "url": "https://openvibe.dev",
   "status": "done",
   "date": "2026-11-15"
+ },
+ {
+  "site": "nominal.io",
+  "name": "Nominal",
+  "url": "https://nominal.io",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "rodeo.so",
+  "name": "Rodeo",
+  "url": "https://rodeo.so",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "tk.medium.com",
+  "name": "TK by Medium",
+  "url": "https://tk.medium.com",
+  "status": "failed",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "fundivi.com",
+  "name": "fundivi",
+  "url": "https://fundivi.com",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "relay.so",
+  "name": "Relay",
+  "url": "https://relay.so",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "open.cx",
+  "name": "Open",
+  "url": "https://open.cx",
+  "status": "done",
+  "date": "2026-11-16",
+  "alt": "SideKick By Open"
+ },
+ {
+  "site": "tulvo.com",
+  "name": "Tulvo",
+  "url": "https://tulvo.com",
+  "status": "failed",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "wipecraft.com",
+  "name": "Wipecraft",
+  "url": "https://wipecraft.com",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "axiommath.com",
+  "name": "Axiom Math",
+  "url": "https://axiommath.com",
+  "status": "failed",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "malwarebytes.com",
+  "name": "Malwarebytes",
+  "url": "https://www.malwarebytes.com",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "notion.so",
+  "name": "Notion",
+  "url": "https://www.notion.so",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "anthropic.com",
+  "name": "Anthropic",
+  "url": "https://www.anthropic.com",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "digitalocean.com",
+  "name": "DigitalOcean",
+  "url": "https://www.digitalocean.com",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "padrail.app",
+  "name": "Padrail",
+  "url": "https://padrail.app",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "bytedance.com",
+  "name": "ByteDance",
+  "url": "https://bytedance.com",
+  "status": "done",
+  "date": "2026-11-16",
+  "alt": "Seedream 5.5"
+ },
+ {
+  "site": "tinyvalencia.com",
+  "name": "Tiny Valencia",
+  "url": "https://tinyvalencia.com",
+  "status": "done",
+  "date": "2026-11-16"
  }
 ]
