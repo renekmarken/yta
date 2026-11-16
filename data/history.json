@@ -11113,5 +11113,529 @@
     "banner/ocean/scam"
    ]
   }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://cal.com",
+  "brand": "Cal.com",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Is Cal.com Actually Worth It? Honest Review",
+  "youtube": "https://youtu.be/D0dBxKB1_b8",
+  "format": "five_questions",
+  "opener": "If you're looking for a simple, completely offline calendar or a paper planner, stop watching right now",
+  "title_style": "actually",
+  "theme": {
+   "mode": "light",
+   "layout": "full",
+   "frame": "minimal",
+   "caption": "pill",
+   "bg": "aurora",
+   "head_font": "inter",
+   "accent": [
+    122,
+    92,
+    255
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "laptop",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "laptop/ocean/worth",
+    "left/violet/scam",
+    "yes_no/royal/works"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://www.semrush.com",
+  "brand": "Semrush",
+  "kind": "review",
+  "story_url": null,
+  "category": "marketing",
+  "title": "Semrush: Watch This Before You Sign Up",
+  "youtube": "https://youtu.be/_8N0m2NLEqI",
+  "format": "fine_print",
+  "opener": "Are big marketing tools like Semrush actually worth their heavy monthly price tag, or are you mostly paying for shiny fe",
+  "title_style": "before",
+  "theme": {
+   "mode": "light",
+   "layout": "spotlight",
+   "frame": "floating",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    192,
+    144,
+    240
+   ],
+   "transitions": [
+    "smoothleft",
+    "smoothright"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "drop",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "stack/violet/before",
+    "number/emerald/scam",
+    "laptop/magenta/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://www.opendoor.com",
+  "brand": "Opendoor",
+  "kind": "review",
+  "story_url": null,
+  "category": "real-estate",
+  "title": "Opendoor: Cash Offers or Hidden Catch?",
+  "youtube": "https://youtu.be/Mh84ARfmykM",
+  "format": "five_questions",
+  "opener": "Opendoor claims you can sell your house twice as fast as a traditional sale without any staging or endless open houses",
+  "title_style": "legit",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "glass",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    70,
+    140
+   ],
+   "transitions": [
+    "hblur",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "fade_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "stack/midnight/legit",
+    "split/ocean/scam",
+    "left/royal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://www.hostinger.com",
+  "brand": "Hostinger",
+  "kind": "review",
+  "story_url": null,
+  "category": "hosting",
+  "title": "Hostinger Review: Is the $1.99 Deal Worth It?",
+  "youtube": "https://youtu.be/r5yYX7K9izk",
+  "format": "who_for",
+  "opener": "Hostinger promises you can launch and grow your business with one platform starting at just a dollar ninety-nine a month",
+  "title_style": "truth",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "mac_dark",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    109,
+    65,
+    219
+   ],
+   "transitions": [
+    "smoothup",
+    "smoothdown"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "banner",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_up",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "minimal",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "banner/emerald/truth",
+    "score/royal/worth",
+    "laptop/midnight/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://www.freelancer.com",
+  "brand": "Freelancer",
+  "kind": "review",
+  "story_url": null,
+  "category": "freelancing",
+  "title": "Freelancer: 3% Fees, But What's the Catch?",
+  "youtube": "https://youtu.be/e6gcKROhn-c",
+  "format": "who_for",
+  "opener": "Ever wonder if you can get quality work done on Freelancer without blowing your budget or getting scammed? Stick around,",
+  "title_style": "catch",
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "floating",
+   "caption": "glass",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    24,
+    168,
+    240
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "stack",
+   "thumb_accent": [
+    24,
+    168,
+    240
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "minimal",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "stack/midnight/catch",
+    "laptop/violet/worth",
+    "yes_no/royal/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://1password.com",
+  "brand": "1Password",
+  "kind": "review",
+  "story_url": null,
+  "category": "vpn-security",
+  "title": "1Password Review: Enterprise Claims vs Fine Print",
+  "youtube": "https://youtu.be/B64VoaFTrnI",
+  "format": "fine_print",
+  "opener": "If you're looking for a completely free tool with zero enterprise features, you can stop watching right now",
+  "title_style": "truth",
+  "theme": {
+   "mode": "light",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "glass",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    212,
+    0
+   ],
+   "transitions": [
+    "circleopen",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "fade_up",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "stack/ocean/truth",
+    "left/emerald/worth",
+    "laptop/charcoal/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://alibaba.com",
+  "brand": "Alibaba.com",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "Is Alibaba.com Actually Worth It for Sourcing?",
+  "youtube": "https://youtu.be/D9jMvjfzlxk",
+  "format": "fine_print",
+  "opener": "Ever wonder if sourcing products on Alibaba is actually smooth or just a huge headache? The platform claims it connects ",
+  "title_style": "actually",
+  "theme": {
+   "mode": "light",
+   "layout": "side",
+   "frame": "floating",
+   "caption": "pill",
+   "bg": "spotlight",
+   "head_font": "inter",
+   "accent": [
+    161,
+    105,
+    105
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "laptop",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "laptop/magenta/worth",
+    "yes_no/ocean/scam",
+    "left/midnight/good"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://teachbetter.ai",
+  "brand": "TeachBetter.ai",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "TeachBetter.ai Review: $3 AI Platform, But Is It Worth It?",
+  "youtube": "https://youtu.be/OjbiCMJC8mQ",
+  "format": "who_for",
+  "opener": "If you're a busy teacher drowning in lesson plans, you'll want to keep watching",
+  "title_style": "truth",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "floating",
+   "caption": "bar",
+   "bg": "spotlight",
+   "head_font": "inter",
+   "accent": [
+    255,
+    70,
+    140
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    70,
+    140
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "stack/violet/truth",
+    "left/midnight/worth",
+    "laptop/ocean/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://www.creditkarma.com",
+  "brand": "Credit Karma",
+  "kind": "review",
+  "story_url": null,
+  "category": "credit-cards",
+  "title": "Credit Karma Review: Free Scores, But What's the Catch?",
+  "youtube": "https://youtu.be/u_lkSwC0dhg",
+  "format": "five_questions",
+  "opener": "Alright, Credit Karma claims it's the ultimate toolkit to find your card and skip the guesswork",
+  "title_style": "truth",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "pill",
+   "bg": "aurora",
+   "head_font": "inter",
+   "accent": [
+    39,
+    140,
+    39
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "laptop",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "laptop/magenta/truth",
+    "number/crimson/worth",
+    "stack/midnight/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://www.hootsuite.com",
+  "brand": "Hootsuite",
+  "kind": "review",
+  "story_url": null,
+  "category": "marketing",
+  "title": "Is Hootsuite Actually Worth $99 a Month?",
+  "youtube": "https://youtu.be/1vnz5LuS1WU",
+  "format": "fine_print",
+  "opener": "Hootsuite says it keeps your social media calm, confident, and clean instead of sloppy",
+  "title_style": "actually",
+  "theme": {
+   "mode": "light",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "pill",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    122,
+    92,
+    255
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "stack/magenta/worth",
+    "score/midnight/scam",
+    "left/royal/works"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://www.nationwide.com",
+  "brand": "Nationwide",
+  "kind": "review",
+  "story_url": null,
+  "category": "insurance",
+  "title": "Nationwide: $1,032 Savings, But What's the Catch?",
+  "youtube": "https://youtu.be/xkiIuhe3UUQ",
+  "format": "fine_print",
+  "opener": "Nationwide promises huge savings like a thousand bucks if you bundle",
+  "title_style": "scam",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "mac_dark",
+   "caption": "glass",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    4,
+    122,
+    193
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "fade_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "stack/emerald/scam",
+    "left/charcoal/worth",
+    "yes_no/magenta/good"
+   ]
+  }
  }
 ]

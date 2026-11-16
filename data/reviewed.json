@@ -1446,5 +1446,120 @@
   "url": "https://tinyvalencia.com",
   "status": "done",
   "date": "2026-11-16"
+ },
+ {
+  "site": "cal.com",
+  "name": "Cal.com",
+  "url": "https://cal.com",
+  "status": "done",
+  "date": "2026-11-16",
+  "alt": "Cal.com v7"
+ },
+ {
+  "site": "quillo.ai",
+  "name": "Quillo",
+  "url": "https://quillo.ai",
+  "status": "failed",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "semrush.com",
+  "name": "Semrush",
+  "url": "https://www.semrush.com",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "opendoor.com",
+  "name": "Opendoor",
+  "url": "https://www.opendoor.com",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "hostinger.com",
+  "name": "Hostinger",
+  "url": "https://www.hostinger.com",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "freelancer.com",
+  "name": "Freelancer",
+  "url": "https://www.freelancer.com",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "apartments.com",
+  "name": "Apartments.com",
+  "url": "https://www.apartments.com",
+  "status": "failed",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "1password.com",
+  "name": "1Password",
+  "url": "https://1password.com",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "openevidence.com",
+  "name": "OpenEvidence Health App",
+  "url": "https://openevidence.com",
+  "status": "failed",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "alibaba.com",
+  "name": "Alibaba.com",
+  "url": "https://alibaba.com",
+  "status": "done",
+  "date": "2026-11-16",
+  "alt": "Qwen4-Max"
+ },
+ {
+  "site": "teachbetter.ai",
+  "name": "TeachBetter.ai",
+  "url": "https://teachbetter.ai",
+  "status": "done",
+  "date": "2026-11-16",
+  "alt": "TeachBetter.ai v6"
+ },
+ {
+  "site": "creditkarma.com",
+  "name": "Credit Karma",
+  "url": "https://www.creditkarma.com",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "libertymutual.com",
+  "name": "Liberty Mutual",
+  "url": "https://www.libertymutual.com",
+  "status": "failed",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "skillbox.ai",
+  "name": "Skillbox",
+  "url": "https://skillbox.ai",
+  "status": "failed",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "hootsuite.com",
+  "name": "Hootsuite",
+  "url": "https://www.hootsuite.com",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "nationwide.com",
+  "name": "Nationwide",
+  "url": "https://www.nationwide.com",
+  "status": "done",
+  "date": "2026-11-16"
  }
 ]
