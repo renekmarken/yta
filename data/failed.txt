@@ -58,3 +58,8 @@ https://www.apartments.com
 https://openevidence.com
 https://www.libertymutual.com
 https://skillbox.ai
+https://www.guru.com
+https://www.fidelity.com
+https://www.upwork.com
+https://mujoco.org
+https://aveni.ai

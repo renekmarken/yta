@@ -1,282 +1,6 @@
 [
  {
   "date": "2026-10-02",
-  "url": "https://robinhood.com",
-  "brand": "Robinhood",
-  "category": "investing",
-  "title": "Robinhood Review 2026: Is It Still Worth Using?",
-  "format": "pros_cons",
-  "opener": "Robinhood claims to offer twenty-four-five commission-free stock trading and investing, letting you build strategies and",
-  "theme": {
-   "mode": "dark",
-   "layout": "stage",
-   "frame": "mac_dark",
-   "caption": "underline",
-   "bg": "mesh",
-   "head_font": "archivo",
-   "accent": [
-    0,
-    170,
-    255
-   ],
-   "transitions": [
-    "fadeblack"
-   ],
-   "intro": "split",
-   "highlight": "box",
-   "thumb": "tilt_right",
-   "thumb_accent": [
-    0,
-    200,
-    255
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.lemonade.com",
-  "brand": "Lemonade",
-  "category": "insurance",
-  "title": "Lemonade Insurance Review 2026: Is This App Actually Worth It?",
-  "youtube": null,
-  "format": "fine_print",
-  "opener": "Here is the catch with Lemonade: those ultra-low starting prices look great, but the fine print reveals standard sub-lim",
-  "theme": {
-   "mode": "light",
-   "layout": "cinema",
-   "frame": "minimal",
-   "caption": "pill",
-   "bg": "dots",
-   "head_font": "interdisplay",
-   "accent": [
-    255,
-    150,
-    30
-   ],
-   "transitions": [
-    "radial",
-    "fade"
-   ],
-   "intro": "headline",
-   "highlight": "underline",
-   "thumb": "phone",
-   "thumb_accent": [
-    0,
-    230,
-    160
-   ],
-   "cap_anim": "slide_left",
-   "callout": "pill",
-   "music": "acoustic",
-   "sfx": "crisp",
-   "thumb_palette": "teal_orange"
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://greenlight.com",
-  "brand": "Greenlight",
-  "category": "banking-apps",
-  "title": "Greenlight Review 2026: Is This Family Finance App Actually Worth It?",
-  "youtube": null,
-  "format": "first_look",
-  "opener": "Here is the catch with Greenlight: while it's rated 4",
-  "theme": {
-   "mode": "dark",
-   "layout": "side",
-   "frame": "floating",
-   "caption": "bar",
-   "bg": "gradient",
-   "head_font": "inter",
-   "accent": [
-    255,
-    212,
-    0
-   ],
-   "transitions": [
-    "cut"
-   ],
-   "intro": "split",
-   "highlight": "spotlight",
-   "thumb": "split",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "fade_up",
-   "callout": "card",
-   "music": "ambient",
-   "sfx": "digital",
-   "thumb_palette": "pink_yellow"
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://polymarket.com",
-  "brand": "Polymarket",
-  "category": "investing",
-  "title": "Polymarket Review 2026: Prediction Market or Hype?",
-  "youtube": null,
-  "format": "first_look",
-  "opener": "Polymarket calls itself the world's largest prediction market, promising profits from your knowledge on future events",
-  "theme": {
-   "mode": "dark",
-   "layout": "full",
-   "frame": "mac_light",
-   "caption": "bar",
-   "bg": "blurshot",
-   "head_font": "inter",
-   "accent": [
-    222,
-    44,
-    63
-   ],
-   "transitions": [
-    "zoomin",
-    "fade"
-   ],
-   "intro": "logo_pop",
-   "highlight": "spotlight",
-   "thumb": "stack",
-   "thumb_accent": [
-    255,
-    90,
-    60
-   ],
-   "cap_anim": "slide_right",
-   "callout": "card",
-   "music": "tech",
-   "sfx": "warm",
-   "thumb_palette": "black_green"
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.zoho.com",
-  "brand": "Zoho",
-  "category": "saas",
-  "title": "Zoho Review 2026: Is This Massive Business Suite Actually Worth It?",
-  "youtube": null,
-  "format": "red_flags",
-  "opener": "Zoho claims to power your entire business with a unique and powerful software suite",
-  "theme": {
-   "mode": "brand",
-   "layout": "full",
-   "frame": "mac_light",
-   "caption": "bar",
-   "bg": "aurora",
-   "head_font": "inter",
-   "accent": [
-    122,
-    92,
-    255
-   ],
-   "transitions": [
-    "squeezeh",
-    "fade"
-   ],
-   "intro": "split",
-   "highlight": "box",
-   "thumb": "verdict",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "fade_up",
-   "callout": "glass",
-   "music": "upbeat",
-   "sfx": "playful",
-   "thumb_palette": "red_white"
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://bitwiseinvestments.com",
-  "brand": "Bitwise",
-  "category": "investing",
-  "title": "Bitwise Review 2026: Are Their Crypto ETFs Actually Worth Buying?",
-  "youtube": null,
-  "format": "who_for",
-  "opener": "Bitwise claims that everyone should have a simple and familiar way to access crypto assets through professionally manage",
-  "theme": {
-   "mode": "brand",
-   "layout": "full",
-   "frame": "mac_light",
-   "caption": "underline",
-   "bg": "blurshot",
-   "head_font": "poppins",
-   "accent": [
-    255,
-    94,
-    58
-   ],
-   "transitions": [
-    "dissolve"
-   ],
-   "intro": "split",
-   "highlight": "spotlight",
-   "thumb": "sticker",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "drop",
-   "callout": "glass",
-   "music": "ambient",
-   "sfx": "soft",
-   "thumb_palette": "royal_yellow"
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://apps.apple.com/ee/app/moshly-create-unreal-videos/id6807285369",
-  "brand": "Moshly",
-  "category": "ai-tools",
-  "title": "Moshly: Real Datamosh on iPhone, But Is It Worth €35?",
-  "youtube": null,
-  "format": "pros_cons",
-  "opener": "If you are on Android, you can stop watching immediately",
-  "title_style": "good",
-  "theme": {
-   "mode": "light",
-   "layout": "stage",
-   "frame": "minimal",
-   "caption": "glass",
-   "bg": "aurora",
-   "head_font": "inter",
-   "accent": [
-    29,
-    100,
-    240
-   ],
-   "transitions": [
-    "cut"
-   ],
-   "intro": "headline",
-   "highlight": "underline",
-   "thumb": "tilt_right",
-   "thumb_accent": [
-    0,
-    230,
-    160
-   ],
-   "cap_anim": "slide_right",
-   "callout": "card",
-   "music": "lofi",
-   "sfx": "airy",
-   "thumb_palette": "paper_red",
-   "thumbs": [
-    "tilt_right/paper_red/good",
-    "poster/black_green/worth",
-    "phone/purple_lime/scam"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
   "url": "https://www.betterment.com",
   "brand": "Betterment",
   "category": "investing",
@@ -11635,6 +11359,533 @@
     "stack/emerald/scam",
     "left/charcoal/worth",
     "yes_no/magenta/good"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://dreamteam.com",
+  "brand": "DreamTeam",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "DreamTeam: Not an App, Here's What It Actually Is",
+  "youtube": "https://youtu.be/Lx1cxYiM-wA",
+  "format": "first_look",
+  "opener": "Here's the catch right off the bat: DreamTeam isn't actually a working app or a piece of business software at all",
+  "title_style": "dont",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "bar",
+   "bg": "gradient",
+   "head_font": "inter",
+   "accent": [
+    0,
+    214,
+    170
+   ],
+   "transitions": [
+    "radial",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "left",
+   "thumb_accent": [
+    0,
+    214,
+    170
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "left/charcoal/dont",
+    "yes_no/emerald/scam",
+    "stack/crimson/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://clive.ai",
+  "brand": "Clive",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Clive AI Honest Review: Free Chapter, Pros, Cons & Verdict",
+  "youtube": "https://youtu.be/WVDog_s-474",
+  "format": "first_look",
+  "opener": "Here's the catch: it's not actually an app or a software tool you download, but rather a hub for a book about AI",
+  "title_style": "honest",
+  "theme": {
+   "mode": "brand",
+   "layout": "spotlight",
+   "frame": "floating",
+   "caption": "bar",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    83,
+    103,
+    123
+   ],
+   "transitions": [
+    "coverleft",
+    "revealright"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "score/midnight/worth",
+    "banner/royal/scam",
+    "yes_no/emerald/legit"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://bay.security",
+  "brand": "Bay",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Bay: Is It Actually Good for AI Security?",
+  "youtube": "https://youtu.be/0LmWVz8esVs",
+  "format": "first_look",
+  "opener": "Here's the thing: everyone wants artificial intelligence everywhere right now, but keeping track of it's a total headach",
+  "title_style": "good",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "pill",
+   "bg": "aurora",
+   "head_font": "inter",
+   "accent": [
+    29,
+    123,
+    123
+   ],
+   "transitions": [
+    "hblur",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "banner",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "minimal",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "banner/midnight/good",
+    "laptop/violet/worth",
+    "score/magenta/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://investor.vanguard.com",
+  "brand": "Vanguard",
+  "kind": "review",
+  "story_url": null,
+  "category": "investing",
+  "title": "Vanguard: What to Actually Expect (EXPLAINED)",
+  "youtube": "https://youtu.be/YCH7zRmN_yw",
+  "format": "pros_cons",
+  "opener": "Ever wonder if trusting an investing giant like Vanguard is still worth it? Stick around, because the fine print's comin",
+  "title_style": "expect",
+  "theme": {
+   "mode": "light",
+   "layout": "spotlight",
+   "frame": "mac_light",
+   "caption": "underline",
+   "bg": "gradient",
+   "head_font": "inter",
+   "accent": [
+    180,
+    82,
+    82
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "score/royal/expect",
+    "banner/ocean/worth",
+    "stack/emerald/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://rbit.sh",
+  "brand": "rbit",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Rbit: Legit or Overhyped? A Self-Hosted Git Trust Check",
+  "youtube": "https://youtu.be/gz1gSBiIifs",
+  "format": "red_flags",
+  "opener": "Rbit claims it's a blazing fast, self-hosted Git hosting tool written completely in Rust",
+  "title_style": "legit",
+  "theme": {
+   "mode": "light",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "underline",
+   "bg": "gradient",
+   "head_font": "inter",
+   "accent": [
+    192,
+    96,
+    24
+   ],
+   "transitions": [
+    "radial",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "yes_no/ocean/legit",
+    "score/emerald/scam",
+    "banner/charcoal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://www.rocketlawyer.com",
+  "brand": "Rocket Lawyer",
+  "kind": "review",
+  "story_url": null,
+  "category": "legal",
+  "title": "Rocket Lawyer: $0 Fees, But What's the Catch?",
+  "youtube": "https://youtu.be/aln99tX-ITE",
+  "format": "who_for",
+  "opener": "Did you know that over thirty-eight million people in the U",
+  "title_style": "before",
+  "theme": {
+   "mode": "light",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "pill",
+   "bg": "mesh",
+   "head_font": "inter",
+   "accent": [
+    255,
+    94,
+    58
+   ],
+   "transitions": [
+    "vertopen",
+    "horzopen"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    94,
+    58
+   ],
+   "cap_anim": "slide_up",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "minimal",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "score/ocean/before",
+    "yes_no/midnight/scam",
+    "split/charcoal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://surfshark.com",
+  "brand": "Surfshark",
+  "kind": "review",
+  "story_url": null,
+  "category": "vpn-security",
+  "title": "Surfshark: $2.49 Deal, But What's the Catch?",
+  "youtube": "https://youtu.be/8C-s5DyP3ZE",
+  "format": "pros_cons",
+  "opener": "Okay, so Surfshark greets you with a big promise on their homepage, showing off an intro deal starting at two dollars an",
+  "title_style": "before",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "pill",
+   "bg": "aurora",
+   "head_font": "poppins",
+   "accent": [
+    12,
+    126,
+    149
+   ],
+   "transitions": [
+    "smoothup",
+    "smoothdown"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "left",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "left/ocean/before",
+    "stack/royal/scam",
+    "yes_no/violet/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://mailchimp.com",
+  "brand": "Mailchimp",
+  "kind": "review",
+  "story_url": null,
+  "category": "marketing",
+  "title": "Mailchimp: Is It Actually Good?",
+  "youtube": "https://youtu.be/nn8NsF4lXRE",
+  "format": "pros_cons",
+  "opener": "Alright, have you ever noticed how the site claims a four and a half star rating based on over thirty-three thousand rev",
+  "title_style": "good",
+  "theme": {
+   "mode": "light",
+   "layout": "full",
+   "frame": "floating",
+   "caption": "tag",
+   "bg": "aurora",
+   "head_font": "poppins",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "coverleft",
+    "revealright"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "minimal",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "yes_no/charcoal/good",
+    "banner/emerald/worth",
+    "number/ocean/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://context.dev",
+  "brand": "Context.dev",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Context.dev: $0 Free Tier, But What's the Catch?",
+  "youtube": "https://youtu.be/KHI0q-lVdgY",
+  "format": "red_flags",
+  "opener": "Ever wonder how AI agents pull live data from the web without crashing? Context",
+  "title_style": "dont",
+  "theme": {
+   "mode": "brand",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "pill",
+   "bg": "mesh",
+   "head_font": "inter",
+   "accent": [
+    33,
+    102,
+    217
+   ],
+   "transitions": [
+    "radial",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "banner",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "banner/royal/dont",
+    "split/magenta/scam",
+    "yes_no/charcoal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://www.toptal.com",
+  "brand": "Toptal",
+  "kind": "review",
+  "story_url": null,
+  "category": "freelancing",
+  "title": "Toptal: Top 3% Talent, But What's the Catch?",
+  "youtube": "https://youtu.be/_3PT5uhIhOk",
+  "format": "red_flags",
+  "opener": "Ever wonder if you can actually hire top tier talent without sorting through endless unqualified resumes? Toptal claims ",
+  "title_style": "before",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "underline",
+   "bg": "aurora",
+   "head_font": "inter",
+   "accent": [
+    58,
+    99,
+    201
+   ],
+   "transitions": [
+    "smoothleft",
+    "smoothright"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "score/ocean/before",
+    "number/midnight/scam",
+    "left/crimson/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "url": "https://www.legalmatch.com",
+  "brand": "LegalMatch",
+  "kind": "review",
+  "story_url": null,
+  "category": "legal",
+  "title": "LegalMatch Honest Review: $0 Fees, But What's the Catch?",
+  "youtube": "https://youtu.be/SKlkGsI0FOw",
+  "format": "pros_cons",
+  "opener": "Ever wonder if finding a trustworthy attorney online's just a massive headache? Here's the catch: LegalMatch promises to",
+  "title_style": "honest",
+  "theme": {
+   "mode": "light",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "underline",
+   "bg": "mesh",
+   "head_font": "inter",
+   "accent": [
+    216,
+    144,
+    24
+   ],
+   "transitions": [
+    "smoothup",
+    "smoothdown"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "split/ocean/worth",
+    "yes_no/charcoal/scam",
+    "stack/crimson/works"
    ]
   }
  }

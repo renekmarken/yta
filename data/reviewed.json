@@ -1561,5 +1561,120 @@
   "url": "https://www.nationwide.com",
   "status": "done",
   "date": "2026-11-16"
+ },
+ {
+  "site": "dreamteam.com",
+  "name": "DreamTeam",
+  "url": "https://dreamteam.com",
+  "status": "done",
+  "date": "2026-11-16",
+  "alt": "Dreamteam"
+ },
+ {
+  "site": "clive.ai",
+  "name": "Clive",
+  "url": "https://clive.ai",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "guru.com",
+  "name": "Guru",
+  "url": "https://www.guru.com",
+  "status": "failed",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "fidelity.com",
+  "name": "Fidelity",
+  "url": "https://www.fidelity.com",
+  "status": "failed",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "bay.security",
+  "name": "Bay",
+  "url": "https://bay.security",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "upwork.com",
+  "name": "Upwork",
+  "url": "https://www.upwork.com",
+  "status": "failed",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "vanguard.com",
+  "name": "Vanguard",
+  "url": "https://investor.vanguard.com",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "mujoco.org",
+  "name": "MuJoCo 4",
+  "url": "https://mujoco.org",
+  "status": "failed",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "aveni.ai",
+  "name": "Aveni File Check",
+  "url": "https://aveni.ai",
+  "status": "failed",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "rbit.sh",
+  "name": "rbit",
+  "url": "https://rbit.sh",
+  "status": "done",
+  "date": "2026-11-16",
+  "alt": "Rbit"
+ },
+ {
+  "site": "rocketlawyer.com",
+  "name": "Rocket Lawyer",
+  "url": "https://www.rocketlawyer.com",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "surfshark.com",
+  "name": "Surfshark",
+  "url": "https://surfshark.com",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "mailchimp.com",
+  "name": "Mailchimp",
+  "url": "https://mailchimp.com",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "context.dev",
+  "name": "Context.dev",
+  "url": "https://context.dev",
+  "status": "done",
+  "date": "2026-11-16",
+  "alt": "Scrape Anything"
+ },
+ {
+  "site": "toptal.com",
+  "name": "Toptal",
+  "url": "https://www.toptal.com",
+  "status": "done",
+  "date": "2026-11-16"
+ },
+ {
+  "site": "legalmatch.com",
+  "name": "LegalMatch",
+  "url": "https://www.legalmatch.com",
+  "status": "done",
+  "date": "2026-11-16"
  }
 ]
