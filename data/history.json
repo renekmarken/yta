@@ -1,600 +1,6 @@
 [
  {
   "date": "2026-10-02",
-  "url": "https://www.betterment.com",
-  "brand": "Betterment",
-  "category": "investing",
-  "title": "Betterment: Is It Actually Good? Automated Investing Reviewed",
-  "youtube": null,
-  "format": "pros_cons",
-  "opener": "Here is the catch with Betterment: while they advertise automated investing and high cash yields, small accounts get hit",
-  "title_style": "good",
-  "theme": {
-   "mode": "light",
-   "layout": "side",
-   "frame": "minimal",
-   "caption": "tag",
-   "bg": "spotlight",
-   "head_font": "inter",
-   "accent": [
-    17,
-    107,
-    241
-   ],
-   "transitions": [
-    "cut"
-   ],
-   "intro": "headline",
-   "highlight": "box",
-   "thumb": "tilt_right",
-   "thumb_accent": [
-    255,
-    212,
-    0
-   ],
-   "cap_anim": "slide_up",
-   "callout": "pill",
-   "music": "lofi",
-   "sfx": "playful",
-   "thumb_palette": "teal_orange",
-   "thumbs": [
-    "tilt_right/teal_orange/good",
-    "poster/orange_ink/worth",
-    "verdict/purple_lime/scam"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://apps.apple.com/ee/app/moshly-create-unreal-videos/id6807285369",
-  "brand": "Moshly",
-  "category": "marketing",
-  "title": "Moshly: Viral Video Editor, But What's the Catch?",
-  "youtube": null,
-  "format": "red_flags",
-  "opener": "Moshly turns your phone camera into a live datamosh engine, letting you film clips where the last frame smears and melts",
-  "title_style": "legit",
-  "theme": {
-   "mode": "dark",
-   "layout": "tilt",
-   "frame": "mac_dark",
-   "caption": "underline",
-   "bg": "aurora",
-   "head_font": "poppins",
-   "accent": [
-    29,
-    100,
-    240
-   ],
-   "transitions": [
-    "zoomin",
-    "fade"
-   ],
-   "intro": "split",
-   "highlight": "underline",
-   "thumb": "split",
-   "thumb_accent": [
-    0,
-    200,
-    255
-   ],
-   "cap_anim": "fade_up",
-   "callout": "glass",
-   "music": "upbeat",
-   "sfx": "punchy",
-   "thumb_palette": "black_green",
-   "thumbs": [
-    "split/black_green/legit",
-    "verdict/orange_ink/worth",
-    "stack/midnight_yellow/scam"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.betterment.com",
-  "brand": "Betterment",
-  "category": "investing",
-  "title": "Betterment: Flat Fees vs High Yields, What's the Catch?",
-  "youtube": null,
-  "format": "red_flags",
-  "opener": "Here is the catch with Betterment: while automated portfolios and high cash yields sound great, small balances get hit w",
-  "title_style": "catch",
-  "theme": {
-   "mode": "brand",
-   "layout": "tilt",
-   "frame": "floating",
-   "caption": "pill",
-   "bg": "blurshot",
-   "head_font": "interdisplay",
-   "accent": [
-    255,
-    70,
-    140
-   ],
-   "transitions": [
-    "fade"
-   ],
-   "intro": "split",
-   "highlight": "underline",
-   "thumb": "big_fact",
-   "thumb_accent": [
-    255,
-    70,
-    140
-   ],
-   "cap_anim": "slide_right",
-   "callout": "card",
-   "music": "tech",
-   "sfx": "crisp",
-   "thumb_palette": "black_green",
-   "thumbs": [
-    "big_fact/black_green/catch",
-    "yes_no/orange_ink/worth",
-    "phone/sky_navy/scam"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.chase.com",
-  "brand": "Chase",
-  "category": "credit-cards",
-  "title": "Chase Credit Cards: $0 Fees, But What's the Catch?",
-  "youtube": null,
-  "format": "five_questions",
-  "opener": "Are Chase credit cards actually worth adding to your wallet, or is the hype overblown? Before you apply for any financia",
-  "title_style": "before",
-  "theme": {
-   "mode": "light",
-   "layout": "spotlight",
-   "frame": "mac_light",
-   "caption": "tag",
-   "bg": "gradient",
-   "head_font": "poppins",
-   "accent": [
-    53,
-    110,
-    186
-   ],
-   "transitions": [
-    "fadeblack"
-   ],
-   "intro": "headline",
-   "highlight": "box",
-   "thumb": "poster",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "slide_left",
-   "callout": "pill",
-   "music": "lofi",
-   "sfx": "playful",
-   "thumb_palette": "royal_yellow",
-   "thumbs": [
-    "poster/royal_yellow/before",
-    "tilt_right/paper_red/worth",
-    "phone/sky_navy/scam"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.geico.com",
-  "brand": "GEICO",
-  "category": "insurance",
-  "title": "Is GEICO Actually Worth It?",
-  "youtube": null,
-  "format": "who_for",
-  "opener": "If you want a single provider for non-auto policies underwritten directly by the main brand, you should skip GEICO",
-  "title_style": "actually",
-  "theme": {
-   "mode": "dark",
-   "layout": "stage",
-   "frame": "mac_light",
-   "caption": "glass",
-   "bg": "spotlight",
-   "head_font": "poppins",
-   "accent": [
-    57,
-    113,
-    169
-   ],
-   "transitions": [
-    "circleopen",
-    "fade"
-   ],
-   "intro": "logo_pop",
-   "highlight": "spotlight",
-   "thumb": "stack",
-   "thumb_accent": [
-    0,
-    230,
-    160
-   ],
-   "cap_anim": "drop",
-   "callout": "pill",
-   "music": "lofi",
-   "sfx": "punchy",
-   "thumb_palette": "purple_lime",
-   "thumbs": [
-    "stack/purple_lime/worth",
-    "sticker/orange_ink/scam",
-    "yes_no/royal_yellow/expect"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.chime.com",
-  "brand": "Chime",
-  "category": "banking-apps",
-  "title": "Chime: $0 Fees, But What's the Catch?",
-  "youtube": null,
-  "format": "fine_print",
-  "opener": "Chime markets itself as America's number one choice for banking, promising fee-free accounts, early pay access, and up t",
-  "title_style": "scam",
-  "theme": {
-   "mode": "dark",
-   "layout": "spotlight",
-   "frame": "mac_light",
-   "caption": "bar",
-   "bg": "aurora",
-   "head_font": "poppins",
-   "accent": [
-    140,
-    230,
-    60
-   ],
-   "transitions": [
-    "vertopen",
-    "horzopen"
-   ],
-   "intro": "headline",
-   "highlight": "spotlight",
-   "thumb": "poster",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "slide_left",
-   "callout": "glass",
-   "music": "acoustic",
-   "sfx": "playful",
-   "thumb_palette": "red_white",
-   "thumbs": [
-    "poster/red_white/scam",
-    "phone/orange_ink/worth",
-    "split/pink_yellow/expect"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.progressive.com",
-  "brand": "Progressive",
-  "category": "insurance",
-  "title": "Progressive: Worth Using It? Over $950 Savings Tested",
-  "youtube": null,
-  "format": "first_look",
-  "opener": "Here is the catch with Progressive: while they advertise average annual savings of over $950 for drivers who switch, you",
-  "title_style": "worth",
-  "theme": {
-   "mode": "dark",
-   "layout": "full",
-   "frame": "mac_light",
-   "caption": "tag",
-   "bg": "aurora",
-   "head_font": "inter",
-   "accent": [
-    8,
-    124,
-    170
-   ],
-   "transitions": [
-    "squeezeh",
-    "fade"
-   ],
-   "intro": "logo_pop",
-   "highlight": "spotlight",
-   "thumb": "stack",
-   "thumb_accent": [
-    0,
-    230,
-    160
-   ],
-   "cap_anim": "drop",
-   "callout": "pill",
-   "music": "ambient",
-   "sfx": "digital",
-   "thumb_palette": "sky_navy",
-   "thumbs": [
-    "stack/sky_navy/worth_using",
-    "verdict/paper_red/scam",
-    "sticker/midnight_yellow/works"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://cash.app",
-  "brand": "Cash App",
-  "category": "banking-apps",
-  "title": "Cash App: $0 Fees, But What's the Catch?",
-  "youtube": null,
-  "format": "who_for",
-  "opener": "Are you tired of hidden bank fees and complicated apps? Cash App promises effortless money management, from peer-to-peer",
-  "title_style": "fees",
-  "theme": {
-   "mode": "dark",
-   "layout": "full",
-   "frame": "mac_light",
-   "caption": "glass",
-   "bg": "spotlight",
-   "head_font": "poppins",
-   "accent": [
-    0,
-    216,
-    0
-   ],
-   "transitions": [
-    "smoothup",
-    "smoothdown"
-   ],
-   "intro": "logo_pop",
-   "highlight": "spotlight",
-   "thumb": "poster",
-   "thumb_accent": [
-    0,
-    216,
-    0
-   ],
-   "cap_anim": "fade_up",
-   "callout": "pill",
-   "music": "acoustic",
-   "sfx": "punchy",
-   "thumb_palette": "pink_yellow",
-   "thumbs": [
-    "poster/pink_yellow/fees",
-    "big_fact/orange_ink/scam",
-    "yes_no/teal_orange/worth"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.bizee.com",
-  "brand": "Bizee",
-  "category": "legal",
-  "title": "Bizee Honest Review: $0 LLC Filing, Pros & Cons",
-  "youtube": null,
-  "format": "red_flags",
-  "opener": "Bizee, formerly known as Incfile, claims you can launch your LLC in minutes and start your business with confidence",
-  "title_style": "honest",
-  "theme": {
-   "mode": "brand",
-   "layout": "tilt",
-   "frame": "mac_dark",
-   "caption": "bar",
-   "bg": "blurshot",
-   "head_font": "interdisplay",
-   "accent": [
-    255,
-    70,
-    140
-   ],
-   "transitions": [
-    "coverleft",
-    "revealright"
-   ],
-   "intro": "headline",
-   "highlight": "box",
-   "thumb": "score",
-   "thumb_accent": [
-    255,
-    70,
-    140
-   ],
-   "cap_anim": "drop",
-   "callout": "glass",
-   "music": "lofi",
-   "sfx": "airy",
-   "thumb_palette": "crimson",
-   "thumbs": [
-    "score/crimson/worth",
-    "stack/emerald/scam",
-    "laptop/violet/truth"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://openai.com",
-  "brand": "OpenAI",
-  "category": "ai-tools",
-  "title": "OpenAI: Is It Actually Good, Or Just Hype?",
-  "youtube": null,
-  "format": "fine_print",
-  "opener": "Here is the catch with OpenAI: while they promise artificial general intelligence to solve human level problems, you nee",
-  "title_style": "good",
-  "theme": {
-   "mode": "dark",
-   "layout": "stage",
-   "frame": "floating",
-   "caption": "tag",
-   "bg": "mesh",
-   "head_font": "inter",
-   "accent": [
-    255,
-    212,
-    0
-   ],
-   "transitions": [
-    "dissolve"
-   ],
-   "intro": "logo_pop",
-   "highlight": "spotlight",
-   "thumb": "split",
-   "thumb_accent": [
-    0,
-    200,
-    255
-   ],
-   "cap_anim": "fade_up",
-   "callout": "pill",
-   "music": "upbeat",
-   "sfx": "crisp",
-   "thumb_palette": "emerald",
-   "thumbs": [
-    "split/emerald/good",
-    "banner/magenta/worth",
-    "yes_no/royal/scam"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.hubspot.com",
-  "brand": "HubSpot",
-  "category": "saas",
-  "title": "HubSpot: $7 Starter Plans, But What's the Catch?",
-  "youtube": null,
-  "format": "pros_cons",
-  "opener": "HubSpot claims it is trusted by over three hundred six thousand customers worldwide on its homepage",
-  "title_style": "expect",
-  "theme": {
-   "mode": "dark",
-   "layout": "spotlight",
-   "frame": "minimal",
-   "caption": "tag",
-   "bg": "gradient",
-   "head_font": "inter",
-   "accent": [
-    17,
-    107,
-    241
-   ],
-   "transitions": [
-    "slideleft",
-    "slideright"
-   ],
-   "intro": "split",
-   "highlight": "underline",
-   "thumb": "yes_no",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "slide_up",
-   "callout": "pill",
-   "music": "tech",
-   "sfx": "warm",
-   "thumb_palette": "royal",
-   "thumbs": [
-    "yes_no/royal/expect",
-    "laptop/magenta/worth",
-    "score/ocean/scam"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://stripe.com",
-  "brand": "Stripe",
-  "category": "business-tools",
-  "title": "Stripe: What to Actually Expect (EXPLAINED)",
-  "youtube": null,
-  "format": "pros_cons",
-  "opener": "Here is the catch with Stripe: while standard online transactions feature transparent pricing starting at two point nine",
-  "title_style": "expect",
-  "theme": {
-   "mode": "dark",
-   "layout": "spotlight",
-   "frame": "minimal",
-   "caption": "tag",
-   "bg": "gradient",
-   "head_font": "inter",
-   "accent": [
-    105,
-    105,
-    15
-   ],
-   "transitions": [
-    "hblur",
-    "fade"
-   ],
-   "intro": "logo_pop",
-   "highlight": "spotlight",
-   "thumb": "split",
-   "thumb_accent": [
-    255,
-    212,
-    0
-   ],
-   "cap_anim": "slide_left",
-   "callout": "pill",
-   "music": "tech",
-   "sfx": "crisp",
-   "thumb_palette": "royal",
-   "thumbs": [
-    "split/royal/expect",
-    "yes_no/magenta/scam",
-    "left/violet/worth"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://zoom.us",
-  "brand": "Zoom",
-  "category": "saas",
-  "title": "Zoom: Is It Actually Good?",
-  "youtube": null,
-  "format": "pros_cons",
-  "opener": "If you only need basic video calls and rarely collaborate outside of simple meetings, you should probably stop watching ",
-  "title_style": "good",
-  "theme": {
-   "mode": "dark",
-   "layout": "spotlight",
-   "frame": "minimal",
-   "caption": "tag",
-   "bg": "gradient",
-   "head_font": "poppins",
-   "accent": [
-    255,
-    212,
-    0
-   ],
-   "transitions": [
-    "zoomin",
-    "fade"
-   ],
-   "intro": "logo_pop",
-   "highlight": "spotlight",
-   "thumb": "left",
-   "thumb_accent": [
-    255,
-    212,
-    0
-   ],
-   "cap_anim": "slide_left",
-   "callout": "card",
-   "music": "upbeat",
-   "sfx": "soft",
-   "thumb_palette": "charcoal",
-   "thumbs": [
-    "left/charcoal/good",
-    "number/emerald/worth",
-    "yes_no/magenta/scam"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
   "url": "https://www.shopify.com",
   "brand": "Shopify",
   "category": "business-tools",
@@ -11886,6 +11292,623 @@
     "split/ocean/worth",
     "yes_no/charcoal/scam",
     "stack/crimson/works"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://axonnic.com",
+  "brand": "Axonnic",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Axonnic: $8,000 Robot Sleeves, But Is It Worth It?",
+  "youtube": "https://youtu.be/XWkiZxl53W8",
+  "format": "who_for",
+  "opener": "Ever wonder how factories automate tasks needing a human touch? Here's the catch: Axonnic claims its EMG sleeve records ",
+  "title_style": "scam",
+  "theme": {
+   "mode": "dark",
+   "layout": "side",
+   "frame": "mac_dark",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    216,
+    72,
+    24
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_up",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "stack/violet/scam",
+    "left/midnight/worth",
+    "banner/magenta/catch"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://openframe.ai",
+  "brand": "OpenFrame",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "OpenFrame: Worth Using It? An Honest First Look",
+  "youtube": "https://youtu.be/FnQgh2b1CJY",
+  "format": "first_look",
+  "opener": "If you're just running a regular solo blog or a small local shop that doesn't manage IT services, you should stop watchi",
+  "title_style": "worth",
+  "theme": {
+   "mode": "brand",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "glass",
+   "bg": "aurora",
+   "head_font": "interdisplay",
+   "accent": [
+    0,
+    214,
+    170
+   ],
+   "transitions": [
+    "hblur",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "laptop",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "laptop/crimson/worth_using",
+    "yes_no/emerald/scam",
+    "banner/violet/works"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://degla.ai",
+  "brand": "Degla AI",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Degla AI: Autonomous Drones, But What's the Catch?",
+  "youtube": "https://youtu.be/JrW6yo_v5oE",
+  "format": "who_for",
+  "opener": "Ever wonder if typing plain English can actually pilot a drone? Degla AI claims it's turning natural language instructio",
+  "title_style": "scam",
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "mac_dark",
+   "caption": "bar",
+   "bg": "spotlight",
+   "head_font": "poppins",
+   "accent": [
+    0,
+    214,
+    170
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    214,
+    170
+   ],
+   "cap_anim": "slide_up",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "stack/magenta/scam",
+    "left/violet/worth",
+    "split/midnight/expect"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://www.discover.com",
+  "brand": "Discover",
+  "kind": "review",
+  "story_url": null,
+  "category": "credit-cards",
+  "title": "Discover Card Review: $0 Fees, But What's the Catch?",
+  "youtube": "https://youtu.be/yMbBZNlUdUk",
+  "format": "five_questions",
+  "opener": "Ever wonder if getting a Discover credit card is actually worth all the hype, or just another plastic trap? Alright, we'",
+  "title_style": "fees",
+  "theme": {
+   "mode": "brand",
+   "layout": "stage",
+   "frame": "mac_dark",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    216,
+    72,
+    0
+   ],
+   "transitions": [
+    "dissolve"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "number",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_up",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "number/violet/fees",
+    "split/charcoal/scam",
+    "banner/crimson/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://appubot.com",
+  "brand": "AppuBot",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "AppuBot: Free Desktop AI, But What's the Catch?",
+  "youtube": "https://youtu.be/Yu_EWIxMJrk",
+  "format": "who_for",
+  "opener": "Here's the catch: AppuBot promises AI teammates that actually click through your desktop apps just like you do",
+  "title_style": "actually",
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "mac_dark",
+   "caption": "glass",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    240,
+    120,
+    24
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "number",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "number/midnight/worth",
+    "laptop/emerald/scam",
+    "score/charcoal/legit"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://www.citi.com",
+  "brand": "Citi",
+  "kind": "review",
+  "story_url": null,
+  "category": "credit-cards",
+  "title": "Citi: Worth Using It? Cash Back and Travel Cards Reviewed",
+  "youtube": "https://youtu.be/z6smXmUH1V8",
+  "format": "five_questions",
+  "opener": "Alright, have you ever seen a banking homepage wave fifty thousand bonus miles right in your face before you even log in",
+  "title_style": "worth",
+  "theme": {
+   "mode": "brand",
+   "layout": "stage",
+   "frame": "mac_dark",
+   "caption": "bar",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    0,
+    214,
+    170
+   ],
+   "transitions": [
+    "dissolve"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "laptop",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "laptop/midnight/worth_using",
+    "score/violet/scam",
+    "left/ocean/legit"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://fakemetrics.com",
+  "brand": "FakeMetrics",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "FakeMetrics: Mock Dashboards, But What's the Catch?",
+  "youtube": "https://youtu.be/kYwpC51YNQs",
+  "format": "first_look",
+  "opener": "If you're needing a quick fake screenshot for a pitch deck or a joke and want to save some editing time, keep watching b",
+  "title_style": "scam",
+  "theme": {
+   "mode": "brand",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "bar",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    110,
+    110,
+    170
+   ],
+   "transitions": [
+    "cut"
+   ],
+   "intro": "headline",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "stack/violet/scam",
+    "split/midnight/worth",
+    "banner/charcoal/good"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://globalatlantic.com",
+  "brand": "Global Atlantic",
+  "kind": "review",
+  "story_url": null,
+  "category": "insurance",
+  "title": "Global Atlantic ForeIncome Flex: What's the Catch?",
+  "youtube": "https://youtu.be/7Cm4AZ7fxtw",
+  "format": "fine_print",
+  "opener": "Here's the catch with Global Atlantic's ForeIncome Flex: they promise flexible retirement income, but annuities come wit",
+  "title_style": "catch",
+  "theme": {
+   "mode": "brand",
+   "layout": "side",
+   "frame": "mac_dark",
+   "caption": "tag",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    80,
+    113,
+    178
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "laptop",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_right",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "laptop/violet/catch",
+    "banner/ocean/worth",
+    "stack/emerald/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://lingomic.com",
+  "brand": "LingoMic",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "LingoMic: Worth Using It? Let us Check",
+  "youtube": "https://youtu.be/PQvB67yytLU",
+  "format": "five_questions",
+  "opener": "Hey friend, ever wonder if you can translate your voice live on Google Meet without sounding like a robot? LingoMic clai",
+  "title_style": "worth",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "bar",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    168,
+    72,
+    120
+   ],
+   "transitions": [
+    "coverleft",
+    "revealright"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "stack/midnight/worth_using",
+    "split/violet/scam",
+    "banner/charcoal/legit"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://zode.dev",
+  "brand": "Zode",
+  "kind": "review",
+  "story_url": null,
+  "category": "hosting",
+  "title": "Zode Review: $0.0175/Hour AI Sandboxes, But What's the Catch?",
+  "youtube": "https://youtu.be/bXgTTtghXhg",
+  "format": "five_questions",
+  "opener": "Alright, ever wonder if running AI coding agents safely is actually possible without risking your actual keys? Today we'",
+  "title_style": "truth",
+  "theme": {
+   "mode": "brand",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "glass",
+   "bg": "spotlight",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    150,
+    30
+   ],
+   "transitions": [
+    "squeezeh",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "laptop",
+   "thumb_accent": [
+    255,
+    150,
+    30
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "laptop/emerald/truth",
+    "split/magenta/worth",
+    "banner/charcoal/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://readywhen.com",
+  "brand": "ReadyWhen",
+  "kind": "review",
+  "story_url": null,
+  "category": "legal",
+  "title": "ReadyWhen: $5 Pro Plan, But What's the Catch?",
+  "youtube": "https://youtu.be/UrHjmsyYFYc",
+  "format": "first_look",
+  "opener": "Ever wonder if leaving your important life documents scattered around is actually a terrible idea? ReadyWhen claims it's",
+  "title_style": "scam",
+  "theme": {
+   "mode": "brand",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "bar",
+   "bg": "gradient",
+   "head_font": "interdisplay",
+   "accent": [
+    0,
+    168,
+    168
+   ],
+   "transitions": [
+    "cut"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "laptop",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "laptop/crimson/scam",
+    "stack/emerald/worth",
+    "left/magenta/truth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://glifa.app",
+  "brand": "Glifa",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Glifa: $15 Markdown Editor, But What's the Catch?",
+  "youtube": "https://youtu.be/tuKIKlnVx84",
+  "format": "five_questions",
+  "opener": "If you're on Windows or an older Mac, you've gotta stop watching right now 'cause Glifa's only for macOS 15 and up",
+  "title_style": "catch",
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    94,
+    58
+   ],
+   "transitions": [
+    "wipeleft",
+    "wiperight"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "laptop",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "fade_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "laptop/midnight/catch",
+    "score/charcoal/scam",
+    "stack/crimson/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://boost.space",
+  "brand": "Boost.space",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Boost.space AgentOS: $2,500 AI Agent, But Is It Worth It?",
+  "youtube": "https://youtu.be/pEWQUjeXkIw",
+  "format": "who_for",
+  "opener": "Here's the thing: Boost",
+  "title_style": "scam",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "glass",
+   "bg": "aurora",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    70,
+    140
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "number",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "number/emerald/scam",
+    "stack/royal/worth",
+    "laptop/charcoal/good"
    ]
   }
  }

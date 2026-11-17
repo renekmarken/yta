@@ -1676,5 +1676,121 @@
   "url": "https://www.legalmatch.com",
   "status": "done",
   "date": "2026-11-16"
+ },
+ {
+  "site": "axonnic.com",
+  "name": "Axonnic",
+  "url": "https://axonnic.com",
+  "status": "done",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "openframe.ai",
+  "name": "OpenFrame",
+  "url": "https://openframe.ai",
+  "status": "done",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "degla.ai",
+  "name": "Degla AI",
+  "url": "https://degla.ai",
+  "status": "done",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "discover.com",
+  "name": "Discover",
+  "url": "https://www.discover.com",
+  "status": "done",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "schwab.com",
+  "name": "Charles Schwab",
+  "url": "https://www.schwab.com",
+  "status": "failed",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "appubot.com",
+  "name": "AppuBot",
+  "url": "https://appubot.com",
+  "status": "done",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "citi.com",
+  "name": "Citi",
+  "url": "https://www.citi.com",
+  "status": "done",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "usaa.com",
+  "name": "USAA",
+  "url": "https://www.usaa.com",
+  "status": "failed",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "fakemetrics.com",
+  "name": "FakeMetrics",
+  "url": "https://fakemetrics.com",
+  "status": "done",
+  "date": "2026-11-17",
+  "alt": "Fakemetrics"
+ },
+ {
+  "site": "globalatlantic.com",
+  "name": "Global Atlantic",
+  "url": "https://globalatlantic.com",
+  "status": "done",
+  "date": "2026-11-17",
+  "alt": "Global Atlantic ForeIncome Flex"
+ },
+ {
+  "site": "lingomic.com",
+  "name": "LingoMic",
+  "url": "https://lingomic.com",
+  "status": "done",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "blomma.io",
+  "name": "Blomma for Organizations",
+  "url": "https://blomma.io",
+  "status": "failed",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "zode.dev",
+  "name": "Zode",
+  "url": "https://zode.dev",
+  "status": "done",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "readywhen.com",
+  "name": "ReadyWhen",
+  "url": "https://readywhen.com",
+  "status": "done",
+  "date": "2026-11-17",
+  "alt": "readywhen"
+ },
+ {
+  "site": "glifa.app",
+  "name": "Glifa",
+  "url": "https://glifa.app",
+  "status": "done",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "boost.space",
+  "name": "Boost.space",
+  "url": "https://boost.space",
+  "status": "done",
+  "date": "2026-11-17",
+  "alt": "Boost.space AgentOS"
  }
 ]
