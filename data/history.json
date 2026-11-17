@@ -1,515 +1,6 @@
 [
  {
   "date": "2026-10-02",
-  "url": "https://www.shopify.com",
-  "brand": "Shopify",
-  "category": "business-tools",
-  "title": "Shopify: $29 Plans, But What's the Catch?",
-  "youtube": null,
-  "format": "fine_print",
-  "opener": "If you are planning to launch an online store, build a direct-to-consumer brand, or scale an existing retail business, k",
-  "title_style": "good",
-  "theme": {
-   "mode": "dark",
-   "layout": "stage",
-   "frame": "floating",
-   "caption": "glass",
-   "bg": "mesh",
-   "head_font": "poppins",
-   "accent": [
-    144,
-    168,
-    48
-   ],
-   "transitions": [
-    "slideup",
-    "slidedown"
-   ],
-   "intro": "split",
-   "highlight": "spotlight",
-   "thumb": "number",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "fade_up",
-   "callout": "card",
-   "music": "upbeat",
-   "sfx": "playful",
-   "thumb_palette": "emerald",
-   "thumbs": [
-    "number/emerald/good",
-    "stack/royal/scam",
-    "yes_no/magenta/worth"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.legalzoom.com",
-  "brand": "LegalZoom",
-  "category": "legal",
-  "title": "LegalZoom: Flat Fees, But What's the Catch?",
-  "youtube": null,
-  "format": "first_look",
-  "opener": "LegalZoom claims to have supported over nine million legal milestones since launching back in twenty-one",
-  "title_style": "scam",
-  "theme": {
-   "mode": "brand",
-   "layout": "tilt",
-   "frame": "mac_dark",
-   "caption": "underline",
-   "bg": "gradient",
-   "head_font": "inter",
-   "accent": [
-    122,
-    92,
-    255
-   ],
-   "transitions": [
-    "smoothleft",
-    "smoothright"
-   ],
-   "intro": "logo_pop",
-   "highlight": "box",
-   "thumb": "stack",
-   "thumb_accent": [
-    0,
-    200,
-    255
-   ],
-   "cap_anim": "slide_left",
-   "callout": "glass",
-   "music": "ambient",
-   "sfx": "punchy",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "stack/ocean/scam",
-    "number/violet/worth",
-    "laptop/emerald/expect"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://aws.amazon.com",
-  "brand": "Amazon Web Services",
-  "category": "hosting",
-  "title": "Amazon Web Services: Pay-As-You-Go, But What's the Catch?",
-  "youtube": null,
-  "format": "five_questions",
-  "opener": "Amazon Web Services highlights an extensive infrastructure featuring thirty-one edge locations and nine geographic regio",
-  "title_style": "dont",
-  "theme": {
-   "mode": "light",
-   "layout": "tilt",
-   "frame": "mac_light",
-   "caption": "pill",
-   "bg": "aurora",
-   "head_font": "interdisplay",
-   "accent": [
-    122,
-    92,
-    255
-   ],
-   "transitions": [
-    "slideleft",
-    "slideright"
-   ],
-   "intro": "headline",
-   "highlight": "box",
-   "thumb": "score",
-   "thumb_accent": [
-    255,
-    90,
-    60
-   ],
-   "cap_anim": "slide_up",
-   "callout": "glass",
-   "music": "ambient",
-   "sfx": "minimal",
-   "thumb_palette": "midnight",
-   "thumbs": [
-    "score/midnight/dont",
-    "laptop/crimson/scam",
-    "left/charcoal/worth"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.expressvpn.com",
-  "brand": "ExpressVPN",
-  "category": "vpn-security",
-  "title": "Is ExpressVPN Actually Worth It? High Price, But...",
-  "youtube": null,
-  "format": "first_look",
-  "opener": "Are you paying for a VPN that actually protects your privacy, or just burning cash? Let's take a guided first look at Ex",
-  "title_style": "actually",
-  "theme": {
-   "mode": "brand",
-   "layout": "tilt",
-   "frame": "mac_dark",
-   "caption": "underline",
-   "bg": "aurora",
-   "head_font": "interdisplay",
-   "accent": [
-    216,
-    48,
-    48
-   ],
-   "transitions": [
-    "cut"
-   ],
-   "intro": "headline",
-   "highlight": "box",
-   "thumb": "stack",
-   "thumb_accent": [
-    255,
-    90,
-    60
-   ],
-   "cap_anim": "slide_left",
-   "callout": "glass",
-   "music": "tech",
-   "sfx": "minimal",
-   "thumb_palette": "violet",
-   "thumbs": [
-    "stack/violet/worth",
-    "banner/crimson/scam",
-    "split/magenta/good"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.capitalone.com",
-  "brand": "Capital One",
-  "category": "credit-cards",
-  "title": "Capital One: $0 Fees, But What's the Catch?",
-  "youtube": null,
-  "format": "first_look",
-  "opener": "Here is the catch with Capital One: while they advertise top rates and zero fees across banking and credit products, you",
-  "title_style": "before",
-  "theme": {
-   "mode": "brand",
-   "layout": "tilt",
-   "frame": "mac_dark",
-   "caption": "tag",
-   "bg": "spotlight",
-   "head_font": "interdisplay",
-   "accent": [
-    200,
-    53,
-    53
-   ],
-   "transitions": [
-    "fade"
-   ],
-   "intro": "logo_pop",
-   "highlight": "box",
-   "thumb": "score",
-   "thumb_accent": [
-    0,
-    200,
-    255
-   ],
-   "cap_anim": "drop",
-   "callout": "glass",
-   "music": "lofi",
-   "sfx": "punchy",
-   "thumb_palette": "crimson",
-   "thumbs": [
-    "score/crimson/before",
-    "banner/royal/scam",
-    "stack/midnight/worth"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.fiverr.com",
-  "brand": "Fiverr",
-  "category": "freelancing",
-  "title": "Fiverr: Worth It or Too Much Friction?",
-  "youtube": null,
-  "format": "who_for",
-  "opener": "If you are looking for an instant, friction-free freelance marketplace without automated security checks or loading chal",
-  "title_style": "legit",
-  "theme": {
-   "mode": "brand",
-   "layout": "tilt",
-   "frame": "mac_dark",
-   "caption": "bar",
-   "bg": "gradient",
-   "head_font": "inter",
-   "accent": [
-    255,
-    150,
-    30
-   ],
-   "transitions": [
-    "vertopen",
-    "horzopen"
-   ],
-   "intro": "headline",
-   "highlight": "underline",
-   "thumb": "banner",
-   "thumb_accent": [
-    0,
-    230,
-    160
-   ],
-   "cap_anim": "slide_left",
-   "callout": "glass",
-   "music": "lofi",
-   "sfx": "minimal",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "banner/ocean/legit",
-    "yes_no/royal/worth",
-    "split/midnight/scam"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.allstate.com",
-  "brand": "Allstate",
-  "category": "insurance",
-  "title": "Allstate Insurance: $900 Savings, But What's the Catch?",
-  "youtube": null,
-  "format": "five_questions",
-  "opener": "Allstate claims on its homepage that drivers who switch save an average of over nine hundred dollars",
-  "title_style": "scam",
-  "theme": {
-   "mode": "light",
-   "layout": "tilt",
-   "frame": "mac_light",
-   "caption": "tag",
-   "bg": "aurora",
-   "head_font": "interdisplay",
-   "accent": [
-    122,
-    92,
-    255
-   ],
-   "transitions": [
-    "fade"
-   ],
-   "intro": "logo_pop",
-   "highlight": "box",
-   "thumb": "stack",
-   "thumb_accent": [
-    255,
-    90,
-    60
-   ],
-   "cap_anim": "slide_left",
-   "callout": "glass",
-   "music": "lofi",
-   "sfx": "airy",
-   "thumb_palette": "crimson",
-   "thumbs": [
-    "stack/crimson/scam",
-    "yes_no/royal/worth",
-    "split/emerald/truth"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://robinhood.com",
-  "brand": "Robinhood",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/ClassActionRobinHood/comments/1mnsib1/robinhood_let_a_hacker_drain_my_account_now_they/",
-  "category": "investing",
-  "title": "Robinhood FROZE my life savings after hack — What now?",
-  "youtube": null,
-  "format": null,
-  "opener": "One Robinhood user on r/ClassActionRobinHood says a hacker targeted them in a sophisticated phishing attack, draining fu",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "full",
-   "frame": "minimal",
-   "caption": "underline",
-   "bg": "spotlight",
-   "head_font": "poppins",
-   "accent": [
-    255,
-    212,
-    0
-   ],
-   "transitions": [
-    "fadeblack"
-   ],
-   "intro": "headline",
-   "highlight": "underline",
-   "thumb": "laptop",
-   "thumb_accent": [
-    255,
-    212,
-    0
-   ],
-   "cap_anim": "slide_up",
-   "callout": "pill",
-   "music": "ambient",
-   "sfx": "crisp",
-   "thumb_palette": "magenta",
-   "thumbs": [
-    "risk/alarm",
-    "risk/evidence",
-    "risk/post"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://polymarket.com",
-  "brand": "Polymarket",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/Polymarket_news/comments/1wj7vep/polymarket_froze_nearly_13000_after_canceling_my/",
-  "category": "investing",
-  "title": "Polymarket FROZE $13,000 After Withdrawal Cancellation — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "One Polymarket user on r/Polymarket_news says their account holding nearly thirteen thousand dollars was suddenly frozen",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "side",
-   "frame": "floating",
-   "caption": "glass",
-   "bg": "gradient",
-   "head_font": "poppins",
-   "accent": [
-    223,
-    48,
-    48
-   ],
-   "transitions": [
-    "hblur",
-    "fade"
-   ],
-   "intro": "split",
-   "highlight": "spotlight",
-   "thumb": "laptop",
-   "thumb_accent": [
-    255,
-    212,
-    0
-   ],
-   "cap_anim": "drop",
-   "callout": "card",
-   "music": "tech",
-   "sfx": "digital",
-   "thumb_palette": "midnight",
-   "thumbs": [
-    "risk/evidence",
-    "risk/post",
-    "risk/alarm"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.chase.com",
-  "brand": "Chase",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/Chase/comments/1mwb3qt/chase_froze_all_my_checking_accounts_and_credit/",
-  "category": "banking-apps",
-  "title": "Chase FROZE accounts without notice? What now?",
-  "youtube": null,
-  "format": null,
-  "opener": "One Chase user on r/Chase says their accounts were suddenly frozen without any warning",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "stage",
-   "frame": "floating",
-   "caption": "glass",
-   "bg": "blurshot",
-   "head_font": "poppins",
-   "accent": [
-    53,
-    110,
-    186
-   ],
-   "transitions": [
-    "dissolve"
-   ],
-   "intro": "split",
-   "highlight": "underline",
-   "thumb": "yes_no",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "slide_right",
-   "callout": "pill",
-   "music": "tech",
-   "sfx": "crisp",
-   "thumb_palette": "midnight",
-   "thumbs": [
-    "risk/alarm",
-    "risk/evidence",
-    "risk/post"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.geico.com",
-  "brand": "GEICO",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/personalfinance/comments/14pwks4/identity_theft_collections_and_huge_ding_to/",
-  "category": "insurance",
-  "title": "GEICO Identity Theft Loan Claim — How Did This Happen?",
-  "youtube": null,
-  "format": null,
-  "opener": "One GEICO user on r/personalfinance says they discovered a fraudulent auto loan opened in their name after receiving a s",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "full",
-   "frame": "minimal",
-   "caption": "pill",
-   "bg": "mesh",
-   "head_font": "poppins",
-   "accent": [
-    255,
-    70,
-    140
-   ],
-   "transitions": [
-    "zoomin",
-    "fade"
-   ],
-   "intro": "headline",
-   "highlight": "underline",
-   "thumb": "left",
-   "thumb_accent": [
-    255,
-    70,
-    140
-   ],
-   "cap_anim": "slide_up",
-   "callout": "pill",
-   "music": "acoustic",
-   "sfx": "digital",
-   "thumb_palette": "emerald",
-   "thumbs": [
-    "risk/post",
-    "risk/alarm",
-    "risk/evidence"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
   "url": "https://www.chime.com",
   "brand": "Chime",
   "kind": "risk",
@@ -11909,6 +11400,532 @@
     "number/emerald/scam",
     "stack/royal/worth",
     "laptop/charcoal/good"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://www.webull.com",
+  "brand": "Webull",
+  "kind": "review",
+  "story_url": null,
+  "category": "investing",
+  "title": "Webull: $0 Commissions, But What's the Catch?",
+  "youtube": "https://youtu.be/PISyGDclW0c",
+  "format": "red_flags",
+  "opener": "Okay, have you ever seen a trading platform let you trade eligible options before and after regular market hours? Webull",
+  "title_style": "expect",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "tag",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    29,
+    100,
+    240
+   ],
+   "transitions": [
+    "radial",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "left",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "left/violet/expect",
+    "stack/royal/scam",
+    "laptop/ocean/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://www.wellsfargo.com",
+  "brand": "Wells Fargo",
+  "kind": "review",
+  "story_url": null,
+  "category": "banking-apps",
+  "title": "Wells Fargo Honest Review: $0 Fees, But What's the Catch?",
+  "youtube": "https://youtu.be/vux0UgLGoSs",
+  "format": "red_flags",
+  "opener": "Here's the thing: Wells Fargo dangles a sweet zero percent intro APR for twenty-one months on select cards, which sounds",
+  "title_style": "honest",
+  "theme": {
+   "mode": "brand",
+   "layout": "full",
+   "frame": "floating",
+   "caption": "tag",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    200,
+    53,
+    53
+   ],
+   "transitions": [
+    "hblur",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "yes_no/charcoal/worth",
+    "split/emerald/scam",
+    "number/midnight/good"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://clipspal.com",
+  "brand": "ClipsPal",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "ClipsPal: $59 Lifetime AI Editor, But What's the Catch?",
+  "youtube": "https://youtu.be/47BzPbVX7ek",
+  "format": "red_flags",
+  "opener": "Alright, have you ever seen a software homepage claim it can cut thirty-eight failed takes and one hundred eleven silenc",
+  "title_style": "expect",
+  "theme": {
+   "mode": "brand",
+   "layout": "full",
+   "frame": "mac_dark",
+   "caption": "tag",
+   "bg": "mesh",
+   "head_font": "interdisplay",
+   "accent": [
+    192,
+    72,
+    24
+   ],
+   "transitions": [
+    "slideleft",
+    "slideright"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_right",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "score/charcoal/expect",
+    "banner/midnight/worth",
+    "laptop/magenta/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://meowdisplay.app",
+  "brand": "MeowDisplay",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "MeowDisplay: Free Second Screen, But What's the Catch?",
+  "youtube": "https://youtu.be/cjP9h6aXBIk",
+  "format": "red_flags",
+  "opener": "Here's the catch with MeowDisplay: it promises to turn your tablet, phone, or another Mac into a seamless display for yo",
+  "title_style": "legit",
+  "theme": {
+   "mode": "light",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "underline",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "squeezeh",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "split/magenta/legit",
+    "banner/charcoal/worth",
+    "stack/emerald/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://www.jasper.ai",
+  "brand": "Jasper",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Jasper: Legit AI Marketer or Overhyped Price Tag?",
+  "youtube": "https://youtu.be/Hc5l5kLWiR4",
+  "format": "pros_cons",
+  "opener": "Jasper claims it can put AI agents to work for marketing to orchestrate intelligent workflows delivering speed, control,",
+  "title_style": "legit",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "bar",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    240,
+    48,
+    24
+   ],
+   "transitions": [
+    "hblur",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "left",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "minimal",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "left/magenta/legit",
+    "split/charcoal/worth",
+    "yes_no/midnight/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://vield.io",
+  "brand": "Vield",
+  "kind": "review",
+  "story_url": null,
+  "category": "credit-cards",
+  "title": "Vield: $50M in Loans, But What's the Catch?",
+  "youtube": "https://youtu.be/gaiKWnqFaX4",
+  "format": "pros_cons",
+  "opener": "Alright, have you ever wanted cash without selling your crypto stack? Vield claims they're an Australian regulated bitco",
+  "title_style": "before",
+  "theme": {
+   "mode": "light",
+   "layout": "full",
+   "frame": "floating",
+   "caption": "bar",
+   "bg": "mesh",
+   "head_font": "interdisplay",
+   "accent": [
+    168,
+    240,
+    0
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "score/violet/before",
+    "banner/royal/worth",
+    "yes_no/magenta/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://valr.com",
+  "brand": "VALR",
+  "kind": "review",
+  "story_url": null,
+  "category": "investing",
+  "title": "VALR: $0 Fees, But What's the Catch?",
+  "youtube": "https://youtu.be/AUkwKqIG9Bo",
+  "format": "pros_cons",
+  "opener": "Have you ever wondered if Africa's biggest crypto exchange is actually safe enough to trust with your money? Today we're",
+  "title_style": "before",
+  "theme": {
+   "mode": "brand",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "underline",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    50,
+    92,
+    241
+   ],
+   "transitions": [
+    "vertopen",
+    "horzopen"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "minimal",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "split/royal/before",
+    "number/ocean/scam",
+    "banner/crimson/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://suno.com",
+  "brand": "Suno",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Suno: Legit AI Music Maker or Just Overhyped Hype?",
+  "youtube": "https://youtu.be/1D3AyneWBTA",
+  "format": "pros_cons",
+  "opener": "Suno claims you can make any song you can imagine just by typing a simple prompt",
+  "title_style": "legit",
+  "theme": {
+   "mode": "brand",
+   "layout": "full",
+   "frame": "mac_dark",
+   "caption": "bar",
+   "bg": "mesh",
+   "head_font": "inter",
+   "accent": [
+    240,
+    72,
+    24
+   ],
+   "transitions": [
+    "dissolve"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "score/magenta/legit",
+    "stack/emerald/worth",
+    "banner/crimson/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://sphera.com",
+  "brand": "Sphera AI",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Sphera AI Review: Enterprise Safety Platform or Overkill?",
+  "youtube": "https://youtu.be/fBjolb18j20",
+  "format": "fine_print",
+  "opener": "Okay, have you ever seen a business software site promise to turn uncertainty into opportunity with something called The",
+  "title_style": "honest",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "underline",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    111,
+    125,
+    165
+   ],
+   "transitions": [
+    "vertopen",
+    "horzopen"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "left",
+   "thumb_accent": [
+    111,
+    125,
+    165
+   ],
+   "cap_anim": "drop",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "left/violet/worth",
+    "banner/royal/scam",
+    "score/midnight/catch"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://slack.com",
+  "brand": "Slack",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Slack: $4.38 Fees, But What's the Catch?",
+  "youtube": "https://youtu.be/0JIMahEpulY",
+  "format": "pros_cons",
+  "opener": "Here's the catch with Slack: it's billed as an AI work platform that connects your whole team, but you'll want to watch ",
+  "title_style": "dont",
+  "theme": {
+   "mode": "brand",
+   "layout": "tilt",
+   "frame": "mac_light",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "split/magenta/dont",
+    "number/charcoal/scam",
+    "banner/violet/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://www.taskrabbit.com",
+  "brand": "TaskRabbit",
+  "kind": "review",
+  "story_url": null,
+  "category": "freelancing",
+  "title": "TaskRabbit: $49 Starting Fees, But What's the Catch?",
+  "youtube": "https://youtu.be/jp0rTwXkgQM",
+  "format": "red_flags",
+  "opener": "Ever noticed how flat-rate moving on TaskRabbit claims to start at $139, while basic furniture assembly projects kick of",
+  "title_style": "expect",
+  "theme": {
+   "mode": "light",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "tag",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    255,
+    150,
+    30
+   ],
+   "transitions": [
+    "slideleft",
+    "slideright"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "score/ocean/expect",
+    "stack/royal/scam",
+    "split/charcoal/worth"
    ]
   }
  }
