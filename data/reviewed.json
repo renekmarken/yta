@@ -1906,5 +1906,118 @@
   "url": "https://www.taskrabbit.com",
   "status": "done",
   "date": "2026-11-17"
+ },
+ {
+  "site": "starsling.dev",
+  "name": "StarSling",
+  "url": "https://starsling.dev",
+  "status": "failed",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "snapp.app",
+  "name": "Snapp",
+  "url": "https://snapp.app",
+  "status": "failed",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "fanatics.com",
+  "name": "Fanatics American Express Card",
+  "url": "https://www.fanatics.com/creditcard",
+  "status": "failed",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "findrix.ai",
+  "name": "Findrix",
+  "url": "https://findrix.ai",
+  "status": "done",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "splice.com",
+  "name": "Splice AI Music",
+  "url": "https://splice.com",
+  "status": "done",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "cultureamp.com",
+  "name": "Culture Amp",
+  "url": "https://cultureamp.com",
+  "status": "done",
+  "date": "2026-11-17",
+  "alt": "Culture Amp Enso AI"
+ },
+ {
+  "site": "raycash.xyz",
+  "name": "Raycash",
+  "url": "https://raycash.xyz",
+  "status": "done",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "kippy.ai",
+  "name": "Kippy AI",
+  "url": "https://kippy.ai",
+  "status": "failed",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "recall.ai",
+  "name": "Agents API by Recall.ai",
+  "url": "https://recall.ai",
+  "status": "failed",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "alloyhtml.com",
+  "name": "Alloy CSS",
+  "url": "https://alloyhtml.com/example.html",
+  "status": "done",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "avvo.com",
+  "name": "Avvo",
+  "url": "https://www.avvo.com",
+  "status": "failed",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "siteground.com",
+  "name": "SiteGround",
+  "url": "https://www.siteground.com",
+  "status": "done",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "simplyhired.com",
+  "name": "SimplyHired",
+  "url": "https://www.simplyhired.com",
+  "status": "failed",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "findlaw.com",
+  "name": "FindLaw",
+  "url": "https://www.findlaw.com",
+  "status": "failed",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "marcus.com",
+  "name": "Marcus by Goldman Sachs",
+  "url": "https://www.marcus.com",
+  "status": "done",
+  "date": "2026-11-17"
+ },
+ {
+  "site": "joinroot.com",
+  "name": "Root Insurance",
+  "url": "https://www.joinroot.com",
+  "status": "done",
+  "date": "2026-11-17"
  }
 ]

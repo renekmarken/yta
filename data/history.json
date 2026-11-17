@@ -1,388 +1,6 @@
 [
  {
   "date": "2026-10-02",
-  "url": "https://www.chime.com",
-  "brand": "Chime",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/chimefinancial/comments/1wbt5vl/someone_opened_a_chime_account_with_my_info/",
-  "category": "banking-apps",
-  "title": "Chime Account Opened With My Info Without Permission — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "One Chime user on r/chimefinancial says they received unexpected emails stating their account was ready for a security d",
-  "title_style": null,
-  "theme": {
-   "mode": "brand",
-   "layout": "side",
-   "frame": "minimal",
-   "caption": "glass",
-   "bg": "mesh",
-   "head_font": "inter",
-   "accent": [
-    255,
-    212,
-    0
-   ],
-   "transitions": [
-    "zoomin",
-    "fade"
-   ],
-   "intro": "split",
-   "highlight": "underline",
-   "thumb": "split",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "slide_up",
-   "callout": "pill",
-   "music": "acoustic",
-   "sfx": "soft",
-   "thumb_palette": "midnight",
-   "thumbs": [
-    "risk/post",
-    "risk/alarm",
-    "risk/evidence"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://cash.app",
-  "brand": "Cash App",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/CashApp/comments/1ovkp2v/cash_app_has_suspended_my_account_for_suspicious/",
-  "category": "banking-apps",
-  "title": "Cash App FROZE funds for months — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "A Cash App user posted on Reddit that their account was suspended for suspicious activity, leaving their money held for ",
-  "title_style": null,
-  "theme": {
-   "mode": "light",
-   "layout": "spotlight",
-   "frame": "mac_light",
-   "caption": "pill",
-   "bg": "spotlight",
-   "head_font": "interdisplay",
-   "accent": [
-    0,
-    192,
-    48
-   ],
-   "transitions": [
-    "fadeblack"
-   ],
-   "intro": "headline",
-   "highlight": "spotlight",
-   "thumb": "banner",
-   "thumb_accent": [
-    255,
-    90,
-    60
-   ],
-   "cap_anim": "drop",
-   "callout": "glass",
-   "music": "upbeat",
-   "sfx": "crisp",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "risk/post",
-    "risk/blackout",
-    "risk/stack"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://stripe.com",
-  "brand": "Stripe",
-  "kind": "risk",
-  "story_url": "https://news.ycombinator.com/item?id=49042989",
-  "category": "business-tools",
-  "title": "Stripe CLOSED Account With 0.18% Dispute Rate — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "A Stripe user posted on Hacker News about an unexpected account closure",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "tilt",
-   "frame": "mac_dark",
-   "caption": "pill",
-   "bg": "aurora",
-   "head_font": "poppins",
-   "accent": [
-    255,
-    94,
-    58
-   ],
-   "transitions": [
-    "slideleft",
-    "slideright"
-   ],
-   "intro": "headline",
-   "highlight": "box",
-   "thumb": "stack",
-   "thumb_accent": [
-    0,
-    200,
-    255
-   ],
-   "cap_anim": "slide_left",
-   "callout": "card",
-   "music": "upbeat",
-   "sfx": "playful",
-   "thumb_palette": "crimson",
-   "thumbs": [
-    "risk/post",
-    "risk/stamp",
-    "risk/headline"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.shopify.com",
-  "brand": "Shopify",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/shopify/comments/1pdu5qo/shopify_scammed_me_out_of_13k_rant/",
-  "category": "business-tools",
-  "title": "Shopify FROZE $13,000 for No Reason — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "A Shopify user posted on Reddit about a stressful financial ordeal just before the holidays",
-  "title_style": null,
-  "theme": {
-   "mode": "light",
-   "layout": "tilt",
-   "frame": "mac_light",
-   "caption": "pill",
-   "bg": "spotlight",
-   "head_font": "interdisplay",
-   "accent": [
-    144,
-    168,
-    48
-   ],
-   "transitions": [
-    "wipeleft",
-    "wiperight"
-   ],
-   "intro": "headline",
-   "highlight": "spotlight",
-   "thumb": "score",
-   "thumb_accent": [
-    255,
-    212,
-    0
-   ],
-   "cap_anim": "fade_up",
-   "callout": "card",
-   "music": "upbeat",
-   "sfx": "minimal",
-   "thumb_palette": "violet",
-   "thumbs": [
-    "risk/post",
-    "risk/stamp",
-    "risk/strip"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://aws.amazon.com",
-  "brand": "Amazon Web Services",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/mildlyinfuriating/comments/1vd490p/i_permanently_deleted_my_aws_account_6_years_ago/",
-  "category": "hosting",
-  "title": "Amazon Web Services CHARGING Deleted Account For Years — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "An Amazon Web Services user posted on a public forum that they permanently deleted their AWS account six years ago, but ",
-  "title_style": null,
-  "theme": {
-   "mode": "light",
-   "layout": "tilt",
-   "frame": "mac_light",
-   "caption": "pill",
-   "bg": "aurora",
-   "head_font": "interdisplay",
-   "accent": [
-    240,
-    144,
-    0
-   ],
-   "transitions": [
-    "squeezeh",
-    "fade"
-   ],
-   "intro": "logo_pop",
-   "highlight": "spotlight",
-   "thumb": "number",
-   "thumb_accent": [
-    240,
-    144,
-    0
-   ],
-   "cap_anim": "drop",
-   "callout": "card",
-   "music": "tech",
-   "sfx": "digital",
-   "thumb_palette": "violet",
-   "thumbs": [
-    "risk/post",
-    "risk/caution",
-    "risk/stamp"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.capitalone.com",
-  "brand": "Capital One",
-  "kind": "risk",
-  "story_url": "https://news.ycombinator.com/item?id=40707743",
-  "category": "banking-apps",
-  "title": "Capital One Closed Account Dropped My Score — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "A Capital One user posted on Hacker News about an unexpected credit score drop after supposedly closing their account",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "side",
-   "frame": "minimal",
-   "caption": "bar",
-   "bg": "mesh",
-   "head_font": "inter",
-   "accent": [
-    122,
-    92,
-    255
-   ],
-   "transitions": [
-    "zoomin",
-    "fade"
-   ],
-   "intro": "split",
-   "highlight": "box",
-   "thumb": "laptop",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "slide_right",
-   "callout": "pill",
-   "music": "acoustic",
-   "sfx": "playful",
-   "thumb_palette": "emerald",
-   "thumbs": [
-    "risk/post",
-    "risk/strip",
-    "risk/caution"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.fiverr.com",
-  "brand": "Fiverr",
-  "kind": "risk",
-  "story_url": "https://news.ycombinator.com/item?id=26860082",
-  "category": "freelancing",
-  "title": "Fiverr Account CLOSED After IP Theft — What You Need to Know?",
-  "youtube": null,
-  "format": null,
-  "opener": "A Fiverr user posted on Hacker News about a severe security and account access issue",
-  "title_style": null,
-  "theme": {
-   "mode": "brand",
-   "layout": "spotlight",
-   "frame": "floating",
-   "caption": "underline",
-   "bg": "spotlight",
-   "head_font": "poppins",
-   "accent": [
-    24,
-    168,
-    96
-   ],
-   "transitions": [
-    "cut"
-   ],
-   "intro": "split",
-   "highlight": "box",
-   "thumb": "laptop",
-   "thumb_accent": [
-    255,
-    90,
-    60
-   ],
-   "cap_anim": "slide_up",
-   "callout": "glass",
-   "music": "lofi",
-   "sfx": "crisp",
-   "thumb_palette": "magenta",
-   "thumbs": [
-    "risk/post",
-    "risk/strip",
-    "risk/stamp"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://www.allstate.com",
-  "brand": "Allstate",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/Banking/comments/1vhqtuh/help_with_false_check_fraud_allegation/",
-  "category": "insurance",
-  "title": "Allstate FROZE Funds Over a Check Claim — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "An Allstate user posted on Reddit that their bank accounts were frozen after a claim that they deposited a fraudulent, a",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "full",
-   "frame": "minimal",
-   "caption": "tag",
-   "bg": "gradient",
-   "head_font": "inter",
-   "accent": [
-    0,
-    214,
-    170
-   ],
-   "transitions": [
-    "smoothup",
-    "smoothdown"
-   ],
-   "intro": "headline",
-   "highlight": "underline",
-   "thumb": "laptop",
-   "thumb_accent": [
-    0,
-    230,
-    160
-   ],
-   "cap_anim": "slide_up",
-   "callout": "glass",
-   "music": "lofi",
-   "sfx": "soft",
-   "thumb_palette": "magenta",
-   "thumbs": [
-    "risk/post",
-    "risk/stamp",
-    "risk/stack"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
   "url": "https://www.discover.com",
   "brand": "Discover",
   "kind": "risk",
@@ -11926,6 +11544,387 @@
     "score/ocean/expect",
     "stack/royal/scam",
     "split/charcoal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://findrix.ai",
+  "brand": "Findrix",
+  "kind": "review",
+  "story_url": null,
+  "category": "marketing",
+  "title": "Findrix: AI Visibility Tool, But What's the Catch?",
+  "youtube": "https://youtu.be/jRBp57D35cg",
+  "format": "who_for",
+  "opener": "Ever wonder why ChatGPT or Gemini completely pass your business over? Findrix claims it's an AI visibility tool that tra",
+  "title_style": "catch",
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "bar",
+   "bg": "aurora",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    70,
+    140
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "yes_no/midnight/catch",
+    "split/magenta/scam",
+    "laptop/violet/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://splice.com",
+  "brand": "Splice AI Music",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Splice AI Music: What's the Catch?",
+  "youtube": "https://youtu.be/r78xmxn4V-o",
+  "format": "five_questions",
+  "opener": "If you're expecting a magical button that spits out fully finished chart hits while you sleep, you'll want to stop watch",
+  "title_style": "catch",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "minimal",
+   "caption": "bar",
+   "bg": "mesh",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    94,
+    58
+   ],
+   "transitions": [
+    "hblur",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "laptop",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "laptop/emerald/catch",
+    "yes_no/midnight/worth",
+    "split/royal/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://cultureamp.com",
+  "brand": "Culture Amp",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Culture Amp: Is It Actually Good? (Pricing & Features)",
+  "youtube": "https://youtu.be/NaSvoByoXPc",
+  "format": "five_questions",
+  "opener": "Here's the catch with Culture Amp: it's billed as the market-leading employee experience platform that can boost your te",
+  "title_style": "good",
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "underline",
+   "bg": "mesh",
+   "head_font": "interdisplay",
+   "accent": [
+    0,
+    170,
+    255
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "fade_up",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "stack/midnight/good",
+    "number/charcoal/worth",
+    "split/magenta/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://raycash.xyz",
+  "brand": "Raycash",
+  "kind": "review",
+  "story_url": null,
+  "category": "banking-apps",
+  "title": "Raycash: Private Stablecoins, But What's the Catch?",
+  "youtube": "https://youtu.be/M1UfNpvdlXQ",
+  "format": "first_look",
+  "opener": "Ever get tired of juggling three apps just to move your cash around? Raycash claims they can fix that mess",
+  "title_style": "fees",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "bar",
+   "bg": "spotlight",
+   "head_font": "interdisplay",
+   "accent": [
+    240,
+    240,
+    120
+   ],
+   "transitions": [
+    "cut"
+   ],
+   "intro": "split",
+   "highlight": "underline",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "minimal",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "yes_no/emerald/fees",
+    "split/crimson/worth",
+    "left/violet/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://alloyhtml.com/example.html",
+  "brand": "Alloy CSS",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Alloy CSS: No JavaScript, But Is It Useful?",
+  "youtube": "https://youtu.be/JlK5jsTcDyo",
+  "format": "who_for",
+  "opener": "Did you know this entire invoice dashboard runs with absolutely zero JavaScript? That's right",
+  "title_style": "good",
+  "theme": {
+   "mode": "brand",
+   "layout": "stage",
+   "frame": "minimal",
+   "caption": "underline",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    0,
+    214,
+    170
+   ],
+   "transitions": [
+    "smoothleft",
+    "smoothright"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "banner",
+   "thumb_accent": [
+    0,
+    214,
+    170
+   ],
+   "cap_anim": "slide_left",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "banner/royal/good",
+    "split/magenta/worth",
+    "yes_no/crimson/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://www.siteground.com",
+  "brand": "SiteGround",
+  "kind": "review",
+  "story_url": null,
+  "category": "hosting",
+  "title": "SiteGround: Is It Actually Good?",
+  "youtube": "https://youtu.be/mxqdmoRINpU",
+  "format": "five_questions",
+  "opener": "Here's the catch with SiteGround: it advertises premium hosting starting at one dollar ninety-nine a month, but that che",
+  "title_style": "good",
+  "theme": {
+   "mode": "dark",
+   "layout": "full",
+   "frame": "minimal",
+   "caption": "bar",
+   "bg": "gradient",
+   "head_font": "poppins",
+   "accent": [
+    144,
+    192,
+    72
+   ],
+   "transitions": [
+    "smoothleft",
+    "smoothright"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "number",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_right",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "number/midnight/good",
+    "yes_no/royal/scam",
+    "left/emerald/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://www.marcus.com",
+  "brand": "Marcus by Goldman Sachs",
+  "kind": "review",
+  "story_url": null,
+  "category": "banking-apps",
+  "title": "Marcus Review: Is Their 3.50% APY Actually Worth It?",
+  "youtube": "https://youtu.be/2rSfO-48aYc",
+  "format": "first_look",
+  "opener": "Ever wondered if putting your cash with Goldman Sachs is actually worth it? Let's take a quick walk through Marcus and s",
+  "title_style": "truth",
+  "theme": {
+   "mode": "dark",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "bar",
+   "bg": "aurora",
+   "head_font": "poppins",
+   "accent": [
+    96,
+    144,
+    192
+   ],
+   "transitions": [
+    "dissolve"
+   ],
+   "intro": "split",
+   "highlight": "spotlight",
+   "thumb": "laptop",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "laptop/charcoal/truth",
+    "score/magenta/scam",
+    "yes_no/ocean/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-17",
+  "url": "https://www.joinroot.com",
+  "brand": "Root Insurance",
+  "kind": "review",
+  "story_url": null,
+  "category": "insurance",
+  "title": "Root Insurance: Is It Actually Good?",
+  "youtube": "https://youtu.be/zql5OoQDyu0",
+  "format": "who_for",
+  "opener": "Over three million drivers've already made the switch, and it's holding a shiny 4",
+  "title_style": "good",
+  "theme": {
+   "mode": "brand",
+   "layout": "full",
+   "frame": "minimal",
+   "caption": "pill",
+   "bg": "gradient",
+   "head_font": "interdisplay",
+   "accent": [
+    255,
+    70,
+    140
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "yes_no/crimson/good",
+    "left/violet/scam",
+    "number/emerald/worth"
    ]
   }
  }
