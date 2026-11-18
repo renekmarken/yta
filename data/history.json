@@ -1,485 +1,6 @@
 [
  {
   "date": "2026-10-03",
-  "url": "https://omniaagent.com",
-  "brand": "Omnia",
-  "kind": "review",
-  "story_url": null,
-  "category": "insurance",
-  "title": "Omnia: Automated Brokerage AI, But What's the Catch?",
-  "youtube": null,
-  "format": "fine_print",
-  "opener": "Can an artificial intelligence agent handle lead outreach, text messaging, and phone call routing for insurance brokerag",
-  "title_style": "good",
-  "theme": {
-   "mode": "dark",
-   "layout": "full",
-   "frame": "floating",
-   "caption": "underline",
-   "bg": "aurora",
-   "head_font": "poppins",
-   "accent": [
-    192,
-    144,
-    72
-   ],
-   "transitions": [
-    "vertopen",
-    "horzopen"
-   ],
-   "intro": "headline",
-   "highlight": "spotlight",
-   "thumb": "split",
-   "thumb_accent": [
-    255,
-    90,
-    60
-   ],
-   "cap_anim": "slide_left",
-   "callout": "card",
-   "music": "ambient",
-   "sfx": "warm",
-   "thumb_palette": "charcoal",
-   "thumbs": [
-    "split/charcoal/good",
-    "stack/ocean/worth",
-    "score/magenta/scam"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://www.instagram.com",
-  "brand": "Instagram",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/legaladvice/comments/wzw4ho/someone_is_claiming_i_must_give_up_my_instagram/",
-  "category": "legal",
-  "title": "Instagram Username Claimed By Business — Are You Legally Forced to Give It Up?",
-  "youtube": null,
-  "format": null,
-  "opener": "An Instagram user posted on Reddit asking if they were legally compelled to hand over their account handle",
-  "title_style": null,
-  "theme": {
-   "mode": "brand",
-   "layout": "tilt",
-   "frame": "mac_dark",
-   "caption": "bar",
-   "bg": "blurshot",
-   "head_font": "inter",
-   "accent": [
-    122,
-    92,
-    255
-   ],
-   "transitions": [
-    "squeezeh",
-    "fade"
-   ],
-   "intro": "split",
-   "highlight": "box",
-   "thumb": "yes_no",
-   "thumb_accent": [
-    0,
-    200,
-    255
-   ],
-   "cap_anim": "drop",
-   "callout": "glass",
-   "music": "lofi",
-   "sfx": "soft",
-   "thumb_palette": "crimson",
-   "thumbs": [
-    "risk/post",
-    "risk/caution",
-    "risk/strip"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://www.facebook.com",
-  "brand": "Facebook",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/facebook/comments/1rq5b5g/banned_from_marketplace_for_no_reason_ai_flagged/",
-  "category": "business-tools",
-  "title": "Facebook BANNED Me From Marketplace For No Reason? What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "A Facebook user posted on Reddit that they opened the app one day to find they were suddenly banned from Marketplace",
-  "title_style": null,
-  "theme": {
-   "mode": "light",
-   "layout": "spotlight",
-   "frame": "mac_light",
-   "caption": "glass",
-   "bg": "mesh",
-   "head_font": "interdisplay",
-   "accent": [
-    17,
-    107,
-    241
-   ],
-   "transitions": [
-    "slideup",
-    "slidedown"
-   ],
-   "intro": "logo_pop",
-   "highlight": "box",
-   "thumb": "stack",
-   "thumb_accent": [
-    0,
-    200,
-    255
-   ],
-   "cap_anim": "slide_right",
-   "callout": "pill",
-   "music": "upbeat",
-   "sfx": "playful",
-   "thumb_palette": "magenta",
-   "thumbs": [
-    "risk/post",
-    "risk/stamp",
-    "risk/stack"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://www.snapchat.com",
-  "brand": "Snapchat",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/SnapchatHelp/comments/1uo2mxm/snapchat_memories_storage/",
-  "category": "saas",
-  "title": "Snapchat MEMORIES storage full issue and export problems: What now?",
-  "youtube": null,
-  "format": null,
-  "opener": "A Snapchat user posted on Reddit about a frustrating storage issue, stating they hate Snapchat for starting a hostage me",
-  "title_style": null,
-  "theme": {
-   "mode": "brand",
-   "layout": "tilt",
-   "frame": "mac_light",
-   "caption": "pill",
-   "bg": "blurshot",
-   "head_font": "inter",
-   "accent": [
-    255,
-    150,
-    30
-   ],
-   "transitions": [
-    "circleopen",
-    "fade"
-   ],
-   "intro": "split",
-   "highlight": "underline",
-   "thumb": "number",
-   "thumb_accent": [
-    0,
-    200,
-    255
-   ],
-   "cap_anim": "slide_right",
-   "callout": "pill",
-   "music": "tech",
-   "sfx": "airy",
-   "thumb_palette": "midnight",
-   "thumbs": [
-    "risk/post",
-    "risk/caution",
-    "risk/blackout"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://www.instagram.com",
-  "brand": "Instagram",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/FixMyInstagram/comments/1wuj542/instagram_account_disabled_for_no_reason/",
-  "category": "saas",
-  "title": "Instagram Account Disabled For NO Reason — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "An Instagram user posted online about a frustrating experience",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "side",
-   "frame": "minimal",
-   "caption": "tag",
-   "bg": "gradient",
-   "head_font": "interdisplay",
-   "accent": [
-    255,
-    70,
-    140
-   ],
-   "transitions": [
-    "smoothup",
-    "smoothdown"
-   ],
-   "intro": "logo_pop",
-   "highlight": "box",
-   "thumb": "banner",
-   "thumb_accent": [
-    255,
-    90,
-    60
-   ],
-   "cap_anim": "fade_up",
-   "callout": "card",
-   "music": "acoustic",
-   "sfx": "warm",
-   "thumb_palette": "emerald",
-   "thumbs": [
-    "risk/post",
-    "risk/stamp",
-    "risk/highlight"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://www.instagram.com",
-  "brand": "Instagram",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/InstagramMarketing/comments/1shmflb/reels_stuck_at_30_views_with_a_flat_line_graph/",
-  "category": "marketing",
-  "title": "Instagram REELS stuck at 30 views with a flat line graph — What now?",
-  "youtube": null,
-  "format": null,
-  "opener": "An Instagram user posted on Reddit about a sudden distribution bug",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "side",
-   "frame": "floating",
-   "caption": "glass",
-   "bg": "gradient",
-   "head_font": "interdisplay",
-   "accent": [
-    0,
-    214,
-    170
-   ],
-   "transitions": [
-    "slideleft",
-    "slideright"
-   ],
-   "intro": "headline",
-   "highlight": "spotlight",
-   "thumb": "score",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "fade_up",
-   "callout": "glass",
-   "music": "acoustic",
-   "sfx": "punchy",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "risk/post",
-    "risk/blackout",
-    "risk/stack"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://www.instagram.com",
-  "brand": "Instagram",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/Instagram/comments/1vfr4sw/instagram_account_locked_after_possible_hack/",
-  "category": "vpn-security",
-  "title": "Instagram Account LOCKED in an Endless Recovery Loop — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "An Instagram user posted on Reddit that their account was suddenly locked with the message that it was locked to protect",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "side",
-   "frame": "floating",
-   "caption": "glass",
-   "bg": "spotlight",
-   "head_font": "interdisplay",
-   "accent": [
-    240,
-    15,
-    128
-   ],
-   "transitions": [
-    "cut"
-   ],
-   "intro": "headline",
-   "highlight": "spotlight",
-   "thumb": "score",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "drop",
-   "callout": "card",
-   "music": "lofi",
-   "sfx": "crisp",
-   "thumb_palette": "violet",
-   "thumbs": [
-    "risk/post",
-    "risk/stamp",
-    "risk/phone"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://www.instagram.com",
-  "brand": "Instagram",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/Instagram/comments/1tl4tpc/instagram_account_is_shadowbanned/",
-  "category": "marketing",
-  "title": "Instagram Account Shadowbanned For 'Copied' AI Videos — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "An Instagram user posted that their viral AI story series suddenly lost engagement after a new upload",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "side",
-   "frame": "floating",
-   "caption": "glass",
-   "bg": "gradient",
-   "head_font": "poppins",
-   "accent": [
-    198,
-    25,
-    198
-   ],
-   "transitions": [
-    "smoothleft",
-    "smoothright"
-   ],
-   "intro": "headline",
-   "highlight": "box",
-   "thumb": "left",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "fade_up",
-   "callout": "card",
-   "music": "lofi",
-   "sfx": "soft",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "risk/post",
-    "risk/caution",
-    "risk/blackout"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://akasa.com",
-  "brand": "AKASA",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/Frugal_Ind/comments/1u2ll2f/airline_cancelled_my_5k_srinagar_ticket_now_the/",
-  "category": "business-tools",
-  "title": "AKASA Ticket Cancelled: Why Rebooking Costs Double Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "A user posted on Reddit that they booked a Mumbai to Srinagar ticket for around five thousand rupees, only for the fligh",
-  "title_style": null,
-  "theme": {
-   "mode": "brand",
-   "layout": "tilt",
-   "frame": "mac_light",
-   "caption": "underline",
-   "bg": "aurora",
-   "head_font": "interdisplay",
-   "accent": [
-    255,
-    150,
-    30
-   ],
-   "transitions": [
-    "zoomin",
-    "fade"
-   ],
-   "intro": "split",
-   "highlight": "spotlight",
-   "thumb": "stack",
-   "thumb_accent": [
-    0,
-    230,
-    160
-   ],
-   "cap_anim": "slide_right",
-   "callout": "glass",
-   "music": "acoustic",
-   "sfx": "warm",
-   "thumb_palette": "magenta",
-   "thumbs": [
-    "risk/post",
-    "risk/stamp",
-    "risk/strip"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://manus.im",
-  "brand": "Manus",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/ManusOfficial/comments/1pczook/manus_is_scam/",
-  "category": "ai-tools",
-  "title": "Manus FROZE $429 for 'Trial' — Refund Refused Within Minutes?",
-  "youtube": null,
-  "format": null,
-  "opener": "A Manus user posted on Reddit describing a frustrating billing dispute",
-  "title_style": null,
-  "theme": {
-   "mode": "brand",
-   "layout": "stage",
-   "frame": "mac_dark",
-   "caption": "tag",
-   "bg": "spotlight",
-   "head_font": "interdisplay",
-   "accent": [
-    240,
-    144,
-    96
-   ],
-   "transitions": [
-    "radial",
-    "fade"
-   ],
-   "intro": "logo_pop",
-   "highlight": "spotlight",
-   "thumb": "yes_no",
-   "thumb_accent": [
-    0,
-    230,
-    160
-   ],
-   "cap_anim": "drop",
-   "callout": "pill",
-   "music": "ambient",
-   "sfx": "minimal",
-   "thumb_palette": "midnight",
-   "thumbs": [
-    "risk/post",
-    "risk/caution",
-    "risk/phone"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
   "url": "https://www.realtor.com",
   "brand": "Realtor.com",
   "kind": "risk",
@@ -11926,5 +11447,235 @@
     "stack/charcoal/worth"
    ]
   }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "whitescreen:face-reveal-114904-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Face Reveal...",
+  "title_base": "Face Reveal...",
+  "format": "reveal",
+  "comment_word": "UNMASK",
+  "hook": [
+   "Everyone keeps asking who's actually behind this channel...",
+   "so I'm making a brand new deal before this weekend ends.",
+   "If this video hits 14,000 likes before Sunday midnight..."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "headline",
+    "icon"
+   ]
+  },
+  "youtube": "https://youtu.be/XMMTdBvDx_E"
+ },
+ {
+  "date": "2026-11-18",
+  "url": "whitescreen:cursed-video-114904-9",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Cursed Video]",
+  "title_base": "[Cursed Video]",
+  "format": "error",
+  "comment_word": "IMMUNE",
+  "hook": [
+   "If this video just popped up on your feed... do not swipe away.",
+   "People are saying this is the most cursed video on YouTube today.",
+   "The rumor is that if you watch it and just scroll past without doing anything..."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "character",
+    "error_glow"
+   ]
+  },
+  "youtube": "https://youtu.be/uaUBN_iQ7oI"
+ },
+ {
+  "date": "2026-11-18",
+  "url": "whitescreen:video-unavailable-114904-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Video Unavailable",
+  "title_base": "[Video Unavailable]",
+  "format": "error",
+  "comment_word": "BYPASS",
+  "hook": [
+   "For most people clicking this link today...",
+   "that error message is all they see.",
+   "An endless loading wheel and a blank screen."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "error_glow",
+    "ui"
+   ]
+  },
+  "youtube": "https://youtu.be/rYQN13-bx2s"
+ },
+ {
+  "date": "2026-11-18",
+  "url": "whitescreen:deleted-video-114904-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Deleted Video]",
+  "title_base": "[Deleted Video]",
+  "format": "error",
+  "comment_word": "GONE",
+  "hook": [
+   "This video is getting deleted the exact moment it hits 5,000 likes.",
+   "That means every single like brings it closer to being gone forever.",
+   "Most creators want their videos to stay up forever..."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "character",
+    "ui"
+   ]
+  },
+  "youtube": "https://youtu.be/tHvD1GadwI8"
+ },
+ {
+  "date": "2026-11-18",
+  "url": "whitescreen:this-video-has-0-likes-and-0-comments-114904-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 0 Likes And 0 Comments",
+  "title_base": "This Video Has 0 Likes And 0 Comments",
+  "format": "count",
+  "comment_word": "BROKE IT",
+  "hook": [
+   "Right now, this video has zero likes and zero comments...",
+   "It is a completely clean slate.",
+   "Almost nobody ever catches a video when it is totally empty."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "character",
+    "headline"
+   ]
+  },
+  "youtube": "https://youtu.be/jSU5zNdwjjk"
+ },
+ {
+  "date": "2026-11-18",
+  "url": "whitescreen:this-video-has-0-comments-114904-4",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 0 Comments",
+  "title_base": "This Video Has 0 Comments",
+  "format": "count",
+  "comment_word": "FIRST",
+  "hook": [
+   "This video has zero comments right now...",
+   "and I want to see how long we can keep it that way.",
+   "Most videos get flooded with comments in the first few minutes."
+  ],
+  "theme": {
+   "thumbs": [
+    "ui",
+    "character",
+    "white"
+   ]
+  },
+  "youtube": "https://youtu.be/_ESKP0KYTJ8"
+ },
+ {
+  "date": "2026-11-18",
+  "url": "whitescreen:private-video-114904-5",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "<Private Video>",
+  "title_base": "<Private Video>",
+  "format": "error",
+  "comment_word": "VAULT",
+  "hook": [
+   "This video is heading straight to private in just 24 hours...",
+   "So if you're watching this right now, you're one of the very few who found it in time.",
+   "I'm locking it away so it completely disappears from public view."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "error_glow",
+    "ui"
+   ]
+  },
+  "youtube": null
+ },
+ {
+  "date": "2026-11-18",
+  "url": "whitescreen:secret-video-114904-6",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "SECRET VIDEO",
+  "title_base": "SECRET VIDEO",
+  "format": "goal",
+  "comment_word": "SECRET FOUND",
+  "hook": [
+   "This is a secret video that won't stay up for long...",
+   "So if you're watching this right now, you found it early.",
+   "I'm running a small experiment to see who actually finds these hidden uploads..."
+  ],
+  "theme": {
+   "thumbs": [
+    "white",
+    "character",
+    "icon"
+   ]
+  },
+  "youtube": "https://youtu.be/UZdRpQe_m9s"
+ },
+ {
+  "date": "2026-11-18",
+  "url": "whitescreen:only-you-can-watch-this-video-114904-7",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Only You Can Watch This Video",
+  "title_base": "Only You Can Watch This Video",
+  "format": "only",
+  "comment_word": "ONLY ME",
+  "hook": [
+   "This video isn't meant for everyone...",
+   "In fact, right now, only you are supposed to be watching this exact link.",
+   "It's a tiny test to see who finds it before it gets completely restricted."
+  ],
+  "theme": {
+   "thumbs": [
+    "character",
+    "headline",
+    "ui"
+   ]
+  },
+  "youtube": "https://youtu.be/emyAkbS_O_M"
+ },
+ {
+  "date": "2026-11-18",
+  "url": "whitescreen:glitched-video-114904-8",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Glitched Video]",
+  "title_base": "[Glitched Video]",
+  "format": "error",
+  "comment_word": "GLITCHED",
+  "hook": [
+   "This video is completely glitched right now...",
+   "and it might disappear from your feed in the next 24 hours.",
+   "The screen keeps freezing, and the audio is starting to break."
+  ],
+  "theme": {
+   "thumbs": [
+    "error",
+    "character",
+    "ui"
+   ]
+  },
+  "youtube": "https://youtu.be/KdsRPNdYZgs"
  }
 ]
