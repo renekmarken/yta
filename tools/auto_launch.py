@@ -1,11 +1,11 @@
 """After each (hourly) discovery run: decide how many videos to start right now, so the channel
 gets up to UPLOADS_PER_DAY videos a day, each uploaded to YouTube as soon as it's done.
 
-Repository variables: UPLOADS_PER_DAY (default 50, the volume in the YouTube API quota application;
-0 = off) and AUTO_VIDEOS_PER_RUN (default 6: started per hourly run; for reviews about half the
-websites block visitors and give no video, and those don't count). The kind (AUTO_KIND) is chosen in
+Repository variables: UPLOADS_PER_DAY (default 10; the YouTube API quota application allows up to 50;
+0 = off) and AUTO_VIDEOS_PER_RUN (default 1 per hourly run, so the uploads are spread over the day;
+for reviews about half the websites block visitors and give no video, and those don't count). The kind (AUTO_KIND) is chosen in
 the discover workflow. GitHub often skips scheduled runs for hours, so a
-run that comes late starts more to catch up (6 per hour since the last start, at most 16). Today's
+run that comes late starts more to catch up (one per hour since the last start, at most 4). Today's
 uploads are counted from data/history.json, plus the videos started in the last 90 minutes that
 aren't booked yet. data/auto_videos.json remembers those starts.
 
@@ -21,13 +21,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from studio import config                                       # noqa: E402
 
 STATE = config.DATA_DIR / "auto_videos.json"
-IN_FLIGHT = timedelta(minutes=90)               # a batch of 16 (4 at a time) takes about an hour
-MAX_RUN = 16
+IN_FLIGHT = timedelta(minutes=90)               # a batch takes well under an hour
+MAX_RUN = 4
 
 
 def main():
-    per_day = int(os.environ.get("UPLOADS_PER_DAY") or 50)
-    per_run = int(os.environ.get("AUTO_VIDEOS_PER_RUN") or 6)
+    per_day = int(os.environ.get("UPLOADS_PER_DAY") or 10)
+    per_run = int(os.environ.get("AUTO_VIDEOS_PER_RUN") or 1)
     now = datetime.now(timezone.utc)
     today = date.today().isoformat()
     state = json.loads(STATE.read_text()) if STATE.exists() else {}

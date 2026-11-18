@@ -1,7 +1,7 @@
 name: Discover trending products
 
 # Every hour: starts a batch of AUTO_KIND videos (repository variable: whitescreen (default), review
-# or risk), up to UPLOADS_PER_DAY (default 50) a day. With
+# or risk), up to UPLOADS_PER_DAY (default 10) a day, spread over the day. With
 # UPLOAD_MODE=api each video goes to YouTube (unlisted) as soon as it's done.
 # Turn it off: set the repository variable UPLOADS_PER_DAY to 0.
 # Only while AUTO_KIND is review: every DISCOVER_EVERY_HOURS hours (default 6) it also scans launch

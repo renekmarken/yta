@@ -28,8 +28,9 @@ days). The product search only runs while automatic videos are reviews (see belo
 
 **Automatic videos.** Every hour the discovery workflow **starts a batch of `AUTO_KIND` videos** (repository
 variable: `whitescreen` by default, or `review` from the top of the queue, or `risk`), up to
-`UPLOADS_PER_DAY` uploaded videos a day (repository variable, default 50, `0` turns this off;
-`AUTO_VIDEOS_PER_RUN`, default 6, sets how many start each hour; a run that GitHub starts late catches up, up to 16). With `UPLOAD_MODE` = `api` each one goes
+`UPLOADS_PER_DAY` uploaded videos a day (repository variable, default 10, `0` turns this off;
+`AUTO_VIDEOS_PER_RUN`, default 1, sets how many start each hour, so they're spread over the day; a run that GitHub
+starts late catches up, up to 4). With `UPLOAD_MODE` = `api` each one goes
 to YouTube as unlisted as soon as it's done, and lands in your library with its YouTube link.
 
 **2. Priority.** `priority = 0.65 × hotness (halves every 4 days) + 0.35 × category value + 2 if fresh`.
