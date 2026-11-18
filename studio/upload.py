@@ -30,6 +30,9 @@ def upload(video: Path, thumb: Path, title: str, description: str, tags: list,
            captions: Path | None = None, category: str | None = None) -> str:
     from googleapiclient.http import MediaFileUpload
     yt = _client()
+    # YouTube refuses < and > in titles and descriptions ("<Private Video>"): use look-alikes
+    safe = str.maketrans({"<": "\u2039", ">": "\u203a"})
+    title, description = title.translate(safe).strip() or "Video", description.translate(safe)
     body = {
         "snippet": {"title": title[:100], "description": description[:4900],
                     "tags": tags[:30], "categoryId": category or config.YT_CATEGORY_ID,
