@@ -207,11 +207,15 @@ comment, trash, lock, hourglass...) and simple sound effects at the key words. N
   video's idea, asked at least twice, ending on a memorable line. The description is 2-4 short
   human-sounding paragraphs with the call to action, then `Keywords:` with 20-30 comma-separated
   keywords (no hashtags); the same keywords become the tags.
-- 3 thumbnails per video, each filling the whole frame (black background with a faint glow and rays, no
-  small print): the sad/locked/glitched YouTube face for [Bracket] titles, YouTube-interface mock-ups
-  ("0 Comments", the like bar, "Delete your channel?") with your hand-drawn ring and one of your
-  arrows pointing exactly at it, the masked blue-hoodie character big on one half with 1-3 huge
-  words, a headline style, a big-3D-picture style and a big-words style.
+- 3 thumbnails per video in the channel's best-performing look (`studio/ws_thumb.py`): near-black, one
+  clean icon in the middle, the title underneath. The icon is a glossy YouTube-red or dark-grey tile
+  with a white symbol (a count badge, a red X or a "no" sign on its corner when the title needs one),
+  YouTube's counter box ("👍 0") or a 3D emoji; the title is a white line + a bigger red line ("This
+  Video Has" / "5 Comments"), the [bracket] title, or YouTube's own wording ("This video is unlisted"
+  + its small grey line). [Removed]/[Glitched] titles get the big red sad face, clean or glitched;
+  "0 likes and 0 comments" gets the like | comment counters; "Won't get 1,000 comments" gets the
+  counter struck out with a red brush X. Each title has its own design (best first). The previous
+  look is kept in `studio/ws_thumb_classic.py`.
 - Assets (`assets/whitescreen/`):
   - `characters/` the masked character's emotions (and new poses, see below)
   - `ytfaces/` 30 red YouTube faces from your sheet, plus crisp drawn ones

@@ -1,436 +1,565 @@
 """White Screen videos, part 4: three 16:9 thumbnails per video, in the channel's own look.
 
-Modelled on the channel's thumbnails: dark, high-contrast, almost no text (1-3 big words picked by
-the script writer), the masked blue-hoodie character big on one half when there is one, and
-YouTube's own visual language (the sad red YouTube face for [Private Video]-style titles, the
-"0 Comments" panel, the like bar, "Delete your channel?").
+Modelled on the channel's best performers: a near-black background, ONE clean icon in the middle and
+the title underneath, nothing else.
 
-Styles:
-  error      the big sad/locked/glitched YouTube face on black, small "This video is private." line
-  ui         a YouTube-interface mock-up, the key number ringed in red with an arrow
-  character  the character on one half, 1-3 huge words (white + red, black outline) on the other
-  headline   a huge phrase across the top ("24 HOURS LEFT..."), the character below
-  icon       one big symbol (trash, hourglass, lock...) and the phrase
-  white      white background, big black words with a red strike or arrow ("1,000,000 VIEWS")
+  card      a glossy YouTube-red (or dark grey) rounded tile with a white symbol - a count badge, a red X
+            or a "no" sign on its corner when the title calls for it - or a pill counter ("👍 0"), or a
+            3D emoji (the heart); under it the title: a white line + a bigger red line ("This Video Has"
+            / "5 Comments"), the title in brackets ("[Locked Video]"), or YouTube's own wording in its
+            own font ("This video is unlisted" + the small grey line under it)
+  sad       the big red YouTube sad face alone ([Removed Video])
+  glitch    the same face glitched: RGB split, torn slices, static ([Glitched Video], [Cursed Video])
+  counters  YouTube's like | comment counters, both 0
+  crossed   a counter pill ("💬 1,000") struck out with a big red brush X
+
+Each title gets a fitting design (see _designs); the old look is in ws_thumb_classic.py.
 """
 import math
 import random
 import re
 from pathlib import Path
 
-from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
-from . import config
 from . import ws_assets as A
 
 TW, TH = 1280, 720
-RED, WHITE, INK = (255, 28, 36), (255, 255, 255), (8, 8, 8)
-
-STYLES_FOR = {   # format of the title -> styles that suit it, best first
-    "error": ["error", "error_glow", "ui", "character"],
-    "count": ["ui", "character", "white", "headline"],
-    "deadline": ["headline", "character", "icon", "ui"],
-    "goal": ["white", "character", "headline", "icon"],
-    "reveal": ["character", "headline", "icon"],
-    "dare": ["character", "headline", "icon", "white"],
-    "pin": ["ui", "character", "headline"],
-    "only": ["character", "headline", "icon", "ui"],
+SS = 3                                                    # supersampling for smooth shapes
+BG = (10, 10, 11)
+RED_TEXT, WHITE, GREY = (255, 34, 34), (255, 255, 255), (170, 170, 170)
+TILES = {"red": ((255, 66, 62), (206, 0, 6)), "dark": ((70, 70, 72), (34, 34, 36))}
+HEAD = "InterDisplay-Black.otf"                            # the big title lines
+UI_MAIN, UI_SUB = "Roboto-Medium.ttf", "Roboto-Regular.ttf"   # YouTube's own wording
+MG = {   # Material Icons codepoints
+    "delete": 0xe872, "lock": 0xe897, "chat": 0xe0b7, "chat_outline": 0xe0cb, "thumb_up": 0xe8dc,
+    "thumb_outline": 0xe9f3, "link": 0xe157, "block": 0xe14b, "pause": 0xe034, "bar_chart": 0xe26b,
+    "replay": 0xe042, "visibility_off": 0xe8f5, "visibility": 0xe8f4, "timer": 0xe425,
+    "hourglass": 0xe88c, "face": 0xe87c, "cake": 0xe7e9, "screen_rotation": 0xe1c1,
+    "error_outline": 0xe001, "close": 0xe5cd, "verified": 0xef76, "push_pin": 0xf10d,
+    "favorite": 0xe87d, "help": 0xe887,
 }
-UI_FOR = {"error": ["private_player", "video_unavailable"], "count": ["comments_zero", "likes_zero", "likes_and_comments_zero", "view_count"],
-          "deadline": ["delete_video"], "pin": ["pinned_comment"], "goal": ["comments_zero", "view_count"],
-          "only": ["comments_zero"], "dare": ["comments_zero"], "reveal": ["likes_zero"]}
+EMOJI = {   # tile symbol -> the 3D emoji used for the third option
+    "delete": "wastebasket", "lock": "locked", "hourglass": "hourglass_not_done", "timer": "stopwatch",
+    "push_pin": "pushpin", "favorite": "red_heart", "visibility": "eye", "bar_chart": "bar_chart",
+    "cake": "birthday_cake", "link": "link", "block": "no_entry", "face": "face_with_peeking_eye",
+}   # symbols without a matching emoji get the tile alone, big, as the third option
 
 
-# ------------------------------------------------------------------ backgrounds
-SCHEMES = {   # base, glow, ray colour -- the channel's look is black: every scheme is black with a faint glow
-    "black": ((2, 2, 3), (34, 34, 40), (120, 120, 132)),
-    "red": ((2, 2, 2), (34, 4, 6), (150, 40, 40)),          # error videos: black with a faint red glow
-}
-SCHEME_FOR = {"error": ["red", "black"]}
+# ------------------------------------------------------------------ basics
+def _background():
+    bg = Image.new("RGBA", (TW, TH), (*BG, 255))
+    g = Image.radial_gradient("L").resize((int(TW * 1.25), int(TH * 1.5)))
+    m = Image.new("L", (TW, TH), 0)
+    m.paste(g.point(lambda v: max(0, 255 - v)), ((TW - g.width) // 2, (TH - g.height) // 2))
+    lift = Image.new("RGBA", (TW, TH), (24, 24, 26, 255))
+    return Image.composite(lift, bg, m.point(lambda v: int(v * 0.7)))
 
 
-def _dark(glow=(60, 60, 64), center=(0.5, 0.45), base=(6, 6, 8)):
-    bg = Image.new("RGB", (TW, TH), base)
-    g = Image.radial_gradient("L").resize((int(TW * 1.6), int(TH * 1.9)))
-    cx, cy = int(TW * center[0]), int(TH * center[1])
-    layer = Image.new("RGB", (TW, TH), glow)
-    mask = Image.new("L", (TW, TH), 0)
-    inv = g.point(lambda v: 255 - v)
-    mask.paste(inv, (cx - g.width // 2, cy - g.height // 2))
-    return Image.composite(layer, bg, mask).convert("RGBA")
+def _vgrad(w, h, top, bottom):
+    t = Image.new("RGBA", (w, h), (*top, 255))
+    b = Image.new("RGBA", (w, h), (*bottom, 255))
+    return Image.composite(b, t, Image.linear_gradient("L").resize((w, h)))
 
 
-def _glow(canvas, box, color, blur=60, alpha=170):
-    layer = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
-    ImageDraw.Draw(layer).rounded_rectangle([int(v) for v in box], 40, fill=(*color, alpha))
-    canvas.alpha_composite(layer.filter(ImageFilter.GaussianBlur(blur)))
+def _glyph(name, height, color=WHITE):
+    """A Material symbol, cropped to its ink and scaled so the ink is `height` px tall."""
+    size = int(height * 1.6)
+    f = A.font("MaterialIcons-Regular.ttf", size)
+    im = Image.new("RGBA", (int(size * 1.5), int(size * 1.5)), (0, 0, 0, 0))
+    ImageDraw.Draw(im).text((im.width / 2, im.height / 2), chr(MG[name]), font=f, fill=color, anchor="mm")
+    im = im.crop(im.getbbox())
+    k = height / im.height
+    return im.resize((max(1, int(im.width * k)), max(1, int(height))), Image.LANCZOS)
 
 
-def _backdrop(scheme, focus=(0.5, 0.5), rays=True):
-    """A filled background: deep colour, a strong glow behind the subject, soft sunburst rays, vignette."""
-    base, glow, ray = SCHEMES.get(scheme, SCHEMES["black"])
-    bg = _dark(glow, focus, base)
-    fx, fy = TW * focus[0], TH * focus[1]
-    if rays:
-        layer = Image.new("RGBA", (TW, TH), (0, 0, 0, 0))
-        d = ImageDraw.Draw(layer)
-        n, R = 18, TW * 1.5
-        for i in range(n):
-            a0 = 2 * math.pi * i / n
-            a1 = a0 + math.pi / n
-            d.polygon([(fx, fy), (fx + R * math.cos(a0), fy + R * math.sin(a0)),
-                       (fx + R * math.cos(a1), fy + R * math.sin(a1))], fill=(*ray, 26))
-        fade = Image.radial_gradient("L").resize((int(TW * 2.2), int(TW * 2.2)))
-        m = Image.new("L", (TW, TH), 0)
-        m.paste(fade.point(lambda v: max(0, 255 - v * 2)), (int(fx - fade.width / 2), int(fy - fade.height / 2)))
-        layer.putalpha(ImageChops.multiply(layer.getchannel("A"), m.point(lambda v: min(255, v * 3))))
-        bg.alpha_composite(layer)
-    # vignette: the corners darker, so the subject pops
-    vig = Image.radial_gradient("L").resize((int(TW * 1.25), int(TH * 1.45)))
-    v = Image.new("L", (TW, TH), 255)
-    v.paste(vig, ((TW - vig.width) // 2, (TH - vig.height) // 2))
-    dark = Image.new("RGBA", (TW, TH), (0, 0, 0, 255))
-    dark.putalpha(v.point(lambda x: int(max(0, x - 120) * 1.1)))
-    bg.alpha_composite(dark)
-    return bg
-
-
-def _white_backdrop(focus=(0.5, 0.5)):
-    bg = Image.new("RGBA", (TW, TH), (255, 255, 255, 255))
-    layer = Image.new("RGBA", (TW, TH), (0, 0, 0, 0))
-    d = ImageDraw.Draw(layer)
-    fx, fy, n, R = TW * focus[0], TH * focus[1], 22, TW * 1.5
-    for i in range(n):
-        a0 = 2 * math.pi * i / n
-        d.polygon([(fx, fy), (fx + R * math.cos(a0), fy + R * math.sin(a0)),
-                   (fx + R * math.cos(a0 + math.pi / n), fy + R * math.sin(a0 + math.pi / n))], fill=(0, 0, 0, 10))
-    bg.alpha_composite(layer)
-    return bg
-# ------------------------------------------------------------------ type
-def _anton(size):
-    return ImageFont.truetype(str(config.ASSETS_DIR / "fonts" / "Anton-Regular.ttf"), int(size))
-
-
-def _fit_anton(text, max_w, max_h, start=330):
-    d = ImageDraw.Draw(Image.new("L", (8, 8)))
-    size = start
-    while size > 30:
-        f = _anton(size)
-        bb = d.textbbox((0, 0), text, font=f, stroke_width=max(4, size // 18))
-        if bb[2] - bb[0] <= max_w and bb[3] - bb[1] <= max_h:
-            return f
-        size -= 4
-    return _anton(size)
-
-
-def _words(canvas, lines, box, colors, font="anton", align="center"):
-    """Big words inside box (x0, y0, x1, y1): one line per entry, each as big as it fits; black
-    outline + soft shadow. colors: one per line."""
-    x0, y0, x1, y1 = box
-    n = len(lines)
-    lh = (y1 - y0) / n
-    d = ImageDraw.Draw(canvas)
-    out = []
-    for i, (line, col) in enumerate(zip(lines, colors)):
-        cy = y0 + lh * (i + 0.5)
-        if font == "airone":
-            size = A.fit_size(line, x1 - x0, lh * 0.86, start=260, floor=30)
-            w, h = A.text_size(line, size)
-            cx = (x0 + x1) / 2 if align == "center" else x0 + w / 2
-            sh = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
-            A.draw_text(sh, (cx + 6, cy + 10), line, size, fill=(0, 0, 0, 170))
-            canvas.alpha_composite(sh.filter(ImageFilter.GaussianBlur(8)))
-            A.draw_text(canvas, (cx, cy), line, size, fill=col, stroke=max(5, size // 16), stroke_fill=INK)
-            out.append((cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2))
-        else:
-            f = _fit_anton(line, x1 - x0, lh * 0.95)
-            stroke = max(5, f.size // 16)
-            anchor = "mm" if align == "center" else "lm"
-            cx = (x0 + x1) / 2 if align == "center" else x0
-            sh = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
-            ImageDraw.Draw(sh).text((cx + 6, cy + 10), line, font=f, fill=(0, 0, 0, 170), anchor=anchor,
-                                    stroke_width=stroke, stroke_fill=(0, 0, 0, 170))
-            canvas.alpha_composite(sh.filter(ImageFilter.GaussianBlur(8)))
-            d.text((cx, cy), line, font=f, fill=col, anchor=anchor, stroke_width=stroke, stroke_fill=INK)
-            out.append(d.textbbox((cx, cy), line, font=f, anchor=anchor, stroke_width=stroke))
+def _shadowed(im, blur=18, dy=12, opacity=170):
+    """im with a soft drop shadow, on a bigger transparent canvas (centre unchanged)."""
+    pad = blur * 3
+    out = Image.new("RGBA", (im.width + pad * 2, im.height + pad * 2), (0, 0, 0, 0))
+    sh = Image.new("RGBA", im.size, (0, 0, 0, 255))
+    sh.putalpha(im.getchannel("A").point(lambda v: v * opacity // 255))
+    out.alpha_composite(sh, (pad, pad + dy))
+    out = out.filter(ImageFilter.GaussianBlur(blur))
+    out.alpha_composite(im, (pad, pad))
     return out
 
 
-def phrase_lines(phrase, max_lines=2):
-    words = phrase.upper().split()
-    if len(words) <= 1 or len(phrase) <= 9:
-        return [phrase.upper()]
-    if len(words) == 2:
-        return words
-    cut = max(1, min(len(words) - 1, round(len(words) / 2)))
-    return [" ".join(words[:cut]), " ".join(words[cut:])][:max_lines]
+def _paste_center(canvas, im, cx, cy):
+    canvas.alpha_composite(im, (int(round(cx - im.width / 2)), int(round(cy - im.height / 2))))
 
 
-def _paste(canvas, im, xy, shadow=True):
-    if shadow:
-        sh = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
-        a = im.getchannel("A").point(lambda v: v * 0.7)
-        blk = Image.new("RGBA", im.size, (0, 0, 0, 255))
-        blk.putalpha(a)
-        sh.alpha_composite(blk, (int(xy[0] + 10), int(xy[1] + 16)))
-        canvas.alpha_composite(sh.filter(ImageFilter.GaussianBlur(14)))
-    canvas.alpha_composite(im, (int(xy[0]), int(xy[1])))
+# ------------------------------------------------------------------ icons
+def _tile(color, w, glyph, glyph_scale=0.6):
+    """A glossy rounded tile, YouTube-logo proportions, with a white symbol."""
+    h = int(w * 0.68)
+    W, H = w * SS, h * SS
+    top, bottom = TILES[color]
+    mask = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, W - 1, H - 1], int(H * 0.3), fill=255)
+    tile = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    tile.paste(_vgrad(W, H, top, bottom), (0, 0), mask)
+    gloss = Image.new("L", (W, H), 0)                         # soft highlight on the upper half
+    ImageDraw.Draw(gloss).rounded_rectangle([W * 0.05, H * 0.03, W * 0.95, H * 0.5], int(H * 0.25),
+                                            fill=46 if color == "red" else 26)
+    gloss = ImageChops.multiply(gloss.filter(ImageFilter.GaussianBlur(H // 16)), mask)
+    white = Image.new("RGBA", (W, H), (255, 255, 255, 0))
+    white.putalpha(gloss)
+    tile.alpha_composite(white)
+    if color == "dark":                                       # a faint light edge, like YouTube's dark UI
+        rim = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        ImageDraw.Draw(rim).rounded_rectangle([1, 1, W - 2, H - 2], int(H * 0.3), outline=(255, 255, 255, 34),
+                                              width=max(2, SS * 2))
+        tile.alpha_composite(rim)
+    tile = tile.resize((w, h), Image.LANCZOS)
+    g = _shadowed(_glyph(glyph, h * glyph_scale), blur=6, dy=4, opacity=90)
+    _paste_center(tile, g, w / 2, h / 2 + h * 0.01)
+    return tile
 
 
-def _character(canvas, emotion, side, height=None, glow=(40, 110, 255), max_w=0.5, rim=True):
-    """The character big on one half, standing on the bottom edge. Returns its box."""
-    ch = A.character(emotion)
-    h = height or int(TH * 1.0)
-    ch = ch.resize((int(ch.width * h / ch.height), h), Image.LANCZOS)
-    if ch.width > TW * max_w:
-        k = TW * max_w / ch.width
-        ch = ch.resize((int(ch.width * k), int(ch.height * k)), Image.LANCZOS)
-    x = TW - ch.width + 10 if side == "right" else -10
-    y = TH - ch.height + 4
-    _glow(canvas, (x + 40, y + 40, x + ch.width - 40, TH), glow, 80, 150)
-    if rim:                                                     # a thin light rim: the character pops off the background
-        a = ch.getchannel("A").filter(ImageFilter.MaxFilter(9)).filter(ImageFilter.GaussianBlur(3))
-        rim_im = Image.new("RGBA", ch.size, (255, 255, 255, 0))
-        rim_im.putalpha(a.point(lambda v: int(v * 0.85)))
-        canvas.alpha_composite(rim_im, (int(x), int(y)))
-    _paste(canvas, ch, (x, y))
-    return x, y, x + ch.width, TH
+def _red_disc(d, content=None, text=None):
+    """A red circle with a white ring holding a number or a white X."""
+    D = d * SS
+    im = Image.new("RGBA", (D, D), (0, 0, 0, 0))
+    dr = ImageDraw.Draw(im)
+    dr.ellipse([0, 0, D - 1, D - 1], fill=(255, 255, 255, 255))
+    ring = int(D * 0.085)
+    dr.ellipse([ring, ring, D - 1 - ring, D - 1 - ring], fill=(236, 16, 20, 255))
+    if content == "x":
+        k, lw = D * 0.2, int(D * 0.11)
+        c = D / 2
+        dr.line([c - k, c - k, c + k, c + k], fill=WHITE, width=lw)
+        dr.line([c - k, c + k, c + k, c - k], fill=WHITE, width=lw)
+    im = im.resize((d, d), Image.LANCZOS)
+    if text:
+        size = d * (0.56 if len(text) <= 1 else 0.46 if len(text) == 2 else 0.36)
+        ImageDraw.Draw(im).text((d / 2, d / 2 + d * 0.02), text, font=A.font("Inter-Black.otf", size), fill=WHITE,
+                                anchor="mm")
+    return im
 
 
-def _pose(prefer, fallback):
-    """A pose picture if the character has it (point_left...), else the given emotion."""
-    have = set(A.characters())
-    for p in prefer:
-        if p in have:
-            return p
-    return fallback
+def _no_sign(d):
+    """A red "no" sign (circle with a slash), with a dark outline so it reads on any tile."""
+    D = d * SS
+    im = Image.new("RGBA", (D, D), (0, 0, 0, 0))
+    dr = ImageDraw.Draw(im)
+    out, lw = int(D * 0.07), int(D * 0.17)
+    dr.ellipse([0, 0, D - 1, D - 1], outline=(12, 12, 12, 255), width=lw + out * 2)
+    dr.ellipse([out, out, D - 1 - out, D - 1 - out], outline=(236, 16, 20, 255), width=lw)
+    a = math.radians(45)
+    r = D / 2 - out - lw / 2
+    c = D / 2
+    p0, p1 = (c - r * math.cos(a), c - r * math.sin(a)), (c + r * math.cos(a), c + r * math.sin(a))
+    dr.line([p0, p1], fill=(12, 12, 12, 255), width=lw + out * 2)
+    dr.line([p0, p1], fill=(236, 16, 20, 255), width=lw)
+    return im.resize((d, d), Image.LANCZOS)
 
 
-def _icon_name(th, fmt):
-    ic = th.get("icon")
-    if ic and ic != "none":
-        return ic
-    return {"deadline": "hourglass", "reveal": "eye", "goal": "trophy", "count": "comment", "pin": "pin",
-            "error": "lock", "dare": "fire", "only": "crown"}.get(fmt, "question")
+def _with_corner(tile, mark, corner):
+    """The tile with a badge sticking out of one corner (top-right or bottom-right)."""
+    pad = mark.width // 2
+    out = Image.new("RGBA", (tile.width + pad, tile.height + pad * 2), (0, 0, 0, 0))
+    out.alpha_composite(tile, (0, pad))
+    x = tile.width - mark.width // 2 - int(tile.width * 0.06)
+    y = 0 if corner == "top" else tile.height + pad * 2 - mark.height - int(tile.height * 0.02)
+    out.alpha_composite(mark, (x, y))
+    return out
 
 
-def _tilted(im, rnd, spread=9):
-    return im.rotate(rnd.uniform(-spread, spread), Image.BICUBIC, expand=True)
+def _pill(glyph, number, h=118, round_=True):
+    """YouTube's dark counter: an outline icon and a number ("👍 0", "💬 1,000"), as a full pill
+    (round_) or a rounded box."""
+    f = A.font("Roboto-Bold.ttf", h * (0.5 if round_ else 0.48))
+    g = _glyph(glyph, h * (0.46 if round_ else 0.46))
+    tw = ImageDraw.Draw(Image.new("L", (8, 8))).textlength(number, font=f)
+    w = int(h * 0.45 + g.width + h * 0.22 + tw + h * (0.5 if round_ else 0.45))
+    W, H = w * SS, h * SS
+    mask = Image.new("L", (W, H), 0)
+    rad = H // 2 if round_ else int(H * 0.28)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, W - 1, H - 1], rad, fill=255)
+    pill = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    pill.paste(_vgrad(W, H, (58, 58, 60), (38, 38, 40)), (0, 0), mask)
+    rim = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(rim).rounded_rectangle([1, 1, W - 2, H - 2], rad, outline=(255, 255, 255, 30), width=SS * 2)
+    pill.alpha_composite(rim)
+    pill = pill.resize((w, h), Image.LANCZOS)
+    x = int(h * 0.45)
+    pill.alpha_composite(g, (x, int((h - g.height) / 2)))
+    ImageDraw.Draw(pill).text((x + g.width + h * 0.22, h / 2), number, font=f, fill=WHITE, anchor="lm")
+    return pill
 
 
-SPOTS = {   # where the key thing is on each UI card (fractions of the card), for the ring and the arrow
-    "comments_zero": (0.02, 0.04, 0.48, 0.24), "likes_zero": (0.02, 0.66, 0.36, 0.95),
-    "likes_and_comments_zero": (0.02, 0.48, 0.36, 0.69), "delete_channel": (0.52, 0.72, 0.9, 0.93),
-    "private_player": (0.33, 0.23, 0.67, 0.58), "video_unavailable": (0.4, 0.36, 0.93, 0.52),
-    "view_count": (0.28, 0.18, 0.78, 0.78), "delete_video": (0.04, 0.2, 0.2, 0.8),
+def _counters(size=118):
+    """YouTube's like | comment counters, both 0: outline icons over the numbers, a divider between."""
+    f = A.font("Roboto-Medium.ttf", size * 0.62)
+    cols = []
+    for name in ("thumb_outline", "chat_outline"):
+        g = _glyph(name, size * 0.8, (226, 226, 226))
+        col = Image.new("RGBA", (int(size * 1.3), int(size * 1.95)), (0, 0, 0, 0))
+        _paste_center(col, g, col.width / 2, size * 0.55)
+        ImageDraw.Draw(col).text((col.width / 2, size * 1.55), "0", font=f, fill=(226, 226, 226), anchor="mm")
+        cols.append(col)
+    gap = int(size * 0.5)
+    out = Image.new("RGBA", (cols[0].width * 2 + gap, cols[0].height), (0, 0, 0, 0))
+    out.alpha_composite(cols[0], (0, 0))
+    out.alpha_composite(cols[1], (cols[0].width + gap, 0))
+    x = cols[0].width + gap // 2
+    ImageDraw.Draw(out).line([x, size * 0.15, x, out.height - size * 0.15], fill=(110, 110, 110), width=max(2, size // 40))
+    return out
+
+
+def _brush_x(w, h, seed=0):
+    """A big red brush-stroke X: two tapered, slightly rough strokes."""
+    rnd = random.Random(seed)
+    W, H = w * SS, h * SS
+    im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    for (x0, y0, x1, y1) in ((0.04, 0.06, 0.96, 0.94), (0.95, 0.04, 0.05, 0.96)):
+        x0, y0, x1, y1 = x0 * W, y0 * H, x1 * W, y1 * H
+        n, base = 60, min(W, H) * 0.13
+        ang = math.atan2(y1 - y0, x1 - x0)
+        nx, ny = -math.sin(ang), math.cos(ang)
+        left, right = [], []
+        for i in range(n + 1):
+            t = i / n
+            wdt = base * (0.35 + 0.65 * math.sin(math.pi * min(1, t * 1.15 + 0.05))) * (0.92 + 0.16 * rnd.random())
+            cx, cy = x0 + (x1 - x0) * t, y0 + (y1 - y0) * t
+            left.append((cx + nx * wdt / 2, cy + ny * wdt / 2))
+            right.append((cx - nx * wdt / 2, cy - ny * wdt / 2))
+        d.polygon(left + right[::-1], fill=(228, 22, 26, 255))
+    im = im.filter(ImageFilter.GaussianBlur(SS * 0.6)).resize((w, h), Image.LANCZOS)
+    return _shadowed(im, blur=10, dy=6, opacity=150)
+
+
+def _sad_face(width, kind="sad"):
+    return A.yt_face_drawn(kind, width)
+
+
+def _glitch(face, seed=0):
+    """The face torn up: RGB split, shifted slices, static lines and scanlines."""
+    rnd = random.Random(seed)
+    w, h = face.size
+    pad = int(w * 0.12)
+    out = Image.new("RGBA", (w + pad * 2, h + pad), (0, 0, 0, 0))
+    a = face.getchannel("A")
+    for color, dx in (((0, 255, 255), pad + int(w * 0.035)), ((255, 0, 60), pad - int(w * 0.035))):
+        ghost = Image.new("RGBA", face.size, (*color, 0))
+        ghost.putalpha(a.point(lambda v: v * 120 // 255))
+        out.alpha_composite(ghost, (dx, pad // 2))
+    out.alpha_composite(face, (pad, pad // 2))
+    torn = out.copy()
+    for _ in range(9):                                         # torn horizontal slices
+        y0 = rnd.randint(0, out.height - 12)
+        bh = rnd.randint(int(h * 0.02), int(h * 0.09))
+        band = torn.crop((0, y0, out.width, min(out.height, y0 + bh)))
+        out.paste(Image.new("RGBA", band.size, (0, 0, 0, 0)), (0, y0))
+        out.alpha_composite(band, (rnd.randint(-int(w * 0.05), int(w * 0.05)), y0))
+    d = ImageDraw.Draw(out)
+    for _ in range(26):                                        # static streaks
+        y = rnd.randint(0, out.height - 1)
+        x0 = rnd.randint(0, out.width)
+        ln = rnd.randint(int(w * 0.05), int(w * 0.5))
+        col = rnd.choice([(255, 255, 255), (255, 40, 40), (0, 230, 255), (120, 120, 120)])
+        d.line([x0, y, x0 + ln, y], fill=(*col, rnd.randint(70, 200)), width=rnd.randint(1, 4))
+    scan = Image.new("L", out.size, 255)                       # scanlines
+    sd = ImageDraw.Draw(scan)
+    for y in range(0, out.height, 5):
+        sd.line([0, y, out.width, y], fill=170, width=2)
+    out.putalpha(ImageChops.multiply(out.getchannel("A"), scan))
+    return out
+
+
+# ------------------------------------------------------------------ text
+LH = 1.02                                                  # line height, in font sizes
+
+
+def _fit(text, fontname, size, max_w):
+    d = ImageDraw.Draw(Image.new("L", (8, 8)))
+    while size > 20 and d.textlength(text, font=A.font(fontname, size)) > max_w:
+        size -= 2
+    return A.font(fontname, size)
+
+
+def _one_line(text):
+    return text[0] == "split" and text[3] and len(text[1]) + len(text[2]) <= 23
+
+
+def _layout(text):
+    """The lines of a title block: [(parts [(text, colour)], font, shadow)], each already fitted."""
+    if not text:
+        return []
+    kind = text[0]
+    L = []
+
+    def add(parts, fontname, size, max_w, shadow=True):
+        L.append((parts, _fit("".join(t for t, _ in parts), fontname, size, max_w), shadow))
+
+    if kind == "split":
+        white, red, red_first = text[1], text[2], text[3]
+        if not white or not red:                               # one big red line
+            add([(red or white, RED_TEXT)], HEAD, 150, TW * 0.84)
+        elif _one_line(text):                                  # "Don't Pause" + " This Video" on one line
+            add([(red + " ", RED_TEXT), (white, WHITE)], HEAD, 130, TW * 0.86)
+        elif red_first:
+            add([(red, RED_TEXT)], HEAD, 136, TW * 0.84)
+            add([(white, WHITE)], HEAD, 108, TW * 0.74)
+        else:
+            add([(white, WHITE)], HEAD, 108, TW * 0.74)
+            add([(red, RED_TEXT)], HEAD, 136, TW * 0.84)
+    elif kind == "bracket":
+        add([(text[1], WHITE)], "Inter-SemiBold.otf", 88, TW * 0.62)
+    elif kind == "ui":
+        add([(text[1], WHITE)], UI_MAIN, 80, TW * 0.7, shadow=False)
+        add([(text[2], GREY)], UI_SUB, 38, TW * 0.74, shadow=False)
+    return L
+
+
+def _text_height(text):
+    return sum(f.size * LH for _, f, _ in _layout(text))
+
+
+def _draw_text(canvas, text, top):
+    d = ImageDraw.Draw(canvas)
+    y = top
+    for parts, f, shadow in _layout(text):
+        cy = y + f.size * LH / 2
+        full = "".join(t for t, _ in parts)
+        w = d.textlength(full, font=f)
+        if shadow:
+            sh = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+            ImageDraw.Draw(sh).text((TW / 2, cy + f.size * 0.06), full, font=f, fill=(0, 0, 0, 210), anchor="mm")
+            canvas.alpha_composite(sh.filter(ImageFilter.GaussianBlur(f.size * 0.08)))
+        x = TW / 2 - w / 2
+        for t, col in parts:
+            d.text((x, cy), t, font=f, fill=col, anchor="lm")
+            x += d.textlength(t, font=f)
+        y += f.size * LH
+
+
+# ------------------------------------------------------------------ which design for which title
+SPLITS = {   # title -> (white part, red part, red first)
+    "this video has 1 comment": ("This Video Has", "1 Comment", False),
+    "this video has 1 view": ("This Video Has", "1 View", False),
+    "this video has 5 comments": ("This Video Has", "5 Comments", False),
+    "this video will self destruct in 24 hours...": ("This Video Will Self Destruct", "In 24 Hours...", False),
+    "this video will be deleted tomorrow": ("This Video Will Be", "Deleted Tomorrow", False),
+    "this video disappears in 1 hour": ("This Video Disappears", "In 1 Hour", False),
+    "i'm deleting this in 2 days...": ("I'm Deleting This in", "2 Days...", False),
+    "watch this before it's gone...": ("Watch This Before", "It's Gone...", False),
+    "can this video get 10 million views?": ("Can This Video Get", "10 Million Views?", False),
+    "only 67 people can comment": ("Only 67 People", "Can Comment", False),
+    "let's balance the likes & comments": ("Let's Balance The", "Likes & Comments", False),
+    "this video won't get 1 million views": ("This Video Won't Get", "1 Million Views", False),
+    "this video won't get 1,000 comments": ("This Video Won't Get", "1,000 Comments", False),
+    "face reveal...": ("", "Face Reveal...", False),
+    "face reveal final chance...": ("Face Reveal", "Final Chance...", False),
+    "my real age reveal": ("My REAL Age", "Reveal", False),
+    "don't pause this video": ("This Video", "Don't Pause", True),
+    "don't watch this video twice": ("This Video Twice", "Don't Watch", True),
+    "don't be the 1st person to comment": ("Person To Comment", "Don't Be The 1st", True),
+    "this video is upside down": ("This Video Is", "Upside Down", False),
+    "first comment gets pinned": ("First Comment", "Gets Pinned", False),
+    "the weirdest comment gets pinned...": ("The WEIRDEST Comment", "Gets Pinned...", False),
+    "i will heart every comment": ("I Will Heart", "Every Comment", False),
+    "only you can comment on this video": ("Only YOU Can Comment", "On This Video", False),
+    "only you can watch this video": ("Only You Can Watch", "This Video", False),
+    "only verified youtubers can comment": ("Only Verified YouTubers", "Can Comment", False),
+    "secret video": ("", "SECRET VIDEO", False),
 }
 
 
-# ------------------------------------------------------------------ the styles
-def render(style, data, variant=0):
-    """One thumbnail (RGB 1280x720) in `style` for the script `data` (see ws_script.write).
-    Every style fills the frame: a coloured, textured background, the character big on one half,
-    1-3 huge words, one big 3D picture. No small print."""
-    th = data.get("thumbnail") or {}
-    title = data.get("title_base") or data.get("title", "")
-    phrase = (th.get("phrase") or "").strip() or re.sub(r"[\[\]<>{}()]", "", title).upper()[:22]
-    phrase = " ".join(phrase.split()[:3])
-    emotion = th.get("emotion") or "shocked"
-    fmt = data.get("format") or "goal"
-    rnd = random.Random(f"{title}-{style}-{variant}")
-    side = "left" if variant % 2 else "right"
-    other = "right" if side == "left" else "left"
-    scheme = SCHEME_FOR.get(fmt, ["black"])[variant % len(SCHEME_FOR.get(fmt, ["black"]))]
-    icon = _icon_name(th, fmt)
-
-    if style in ("error", "error_glow"):
-        faces = A.drawn_faces(title)
-        if style == "error_glow":                               # the sad face alone, huge, centre stage
-            bg = _backdrop("red", (0.5, 0.48))
-            face = A.yt_face_drawn(faces[variant % len(faces)], int(TW * 0.62))
-            if face.height > TH * 0.86:
-                face = face.resize((int(face.width * TH * 0.86 / face.height), int(TH * 0.86)), Image.LANCZOS)
-            _glow(bg, ((TW - face.width) // 2, (TH - face.height) // 2, (TW + face.width) // 2,
-                       (TH + face.height) // 2), (255, 20, 30), 90, 85)
-            _paste(bg, face, ((TW - face.width) // 2, (TH - face.height) // 2))
-            return bg.convert("RGB")
-        bg = _backdrop("black" if variant % 2 else "red", (0.3 if side == "right" else 0.7, 0.5))
-        box = _character(bg, emotion if emotion in ("sad", "crying", "shocked", "scared", "nervous") else
-                         _pose(["sad", "phone_shock"], "shocked"), side, max_w=0.46)
-        free_w = (box[0] if side == "right" else TW - box[2]) - 50
-        face = A.yt_face_drawn(faces[variant % len(faces)], int(min(TW * 0.5, free_w)))
-        if face.height > TH * 0.8:
-            face = face.resize((int(face.width * TH * 0.8 / face.height), int(TH * 0.8)), Image.LANCZOS)
-        free0, free1 = (0, box[0]) if side == "right" else (box[2], TW)
-        fx = (free0 + free1 - face.width) / 2
-        _glow(bg, (fx, (TH - face.height) / 2, fx + face.width, (TH + face.height) / 2), (255, 20, 30), 90, 75)
-        _paste(bg, face, (fx, (TH - face.height) / 2))
-        return bg.convert("RGB")
-
-    if style == "ui":
-        name = th.get("ui") if th.get("ui") in A.UI_NAMES else rnd.choice(UI_FOR.get(fmt, ["comments_zero"]))
-        count = "0"
-        m = re.search(r"(\d[\d,]*)", title)
-        if m and fmt in ("count", "goal"):
-            count = m.group(1)
-        pinned = ""
-        if name == "pinned_comment":                             # the pinned comment is the word viewers are asked to type
-            word = re.sub(r'["“”]', "", str(data.get("comment_word") or "")).strip()
-            pinned = word.upper() if 0 < len(word) <= 16 else "FIRST!"
-        bg = _backdrop(scheme, (0.68 if side == "right" else 0.32, 0.5))
-        # the character on one side (pointing at the card if that pose exists), the card big on the other
-        pose = _pose(["point_left"] if side == "right" else ["point_right"], emotion)
-        box = _character(bg, pose, side, max_w=0.42)
-        free0, free1 = (24, box[0] + 20) if side == "right" else (box[2] - 20, TW - 24)
-        card_w = int(min(free1 - free0, TW * (0.66 if name not in ("delete_video", "view_count") else 0.6)))
-        card = A.ui(name, card_w, title=title if name in ("likes_zero", "likes_and_comments_zero") else pinned,
-                    count=count, note=_error_note(title))
-        if card.height > TH * 0.8:
-            k = TH * 0.8 / card.height
-            card = card.resize((int(card.width * k), int(card.height * k)), Image.LANCZOS)
-        cx = int(max(24, min(TW - card.width - 24, (free0 + free1 - card.width) / 2)))
-        if name == "pinned_comment":
-            spot = (0.135, 0.665, min(0.9, 0.2 + 0.052 * len(pinned)), 0.79)
-        else:
-            spot = SPOTS.get(name)
-        # the open space goes on the side of the card nearest the ringed spot: the arrow starts there
-        # and only crosses the bit of card between its edge and the ring, never the words
-        room_above = bool(spot) and (spot[1] + spot[3]) / 2 < 0.5
-        room = TH - card.height - 48
-        cy = TH - card.height - 24 if room_above else 24
-        rx0, rx1 = (cx, cx + card.width * 0.55) if side == "right" else (cx + card.width * 0.45, cx + card.width)
-        if room > 200:                                           # the big 3D picture fills the open space
-            pic = _tilted(A.picture(icon, int(min(room - 20, 300))), rnd, 7)
-            py = (24 + (cy - pic.height) / 2) if room_above else (cy + card.height + (TH - cy - card.height - pic.height) / 2)
-            _paste(bg, pic, ((rx0 + rx1) / 2 - pic.width / 2, py))
-        _paste(bg, card, (cx, cy))
-        if spot:
-            x0, y0 = cx + spot[0] * card.width, cy + spot[1] * card.height
-            x1, y1 = cx + spot[2] * card.width, cy + spot[3] * card.height
-            r = A.sheet_ring(x1 - x0, y1 - y0, seed=variant)
-            rl, rt = int((x0 + x1 - r.width) / 2), int((y0 + y1 - r.height) / 2)
-            bg.alpha_composite(r, (rl, rt))
-            mx = (x0 + x1) / 2
-            toward = 1 if side == "right" else -1                # the arrow leans toward the character's side
-            tx = mx + toward * (x1 - x0) * 0.22
-            if room_above:
-                ty, sy = rt + 6, max(28, min(cy - 30, rt - 150))
-            else:
-                ty, sy = rt + r.height - 6, min(TH - 28, max(cy + card.height + 30, rt + r.height + 150))
-            sx = min(TW - 40, max(40, tx + toward * 190))
-            A.point_arrow(bg, (sx, sy), (tx, ty), seed=variant, style="bold" if variant % 2 else "clean", max_thick=120)
-        return bg.convert("RGB")
-
-    if style == "character":
-        bg = _backdrop(scheme, (0.3 if side == "left" else 0.7, 0.55))
-        box = _character(bg, emotion, side, max_w=0.5)
-        tx0, tx1 = (36, box[0] + 10) if side == "right" else (box[2] - 10, TW - 36)
-        lines = phrase_lines(phrase, 3)
-        if len(lines) == 1 and len(lines[0]) > 6 and " " in lines[0]:      # two big lines beat one small one
-            lines = lines[0].split(" ", 1)
-        colors = [WHITE] * len(lines)
-        colors[-1] = RED if scheme not in ("red",) else (255, 222, 0)
-        font = "airone" if variant % 3 == 1 else "anton"
-        pic = _tilted(A.picture(icon, 280), rnd)
-        bbs = _words(bg, lines, (tx0, 30, tx1, TH - pic.height + 10), colors, font)
-        top = max(b[3] for b in bbs)
-        px = (tx0 + tx1) / 2 - pic.width / 2 + rnd.uniform(-60, 60)
-        _paste(bg, pic, (px, min(TH - pic.height + 10, top - 10)), shadow=True)
-        return bg.convert("RGB")
-
-    if style == "headline":
-        bg = _backdrop(scheme, (0.5, 0.25))
-        lines = [phrase.upper()]
-        if _fit_anton(lines[0], TW - 60, 300).size < 170:            # too long for one big line
-            lines = phrase_lines(phrase)
-        csid = "right" if variant % 2 == 0 else "left"
-        _character(bg, emotion, csid, height=int(TH * 0.86), max_w=0.46)
-        bbs = _words(bg, lines, (30, 10, TW - 30, 300 if len(lines) == 1 else 360),
-                     [RED if scheme != "red" else (255, 222, 0)] + [WHITE] * (len(lines) - 1), "anton")
-        pic = _tilted(A.picture(icon, 330), rnd)
-        top = max(b[3] for b in bbs) + 10
-        x = TW * (0.27 if csid == "right" else 0.73) - pic.width / 2
-        _paste(bg, pic, (x, top + max(0, (TH - top - pic.height) / 2)))
-        return bg.convert("RGB")
-
-    if style == "icon":
-        bg = _backdrop(scheme, (0.7 if side == "right" else 0.3, 0.5))
-        pic = _tilted(A.picture(icon, 500), rnd, 6)
-        if pic.width > TW * 0.42:
-            pic = pic.resize((int(TW * 0.42), int(pic.height * TW * 0.42 / pic.width)), Image.LANCZOS)
-        x = TW - pic.width - 40 if side == "right" else 40
-        _glow(bg, (x + 40, (TH - pic.height) / 2 + 40, x + pic.width - 40, (TH + pic.height) / 2 - 40),
-              (60, 60, 70), 70, 140)
-        _paste(bg, pic, (x, (TH - pic.height) // 2))
-        tx0, tx1 = (36, x + 20) if side == "right" else (x + pic.width - 20, TW - 36)
-        lines = phrase_lines(phrase, 3)
-        if len(lines) == 1 and len(lines[0]) > 6 and " " in lines[0]:      # two big lines beat one small one
-            lines = lines[0].split(" ", 1)
-        _words(bg, lines, (tx0, 40, tx1, TH - 40), [WHITE] * (len(lines) - 1) + [RED if scheme != "red" else (255, 222, 0)], "anton")
-        return bg.convert("RGB")
-
-    if style == "white":
-        bg = _backdrop("black", (0.75 if side == "right" else 0.25, 0.5))
-        box = _character(bg, emotion, side, max_w=0.42)
-        tx0, tx1 = (40, box[0] - 20) if side == "right" else (box[2] + 20, TW - 40)
-        lines = phrase_lines(phrase, 3)
-        d = ImageDraw.Draw(bg)
-        n = len(lines)
-        bbs = []
-        for i, line in enumerate(lines):
-            f = _fit_anton(line, tx1 - tx0, (TH - 120) / n * 0.95)
-            cy = 60 + (TH - 120) / n * (i + 0.5)
-            cxm = (tx0 + tx1) / 2
-            d.text((cxm, cy), line, font=f, fill=WHITE, anchor="mm", stroke_width=max(5, f.size // 18), stroke_fill=INK)
-            bbs.append(d.textbbox((cxm, cy), line, font=f, anchor="mm", stroke_width=max(5, f.size // 18)))
-        x0, y0, x1, y1 = bbs[0]
-        if re.search(r"\d", lines[0]) and rnd.random() < 0.6:   # a number gets the red cross-out
-            w = max(16, int((y1 - y0) * 0.1))
-            d.line([(x0 - 16, y1 - 8), (x1 + 16, y0 + 8)], fill=RED, width=w)
-            d.line([(x0 - 16, y0 + 8), (x1 + 16, y1 - 8)], fill=RED, width=w)
-        else:                                                    # an arrow from the character's side at the words
-            lx0, ly0, lx1, ly1 = bbs[-1]
-            tx = lx1 + 8 if side == "right" else lx0 - 8
-            ty = (ly0 + ly1) / 2
-            sx = tx + 250 if side == "right" else tx - 250
-            sy = ty + 200 if ty < TH * 0.6 else ty - 200
-            start = (min(TW - 30, max(30, sx)), min(TH - 30, max(30, sy)))
-            A.point_arrow(bg, start, (tx, ty), seed=variant, style="bold" if variant % 2 else "brush", max_thick=120)
-        return bg.convert("RGB")
-
-    raise ValueError(style)
+def _split(title):
+    key = title.strip().lower()
+    if key in SPLITS:
+        return ("split", *SPLITS[key])
+    t = title.strip()
+    if t.lower().startswith("don't ") and len(t.split()) > 2:
+        w = t.split()
+        return ("split", " ".join(w[2:]), " ".join(w[:2]), True)
+    m = re.search(r"\b\d[\d,]*\b", t)
+    if m and m.start() > 0:
+        return ("split", t[:m.start()].strip(), t[m.start():].strip(), False)
+    w = t.split()
+    if len(w) <= 2:
+        return ("split", "", t, False)
+    cut = len(w) // 2
+    return ("split", " ".join(w[:cut]), " ".join(w[cut:]), False)
 
 
+ERROR_UI = [   # keyword -> (symbol, YouTube's message, the small line under it); None = the bracket title
+    ("unlist", "link", "This video is unlisted", "Only people with the link can watch this video."),
+    ("no access", "block", "No access", "You don't have permission to access this video."),
+    ("unavailable", "error_outline", "Video unavailable", "This video is no longer available."),
+    ("hidden", "visibility_off", "This video is hidden", "Only the creator can see this video."),
+    ("secret", "visibility_off", None, None), ("privat", "lock", None, None), ("lock", "lock", None, None),
+    ("delet", "delete", None, None), ("remov", "delete", None, None),
+    ("glitch", "error_outline", None, None), ("curse", "error_outline", None, None),
+]
 
-def _error_note(title):
+
+def _card(icon, text=None, flip=False):
+    return {"kind": "card", "icon": icon, "text": text, "flip": flip}
+
+
+def _designs(title):
+    """Three designs for a title, best first."""
     t = title.lower()
-    for key, note in (("delet", "This video has been deleted."), ("remov", "This video has been removed."),
-                      ("unlist", "This video is unlisted."), ("lock", "This video is locked."),
-                      ("access", "You don't have access to this video."), ("glitch", "Something went wrong."),
-                      ("curse", "This video is cursed."), ("hidden", "This video is hidden."),
-                      ("secret", "This video is secret.")):
-        if key in t:
-            return note
-    return ""
+    clean = re.sub(r"\s+", " ", title).strip()
+    if re.match(r"^\s*[\[<{(]", title):                         # [Private Video] and friends
+        sym, main, sub = next(((s, m, u) for k, s, m, u in ERROR_UI if k in t), ("error_outline", None, None))
+        text = ("ui", main, sub) if main else ("bracket", clean)
+        face = A.drawn_faces(title)[0]
+        tile = _card(("tile", "dark", sym, None), text)
+        if re.search(r"glitch|curse", t):
+            return [{"kind": "glitch"}, {"kind": "sad", "face": "sad"}, tile]
+        if re.search(r"remov|delet", t):
+            return [{"kind": "sad", "face": "sad"}, _card(("tile", "red", "delete", None), ("bracket", clean)),
+                    {"kind": "glitch"}]
+        return [tile, {"kind": "sad", "face": face if face != "dots" else "sad"}, {"kind": "glitch"}]
+
+    split = _split(clean)
+    if re.search(r"0 likes and 0 comments", t):
+        return [{"kind": "counters", "text": None},
+                _card(("pill", "thumb_outline", "0"), ("ui", "This video has 0 likes and 0 comments", "Be the first.")),
+                {"kind": "counters", "text": split}]
+    if re.search(r"balance the likes", t):
+        return [{"kind": "counters", "text": split}, {"kind": "counters", "text": None},
+                _card(("tile", "red", "thumb_up", None), split)]
+    if re.search(r"has 0 likes", t):
+        return [_card(("pill", "thumb_outline", "0"), ("ui", "This video has 0 likes", "Be the first to like this video.")),
+                _card(("tile", "red", "thumb_up", "0"), ("split", "This Video Has", "0 Likes", False)),
+                {"kind": "counters", "text": None}]
+    if re.search(r"has 0 comments", t):
+        return [_card(("pill", "chat_outline", "0"), ("ui", "This video has 0 comments", "Be the first to comment.")),
+                _card(("tile", "red", "chat", "0"), ("split", "This Video Has", "0 Comments", False)),
+                {"kind": "counters", "text": None}]
+    m = re.search(r"won't get ([\d,]+) comments", t)
+    if m:
+        return [{"kind": "crossed", "glyph": "chat_outline", "number": m.group(1)},
+                _card(("tile", "red", "chat", "x"), split),
+                _card(("pill", "chat_outline", m.group(1)), split)]
+    if re.search(r"won't get .*views", t):
+        return [_card(("tile", "dark", "bar_chart", "x"), split), _card(("tile", "red", "bar_chart", "x"), split),
+                {"kind": "crossed", "glyph": "visibility", "number": re.search(r"[\d,.]+ ?\w*", clean[clean.lower().find("get") + 3:]).group(0).strip()}]
+    m = re.search(r"\b(\d+) (people|comments?)\b", t)
+    if m and "comment" in t:
+        n = m.group(1)
+        return [_card(("tile", "red", "chat", n), split), _card(("tile", "dark", "chat", n), split),
+                _card(("pill", "chat_outline", n), split)]
+    if re.search(r"\bviews?\b", t):
+        return [_card(("tile", "dark", "bar_chart", None), split), _card(("tile", "red", "visibility", None), split),
+                _card(("emoji", "bar_chart", None), split)]
+
+    rules = [   # keyword -> (tile colour, symbol, corner mark)
+        (r"self destruct", ("red", "timer", None)), (r"disappear|before it's gone", ("red", "hourglass", None)),
+        (r"delet", ("red", "delete", None)), (r"pause", ("dark", "pause", "no")),
+        (r"twice", ("dark", "replay", "no")), (r"1st person|first person", ("red", "chat", "no")),
+        (r"upside down", ("dark", "screen_rotation", None)), (r"heart every", ("emoji", "favorite", None)),
+        (r"pinned", ("red", "push_pin", None)), (r"age reveal", ("red", "cake", None)),
+        (r"face reveal", ("dark", "face", None)), (r"only you can watch", ("dark", "visibility", None)),
+        (r"verified", ("dark", "verified", None)), (r"secret", ("dark", "visibility_off", None)),
+        (r"comment", ("red", "chat", None)), (r"like", ("red", "thumb_up", None)),
+        (r"", ("red", "help", None)),
+    ]
+    color, sym, mark = next(v for k, v in rules if re.search(k, t))
+    flip = "upside down" in t
+    if color == "emoji":                                        # the 3D heart is the star; tiles as options
+        return [_card(("emoji", EMOJI[sym], None), split), _card(("tile", "red", sym, None), split),
+                _card(("tile", "dark", sym, None), split)]
+    other = "dark" if color == "red" else "red"
+    third = _card(("emoji", EMOJI[sym], mark), split, flip) if sym in EMOJI else _card(("tile", color, sym, mark), None, flip)
+    return [_card(("tile", color, sym, mark), split, flip), _card(("tile", other, sym, mark), split, flip), third]
+
+
+# ------------------------------------------------------------------ rendering
+def _icon(spec, big=False, text=None):
+    kind = spec[0]
+    if kind == "tile":
+        _, color, sym, mark = spec
+        tile = _tile(color, 470 if big else 400 if text and text[0] in ("bracket", "ui") else 360, sym)
+        if mark == "x":
+            tile = _with_corner(tile, _red_disc(int(tile.height * 0.42), "x"), "bottom")
+        elif mark == "no":
+            tile = _with_corner(tile, _no_sign(int(tile.height * 0.62)), "bottom")
+        elif mark:
+            tile = _with_corner(tile, _red_disc(int(tile.height * 0.44), text=mark), "top")
+        return _shadowed(tile)
+    if kind == "pill":
+        return _shadowed(_pill(spec[1], spec[2], 220, round_=False))
+    if kind == "emoji":
+        _, name, mark = spec
+        im = A.picture(name, 300, shadow=False)
+        if mark == "no":
+            im = _with_corner(im, _no_sign(int(im.height * 0.45)), "bottom")
+        elif mark:
+            im = _with_corner(im, _red_disc(int(im.height * 0.4), text=mark), "top")
+        return _shadowed(im, blur=16, dy=10, opacity=150)
+    raise ValueError(kind)
+
+
+def _compose(canvas, icon, text, icon_scale=1.0):
+    """The icon over the text, the whole group centred on the frame."""
+    if icon_scale != 1.0:
+        icon = icon.resize((int(icon.width * icon_scale), int(icon.height * icon_scale)), Image.LANCZOS)
+    bb = icon.getchannel("A").point(lambda v: 255 if v > 40 else 0).getbbox() or (0, 0, icon.width, icon.height)
+    ih = bb[3] - bb[1]
+    th = _text_height(text)
+    gap = 34 if th else 0
+    top = (TH - (ih + gap + th)) / 2
+    canvas.alpha_composite(icon, (int(TW / 2 - (bb[0] + bb[2]) / 2), int(top - bb[1])))
+    if th:
+        _draw_text(canvas, text, top + ih + gap)
+
+
+def render(design, data=None, variant=0):
+    """One thumbnail (RGB 1280x720) for a design from _designs()."""
+    title = (data or {}).get("title_base") or (data or {}).get("title", "")
+    rnd_seed = f"{title}-{variant}"
+    bg = _background()
+    kind = design["kind"]
+    if kind == "card":
+        _compose(bg, _icon(design["icon"], big=not design.get("text"), text=design.get("text")), design.get("text"))
+        if design.get("flip"):
+            bg = bg.rotate(180)
+    elif kind == "sad":
+        face = _shadowed(_sad_face(640, design.get("face", "sad")), blur=24, dy=14)
+        _paste_center(bg, face, TW / 2, TH / 2 + 6)
+    elif kind == "glitch":
+        face = _glitch(_sad_face(620, "sad"), seed=hash(rnd_seed) & 0xffff)
+        _paste_center(bg, face, TW / 2, TH / 2)
+    elif kind == "counters":
+        _compose(bg, _counters(150 if design.get("text") else 210), design.get("text"))
+    elif kind == "crossed":
+        pill = _pill(design["glyph"], design["number"], 250)
+        group = Image.new("RGBA", (pill.width + 120, pill.height + 260), (0, 0, 0, 0))
+        _paste_center(group, _shadowed(pill), group.width / 2, group.height / 2)
+        x = _brush_x(int(pill.width * 0.62), int(pill.height * 1.9), seed=variant)
+        _paste_center(group, x, group.width / 2 - pill.width * 0.14, group.height / 2)  # over the icon, the number shows
+        _paste_center(bg, group, TW / 2, TH / 2)
+    else:
+        raise ValueError(kind)
+    return bg.convert("RGB")
+
+
+def _name(design):
+    k = design["kind"]
+    if k == "card":
+        i = design["icon"]
+        return f"{i[0]}-{i[1]}" + (f"-{i[2]}" if i[0] == "tile" else "")
+    return k
 
 
 def make(data, out_dir: Path, count=3):
-    """Three different thumbnails for the video. Returns the paths."""
-    fmt = data.get("format") or "goal"
-    styles = list(STYLES_FOR.get(fmt, STYLES_FOR["goal"]))
-    rnd = random.Random(data.get("title", "") + data.get("text", "")[:40])
-    first, rest = styles[0], styles[1:]
-    rnd.shuffle(rest)
-    pick = [first] + rest
-    while len(pick) < count:
-        pick.append(rnd.choice(["character", "headline", "icon"]))
+    """Three different thumbnails for the video, the best design first. Returns the paths."""
+    title = data.get("title_base") or data.get("title", "")
+    designs = _designs(title)[:count]
     for old in out_dir.glob("*thumbnail*.jpg"):
         old.unlink()
     paths = []
-    for i, st in enumerate(pick[:count], 1):
-        im = render(st, data, variant=i - 1)
+    for i, design in enumerate(designs, 1):
+        im = render(design, data, variant=i - 1)
         p = out_dir / f"911video-thumbnail-{i}.jpg"
         im.save(p, quality=92)
         paths.append(p)
-    data["thumbs"] = pick[:count]
+    data["thumbs"] = [_name(d) for d in designs]
     return paths
