@@ -1,482 +1,6 @@
 [
  {
   "date": "2026-10-03",
-  "url": "https://www.sophia.org",
-  "brand": "Sophia Learning",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/SophiaLearning/comments/1wvhsw6/is_sophia_reviewing_every_finished_course_now/",
-  "category": "saas",
-  "title": "Sophia Learning USERS Facing Sudden Course Reviews — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "A Sophia Learning user posted on Reddit asking if unexpected account checks have become the new standard",
-  "title_style": null,
-  "theme": {
-   "mode": "light",
-   "layout": "side",
-   "frame": "mac_light",
-   "caption": "glass",
-   "bg": "spotlight",
-   "head_font": "poppins",
-   "accent": [
-    192,
-    216,
-    0
-   ],
-   "transitions": [
-    "zoomin",
-    "fade"
-   ],
-   "intro": "headline",
-   "highlight": "underline",
-   "thumb": "laptop",
-   "thumb_accent": [
-    0,
-    200,
-    255
-   ],
-   "cap_anim": "slide_left",
-   "callout": "card",
-   "music": "ambient",
-   "sfx": "airy",
-   "thumb_palette": "midnight",
-   "thumbs": [
-    "risk/post",
-    "risk/blackout",
-    "risk/highlight"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://akasa.com",
-  "brand": "AKASA",
-  "kind": "review",
-  "story_url": null,
-  "category": "business-tools",
-  "title": "AKASA: AI Medical Billing, But What's the Catch?",
-  "youtube": null,
-  "format": "who_for",
-  "opener": "Here is the catch: AKASA builds generative artificial intelligence specifically for hospital revenue cycles, promising t",
-  "title_style": "legit",
-  "theme": {
-   "mode": "dark",
-   "layout": "spotlight",
-   "frame": "mac_dark",
-   "caption": "bar",
-   "bg": "mesh",
-   "head_font": "inter",
-   "accent": [
-    139,
-    77,
-    98
-   ],
-   "transitions": [
-    "coverleft",
-    "revealright"
-   ],
-   "intro": "split",
-   "highlight": "spotlight",
-   "thumb": "number",
-   "thumb_accent": [
-    0,
-    230,
-    160
-   ],
-   "cap_anim": "slide_right",
-   "callout": "pill",
-   "music": "acoustic",
-   "sfx": "soft",
-   "thumb_palette": "royal",
-   "thumbs": [
-    "number/royal/legit",
-    "yes_no/ocean/scam",
-    "laptop/charcoal/worth"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://paynearme.com",
-  "brand": "PayNearMe",
-  "kind": "review",
-  "story_url": null,
-  "category": "banking-apps",
-  "title": "PayNearMe Honest Review: Pros, Cons & Verdict",
-  "youtube": null,
-  "format": "red_flags",
-  "opener": "If you are looking for a consumer checking account, high-yield savings, or free peer-to-peer transfers, you should stop ",
-  "title_style": "honest",
-  "theme": {
-   "mode": "brand",
-   "layout": "tilt",
-   "frame": "mac_dark",
-   "caption": "bar",
-   "bg": "mesh",
-   "head_font": "inter",
-   "accent": [
-    122,
-    92,
-    255
-   ],
-   "transitions": [
-    "fade"
-   ],
-   "intro": "logo_pop",
-   "highlight": "box",
-   "thumb": "score",
-   "thumb_accent": [
-    0,
-    230,
-    160
-   ],
-   "cap_anim": "fade_up",
-   "callout": "glass",
-   "music": "tech",
-   "sfx": "soft",
-   "thumb_palette": "crimson",
-   "thumbs": [
-    "score/crimson/worth",
-    "banner/violet/scam",
-    "stack/emerald/truth"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://mews.com",
-  "brand": "Mews",
-  "kind": "review",
-  "story_url": null,
-  "category": "business-tools",
-  "title": "Mews: 1,000+ Integrations, But What's the Catch?",
-  "youtube": null,
-  "format": "pros_cons",
-  "opener": "Are you running a modern hotel and tired of clunky legacy software holding back your daily operations? Today we are brea",
-  "title_style": "scam",
-  "theme": {
-   "mode": "dark",
-   "layout": "full",
-   "frame": "floating",
-   "caption": "tag",
-   "bg": "spotlight",
-   "head_font": "poppins",
-   "accent": [
-    240,
-    120,
-    216
-   ],
-   "transitions": [
-    "radial",
-    "fade"
-   ],
-   "intro": "headline",
-   "highlight": "underline",
-   "thumb": "split",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "drop",
-   "callout": "card",
-   "music": "lofi",
-   "sfx": "warm",
-   "thumb_palette": "charcoal",
-   "thumbs": [
-    "split/charcoal/scam",
-    "yes_no/violet/worth",
-    "score/magenta/catch"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://tungstenautomation.com",
-  "brand": "Tungsten Automation",
-  "kind": "review",
-  "story_url": null,
-  "category": "business-tools",
-  "title": "Tungsten Automation: Hidden Pricing, But Is It Worth It?",
-  "youtube": null,
-  "format": "pros_cons",
-  "opener": "The Tungsten Automation homepage notes that the bulk of your business knowledge lives in unstructured files that standar",
-  "title_style": "scam",
-  "theme": {
-   "mode": "light",
-   "layout": "full",
-   "frame": "floating",
-   "caption": "glass",
-   "bg": "spotlight",
-   "head_font": "interdisplay",
-   "accent": [
-    140,
-    230,
-    60
-   ],
-   "transitions": [
-    "fadeblack"
-   ],
-   "intro": "headline",
-   "highlight": "underline",
-   "thumb": "left",
-   "thumb_accent": [
-    255,
-    90,
-    60
-   ],
-   "cap_anim": "drop",
-   "callout": "card",
-   "music": "lofi",
-   "sfx": "crisp",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "left/ocean/scam",
-    "yes_no/midnight/worth",
-    "number/violet/good"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://vespper.com",
-  "brand": "Vespper",
-  "kind": "review",
-  "story_url": null,
-  "category": "ai-tools",
-  "title": "Vespper: Fast Word Document MCP, But Is It Worth It?",
-  "youtube": null,
-  "format": "pros_cons",
-  "opener": "If you are not building AI agents that touch Microsoft Word documents, you should stop watching right now",
-  "title_style": "actually",
-  "theme": {
-   "mode": "dark",
-   "layout": "full",
-   "frame": "minimal",
-   "caption": "glass",
-   "bg": "blurshot",
-   "head_font": "interdisplay",
-   "accent": [
-    240,
-    144,
-    48
-   ],
-   "transitions": [
-    "circleopen",
-    "fade"
-   ],
-   "intro": "headline",
-   "highlight": "spotlight",
-   "thumb": "yes_no",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "slide_left",
-   "callout": "pill",
-   "music": "ambient",
-   "sfx": "airy",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "yes_no/ocean/worth",
-    "laptop/crimson/scam",
-    "stack/emerald/good"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://shiphq.io",
-  "brand": "ShipHQ",
-  "kind": "review",
-  "story_url": null,
-  "category": "saas",
-  "title": "ShipHQ: What's the Catch?",
-  "youtube": null,
-  "format": "first_look",
-  "opener": "Here is the catch: when you visit ShipHQ, you do not find a shipping app at all",
-  "title_style": "catch",
-  "theme": {
-   "mode": "dark",
-   "layout": "full",
-   "frame": "minimal",
-   "caption": "underline",
-   "bg": "spotlight",
-   "head_font": "poppins",
-   "accent": [
-    0,
-    214,
-    170
-   ],
-   "transitions": [
-    "cut"
-   ],
-   "intro": "split",
-   "highlight": "spotlight",
-   "thumb": "left",
-   "thumb_accent": [
-    255,
-    212,
-    0
-   ],
-   "cap_anim": "slide_right",
-   "callout": "card",
-   "music": "upbeat",
-   "sfx": "crisp",
-   "thumb_palette": "charcoal",
-   "thumbs": [
-    "left/charcoal/catch",
-    "stack/magenta/worth",
-    "banner/ocean/scam"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://neverboring.ai",
-  "brand": "Never Boring AI",
-  "kind": "review",
-  "story_url": null,
-  "category": "marketing",
-  "title": "Never Boring AI: $39/mo LinkedIn Agent Reviewed",
-  "youtube": null,
-  "format": "pros_cons",
-  "opener": "Are you tired of staring at a blank LinkedIn screen every week trying to figure out what to write? Never Boring AI promi",
-  "title_style": "before",
-  "theme": {
-   "mode": "dark",
-   "layout": "stage",
-   "frame": "floating",
-   "caption": "glass",
-   "bg": "blurshot",
-   "head_font": "interdisplay",
-   "accent": [
-    0,
-    170,
-    255
-   ],
-   "transitions": [
-    "hblur",
-    "fade"
-   ],
-   "intro": "split",
-   "highlight": "underline",
-   "thumb": "split",
-   "thumb_accent": [
-    255,
-    212,
-    0
-   ],
-   "cap_anim": "slide_right",
-   "callout": "pill",
-   "music": "ambient",
-   "sfx": "playful",
-   "thumb_palette": "emerald",
-   "thumbs": [
-    "split/emerald/before",
-    "banner/violet/scam",
-    "yes_no/magenta/worth"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://manus.im",
-  "brand": "Manus",
-  "kind": "review",
-  "story_url": null,
-  "category": "ai-tools",
-  "title": "Manus: Watch This Before You Sign Up",
-  "youtube": null,
-  "format": "pros_cons",
-  "opener": "Manus claims to be the action engine that goes beyond simple answers to execute tasks, automate workflows, and extend hu",
-  "title_style": "before",
-  "theme": {
-   "mode": "dark",
-   "layout": "stage",
-   "frame": "floating",
-   "caption": "tag",
-   "bg": "gradient",
-   "head_font": "poppins",
-   "accent": [
-    255,
-    70,
-    140
-   ],
-   "transitions": [
-    "fadeblack"
-   ],
-   "intro": "headline",
-   "highlight": "spotlight",
-   "thumb": "laptop",
-   "thumb_accent": [
-    255,
-    212,
-    0
-   ],
-   "cap_anim": "slide_up",
-   "callout": "pill",
-   "music": "ambient",
-   "sfx": "warm",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "laptop/ocean/before",
-    "number/royal/scam",
-    "left/charcoal/worth"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://mintlify.com",
-  "brand": "Mintlify",
-  "kind": "review",
-  "story_url": null,
-  "category": "saas",
-  "title": "Mintlify: $450/mo Pro Plan, But What's the Catch?",
-  "youtube": null,
-  "format": "five_questions",
-  "opener": "The homepage claims Mintlify powers over twenty thousand companies with self-updating documentation built for AI agents",
-  "title_style": "dont",
-  "theme": {
-   "mode": "dark",
-   "layout": "full",
-   "frame": "minimal",
-   "caption": "glass",
-   "bg": "gradient",
-   "head_font": "poppins",
-   "accent": [
-    24,
-    216,
-    144
-   ],
-   "transitions": [
-    "smoothleft",
-    "smoothright"
-   ],
-   "intro": "split",
-   "highlight": "spotlight",
-   "thumb": "split",
-   "thumb_accent": [
-    24,
-    216,
-    144
-   ],
-   "cap_anim": "slide_right",
-   "callout": "card",
-   "music": "ambient",
-   "sfx": "airy",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "split/ocean/dont",
-    "banner/emerald/worth",
-    "left/magenta/scam"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
   "url": "https://omniaagent.com",
   "brand": "Omnia",
   "kind": "review",
@@ -11923,6 +11447,483 @@
     "left/violet/worth",
     "stack/midnight/scam",
     "banner/royal/expect"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://www.pedestal.ai",
+  "brand": "Pedestal AI",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Pedestal AI Review: Can It Automate Your Logistics?",
+  "youtube": "https://youtu.be/SQ6pmOsVFF8",
+  "format": "who_for",
+  "opener": "Ever wonder how complex supply chains keep track of millions of moving parts without total chaos? Pedestal claims it rea",
+  "title_style": "truth",
+  "theme": {
+   "mode": "brand",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "bar",
+   "bg": "spotlight",
+   "head_font": "inter",
+   "accent": [
+    120,
+    192,
+    240
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "laptop",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "slide_up",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "laptop/magenta/truth",
+    "left/crimson/scam",
+    "split/emerald/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://talent.hubstaff.com",
+  "brand": "Hubstaff Talent",
+  "kind": "review",
+  "story_url": null,
+  "category": "freelancing",
+  "title": "Hubstaff Talent: $0 Fees, But What's the Catch?",
+  "youtube": "https://youtu.be/nHszxU0vb8w",
+  "format": "who_for",
+  "opener": "Ever get tired of platforms taking a huge slice of your hard-earned freelancing paycheck? Hubstaff Talent claims it's a ",
+  "title_style": "good",
+  "theme": {
+   "mode": "brand",
+   "layout": "full",
+   "frame": "minimal",
+   "caption": "bar",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    240,
+    72,
+    24
+   ],
+   "transitions": [
+    "slideleft",
+    "slideright"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "banner",
+   "thumb_accent": [
+    0,
+    230,
+    160
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "warm",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "banner/charcoal/good",
+    "left/crimson/scam",
+    "yes_no/royal/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://willder.com",
+  "brand": "Willder",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Willder Review: Are These UK Architects Worth Hiring?",
+  "youtube": "https://youtu.be/c9qPBlhJgco",
+  "format": "first_look",
+  "opener": "Ever wonder how hard it is to find local consulting architects who actually know heritage design inside and out? Well, W",
+  "title_style": "honest",
+  "theme": {
+   "mode": "light",
+   "layout": "side",
+   "frame": "mac_light",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "dissolve"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "fade_up",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "royal",
+   "thumbs": [
+    "score/royal/worth",
+    "banner/magenta/scam",
+    "laptop/crimson/works"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://www.marrowtx.com",
+  "brand": "Marrow Therapeutics",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Marrow Therapeutics Review: $173M Funding, But Is It Worth It?",
+  "youtube": "https://youtu.be/WpC8LLnummQ",
+  "format": "first_look",
+  "opener": "If you're hunting for a consumer app to track your daily chores, stop right now since it's a biotech site",
+  "title_style": "truth",
+  "theme": {
+   "mode": "brand",
+   "layout": "spotlight",
+   "frame": "mac_light",
+   "caption": "bar",
+   "bg": "mesh",
+   "head_font": "inter",
+   "accent": [
+    218,
+    39,
+    62
+   ],
+   "transitions": [
+    "slideup",
+    "slidedown"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "number",
+   "thumb_accent": [
+    255,
+    90,
+    60
+   ],
+   "cap_anim": "fade_up",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "charcoal",
+   "thumbs": [
+    "number/charcoal/truth",
+    "laptop/violet/scam",
+    "stack/midnight/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://www.corma.io",
+  "brand": "Corma",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Corma Review: Is This IT Automation Tool Worth It?",
+  "youtube": "https://youtu.be/EpFQd-K_VpY",
+  "format": "five_questions",
+  "opener": "Ever wonder how many random apps your team is paying for right now? Corma claims it's the all-in-one platform to track s",
+  "title_style": "honest",
+  "theme": {
+   "mode": "light",
+   "layout": "spotlight",
+   "frame": "minimal",
+   "caption": "pill",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    255,
+    94,
+    58
+   ],
+   "transitions": [
+    "zoomin",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "banner",
+   "thumb_accent": [
+    255,
+    94,
+    58
+   ],
+   "cap_anim": "fade_up",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "banner/magenta/worth",
+    "yes_no/emerald/scam",
+    "left/ocean/expect"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://www.peopleperhour.com",
+  "brand": "PeoplePerHour",
+  "kind": "review",
+  "story_url": null,
+  "category": "freelancing",
+  "title": "PeoplePerHour: What's the Catch?",
+  "youtube": "https://youtu.be/x7tGcuQp8lc",
+  "format": "five_questions",
+  "opener": "Ever need a freelancer in a hurry and wonder if PeoplePerHour is actually any good? Here's the catch: it's a massive UK-",
+  "title_style": "catch",
+  "theme": {
+   "mode": "brand",
+   "layout": "full",
+   "frame": "minimal",
+   "caption": "tag",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    240,
+    72,
+    0
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "laptop",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_right",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "laptop/magenta/catch",
+    "banner/midnight/worth",
+    "yes_no/ocean/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://www.redfin.com",
+  "brand": "Redfin",
+  "kind": "review",
+  "story_url": null,
+  "category": "real-estate",
+  "title": "Redfin: Half the Fees, But Is It Worth Using?",
+  "youtube": "https://youtu.be/1rPJVTyB3-c",
+  "format": "who_for",
+  "opener": "Ever tried to buy a house and felt like everyone else knew about it weeks before you did? Here's the catch with Redfin: ",
+  "title_style": "legit",
+  "theme": {
+   "mode": "light",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "underline",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    216,
+    48,
+    48
+   ],
+   "transitions": [
+    "smoothleft",
+    "smoothright"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "yes_no/crimson/legit",
+    "left/magenta/worth",
+    "laptop/charcoal/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://www.upcounsel.com",
+  "brand": "UpCounsel",
+  "kind": "review",
+  "story_url": null,
+  "category": "legal",
+  "title": "UpCounsel Honest Review: Is It Worth Using?",
+  "youtube": "https://youtu.be/mTsb5s13tP4",
+  "format": "five_questions",
+  "opener": "Ever get tired of hunting down a reliable business lawyer without paying old-school firm prices? UpCounsel claims it con",
+  "title_style": "honest",
+  "theme": {
+   "mode": "light",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "bar",
+   "bg": "blurshot",
+   "head_font": "interdisplay",
+   "accent": [
+    0,
+    144,
+    216
+   ],
+   "transitions": [
+    "radial",
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "underline",
+   "thumb": "yes_no",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "drop",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "yes_no/crimson/worth",
+    "number/magenta/scam",
+    "split/royal/legit"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://www.usebraintrust.com",
+  "brand": "Braintrust",
+  "kind": "review",
+  "story_url": null,
+  "category": "freelancing",
+  "title": "Braintrust: The Fees & AI Hiring Reality",
+  "youtube": "https://youtu.be/_ly-AaKlDsY",
+  "format": "five_questions",
+  "opener": "If you're tired of traditional staffing markups, you've probably stumbled on Braintrust",
+  "title_style": "fees",
+  "theme": {
+   "mode": "brand",
+   "layout": "full",
+   "frame": "mac_light",
+   "caption": "tag",
+   "bg": "gradient",
+   "head_font": "interdisplay",
+   "accent": [
+    140,
+    230,
+    60
+   ],
+   "transitions": [
+    "circleopen",
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "underline",
+   "thumb": "banner",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "fade_up",
+   "callout": "pill",
+   "music": "chords",
+   "sfx": "minimal",
+   "thumb_palette": "midnight",
+   "thumbs": [
+    "banner/midnight/fees",
+    "stack/emerald/worth",
+    "yes_no/charcoal/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://figschema.com",
+  "brand": "FigSchema",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "FigSchema: Legit or Overhyped? One-Time Pricing Tested",
+  "youtube": "https://youtu.be/2jzv1F7Xpns",
+  "format": "first_look",
+  "opener": "Ever find yourself sketching database tables on a whiteboard and wishing it'd just turn into code? FigSchema claims you ",
+  "title_style": "legit",
+  "theme": {
+   "mode": "brand",
+   "layout": "side",
+   "frame": "minimal",
+   "caption": "underline",
+   "bg": "gradient",
+   "head_font": "interdisplay",
+   "accent": [
+    192,
+    120,
+    24
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "headline",
+   "highlight": "spotlight",
+   "thumb": "score",
+   "thumb_accent": [
+    255,
+    212,
+    0
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "crimson",
+   "thumbs": [
+    "score/crimson/legit",
+    "split/midnight/scam",
+    "stack/charcoal/worth"
    ]
   }
  }

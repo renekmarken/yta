@@ -2134,5 +2134,118 @@
   "status": "done",
   "date": "2026-11-18",
   "alt": "Higgsfield Miracle"
+ },
+ {
+  "site": "pedestal.ai",
+  "name": "Pedestal AI",
+  "url": "https://www.pedestal.ai",
+  "status": "done",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "hubstaff.com",
+  "name": "Hubstaff Talent",
+  "url": "https://talent.hubstaff.com",
+  "status": "done",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "homes.com",
+  "name": "Homes.com",
+  "url": "https://www.homes.com",
+  "status": "failed",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "willder.com",
+  "name": "Willder",
+  "url": "https://willder.com",
+  "status": "done",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "solidgigs.com",
+  "name": "SolidGigs",
+  "url": "https://solidgigs.com",
+  "status": "failed",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "roofstock.com",
+  "name": "Roofstock",
+  "url": "https://www.roofstock.com",
+  "status": "failed",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "agentclan.com",
+  "name": "Agent Clan",
+  "url": "https://agentclan.com",
+  "status": "failed",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "workingnotworking.com",
+  "name": "Working Not Working",
+  "url": "https://workingnotworking.com",
+  "status": "failed",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "marrowtx.com",
+  "name": "Marrow Therapeutics",
+  "url": "https://www.marrowtx.com",
+  "status": "done",
+  "date": "2026-11-18",
+  "alt": "Morrow Therapeutics"
+ },
+ {
+  "site": "corma.io",
+  "name": "Corma",
+  "url": "https://www.corma.io",
+  "status": "done",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "peopleperhour.com",
+  "name": "PeoplePerHour",
+  "url": "https://www.peopleperhour.com",
+  "status": "done",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "redfin.com",
+  "name": "Redfin",
+  "url": "https://www.redfin.com",
+  "status": "done",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "upcounsel.com",
+  "name": "UpCounsel",
+  "url": "https://www.upcounsel.com",
+  "status": "done",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "usebraintrust.com",
+  "name": "Braintrust",
+  "url": "https://www.usebraintrust.com",
+  "status": "done",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "trulia.com",
+  "name": "Trulia",
+  "url": "https://www.trulia.com",
+  "status": "failed",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "figschema.com",
+  "name": "FigSchema",
+  "url": "https://figschema.com",
+  "status": "done",
+  "date": "2026-11-18"
  }
 ]
