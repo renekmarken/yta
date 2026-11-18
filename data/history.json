@@ -1,531 +1,5 @@
 [
  {
-  "date": "2026-10-02",
-  "url": "https://www.discover.com",
-  "brand": "Discover",
-  "kind": "risk",
-  "story_url": "https://news.ycombinator.com/item?id=41269838",
-  "category": "credit-cards",
-  "title": "Discover REVERSED My Chargeback Without Notice — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "A Discover user posted on Hacker News about an unexpected charge reversal",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "spotlight",
-   "frame": "minimal",
-   "caption": "glass",
-   "bg": "blurshot",
-   "head_font": "inter",
-   "accent": [
-    255,
-    212,
-    0
-   ],
-   "transitions": [
-    "zoomin",
-    "fade"
-   ],
-   "intro": "split",
-   "highlight": "box",
-   "thumb": "laptop",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "slide_up",
-   "callout": "glass",
-   "music": "lofi",
-   "sfx": "punchy",
-   "thumb_palette": "emerald",
-   "thumbs": [
-    "risk/post",
-    "risk/strip",
-    "risk/highlight"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://dayforward.com",
-  "brand": "Dayforward",
-  "kind": "review",
-  "story_url": null,
-  "category": "insurance",
-  "title": "Dayforward: $0 Fees, But What's the Catch?",
-  "youtube": null,
-  "format": "first_look",
-  "opener": "Welcome to our guided first look at Dayforward",
-  "title_style": "fees",
-  "theme": {
-   "mode": "brand",
-   "layout": "stage",
-   "frame": "mac_light",
-   "caption": "bar",
-   "bg": "gradient",
-   "head_font": "poppins",
-   "accent": [
-    122,
-    92,
-    255
-   ],
-   "transitions": [
-    "dissolve"
-   ],
-   "intro": "logo_pop",
-   "highlight": "spotlight",
-   "thumb": "score",
-   "thumb_accent": [
-    255,
-    212,
-    0
-   ],
-   "cap_anim": "slide_right",
-   "callout": "card",
-   "music": "acoustic",
-   "sfx": "soft",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "score/ocean/fees",
-    "yes_no/charcoal/scam",
-    "laptop/magenta/worth"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://codync.com",
-  "brand": "Codync",
-  "kind": "review",
-  "story_url": null,
-  "category": "ai-tools",
-  "title": "Codync: AI Tool Or Just A Domain For Sale?",
-  "youtube": null,
-  "format": "pros_cons",
-  "opener": "If you are looking for a brand-new artificial intelligence platform or software tool to build your code, you should stop",
-  "title_style": "actually",
-  "theme": {
-   "mode": "light",
-   "layout": "tilt",
-   "frame": "mac_light",
-   "caption": "bar",
-   "bg": "gradient",
-   "head_font": "interdisplay",
-   "accent": [
-    114,
-    114,
-    158
-   ],
-   "transitions": [
-    "coverleft",
-    "revealright"
-   ],
-   "intro": "headline",
-   "highlight": "spotlight",
-   "thumb": "split",
-   "thumb_accent": [
-    0,
-    200,
-    255
-   ],
-   "cap_anim": "fade_up",
-   "callout": "pill",
-   "music": "upbeat",
-   "sfx": "warm",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "split/ocean/worth",
-    "number/royal/scam",
-    "yes_no/midnight/legit"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://cloudflare.com",
-  "brand": "Cloudflare",
-  "kind": "review",
-  "story_url": null,
-  "category": "saas",
-  "title": "Cloudflare: $0 Plans, But What's the Catch?",
-  "youtube": null,
-  "format": "fine_print",
-  "opener": "Cloudflare claims to power twenty percent of the internet, offering one unified platform for your apps, agents, and work",
-  "title_style": "expect",
-  "theme": {
-   "mode": "brand",
-   "layout": "tilt",
-   "frame": "mac_dark",
-   "caption": "underline",
-   "bg": "mesh",
-   "head_font": "poppins",
-   "accent": [
-    255,
-    70,
-    140
-   ],
-   "transitions": [
-    "circleopen",
-    "fade"
-   ],
-   "intro": "headline",
-   "highlight": "underline",
-   "thumb": "yes_no",
-   "thumb_accent": [
-    255,
-    70,
-    140
-   ],
-   "cap_anim": "slide_right",
-   "callout": "card",
-   "music": "tech",
-   "sfx": "digital",
-   "thumb_palette": "charcoal",
-   "thumbs": [
-    "yes_no/charcoal/expect",
-    "stack/magenta/worth",
-    "number/midnight/scam"
-   ]
-  }
- },
- {
-  "date": "2026-10-02",
-  "url": "https://magnitude.dev",
-  "brand": "Magnitude",
-  "kind": "review",
-  "story_url": null,
-  "category": "ai-tools",
-  "title": "Magnitude: Free AI Engine, But Is It Actually Worth It?",
-  "youtube": null,
-  "format": "five_questions",
-  "opener": "Magnitude promises to run open models as fast as your hardware allows",
-  "title_style": "dont",
-  "theme": {
-   "mode": "brand",
-   "layout": "tilt",
-   "frame": "mac_dark",
-   "caption": "pill",
-   "bg": "mesh",
-   "head_font": "poppins",
-   "accent": [
-    255,
-    94,
-    58
-   ],
-   "transitions": [
-    "coverleft",
-    "revealright"
-   ],
-   "intro": "headline",
-   "highlight": "spotlight",
-   "thumb": "left",
-   "thumb_accent": [
-    0,
-    200,
-    255
-   ],
-   "cap_anim": "slide_left",
-   "callout": "card",
-   "music": "tech",
-   "sfx": "airy",
-   "thumb_palette": "midnight",
-   "thumbs": [
-    "left/midnight/dont",
-    "score/crimson/worth",
-    "number/charcoal/scam"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://www.instagram.com",
-  "brand": "Instagram",
-  "kind": "risk",
-  "story_url": "https://news.ycombinator.com/item?id=44465796",
-  "category": "saas",
-  "title": "Instagram BANNED new account for 'no reason'? What now?",
-  "youtube": null,
-  "format": null,
-  "opener": "An Instagram user posted on Hacker News about a frustrating experience",
-  "title_style": null,
-  "theme": {
-   "mode": "light",
-   "layout": "side",
-   "frame": "minimal",
-   "caption": "glass",
-   "bg": "gradient",
-   "head_font": "interdisplay",
-   "accent": [
-    255,
-    212,
-    0
-   ],
-   "transitions": [
-    "fadeblack"
-   ],
-   "intro": "logo_pop",
-   "highlight": "underline",
-   "thumb": "stack",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "slide_up",
-   "callout": "pill",
-   "music": "upbeat",
-   "sfx": "digital",
-   "thumb_palette": "crimson",
-   "thumbs": [
-    "risk/post",
-    "risk/stamp",
-    "risk/highlight"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://www.meta.com",
-  "brand": "Meta",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/FacebookAds/comments/1oshibc/meta_ads_are_broken_spent_my_entire_daily_budget/",
-  "category": "marketing",
-  "title": "Meta Ads Spent Entire Budget in Minutes — Glitch or Scam?",
-  "youtube": null,
-  "format": null,
-  "opener": "A Meta user posted on Reddit about a shocking advertising experience where their daily budget vanished almost instantly",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "spotlight",
-   "frame": "minimal",
-   "caption": "bar",
-   "bg": "spotlight",
-   "head_font": "interdisplay",
-   "accent": [
-    0,
-    120,
-    240
-   ],
-   "transitions": [
-    "smoothup",
-    "smoothdown"
-   ],
-   "intro": "split",
-   "highlight": "underline",
-   "thumb": "number",
-   "thumb_accent": [
-    255,
-    212,
-    0
-   ],
-   "cap_anim": "slide_right",
-   "callout": "pill",
-   "music": "lofi",
-   "sfx": "punchy",
-   "thumb_palette": "magenta",
-   "thumbs": [
-    "risk/post",
-    "risk/blackout",
-    "risk/caution"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://www.instagram.com",
-  "brand": "Instagram",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/webdev/comments/1vkii7b/instagram_webhook_tests_work_but_real_dms_and/",
-  "category": "saas",
-  "title": "Instagram webhook tests work, but real DMs never arrive — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "An Instagram user posted that their webhook tests work fine, but real direct messages and postbacks never arrive",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "spotlight",
-   "frame": "minimal",
-   "caption": "tag",
-   "bg": "blurshot",
-   "head_font": "inter",
-   "accent": [
-    0,
-    170,
-    255
-   ],
-   "transitions": [
-    "smoothleft",
-    "smoothright"
-   ],
-   "intro": "split",
-   "highlight": "underline",
-   "thumb": "stack",
-   "thumb_accent": [
-    255,
-    212,
-    0
-   ],
-   "cap_anim": "drop",
-   "callout": "pill",
-   "music": "lofi",
-   "sfx": "punchy",
-   "thumb_palette": "magenta",
-   "thumbs": [
-    "risk/post",
-    "risk/caution",
-    "risk/stamp"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://cloudflare.com",
-  "brand": "Cloudflare",
-  "kind": "risk",
-  "story_url": "https://news.ycombinator.com/item?id=45250553",
-  "category": "hosting",
-  "title": "Cloudflare PAID $2400 But Support Refuses To Help?",
-  "youtube": null,
-  "format": null,
-  "opener": "A Cloudflare user posted on Hacker News about paying two thousand four hundred dollars upfront for a Business plan, only",
-  "title_style": null,
-  "theme": {
-   "mode": "light",
-   "layout": "stage",
-   "frame": "minimal",
-   "caption": "glass",
-   "bg": "aurora",
-   "head_font": "interdisplay",
-   "accent": [
-    255,
-    212,
-    0
-   ],
-   "transitions": [
-    "squeezeh",
-    "fade"
-   ],
-   "intro": "split",
-   "highlight": "underline",
-   "thumb": "stack",
-   "thumb_accent": [
-    255,
-    212,
-    0
-   ],
-   "cap_anim": "slide_up",
-   "callout": "glass",
-   "music": "upbeat",
-   "sfx": "playful",
-   "thumb_palette": "emerald",
-   "thumbs": [
-    "risk/post",
-    "risk/blackout",
-    "risk/headline"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://www.ally.com",
-  "brand": "Ally Bank",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/AllyBank/comments/1rveopx/run_away_while_you_can_ally_admits_to_mistakenly/",
-  "category": "banking-apps",
-  "title": "Ally Bank FROZE Account for 16-Year Customer — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "An Ally Bank user posted on Reddit about a shocking experience",
-  "title_style": null,
-  "theme": {
-   "mode": "light",
-   "layout": "stage",
-   "frame": "floating",
-   "caption": "tag",
-   "bg": "aurora",
-   "head_font": "inter",
-   "accent": [
-    0,
-    214,
-    170
-   ],
-   "transitions": [
-    "wipeleft",
-    "wiperight"
-   ],
-   "intro": "split",
-   "highlight": "box",
-   "thumb": "stack",
-   "thumb_accent": [
-    255,
-    212,
-    0
-   ],
-   "cap_anim": "slide_up",
-   "callout": "glass",
-   "music": "upbeat",
-   "sfx": "soft",
-   "thumb_palette": "violet",
-   "thumbs": [
-    "risk/post",
-    "risk/blackout",
-    "risk/highlight"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://www.sofi.com",
-  "brand": "SoFi",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/sofi/comments/1ok1pnw/sofi_froze_my_account_denied_my_fraud_dispute_and/",
-  "category": "banking-apps",
-  "title": "SoFi FROZE Account and Denied Dispute — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "A SoFi user posted on Reddit about a severe banking nightmare",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "full",
-   "frame": "minimal",
-   "caption": "bar",
-   "bg": "blurshot",
-   "head_font": "inter",
-   "accent": [
-    0,
-    170,
-    255
-   ],
-   "transitions": [
-    "wipeleft",
-    "wiperight"
-   ],
-   "intro": "split",
-   "highlight": "box",
-   "thumb": "banner",
-   "thumb_accent": [
-    0,
-    170,
-    255
-   ],
-   "cap_anim": "fade_up",
-   "callout": "glass",
-   "music": "lofi",
-   "sfx": "crisp",
-   "thumb_palette": "magenta",
-   "thumbs": [
-    "risk/post",
-    "risk/stamp",
-    "risk/highlight"
-   ]
-  }
- },
- {
   "date": "2026-10-03",
   "url": "https://www.sophia.org",
   "brand": "Sophia Learning",
@@ -11925,6 +11399,530 @@
     "yes_no/crimson/good",
     "left/violet/scam",
     "number/emerald/worth"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://daytwo.app",
+  "brand": "Daytwo",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Daytwo: Legit or Overhyped? Code Edits Without Developers Tested",
+  "youtube": "https://youtu.be/h-fEJylKhx8",
+  "format": "pros_cons",
+  "opener": "Ever wonder how to let your non-technical team update a custom site without breaking the layout? Daytwo claims it's an a",
+  "title_style": "legit",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "glass",
+   "bg": "aurora",
+   "head_font": "poppins",
+   "accent": [
+    0,
+    170,
+    255
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "score",
+   "thumb_accent": [
+    0,
+    170,
+    255
+   ],
+   "cap_anim": "slide_right",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "digital",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "score/magenta/legit",
+    "banner/crimson/worth",
+    "laptop/emerald/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://delight.ai",
+  "brand": "Delight.ai",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Delight.ai: 10x Sales Boost, But What's the Catch?",
+  "youtube": "https://youtu.be/QO6LS28I2zc",
+  "format": "pros_cons",
+  "opener": "Okay, let's talk about a surprising detail right on the homepage: Delight",
+  "title_style": "scam",
+  "theme": {
+   "mode": "dark",
+   "layout": "stage",
+   "frame": "floating",
+   "caption": "bar",
+   "bg": "mesh",
+   "head_font": "poppins",
+   "accent": [
+    240,
+    240,
+    96
+   ],
+   "transitions": [
+    "circleopen",
+    "fade"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "score",
+   "thumb_accent": [
+    240,
+    240,
+    96
+   ],
+   "cap_anim": "slide_right",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "score/ocean/scam",
+    "yes_no/crimson/worth",
+    "left/magenta/legit"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://cloakpane.com",
+  "brand": "CloakPane",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "CloakPane: $2.99 Stealth Browser, But What's the Catch?",
+  "youtube": "https://youtu.be/x62ccWHhR7E",
+  "format": "fine_print",
+  "opener": "Ever share your screen on a Zoom call and panic because a sensitive tab's open? Here's the catch with CloakPane: it's a ",
+  "title_style": "scam",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "bar",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    96,
+    96,
+    168
+   ],
+   "transitions": [
+    "wipeleft",
+    "wiperight"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "score",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_right",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "crisp",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "score/ocean/scam",
+    "laptop/violet/worth",
+    "number/emerald/expect"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://gitmanual.com",
+  "brand": "gitmanual",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "gitmanual: $0 Setup Tool, But What's the Catch?",
+  "youtube": "https://youtu.be/ePvLDCIxIXI",
+  "format": "red_flags",
+  "opener": "Ever find a cool tool on GitHub, but you just give up trying to install it? Here's the catch with GitManual: it claims i",
+  "title_style": "expect",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "tag",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    240,
+    96,
+    24
+   ],
+   "transitions": [
+    "smoothup",
+    "smoothdown"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "split",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "split/violet/expect",
+    "yes_no/emerald/worth",
+    "laptop/crimson/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://veilcc.com",
+  "brand": "VeilCC",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "VeilCC: $199/mo Code Protection, But Is It Worth It?",
+  "youtube": "https://youtu.be/EmOVdX6t1U8",
+  "format": "fine_print",
+  "opener": "Ever wonder how fast an AI agent can read your app's core logic? VeilCC claims to stop that by hardening binaries with A",
+  "title_style": "dont",
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "mac_dark",
+   "caption": "bar",
+   "bg": "blurshot",
+   "head_font": "poppins",
+   "accent": [
+    122,
+    92,
+    255
+   ],
+   "transitions": [
+    "coverleft",
+    "revealright"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "left",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "airy",
+   "thumb_palette": "magenta",
+   "thumbs": [
+    "left/magenta/dont",
+    "laptop/violet/worth",
+    "stack/crimson/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://zigzagbrowser.com",
+  "brand": "Zigzag",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Zigzag Browser: 35 MB App Size, But What's the Catch?",
+  "youtube": "https://youtu.be/gt6hipkGeFE",
+  "format": "red_flags",
+  "opener": "Ever get tired of your browser hogging all your computer memory? Well, Zigzag claims it's a super lightweight web browse",
+  "title_style": "expect",
+  "theme": {
+   "mode": "light",
+   "layout": "stage",
+   "frame": "floating",
+   "caption": "glass",
+   "bg": "mesh",
+   "head_font": "inter",
+   "accent": [
+    75,
+    99,
+    122
+   ],
+   "transitions": [
+    "fade"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "slide_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "playful",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "stack/ocean/expect",
+    "score/charcoal/worth",
+    "laptop/violet/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://lottie.ai",
+  "brand": "Lottie AI",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Lottie AI: $20 Monthly Fees, But Is It Worth It?",
+  "youtube": "https://youtu.be/Fj-G0tKibz4",
+  "format": "pros_cons",
+  "opener": "Okay, picture typing a quick sentence on your screen and getting back a fully working motion graphic instead of a heavy ",
+  "title_style": "before",
+  "theme": {
+   "mode": "dark",
+   "layout": "spotlight",
+   "frame": "mac_light",
+   "caption": "glass",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    255,
+    150,
+    30
+   ],
+   "transitions": [
+    "slideleft",
+    "slideright"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "split/violet/before",
+    "stack/emerald/worth",
+    "yes_no/charcoal/scam"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://katasend.com",
+  "brand": "Kata Send",
+  "kind": "review",
+  "story_url": null,
+  "category": "marketing",
+  "title": "Kata Send: AI Cold Email, But What's the Catch?",
+  "youtube": "https://youtu.be/tUVvRkiGnfE",
+  "format": "red_flags",
+  "opener": "Ever heard of an outbox built specifically for your AI assistant? Well, Kata Send claims it's cold email infrastructure ",
+  "title_style": "scam",
+  "theme": {
+   "mode": "light",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "glass",
+   "bg": "blurshot",
+   "head_font": "inter",
+   "accent": [
+    70,
+    89,
+    243
+   ],
+   "transitions": [
+    "slideleft",
+    "slideright"
+   ],
+   "intro": "logo_pop",
+   "highlight": "spotlight",
+   "thumb": "left",
+   "thumb_accent": [
+    0,
+    200,
+    255
+   ],
+   "cap_anim": "fade_up",
+   "callout": "glass",
+   "music": "chords",
+   "sfx": "soft",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "left/violet/scam",
+    "number/ocean/worth",
+    "score/emerald/legit"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://samepage.ai",
+  "brand": "Samepage",
+  "kind": "review",
+  "story_url": null,
+  "category": "saas",
+  "title": "Samepage: $15 Pro Plan, But What's the Catch?",
+  "youtube": "https://youtu.be/EOvt3Oo3_Jk",
+  "format": "pros_cons",
+  "opener": "If you're building software and drowning in feedback across ten different tabs, you'll want to keep watching",
+  "title_style": "scam",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "floating",
+   "caption": "tag",
+   "bg": "spotlight",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    150,
+    30
+   ],
+   "transitions": [
+    "cut"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "split",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_right",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "ocean",
+   "thumbs": [
+    "split/ocean/scam",
+    "left/midnight/worth",
+    "stack/crimson/works"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://foragent.io",
+  "brand": "ForAgent",
+  "kind": "review",
+  "story_url": null,
+  "category": "business-tools",
+  "title": "ForAgent: $10 Pro Plan, But What's the Catch?",
+  "youtube": "https://youtu.be/BbASc8Cwlo0",
+  "format": "fine_print",
+  "opener": "Ever wonder how your AI agents are supposed to talk to each other without making a total mess of your inbox? ForAgent cl",
+  "title_style": "worth",
+  "theme": {
+   "mode": "light",
+   "layout": "stage",
+   "frame": "floating",
+   "caption": "tag",
+   "bg": "aurora",
+   "head_font": "poppins",
+   "accent": [
+    125,
+    56,
+    217
+   ],
+   "transitions": [
+    "wipeleft",
+    "wiperight"
+   ],
+   "intro": "logo_pop",
+   "highlight": "box",
+   "thumb": "stack",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "emerald",
+   "thumbs": [
+    "stack/emerald/worth_using",
+    "left/midnight/scam",
+    "score/violet/good"
+   ]
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "url": "https://higgsfield.ai",
+  "brand": "Higgsfield AI",
+  "kind": "review",
+  "story_url": null,
+  "category": "ai-tools",
+  "title": "Higgsfield AI Review: $19/mo Studio, But Is It Worth It?",
+  "youtube": "https://youtu.be/e6kSOCh7ZVA",
+  "format": "red_flags",
+  "opener": "Higgsfield AI claims you can drop a script and get a full season with their short drama studio",
+  "title_style": "actually",
+  "theme": {
+   "mode": "dark",
+   "layout": "tilt",
+   "frame": "mac_dark",
+   "caption": "glass",
+   "bg": "aurora",
+   "head_font": "poppins",
+   "accent": [
+    255,
+    150,
+    30
+   ],
+   "transitions": [
+    "fadeblack"
+   ],
+   "intro": "split",
+   "highlight": "box",
+   "thumb": "left",
+   "thumb_accent": [
+    255,
+    230,
+    0
+   ],
+   "cap_anim": "slide_left",
+   "callout": "card",
+   "music": "chords",
+   "sfx": "punchy",
+   "thumb_palette": "violet",
+   "thumbs": [
+    "left/violet/worth",
+    "stack/midnight/scam",
+    "banner/royal/expect"
    ]
   }
  }

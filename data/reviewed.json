@@ -2019,5 +2019,120 @@
   "url": "https://www.joinroot.com",
   "status": "done",
   "date": "2026-11-17"
+ },
+ {
+  "site": "justia.com",
+  "name": "Justia",
+  "url": "https://www.justia.com",
+  "status": "failed",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "daytwo.app",
+  "name": "Daytwo",
+  "url": "https://daytwo.app",
+  "status": "done",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "levo.app",
+  "name": "Levo",
+  "url": "https://levo.app",
+  "status": "failed",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "delight.ai",
+  "name": "Delight.ai",
+  "url": "https://delight.ai",
+  "status": "done",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "cloakpane.com",
+  "name": "CloakPane",
+  "url": "https://cloakpane.com",
+  "status": "done",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "gitmanual.com",
+  "name": "gitmanual",
+  "url": "https://gitmanual.com",
+  "status": "done",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "veilcc.com",
+  "name": "VeilCC",
+  "url": "https://veilcc.com",
+  "status": "done",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "zigzagbrowser.com",
+  "name": "Zigzag",
+  "url": "https://zigzagbrowser.com",
+  "status": "done",
+  "date": "2026-11-18",
+  "alt": "Zigzag Browser"
+ },
+ {
+  "site": "breadfinancial.com",
+  "name": "Bread Financial",
+  "url": "https://www.breadfinancial.com",
+  "status": "failed",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "lottie.ai",
+  "name": "Lottie AI",
+  "url": "https://lottie.ai",
+  "status": "done",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "spaceandtime.io",
+  "name": "Space and Time",
+  "url": "https://www.spaceandtime.io",
+  "status": "failed",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "rentcafe.com",
+  "name": "RentCafe App",
+  "url": "https://www.rentcafe.com",
+  "status": "failed",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "katasend.com",
+  "name": "Kata Send",
+  "url": "https://katasend.com",
+  "status": "done",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "samepage.ai",
+  "name": "Samepage",
+  "url": "https://samepage.ai",
+  "status": "done",
+  "date": "2026-11-18",
+  "alt": "Samepage.ai"
+ },
+ {
+  "site": "foragent.io",
+  "name": "ForAgent",
+  "url": "https://foragent.io",
+  "status": "done",
+  "date": "2026-11-18"
+ },
+ {
+  "site": "higgsfield.ai",
+  "name": "Higgsfield AI",
+  "url": "https://higgsfield.ai",
+  "status": "done",
+  "date": "2026-11-18",
+  "alt": "Higgsfield Miracle"
  }
 ]
