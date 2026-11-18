@@ -1,11 +1,12 @@
 name: Discover trending products
 
-# Every DISCOVER_EVERY_HOURS hours (repository variable, default 6, so 4 searches a day): scans launch
-# sites and news for products launched today / this week (plus trends, charts and an evergreen
-# backlog) and ranks the queue with new launches first. Every hour: starts a batch of review videos
-# from the top of the queue, up to UPLOADS_PER_DAY (default 50) a day. With
+# Every hour: starts a batch of AUTO_KIND videos (repository variable: whitescreen (default), review
+# or risk), up to UPLOADS_PER_DAY (default 50) a day. With
 # UPLOAD_MODE=api each video goes to YouTube (unlisted) as soon as it's done.
 # Turn it off: set the repository variable UPLOADS_PER_DAY to 0.
+# Only while AUTO_KIND is review: every DISCOVER_EVERY_HOURS hours (default 6) it also scans launch
+# sites and news for products launched today / this week (plus trends, charts and an evergreen
+# backlog) and ranks the review queue with new launches first.
 
 on:
   schedule:
@@ -44,7 +45,9 @@ jobs:
           every=$(( ${{ vars.DISCOVER_EVERY_HOURS || 6 }} * 3600 - 300 ))
           searched=$(cat data/search_last_run.txt 2>/dev/null || echo 0)
           sage=$(( $(date +%s) - searched ))
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$sage" -ge "$every" ]; then
+          if [ "${{ vars.AUTO_KIND || 'whitescreen' }}" != "review" ]; then
+            echo "search=no" >> "$GITHUB_OUTPUT"; echo "not making review videos: no product search"
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$sage" -ge "$every" ]; then
             echo "search=yes" >> "$GITHUB_OUTPUT"; echo "last product search ${sage}s ago: searching now"
           else
             echo "search=no" >> "$GITHUB_OUTPUT"; echo "last product search ${sage}s ago: not searching this hour"
@@ -86,4 +89,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           COUNT: ${{ steps.auto.outputs.count }}
-        run: gh workflow run batch.yml --ref "${{ github.ref_name }}" -f count="$COUNT" -f kind=review -f parallel=4
+          KIND: ${{ vars.AUTO_KIND || 'whitescreen' }}
+        run: gh workflow run batch.yml --ref "${{ github.ref_name }}" -f count="$COUNT" -f kind="$KIND" -f parallel=4

@@ -61,7 +61,8 @@ YT_PUBLISH_DELAY_HOURS = float(env("YT_PUBLISH_DELAY_HOURS", "0"))
 YT_CLIENT_ID = env("YT_CLIENT_ID")
 YT_CLIENT_SECRET = env("YT_CLIENT_SECRET")
 YT_REFRESH_TOKEN = env("YT_REFRESH_TOKEN")
-YT_CATEGORY_ID = env("YT_CATEGORY_ID", "28")
+YT_CATEGORY_ID = env("YT_CATEGORY_ID", "28")              # Science & Technology: reviews, Risk Cases
+WS_CATEGORY_ID = env("WS_CATEGORY_ID", "24")              # Entertainment: White Screen videos
 
 # --- Phone notifications (free, no account): install the ntfy app and subscribe to your topic ---
 NTFY_TOPIC = env("NTFY_TOPIC")

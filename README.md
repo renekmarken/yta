@@ -24,7 +24,10 @@ week**, plus hot products, in your 13 money categories:
 Gemini acts as the editor: it picks the products worth reviewing, finds each official website, assigns a category, scores hotness from 0 to 10 and marks what launched today / this week. Every website is checked to exist before it goes into the queue.
 
 New launches jump to the top of the queue (launched today: +8 priority, this week: +5, fading over a few
-days). Every hour the discovery workflow then **starts a batch of review videos from the top of the queue**, up to
+days). The product search only runs while automatic videos are reviews (see below).
+
+**Automatic videos.** Every hour the discovery workflow **starts a batch of `AUTO_KIND` videos** (repository
+variable: `whitescreen` by default, or `review` from the top of the queue, or `risk`), up to
 `UPLOADS_PER_DAY` uploaded videos a day (repository variable, default 50, `0` turns this off;
 `AUTO_VIDEOS_PER_RUN`, default 6, sets how many start each hour; a run that GitHub starts late catches up, up to 16). With `UPLOAD_MODE` = `api` each one goes
 to YouTube as unlisted as soon as it's done, and lands in your library with its YouTube link.

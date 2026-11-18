@@ -27,12 +27,12 @@ def _client():
 
 
 def upload(video: Path, thumb: Path, title: str, description: str, tags: list,
-           captions: Path | None = None) -> str:
+           captions: Path | None = None, category: str | None = None) -> str:
     from googleapiclient.http import MediaFileUpload
     yt = _client()
     body = {
         "snippet": {"title": title[:100], "description": description[:4900],
-                    "tags": tags[:30], "categoryId": config.YT_CATEGORY_ID,
+                    "tags": tags[:30], "categoryId": category or config.YT_CATEGORY_ID,
                     "defaultLanguage": "en", "defaultAudioLanguage": "en"},
         "status": {"privacyStatus": config.YT_PRIVACY, "selfDeclaredMadeForKids": False,
                    "embeddable": True},
@@ -80,8 +80,9 @@ def upload_folder(folder: Path) -> str:
     thumbs = sorted(folder.glob("*thumbnail*.jpg"))      # no Pillow needed (the upload workflow lacks it)
     thumb = random.choice(thumbs) if thumbs else None
     print(f"   uploading to YouTube (thumbnail: {thumb.name if thumb else 'none'})")
+    category = config.WS_CATEGORY_ID if meta.get("kind") == "whitescreen" else config.YT_CATEGORY_ID
     vid = upload(video, thumb, meta["title"], meta.get("description", ""), meta.get("tags", []),
-                 folder / "captions.srt")
+                 folder / "captions.srt", category)
     (folder / "youtube_id.txt").write_text(vid)
     print(f"   uploaded: https://youtu.be/{vid}")
     return vid
