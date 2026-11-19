@@ -1,198 +1,6 @@
 [
  {
   "date": "2026-10-03",
-  "url": "https://greenlight.com",
-  "brand": "Greenlight",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/personalfinance/comments/104gfqg/greenlight_kids_cards_beware/",
-  "category": "banking-apps",
-  "title": "Greenlight FROZE Kids Accounts Over Chargebacks — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "A Greenlight user posted on Reddit about unexpected charges when someone accessed their kids' Amazon account",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "side",
-   "frame": "floating",
-   "caption": "underline",
-   "bg": "blurshot",
-   "head_font": "interdisplay",
-   "accent": [
-    0,
-    216,
-    168
-   ],
-   "transitions": [
-    "vertopen",
-    "horzopen"
-   ],
-   "intro": "logo_pop",
-   "highlight": "underline",
-   "thumb": "number",
-   "thumb_accent": [
-    0,
-    216,
-    168
-   ],
-   "cap_anim": "slide_up",
-   "callout": "pill",
-   "music": "acoustic",
-   "sfx": "warm",
-   "thumb_palette": "violet",
-   "thumbs": [
-    "risk/post",
-    "risk/stamp",
-    "risk/headline"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://www.acorns.com",
-  "brand": "Acorns",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/acorns/comments/1mav5sa/acorns_earn_frozen_for_ebay/",
-  "category": "investing",
-  "title": "Acorns FROZE Earn for eBay — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "An Acorns user posted on Reddit about a frustrating issue where their Acorns Earn feature became completely frozen speci",
-  "title_style": null,
-  "theme": {
-   "mode": "brand",
-   "layout": "side",
-   "frame": "floating",
-   "caption": "pill",
-   "bg": "blurshot",
-   "head_font": "poppins",
-   "accent": [
-    96,
-    192,
-    48
-   ],
-   "transitions": [
-    "squeezeh",
-    "fade"
-   ],
-   "intro": "logo_pop",
-   "highlight": "box",
-   "thumb": "banner",
-   "thumb_accent": [
-    255,
-    90,
-    60
-   ],
-   "cap_anim": "slide_left",
-   "callout": "card",
-   "music": "acoustic",
-   "sfx": "playful",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "risk/post",
-    "risk/blackout",
-    "risk/stamp"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://www.anthropic.com",
-  "brand": "Anthropic",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/CreditCardsIndia/comments/1ud7700/anthropic_claude_ai_took_my_236_cancelled_my/",
-  "category": "ai-tools",
-  "title": "Anthropic TOOK $236 — What Happened to This User's Refund?",
-  "youtube": null,
-  "format": null,
-  "opener": "An Anthropic user posted on Reddit that they paid two hundred thirty-six dollars for a one-year Claude Pro annual subscr",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "spotlight",
-   "frame": "floating",
-   "caption": "underline",
-   "bg": "blurshot",
-   "head_font": "poppins",
-   "accent": [
-    255,
-    150,
-    30
-   ],
-   "transitions": [
-    "radial",
-    "fade"
-   ],
-   "intro": "headline",
-   "highlight": "box",
-   "thumb": "score",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "slide_right",
-   "callout": "pill",
-   "music": "upbeat",
-   "sfx": "punchy",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "risk/post",
-    "risk/blackout",
-    "risk/stamp"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://1password.com",
-  "brand": "1Password",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/1Password/comments/1mg1gmz/subscription_renewed_but_account_frozen_with/",
-  "category": "saas",
-  "title": "1Password Account FROZEN After Renewal? What You Need to Know",
-  "youtube": null,
-  "format": null,
-  "opener": "A 1Password user posted on Reddit that their annual subscription renewed through the App Store and the payment went thro",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "side",
-   "frame": "mac_dark",
-   "caption": "glass",
-   "bg": "blurshot",
-   "head_font": "interdisplay",
-   "accent": [
-    255,
-    150,
-    30
-   ],
-   "transitions": [
-    "hblur",
-    "fade"
-   ],
-   "intro": "logo_pop",
-   "highlight": "box",
-   "thumb": "score",
-   "thumb_accent": [
-    255,
-    150,
-    30
-   ],
-   "cap_anim": "slide_right",
-   "callout": "pill",
-   "music": "lofi",
-   "sfx": "punchy",
-   "thumb_palette": "emerald",
-   "thumbs": [
-    "risk/post",
-    "risk/blackout",
-    "risk/phone"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
   "url": "https://www.digitalocean.com",
   "brand": "DigitalOcean",
   "kind": "risk",
@@ -11578,5 +11386,97 @@
    ]
   },
   "youtube": "https://youtu.be/UGqc9t8TgD8"
+ },
+ {
+  "date": "2026-11-19",
+  "url": "whitescreen:glitched-video-080523-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Glitched Video",
+  "title_base": "{{Glitched Video}}",
+  "format": "error",
+  "comment_word": "GLITCH",
+  "hook": [
+   "There's a weird glitch happening with this video.",
+   "I scheduled this to go public in December... but a glitch published it today instead.",
+   "Since it's already on your screen, I'm leaving it up for just 24 hours."
+  ],
+  "theme": {
+   "thumbs": [
+    "glitch",
+    "sad",
+    "tile-dark-error_outline"
+   ]
+  },
+  "youtube": "https://youtu.be/QWcgDtwLNys"
+ },
+ {
+  "date": "2026-11-19",
+  "url": "whitescreen:my-real-age-reveal-080523-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "My REAL Age Reveal",
+  "title_base": "My REAL Age Reveal",
+  "format": "reveal",
+  "comment_word": "MY GUESS",
+  "hook": [
+   "I'm finally going to reveal my real age in this video.",
+   "Most people think I'm way older or way younger than I actually am.",
+   "So let's settle this right now once and for all."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-cake",
+    "tile-dark-cake",
+    "emoji-birthday_cake"
+   ]
+  },
+  "youtube": "https://youtu.be/vsxCddam4B0"
+ },
+ {
+  "date": "2026-11-19",
+  "url": "whitescreen:don-t-pause-this-video-080523-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Don't Pause This Video",
+  "title_base": "Don't Pause This Video",
+  "format": "dare",
+  "comment_word": "NEVER PAUSED",
+  "hook": [
+   "Don't pause this video right now.",
+   "Seriously... keep your fingers off the screen.",
+   "Most people can't watch a video for forty seconds without tapping or pausing."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-pause",
+    "tile-red-pause",
+    "tile-dark-pause"
+   ]
+  },
+  "youtube": "https://youtu.be/ooyiVb64wQg"
+ },
+ {
+  "date": "2026-11-19",
+  "url": "whitescreen:this-video-has-0-comments-080523-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 0 Comments",
+  "title_base": "This Video Has 0 Comments",
+  "format": "count",
+  "comment_word": "UNLOCKED",
+  "hook": [
+   "Right now, this video has exactly 0 comments.",
+   "Not because nobody watched it... but because I kept the comment section completely locked until today.",
+   "Now, I'm finally opening it up for a quick experiment."
+  ],
+  "theme": {
+   "thumbs": [
+    "pill-chat_outline",
+    "tile-red-chat",
+    "counters"
+   ]
+  },
+  "youtube": "https://youtu.be/4QNySYK3uO8"
  }
 ]
