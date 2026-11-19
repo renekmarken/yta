@@ -1,102 +1,6 @@
 [
  {
   "date": "2026-10-03",
-  "url": "https://www.digitalocean.com",
-  "brand": "DigitalOcean",
-  "kind": "risk",
-  "story_url": "https://news.ycombinator.com/item?id=19205874",
-  "category": "hosting",
-  "title": "DigitalOcean DESTROYED All My Data — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "A DigitalOcean user posted on Hacker News about a shocking cloud nightmare",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "spotlight",
-   "frame": "floating",
-   "caption": "pill",
-   "bg": "blurshot",
-   "head_font": "interdisplay",
-   "accent": [
-    0,
-    120,
-    240
-   ],
-   "transitions": [
-    "hblur",
-    "fade"
-   ],
-   "intro": "headline",
-   "highlight": "underline",
-   "thumb": "score",
-   "thumb_accent": [
-    0,
-    230,
-    160
-   ],
-   "cap_anim": "slide_up",
-   "callout": "pill",
-   "music": "upbeat",
-   "sfx": "soft",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "risk/post",
-    "risk/blackout",
-    "risk/caution"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://www.freelancer.com",
-  "brand": "Freelancer",
-  "kind": "risk",
-  "story_url": "https://news.ycombinator.com/item?id=7659352",
-  "category": "freelancing",
-  "title": "Freelancer FROZE $6,000 for 'No Reason' — What Now?",
-  "youtube": null,
-  "format": null,
-  "opener": "A Freelancer user posted on Hacker News about severe withdrawal issues",
-  "title_style": null,
-  "theme": {
-   "mode": "dark",
-   "layout": "spotlight",
-   "frame": "mac_dark",
-   "caption": "glass",
-   "bg": "aurora",
-   "head_font": "interdisplay",
-   "accent": [
-    255,
-    212,
-    0
-   ],
-   "transitions": [
-    "wipeleft",
-    "wiperight"
-   ],
-   "intro": "headline",
-   "highlight": "underline",
-   "thumb": "banner",
-   "thumb_accent": [
-    0,
-    230,
-    160
-   ],
-   "cap_anim": "slide_left",
-   "callout": "pill",
-   "music": "lofi",
-   "sfx": "minimal",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "risk/post",
-    "risk/blackout",
-    "risk/stamp"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
   "url": "https://www.guru.com",
   "brand": "Guru",
   "kind": "risk",
@@ -11478,5 +11382,51 @@
    ]
   },
   "youtube": "https://youtu.be/4QNySYK3uO8"
+ },
+ {
+  "date": "2026-11-19",
+  "url": "whitescreen:no-access-172053-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[No Access]",
+  "title_base": "[No Access]",
+  "format": "error",
+  "comment_word": "NO ACCESS",
+  "hook": [
+   "Right now, this video has no access for almost everyone on YouTube.",
+   "Only a tiny group of viewers who found it early are able to see this screen.",
+   "And honestly, I don't know how long this page will actually stay open before it locks up completely."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-block",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/Xyzkobv6e2U"
+ },
+ {
+  "date": "2026-11-19",
+  "url": "whitescreen:only-verified-youtubers-can-comment-172053-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Only Verified YouTubers Can Comment",
+  "title_base": "Only Verified YouTubers Can Comment",
+  "format": "only",
+  "comment_word": "VERIFIED",
+  "hook": [
+   "I made a rule that only verified YouTubers can comment on this video...",
+   "Or at least, that's what I'm telling the algorithm.",
+   "Most of you watching right now aren't even verified."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-verified",
+    "tile-red-verified",
+    "tile-dark-verified"
+   ]
+  },
+  "youtube": "https://youtu.be/eofaHIv2hOs"
  }
 ]
