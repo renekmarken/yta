@@ -1,98 +1,6 @@
 [
  {
   "date": "2026-10-03",
-  "url": "whitescreen:secret-video-151220-0",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Secret Video]",
-  "title_base": "[Secret Video]",
-  "format": "error",
-  "comment_word": "SECRET FOUND",
-  "hook": [
-   "This is a secret video that almost nobody is supposed to find.",
-   "It's not listed anywhere on the channel, and it won't stay up for long.",
-   "I'm testing how the algorithm reacts when people discover something completely hidden."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "character",
-    "ui"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-03",
-  "url": "whitescreen:own-only-you-can-comment-on-this-video-153443-0",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Only You Can Comment On This Video",
-  "title_base": "Only You Can Comment On This Video",
-  "format": "only",
-  "comment_word": "I WAS HERE",
-  "hook": [
-   "I set this video up so that literally only you can like and comment on it...",
-   "Think about that for a second...",
-   "Right now, nobody else in the entire world can interact with this post..."
-  ],
-  "theme": {
-   "thumbs": [
-    "character",
-    "icon",
-    "headline"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-03",
-  "url": "whitescreen:own-this-video-has-0-likes-153443-1",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "This video has 0 likes",
-  "title_base": "This video has 0 likes",
-  "format": "count",
-  "comment_word": "FIRST",
-  "hook": [
-   "This video currently has 0 likes and 0 comments.",
-   "And I want to see how long it can stay completely empty.",
-   "Most videos get thousands of views and interactions instantly..."
-  ],
-  "theme": {
-   "thumbs": [
-    "ui",
-    "headline",
-    "white"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-03",
-  "url": "whitescreen:own-private-video-153443-2",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Private Video]",
-  "title_base": "[Private Video]",
-  "format": "error",
-  "comment_word": "TIME CAPSULE",
-  "hook": [
-   "This video is going private very soon.",
-   "So if you’re watching this right now... you’re one of the early ones.",
-   "Before I lock it away, I want to leave a small time capsule here."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "error_glow",
-    "ui"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-03",
   "url": "whitescreen:cursed-video-161118-0",
   "brand": "",
   "kind": "whitescreen",
@@ -11379,5 +11287,97 @@
    ]
   },
   "youtube": "https://youtu.be/VteP3FUou4Y"
+ },
+ {
+  "date": "2026-11-20",
+  "url": "whitescreen:face-reveal-final-chance-131522-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Face Reveal Final Chance...",
+  "title_base": "Face Reveal Final Chance...",
+  "format": "reveal",
+  "comment_word": "FACE REVEAL",
+  "hook": [
+   "This is genuinely your absolute final chance to see my face.",
+   "I'm giving this specific video just 48 hours.",
+   "If it hits 12,000 likes by then, I will finally do the face reveal."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-face",
+    "tile-red-face",
+    "emoji-face_with_peeking_eye"
+   ]
+  },
+  "youtube": "https://youtu.be/3-paPViIbRA"
+ },
+ {
+  "date": "2026-11-20",
+  "url": "whitescreen:this-video-is-upside-down-131522-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "this video is upside down",
+  "title_base": "this video is upside down",
+  "format": "dare",
+  "comment_word": "UPSIDE DOWN",
+  "hook": [
+   "Most people are watching this video the wrong way right now...",
+   "And honestly, it's pretty funny.",
+   "I uploaded this entire video completely upside down just to see who would actually notice."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-screen_rotation",
+    "tile-red-screen_rotation",
+    "tile-dark-screen_rotation"
+   ]
+  },
+  "youtube": "https://youtu.be/byXhENrblhg"
+ },
+ {
+  "date": "2026-11-20",
+  "url": "whitescreen:this-video-disappears-in-1-hour-131522-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Disappears In 1 Hour",
+  "title_base": "This Video Disappears In 1 Hour",
+  "format": "deadline",
+  "comment_word": "GONE",
+  "hook": [
+   "This video is going to disappear in exactly sixty minutes.",
+   "I set a timer on my phone right before uploading this.",
+   "When that countdown hits zero, this upload is gone forever."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-hourglass",
+    "tile-dark-hourglass",
+    "emoji-hourglass_not_done"
+   ]
+  },
+  "youtube": "https://youtu.be/aV8kFmqsdXk"
+ },
+ {
+  "date": "2026-11-20",
+  "url": "whitescreen:unlisted-video-131522-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Unlisted Video]",
+  "title_base": "[Unlisted Video]",
+  "format": "error",
+  "comment_word": "RECOMMENDED",
+  "hook": [
+   "This video was never supposed to show up in your feed.",
+   "I set it to unlisted earlier today.",
+   "So nobody should find it without a direct link."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-link",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/pREm_orG-zM"
  }
 ]
