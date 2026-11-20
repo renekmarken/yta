@@ -1,147 +1,6 @@
 [
  {
   "date": "2026-10-03",
-  "url": "https://www.guru.com",
-  "brand": "Guru",
-  "kind": "risk",
-  "story_url": "https://www.reddit.com/r/pdf/comments/1nmffc4/pdf_guru_is_a_scam_unauthorized_50_charges/",
-  "category": "saas",
-  "title": "Guru PDF tool charged $50 monthly? What you need to know",
-  "youtube": null,
-  "format": null,
-  "opener": "A Guru user posted online with a serious warning about unexpected billing",
-  "title_style": null,
-  "theme": {
-   "mode": "brand",
-   "layout": "spotlight",
-   "frame": "floating",
-   "caption": "underline",
-   "bg": "gradient",
-   "head_font": "poppins",
-   "accent": [
-    72,
-    120,
-    192
-   ],
-   "transitions": [
-    "circleopen",
-    "fade"
-   ],
-   "intro": "logo_pop",
-   "highlight": "underline",
-   "thumb": "number",
-   "thumb_accent": [
-    255,
-    90,
-    60
-   ],
-   "cap_anim": "slide_up",
-   "callout": "card",
-   "music": "lofi",
-   "sfx": "playful",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "risk/post",
-    "risk/caution",
-    "risk/stack"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "https://sapien.io",
-  "brand": "Sapien",
-  "kind": "review",
-  "story_url": null,
-  "category": "ai-tools",
-  "title": "Sapien: Legit AI Quality Tool or Overhyped Pilot?",
-  "youtube": null,
-  "format": "pros_cons",
-  "opener": "Can you trust your AI models before sending them to production? Sapien claims to solve this exact problem using what it ",
-  "title_style": "legit",
-  "theme": {
-   "mode": "dark",
-   "layout": "tilt",
-   "frame": "mac_light",
-   "caption": "tag",
-   "bg": "blurshot",
-   "head_font": "inter",
-   "accent": [
-    140,
-    230,
-    60
-   ],
-   "transitions": [
-    "fade"
-   ],
-   "intro": "headline",
-   "highlight": "spotlight",
-   "thumb": "split",
-   "thumb_accent": [
-    0,
-    200,
-    255
-   ],
-   "cap_anim": "fade_up",
-   "callout": "glass",
-   "music": "tech",
-   "sfx": "punchy",
-   "thumb_palette": "violet",
-   "thumbs": [
-    "split/violet/legit",
-    "left/midnight/scam",
-    "stack/crimson/worth"
-   ]
-  }
- },
- {
-  "date": "2026-10-03",
-  "url": "whitescreen:own-ask-viewers-to-comment-their-birth-month-131612-0",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "This Video Has 0 Comments...",
-  "title_base": "This Video Has 0 Comments...",
-  "format": "count",
-  "comment_word": "your birth month",
-  "hook": [
-   "This video has zero comments right now.",
-   "And I want to find out which birth month is actually watching this channel the most.",
-   "So here is what we are going to do."
-  ],
-  "theme": {
-   "thumbs": [
-    "ui",
-    "character",
-    "headline"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-03",
-  "url": "whitescreen:i-will-heart-every-comment-131612-0",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "I Will Heart Every Comment",
-  "title_base": "I Will Heart Every Comment",
-  "format": "pin",
-  "comment_word": "HEART ME",
-  "hook": [
-   "I'm going to heart every single comment on this video.",
-   "But only for the next 24 hours.",
-   "Starting right now, I'm sitting here and reading everything you write."
-  ],
-  "theme": {
-   "thumbs": [
-    "ui",
-    "headline",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-03",
   "url": "whitescreen:secret-video-151220-0",
   "brand": "",
   "kind": "whitescreen",
@@ -11428,5 +11287,97 @@
    ]
   },
   "youtube": "https://youtu.be/eofaHIv2hOs"
+ },
+ {
+  "date": "2026-11-20",
+  "url": "whitescreen:secret-video-041901-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Secret Video]",
+  "title_base": "[Secret Video]",
+  "format": "error",
+  "comment_word": "UNLOCKED",
+  "hook": [
+   "You weren't supposed to see this on your feed today.",
+   "I uploaded this with no notifications, no tags, and absolutely zero promotion.",
+   "It was an experiment to see if the algorithm would ever recommend it to a real viewer."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-visibility_off",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/J6edAcHjL8g"
+ },
+ {
+  "date": "2026-11-20",
+  "url": "whitescreen:this-video-will-be-deleted-tomorrow-041901-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Will Be Deleted Tomorrow",
+  "title_base": "This Video Will Be Deleted Tomorrow",
+  "format": "deadline",
+  "comment_word": "GOODIES",
+  "hook": [
+   "This video is getting permanently deleted tomorrow.",
+   "So if you're watching this right now, you found it just in time.",
+   "I'm not making it private or unlisted."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-delete",
+    "tile-dark-delete",
+    "emoji-wastebasket"
+   ]
+  },
+  "youtube": "https://youtu.be/Q0xQ97Iily8"
+ },
+ {
+  "date": "2026-11-20",
+  "url": "whitescreen:don-t-watch-this-video-twice-041901-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Don't Watch This Video Twice",
+  "title_base": "Don't Watch This Video Twice",
+  "format": "dare",
+  "comment_word": "FIRST PASS",
+  "hook": [
+   "This video has a very simple rule.",
+   "You're only allowed to watch it once.",
+   "If this video ever shows up on your feed again... you officially broke the rule."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-replay",
+    "tile-red-replay",
+    "tile-dark-replay"
+   ]
+  },
+  "youtube": "https://youtu.be/JomwRm5u6ro"
+ },
+ {
+  "date": "2026-11-20",
+  "url": "whitescreen:deleted-video-041901-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Deleted Video]",
+  "title_base": "[Deleted Video]",
+  "format": "error",
+  "comment_word": "ARCHIVE",
+  "hook": [
+   "By the time this weekend is over, this video will be completely deleted.",
+   "I’m not setting it to private, and I’m definitely not saving a backup.",
+   "Once Sunday night hits, it’s gone forever."
+  ],
+  "theme": {
+   "thumbs": [
+    "sad",
+    "tile-red-delete",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/VteP3FUou4Y"
  }
 ]
