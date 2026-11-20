@@ -1,52 +1,6 @@
 [
  {
   "date": "2026-10-03",
-  "url": "whitescreen:cursed-video-161118-0",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Cursed Video",
-  "title_base": "[Cursed Video]",
-  "format": "error",
-  "comment_word": "CURSED",
-  "hook": [
-   "This video is apparently cursed...",
-   "and I know that sounds like a joke.",
-   "But ever since I uploaded it, weird things keep happening to my channel views."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "error_glow",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-03",
-  "url": "whitescreen:private-video-161118-1",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "<Private Video>",
-  "title_base": "<Private Video>",
-  "format": "error",
-  "comment_word": "I WAS HERE",
-  "hook": [
-   "This video is going private in just a few hours.",
-   "So if you’re watching this right now... you’re one of the very few who found it early.",
-   "Before it disappears completely, I want to see who made it here."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "error_glow",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-03",
   "url": "whitescreen:face-reveal-final-chance-161118-2",
   "brand": "",
   "kind": "whitescreen",
@@ -11379,5 +11333,51 @@
    ]
   },
   "youtube": "https://youtu.be/pREm_orG-zM"
+ },
+ {
+  "date": "2026-11-20",
+  "url": "whitescreen:only-you-can-comment-on-this-video-211958-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Only YOU can comment on this video",
+  "title_base": "Only YOU can comment on this video",
+  "format": "only",
+  "comment_word": "ONLY ME",
+  "hook": [
+   "I changed the settings on this video so only one person can leave a comment.",
+   "And right now... that person is you.",
+   "No matter how many millions of views this gets, nobody else can type a single word."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-chat",
+    "tile-dark-chat",
+    "tile-red-chat"
+   ]
+  },
+  "youtube": "https://youtu.be/cEkNHaGb_SA"
+ },
+ {
+  "date": "2026-11-20",
+  "url": "whitescreen:this-video-has-5-comments-211958-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 5 Comments",
+  "title_base": "This Video Has 5 Comments",
+  "format": "count",
+  "comment_word": "TOP FIVE",
+  "hook": [
+   "This video has 5 comments right now.",
+   "And by tomorrow night, only 5 comments will survive.",
+   "Here’s how this works."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-chat",
+    "tile-dark-chat",
+    "pill-chat_outline"
+   ]
+  },
+  "youtube": "https://youtu.be/_nQm18-GRq8"
  }
 ]
