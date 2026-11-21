@@ -1,98 +1,6 @@
 [
  {
   "date": "2026-10-03",
-  "url": "whitescreen:face-reveal-final-chance-161118-2",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Face Reveal Final Chance...",
-  "title_base": "Face Reveal Final Chance...",
-  "format": "reveal",
-  "comment_word": "FACE REVEAL",
-  "hook": [
-   "This is genuinely your absolute final chance to see my face.",
-   "I am giving this specific video just 48 hours.",
-   "If it hits 12,000 likes by then, I will finally do the face reveal."
-  ],
-  "theme": {
-   "thumbs": [
-    "character",
-    "icon",
-    "headline"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-03",
-  "url": "whitescreen:this-video-has-0-comments-161118-3",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "This Video Has 0 Comments",
-  "title_base": "This Video Has 0 Comments",
-  "format": "count",
-  "comment_word": "FIRST",
-  "hook": [
-   "This video has zero comments right now...",
-   "And I want to see how long we can keep it that way before someone ruins it.",
-   "Most videos get flooded with comments in the first few minutes."
-  ],
-  "theme": {
-   "thumbs": [
-    "ui",
-    "character",
-    "white"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-03",
-  "url": "whitescreen:no-access-161118-4",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[No Access]",
-  "title_base": "[No Access]",
-  "format": "error",
-  "comment_word": "NO ACCESS",
-  "hook": [
-   "This video currently has no access for almost everyone...",
-   "Only a tiny group of people can actually watch this right now.",
-   "And honestly, I'm not sure how long this page will stay open."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "ui",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-03",
-  "url": "whitescreen:glitched-video-161118-5",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Glitched Video",
-  "title_base": "{{Glitched Video}}",
-  "format": "error",
-  "comment_word": "GLITCHED",
-  "hook": [
-   "Something is seriously wrong with this video...",
-   "and if you're watching right now, you can probably see the glitch.",
-   "The entire frame keeps flickering, and the algorithm is struggling to process it."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "character",
-    "ui"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-03",
   "url": "whitescreen:can-this-video-get-10-million-views-161118-6",
   "brand": "",
   "kind": "whitescreen",
@@ -11379,5 +11287,97 @@
    ]
   },
   "youtube": "https://youtu.be/_nQm18-GRq8"
+ },
+ {
+  "date": "2026-11-21",
+  "url": "whitescreen:face-reveal-023142-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Face Reveal...",
+  "title_base": "Face Reveal...",
+  "format": "reveal",
+  "comment_word": "UNMASK",
+  "hook": [
+   "Everyone keeps asking who's actually behind this channel...",
+   "so I'm making a brand new deal before this weekend ends.",
+   "If this video hits 14,000 likes before Sunday midnight..."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-face",
+    "tile-red-face",
+    "emoji-face_with_peeking_eye"
+   ]
+  },
+  "youtube": "https://youtu.be/Tl5RBLVkSyI"
+ },
+ {
+  "date": "2026-11-21",
+  "url": "whitescreen:private-video-023142-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Private Video]",
+  "title_base": "[Private Video]",
+  "format": "error",
+  "comment_word": "TIME CAPSULE",
+  "hook": [
+   "This video is going private in just a few short hours.",
+   "So if you managed to find it right now...",
+   "you're one of the very few people watching."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-lock",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/UWDFLUtlzIE"
+ },
+ {
+  "date": "2026-11-21",
+  "url": "whitescreen:i-m-deleting-this-in-2-days-023142-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "I'm Deleting This in 2 Days...",
+  "title_base": "I'm Deleting This in 2 Days...",
+  "format": "deadline",
+  "comment_word": "2 DAYS",
+  "hook": [
+   "I'm actually deleting this video in just 2 days...",
+   "So if you're watching it right now, you found it just in time.",
+   "Before it disappears completely, I want to see who made it here."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-delete",
+    "tile-dark-delete",
+    "emoji-wastebasket"
+   ]
+  },
+  "youtube": "https://youtu.be/pHeA0to7Up0"
+ },
+ {
+  "date": "2026-11-21",
+  "url": "whitescreen:deleted-video-023142-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Deleted Video]",
+  "title_base": "[Deleted Video]",
+  "format": "error",
+  "comment_word": "I WAS HERE",
+  "hook": [
+   "This video is getting deleted in less than forty eight hours.",
+   "So if you managed to find it right now, you are seriously early.",
+   "I am not making it private, and I am not saving a single copy."
+  ],
+  "theme": {
+   "thumbs": [
+    "sad",
+    "tile-red-delete",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/sCqtBRHgygQ"
  }
 ]
