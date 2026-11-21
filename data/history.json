@@ -1,146 +1,5 @@
 [
  {
-  "date": "2026-10-03",
-  "url": "whitescreen:can-this-video-get-10-million-views-161118-6",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Can This Video Get 10 Million Views?",
-  "title_base": "Can This Video Get 10 Million Views?",
-  "format": "goal",
-  "comment_word": "10 MILLION",
-  "hook": [
-   "Can this video actually reach 10 million views?",
-   "That is the big question I want to test right now.",
-   "Most videos on this channel stay small."
-  ],
-  "theme": {
-   "thumbs": [
-    "white",
-    "headline",
-    "icon"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-03",
-  "url": "whitescreen:unlisted-video-161118-7",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Unlisted Video]",
-  "title_base": "[Unlisted Video]",
-  "format": "error",
-  "comment_word": "UNLISTED LINK",
-  "hook": [
-   "This video is completely unlisted right now...",
-   "So nobody can find it unless they have the direct link.",
-   "And honestly, I want to see how far a hidden video can actually travel."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "ui",
-    "error_glow"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-04",
-  "url": "https://offrun.dev",
-  "brand": "Offrun",
-  "kind": "review",
-  "story_url": null,
-  "category": "ai-tools",
-  "title": "Offrun Honest Review: $0 Cost, But Is It Worth It?",
-  "youtube": null,
-  "format": "five_questions",
-  "opener": "Here is the catch: Offrun lets you run multiple coding agents side by side on your Mac, but it is exclusively built for ",
-  "title_style": "honest",
-  "theme": {
-   "mode": "dark",
-   "layout": "tilt",
-   "frame": "floating",
-   "caption": "tag",
-   "bg": "blurshot",
-   "head_font": "inter",
-   "accent": [
-    72,
-    120,
-    72
-   ],
-   "transitions": [
-    "coverleft",
-    "revealright"
-   ],
-   "intro": "logo_pop",
-   "highlight": "box",
-   "thumb": "left",
-   "thumb_accent": [
-    0,
-    230,
-    160
-   ],
-   "cap_anim": "slide_left",
-   "callout": "card",
-   "music": "ambient",
-   "sfx": "warm",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "left/ocean/worth",
-    "score/crimson/scam",
-    "stack/charcoal/truth"
-   ]
-  }
- },
- {
-  "date": "2026-10-04",
-  "url": "https://aleph-alpha.com",
-  "brand": "Aleph Alpha",
-  "kind": "review",
-  "story_url": null,
-  "category": "ai-tools",
-  "title": "Aleph Alpha Kolibri: Sovereign AI, But What's the Catch?",
-  "youtube": null,
-  "format": "pros_cons",
-  "opener": "Here is the catch with Aleph Alpha Kolibri",
-  "title_style": "dont",
-  "theme": {
-   "mode": "brand",
-   "layout": "tilt",
-   "frame": "floating",
-   "caption": "pill",
-   "bg": "spotlight",
-   "head_font": "poppins",
-   "accent": [
-    0,
-    170,
-    255
-   ],
-   "transitions": [
-    "fadeblack"
-   ],
-   "intro": "logo_pop",
-   "highlight": "spotlight",
-   "thumb": "stack",
-   "thumb_accent": [
-    0,
-    200,
-    255
-   ],
-   "cap_anim": "slide_up",
-   "callout": "pill",
-   "music": "ambient",
-   "sfx": "digital",
-   "thumb_palette": "crimson",
-   "thumbs": [
-    "stack/crimson/dont",
-    "banner/royal/scam",
-    "laptop/emerald/worth"
-   ]
-  }
- },
- {
   "date": "2026-10-04",
   "url": "https://pricelabs.co",
   "brand": "PriceLabs",
@@ -11379,5 +11238,97 @@
    ]
   },
   "youtube": "https://youtu.be/sCqtBRHgygQ"
+ },
+ {
+  "date": "2026-11-21",
+  "url": "whitescreen:only-67-people-can-comment-101223-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Only 67 People Can Comment",
+  "title_base": "Only 67 People Can Comment",
+  "format": "goal",
+  "comment_word": "I WAS HERE",
+  "hook": [
+   "Only sixty seven people are allowed to comment on this video.",
+   "That is the exact limit...",
+   "Once we reach sixty seven comments, I am turning the comments completely off."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-chat",
+    "tile-dark-chat",
+    "pill-chat_outline"
+   ]
+  },
+  "youtube": "https://youtu.be/GEYxPbFt_G4"
+ },
+ {
+  "date": "2026-11-21",
+  "url": "whitescreen:deleted-content-101223-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Deleted Content]",
+  "title_base": "[Deleted Content]",
+  "format": "error",
+  "comment_word": "ARCHIVED",
+  "hook": [
+   "This piece of content is scheduled to be completely deleted tomorrow night.",
+   "Once it disappears from this channel, there won't be any backup or re-upload.",
+   "YouTube pushed this straight to your feed before the timer ran out..."
+  ],
+  "theme": {
+   "thumbs": [
+    "sad",
+    "tile-red-delete",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/GPS3w3I8cJY"
+ },
+ {
+  "date": "2026-11-21",
+  "url": "whitescreen:private-video-101223-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "<Private Video>",
+  "title_base": "<Private Video>",
+  "format": "error",
+  "comment_word": "VAULT",
+  "hook": [
+   "This video is heading straight to private in just 24 hours...",
+   "So if you are watching this right now, you are one of the very few who found it in time.",
+   "I am locking it away so it completely disappears from public view."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-lock",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/QQsrF1s3e2k"
+ },
+ {
+  "date": "2026-11-21",
+  "url": "whitescreen:glitched-video-101223-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Glitched Video]",
+  "title_base": "[Glitched Video]",
+  "format": "error",
+  "comment_word": "GLITCHED",
+  "hook": [
+   "This video is completely glitched right now...",
+   "and it might disappear from your feed in the next 24 hours.",
+   "The screen keeps freezing, and the audio is starting to break."
+  ],
+  "theme": {
+   "thumbs": [
+    "glitch",
+    "sad",
+    "tile-dark-error_outline"
+   ]
+  },
+  "youtube": "https://youtu.be/Akq6RhRoZCU"
  }
 ]
