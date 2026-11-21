@@ -1,102 +1,6 @@
 [
  {
   "date": "2026-10-04",
-  "url": "https://pricelabs.co",
-  "brand": "PriceLabs",
-  "kind": "review",
-  "story_url": null,
-  "category": "real-estate",
-  "title": "PriceLabs: $14.49 Fees, But What's the Catch?",
-  "youtube": null,
-  "format": "fine_print",
-  "opener": "Here is the catch with PriceLabs: they promise to boost your vacation rental revenue using automated dynamic pricing, bu",
-  "title_style": "worth",
-  "theme": {
-   "mode": "dark",
-   "layout": "full",
-   "frame": "mac_light",
-   "caption": "underline",
-   "bg": "aurora",
-   "head_font": "inter",
-   "accent": [
-    240,
-    48,
-    48
-   ],
-   "transitions": [
-    "wipeleft",
-    "wiperight"
-   ],
-   "intro": "headline",
-   "highlight": "underline",
-   "thumb": "score",
-   "thumb_accent": [
-    255,
-    212,
-    0
-   ],
-   "cap_anim": "slide_right",
-   "callout": "card",
-   "music": "acoustic",
-   "sfx": "airy",
-   "thumb_palette": "violet",
-   "thumbs": [
-    "score/violet/worth_using",
-    "left/charcoal/scam",
-    "split/crimson/good"
-   ]
-  }
- },
- {
-  "date": "2026-10-04",
-  "url": "https://glaciersecurity.com",
-  "brand": "Glacier Security",
-  "kind": "review",
-  "story_url": null,
-  "category": "vpn-security",
-  "title": "Glacier Security: Is It Actually Good?",
-  "youtube": null,
-  "format": "who_for",
-  "opener": "If you are looking for a cheap, casual virtual private network to stream movies from another country, stop watching righ",
-  "title_style": "good",
-  "theme": {
-   "mode": "brand",
-   "layout": "side",
-   "frame": "minimal",
-   "caption": "pill",
-   "bg": "blurshot",
-   "head_font": "poppins",
-   "accent": [
-    255,
-    150,
-    30
-   ],
-   "transitions": [
-    "slideleft",
-    "slideright"
-   ],
-   "intro": "split",
-   "highlight": "spotlight",
-   "thumb": "banner",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "drop",
-   "callout": "pill",
-   "music": "lofi",
-   "sfx": "digital",
-   "thumb_palette": "midnight",
-   "thumbs": [
-    "banner/midnight/good",
-    "left/crimson/worth",
-    "stack/ocean/scam"
-   ]
-  }
- },
- {
-  "date": "2026-10-04",
   "url": "https://primeintellect.ai",
   "brand": "Prime Intellect",
   "kind": "review",
@@ -11330,5 +11234,51 @@
    ]
   },
   "youtube": "https://youtu.be/Akq6RhRoZCU"
+ },
+ {
+  "date": "2026-11-21",
+  "url": "whitescreen:this-video-will-be-deleted-tomorrow-172912-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Will Be Deleted Tomorrow",
+  "title_base": "This Video Will Be Deleted Tomorrow",
+  "format": "deadline",
+  "comment_word": "GOODIES",
+  "hook": [
+   "This video is getting permanently deleted tomorrow morning.",
+   "So if you're watching this right now, you found it just in time.",
+   "I'm not making it private or unlisted."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-delete",
+    "tile-dark-delete",
+    "emoji-wastebasket"
+   ]
+  },
+  "youtube": "https://youtu.be/76pI3Lcz3Pk"
+ },
+ {
+  "date": "2026-11-21",
+  "url": "whitescreen:this-video-has-0-comments-172912-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 0 Comments",
+  "title_base": "This Video Has 0 Comments",
+  "format": "count",
+  "comment_word": "UNLOCKED",
+  "hook": [
+   "Right now, this video has exactly zero comments.",
+   "Not because nobody watched it...",
+   "but because I kept the comment section completely locked."
+  ],
+  "theme": {
+   "thumbs": [
+    "pill-chat_outline",
+    "tile-red-chat",
+    "counters"
+   ]
+  },
+  "youtube": "https://youtu.be/hQM6aMJ_lKk"
  }
 ]
