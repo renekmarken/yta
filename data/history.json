@@ -1,150 +1,6 @@
 [
  {
   "date": "2026-10-04",
-  "url": "https://primeintellect.ai",
-  "brand": "Prime Intellect",
-  "kind": "review",
-  "story_url": null,
-  "category": "ai-tools",
-  "title": "Prime Intellect: Legit AI Compute or Overhyped?",
-  "youtube": null,
-  "format": "red_flags",
-  "opener": "Prime Intellect claims to offer the complete open superintelligence stack, letting you train, deploy, and run inference ",
-  "title_style": "legit",
-  "theme": {
-   "mode": "brand",
-   "layout": "side",
-   "frame": "mac_dark",
-   "caption": "glass",
-   "bg": "blurshot",
-   "head_font": "interdisplay",
-   "accent": [
-    255,
-    212,
-    0
-   ],
-   "transitions": [
-    "zoomin",
-    "fade"
-   ],
-   "intro": "split",
-   "highlight": "box",
-   "thumb": "split",
-   "thumb_accent": [
-    255,
-    90,
-    60
-   ],
-   "cap_anim": "slide_up",
-   "callout": "pill",
-   "music": "tech",
-   "sfx": "punchy",
-   "thumb_palette": "magenta",
-   "thumbs": [
-    "split/magenta/legit",
-    "banner/charcoal/worth",
-    "laptop/midnight/scam"
-   ]
-  }
- },
- {
-  "date": "2026-10-04",
-  "url": "https://falcon.legal",
-  "brand": "Falcon Express Services",
-  "kind": "review",
-  "story_url": null,
-  "category": "legal",
-  "title": "Falcon Express Services: Legit PI and Process Server?",
-  "youtube": null,
-  "format": "first_look",
-  "opener": "Stop watching if you want do-it-yourself online legal forms or automated contract templates",
-  "title_style": "legit",
-  "theme": {
-   "mode": "brand",
-   "layout": "spotlight",
-   "frame": "mac_dark",
-   "caption": "bar",
-   "bg": "spotlight",
-   "head_font": "poppins",
-   "accent": [
-    110,
-    110,
-    170
-   ],
-   "transitions": [
-    "smoothleft",
-    "smoothright"
-   ],
-   "intro": "split",
-   "highlight": "box",
-   "thumb": "banner",
-   "thumb_accent": [
-    255,
-    230,
-    0
-   ],
-   "cap_anim": "slide_left",
-   "callout": "glass",
-   "music": "lofi",
-   "sfx": "warm",
-   "thumb_palette": "emerald",
-   "thumbs": [
-    "banner/emerald/legit",
-    "laptop/crimson/worth",
-    "stack/violet/scam"
-   ]
-  }
- },
- {
-  "date": "2026-10-04",
-  "url": "https://healthintech.com",
-  "brand": "Health In Tech",
-  "kind": "review",
-  "story_url": null,
-  "category": "insurance",
-  "title": "Health In Tech: 2-Minute Quotes, But What's the Catch?",
-  "youtube": null,
-  "format": "fine_print",
-  "opener": "Health In Tech boldly advertises its standardized healthcare transaction platform and doctor network right on its homepa",
-  "title_style": "fees",
-  "theme": {
-   "mode": "light",
-   "layout": "tilt",
-   "frame": "floating",
-   "caption": "glass",
-   "bg": "gradient",
-   "head_font": "inter",
-   "accent": [
-    57,
-    113,
-    169
-   ],
-   "transitions": [
-    "squeezeh",
-    "fade"
-   ],
-   "intro": "logo_pop",
-   "highlight": "spotlight",
-   "thumb": "left",
-   "thumb_accent": [
-    0,
-    230,
-    160
-   ],
-   "cap_anim": "fade_up",
-   "callout": "card",
-   "music": "chords",
-   "sfx": "playful",
-   "thumb_palette": "crimson",
-   "thumbs": [
-    "left/crimson/fees",
-    "score/violet/scam",
-    "stack/royal/worth"
-   ]
-  }
- },
- {
-  "date": "2026-10-04",
   "url": "https://yubi.ai",
   "brand": "Yubi",
   "kind": "review",
@@ -11280,5 +11136,74 @@
    ]
   },
   "youtube": "https://youtu.be/hQM6aMJ_lKk"
+ },
+ {
+  "date": "2026-11-22",
+  "url": "whitescreen:removed-video-022230-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Removed Video]",
+  "title_base": "[Removed Video]",
+  "format": "error",
+  "comment_word": "GONE",
+  "hook": [
+   "This video is getting removed from the channel very soon.",
+   "And honestly... I wasn't even supposed to post it today.",
+   "The removal timer is already running out in the background."
+  ],
+  "theme": {
+   "thumbs": [
+    "sad",
+    "tile-red-delete",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/O-f6en0uLCQ"
+ },
+ {
+  "date": "2026-11-22",
+  "url": "whitescreen:this-video-will-self-destruct-in-24-hour-022230-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Will Self Destruct In 24 Hours...",
+  "title_base": "This Video Will Self Destruct In 24 Hours...",
+  "format": "deadline",
+  "comment_word": "SURVIVED",
+  "hook": [
+   "Right now, this video has a 24-hour countdown ticking down to zero.",
+   "When the timer hits tomorrow, this entire upload gets wiped from YouTube.",
+   "No private mode... no unlisted link... it's just completely gone."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-timer",
+    "tile-dark-timer",
+    "emoji-stopwatch"
+   ]
+  },
+  "youtube": "https://youtu.be/AKzamoAbG3U"
+ },
+ {
+  "date": "2026-11-22",
+  "url": "whitescreen:this-video-has-1-comment-022230-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 1 Comment",
+  "title_base": "This Video Has 1 Comment",
+  "format": "count",
+  "comment_word": "BREAK",
+  "hook": [
+   "When I posted this video, it had exactly one comment.",
+   "My own pinned comment down below.",
+   "The experiment was simple... see how long that single comment could survive without anyone breaking it."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-chat",
+    "tile-dark-chat",
+    "pill-chat_outline"
+   ]
+  },
+  "youtube": "https://youtu.be/AJCeVzpXQY0"
  }
 ]
