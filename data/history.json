@@ -1,147 +1,5 @@
 [
  {
-  "date": "2026-10-04",
-  "url": "https://carnival.com",
-  "brand": "Carnival Rewards Mastercard",
-  "kind": "review",
-  "story_url": null,
-  "category": "credit-cards",
-  "title": "Carnival Rewards Mastercard: $0 Fees, But What's the Catch?",
-  "youtube": null,
-  "format": "red_flags",
-  "opener": "Stop watching right now if you never sail with Carnival or prefer booking independent trips",
-  "title_style": "expect",
-  "theme": {
-   "mode": "light",
-   "layout": "stage",
-   "frame": "minimal",
-   "caption": "tag",
-   "bg": "blurshot",
-   "head_font": "inter",
-   "accent": [
-    204,
-    51,
-    89
-   ],
-   "transitions": [
-    "coverleft",
-    "revealright"
-   ],
-   "intro": "logo_pop",
-   "highlight": "underline",
-   "thumb": "number",
-   "thumb_accent": [
-    255,
-    90,
-    60
-   ],
-   "cap_anim": "slide_left",
-   "callout": "glass",
-   "music": "chords",
-   "sfx": "playful",
-   "thumb_palette": "ocean",
-   "thumbs": [
-    "number/ocean/expect",
-    "banner/royal/scam",
-    "split/emerald/worth"
-   ]
-  }
- },
- {
-  "date": "2026-10-04",
-  "url": "https://weftcut.com",
-  "brand": "WeftCut",
-  "kind": "review",
-  "story_url": null,
-  "category": "ai-tools",
-  "title": "WeftCut Review: AI Video Editor That Codes?",
-  "youtube": null,
-  "format": "first_look",
-  "opener": "Okay, imagine loading up an open-source AI video editor where an agent actually cuts your clips using code",
-  "title_style": "truth",
-  "theme": {
-   "mode": "brand",
-   "layout": "tilt",
-   "frame": "floating",
-   "caption": "glass",
-   "bg": "aurora",
-   "head_font": "interdisplay",
-   "accent": [
-    255,
-    212,
-    0
-   ],
-   "transitions": [
-    "smoothleft",
-    "smoothright"
-   ],
-   "intro": "headline",
-   "highlight": "box",
-   "thumb": "stack",
-   "thumb_accent": [
-    0,
-    230,
-    160
-   ],
-   "cap_anim": "slide_right",
-   "callout": "pill",
-   "music": "chords",
-   "sfx": "digital",
-   "thumb_palette": "royal",
-   "thumbs": [
-    "stack/royal/truth",
-    "laptop/midnight/scam",
-    "banner/emerald/worth"
-   ]
-  }
- },
- {
-  "date": "2026-10-05",
-  "url": "whitescreen:video-unavailable-091156-0",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Video Unavailable]",
-  "title_base": "[Video Unavailable]",
-  "format": "error",
-  "comment_word": "STILL HERE",
-  "hook": [
-   "This video is showing as unavailable for almost everyone right now.",
-   "If you’re somehow watching this, you’re looking at a major glitch in the system.",
-   "I’m not sure how long this page is going to stay up before it completely disappears."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "ui",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-05",
-  "url": "whitescreen:only-you-can-watch-this-video-091156-1",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Only You Can Watch This Video",
-  "title_base": "Only You Can Watch This Video",
-  "format": "only",
-  "comment_word": "ONLY ME",
-  "hook": [
-   "This video isn't meant for everyone...",
-   "In fact, right now, only you are supposed to be watching this exact link.",
-   "It's a little test to see who finds it before it gets restricted."
-  ],
-  "theme": {
-   "thumbs": [
-    "character",
-    "headline",
-    "ui"
-   ]
-  },
-  "youtube": null
- },
- {
   "date": "2026-10-05",
   "url": "whitescreen:don-t-be-the-1st-person-to-comment-091156-2",
   "brand": "",
@@ -11030,5 +10888,97 @@
    ]
   },
   "youtube": "https://youtu.be/-Evo9rG_N4g"
+ },
+ {
+  "date": "2026-11-23",
+  "url": "whitescreen:deleted-video-031957-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Deleted Video]",
+  "title_base": "[Deleted Video]",
+  "format": "error",
+  "comment_word": "I WAS HERE",
+  "hook": [
+   "This video is getting deleted in less than forty eight hours.",
+   "So if you managed to find it right now, you are seriously early.",
+   "I am not making it private, and I am not saving a single copy."
+  ],
+  "theme": {
+   "thumbs": [
+    "sad",
+    "tile-red-delete",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/aLjAmzIt_yE"
+ },
+ {
+  "date": "2026-11-23",
+  "url": "whitescreen:no-access-031957-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[No Access]",
+  "title_base": "[No Access]",
+  "format": "error",
+  "comment_word": "NO ACCESS",
+  "hook": [
+   "Right now, this video has no access for almost everyone on YouTube.",
+   "Only a tiny group of viewers who found it early are able to see this screen.",
+   "And honestly, I don't know how long this page will actually stay open before it locks up completely."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-block",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/II05vPxaIz0"
+ },
+ {
+  "date": "2026-11-23",
+  "url": "whitescreen:secret-video-031957-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Secret Video]",
+  "title_base": "[Secret Video]",
+  "format": "error",
+  "comment_word": "UNLOCKED",
+  "hook": [
+   "You weren't supposed to find this video on your feed today.",
+   "I uploaded it completely unlisted with zero tags or promotion.",
+   "It's a quiet test to see if the algorithm actually pushes hidden content."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-visibility_off",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/5NjcTRWir9s"
+ },
+ {
+  "date": "2026-11-23",
+  "url": "whitescreen:glitched-video-031957-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Glitched Video]",
+  "title_base": "[Glitched Video]",
+  "format": "error",
+  "comment_word": "GLITCHED",
+  "hook": [
+   "This video is acting completely weird right now...",
+   "and it might completely disappear from your feed in the next 24 hours.",
+   "The screen keeps freezing, and the audio is starting to break."
+  ],
+  "theme": {
+   "thumbs": [
+    "glitch",
+    "sad",
+    "tile-dark-error_outline"
+   ]
+  },
+  "youtube": "https://youtu.be/nqxzo9Bg0Zo"
  }
 ]
