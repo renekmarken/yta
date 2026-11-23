@@ -1,75 +1,6 @@
 [
  {
   "date": "2026-10-05",
-  "url": "whitescreen:don-t-be-the-1st-person-to-comment-091156-2",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Don't Be The 1st Person To Comment",
-  "title_base": "Don't Be The 1st Person To Comment",
-  "format": "dare",
-  "comment_word": "NOT FIRST",
-  "hook": [
-   "Everybody wants to be the very first person to leave a comment on a new video.",
-   "But for this specific video... I actually don't want you to be first.",
-   "In fact, let's see if you can hold back and wait until someone else does it."
-  ],
-  "theme": {
-   "thumbs": [
-    "character",
-    "headline",
-    "white"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-05",
-  "url": "whitescreen:i-will-heart-every-comment-091156-3",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "I Will Heart Every Comment",
-  "title_base": "I Will Heart Every Comment",
-  "format": "pin",
-  "comment_word": "HEART ME",
-  "hook": [
-   "I'm going to heart every single comment on this video...",
-   "but only for the next 24 hours.",
-   "Starting right now, I'm sitting here and reading everything you write."
-  ],
-  "theme": {
-   "thumbs": [
-    "ui",
-    "headline",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-05",
-  "url": "whitescreen:this-video-has-0-likes-131056-0",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "This Video Has 0 Likes",
-  "title_base": "This Video Has 0 Likes",
-  "format": "count",
-  "comment_word": "ZERO",
-  "hook": [
-   "This video has 0 likes and 0 comments right now.",
-   "And honestly, I want to keep it that way for a little experiment.",
-   "I'm going to leave this video here and see how long it takes for someone to finally interact with it."
-  ],
-  "theme": {
-   "thumbs": [
-    "ui",
-    "white",
-    "headline"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-05",
   "url": "whitescreen:only-you-can-comment-on-this-video-131056-1",
   "brand": "",
   "kind": "whitescreen",
@@ -10980,5 +10911,74 @@
    ]
   },
   "youtube": "https://youtu.be/nqxzo9Bg0Zo"
+ },
+ {
+  "date": "2026-11-23",
+  "url": "whitescreen:locked-video-131631-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Locked Video]",
+  "title_base": "[Locked Video]",
+  "format": "error",
+  "comment_word": "LOCKED",
+  "hook": [
+   "This video is getting locked in just 48 hours.",
+   "Once it's locked, nobody new can ever watch it or leave a comment.",
+   "So if you're watching this right now, you found it while the door was still open."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-lock",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/wnueJ7rU3BA"
+ },
+ {
+  "date": "2026-11-23",
+  "url": "whitescreen:removed-video-131631-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Removed Video]",
+  "title_base": "[Removed Video]",
+  "format": "error",
+  "comment_word": "GONE",
+  "hook": [
+   "This video is getting removed from the channel very soon.",
+   "And honestly... I wasn't even supposed to post it today.",
+   "The removal timer is already running out in the background."
+  ],
+  "theme": {
+   "thumbs": [
+    "sad",
+    "tile-red-delete",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/7fETKfr3NW0"
+ },
+ {
+  "date": "2026-11-23",
+  "url": "whitescreen:video-unavailable-131631-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Video Unavailable]",
+  "title_base": "[Video Unavailable]",
+  "format": "error",
+  "comment_word": "BYPASS",
+  "hook": [
+   "You probably clicked this link thinking it was broken.",
+   "Or maybe you saw that dreaded black screen pop up.",
+   "Most people just close the tab and move on instantly."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-error_outline",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/0BQGaB8VuaQ"
  }
 ]
