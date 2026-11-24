@@ -1,52 +1,6 @@
 [
  {
   "date": "2026-10-07",
-  "url": "whitescreen:own-video-not-found-140933-0",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Video not found",
-  "title_base": "Video not found",
-  "format": "goal",
-  "comment_word": "ERROR 404",
-  "hook": [
-   "Most people are going to click away from this video right now.",
-   "Because according to YouTube, this video technically doesn't even exist.",
-   "There's no title showing up on most feeds."
-  ],
-  "theme": {
-   "thumbs": [
-    "white",
-    "icon",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-07",
-  "url": "whitescreen:deleted-video-145117-0",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Deleted Video]",
-  "title_base": "[Deleted Video]",
-  "format": "error",
-  "comment_word": "FOUND IT",
-  "hook": [
-   "This video is getting deleted in exactly 24 hours.",
-   "So if you managed to find it right now, you are one of the very few.",
-   "I am not making it private..."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "error_glow",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-07",
   "url": "whitescreen:glitched-video-145117-1",
   "brand": "",
   "kind": "whitescreen",
@@ -10980,5 +10934,51 @@
    ]
   },
   "youtube": "https://youtu.be/9BImvv65iE4"
+ },
+ {
+  "date": "2026-11-24",
+  "url": "whitescreen:glitched-video-205651-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Glitched Video",
+  "title_base": "{{Glitched Video}}",
+  "format": "error",
+  "comment_word": "ERROR",
+  "hook": [
+   "There's a weird system glitch happening with this video right now...",
+   "It wasn't supposed to post until tomorrow, but YouTube published it early by mistake.",
+   "Because of the glitch, the system might delete this video in 24 hours."
+  ],
+  "theme": {
+   "thumbs": [
+    "glitch",
+    "sad",
+    "tile-dark-error_outline"
+   ]
+  },
+  "youtube": "https://youtu.be/cOPJsBI5fpU"
+ },
+ {
+  "date": "2026-11-24",
+  "url": "whitescreen:secret-video-205651-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Secret Video]",
+  "title_base": "[Secret Video]",
+  "format": "error",
+  "comment_word": "TOP SECRET",
+  "hook": [
+   "If you're watching this right now... you just stumbled into something you weren't supposed to see.",
+   "I used a hidden developer test setting when uploading this video.",
+   "It was only meant to be visible to exactly five hundred randomly selected accounts."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-visibility_off",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/Dx5fv4lx0mk"
  }
 ]
