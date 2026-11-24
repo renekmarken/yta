@@ -1,98 +1,6 @@
 [
  {
   "date": "2026-10-05",
-  "url": "whitescreen:only-you-can-comment-on-this-video-131056-1",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Only YOU can comment on this video",
-  "title_base": "Only YOU can comment on this video",
-  "format": "only",
-  "comment_word": "ONLY ME",
-  "hook": [
-   "Only you can comment on this exact video right now.",
-   "Because I changed the settings so nobody else on YouTube can leave a message.",
-   "No matter how many people watch this, the comment section belongs to whoever is watching this single second."
-  ],
-  "theme": {
-   "thumbs": [
-    "character",
-    "icon",
-    "headline"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-05",
-  "url": "whitescreen:removed-video-131056-2",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Removed Video]",
-  "title_base": "[Removed Video]",
-  "format": "error",
-  "comment_word": "REMOVED",
-  "hook": [
-   "This video is getting removed from YouTube in 24 hours.",
-   "Not private, not unlisted... it's getting permanently removed.",
-   "Once that happens, you won't ever see it on your feed again."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "error_glow",
-    "ui"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-05",
-  "url": "whitescreen:glitched-video-131056-3",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Glitched Video]",
-  "title_base": "[Glitched Video]",
-  "format": "error",
-  "comment_word": "GLITCHED",
-  "hook": [
-   "This video is completely glitched right now...",
-   "and it might disappear from your feed in the next 24 hours.",
-   "If you are watching this before it fixes itself..."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "character",
-    "ui"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-05",
-  "url": "whitescreen:this-video-disappears-in-1-hour-131056-4",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "This Video Disappears In 1 Hour",
-  "title_base": "This Video Disappears In 1 Hour",
-  "format": "deadline",
-  "comment_word": "ONE HOUR",
-  "hook": [
-   "This video is going to completely disappear in exactly one hour.",
-   "So if you are watching this right now, you found it just in time.",
-   "I am not making it private, and I am not hiding it."
-  ],
-  "theme": {
-   "thumbs": [
-    "headline",
-    "ui",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-05",
   "url": "whitescreen:hidden-video-131056-5",
   "brand": "",
   "kind": "whitescreen",
@@ -10980,5 +10888,97 @@
    ]
   },
   "youtube": "https://youtu.be/0BQGaB8VuaQ"
+ },
+ {
+  "date": "2026-11-24",
+  "url": "whitescreen:unlisted-video-010440-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Unlisted Video]",
+  "title_base": "[Unlisted Video]",
+  "format": "error",
+  "comment_word": "GLITCH",
+  "hook": [
+   "Somehow, you managed to find this video.",
+   "That shouldn't be possible, because this video is unlisted.",
+   "I sent the link to exactly five people earlier today, and none of them were you."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-link",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/4qw9SCX2K1I"
+ },
+ {
+  "date": "2026-11-24",
+  "url": "whitescreen:i-will-heart-every-comment-010440-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "I Will Heart Every Comment",
+  "title_base": "I Will Heart Every Comment",
+  "format": "pin",
+  "comment_word": "FREE HEART",
+  "hook": [
+   "I'm hearting every single comment on this video... but there's a catch.",
+   "The exact second this video hits 1,000 likes, I'm stopping forever.",
+   "Not tomorrow... not in December. The moment that counter hits 1,000, it's over."
+  ],
+  "theme": {
+   "thumbs": [
+    "emoji-red_heart",
+    "tile-red-favorite",
+    "tile-dark-favorite"
+   ]
+  },
+  "youtube": "https://youtu.be/k8zFLr4ilkw"
+ },
+ {
+  "date": "2026-11-24",
+  "url": "whitescreen:cursed-video-010440-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Cursed Video]",
+  "title_base": "[Cursed Video]",
+  "format": "error",
+  "comment_word": "LOCKED",
+  "hook": [
+   "If this video just popped up on your feed... do not swipe away.",
+   "People are saying this is the most cursed video on YouTube today.",
+   "The rumor is that if you watch it all the way through without doing anything... your luck completely runs out for the rest of the week."
+  ],
+  "theme": {
+   "thumbs": [
+    "glitch",
+    "sad",
+    "tile-dark-error_outline"
+   ]
+  },
+  "youtube": "https://youtu.be/iKC6XUgvFuc"
+ },
+ {
+  "date": "2026-11-24",
+  "url": "whitescreen:i-m-deleting-this-in-2-days-010440-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "I'm Deleting This in 2 Days...",
+  "title_base": "I'm Deleting This in 2 Days...",
+  "format": "deadline",
+  "comment_word": "GONE SOON",
+  "hook": [
+   "I'm actually deleting this video in just 2 days...",
+   "So if you're watching it right now, you found it just in time.",
+   "Before it disappears completely, I want to see who made it here."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-delete",
+    "tile-dark-delete",
+    "emoji-wastebasket"
+   ]
+  },
+  "youtube": "https://youtu.be/_tk0QNAxiao"
  }
 ]
