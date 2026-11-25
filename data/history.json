@@ -1,97 +1,5 @@
 [
  {
-  "date": "2026-10-07",
-  "url": "whitescreen:no-access-145117-5",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[No Access]",
-  "title_base": "[No Access]",
-  "format": "error",
-  "comment_word": "NO ACCESS",
-  "hook": [
-   "This video currently has no access for almost everyone...",
-   "Only a tiny group of people can actually watch this right now.",
-   "And honestly, I'm not sure how long this page will stay open."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "ui",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-07",
-  "url": "whitescreen:don-t-pause-this-video-145117-6",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Don't Pause This Video",
-  "title_base": "Don't Pause This Video",
-  "format": "dare",
-  "comment_word": "STAYED UNTIL THE END",
-  "hook": [
-   "Don't pause this video...",
-   "Seriously, just let it keep playing right until the very end.",
-   "I'm testing something with the algorithm today..."
-  ],
-  "theme": {
-   "thumbs": [
-    "character",
-    "icon",
-    "white"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-07",
-  "url": "whitescreen:don-t-watch-this-video-twice-145117-7",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Don't Watch This Video Twice",
-  "title_base": "Don't Watch This Video Twice",
-  "format": "dare",
-  "comment_word": "ONE TIME ONLY",
-  "hook": [
-   "You just clicked on this video... but you're not supposed to stay.",
-   "This is a strict one-time-only rule.",
-   "If you watch it twice, the experiment is completely ruined."
-  ],
-  "theme": {
-   "thumbs": [
-    "character",
-    "white",
-    "icon"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-10",
-  "url": "whitescreen:video-unavailable-085959-0",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Video Unavailable]",
-  "title_base": "[Video Unavailable]",
-  "format": "error",
-  "comment_word": "UNLOCKED",
-  "hook": [
-   "You weren't supposed to be able to play this video.",
-   "Right now, this link is marked as completely unavailable for almost everyone.",
-   "So if you're watching this screen move, you're part of a tiny test group."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "error_glow",
-    "ui"
-   ]
-  },
-  "youtube": null
- },
- {
   "date": "2026-10-10",
   "url": "whitescreen:hidden-video-085959-1",
   "brand": "",
@@ -10980,5 +10888,97 @@
    ]
   },
   "youtube": "https://youtu.be/8fCluZvs9Nk"
+ },
+ {
+  "date": "2026-11-25",
+  "url": "whitescreen:unlisted-video-231203-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Unlisted Video]",
+  "title_base": "[Unlisted Video]",
+  "format": "error",
+  "comment_word": "FOUND IT",
+  "hook": [
+   "You weren't supposed to see this video today.",
+   "It's set to unlisted, so it shouldn't even be on your feed.",
+   "I only uploaded it to test something before December."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-link",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/nq2c9fvltCc"
+ },
+ {
+  "date": "2026-11-25",
+  "url": "whitescreen:this-video-will-be-deleted-tomorrow-231203-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Will Be Deleted Tomorrow",
+  "title_base": "This Video Will Be Deleted Tomorrow",
+  "format": "deadline",
+  "comment_word": "SURVIVOR",
+  "hook": [
+   "This video is scheduled to disappear completely by tomorrow...",
+   "So if you managed to find it on your feed right now, you are extremely lucky.",
+   "I am not making it private or hiding it..."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-delete",
+    "tile-dark-delete",
+    "emoji-wastebasket"
+   ]
+  },
+  "youtube": "https://youtu.be/UTLsuDJQyRk"
+ },
+ {
+  "date": "2026-11-25",
+  "url": "whitescreen:face-reveal-231203-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Face Reveal...",
+  "title_base": "Face Reveal...",
+  "format": "reveal",
+  "comment_word": "REVEAL IT",
+  "hook": [
+   "I promised myself I’d never do this.",
+   "But everybody keeps asking who’s really behind this screen.",
+   "So I’m making one serious deal before December arrives."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-face",
+    "tile-red-face",
+    "emoji-face_with_peeking_eye"
+   ]
+  },
+  "youtube": "https://youtu.be/VcvyZ-DhFqU"
+ },
+ {
+  "date": "2026-11-25",
+  "url": "whitescreen:this-video-won-t-get-1-000-comments-231203-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Won't Get 1,000 Comments",
+  "title_base": "This Video Won't Get 1,000 Comments",
+  "format": "goal",
+  "comment_word": "PROVE IT",
+  "hook": [
+   "Most videos get thousands of views, but barely any comments.",
+   "So I'm running a fast experiment to see what happens.",
+   "Somebody told me this video won't get one thousand comments before tomorrow."
+  ],
+  "theme": {
+   "thumbs": [
+    "crossed",
+    "tile-red-chat",
+    "pill-chat_outline"
+   ]
+  },
+  "youtube": "https://youtu.be/K5N3kcPrR8c"
  }
 ]
