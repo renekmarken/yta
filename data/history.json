@@ -1,98 +1,6 @@
 [
  {
   "date": "2026-10-07",
-  "url": "whitescreen:glitched-video-145117-1",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Glitched Video",
-  "title_base": "{{Glitched Video}}",
-  "format": "error",
-  "comment_word": "GLITCHED",
-  "hook": [
-   "Something is seriously wrong with this video...",
-   "and if you're watching right now, you can probably see the glitch.",
-   "The entire frame keeps flickering, and the algorithm is struggling to process it."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "character",
-    "ui"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-07",
-  "url": "whitescreen:this-video-will-be-deleted-tomorrow-145117-2",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "This Video Will Be Deleted Tomorrow",
-  "title_base": "This Video Will Be Deleted Tomorrow",
-  "format": "deadline",
-  "comment_word": "DELETED",
-  "hook": [
-   "This video is scheduled to be completely deleted tomorrow.",
-   "So if you’re watching this right now, you found it just in time.",
-   "I’m not hiding it or making it private... I’m actually deleting it for good."
-  ],
-  "theme": {
-   "thumbs": [
-    "headline",
-    "ui",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-07",
-  "url": "whitescreen:only-you-can-watch-this-video-145117-3",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Only You Can Watch This Video",
-  "title_base": "Only You Can Watch This Video",
-  "format": "only",
-  "comment_word": "ONLY ME",
-  "hook": [
-   "This video isn't meant for everyone...",
-   "In fact, right now, only you are supposed to be watching this exact link.",
-   "It's a tiny test to see who finds it before it gets completely restricted."
-  ],
-  "theme": {
-   "thumbs": [
-    "character",
-    "headline",
-    "ui"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-07",
-  "url": "whitescreen:this-video-won-t-get-1-000-comments-145117-4",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "This Video Won't Get 1,000 Comments",
-  "title_base": "This Video Won't Get 1,000 Comments",
-  "format": "goal",
-  "comment_word": "ONE THOUSAND",
-  "hook": [
-   "I have a strange challenge for you today...",
-   "I want to see if this video can somehow reach one thousand comments...",
-   "Even though most people will probably just scroll right past it."
-  ],
-  "theme": {
-   "thumbs": [
-    "white",
-    "character",
-    "icon"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-07",
   "url": "whitescreen:no-access-145117-5",
   "brand": "",
   "kind": "whitescreen",
@@ -10980,5 +10888,97 @@
    ]
   },
   "youtube": "https://youtu.be/Dx5fv4lx0mk"
+ },
+ {
+  "date": "2026-11-25",
+  "url": "whitescreen:only-you-can-watch-this-video-040807-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Only You Can Watch This Video",
+  "title_base": "Only You Can Watch This Video",
+  "format": "only",
+  "comment_word": "ONLY ME",
+  "hook": [
+   "This video isn't meant for everyone...",
+   "In fact, right now, only you are supposed to be watching this exact link.",
+   "It's a tiny test to see who finds it before it gets completely locked."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-visibility",
+    "tile-red-visibility",
+    "emoji-eye"
+   ]
+  },
+  "youtube": "https://youtu.be/IwK2d0LJTx8"
+ },
+ {
+  "date": "2026-11-25",
+  "url": "whitescreen:private-video-040807-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Private Video]",
+  "title_base": "[Private Video]",
+  "format": "error",
+  "comment_word": "TIME CAPSULE",
+  "hook": [
+   "This video is going private in just a few short hours.",
+   "So if you managed to find it right now...",
+   "you're one of the very few people watching."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-lock",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/KapftO7D3_0"
+ },
+ {
+  "date": "2026-11-25",
+  "url": "whitescreen:the-weirdest-comment-gets-pinned-040807-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "The WEIRDEST Comment Gets Pinned...",
+  "title_base": "The WEIRDEST Comment Gets Pinned...",
+  "format": "pin",
+  "comment_word": "THE WEIRDEST COMMENT",
+  "hook": [
+   "I'm going to pin the absolute weirdest comment on this entire video.",
+   "No rules, no filters, just whatever strange thing you decide to type.",
+   "It could be a random thought, a weird sentence, or something that makes absolutely no sense."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-push_pin",
+    "tile-dark-push_pin",
+    "emoji-pushpin"
+   ]
+  },
+  "youtube": "https://youtu.be/HdkRhKTtiEs"
+ },
+ {
+  "date": "2026-11-25",
+  "url": "whitescreen:no-access-040807-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[No Access]",
+  "title_base": "[No Access]",
+  "format": "error",
+  "comment_word": "NO ACCESS",
+  "hook": [
+   "Right now, this video has no access for almost everyone on YouTube.",
+   "Only a tiny group of viewers who found it early are able to see this screen.",
+   "And honestly, I don't know how long this page will actually stay open before it locks up completely."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-block",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/8fCluZvs9Nk"
  }
 ]
