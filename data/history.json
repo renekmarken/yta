@@ -1,98 +1,6 @@
 [
  {
   "date": "2026-10-10",
-  "url": "whitescreen:hidden-video-085959-1",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Hidden Video]",
-  "title_base": "[Hidden Video]",
-  "format": "error",
-  "comment_word": "SECRET LINK",
-  "hook": [
-   "You weren't supposed to find this video today.",
-   "If you check my channel page right now, this video doesn't exist.",
-   "It's completely hidden from my uploads... and invisible to search."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "character",
-    "error_glow"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-10",
-  "url": "whitescreen:this-video-has-1-comment-085959-2",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "This Video Has 1 Comment",
-  "title_base": "This Video Has 1 Comment",
-  "format": "count",
-  "comment_word": "SECOND",
-  "hook": [
-   "This video has exactly 1 comment right now... and it's mine.",
-   "I left one pinned comment below, and I wanted to see how long this video could stay at just one.",
-   "But since you found this on your feed, the experiment is about to change."
-  ],
-  "theme": {
-   "thumbs": [
-    "ui",
-    "headline",
-    "white"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-10",
-  "url": "whitescreen:cursed-video-085959-3",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Cursed Video]",
-  "title_base": "[Cursed Video]",
-  "format": "error",
-  "comment_word": "SAFE",
-  "hook": [
-   "There’s an old rumor that this video is cursed.",
-   "People say that if you watch it without interacting, your YouTube feed gets completely ruined.",
-   "I didn’t believe it at first..."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "error_glow",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-10",
-  "url": "whitescreen:this-video-has-0-comments-085959-4",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "This Video Has 0 Comments",
-  "title_base": "This Video Has 0 Comments",
-  "format": "count",
-  "comment_word": "FIRST",
-  "hook": [
-   "This video has zero comments right now...",
-   "and I want to see how long we can keep it that way.",
-   "Most videos get flooded with comments in the first few minutes."
-  ],
-  "theme": {
-   "thumbs": [
-    "ui",
-    "character",
-    "white"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-10",
   "url": "whitescreen:private-video-085959-5",
   "brand": "",
   "kind": "whitescreen",
@@ -10980,5 +10888,97 @@
    ]
   },
   "youtube": "https://youtu.be/K5N3kcPrR8c"
+ },
+ {
+  "date": "2026-11-26",
+  "url": "whitescreen:unlisted-video-051359-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Unlisted Video]",
+  "title_base": "[Unlisted Video]",
+  "format": "error",
+  "comment_word": "FOUND IT",
+  "hook": [
+   "You weren't supposed to find this video today.",
+   "It's set to unlisted, which means it shouldn't be anywhere near your feed.",
+   "I only uploaded it to test if the algorithm would still show it to anyone."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-link",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/a1pdDtP3gw0"
+ },
+ {
+  "date": "2026-11-26",
+  "url": "whitescreen:locked-video-051359-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Locked Video]",
+  "title_base": "[Locked Video]",
+  "format": "error",
+  "comment_word": "LOCKED",
+  "hook": [
+   "This video is getting locked in just 48 hours.",
+   "Once it's locked, nobody new can ever watch it or leave a comment.",
+   "So if you're watching this right now, you found it while the door was still open."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-lock",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/fMRYhCI4pmg"
+ },
+ {
+  "date": "2026-11-26",
+  "url": "whitescreen:deleted-video-051359-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Deleted Video]",
+  "title_base": "[Deleted Video]",
+  "format": "error",
+  "comment_word": "I WAS HERE",
+  "hook": [
+   "This video is getting deleted in less than twenty four hours.",
+   "So if you managed to find it right now...",
+   "you are seriously early."
+  ],
+  "theme": {
+   "thumbs": [
+    "sad",
+    "tile-red-delete",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/3maGKFWX_II"
+ },
+ {
+  "date": "2026-11-26",
+  "url": "whitescreen:this-video-disappears-in-1-hour-051359-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Disappears In 1 Hour",
+  "title_base": "This Video Disappears In 1 Hour",
+  "format": "deadline",
+  "comment_word": "IN TIME",
+  "hook": [
+   "Look at the upload time of this video right now.",
+   "If it says under sixty minutes, you’re racing against the clock.",
+   "Because the second this hits one hour old, it disappears."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-hourglass",
+    "tile-dark-hourglass",
+    "emoji-hourglass_not_done"
+   ]
+  },
+  "youtube": "https://youtu.be/cI1oq4FKbbY"
  }
 ]
