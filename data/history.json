@@ -1,98 +1,6 @@
 [
  {
   "date": "2026-10-10",
-  "url": "whitescreen:private-video-085959-5",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "<Private Video>",
-  "title_base": "<Private Video>",
-  "format": "error",
-  "comment_word": "LOCKED IN",
-  "hook": [
-   "You weren't supposed to find this video today.",
-   "In exactly 24 hours, I'm switching this video to private.",
-   "Once that happens, it's locked forever and nobody else can search for it."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "character",
-    "ui"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-10",
-  "url": "whitescreen:unlisted-video-085959-6",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Unlisted Video]",
-  "title_base": "[Unlisted Video]",
-  "format": "error",
-  "comment_word": "RECOMMENDED",
-  "hook": [
-   "YouTube was never supposed to show you this video.",
-   "I set this video to unlisted earlier today, so nobody should find it without a link.",
-   "It shouldn't be in your feed, and it shouldn't be recommended."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "character",
-    "error_glow"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-10",
-  "url": "whitescreen:face-reveal-final-chance-085959-7",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Face Reveal Final Chance...",
-  "title_base": "Face Reveal Final Chance...",
-  "format": "reveal",
-  "comment_word": "FACE REVEAL",
-  "hook": [
-   "This is genuinely your absolute final chance to see my face.",
-   "I'm giving this specific video just 48 hours.",
-   "If it hits 12,000 likes by then, I will finally do the face reveal."
-  ],
-  "theme": {
-   "thumbs": [
-    "character",
-    "icon",
-    "headline"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-10",
-  "url": "whitescreen:deleted-content-153815-0",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Deleted Content]",
-  "title_base": "[Deleted Content]",
-  "format": "error",
-  "comment_word": "ARCHIVED",
-  "hook": [
-   "This piece of content is scheduled to be completely deleted tomorrow night.",
-   "Once it disappears from this channel, there won't be any backup or re-upload.",
-   "YouTube pushed this straight to your feed before the timer ran out... which means you got lucky."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "ui",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-10",
   "url": "whitescreen:face-reveal-153815-1",
   "brand": "",
   "kind": "whitescreen",
@@ -10980,5 +10888,97 @@
    ]
   },
   "youtube": "https://youtu.be/cI1oq4FKbbY"
+ },
+ {
+  "date": "2026-11-26",
+  "url": "whitescreen:private-video-152944-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "<Private Video>",
+  "title_base": "<Private Video>",
+  "format": "error",
+  "comment_word": "VAULT",
+  "hook": [
+   "This video is going private in less than two hours.",
+   "So if you are watching this right now, you are one of the very few who found it in time.",
+   "I am locking it away so it completely disappears from public view."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-lock",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/ckYjJnmZoSY"
+ },
+ {
+  "date": "2026-11-26",
+  "url": "whitescreen:cursed-video-152944-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Cursed Video]",
+  "title_base": "[Cursed Video]",
+  "format": "error",
+  "comment_word": "LOCKED",
+  "hook": [
+   "People are saying this is the most cursed video on YouTube today.",
+   "The rumor is that if you watch it all the way through without doing anything...",
+   "your luck completely runs out for the rest of the week."
+  ],
+  "theme": {
+   "thumbs": [
+    "glitch",
+    "sad",
+    "tile-dark-error_outline"
+   ]
+  },
+  "youtube": "https://youtu.be/RZJKuGAYfs0"
+ },
+ {
+  "date": "2026-11-26",
+  "url": "whitescreen:don-t-be-the-1st-person-to-comment-152944-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Don't Be The 1st Person To Comment",
+  "title_base": "Don't Be The 1st Person To Comment",
+  "format": "dare",
+  "comment_word": "NOT FIRST",
+  "hook": [
+   "Most people rush to be the very first person to leave a comment on a brand new video.",
+   "But for this specific video... I actually want to see if you can hold back.",
+   "Let's test your patience and see how long you can wait before typing anything."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-chat",
+    "tile-dark-chat",
+    "tile-red-chat"
+   ]
+  },
+  "youtube": "https://youtu.be/6vp_EsNKTpw"
+ },
+ {
+  "date": "2026-11-26",
+  "url": "whitescreen:this-video-is-upside-down-152944-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "this video is upside down",
+  "title_base": "this video is upside down",
+  "format": "dare",
+  "comment_word": "UPSIDE DOWN",
+  "hook": [
+   "Most people are watching this video the wrong way right now...",
+   "And honestly, it's pretty funny.",
+   "I uploaded this entire video completely upside down just to see who would actually notice."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-screen_rotation",
+    "tile-red-screen_rotation",
+    "tile-dark-screen_rotation"
+   ]
+  },
+  "youtube": "https://youtu.be/itRtx0-Bcg0"
  }
 ]
