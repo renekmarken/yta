@@ -1,97 +1,5 @@
 [
  {
-  "date": "2026-10-10",
-  "url": "whitescreen:this-video-will-self-destruct-in-24-hour-153815-7",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "This Video Will Self Destruct In 24 Hours...",
-  "title_base": "This Video Will Self Destruct In 24 Hours...",
-  "format": "deadline",
-  "comment_word": "TIME OUT",
-  "hook": [
-   "This video is going to self destruct in exactly twenty four hours.",
-   "So if you're watching this right now, you found it just in time.",
-   "I'm setting a timer, and when it runs out, the video is gone for good."
-  ],
-  "theme": {
-   "thumbs": [
-    "headline",
-    "icon",
-    "ui"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-11",
-  "url": "whitescreen:deleted-video-141920-0",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Deleted Video]",
-  "title_base": "[Deleted Video]",
-  "format": "error",
-  "comment_word": "GOODBYE",
-  "hook": [
-   "This video is getting deleted the moment it hits 5,000 likes.",
-   "That means every single like brings it closer to being gone forever.",
-   "Most creators want their videos to stay up... but I want to see how fast we can erase this one."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "character",
-    "ui"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-11",
-  "url": "whitescreen:glitched-video-141920-1",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Glitched Video",
-  "title_base": "{{Glitched Video}}",
-  "format": "error",
-  "comment_word": "CORRUPTED",
-  "hook": [
-   "This video wasn't supposed to go public today.",
-   "When I exported it, the file corrupted at 99 percent...",
-   "but somehow, YouTube still processed it and put it on your screen."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "error_glow",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-11",
-  "url": "whitescreen:this-video-has-0-likes-141920-2",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "This Video Has 0 Likes",
-  "title_base": "This Video Has 0 Likes",
-  "format": "count",
-  "comment_word": "FIRST 5K",
-  "hook": [
-   "Check the like button right now...",
-   "Does it still say zero?",
-   "If it does, you just caught this video at the rarest possible moment."
-  ],
-  "theme": {
-   "thumbs": [
-    "ui",
-    "white",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
   "date": "2026-10-11",
   "url": "whitescreen:this-video-won-t-get-1-000-comments-141920-3",
   "brand": "",
@@ -10980,5 +10888,97 @@
    ]
   },
   "youtube": "https://youtu.be/Y8JKAQMnoxU"
+ },
+ {
+  "date": "2026-11-27",
+  "url": "whitescreen:cursed-video-181807-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Cursed Video]",
+  "title_base": "[Cursed Video]",
+  "format": "error",
+  "comment_word": "IMMUNE",
+  "hook": [
+   "If this video appeared on your screen, don't scroll just yet.",
+   "People online are calling this the most cursed clip on YouTube this weekend.",
+   "The theory says that once it appears on your feed, you're trapped in an endless algorithm loop."
+  ],
+  "theme": {
+   "thumbs": [
+    "glitch",
+    "sad",
+    "tile-dark-error_outline"
+   ]
+  },
+  "youtube": "https://youtu.be/QRhYRhJmhqQ"
+ },
+ {
+  "date": "2026-11-27",
+  "url": "whitescreen:unlisted-video-181807-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Unlisted Video]",
+  "title_base": "[Unlisted Video]",
+  "format": "error",
+  "comment_word": "FOUND IT",
+  "hook": [
+   "You weren't supposed to find this video today.",
+   "It's set to unlisted, which means it shouldn't be anywhere near your feed.",
+   "I only uploaded it to test if the algorithm would completely hide it."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-link",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/9citMcF45HM"
+ },
+ {
+  "date": "2026-11-27",
+  "url": "whitescreen:private-video-181807-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Private Video]",
+  "title_base": "[Private Video]",
+  "format": "error",
+  "comment_word": "LOCKED IN",
+  "hook": [
+   "You weren't supposed to find this video.",
+   "It was meant to be set to private the second it went live.",
+   "But since you're here right now... we're going to turn this into a little experiment."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-lock",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/3zl0UCzmEBw"
+ },
+ {
+  "date": "2026-11-27",
+  "url": "whitescreen:i-will-heart-every-comment-181807-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "I Will Heart Every Comment",
+  "title_base": "I Will Heart Every Comment",
+  "format": "pin",
+  "comment_word": "HEART ME",
+  "hook": [
+   "I’m giving a red heart to every single comment on this video.",
+   "But there’s a strict timer running right now.",
+   "I’m only doing this for the next 48 hours."
+  ],
+  "theme": {
+   "thumbs": [
+    "emoji-red_heart",
+    "tile-red-favorite",
+    "tile-dark-favorite"
+   ]
+  },
+  "youtube": "https://youtu.be/7C86lszSgIE"
  }
 ]
