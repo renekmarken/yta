@@ -1,98 +1,6 @@
 [
  {
   "date": "2026-10-10",
-  "url": "whitescreen:secret-video-153815-3",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Secret Video]",
-  "title_base": "[Secret Video]",
-  "format": "error",
-  "comment_word": "SECRET FOUND",
-  "hook": [
-   "This is a secret video that barely anyone is meant to find.",
-   "It's hidden deep inside the channel and it won't stay up long.",
-   "I'm testing how the algorithm acts when a totally unknown link gets discovered."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "ui",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-10",
-  "url": "whitescreen:this-video-is-upside-down-153815-4",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "this video is upside down",
-  "title_base": "this video is upside down",
-  "format": "dare",
-  "comment_word": "UPSIDE DOWN",
-  "hook": [
-   "Most people are watching this video the wrong way right now...",
-   "And honestly, it's pretty funny.",
-   "I uploaded this entire video completely upside down just to see who would notice."
-  ],
-  "theme": {
-   "thumbs": [
-    "character",
-    "white",
-    "headline"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-10",
-  "url": "whitescreen:this-video-has-5-comments-153815-5",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "This Video Has 5 Comments",
-  "title_base": "This Video Has 5 Comments",
-  "format": "count",
-  "comment_word": "FIVE COMMENTS",
-  "hook": [
-   "This video currently has exactly five comments.",
-   "And I want to see how long we can keep it frozen at that exact number.",
-   "If you're watching this right now and the comment count is still five..."
-  ],
-  "theme": {
-   "thumbs": [
-    "ui",
-    "white",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-10",
-  "url": "whitescreen:i-m-deleting-this-in-2-days-153815-6",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "I'm Deleting This in 2 Days...",
-  "title_base": "I'm Deleting This in 2 Days...",
-  "format": "deadline",
-  "comment_word": "2 DAYS",
-  "hook": [
-   "I'm actually deleting this video in 2 days.",
-   "So if you're watching it right now, you found it just in time.",
-   "Before it disappears completely, I want to see who made it here."
-  ],
-  "theme": {
-   "thumbs": [
-    "headline",
-    "ui",
-    "icon"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-10",
   "url": "whitescreen:this-video-will-self-destruct-in-24-hour-153815-7",
   "brand": "",
   "kind": "whitescreen",
@@ -10980,5 +10888,97 @@
    ]
   },
   "youtube": "https://youtu.be/0kvQS_GXV2M"
+ },
+ {
+  "date": "2026-11-27",
+  "url": "whitescreen:this-video-has-5-comments-081025-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 5 Comments",
+  "title_base": "This Video Has 5 Comments",
+  "format": "count",
+  "comment_word": "TOP FIVE",
+  "hook": [
+   "This video has 5 comments right now.",
+   "And by tomorrow night, only those 5 comments will survive.",
+   "Here is how this works..."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-chat",
+    "tile-dark-chat",
+    "pill-chat_outline"
+   ]
+  },
+  "youtube": "https://youtu.be/oyqwAWM7cis"
+ },
+ {
+  "date": "2026-11-27",
+  "url": "whitescreen:this-video-has-0-likes-081025-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 0 Likes",
+  "title_base": "This Video Has 0 Likes",
+  "format": "count",
+  "comment_word": "FIRST VIEWER",
+  "hook": [
+   "This video still has zero likes and zero comments right now.",
+   "And I'm leaving it up to see how long it stays completely empty.",
+   "If you found this page while the numbers are at zero, you're one of the earliest people here."
+  ],
+  "theme": {
+   "thumbs": [
+    "pill-thumb_outline",
+    "tile-red-thumb_up",
+    "counters"
+   ]
+  },
+  "youtube": "https://youtu.be/ay-JT9pQkWY"
+ },
+ {
+  "date": "2026-11-27",
+  "url": "whitescreen:glitched-video-081025-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Glitched Video]",
+  "title_base": "[Glitched Video]",
+  "format": "error",
+  "comment_word": "GLITCHED",
+  "hook": [
+   "This video is acting completely weird right now...",
+   "and it might completely disappear from your feed in the next twenty four hours.",
+   "The screen keeps freezing, and the audio is starting to break."
+  ],
+  "theme": {
+   "thumbs": [
+    "glitch",
+    "sad",
+    "tile-dark-error_outline"
+   ]
+  },
+  "youtube": "https://youtu.be/l7kU7y24xgM"
+ },
+ {
+  "date": "2026-11-27",
+  "url": "whitescreen:let-s-balance-the-likes-comments-081025-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Let's Balance The Likes & Comments",
+  "title_base": "Let's Balance The Likes & Comments",
+  "format": "goal",
+  "comment_word": "BALANCE",
+  "hook": [
+   "I have a strange challenge for everyone watching right now...",
+   "We need to get the exact same number of likes and comments on this video.",
+   "No more, no less. They have to match perfectly."
+  ],
+  "theme": {
+   "thumbs": [
+    "counters",
+    "counters",
+    "tile-red-thumb_up"
+   ]
+  },
+  "youtube": "https://youtu.be/Y8JKAQMnoxU"
  }
 ]
