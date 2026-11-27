@@ -1,52 +1,6 @@
 [
  {
   "date": "2026-10-10",
-  "url": "whitescreen:face-reveal-153815-1",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Face Reveal...",
-  "title_base": "Face Reveal...",
-  "format": "reveal",
-  "comment_word": "UNMASK",
-  "hook": [
-   "Everyone keeps asking who's behind this channel, so I'm making a deal before this weekend ends.",
-   "If this video hits 12,000 likes before Sunday midnight, I'm finally showing my face.",
-   "I've kept my identity completely hidden, but I'm ready to end the mystery."
-  ],
-  "theme": {
-   "thumbs": [
-    "character",
-    "headline",
-    "icon"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-10",
-  "url": "whitescreen:locked-video-153815-2",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Locked Video]",
-  "title_base": "[Locked Video]",
-  "format": "error",
-  "comment_word": "UNLOCKED",
-  "hook": [
-   "This video is getting locked tomorrow.",
-   "Once it's locked, nobody new can ever watch it or leave a comment.",
-   "So if you're watching this right now, you found it while the door was still open."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "error_glow",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-10",
   "url": "whitescreen:secret-video-153815-3",
   "brand": "",
   "kind": "whitescreen",
@@ -10980,5 +10934,51 @@
    ]
   },
   "youtube": "https://youtu.be/itRtx0-Bcg0"
+ },
+ {
+  "date": "2026-11-27",
+  "url": "whitescreen:this-video-has-0-comments-000120-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 0 Comments",
+  "title_base": "This Video Has 0 Comments",
+  "format": "count",
+  "comment_word": "BREAK",
+  "hook": [
+   "This video has zero comments right now.",
+   "Not a single person has said a word.",
+   "Most people assume a video this quiet isn't worth their time..."
+  ],
+  "theme": {
+   "thumbs": [
+    "pill-chat_outline",
+    "tile-red-chat",
+    "counters"
+   ]
+  },
+  "youtube": "https://youtu.be/x1hZUuHJV8I"
+ },
+ {
+  "date": "2026-11-27",
+  "url": "whitescreen:this-video-has-0-likes-and-0-comments-000120-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 0 Likes And 0 Comments",
+  "title_base": "This Video Has 0 Likes And 0 Comments",
+  "format": "count",
+  "comment_word": "BALANCED",
+  "hook": [
+   "Check the numbers right below this video.",
+   "If both the likes and the comments say zero... you found this the exact second it went live.",
+   "Most people only find videos after thousands of people have already touched them."
+  ],
+  "theme": {
+   "thumbs": [
+    "counters",
+    "pill-thumb_outline",
+    "counters"
+   ]
+  },
+  "youtube": "https://youtu.be/0kvQS_GXV2M"
  }
 ]
