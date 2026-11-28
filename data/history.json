@@ -1,51 +1,5 @@
 [
  {
-  "date": "2026-10-11",
-  "url": "whitescreen:private-video-191942-1",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "<Private Video>",
-  "title_base": "<Private Video>",
-  "format": "error",
-  "comment_word": "LOCKED IN",
-  "hook": [
-   "You weren't supposed to find this video today.",
-   "In exactly 48 hours, I'm switching this video to private.",
-   "Once that happens, it's locked forever and nobody else can search for it."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "character",
-    "ui"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-11",
-  "url": "whitescreen:face-reveal-191942-2",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Face Reveal...",
-  "title_base": "Face Reveal...",
-  "format": "reveal",
-  "comment_word": "UNMASK",
-  "hook": [
-   "Everyone keeps asking who's behind this channel...",
-   "so I'm making a deal before this weekend ends.",
-   "If this video hits 14,000 likes before Sunday midnight..."
-  ],
-  "theme": {
-   "thumbs": [
-    "character",
-    "headline",
-    "icon"
-   ]
-  },
-  "youtube": null
- },
- {
   "date": "2026-10-14",
   "url": "whitescreen:deleted-video-162122-0",
   "brand": "",
@@ -10980,5 +10934,51 @@
    ]
   },
   "youtube": "https://youtu.be/0dDLQ88549k"
+ },
+ {
+  "date": "2026-11-28",
+  "url": "whitescreen:this-video-disappears-in-1-hour-174359-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Disappears In 1 Hour",
+  "title_base": "This Video Disappears In 1 Hour",
+  "format": "deadline",
+  "comment_word": "SAVE IT",
+  "hook": [
+   "I just posted this, and I set a timer for exactly sixty minutes.",
+   "The second that timer hits zero, this video disappears forever.",
+   "But I'm giving you one way to stop it."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-hourglass",
+    "tile-dark-hourglass",
+    "emoji-hourglass_not_done"
+   ]
+  },
+  "youtube": "https://youtu.be/0YrrsfDzocY"
+ },
+ {
+  "date": "2026-11-28",
+  "url": "whitescreen:this-video-has-1-view-174359-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 1 View",
+  "title_base": "This Video Has 1 View",
+  "format": "count",
+  "comment_word": "ONLY ONE",
+  "hook": [
+   "Right now, the view counter on this video says 1.",
+   "But here's the crazy part... it won't stay like that.",
+   "Almost nobody ever catches a video at 1 view."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-bar_chart",
+    "tile-red-visibility",
+    "emoji-bar_chart"
+   ]
+  },
+  "youtube": "https://youtu.be/v_Y8ngmHdtU"
  }
 ]
