@@ -1,98 +1,6 @@
 [
  {
   "date": "2026-10-11",
-  "url": "whitescreen:this-video-will-self-destruct-in-24-hour-141920-7",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "This Video Will Self Destruct In 24 Hours...",
-  "title_base": "This Video Will Self Destruct In 24 Hours...",
-  "format": "deadline",
-  "comment_word": "SURVIVED",
-  "hook": [
-   "Right now, this video has a 24-hour countdown ticking down to zero.",
-   "When the timer hits tomorrow, this entire upload gets wiped from YouTube.",
-   "No private mode... no unlisted link... it's just completely gone."
-  ],
-  "theme": {
-   "thumbs": [
-    "headline",
-    "icon",
-    "ui"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-11",
-  "url": "whitescreen:own-mrbeast-won-t-comment-191942-0",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "MrBeast won’t comment",
-  "title_base": "MrBeast won’t comment",
-  "format": "goal",
-  "comment_word": "MRBEAST",
-  "hook": [
-   "It's mathematically impossible for MrBeast to comment on this video.",
-   "Let's be completely honest with each other for a second.",
-   "He gets millions of notifications every single day."
-  ],
-  "theme": {
-   "thumbs": [
-    "white",
-    "icon",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-11",
-  "url": "whitescreen:own-mrbeast-will-not-comment-191942-1",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "Mrbeast will not comment",
-  "title_base": "Mrbeast will not comment",
-  "format": "goal",
-  "comment_word": "MRBEAST",
-  "hook": [
-   "Everybody always talks about MrBeast commenting on random videos.",
-   "So I wanted to test it out right here on this channel.",
-   "I bet you right now that MrBeast will not comment on this video."
-  ],
-  "theme": {
-   "thumbs": [
-    "white",
-    "icon",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-11",
-  "url": "whitescreen:cursed-video-191942-0",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Cursed Video]",
-  "title_base": "[Cursed Video]",
-  "format": "error",
-  "comment_word": "IMMUNE",
-  "hook": [
-   "If this video appeared on your feed, whatever you do, don't scroll yet.",
-   "People have been calling this the most cursed video on YouTube.",
-   "The story goes that if you watch it and just swipe past, your recommendations get completely broken for a whole week."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "ui",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-11",
   "url": "whitescreen:private-video-191942-1",
   "brand": "",
   "kind": "whitescreen",
@@ -10980,5 +10888,97 @@
    ]
   },
   "youtube": "https://youtu.be/P857-iTsiD4"
+ },
+ {
+  "date": "2026-11-28",
+  "url": "whitescreen:removed-video-092529-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Removed Video]",
+  "title_base": "[Removed Video]",
+  "format": "error",
+  "comment_word": "REMOVED",
+  "hook": [
+   "This video is getting pulled down from the channel right now.",
+   "And honestly... I wasn't even supposed to post it today.",
+   "The removal timer is already running out in the background."
+  ],
+  "theme": {
+   "thumbs": [
+    "sad",
+    "tile-red-delete",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/sv-lF2l0xsE"
+ },
+ {
+  "date": "2026-11-28",
+  "url": "whitescreen:unlisted-video-092529-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Unlisted Video]",
+  "title_base": "[Unlisted Video]",
+  "format": "error",
+  "comment_word": "GLITCH",
+  "hook": [
+   "Somehow, you're watching an unlisted video without having the link.",
+   "It shouldn't be on your homepage, and it shouldn't be in your recommendations.",
+   "But for some reason... here you are."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-link",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/PQilUpfzv9Y"
+ },
+ {
+  "date": "2026-11-28",
+  "url": "whitescreen:this-video-has-1-view-092529-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Has 1 View",
+  "title_base": "This Video Has 1 View",
+  "format": "count",
+  "comment_word": "FIRST VIEW",
+  "hook": [
+   "This video has exactly 1 view right now.",
+   "And if you're watching this... that single view might literally be you.",
+   "I just posted this, so unless YouTube glitched, you're officially the first person here."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-bar_chart",
+    "tile-red-visibility",
+    "emoji-bar_chart"
+   ]
+  },
+  "youtube": "https://youtu.be/-IIs89ht1O0"
+ },
+ {
+  "date": "2026-11-28",
+  "url": "whitescreen:hidden-video-092529-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Hidden Video]",
+  "title_base": "[Hidden Video]",
+  "format": "error",
+  "comment_word": "SECRET LINK",
+  "hook": [
+   "You weren't supposed to find this video today...",
+   "If you check my channel page right now, this video doesn't exist.",
+   "It's completely hidden from my uploads and invisible to search."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-visibility_off",
+    "sad",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/0dDLQ88549k"
  }
 ]
