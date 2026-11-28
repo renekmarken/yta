@@ -1,98 +1,6 @@
 [
  {
   "date": "2026-10-11",
-  "url": "whitescreen:this-video-won-t-get-1-000-comments-141920-3",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "This Video Won't Get 1,000 Comments",
-  "title_base": "This Video Won't Get 1,000 Comments",
-  "format": "goal",
-  "comment_word": "PROVE IT",
-  "hook": [
-   "Most videos get thousands of views, but barely any comments.",
-   "So I'm running a fast experiment to see what happens.",
-   "Somebody told me this video won't get one thousand comments before tomorrow."
-  ],
-  "theme": {
-   "thumbs": [
-    "white",
-    "icon",
-    "headline"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-11",
-  "url": "whitescreen:removed-video-141920-4",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Removed Video]",
-  "title_base": "[Removed Video]",
-  "format": "error",
-  "comment_word": "LOST",
-  "hook": [
-   "By tomorrow night, this upload is getting removed.",
-   "And honestly... I wasn't even supposed to post it today.",
-   "I set an automatic timer, and once it runs out, the entire video disappears."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "ui",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-11",
-  "url": "whitescreen:this-video-will-be-deleted-tomorrow-141920-5",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "This Video Will Be Deleted Tomorrow",
-  "title_base": "This Video Will Be Deleted Tomorrow",
-  "format": "deadline",
-  "comment_word": "GOODBYE",
-  "hook": [
-   "Tomorrow morning, this entire video is getting permanently deleted.",
-   "You literally have less than twenty-four hours to see this before it’s gone.",
-   "I’m not setting it to unlisted or private… I’m deleting it completely."
-  ],
-  "theme": {
-   "thumbs": [
-    "headline",
-    "icon",
-    "character"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-11",
-  "url": "whitescreen:video-unavailable-141920-6",
-  "brand": "",
-  "kind": "whitescreen",
-  "title": "[Video Unavailable]",
-  "title_base": "[Video Unavailable]",
-  "format": "error",
-  "comment_word": "BYPASS",
-  "hook": [
-   "This video was supposed to say Video Unavailable.",
-   "For most people who click this link today... that's all they see.",
-   "An error screen, an endless loading wheel, and nothing else."
-  ],
-  "theme": {
-   "thumbs": [
-    "error",
-    "error_glow",
-    "ui"
-   ]
-  },
-  "youtube": null
- },
- {
-  "date": "2026-10-11",
   "url": "whitescreen:this-video-will-self-destruct-in-24-hour-141920-7",
   "brand": "",
   "kind": "whitescreen",
@@ -10980,5 +10888,97 @@
    ]
   },
   "youtube": "https://youtu.be/7C86lszSgIE"
+ },
+ {
+  "date": "2026-11-28",
+  "url": "whitescreen:deleted-content-013156-0",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "[Deleted Content]",
+  "title_base": "[Deleted Content]",
+  "format": "error",
+  "comment_word": "EVIDENCE",
+  "hook": [
+   "This entire upload is scheduled to be wiped in twenty-four hours.",
+   "Once it is gone, there will not be any re-upload or backup anywhere.",
+   "You are looking at content that won't exist tomorrow."
+  ],
+  "theme": {
+   "thumbs": [
+    "sad",
+    "tile-red-delete",
+    "glitch"
+   ]
+  },
+  "youtube": "https://youtu.be/CD69qZdlKkY"
+ },
+ {
+  "date": "2026-11-28",
+  "url": "whitescreen:this-video-will-be-deleted-tomorrow-013156-1",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Will Be Deleted Tomorrow",
+  "title_base": "This Video Will Be Deleted Tomorrow",
+  "format": "deadline",
+  "comment_word": "SURVIVOR",
+  "hook": [
+   "This video is scheduled to disappear completely by tomorrow...",
+   "So if you managed to find it on your feed right now, you're extremely lucky.",
+   "I'm not making it private or hiding it... I'm actually deleting it for good."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-delete",
+    "tile-dark-delete",
+    "emoji-wastebasket"
+   ]
+  },
+  "youtube": "https://youtu.be/PxrkErSF0L8"
+ },
+ {
+  "date": "2026-11-28",
+  "url": "whitescreen:only-you-can-comment-on-this-video-013156-2",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "Only YOU can comment on this video",
+  "title_base": "Only YOU can comment on this video",
+  "format": "only",
+  "comment_word": "CHOSEN",
+  "hook": [
+   "I put a special lock on the comment section of this video...",
+   "Right now, anyone else who scrolls past gets an error if they try to type.",
+   "That means if you see the box right now... you're one of the very few people allowed to speak."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-red-chat",
+    "tile-dark-chat",
+    "tile-red-chat"
+   ]
+  },
+  "youtube": "https://youtu.be/KA1KM4gIK48"
+ },
+ {
+  "date": "2026-11-28",
+  "url": "whitescreen:this-video-won-t-get-1-million-views-013156-3",
+  "brand": "",
+  "kind": "whitescreen",
+  "title": "This Video Won't Get 1 Million Views",
+  "title_base": "This Video Won't Get 1 Million Views",
+  "format": "goal",
+  "comment_word": "ONE MILLION",
+  "hook": [
+   "Most people are going to scroll right past this video...",
+   "because they think it's impossible to reach one million views.",
+   "And honestly... they're probably right."
+  ],
+  "theme": {
+   "thumbs": [
+    "tile-dark-bar_chart",
+    "tile-red-bar_chart",
+    "crossed"
+   ]
+  },
+  "youtube": "https://youtu.be/P857-iTsiD4"
  }
 ]
